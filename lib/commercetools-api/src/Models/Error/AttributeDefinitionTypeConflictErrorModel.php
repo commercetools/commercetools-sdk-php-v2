@@ -87,6 +87,8 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
     }
 
     /**
+     * <p><code>&quot;The attribute with name $attributeName has a different type on product type $productTypeName.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -105,6 +107,8 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Unique identifier of the Product Type containing the conflicting name.</p>
+     *
      *
      * @return null|string
      */
@@ -123,6 +127,8 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Name of the Product Type containing the conflicting name.</p>
+     *
      *
      * @return null|string
      */
@@ -141,6 +147,8 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Name of the conflicting Attribute.</p>
+     *
      *
      * @return null|string
      */

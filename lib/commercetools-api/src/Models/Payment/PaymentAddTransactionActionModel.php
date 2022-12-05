@@ -63,6 +63,8 @@ final class PaymentAddTransactionActionModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value to append to the <code>transactions</code> array.</p>
+     *
      *
      * @return null|TransactionDraft
      */

@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -95,7 +97,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $amountPlanned;
 
@@ -172,8 +174,13 @@ final class PaymentModel extends JsonObjectModel implements Payment
         ?CreatedBy $createdBy = null,
         ?CustomerReference $customer = null,
         ?string $anonymousId = null,
+        ?string $externalId = null,
         ?string $interfaceId = null,
-        ?TypedMoney $amountPlanned = null,
+        ?CentPrecisionMoney $amountPlanned = null,
+        ?TypedMoney $amountAuthorized = null,
+        ?string $authorizedUntil = null,
+        ?TypedMoney $amountPaid = null,
+        ?TypedMoney $amountRefunded = null,
         ?PaymentMethodInfo $paymentMethodInfo = null,
         ?PaymentStatus $paymentStatus = null,
         ?TransactionCollection $transactions = null,
@@ -189,8 +196,13 @@ final class PaymentModel extends JsonObjectModel implements Payment
         $this->createdBy = $createdBy;
         $this->customer = $customer;
         $this->anonymousId = $anonymousId;
+        $this->externalId = $externalId;
         $this->interfaceId = $interfaceId;
         $this->amountPlanned = $amountPlanned;
+        $this->amountAuthorized = $amountAuthorized;
+        $this->authorizedUntil = $authorizedUntil;
+        $this->amountPaid = $amountPaid;
+        $this->amountRefunded = $amountRefunded;
         $this->paymentMethodInfo = $paymentMethodInfo;
         $this->paymentStatus = $paymentStatus;
         $this->transactions = $transactions;
@@ -220,6 +232,8 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+     * <p>Current version of the Payment.</p>
+     *
      *
      * @return null|int
      */
@@ -238,6 +252,8 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+     * <p>Date and time (UTC) the Payment was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -260,6 +276,8 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+     * <p>Date and time (UTC) the Payment was last updated.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -282,7 +300,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|LastModifiedBy
@@ -303,7 +321,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|CreatedBy
@@ -324,7 +342,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>
+     * <p>Reference to a <a href="ctp:api:type:Customer">Customer</a> associated with the Payment.</p>
      *
      *
      * @return null|CustomerReference
@@ -345,7 +363,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
+     * <p><a href="/../api/authorization#tokens-for-anonymous-sessions">Anonymous session</a> associated with the Payment.</p>
      *
      *
      * @return null|string
@@ -365,9 +383,28 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
-     * Cannot be changed once it has been set.
-     * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
+     * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
+    }
+
+    /**
+     * <p>Identifier used by the payment service that processes the Payment (for example, a PSP).
+     * The combination of <code>interfaceId</code> and the <code>paymentInterface</code> field on <a href="ctp:api:type:PaymentMethodInfo">PaymentMethodInfo</a> must be unique.</p>
      *
      *
      * @return null|string
@@ -387,11 +424,11 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>
+     * <p>Money value the Payment intends to receive from the customer.
+     * The value typically matches the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> gross total.</p>
      *
      *
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getAmountPlanned()
     {
@@ -401,14 +438,99 @@ final class PaymentModel extends JsonObjectModel implements Payment
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->amountPlanned = $className::of($data);
+
+            $this->amountPlanned = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->amountPlanned;
     }
 
     /**
+     * <p>Deprecated because its value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
+     *
+     *
+     * @return null|TypedMoney
+     */
+    public function getAmountAuthorized()
+    {
+        if (is_null($this->amountAuthorized)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_AMOUNT_AUTHORIZED);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->amountAuthorized = $className::of($data);
+        }
+
+        return $this->amountAuthorized;
+    }
+
+    /**
+     * <p>Deprecated because this field is of little practical value, as it is either not reliably known, or the authorization time is fixed for a PSP.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAuthorizedUntil()
+    {
+        if (is_null($this->authorizedUntil)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_AUTHORIZED_UNTIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authorizedUntil = (string) $data;
+        }
+
+        return $this->authorizedUntil;
+    }
+
+    /**
+     * <p>Deprecated because its value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
+     *
+     *
+     * @return null|TypedMoney
+     */
+    public function getAmountPaid()
+    {
+        if (is_null($this->amountPaid)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_AMOUNT_PAID);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->amountPaid = $className::of($data);
+        }
+
+        return $this->amountPaid;
+    }
+
+    /**
+     * <p>Deprecated because its value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
+     *
+     *
+     * @return null|TypedMoney
+     */
+    public function getAmountRefunded()
+    {
+        if (is_null($this->amountRefunded)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_AMOUNT_REFUNDED);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->amountRefunded = $className::of($data);
+        }
+
+        return $this->amountRefunded;
+    }
+
+    /**
+     * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
+     *
      *
      * @return null|PaymentMethodInfo
      */
@@ -428,6 +550,8 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+     * <p>Current status of the Payment.</p>
+     *
      *
      * @return null|PaymentStatus
      */
@@ -447,7 +571,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>
+     * <p>Financial transactions of the Payment. Each Transaction has a <a href="ctp:api:type:TransactionType">TransactionType</a> and a <a href="ctp:api:type:TransactionState">TransactionState</a>.</p>
      *
      *
      * @return null|TransactionCollection
@@ -467,10 +591,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>Interface interactions can be requests sent to the PSP, responses received from the PSP or notifications received from the PSP.
-     * Some interactions may result in a transaction.
-     * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
-     * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>
+     * <p>Represents information exchange with the payment service, for example, a PSP. An interaction may be a request sent, or a response or notification received from the payment service.</p>
      *
      *
      * @return null|CustomFieldsCollection
@@ -490,6 +611,8 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+     * <p>Custom Fields for the Payment.</p>
+     *
      *
      * @return null|CustomFields
      */
@@ -594,6 +717,14 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+     * @param ?string $externalId
+     */
+    public function setExternalId(?string $externalId): void
+    {
+        $this->externalId = $externalId;
+    }
+
+    /**
      * @param ?string $interfaceId
      */
     public function setInterfaceId(?string $interfaceId): void
@@ -602,11 +733,43 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * @param ?TypedMoney $amountPlanned
+     * @param ?CentPrecisionMoney $amountPlanned
      */
-    public function setAmountPlanned(?TypedMoney $amountPlanned): void
+    public function setAmountPlanned(?CentPrecisionMoney $amountPlanned): void
     {
         $this->amountPlanned = $amountPlanned;
+    }
+
+    /**
+     * @param ?TypedMoney $amountAuthorized
+     */
+    public function setAmountAuthorized(?TypedMoney $amountAuthorized): void
+    {
+        $this->amountAuthorized = $amountAuthorized;
+    }
+
+    /**
+     * @param ?string $authorizedUntil
+     */
+    public function setAuthorizedUntil(?string $authorizedUntil): void
+    {
+        $this->authorizedUntil = $authorizedUntil;
+    }
+
+    /**
+     * @param ?TypedMoney $amountPaid
+     */
+    public function setAmountPaid(?TypedMoney $amountPaid): void
+    {
+        $this->amountPaid = $amountPaid;
+    }
+
+    /**
+     * @param ?TypedMoney $amountRefunded
+     */
+    public function setAmountRefunded(?TypedMoney $amountRefunded): void
+    {
+        $this->amountRefunded = $amountRefunded;
     }
 
     /**

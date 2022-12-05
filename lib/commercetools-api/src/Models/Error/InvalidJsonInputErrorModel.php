@@ -32,15 +32,23 @@ final class InvalidJsonInputErrorModel extends JsonObjectModel implements Invali
      */
     protected $message;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $detailedErrorMessage;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $message = null,
+        ?string $detailedErrorMessage = null,
         ?string $code = null
     ) {
         $this->message = $message;
+        $this->detailedErrorMessage = $detailedErrorMessage;
         $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -63,6 +71,8 @@ final class InvalidJsonInputErrorModel extends JsonObjectModel implements Invali
     }
 
     /**
+     * <p><code>&quot;Request body does not contain valid JSON.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -80,6 +90,26 @@ final class InvalidJsonInputErrorModel extends JsonObjectModel implements Invali
         return $this->message;
     }
 
+    /**
+     * <p>Further explanation about why the JSON is invalid.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getDetailedErrorMessage()
+    {
+        if (is_null($this->detailedErrorMessage)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DETAILED_ERROR_MESSAGE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->detailedErrorMessage = (string) $data;
+        }
+
+        return $this->detailedErrorMessage;
+    }
+
 
     /**
      * @param ?string $message
@@ -87,6 +117,14 @@ final class InvalidJsonInputErrorModel extends JsonObjectModel implements Invali
     public function setMessage(?string $message): void
     {
         $this->message = $message;
+    }
+
+    /**
+     * @param ?string $detailedErrorMessage
+     */
+    public function setDetailedErrorMessage(?string $detailedErrorMessage): void
+    {
+        $this->detailedErrorMessage = $detailedErrorMessage;
     }
 
     /**

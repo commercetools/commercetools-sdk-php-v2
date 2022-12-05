@@ -25,8 +25,8 @@ interface ProductTypeChangeAttributeNameAction extends ProductTypeUpdateAction
     public function getAttributeName();
 
     /**
-     * <p>New user-defined name of the Attribute that is unique with the <a href="ctp:api:type:Project">Project</a>.
-     * When using the same <code>name</code> for an Attribute in two or more ProductTypes all fields of the AttributeDefinition of this Attribute need to be the same across the ProductTypes, otherwise an <a href="ctp:api:type:AttributeDefinitionAlreadyExistsError">AttributeDefinitionAlreadyExistsError</a> will be returned.
+     * <p>New user-defined name of the Attribute that is unique with the <a href="ctp:api:type:Project">Project</a>.</p>
+     * <p>When using the same <code>name</code> for an Attribute in two or more ProductTypes, all fields of the AttributeDefinition of this Attribute must be the same across the ProductTypes. If not, an <a href="ctp:api:type:AttributeDefinitionAlreadyExistsError">AttributeDefinitionAlreadyExists</a> error is returned.
      * An exception to this are the values of an <code>enum</code> or <code>lenum</code> type and sets thereof.</p>
      *
 

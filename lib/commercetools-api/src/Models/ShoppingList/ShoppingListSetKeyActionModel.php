@@ -63,7 +63,7 @@ final class ShoppingListSetKeyActionModel extends JsonObjectModel implements Sho
     }
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      *
      * @return null|string

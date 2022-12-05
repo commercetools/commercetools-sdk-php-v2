@@ -42,11 +42,37 @@ final class ExtensionBadResponseErrorBuilder implements Builder
 
     /**
 
-     * @var null|ErrorByExtension|ErrorByExtensionBuilder
+     * @var ?ExtensionErrorCollection
      */
-    private $errorByExtension;
+    private $extensionErrors;
 
     /**
+
+     * @var ?string
+     */
+    private $extensionBody;
+
+    /**
+
+     * @var ?int
+     */
+    private $extensionStatusCode;
+
+    /**
+
+     * @var ?string
+     */
+    private $extensionId;
+
+    /**
+
+     * @var ?string
+     */
+    private $extensionKey;
+
+    /**
+     * <p>Description of the invalid Extension response. For example, <code>&quot;The extension did not return the expected JSON.&quot;</code>.</p>
+     *
 
      * @return null|string
      */
@@ -56,7 +82,7 @@ final class ExtensionBadResponseErrorBuilder implements Builder
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>User-defined localized description of the error.</p>
      *
 
      * @return null|LocalizedString
@@ -67,6 +93,8 @@ final class ExtensionBadResponseErrorBuilder implements Builder
     }
 
     /**
+     * <p>Any information that should be returned to the API caller.</p>
+     *
 
      * @return null|JsonObject
      */
@@ -76,12 +104,58 @@ final class ExtensionBadResponseErrorBuilder implements Builder
     }
 
     /**
+     * <p>Additional errors related to the API Extension.</p>
+     *
 
-     * @return null|ErrorByExtension
+     * @return null|ExtensionErrorCollection
      */
-    public function getErrorByExtension()
+    public function getExtensionErrors()
     {
-        return $this->errorByExtension instanceof ErrorByExtensionBuilder ? $this->errorByExtension->build() : $this->errorByExtension;
+        return $this->extensionErrors;
+    }
+
+    /**
+     * <p>The response body returned by the Extension.</p>
+     *
+
+     * @return null|string
+     */
+    public function getExtensionBody()
+    {
+        return $this->extensionBody;
+    }
+
+    /**
+     * <p>Http status code returned by the Extension.</p>
+     *
+
+     * @return null|int
+     */
+    public function getExtensionStatusCode()
+    {
+        return $this->extensionStatusCode;
+    }
+
+    /**
+     * <p>Unique identifier of the Extension.</p>
+     *
+
+     * @return null|string
+     */
+    public function getExtensionId()
+    {
+        return $this->extensionId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Extension.</p>
+     *
+
+     * @return null|string
+     */
+    public function getExtensionKey()
+    {
+        return $this->extensionKey;
     }
 
     /**
@@ -118,12 +192,56 @@ final class ExtensionBadResponseErrorBuilder implements Builder
     }
 
     /**
-     * @param ?ErrorByExtension $errorByExtension
+     * @param ?ExtensionErrorCollection $extensionErrors
      * @return $this
      */
-    public function withErrorByExtension(?ErrorByExtension $errorByExtension)
+    public function withExtensionErrors(?ExtensionErrorCollection $extensionErrors)
     {
-        $this->errorByExtension = $errorByExtension;
+        $this->extensionErrors = $extensionErrors;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $extensionBody
+     * @return $this
+     */
+    public function withExtensionBody(?string $extensionBody)
+    {
+        $this->extensionBody = $extensionBody;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $extensionStatusCode
+     * @return $this
+     */
+    public function withExtensionStatusCode(?int $extensionStatusCode)
+    {
+        $this->extensionStatusCode = $extensionStatusCode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $extensionId
+     * @return $this
+     */
+    public function withExtensionId(?string $extensionId)
+    {
+        $this->extensionId = $extensionId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $extensionKey
+     * @return $this
+     */
+    public function withExtensionKey(?string $extensionKey)
+    {
+        $this->extensionKey = $extensionKey;
 
         return $this;
     }
@@ -139,24 +257,17 @@ final class ExtensionBadResponseErrorBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withErrorByExtension() instead
-     * @return $this
-     */
-    public function withErrorByExtensionBuilder(?ErrorByExtensionBuilder $errorByExtension)
-    {
-        $this->errorByExtension = $errorByExtension;
-
-        return $this;
-    }
-
     public function build(): ExtensionBadResponseError
     {
         return new ExtensionBadResponseErrorModel(
             $this->message,
             $this->localizedMessage instanceof LocalizedStringBuilder ? $this->localizedMessage->build() : $this->localizedMessage,
             $this->extensionExtraInfo,
-            $this->errorByExtension instanceof ErrorByExtensionBuilder ? $this->errorByExtension->build() : $this->errorByExtension
+            $this->extensionErrors,
+            $this->extensionBody,
+            $this->extensionStatusCode,
+            $this->extensionId,
+            $this->extensionKey
         );
     }
 

@@ -27,6 +27,8 @@ final class ResourceNotFoundErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;The Resource with ID $resourceId was not found.&quot;</code></p>
+     *
 
      * @return null|string
      */

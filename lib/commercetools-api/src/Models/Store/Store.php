@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\StoreCountry\StoreCountryCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -25,6 +26,7 @@ interface Store extends BaseResource
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_LANGUAGES = 'languages';
+    public const FIELD_COUNTRIES = 'countries';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
     public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
@@ -101,6 +103,14 @@ interface Store extends BaseResource
      * @return null|array
      */
     public function getLanguages();
+
+    /**
+     * <p>Countries defined for the Store.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getCountries();
 
     /**
      * <p>Product Distribution Channels allowed for the Store.</p>
@@ -182,6 +192,11 @@ interface Store extends BaseResource
      * @param ?array $languages
      */
     public function setLanguages(?array $languages): void;
+
+    /**
+     * @param ?StoreCountryCollection $countries
+     */
+    public function setCountries(?StoreCountryCollection $countries): void;
 
     /**
      * @param ?ChannelReferenceCollection $distributionChannels

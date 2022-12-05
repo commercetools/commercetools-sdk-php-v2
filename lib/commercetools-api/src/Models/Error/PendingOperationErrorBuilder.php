@@ -27,6 +27,8 @@ final class PendingOperationErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p>Plain text description of the error.</p>
+     *
 
      * @return null|string
      */

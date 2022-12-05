@@ -79,6 +79,8 @@ final class EnumKeyDoesNotExistErrorModel extends JsonObjectModel implements Enu
     }
 
     /**
+     * <p><code>&quot;The $fieldName field definition does not contain an enum value with the key $enumKey.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +99,8 @@ final class EnumKeyDoesNotExistErrorModel extends JsonObjectModel implements Enu
     }
 
     /**
+     * <p>Conflicting enum key.</p>
+     *
      *
      * @return null|string
      */
@@ -115,6 +119,8 @@ final class EnumKeyDoesNotExistErrorModel extends JsonObjectModel implements Enu
     }
 
     /**
+     * <p>Name of the conflicting Attribute.</p>
+     *
      *
      * @return null|string
      */

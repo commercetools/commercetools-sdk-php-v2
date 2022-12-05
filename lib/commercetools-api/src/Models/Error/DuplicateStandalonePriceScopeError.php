@@ -27,7 +27,21 @@ interface DuplicateStandalonePriceScopeError extends ErrorObject
     public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Duplicate standalone price scope for SKU: $sku. The combination of SKU, currency, country, customerGroup, channel, validFrom and validUntil must be unique for each standalone price.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Reference to the conflicting Standalone Price.</p>
      *
 
      * @return null|StandalonePriceReference
@@ -35,25 +49,31 @@ interface DuplicateStandalonePriceScopeError extends ErrorObject
     public function getConflictingStandalonePrice();
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to which the conflicting Standalone Price is associated.</p>
+     *
 
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>Currency code of the country.</p>
+     *
 
      * @return null|string
      */
     public function getCurrency();
 
     /**
+     * <p>Country code of the geographic location.</p>
+     *
 
      * @return null|string
      */
     public function getCountry();
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which the Standalone Price is valid.</p>
      *
 
      * @return null|CustomerGroupResourceIdentifier
@@ -61,7 +81,7 @@ interface DuplicateStandalonePriceScopeError extends ErrorObject
     public function getCustomerGroup();
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:Channel">Channel</a> for which the Standalone Price is valid.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -69,16 +89,25 @@ interface DuplicateStandalonePriceScopeError extends ErrorObject
     public function getChannel();
 
     /**
+     * <p>Date and time (UTC) from which the Standalone Price is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+     * <p>Date and time (UTC) until which the Standalone Price is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?StandalonePriceReference $conflictingStandalonePrice

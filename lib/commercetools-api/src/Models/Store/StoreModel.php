@@ -17,6 +17,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\StoreCountry\StoreCountryCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -87,6 +88,12 @@ final class StoreModel extends JsonObjectModel implements Store
 
     /**
      *
+     * @var ?StoreCountryCollection
+     */
+    protected $countries;
+
+    /**
+     *
      * @var ?ChannelReferenceCollection
      */
     protected $distributionChannels;
@@ -123,6 +130,7 @@ final class StoreModel extends JsonObjectModel implements Store
         ?string $key = null,
         ?LocalizedString $name = null,
         ?array $languages = null,
+        ?StoreCountryCollection $countries = null,
         ?ChannelReferenceCollection $distributionChannels = null,
         ?ChannelReferenceCollection $supplyChannels = null,
         ?ProductSelectionSettingCollection $productSelections = null,
@@ -137,6 +145,7 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->key = $key;
         $this->name = $name;
         $this->languages = $languages;
+        $this->countries = $countries;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
         $this->productSelections = $productSelections;
@@ -335,6 +344,26 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
+     * <p>Countries defined for the Store.</p>
+     *
+     *
+     * @return null|StoreCountryCollection
+     */
+    public function getCountries()
+    {
+        if (is_null($this->countries)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_COUNTRIES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->countries = StoreCountryCollection::fromArray($data);
+        }
+
+        return $this->countries;
+    }
+
+    /**
      * <p>Product Distribution Channels allowed for the Store.</p>
      *
      *
@@ -490,6 +519,14 @@ final class StoreModel extends JsonObjectModel implements Store
     public function setLanguages(?array $languages): void
     {
         $this->languages = $languages;
+    }
+
+    /**
+     * @param ?StoreCountryCollection $countries
+     */
+    public function setCountries(?StoreCountryCollection $countries): void
+    {
+        $this->countries = $countries;
     }
 
     /**

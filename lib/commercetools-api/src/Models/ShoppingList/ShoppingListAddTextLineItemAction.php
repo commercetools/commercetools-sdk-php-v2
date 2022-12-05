@@ -23,7 +23,7 @@ interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Name of the TextLineItem.</p>
      *
 
      * @return null|LocalizedString
@@ -31,7 +31,7 @@ interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
     public function getName();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Description of the TextLineItem.</p>
      *
 
      * @return null|LocalizedString
@@ -39,19 +39,23 @@ interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
     public function getDescription();
 
     /**
+     * <p>Number of entries in the TextLineItem.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
+     * <p>Date and time the TextLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>Custom Fields defined for the TextLineItem.</p>
      *
 
      * @return null|CustomFieldsDraft

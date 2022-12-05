@@ -63,6 +63,8 @@ final class MyShoppingListChangeTextLineItemsOrderActionModel extends JsonObject
     }
 
     /**
+     * <p>All existing <a href="ctp:api:type:TextLineItem">TextLineItem</a> <code>id</code>s in the desired new order.</p>
+     *
      *
      * @return null|array
      */

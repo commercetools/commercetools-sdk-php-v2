@@ -29,7 +29,7 @@ final class MyShoppingListChangeNameActionBuilder implements Builder
     private $name;
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>New value to set. Must not be empty.</p>
      *
 
      * @return null|LocalizedString

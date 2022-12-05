@@ -27,6 +27,8 @@ final class InvalidCurrentPasswordErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;The given current password does not match.&quot;</code></p>
+     *
 
      * @return null|string
      */

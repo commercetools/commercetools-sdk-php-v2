@@ -73,6 +73,8 @@ final class PaymentTransitionStateActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      *
      * @return null|StateResourceIdentifier
      */
@@ -92,6 +94,8 @@ final class PaymentTransitionStateActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Set to <code>true</code> to skip validations when transitioning to the new State.</p>
+     *
      *
      * @return null|bool
      */

@@ -63,6 +63,8 @@ final class PendingOperationErrorModel extends JsonObjectModel implements Pendin
     }
 
     /**
+     * <p>Plain text description of the error.</p>
+     *
      *
      * @return null|string
      */

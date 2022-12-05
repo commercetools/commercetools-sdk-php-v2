@@ -19,12 +19,16 @@ interface ErrorObject extends JsonObject
     public const FIELD_PATTERN2 = '//';
 
     /**
+     * <p>Error identifier.</p>
+     *
 
      * @return null|string
      */
     public function getCode();
 
     /**
+     * <p>Plain text description of the cause of the error.</p>
+     *
 
      * @return null|string
      */

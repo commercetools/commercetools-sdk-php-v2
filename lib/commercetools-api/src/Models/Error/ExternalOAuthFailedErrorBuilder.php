@@ -27,6 +27,8 @@ final class ExternalOAuthFailedErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p>Plain text description detailing the external OAuth error. For example, <code>&quot;External OAuth did not respond in time.&quot;</code>.</p>
+     *
 
      * @return null|string
      */

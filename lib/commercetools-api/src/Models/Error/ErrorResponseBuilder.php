@@ -34,23 +34,13 @@ final class ErrorResponseBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $error;
-
-    /**
-
-     * @var ?string
-     */
-    private $error_description;
-
-    /**
-
      * @var ?ErrorObjectCollection
      */
     private $errors;
 
     /**
+     * <p>HTTP status code corresponding to the error.</p>
+     *
 
      * @return null|int
      */
@@ -60,6 +50,8 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+     * <p>First error message in the <code>errors</code> array.</p>
+     *
 
      * @return null|string
      */
@@ -69,24 +61,9 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getError()
-    {
-        return $this->error;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getError_description()
-    {
-        return $this->error_description;
-    }
-
-    /**
+     * <p>Errors returned for a request.</p>
+     * <p>A single error response can contain multiple errors if the errors are related to the same HTTP status code such as <code>400</code>.</p>
+     *
 
      * @return null|ErrorObjectCollection
      */
@@ -118,28 +95,6 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
-     * @param ?string $error
-     * @return $this
-     */
-    public function withError(?string $error)
-    {
-        $this->error = $error;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $error_description
-     * @return $this
-     */
-    public function withError_description(?string $error_description)
-    {
-        $this->error_description = $error_description;
-
-        return $this;
-    }
-
-    /**
      * @param ?ErrorObjectCollection $errors
      * @return $this
      */
@@ -156,8 +111,6 @@ final class ErrorResponseBuilder implements Builder
         return new ErrorResponseModel(
             $this->statusCode,
             $this->message,
-            $this->error,
-            $this->error_description,
             $this->errors
         );
     }

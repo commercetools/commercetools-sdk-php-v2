@@ -63,6 +63,8 @@ final class OverCapacityErrorModel extends JsonObjectModel implements OverCapaci
     }
 
     /**
+     * <p>Plain text description of the error.</p>
+     *
      *
      * @return null|string
      */

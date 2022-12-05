@@ -63,6 +63,8 @@ final class PaymentSetStatusInterfaceCodeActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|string
      */

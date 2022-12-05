@@ -188,6 +188,15 @@ class ByProjectKeyProductsKeyByKeyPost extends ApiRequest implements PriceSelect
 
     /**
      *
+     * @psalm-param scalar|scalar[] $localeProjection
+     */
+    public function withLocaleProjection($localeProjection): ByProjectKeyProductsKeyByKeyPost
+    {
+        return $this->withQueryParam('localeProjection', $localeProjection);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductsKeyByKeyPost

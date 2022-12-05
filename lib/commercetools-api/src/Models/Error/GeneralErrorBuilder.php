@@ -27,6 +27,8 @@ final class GeneralErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p>Description about any known details of the problem, for example, <code>&quot;Write operations are temporarily unavailable&quot;</code>.</p>
+     *
 
      * @return null|string
      */

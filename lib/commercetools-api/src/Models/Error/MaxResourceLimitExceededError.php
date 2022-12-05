@@ -16,12 +16,31 @@ interface MaxResourceLimitExceededError extends ErrorObject
     public const FIELD_EXCEEDED_RESOURCE = 'exceededResource';
 
     /**
-     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;You have exceeded the limit of $limit resources of type $resourceTypeId.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Resource type that reached its maximum limit of configured elements (for example, 100 Zones per Project).</p>
      *
 
      * @return null|string
      */
     public function getExceededResource();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $exceededResource

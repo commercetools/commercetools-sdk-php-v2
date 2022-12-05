@@ -79,6 +79,8 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     }
 
     /**
+     * <p>Plain text description of the reason for the Price change. For example, <code>&quot;The price or tax of some line items changed at the time of placing the order: $lineItems.&quot;</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +99,8 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     }
 
     /**
+     * <p>Unique identifiers of the Line Items for which the Price or <a href="ctp:api:type:TaxRate">TaxRate</a> has changed.</p>
+     *
      *
      * @return null|array
      */
@@ -115,6 +119,8 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     }
 
     /**
+     * <p><code>true</code> if the <a href="ctp:api:type:ShippingRate">ShippingRate</a> has changed.</p>
+     *
      *
      * @return null|bool
      */

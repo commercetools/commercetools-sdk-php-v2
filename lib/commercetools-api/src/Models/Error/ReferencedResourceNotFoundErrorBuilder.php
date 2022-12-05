@@ -45,6 +45,8 @@ final class ReferencedResourceNotFoundErrorBuilder implements Builder
     private $key;
 
     /**
+     * <p><code>&quot;The referenced object of type $typeId $predicate was not found. It either doesn't exist, or it can't be accessed from this endpoint (e.g., if the endpoint filters by store or customer account).&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -54,7 +56,7 @@ final class ReferencedResourceNotFoundErrorBuilder implements Builder
     }
 
     /**
-     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
+     * <p>Type of referenced resource.</p>
      *
 
      * @return null|string
@@ -65,6 +67,8 @@ final class ReferencedResourceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the referenced resource, if known.</p>
+     *
 
      * @return null|string
      */
@@ -74,6 +78,8 @@ final class ReferencedResourceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced resource, if known.</p>
+     *
 
      * @return null|string
      */

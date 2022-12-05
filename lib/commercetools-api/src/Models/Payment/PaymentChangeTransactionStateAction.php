@@ -17,12 +17,16 @@ interface PaymentChangeTransactionStateAction extends PaymentUpdateAction
     public const FIELD_STATE = 'state';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
+     *
 
      * @return null|string
      */
     public function getTransactionId();
 
     /**
+     * <p>New TransactionState.</p>
+     *
 
      * @return null|string
      */

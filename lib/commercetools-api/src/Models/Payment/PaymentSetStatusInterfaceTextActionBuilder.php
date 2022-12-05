@@ -27,6 +27,8 @@ final class PaymentSetStatusInterfaceTextActionBuilder implements Builder
     private $interfaceText;
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
 
      * @return null|string
      */

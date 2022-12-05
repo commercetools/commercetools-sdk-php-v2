@@ -62,7 +62,7 @@ final class TransactionDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p>The time at which the transaction took place.</p>
+     * <p>Date and time (UTC) the Transaction took place.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -73,7 +73,7 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
-     * <p>The type of this transaction.</p>
+     * <p>Type of the Transaction.</p>
      *
 
      * @return null|string
@@ -84,6 +84,8 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
+     * <p>Money value for the Transaction.</p>
+     *
 
      * @return null|Money
      */
@@ -93,8 +95,8 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
-     * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
-     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
+     * <p>Identifier used by the payment service that manages the Transaction.
+     * Can be used to correlate the Transaction to an interface interaction.</p>
      *
 
      * @return null|string
@@ -105,8 +107,7 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
-     * <p>The state of this transaction.
-     * If not set, defaults to <code>Initial</code>.</p>
+     * <p>State of the Transaction.</p>
      *
 
      * @return null|string
@@ -117,7 +118,7 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields of the Transaction.</p>
      *
 
      * @return null|CustomFieldsDraft

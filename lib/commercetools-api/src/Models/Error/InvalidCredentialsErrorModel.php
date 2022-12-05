@@ -63,6 +63,8 @@ final class InvalidCredentialsErrorModel extends JsonObjectModel implements Inva
     }
 
     /**
+     * <p><code>&quot;Account with the given credentials not found.&quot;</code></p>
+     *
      *
      * @return null|string
      */

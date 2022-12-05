@@ -16,6 +16,8 @@ interface ShoppingListSetDeleteDaysAfterLastModificationAction extends ShoppingL
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
 
      * @return null|int
      */

@@ -18,15 +18,38 @@ interface OutOfStockError extends ErrorObject
 
     /**
 
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Some line items are out of stock at the time of placing the order: $itemSku.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Unique identifiers of the Line Items that are out of stock.</p>
+     *
+
      * @return null|array
      */
     public function getLineItems();
 
     /**
+     * <p>SKUs of the Line Items that are out of stock.</p>
+     *
 
      * @return null|array
      */
     public function getSkus();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?array $lineItems

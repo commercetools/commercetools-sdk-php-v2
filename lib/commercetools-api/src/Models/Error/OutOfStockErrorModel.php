@@ -79,6 +79,8 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     }
 
     /**
+     * <p><code>&quot;Some line items are out of stock at the time of placing the order: $itemSku.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +99,8 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     }
 
     /**
+     * <p>Unique identifiers of the Line Items that are out of stock.</p>
+     *
      *
      * @return null|array
      */
@@ -115,6 +119,8 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     }
 
     /**
+     * <p>SKUs of the Line Items that are out of stock.</p>
+     *
      *
      * @return null|array
      */

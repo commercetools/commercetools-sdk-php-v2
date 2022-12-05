@@ -63,6 +63,8 @@ final class ObjectNotFoundErrorModel extends JsonObjectModel implements ObjectNo
     }
 
     /**
+     * <p><code>&quot;A $resourceType with identifier $id was unexpectedly not found.&quot;</code></p>
+     *
      *
      * @return null|string
      */

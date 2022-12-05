@@ -21,19 +21,19 @@ use DateTimeImmutable;
 
 interface ShoppingList extends BaseResource
 {
-    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    public const FIELD_CREATED_BY = 'createdBy';
-    public const FIELD_CUSTOM = 'custom';
-    public const FIELD_CUSTOMER = 'customer';
-    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
-    public const FIELD_DESCRIPTION = 'description';
-    public const FIELD_KEY = 'key';
-    public const FIELD_LINE_ITEMS = 'lineItems';
     public const FIELD_NAME = 'name';
+    public const FIELD_KEY = 'key';
+    public const FIELD_CUSTOMER = 'customer';
     public const FIELD_SLUG = 'slug';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_LINE_ITEMS = 'lineItems';
     public const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
+    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_STORE = 'store';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
 
     /**
      * <p>Unique identifier of the ShoppingList.</p>
@@ -44,7 +44,7 @@ interface ShoppingList extends BaseResource
     public function getId();
 
     /**
-     * <p>The current version of the shopping list.</p>
+     * <p>Current version of the ShoppingList.</p>
      *
 
      * @return null|int
@@ -52,12 +52,106 @@ interface ShoppingList extends BaseResource
     public function getVersion();
 
     /**
+     * <p>Name of the ShoppingList.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getName();
+
+    /**
+     * <p>User-defined unique identifier of the ShoppingList.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * <p>Reference to a <a href="ctp:api:type:Customer">Customer</a> associated with the ShoppingList.</p>
+     *
+
+     * @return null|CustomerReference
+     */
+    public function getCustomer();
+
+    /**
+     * <p>Human-readable identifiers usually used as deep-link URL to the related ShoppingList.
+     * Each slug is unique across a Project, but a ShoppingList can have the same slug for different languages.
+     * The slug must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>. For <a href="/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set on the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getSlug();
+
+    /**
+     * <p>Description of the ShoppingList.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getDescription();
+
+    /**
+     * <p>Line Items (containing Products) of the ShoppingList.</p>
+     *
+
+     * @return null|ShoppingListLineItemCollection
+     */
+    public function getLineItems();
+
+    /**
+     * <p>Line Items (containing text values) of the ShoppingList.</p>
+     *
+
+     * @return null|TextLineItemCollection
+     */
+    public function getTextLineItems();
+
+    /**
+     * <p>Number of days after which the ShoppingList will be automatically deleted if it has not been modified.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification();
+
+    /**
+     * <p>Identifies ShoppingLists belonging to an <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAnonymousId();
+
+    /**
+     * <p>Store to which the ShoppingList is assigned.</p>
+     *
+
+     * @return null|StoreKeyReference
+     */
+    public function getStore();
+
+    /**
+     * <p>Custom Fields defined for the ShoppingList.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
+     * <p>Date and time (UTC) the ShoppingList was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the ShoppingList was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -80,82 +174,6 @@ interface ShoppingList extends BaseResource
     public function getCreatedBy();
 
     /**
-
-     * @return null|CustomFields
-     */
-    public function getCustom();
-
-    /**
-
-     * @return null|CustomerReference
-     */
-    public function getCustomer();
-
-    /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
-     *
-
-     * @return null|int
-     */
-    public function getDeleteDaysAfterLastModification();
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getDescription();
-
-    /**
-     * <p>User-defined unique identifier of the ShoppingList.</p>
-     *
-
-     * @return null|string
-     */
-    public function getKey();
-
-    /**
-
-     * @return null|ShoppingListLineItemCollection
-     */
-    public function getLineItems();
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getName();
-
-    /**
-     * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
-     * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
-     *
-
-     * @return null|LocalizedString
-     */
-    public function getSlug();
-
-    /**
-
-     * @return null|TextLineItemCollection
-     */
-    public function getTextLineItems();
-
-    /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
-     *
-
-     * @return null|string
-     */
-    public function getAnonymousId();
-
-    /**
-
-     * @return null|StoreKeyReference
-     */
-    public function getStore();
-
-    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -164,6 +182,61 @@ interface ShoppingList extends BaseResource
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
+
+    /**
+     * @param ?LocalizedString $name
+     */
+    public function setName(?LocalizedString $name): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
+
+    /**
+     * @param ?CustomerReference $customer
+     */
+    public function setCustomer(?CustomerReference $customer): void;
+
+    /**
+     * @param ?LocalizedString $slug
+     */
+    public function setSlug(?LocalizedString $slug): void;
+
+    /**
+     * @param ?LocalizedString $description
+     */
+    public function setDescription(?LocalizedString $description): void;
+
+    /**
+     * @param ?ShoppingListLineItemCollection $lineItems
+     */
+    public function setLineItems(?ShoppingListLineItemCollection $lineItems): void;
+
+    /**
+     * @param ?TextLineItemCollection $textLineItems
+     */
+    public function setTextLineItems(?TextLineItemCollection $textLineItems): void;
+
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
+    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
+
+    /**
+     * @param ?string $anonymousId
+     */
+    public function setAnonymousId(?string $anonymousId): void;
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt
@@ -184,59 +257,4 @@ interface ShoppingList extends BaseResource
      * @param ?CreatedBy $createdBy
      */
     public function setCreatedBy(?CreatedBy $createdBy): void;
-
-    /**
-     * @param ?CustomFields $custom
-     */
-    public function setCustom(?CustomFields $custom): void;
-
-    /**
-     * @param ?CustomerReference $customer
-     */
-    public function setCustomer(?CustomerReference $customer): void;
-
-    /**
-     * @param ?int $deleteDaysAfterLastModification
-     */
-    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
-
-    /**
-     * @param ?LocalizedString $description
-     */
-    public function setDescription(?LocalizedString $description): void;
-
-    /**
-     * @param ?string $key
-     */
-    public function setKey(?string $key): void;
-
-    /**
-     * @param ?ShoppingListLineItemCollection $lineItems
-     */
-    public function setLineItems(?ShoppingListLineItemCollection $lineItems): void;
-
-    /**
-     * @param ?LocalizedString $name
-     */
-    public function setName(?LocalizedString $name): void;
-
-    /**
-     * @param ?LocalizedString $slug
-     */
-    public function setSlug(?LocalizedString $slug): void;
-
-    /**
-     * @param ?TextLineItemCollection $textLineItems
-     */
-    public function setTextLineItems(?TextLineItemCollection $textLineItems): void;
-
-    /**
-     * @param ?string $anonymousId
-     */
-    public function setAnonymousId(?string $anonymousId): void;
-
-    /**
-     * @param ?StoreKeyReference $store
-     */
-    public function setStore(?StoreKeyReference $store): void;
 }

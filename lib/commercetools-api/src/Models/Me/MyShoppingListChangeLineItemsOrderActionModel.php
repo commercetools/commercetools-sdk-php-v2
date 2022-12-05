@@ -63,6 +63,8 @@ final class MyShoppingListChangeLineItemsOrderActionModel extends JsonObjectMode
     }
 
     /**
+     * <p>All existing <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> <code>id</code>s of the <a href="ctp:api:type:ShoppingList">ShoppingList</a> in the desired new order.</p>
+     *
      *
      * @return null|array
      */

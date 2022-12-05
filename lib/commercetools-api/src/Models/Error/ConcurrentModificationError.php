@@ -17,9 +17,30 @@ interface ConcurrentModificationError extends ErrorObject
 
     /**
 
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Object $resourceId has a different version than expected. Expected: $expectedVersion - Actual: $currentVersion.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Current version of the resource.</p>
+     *
+
      * @return null|int
      */
     public function getCurrentVersion();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?int $currentVersion

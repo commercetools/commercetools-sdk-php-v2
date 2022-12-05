@@ -27,6 +27,8 @@ final class FeatureRemovedErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p>Description of the feature that is removed.</p>
+     *
 
      * @return null|string
      */

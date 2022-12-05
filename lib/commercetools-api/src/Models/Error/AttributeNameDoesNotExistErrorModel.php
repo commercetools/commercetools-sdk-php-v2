@@ -71,6 +71,8 @@ final class AttributeNameDoesNotExistErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><code>&quot;Attribute definition for $attributeName does not exist on type $typeName.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class AttributeNameDoesNotExistErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Non-existent Attribute name.</p>
+     *
      *
      * @return null|string
      */

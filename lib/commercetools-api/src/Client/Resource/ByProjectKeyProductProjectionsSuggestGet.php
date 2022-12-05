@@ -32,10 +32,11 @@ use Psr\Http\Message\ResponseInterface;
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Sortable<ByProjectKeyProductProjectionsSuggestGet>
  * @template-implements Paging<ByProjectKeyProductProjectionsSuggestGet>
+ * @template-implements ProjectionSelecting<ByProjectKeyProductProjectionsSuggestGet>
  * @template-implements Errorable<ByProjectKeyProductProjectionsSuggestGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsSuggestGet>
  */
-class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sortable, Paging, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sortable, Paging, ProjectionSelecting, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -155,15 +156,6 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sor
     }
 
     /**
-     *
-     * @psalm-param scalar|scalar[] $staged
-     */
-    public function withStaged($staged): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('staged', $staged);
-    }
-
-    /**
      * @psalm-param string $locale
      * @psalm-param scalar|scalar[] $searchKeywords
      */
@@ -206,5 +198,14 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sor
     public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSuggestGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $staged
+     */
+    public function withStaged($staged): ByProjectKeyProductProjectionsSuggestGet
+    {
+        return $this->withQueryParam('staged', $staged);
     }
 }

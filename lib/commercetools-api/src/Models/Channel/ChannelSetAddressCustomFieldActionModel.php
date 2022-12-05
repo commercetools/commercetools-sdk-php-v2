@@ -92,7 +92,8 @@ final class ChannelSetAddressCustomFieldActionModel extends JsonObjectModel impl
 
     /**
      * <p>Specifies the format of the value of the Custom Field defined by <code>name</code>.
-     * If <code>value</code> is absent or <code>null</code>, this field will be removed, if it exists. Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.</p>
+     * If <code>value</code> is absent or <code>null</code>, this field will be removed, if it exists.
+     * Removing a field that does not exist returns an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error.</p>
      *
      *
      * @return null|mixed

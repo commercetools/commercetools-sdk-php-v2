@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -17,9 +19,9 @@ use stdClass;
 /**
  * @internal
  */
-final class WeakPasswordErrorModel extends JsonObjectModel implements WeakPasswordError
+final class ProductAssignmentMissingErrorModel extends JsonObjectModel implements ProductAssignmentMissingError
 {
-    public const DISCRIMINATOR_VALUE = 'WeakPassword';
+    public const DISCRIMINATOR_VALUE = 'ProductAssignmentMissing';
     /**
      *
      * @var ?string
@@ -32,15 +34,23 @@ final class WeakPasswordErrorModel extends JsonObjectModel implements WeakPasswo
      */
     protected $message;
 
+    /**
+     *
+     * @var ?ProductReference
+     */
+    protected $product;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $message = null,
+        ?ProductReference $product = null,
         ?string $code = null
     ) {
         $this->message = $message;
+        $this->product = $product;
         $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -63,6 +73,8 @@ final class WeakPasswordErrorModel extends JsonObjectModel implements WeakPasswo
     }
 
     /**
+     * <p><code>&quot;A Product Variant Selection can only be set for a Product previously added to the Product Selection.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -80,6 +92,27 @@ final class WeakPasswordErrorModel extends JsonObjectModel implements WeakPasswo
         return $this->message;
     }
 
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Product">Product</a> for which the error was returned.</p>
+     *
+     *
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductReferenceModel::of($data);
+        }
+
+        return $this->product;
+    }
+
 
     /**
      * @param ?string $message
@@ -87,6 +120,14 @@ final class WeakPasswordErrorModel extends JsonObjectModel implements WeakPasswo
     public function setMessage(?string $message): void
     {
         $this->message = $message;
+    }
+
+    /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void
+    {
+        $this->product = $product;
     }
 
     /**

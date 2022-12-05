@@ -48,9 +48,33 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
 
     /**
      *
-     * @var ?ErrorByExtension
+     * @var ?ExtensionErrorCollection
      */
-    protected $errorByExtension;
+    protected $extensionErrors;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $extensionBody;
+
+    /**
+     *
+     * @var ?int
+     */
+    protected $extensionStatusCode;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $extensionId;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $extensionKey;
 
 
     /**
@@ -60,13 +84,21 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
         ?string $message = null,
         ?LocalizedString $localizedMessage = null,
         ?JsonObject $extensionExtraInfo = null,
-        ?ErrorByExtension $errorByExtension = null,
+        ?ExtensionErrorCollection $extensionErrors = null,
+        ?string $extensionBody = null,
+        ?int $extensionStatusCode = null,
+        ?string $extensionId = null,
+        ?string $extensionKey = null,
         ?string $code = null
     ) {
         $this->message = $message;
         $this->localizedMessage = $localizedMessage;
         $this->extensionExtraInfo = $extensionExtraInfo;
-        $this->errorByExtension = $errorByExtension;
+        $this->extensionErrors = $extensionErrors;
+        $this->extensionBody = $extensionBody;
+        $this->extensionStatusCode = $extensionStatusCode;
+        $this->extensionId = $extensionId;
+        $this->extensionKey = $extensionKey;
         $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -89,6 +121,8 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
     /**
+     * <p>Description of the invalid Extension response. For example, <code>&quot;The extension did not return the expected JSON.&quot;</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -107,7 +141,7 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>User-defined localized description of the error.</p>
      *
      *
      * @return null|LocalizedString
@@ -128,6 +162,8 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
     /**
+     * <p>Any information that should be returned to the API caller.</p>
+     *
      *
      * @return null|mixed
      */
@@ -146,22 +182,103 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
     /**
+     * <p>Additional errors related to the API Extension.</p>
      *
-     * @return null|ErrorByExtension
+     *
+     * @return null|ExtensionErrorCollection
      */
-    public function getErrorByExtension()
+    public function getExtensionErrors()
     {
-        if (is_null($this->errorByExtension)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ERROR_BY_EXTENSION);
+        if (is_null($this->extensionErrors)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_EXTENSION_ERRORS);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->errorByExtension = ErrorByExtensionModel::of($data);
+            $this->extensionErrors = ExtensionErrorCollection::fromArray($data);
         }
 
-        return $this->errorByExtension;
+        return $this->extensionErrors;
+    }
+
+    /**
+     * <p>The response body returned by the Extension.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getExtensionBody()
+    {
+        if (is_null($this->extensionBody)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXTENSION_BODY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->extensionBody = (string) $data;
+        }
+
+        return $this->extensionBody;
+    }
+
+    /**
+     * <p>Http status code returned by the Extension.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getExtensionStatusCode()
+    {
+        if (is_null($this->extensionStatusCode)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_EXTENSION_STATUS_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->extensionStatusCode = (int) $data;
+        }
+
+        return $this->extensionStatusCode;
+    }
+
+    /**
+     * <p>Unique identifier of the Extension.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getExtensionId()
+    {
+        if (is_null($this->extensionId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXTENSION_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->extensionId = (string) $data;
+        }
+
+        return $this->extensionId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Extension.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getExtensionKey()
+    {
+        if (is_null($this->extensionKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXTENSION_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->extensionKey = (string) $data;
+        }
+
+        return $this->extensionKey;
     }
 
 
@@ -190,11 +307,43 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
     /**
-     * @param ?ErrorByExtension $errorByExtension
+     * @param ?ExtensionErrorCollection $extensionErrors
      */
-    public function setErrorByExtension(?ErrorByExtension $errorByExtension): void
+    public function setExtensionErrors(?ExtensionErrorCollection $extensionErrors): void
     {
-        $this->errorByExtension = $errorByExtension;
+        $this->extensionErrors = $extensionErrors;
+    }
+
+    /**
+     * @param ?string $extensionBody
+     */
+    public function setExtensionBody(?string $extensionBody): void
+    {
+        $this->extensionBody = $extensionBody;
+    }
+
+    /**
+     * @param ?int $extensionStatusCode
+     */
+    public function setExtensionStatusCode(?int $extensionStatusCode): void
+    {
+        $this->extensionStatusCode = $extensionStatusCode;
+    }
+
+    /**
+     * @param ?string $extensionId
+     */
+    public function setExtensionId(?string $extensionId): void
+    {
+        $this->extensionId = $extensionId;
+    }
+
+    /**
+     * @param ?string $extensionKey
+     */
+    public function setExtensionKey(?string $extensionKey): void
+    {
+        $this->extensionKey = $extensionKey;
     }
 
     /**

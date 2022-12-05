@@ -30,6 +30,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements ProjectionSelecting<ByProjectKeyProductProjectionsGet>
  * @template-implements PriceSelecting<ByProjectKeyProductProjectionsGet>
  * @template-implements LocaleProjecting<ByProjectKeyProductProjectionsGet>
  * @template-implements StoreProjecting<ByProjectKeyProductProjectionsGet>
@@ -40,7 +41,7 @@ use Psr\Http\Message\ResponseInterface;
  * @template-implements Errorable<ByProjectKeyProductProjectionsGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsGet>
  */
-class ByProjectKeyProductProjectionsGet extends ApiRequest implements PriceSelecting, LocaleProjecting, StoreProjecting, Expandable, Sortable, Paging, Query, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjecting, Expandable, Sortable, Paging, Query, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body

@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -16,27 +15,41 @@ interface DuplicateFieldError extends ErrorObject
 {
     public const FIELD_FIELD = 'field';
     public const FIELD_DUPLICATE_VALUE = 'duplicateValue';
-    public const FIELD_CONFLICTING_RESOURCE = 'conflictingResource';
 
     /**
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;A duplicate value $duplicateValue exists for field $field.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Name of the conflicting field.</p>
+     *
 
      * @return null|string
      */
     public function getField();
 
     /**
+     * <p>Conflicting duplicate value.</p>
+     *
 
      * @return null|mixed
      */
     public function getDuplicateValue();
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
-     *
-
-     * @return null|Reference
+     * @param ?string $message
      */
-    public function getConflictingResource();
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $field
@@ -47,9 +60,4 @@ interface DuplicateFieldError extends ErrorObject
      * @param mixed $duplicateValue
      */
     public function setDuplicateValue($duplicateValue): void;
-
-    /**
-     * @param ?Reference $conflictingResource
-     */
-    public function setConflictingResource(?Reference $conflictingResource): void;
 }

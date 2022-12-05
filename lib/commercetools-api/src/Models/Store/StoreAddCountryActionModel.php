@@ -1,0 +1,96 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\Store;
+
+use Commercetools\Api\Models\StoreCountry\StoreCountry;
+use Commercetools\Api\Models\StoreCountry\StoreCountryModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
+/**
+ * @internal
+ */
+final class StoreAddCountryActionModel extends JsonObjectModel implements StoreAddCountryAction
+{
+    public const DISCRIMINATOR_VALUE = 'addCountry';
+    /**
+     *
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     *
+     * @var ?StoreCountry
+     */
+    protected $country;
+
+
+    /**
+     * @psalm-suppress MissingParamType
+     */
+    public function __construct(
+        ?StoreCountry $country = null,
+        ?string $action = null
+    ) {
+        $this->country = $country;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     *
+     * @return null|string
+     */
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
+
+    /**
+     * <p>Value to append to <code>countries</code>.</p>
+     *
+     *
+     * @return null|StoreCountry
+     */
+    public function getCountry()
+    {
+        if (is_null($this->country)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_COUNTRY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->country = StoreCountryModel::of($data);
+        }
+
+        return $this->country;
+    }
+
+
+    /**
+     * @param ?StoreCountry $country
+     */
+    public function setCountry(?StoreCountry $country): void
+    {
+        $this->country = $country;
+    }
+}

@@ -72,6 +72,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
 
     /**
      * <p>Describes the Type of the Attribute.</p>
+     * <p>When the <code>type</code> is different for an AttributeDefinition using the same name in multiple ProductTypes, an <a href="ctp:api:type:AttributeDefinitionTypeConflictError">AttributeDefinitionTypeConflict</a> error is returned.</p>
      *
 
      * @return null|AttributeType
@@ -82,8 +83,8 @@ final class AttributeDefinitionDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-defined name of the Attribute that is unique with the <a href="ctp:api:type:Project">Project</a>.
-     * When using the same <code>name</code> for an Attribute in multiple ProductTypes, all fields of the AttributeDefinition of this Attribute must be the same across the ProductTypes. Otherwise an <a href="ctp:api:type:AttributeDefinitionAlreadyExistsError">AttributeDefinitionAlreadyExistsError</a> will be returned.
+     * <p>User-defined name of the Attribute that is unique with the <a href="ctp:api:type:Project">Project</a>.</p>
+     * <p>When using the same <code>name</code> for an Attribute in multiple ProductTypes, all fields of the AttributeDefinition of this Attribute must be the same across the ProductTypes, else an <a href="ctp:api:type:AttributeDefinitionAlreadyExistsError">AttributeDefinitionAlreadyExists</a> error is returned.
      * An exception to this are the values of an <code>enum</code> or <code>lenum</code> Type and sets thereof.</p>
      *
 

@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\StoreCountry\StoreCountryCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -19,6 +20,7 @@ interface StoreDraft extends JsonObject
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_LANGUAGES = 'languages';
+    public const FIELD_COUNTRIES = 'countries';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
     public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
@@ -48,6 +50,14 @@ interface StoreDraft extends JsonObject
      * @return null|array
      */
     public function getLanguages();
+
+    /**
+     * <p>Countries defined for the Store.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getCountries();
 
     /**
      * <p>ResourceIdentifier of a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
@@ -99,6 +109,11 @@ interface StoreDraft extends JsonObject
      * @param ?array $languages
      */
     public function setLanguages(?array $languages): void;
+
+    /**
+     * @param ?StoreCountryCollection $countries
+     */
+    public function setCountries(?StoreCountryCollection $countries): void;
 
     /**
      * @param ?ChannelResourceIdentifierCollection $distributionChannels

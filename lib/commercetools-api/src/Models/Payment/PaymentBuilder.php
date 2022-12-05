@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceBuilder;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -86,13 +88,43 @@ final class PaymentBuilder implements Builder
 
      * @var ?string
      */
+    private $externalId;
+
+    /**
+
+     * @var ?string
+     */
     private $interfaceId;
+
+    /**
+
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
+     */
+    private $amountPlanned;
 
     /**
 
      * @var null|TypedMoney|TypedMoneyBuilder
      */
-    private $amountPlanned;
+    private $amountAuthorized;
+
+    /**
+
+     * @var ?string
+     */
+    private $authorizedUntil;
+
+    /**
+
+     * @var null|TypedMoney|TypedMoneyBuilder
+     */
+    private $amountPaid;
+
+    /**
+
+     * @var null|TypedMoney|TypedMoneyBuilder
+     */
+    private $amountRefunded;
 
     /**
 
@@ -142,6 +174,8 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * <p>Current version of the Payment.</p>
+     *
 
      * @return null|int
      */
@@ -151,6 +185,8 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Payment was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -160,6 +196,8 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Payment was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -169,7 +207,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
 
      * @return null|LastModifiedBy
@@ -180,7 +218,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
 
      * @return null|CreatedBy
@@ -191,7 +229,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>
+     * <p>Reference to a <a href="ctp:api:type:Customer">Customer</a> associated with the Payment.</p>
      *
 
      * @return null|CustomerReference
@@ -202,7 +240,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
+     * <p><a href="/../api/authorization#tokens-for-anonymous-sessions">Anonymous session</a> associated with the Payment.</p>
      *
 
      * @return null|string
@@ -213,9 +251,19 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
-     * Cannot be changed once it has been set.
-     * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
+     * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     *
+
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * <p>Identifier used by the payment service that processes the Payment (for example, a PSP).
+     * The combination of <code>interfaceId</code> and the <code>paymentInterface</code> field on <a href="ctp:api:type:PaymentMethodInfo">PaymentMethodInfo</a> must be unique.</p>
      *
 
      * @return null|string
@@ -226,18 +274,64 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>
+     * <p>Money value the Payment intends to receive from the customer.
+     * The value typically matches the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> gross total.</p>
+     *
+
+     * @return null|CentPrecisionMoney
+     */
+    public function getAmountPlanned()
+    {
+        return $this->amountPlanned instanceof CentPrecisionMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
+    }
+
+    /**
+     * <p>Deprecated because its value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
      *
 
      * @return null|TypedMoney
      */
-    public function getAmountPlanned()
+    public function getAmountAuthorized()
     {
-        return $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
+        return $this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized;
     }
 
     /**
+     * <p>Deprecated because this field is of little practical value, as it is either not reliably known, or the authorization time is fixed for a PSP.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAuthorizedUntil()
+    {
+        return $this->authorizedUntil;
+    }
+
+    /**
+     * <p>Deprecated because its value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
+     *
+
+     * @return null|TypedMoney
+     */
+    public function getAmountPaid()
+    {
+        return $this->amountPaid instanceof TypedMoneyBuilder ? $this->amountPaid->build() : $this->amountPaid;
+    }
+
+    /**
+     * <p>Deprecated because its value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
+     *
+
+     * @return null|TypedMoney
+     */
+    public function getAmountRefunded()
+    {
+        return $this->amountRefunded instanceof TypedMoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded;
+    }
+
+    /**
+     * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
+     *
 
      * @return null|PaymentMethodInfo
      */
@@ -247,6 +341,8 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * <p>Current status of the Payment.</p>
+     *
 
      * @return null|PaymentStatus
      */
@@ -256,7 +352,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>
+     * <p>Financial transactions of the Payment. Each Transaction has a <a href="ctp:api:type:TransactionType">TransactionType</a> and a <a href="ctp:api:type:TransactionState">TransactionState</a>.</p>
      *
 
      * @return null|TransactionCollection
@@ -267,10 +363,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>Interface interactions can be requests sent to the PSP, responses received from the PSP or notifications received from the PSP.
-     * Some interactions may result in a transaction.
-     * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
-     * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>
+     * <p>Represents information exchange with the payment service, for example, a PSP. An interaction may be a request sent, or a response or notification received from the payment service.</p>
      *
 
      * @return null|CustomFieldsCollection
@@ -281,6 +374,8 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields for the Payment.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -389,6 +484,17 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
+     * @return $this
+     */
+    public function withExternalId(?string $externalId)
+    {
+        $this->externalId = $externalId;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $interfaceId
      * @return $this
      */
@@ -400,12 +506,56 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $amountPlanned
+     * @param ?CentPrecisionMoney $amountPlanned
      * @return $this
      */
-    public function withAmountPlanned(?TypedMoney $amountPlanned)
+    public function withAmountPlanned(?CentPrecisionMoney $amountPlanned)
     {
         $this->amountPlanned = $amountPlanned;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TypedMoney $amountAuthorized
+     * @return $this
+     */
+    public function withAmountAuthorized(?TypedMoney $amountAuthorized)
+    {
+        $this->amountAuthorized = $amountAuthorized;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $authorizedUntil
+     * @return $this
+     */
+    public function withAuthorizedUntil(?string $authorizedUntil)
+    {
+        $this->authorizedUntil = $authorizedUntil;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TypedMoney $amountPaid
+     * @return $this
+     */
+    public function withAmountPaid(?TypedMoney $amountPaid)
+    {
+        $this->amountPaid = $amountPaid;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TypedMoney $amountRefunded
+     * @return $this
+     */
+    public function withAmountRefunded(?TypedMoney $amountRefunded)
+    {
+        $this->amountRefunded = $amountRefunded;
 
         return $this;
     }
@@ -513,9 +663,42 @@ final class PaymentBuilder implements Builder
      * @deprecated use withAmountPlanned() instead
      * @return $this
      */
-    public function withAmountPlannedBuilder(?TypedMoneyBuilder $amountPlanned)
+    public function withAmountPlannedBuilder(?CentPrecisionMoneyBuilder $amountPlanned)
     {
         $this->amountPlanned = $amountPlanned;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withAmountAuthorized() instead
+     * @return $this
+     */
+    public function withAmountAuthorizedBuilder(?TypedMoneyBuilder $amountAuthorized)
+    {
+        $this->amountAuthorized = $amountAuthorized;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withAmountPaid() instead
+     * @return $this
+     */
+    public function withAmountPaidBuilder(?TypedMoneyBuilder $amountPaid)
+    {
+        $this->amountPaid = $amountPaid;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withAmountRefunded() instead
+     * @return $this
+     */
+    public function withAmountRefundedBuilder(?TypedMoneyBuilder $amountRefunded)
+    {
+        $this->amountRefunded = $amountRefunded;
 
         return $this;
     }
@@ -564,8 +747,13 @@ final class PaymentBuilder implements Builder
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->anonymousId,
+            $this->externalId,
             $this->interfaceId,
-            $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
+            $this->amountPlanned instanceof CentPrecisionMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
+            $this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized,
+            $this->authorizedUntil,
+            $this->amountPaid instanceof TypedMoneyBuilder ? $this->amountPaid->build() : $this->amountPaid,
+            $this->amountRefunded instanceof TypedMoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded,
             $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
             $this->paymentStatus instanceof PaymentStatusBuilder ? $this->paymentStatus->build() : $this->paymentStatus,
             $this->transactions,

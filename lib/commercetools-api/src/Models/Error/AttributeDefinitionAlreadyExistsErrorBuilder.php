@@ -45,6 +45,8 @@ final class AttributeDefinitionAlreadyExistsErrorBuilder implements Builder
     private $conflictingAttributeName;
 
     /**
+     * <p><code>&quot;An attribute definition with name $attributeName already exists on product type $productTypeName.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -54,6 +56,8 @@ final class AttributeDefinitionAlreadyExistsErrorBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the Product Type containing the conflicting name.</p>
+     *
 
      * @return null|string
      */
@@ -63,6 +67,8 @@ final class AttributeDefinitionAlreadyExistsErrorBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Product Type containing the conflicting name.</p>
+     *
 
      * @return null|string
      */
@@ -72,6 +78,8 @@ final class AttributeDefinitionAlreadyExistsErrorBuilder implements Builder
     }
 
     /**
+     * <p>Name of the conflicting Attribute.</p>
+     *
 
      * @return null|string
      */

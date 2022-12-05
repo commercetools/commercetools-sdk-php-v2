@@ -62,7 +62,7 @@ final class TextLineItemBuilder implements Builder
     private $quantity;
 
     /**
-     * <p>When the text line item was added to the shopping list.</p>
+     * <p>Date and time (UTC) the TextLineItem was added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -73,6 +73,8 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields of the TextLineItem.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -82,6 +84,8 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Description of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -102,6 +106,8 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Name of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -111,6 +117,8 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Number of entries in the TextLineItem.</p>
+     *
 
      * @return null|int
      */

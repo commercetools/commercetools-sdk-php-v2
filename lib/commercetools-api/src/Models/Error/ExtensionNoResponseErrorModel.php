@@ -79,6 +79,8 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
+     * <p><code>&quot;Extension did not respond in time.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +99,8 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
+     * <p>Unique identifier of the API Extension.</p>
+     *
      *
      * @return null|string
      */
@@ -115,6 +119,8 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
+     * <p>User-defined unique identifier of the API Extension, if available.</p>
+     *
      *
      * @return null|string
      */

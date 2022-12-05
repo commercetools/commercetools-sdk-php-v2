@@ -27,6 +27,8 @@ final class NoMatchingProductDiscountFoundErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;Couldn't find a matching product discount for: productId=$productId, variantId=$variantId, price=$price.&quot;</code></p>
+     *
 
      * @return null|string
      */

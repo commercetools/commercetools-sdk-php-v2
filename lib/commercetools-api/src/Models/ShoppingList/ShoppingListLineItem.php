@@ -24,20 +24,22 @@ interface ShoppingListLineItem extends JsonObject
     public const FIELD_ID = 'id';
     public const FIELD_NAME = 'name';
     public const FIELD_PRODUCT_ID = 'productId';
-    public const FIELD_PRODUCT_SLUG = 'productSlug';
     public const FIELD_PRODUCT_TYPE = 'productType';
     public const FIELD_QUANTITY = 'quantity';
-    public const FIELD_VARIANT = 'variant';
     public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_VARIANT = 'variant';
+    public const FIELD_PRODUCT_SLUG = 'productSlug';
 
     /**
+     * <p>Date and time (UTC) the ShoppingListLineItem was added to the ShoppingList.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Custom Fields of the ShoppingListLineItem.</p>
      *
 
      * @return null|CustomFields
@@ -45,6 +47,9 @@ interface ShoppingListLineItem extends JsonObject
     public function getCustom();
 
     /**
+     * <p>If the Product or Product Variant is deleted, <code>deactivatedAt</code> is the date and time (UTC) of deletion.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product Variant cannot be ordered anymore.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -59,7 +64,8 @@ interface ShoppingListLineItem extends JsonObject
     public function getId();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Name of the Product.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product's name changes.</p>
      *
 
      * @return null|LocalizedString
@@ -67,21 +73,15 @@ interface ShoppingListLineItem extends JsonObject
     public function getName();
 
     /**
+     * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
 
      * @return null|string
      */
     public function getProductId();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
-     *
-
-     * @return null|LocalizedString
-     */
-    public function getProductSlug();
-
-    /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     * <p>The Product Type defining the Attributes of the <a href="ctp:api:type:Product">Product</a>.</p>
      *
 
      * @return null|ProductTypeReference
@@ -89,13 +89,25 @@ interface ShoppingListLineItem extends JsonObject
     public function getProductType();
 
     /**
+     * <p>Number of Products in the ShoppingListLineItem.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
-     * <p>A concrete sellable good for which inventory can be tracked. Product Variants are generally mapped to specific SKUs.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the ShoppingListLineItem refers to. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+     *
+
+     * @return null|int
+     */
+    public function getVariantId();
+
+    /**
+     * <p>Data of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.
+     * Returned when expanded using <code>expand=lineItems[*].variant</code>.</p>
+     * <p><em>Limitation: <code>expand=lineItems[0].variant</code> is not supported.</em></p>
      *
 
      * @return null|ProductVariant
@@ -103,10 +115,14 @@ interface ShoppingListLineItem extends JsonObject
     public function getVariant();
 
     /**
+     * <p>Slug of the current <a href="ctp:api:type:ProductData">ProductData</a>.
+     * Only returned when expanded using <code>expand=lineItems[*].productSlug</code>.</p>
+     * <p><em>Limitation: <code>expand=lineItems[0].productSlug</code> is not supported.</em></p>
+     *
 
-     * @return null|int
+     * @return null|LocalizedString
      */
-    public function getVariantId();
+    public function getProductSlug();
 
     /**
      * @param ?DateTimeImmutable $addedAt
@@ -139,11 +155,6 @@ interface ShoppingListLineItem extends JsonObject
     public function setProductId(?string $productId): void;
 
     /**
-     * @param ?LocalizedString $productSlug
-     */
-    public function setProductSlug(?LocalizedString $productSlug): void;
-
-    /**
      * @param ?ProductTypeReference $productType
      */
     public function setProductType(?ProductTypeReference $productType): void;
@@ -154,12 +165,17 @@ interface ShoppingListLineItem extends JsonObject
     public function setQuantity(?int $quantity): void;
 
     /**
+     * @param ?int $variantId
+     */
+    public function setVariantId(?int $variantId): void;
+
+    /**
      * @param ?ProductVariant $variant
      */
     public function setVariant(?ProductVariant $variant): void;
 
     /**
-     * @param ?int $variantId
+     * @param ?LocalizedString $productSlug
      */
-    public function setVariantId(?int $variantId): void;
+    public function setProductSlug(?LocalizedString $productSlug): void;
 }

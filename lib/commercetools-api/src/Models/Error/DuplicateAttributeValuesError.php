@@ -18,9 +18,30 @@ interface DuplicateAttributeValuesError extends ErrorObject
 
     /**
 
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;The set of attributes must be unique across all variants.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Conflicting Attributes.</p>
+     *
+
      * @return null|AttributeCollection
      */
     public function getAttributes();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?AttributeCollection $attributes

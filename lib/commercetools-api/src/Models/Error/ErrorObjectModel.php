@@ -43,6 +43,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'AttributeNameDoesNotExist' => AttributeNameDoesNotExistErrorModel::class,
        'BadGateway' => BadGatewayErrorModel::class,
        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
+       'CountryNotConfiguredInStore' => CountryNotConfiguredInStoreModel::class,
        'DiscountCodeNonApplicable' => DiscountCodeNonApplicableErrorModel::class,
        'DuplicateAttributeValue' => DuplicateAttributeValueErrorModel::class,
        'DuplicateAttributeValues' => DuplicateAttributeValuesErrorModel::class,
@@ -59,6 +60,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'EnumValuesMustMatch' => EnumValuesMustMatchErrorModel::class,
        'ExtensionBadResponse' => ExtensionBadResponseErrorModel::class,
        'ExtensionNoResponse' => ExtensionNoResponseErrorModel::class,
+       'ExtensionPredicateEvaluationFailed' => ExtensionPredicateEvaluationFailedErrorModel::class,
        'ExtensionUpdateActionsFailed' => ExtensionUpdateActionsFailedErrorModel::class,
        'ExternalOAuthFailed' => ExternalOAuthFailedErrorModel::class,
        'FeatureRemoved' => FeatureRemovedErrorModel::class,
@@ -85,6 +87,8 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'OverlappingStandalonePriceValidity' => OverlappingStandalonePriceValidityErrorModel::class,
        'PendingOperation' => PendingOperationErrorModel::class,
        'PriceChanged' => PriceChangedErrorModel::class,
+       'ProductAssignmentMissing' => ProductAssignmentMissingErrorModel::class,
+       'ProductPresentWithDifferentVariantSelection' => ProductPresentWithDifferentVariantSelectionErrorModel::class,
        'ProjectNotConfiguredForLanguages' => ProjectNotConfiguredForLanguagesErrorModel::class,
        'QueryComplexityLimitExceeded' => QueryComplexityLimitExceededErrorModel::class,
        'QueryTimedOut' => QueryTimedOutErrorModel::class,
@@ -100,8 +104,6 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'SemanticError' => SemanticErrorErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
        'SyntaxError' => SyntaxErrorErrorModel::class,
-       'WeakPassword' => WeakPasswordErrorModel::class,
-       'access_denied' => AccessDeniedErrorModel::class,
        'insufficient_scope' => InsufficientScopeErrorModel::class,
        'invalid_token' => InvalidTokenErrorModel::class,
     ];
@@ -118,6 +120,8 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     }
 
     /**
+     * <p>Error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -136,6 +140,8 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     }
 
     /**
+     * <p>Plain text description of the cause of the error.</p>
+     *
      *
      * @return null|string
      */

@@ -35,6 +35,8 @@ final class PaymentTransitionStateActionBuilder implements Builder
     private $force;
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
 
      * @return null|StateResourceIdentifier
      */
@@ -44,6 +46,8 @@ final class PaymentTransitionStateActionBuilder implements Builder
     }
 
     /**
+     * <p>Set to <code>true</code> to skip validations when transitioning to the new State.</p>
+     *
 
      * @return null|bool
      */

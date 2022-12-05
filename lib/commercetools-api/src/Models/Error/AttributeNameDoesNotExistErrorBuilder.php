@@ -33,6 +33,8 @@ final class AttributeNameDoesNotExistErrorBuilder implements Builder
     private $invalidAttributeName;
 
     /**
+     * <p><code>&quot;Attribute definition for $attributeName does not exist on type $typeName.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class AttributeNameDoesNotExistErrorBuilder implements Builder
     }
 
     /**
+     * <p>Non-existent Attribute name.</p>
+     *
 
      * @return null|string
      */

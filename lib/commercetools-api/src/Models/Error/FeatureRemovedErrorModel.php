@@ -63,6 +63,8 @@ final class FeatureRemovedErrorModel extends JsonObjectModel implements FeatureR
     }
 
     /**
+     * <p>Description of the feature that is removed.</p>
+     *
      *
      * @return null|string
      */

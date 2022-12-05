@@ -63,6 +63,8 @@ final class EnumValueIsUsedErrorModel extends JsonObjectModel implements EnumVal
     }
 
     /**
+     * <p><code>&quot;$enumKeysTranscript is used by some products and cannot be deleted because the $attributeName attribute is required.&quot;</code></p>
+     *
      *
      * @return null|string
      */

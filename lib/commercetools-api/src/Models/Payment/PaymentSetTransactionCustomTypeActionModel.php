@@ -83,6 +83,8 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Transaction">Transaction</a>. If the specified <code>transactionId</code> does not exist, the request will fail with an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error.</p>
+     *
      *
      * @return null|string
      */

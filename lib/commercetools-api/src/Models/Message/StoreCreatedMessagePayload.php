@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
+use Commercetools\Api\Models\StoreCountry\StoreCountryCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -19,6 +20,7 @@ interface StoreCreatedMessagePayload extends MessagePayload
 {
     public const FIELD_NAME = 'name';
     public const FIELD_LANGUAGES = 'languages';
+    public const FIELD_COUNTRIES = 'countries';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
     public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
@@ -39,6 +41,14 @@ interface StoreCreatedMessagePayload extends MessagePayload
      * @return null|array
      */
     public function getLanguages();
+
+    /**
+     * <p><a href="ctp:api:type:StoreCountry">Countries</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getCountries();
 
     /**
      * <p><a href="ctp:api:type:ChannelRoleEnum">Distribution Channels</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
@@ -81,6 +91,11 @@ interface StoreCreatedMessagePayload extends MessagePayload
      * @param ?array $languages
      */
     public function setLanguages(?array $languages): void;
+
+    /**
+     * @param ?StoreCountryCollection $countries
+     */
+    public function setCountries(?StoreCountryCollection $countries): void;
 
     /**
      * @param ?ChannelReferenceCollection $distributionChannels

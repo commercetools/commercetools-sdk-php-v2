@@ -189,6 +189,15 @@ class ByProjectKeyProductsKeyByKeyDelete extends ApiRequest implements PriceSele
 
     /**
      *
+     * @psalm-param scalar|scalar[] $localeProjection
+     */
+    public function withLocaleProjection($localeProjection): ByProjectKeyProductsKeyByKeyDelete
+    {
+        return $this->withQueryParam('localeProjection', $localeProjection);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $version
      */
     public function withVersion($version): ByProjectKeyProductsKeyByKeyDelete

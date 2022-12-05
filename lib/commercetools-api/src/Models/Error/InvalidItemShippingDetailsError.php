@@ -20,13 +20,36 @@ interface InvalidItemShippingDetailsError extends ErrorObject
 
      * @return null|string
      */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Inconsistent shipping details for $subject with ID $itemId. $subject quantity is $itemQuantity and shippingTargets quantity sum is $quantitySum.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p><code>&quot;LineItem&quot;</code> or <code>&quot;CustomLineItem&quot;</code></p>
+     *
+
+     * @return null|string
+     */
     public function getSubject();
 
     /**
+     * <p>Unique identifier of the Line Item or Custom Line Item.</p>
+     *
 
      * @return null|string
      */
     public function getItemId();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $subject

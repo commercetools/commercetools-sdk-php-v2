@@ -33,6 +33,8 @@ final class MyShoppingListUpdateBuilder implements Builder
     private $actions;
 
     /**
+     * <p>Expected version of the ShoppingList on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
+     *
 
      * @return null|int
      */
@@ -42,6 +44,8 @@ final class MyShoppingListUpdateBuilder implements Builder
     }
 
     /**
+     * <p>List of update actions to be performed on the ShoppingList.</p>
+     *
 
      * @return null|MyShoppingListUpdateActionCollection
      */

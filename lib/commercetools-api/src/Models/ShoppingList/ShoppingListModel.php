@@ -60,39 +60,9 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
 
     /**
      *
-     * @var ?LastModifiedBy
-     */
-    protected $lastModifiedBy;
-
-    /**
-     *
-     * @var ?CreatedBy
-     */
-    protected $createdBy;
-
-    /**
-     *
-     * @var ?CustomFields
-     */
-    protected $custom;
-
-    /**
-     *
-     * @var ?CustomerReference
-     */
-    protected $customer;
-
-    /**
-     *
-     * @var ?int
-     */
-    protected $deleteDaysAfterLastModification;
-
-    /**
-     *
      * @var ?LocalizedString
      */
-    protected $description;
+    protected $name;
 
     /**
      *
@@ -102,15 +72,9 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
 
     /**
      *
-     * @var ?ShoppingListLineItemCollection
+     * @var ?CustomerReference
      */
-    protected $lineItems;
-
-    /**
-     *
-     * @var ?LocalizedString
-     */
-    protected $name;
+    protected $customer;
 
     /**
      *
@@ -120,9 +84,27 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
 
     /**
      *
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     *
+     * @var ?ShoppingListLineItemCollection
+     */
+    protected $lineItems;
+
+    /**
+     *
      * @var ?TextLineItemCollection
      */
     protected $textLineItems;
+
+    /**
+     *
+     * @var ?int
+     */
+    protected $deleteDaysAfterLastModification;
 
     /**
      *
@@ -136,6 +118,24 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
      */
     protected $store;
 
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     *
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
+    /**
+     *
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -145,37 +145,37 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         ?int $version = null,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $lastModifiedAt = null,
-        ?LastModifiedBy $lastModifiedBy = null,
-        ?CreatedBy $createdBy = null,
-        ?CustomFields $custom = null,
-        ?CustomerReference $customer = null,
-        ?int $deleteDaysAfterLastModification = null,
-        ?LocalizedString $description = null,
-        ?string $key = null,
-        ?ShoppingListLineItemCollection $lineItems = null,
         ?LocalizedString $name = null,
+        ?string $key = null,
+        ?CustomerReference $customer = null,
         ?LocalizedString $slug = null,
+        ?LocalizedString $description = null,
+        ?ShoppingListLineItemCollection $lineItems = null,
         ?TextLineItemCollection $textLineItems = null,
+        ?int $deleteDaysAfterLastModification = null,
         ?string $anonymousId = null,
-        ?StoreKeyReference $store = null
+        ?StoreKeyReference $store = null,
+        ?CustomFields $custom = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null
     ) {
         $this->id = $id;
         $this->version = $version;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
-        $this->lastModifiedBy = $lastModifiedBy;
-        $this->createdBy = $createdBy;
-        $this->custom = $custom;
-        $this->customer = $customer;
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-        $this->description = $description;
-        $this->key = $key;
-        $this->lineItems = $lineItems;
         $this->name = $name;
+        $this->key = $key;
+        $this->customer = $customer;
         $this->slug = $slug;
+        $this->description = $description;
+        $this->lineItems = $lineItems;
         $this->textLineItems = $textLineItems;
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->anonymousId = $anonymousId;
         $this->store = $store;
+        $this->custom = $custom;
+        $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
     }
 
     /**
@@ -199,7 +199,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>The current version of the shopping list.</p>
+     * <p>Current version of the ShoppingList.</p>
      *
      *
      * @return null|int
@@ -219,6 +219,8 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     * <p>Date and time (UTC) the ShoppingList was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -241,6 +243,8 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     * <p>Date and time (UTC) the ShoppingList was last updated.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -260,6 +264,234 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         }
 
         return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>Name of the ShoppingList.</p>
+     *
+     *
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the ShoppingList.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>Reference to a <a href="ctp:api:type:Customer">Customer</a> associated with the ShoppingList.</p>
+     *
+     *
+     * @return null|CustomerReference
+     */
+    public function getCustomer()
+    {
+        if (is_null($this->customer)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOMER);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customer = CustomerReferenceModel::of($data);
+        }
+
+        return $this->customer;
+    }
+
+    /**
+     * <p>Human-readable identifiers usually used as deep-link URL to the related ShoppingList.
+     * Each slug is unique across a Project, but a ShoppingList can have the same slug for different languages.
+     * The slug must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>. For <a href="/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set on the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+     *
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
+    }
+
+    /**
+     * <p>Description of the ShoppingList.</p>
+     *
+     *
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
+    }
+
+    /**
+     * <p>Line Items (containing Products) of the ShoppingList.</p>
+     *
+     *
+     * @return null|ShoppingListLineItemCollection
+     */
+    public function getLineItems()
+    {
+        if (is_null($this->lineItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItems = ShoppingListLineItemCollection::fromArray($data);
+        }
+
+        return $this->lineItems;
+    }
+
+    /**
+     * <p>Line Items (containing text values) of the ShoppingList.</p>
+     *
+     *
+     * @return null|TextLineItemCollection
+     */
+    public function getTextLineItems()
+    {
+        if (is_null($this->textLineItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->textLineItems = TextLineItemCollection::fromArray($data);
+        }
+
+        return $this->textLineItems;
+    }
+
+    /**
+     * <p>Number of days after which the ShoppingList will be automatically deleted if it has not been modified.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification()
+    {
+        if (is_null($this->deleteDaysAfterLastModification)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deleteDaysAfterLastModification = (int) $data;
+        }
+
+        return $this->deleteDaysAfterLastModification;
+    }
+
+    /**
+     * <p>Identifies ShoppingLists belonging to an <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAnonymousId()
+    {
+        if (is_null($this->anonymousId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->anonymousId = (string) $data;
+        }
+
+        return $this->anonymousId;
+    }
+
+    /**
+     * <p>Store to which the ShoppingList is assigned.</p>
+     *
+     *
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreKeyReferenceModel::of($data);
+        }
+
+        return $this->store;
+    }
+
+    /**
+     * <p>Custom Fields defined for the ShoppingList.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
     }
 
     /**
@@ -304,220 +536,6 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         return $this->createdBy;
     }
 
-    /**
-     *
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     *
-     * @return null|CustomerReference
-     */
-    public function getCustomer()
-    {
-        if (is_null($this->customer)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOMER);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->customer = CustomerReferenceModel::of($data);
-        }
-
-        return $this->customer;
-    }
-
-    /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
-     *
-     *
-     * @return null|int
-     */
-    public function getDeleteDaysAfterLastModification()
-    {
-        if (is_null($this->deleteDaysAfterLastModification)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->deleteDaysAfterLastModification = (int) $data;
-        }
-
-        return $this->deleteDaysAfterLastModification;
-    }
-
-    /**
-     *
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        if (is_null($this->description)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->description = LocalizedStringModel::of($data);
-        }
-
-        return $this->description;
-    }
-
-    /**
-     * <p>User-defined unique identifier of the ShoppingList.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
-     *
-     * @return null|ShoppingListLineItemCollection
-     */
-    public function getLineItems()
-    {
-        if (is_null($this->lineItems)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItems = ShoppingListLineItemCollection::fromArray($data);
-        }
-
-        return $this->lineItems;
-    }
-
-    /**
-     *
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
-     * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
-     *
-     *
-     * @return null|LocalizedString
-     */
-    public function getSlug()
-    {
-        if (is_null($this->slug)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SLUG);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->slug = LocalizedStringModel::of($data);
-        }
-
-        return $this->slug;
-    }
-
-    /**
-     *
-     * @return null|TextLineItemCollection
-     */
-    public function getTextLineItems()
-    {
-        if (is_null($this->textLineItems)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_TEXT_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->textLineItems = TextLineItemCollection::fromArray($data);
-        }
-
-        return $this->textLineItems;
-    }
-
-    /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getAnonymousId()
-    {
-        if (is_null($this->anonymousId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->anonymousId = (string) $data;
-        }
-
-        return $this->anonymousId;
-    }
-
-    /**
-     *
-     * @return null|StoreKeyReference
-     */
-    public function getStore()
-    {
-        if (is_null($this->store)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_STORE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->store = StoreKeyReferenceModel::of($data);
-        }
-
-        return $this->store;
-    }
-
 
     /**
      * @param ?string $id
@@ -552,51 +570,11 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * @param ?LastModifiedBy $lastModifiedBy
+     * @param ?LocalizedString $name
      */
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    public function setName(?LocalizedString $name): void
     {
-        $this->lastModifiedBy = $lastModifiedBy;
-    }
-
-    /**
-     * @param ?CreatedBy $createdBy
-     */
-    public function setCreatedBy(?CreatedBy $createdBy): void
-    {
-        $this->createdBy = $createdBy;
-    }
-
-    /**
-     * @param ?CustomFields $custom
-     */
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    /**
-     * @param ?CustomerReference $customer
-     */
-    public function setCustomer(?CustomerReference $customer): void
-    {
-        $this->customer = $customer;
-    }
-
-    /**
-     * @param ?int $deleteDaysAfterLastModification
-     */
-    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
-    {
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-    }
-
-    /**
-     * @param ?LocalizedString $description
-     */
-    public function setDescription(?LocalizedString $description): void
-    {
-        $this->description = $description;
+        $this->name = $name;
     }
 
     /**
@@ -608,19 +586,11 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * @param ?ShoppingListLineItemCollection $lineItems
+     * @param ?CustomerReference $customer
      */
-    public function setLineItems(?ShoppingListLineItemCollection $lineItems): void
+    public function setCustomer(?CustomerReference $customer): void
     {
-        $this->lineItems = $lineItems;
-    }
-
-    /**
-     * @param ?LocalizedString $name
-     */
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
+        $this->customer = $customer;
     }
 
     /**
@@ -632,11 +602,35 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     * @param ?LocalizedString $description
+     */
+    public function setDescription(?LocalizedString $description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @param ?ShoppingListLineItemCollection $lineItems
+     */
+    public function setLineItems(?ShoppingListLineItemCollection $lineItems): void
+    {
+        $this->lineItems = $lineItems;
+    }
+
+    /**
      * @param ?TextLineItemCollection $textLineItems
      */
     public function setTextLineItems(?TextLineItemCollection $textLineItems): void
     {
         $this->textLineItems = $textLineItems;
+    }
+
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
+    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
+    {
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
 
     /**
@@ -653,6 +647,30 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     public function setStore(?StoreKeyReference $store): void
     {
         $this->store = $store;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+    }
+
+    /**
+     * @param ?CreatedBy $createdBy
+     */
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
     }
 
 

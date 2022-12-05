@@ -13,4 +13,22 @@ use Commercetools\Base\JsonObject;
 
 interface ExternalOAuthFailedError extends ErrorObject
 {
+    /**
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p>Plain text description detailing the external OAuth error. For example, <code>&quot;External OAuth did not respond in time.&quot;</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 }

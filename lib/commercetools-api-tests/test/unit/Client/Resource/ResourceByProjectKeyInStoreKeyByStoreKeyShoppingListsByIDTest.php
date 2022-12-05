@@ -142,6 +142,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShoppingListsByIDTest extends Test
                 'post',
                 'test_projectKey/in-store/key=test_storeKey/shopping-lists/test_ID',
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyShoppingListsByIDDelete_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->shoppingLists()
+                        ->withId('test_ID')
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                'test_projectKey/in-store/key=test_storeKey/shopping-lists/test_ID?expand=expand',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyShoppingListsByIDDelete_withDataErasure' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -167,19 +180,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShoppingListsByIDTest extends Test
                 },
                 'delete',
                 'test_projectKey/in-store/key=test_storeKey/shopping-lists/test_ID?version=version',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyShoppingListsByIDDelete_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->shoppingLists()
-                        ->withId('test_ID')
-                        ->delete()
-                        ->withExpand('expand');
-                },
-                'delete',
-                'test_projectKey/in-store/key=test_storeKey/shopping-lists/test_ID?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyShoppingListsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

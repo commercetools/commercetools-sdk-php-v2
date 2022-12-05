@@ -33,6 +33,8 @@ final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
     private $quantity;
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>Amount to remove from the <code>quantity</code> of the TextLineItem. If not set, the TextLineItem is removed from the ShoppingList. If this value matches or exceeds the current <code>quantity</code> of the TextLineItem, the TextLineItem is removed from the ShoppingList.</p>
+     *
 
      * @return null|int
      */

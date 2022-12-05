@@ -33,6 +33,8 @@ final class DuplicateEnumValuesErrorBuilder implements Builder
     private $duplicates;
 
     /**
+     * <p><code>&quot;The enum values contain duplicate keys: $listOfDuplicateKeys.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class DuplicateEnumValuesErrorBuilder implements Builder
     }
 
     /**
+     * <p>Duplicate keys.</p>
+     *
 
      * @return null|array
      */

@@ -73,6 +73,8 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     }
 
     /**
+     * <p><code>&quot;Attribute can't have the same value in a different variant.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -91,6 +93,8 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Conflicting Attributes.</p>
+     *
      *
      * @return null|Attribute
      */

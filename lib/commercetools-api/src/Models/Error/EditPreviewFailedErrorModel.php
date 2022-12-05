@@ -73,6 +73,8 @@ final class EditPreviewFailedErrorModel extends JsonObjectModel implements EditP
     }
 
     /**
+     * <p><code>&quot;Error while applying staged actions. ShippingMethods could not be determined.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -91,6 +93,8 @@ final class EditPreviewFailedErrorModel extends JsonObjectModel implements EditP
     }
 
     /**
+     * <p>State of the OrderEdit where the <code>stagedActions</code> cannot be applied to the Order.</p>
+     *
      *
      * @return null|OrderEditPreviewFailure
      */

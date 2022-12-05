@@ -19,19 +19,23 @@ interface PaymentStatusDraft extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
+     * <p>External reference that identifies the current status of the Payment.</p>
+     *
 
      * @return null|string
      */
     public function getInterfaceCode();
 
     /**
+     * <p>Text describing the current status of the Payment.</p>
+     *
 
      * @return null|string
      */
     public function getInterfaceText();
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
 
      * @return null|StateResourceIdentifier

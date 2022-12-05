@@ -25,7 +25,7 @@ interface ProductTypeChangePlainEnumValueOrderAction extends ProductTypeUpdateAc
     public function getAttributeName();
 
     /**
-     * <p>Values must be equal to the values of the Attribute enum values (except for the order). If not, an <a href="/errors#product-types-400-enum-values-must-match">EnumValuesMustMatch</a> error code will be returned.</p>
+     * <p>Values must be equal to the values of the Attribute enum values (except for the order). If not, an <a href="ctp:api:type:EnumValuesMustMatchError">EnumValuesMustMatch</a> error is returned.</p>
      *
 
      * @return null|AttributePlainEnumValueCollection

@@ -27,6 +27,8 @@ final class SyntaxErrorErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;Syntax error while parsing $fieldDefinition.&quot;</code></p>
+     *
 
      * @return null|string
      */

@@ -27,6 +27,8 @@ final class ShoppingListChangeLineItemsOrderActionBuilder implements Builder
     private $lineItemOrder;
 
     /**
+     * <p>All existing ShoppingListLineItem <code>id</code>s in the desired new order.</p>
+     *
 
      * @return null|array
      */

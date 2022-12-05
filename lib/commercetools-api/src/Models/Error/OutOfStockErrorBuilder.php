@@ -39,6 +39,8 @@ final class OutOfStockErrorBuilder implements Builder
     private $skus;
 
     /**
+     * <p><code>&quot;Some line items are out of stock at the time of placing the order: $itemSku.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,8 @@ final class OutOfStockErrorBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifiers of the Line Items that are out of stock.</p>
+     *
 
      * @return null|array
      */
@@ -57,6 +61,8 @@ final class OutOfStockErrorBuilder implements Builder
     }
 
     /**
+     * <p>SKUs of the Line Items that are out of stock.</p>
+     *
 
      * @return null|array
      */

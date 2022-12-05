@@ -65,6 +65,8 @@ final class PaymentChangeAmountPlannedActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>New value to set.</p>
+     *
      *
      * @return null|Money
      */

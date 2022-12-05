@@ -17,12 +17,16 @@ interface MyShoppingListChangeTextLineItemQuantityAction extends MyShoppingListU
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getTextLineItemId();
 
     /**
+     * <p>New value to set. If <code>0</code>, the TextLineItem is removed from the ShoppingList.</p>
+     *
 
      * @return null|int
      */

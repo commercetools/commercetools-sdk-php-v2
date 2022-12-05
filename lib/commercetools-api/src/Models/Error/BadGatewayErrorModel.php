@@ -63,6 +63,8 @@ final class BadGatewayErrorModel extends JsonObjectModel implements BadGatewayEr
     }
 
     /**
+     * <p>Plain text description of the error.</p>
+     *
      *
      * @return null|string
      */

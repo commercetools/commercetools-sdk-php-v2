@@ -45,6 +45,8 @@ final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTok
     }
 
     /**
+     * <p>Error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -63,6 +65,8 @@ final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTok
     }
 
     /**
+     * <p>Plain text description of the cause of the error.</p>
+     *
      *
      * @return null|string
      */

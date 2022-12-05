@@ -66,7 +66,7 @@ interface CustomerSignin extends JsonObject
     public function getAnonymousCartSignInMode();
 
     /**
-     * <p>If both <code>anonymousCart</code> and <code>anonymousId</code> are provided, the <code>anonymousId</code> on the CustomerSignin must match that of the anonymous [Cart](ctp:api:type:Cart].
+     * <p>If both <code>anonymousCart</code> and <code>anonymousId</code> are provided, the <code>anonymousId</code> on the CustomerSignin must match that of the anonymous <a href="ctp:api:type:Cart">Cart</a>.
      * Otherwise a <a href="ctp:api:type:InvalidOperationError">400 Bad Request</a> <code>Invalid Operation</code> error is returned with the message:
      * &quot;Cart with the ID cart-id does not have the expected anonymousId.&quot;.</p>
      *

@@ -63,6 +63,8 @@ final class ResourceSizeLimitExceededErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><code>&quot;The resource size exceeds the maximal allowed size of 16 MB.&quot;</code></p>
+     *
      *
      * @return null|string
      */

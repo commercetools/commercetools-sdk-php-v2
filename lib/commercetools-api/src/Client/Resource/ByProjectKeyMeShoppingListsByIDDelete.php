@@ -152,19 +152,19 @@ class ByProjectKeyMeShoppingListsByIDDelete extends ApiRequest implements Versio
 
     /**
      *
-     * @psalm-param scalar|scalar[] $version
-     */
-    public function withVersion($version): ByProjectKeyMeShoppingListsByIDDelete
-    {
-        return $this->withQueryParam('version', $version);
-    }
-
-    /**
-     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyMeShoppingListsByIDDelete
     {
         return $this->withQueryParam('expand', $expand);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $version
+     */
+    public function withVersion($version): ByProjectKeyMeShoppingListsByIDDelete
+    {
+        return $this->withQueryParam('version', $version);
     }
 }

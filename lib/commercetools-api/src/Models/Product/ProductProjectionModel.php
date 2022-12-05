@@ -165,6 +165,12 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
      */
     protected $reviewRatingStatistics;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $priceMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -191,7 +197,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         ?ProductVariantCollection $variants = null,
         ?TaxCategoryReference $taxCategory = null,
         ?StateReference $state = null,
-        ?ReviewRatingStatistics $reviewRatingStatistics = null
+        ?ReviewRatingStatistics $reviewRatingStatistics = null,
+        ?string $priceMode = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -215,10 +222,11 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         $this->taxCategory = $taxCategory;
         $this->state = $state;
         $this->reviewRatingStatistics = $reviewRatingStatistics;
+        $this->priceMode = $priceMode;
     }
 
     /**
-     * <p>The unique ID of the Product.</p>
+     * <p>Unique identifier of the <a href="ctp:api:type:Product">Product</a>.</p>
      *
      *
      * @return null|string
@@ -238,7 +246,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p>The current version of the Product.</p>
+     * <p>Current version of the <a href="ctp:api:type:Product">Product</a>.</p>
      *
      *
      * @return null|int
@@ -258,6 +266,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Date and time (UTC) the ProductProjection was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -280,6 +290,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Date and time (UTC) the ProductProjection was last updated.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -302,7 +314,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p>User-specific unique identifier of the Product.</p>
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:Product">Product</a>.</p>
      *
      *
      * @return null|string
@@ -322,6 +334,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>The <a href="ctp:api:type:ProductType">ProductType</a> defining the Attributes of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|ProductTypeReference
      */
@@ -341,6 +355,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -360,6 +376,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Description of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -379,6 +397,11 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>User-defined identifier used in a deep-link URL for the <a href="ctp:api:type:Product">Product</a>.
+     * Must be unique across a Project, but can be the same for Products in different locales.
+     * Matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.
+     * For <a href="/../api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -398,7 +421,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p>References to categories the product is in.</p>
+     * <p><a href="ctp:api:type:Category">Categories</a> assigned to the <a href="ctp:api:type:Product">Product</a>.</p>
      *
      *
      * @return null|CategoryReferenceCollection
@@ -418,6 +441,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Order of <a href="ctp:api:type:Product">Product</a> in <a href="ctp:api:type:Category">Categories</a>.</p>
+     *
      *
      * @return null|CategoryOrderHints
      */
@@ -437,6 +462,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Title of the <a href="ctp:api:type:Product">Product</a> displayed in search results.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -456,6 +483,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Description of the <a href="ctp:api:type:Product">Product</a> displayed in search results below the meta title.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -475,6 +504,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Keywords that give additional information about the <a href="ctp:api:type:Product">Product</a> to search engines.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -494,6 +525,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Used by <a href="/../api/projects/products-suggestions">Product Suggestions</a>, but is also considered for a <a href="ctp:api:type:FullTextSearch">full text search</a>.</p>
+     *
      *
      * @return null|SearchKeywords
      */
@@ -513,6 +546,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p><code>true</code> if the staged data is different from the current data.</p>
+     *
      *
      * @return null|bool
      */
@@ -531,6 +566,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p><code>true</code> if the <a href="ctp:api:type:Product">Product</a> is <a href="ctp:api:type:CurrentStaged">published</a>.</p>
+     *
      *
      * @return null|bool
      */
@@ -549,6 +586,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>The Master Variant of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|ProductVariant
      */
@@ -568,6 +607,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>Additional Product Variants.</p>
+     *
      *
      * @return null|ProductVariantCollection
      */
@@ -586,6 +627,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>The <a href="ctp:api:type:TaxCategory">TaxCategory</a> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|TaxCategoryReference
      */
@@ -605,6 +648,8 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|StateReference
      */
@@ -624,7 +669,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p>Statistics about the review ratings taken into account for this product.</p>
+     * <p>Review statistics of the <a href="ctp:api:type:Product">Product</a>.</p>
      *
      *
      * @return null|ReviewRatingStatistics
@@ -642,6 +687,26 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         }
 
         return $this->reviewRatingStatistics;
+    }
+
+    /**
+     * <p>Indicates whether the Prices of the Product Projection are <a href="ctp:api:type:Price">embedded</a> or <a href="ctp:api:type:StandalonePrice">standalone</a>. <a href="#prices">Projecting Prices</a> only works with <code>Embedded</code>, there is currently no support for <code>Standalone</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
     }
 
 
@@ -821,17 +886,25 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         $this->reviewRatingStatistics = $reviewRatingStatistics;
     }
 
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
+    }
+
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[ProductProjection::FIELD_CREATED_AT]) && $data[ProductProjection::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[ProductProjection::FIELD_CREATED_AT] = $data[ProductProjection::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[ProductProjection::FIELD_LAST_MODIFIED_AT]) && $data[ProductProjection::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[ProductProjection::FIELD_LAST_MODIFIED_AT] = $data[ProductProjection::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
     }

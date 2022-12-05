@@ -18,6 +18,7 @@ use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
+use Commercetools\Api\Models\StoreCountry\StoreCountryCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -104,6 +105,12 @@ final class StoreCreatedMessageBuilder implements Builder
      * @var ?array
      */
     private $languages;
+
+    /**
+
+     * @var ?StoreCountryCollection
+     */
+    private $countries;
 
     /**
 
@@ -260,6 +267,17 @@ final class StoreCreatedMessageBuilder implements Builder
     public function getLanguages()
     {
         return $this->languages;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:StoreCountry">Countries</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getCountries()
+    {
+        return $this->countries;
     }
 
     /**
@@ -439,6 +457,17 @@ final class StoreCreatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?StoreCountryCollection $countries
+     * @return $this
+     */
+    public function withCountries(?StoreCountryCollection $countries)
+    {
+        $this->countries = $countries;
+
+        return $this;
+    }
+
+    /**
      * @param ?ChannelReferenceCollection $distributionChannels
      * @return $this
      */
@@ -563,6 +592,7 @@ final class StoreCreatedMessageBuilder implements Builder
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->languages,
+            $this->countries,
             $this->distributionChannels,
             $this->supplyChannels,
             $this->productSelections,

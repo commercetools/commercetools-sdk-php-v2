@@ -23,7 +23,7 @@ interface TextLineItemDraft extends JsonObject
     public const FIELD_QUANTITY = 'quantity';
 
     /**
-     * <p>Defaults to the current date and time.</p>
+     * <p>Date and time the TextLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -31,7 +31,7 @@ interface TextLineItemDraft extends JsonObject
     public function getAddedAt();
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields for the TextLineItem.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -39,19 +39,23 @@ interface TextLineItemDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Description of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+     * <p>Name of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
-     * <p>Defaults to <code>1</code>.</p>
+     * <p>Number of entries in the TextLineItem.</p>
      *
 
      * @return null|int

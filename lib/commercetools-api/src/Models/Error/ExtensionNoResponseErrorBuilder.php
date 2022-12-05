@@ -39,6 +39,8 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     private $extensionKey;
 
     /**
+     * <p><code>&quot;Extension did not respond in time.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,8 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the API Extension.</p>
+     *
 
      * @return null|string
      */
@@ -57,6 +61,8 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the API Extension, if available.</p>
+     *
 
      * @return null|string
      */

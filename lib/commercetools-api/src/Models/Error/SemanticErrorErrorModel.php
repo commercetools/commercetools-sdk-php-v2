@@ -63,6 +63,8 @@ final class SemanticErrorErrorModel extends JsonObjectModel implements SemanticE
     }
 
     /**
+     * <p>Plain text description of the error concerning the predicate. For example, <code>&quot;Invalid country code $countryCode provided for the field $fieldDefinition.&quot;</code>.</p>
+     *
      *
      * @return null|string
      */

@@ -41,6 +41,8 @@ final class VariantValuesBuilder implements Builder
     private $attributes;
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|string
      */
@@ -50,6 +52,8 @@ final class VariantValuesBuilder implements Builder
     }
 
     /**
+     * <p>Embedded Prices of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|PriceDraftCollection
      */
@@ -59,6 +63,8 @@ final class VariantValuesBuilder implements Builder
     }
 
     /**
+     * <p>Attributes of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|AttributeCollection
      */

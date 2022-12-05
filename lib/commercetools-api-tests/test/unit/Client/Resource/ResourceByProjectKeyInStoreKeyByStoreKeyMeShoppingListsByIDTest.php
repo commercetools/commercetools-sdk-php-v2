@@ -146,6 +146,20 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDTest extends Te
                 'post',
                 'test_projectKey/in-store/key=test_storeKey/me/shopping-lists/test_ID',
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDDelete_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->me()
+                        ->shoppingLists()
+                        ->withId('test_ID')
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                'test_projectKey/in-store/key=test_storeKey/me/shopping-lists/test_ID?expand=expand',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDDelete_withDataErasure' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -173,20 +187,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDTest extends Te
                 },
                 'delete',
                 'test_projectKey/in-store/key=test_storeKey/me/shopping-lists/test_ID?version=version',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDDelete_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->me()
-                        ->shoppingLists()
-                        ->withId('test_ID')
-                        ->delete()
-                        ->withExpand('expand');
-                },
-                'delete',
-                'test_projectKey/in-store/key=test_storeKey/me/shopping-lists/test_ID?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

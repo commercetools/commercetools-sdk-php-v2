@@ -54,6 +54,8 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     }
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +74,8 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     }
 
     /**
+     * <p>Embedded Prices of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
      *
      * @return null|PriceDraftCollection
      */
@@ -90,6 +94,8 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     }
 
     /**
+     * <p>Attributes of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
      *
      * @return null|AttributeCollection
      */

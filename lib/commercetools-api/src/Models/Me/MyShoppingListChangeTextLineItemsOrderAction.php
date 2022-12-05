@@ -16,6 +16,8 @@ interface MyShoppingListChangeTextLineItemsOrderAction extends MyShoppingListUpd
     public const FIELD_TEXT_LINE_ITEM_ORDER = 'textLineItemOrder';
 
     /**
+     * <p>All existing <a href="ctp:api:type:TextLineItem">TextLineItem</a> <code>id</code>s in the desired new order.</p>
+     *
 
      * @return null|array
      */

@@ -27,6 +27,8 @@ final class InternalConstraintViolatedErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p>Plain text description of the constraints that were violated.</p>
+     *
 
      * @return null|string
      */

@@ -24,7 +24,7 @@ interface TransactionDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>The time at which the transaction took place.</p>
+     * <p>Date and time (UTC) the Transaction took place.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -32,7 +32,7 @@ interface TransactionDraft extends JsonObject
     public function getTimestamp();
 
     /**
-     * <p>The type of this transaction.</p>
+     * <p>Type of the Transaction.</p>
      *
 
      * @return null|string
@@ -40,14 +40,16 @@ interface TransactionDraft extends JsonObject
     public function getType();
 
     /**
+     * <p>Money value for the Transaction.</p>
+     *
 
      * @return null|Money
      */
     public function getAmount();
 
     /**
-     * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
-     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
+     * <p>Identifier used by the payment service that manages the Transaction.
+     * Can be used to correlate the Transaction to an interface interaction.</p>
      *
 
      * @return null|string
@@ -55,8 +57,7 @@ interface TransactionDraft extends JsonObject
     public function getInteractionId();
 
     /**
-     * <p>The state of this transaction.
-     * If not set, defaults to <code>Initial</code>.</p>
+     * <p>State of the Transaction.</p>
      *
 
      * @return null|string
@@ -64,7 +65,7 @@ interface TransactionDraft extends JsonObject
     public function getState();
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields of the Transaction.</p>
      *
 
      * @return null|CustomFieldsDraft

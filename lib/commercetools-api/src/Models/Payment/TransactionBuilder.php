@@ -79,7 +79,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>The time at which the transaction took place.</p>
+     * <p>Date and time (UTC) the Transaction took place.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -90,7 +90,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>The type of this transaction.</p>
+     * <p>Type of the Transaction. For example, <code>Authorization</code>.</p>
      *
 
      * @return null|string
@@ -101,6 +101,8 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * <p>Money value of the Transaction.</p>
+     *
 
      * @return null|TypedMoney
      */
@@ -110,8 +112,8 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
-     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
+     * <p>Identifier used by the interface that manages the Transaction (usually the PSP).
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction can be found with this ID.</p>
      *
 
      * @return null|string
@@ -122,7 +124,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>The state of this transaction.</p>
+     * <p>State of the Transaction.</p>
      *
 
      * @return null|string
@@ -133,7 +135,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields defined for the Transaction.</p>
      *
 
      * @return null|CustomFields

@@ -81,7 +81,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-     * <p>When the text line item was added to the shopping list.</p>
+     * <p>Date and time (UTC) the TextLineItem was added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -105,6 +105,8 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * <p>Custom Fields of the TextLineItem.</p>
+     *
      *
      * @return null|CustomFields
      */
@@ -124,6 +126,8 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * <p>Description of the TextLineItem.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -163,6 +167,8 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * <p>Name of the TextLineItem.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -182,6 +188,8 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * <p>Number of entries in the TextLineItem.</p>
+     *
      *
      * @return null|int
      */

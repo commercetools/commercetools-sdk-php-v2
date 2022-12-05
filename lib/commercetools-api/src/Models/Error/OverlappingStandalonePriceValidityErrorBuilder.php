@@ -94,6 +94,8 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     private $conflictingValidUntil;
 
     /**
+     * <p><code>Two standalone prices have overlapping validity periods.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -103,7 +105,7 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
+     * <p>Reference to the conflicting Standalone Price.</p>
      *
 
      * @return null|StandalonePriceReference
@@ -114,6 +116,8 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to which the conflicting Standalone Price is associated.</p>
+     *
 
      * @return null|string
      */
@@ -123,6 +127,8 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
+     * <p>Currency code of the country.</p>
+     *
 
      * @return null|string
      */
@@ -132,6 +138,8 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
+     * <p>Country code of the geographic location.</p>
+     *
 
      * @return null|string
      */
@@ -141,7 +149,7 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which the Standalone Price is valid.</p>
      *
 
      * @return null|CustomerGroupResourceIdentifier
@@ -152,7 +160,7 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:Channel">Channel</a> for which the Standalone Price is valid.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -163,6 +171,8 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) from which the Standalone Price is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -172,6 +182,8 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) until which the Standalone Price is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -181,6 +193,8 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) from which the conflicting Standalone Price is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -190,6 +204,8 @@ final class OverlappingStandalonePriceValidityErrorBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) until which the conflicting Standalone Price is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

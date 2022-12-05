@@ -63,7 +63,8 @@ final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>If not provided, the method is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
      *
      *
      * @return null|string

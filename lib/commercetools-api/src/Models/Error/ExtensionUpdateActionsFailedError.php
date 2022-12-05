@@ -16,10 +16,24 @@ interface ExtensionUpdateActionsFailedError extends ErrorObject
 {
     public const FIELD_LOCALIZED_MESSAGE = 'localizedMessage';
     public const FIELD_EXTENSION_EXTRA_INFO = 'extensionExtraInfo';
-    public const FIELD_ERROR_BY_EXTENSION = 'errorByExtension';
+    public const FIELD_EXTENSION_ERRORS = 'extensionErrors';
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;The extension returned update actions that could not be executed.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>User-defined localized description of the error.</p>
      *
 
      * @return null|LocalizedString
@@ -27,16 +41,25 @@ interface ExtensionUpdateActionsFailedError extends ErrorObject
     public function getLocalizedMessage();
 
     /**
+     * <p>Any information that should be returned to the API caller.</p>
+     *
 
      * @return null|mixed
      */
     public function getExtensionExtraInfo();
 
     /**
+     * <p>Additional errors related to the API Extension.</p>
+     *
 
-     * @return null|ErrorByExtension
+     * @return null|ExtensionErrorCollection
      */
-    public function getErrorByExtension();
+    public function getExtensionErrors();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?LocalizedString $localizedMessage
@@ -49,7 +72,7 @@ interface ExtensionUpdateActionsFailedError extends ErrorObject
     public function setExtensionExtraInfo(?JsonObject $extensionExtraInfo): void;
 
     /**
-     * @param ?ErrorByExtension $errorByExtension
+     * @param ?ExtensionErrorCollection $extensionErrors
      */
-    public function setErrorByExtension(?ErrorByExtension $errorByExtension): void;
+    public function setExtensionErrors(?ExtensionErrorCollection $extensionErrors): void;
 }

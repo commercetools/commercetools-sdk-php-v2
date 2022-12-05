@@ -142,19 +142,6 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                 'post',
                 'test_projectKey/me/shopping-lists/test_ID',
             ],
-            'ByProjectKeyMeShoppingListsByIDDelete_withVersion' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->me()
-                        ->shoppingLists()
-                        ->withId('test_ID')
-                        ->delete()
-                        ->withVersion('version');
-                },
-                'delete',
-                'test_projectKey/me/shopping-lists/test_ID?version=version',
-            ],
             'ByProjectKeyMeShoppingListsByIDDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -167,6 +154,19 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                 },
                 'delete',
                 'test_projectKey/me/shopping-lists/test_ID?expand=expand',
+            ],
+            'ByProjectKeyMeShoppingListsByIDDelete_withVersion' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->me()
+                        ->shoppingLists()
+                        ->withId('test_ID')
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                'test_projectKey/me/shopping-lists/test_ID?version=version',
             ],
             'ByProjectKeyMeShoppingListsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

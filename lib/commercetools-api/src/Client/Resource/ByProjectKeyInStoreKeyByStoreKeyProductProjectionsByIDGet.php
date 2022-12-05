@@ -30,13 +30,14 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements ProjectionSelecting<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet>
  * @template-implements PriceSelecting<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet>
  * @template-implements LocaleProjecting<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet>
  * @template-implements Expandable<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet>
  * @template-implements Errorable<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet>
  * @template-implements Deprecatable200<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet>
  */
-class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet extends ApiRequest implements PriceSelecting, LocaleProjecting, Expandable, Errorable, Deprecatable200
+class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -144,6 +145,15 @@ class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet extends ApiReque
                 throw $e;
             }
         );
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $staged
+     */
+    public function withStaged($staged): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet
+    {
+        return $this->withQueryParam('staged', $staged);
     }
 
     /**

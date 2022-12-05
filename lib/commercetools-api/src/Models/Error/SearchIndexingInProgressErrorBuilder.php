@@ -27,6 +27,8 @@ final class SearchIndexingInProgressErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;The indexing is currently in progress. Please wait until the status is &quot;Activated&quot; to execute search requests.&quot;</code></p>
+     *
 
      * @return null|string
      */

@@ -17,9 +17,30 @@ interface DuplicateEnumValuesError extends ErrorObject
 
     /**
 
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;The enum values contain duplicate keys: $listOfDuplicateKeys.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Duplicate keys.</p>
+     *
+
      * @return null|array
      */
     public function getDuplicates();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?array $duplicates

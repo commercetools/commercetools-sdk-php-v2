@@ -43,6 +43,8 @@ final class MyShoppingListSetTextLineItemCustomTypeActionBuilder implements Buil
     private $fields;
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */

@@ -33,6 +33,8 @@ final class PaymentChangeTransactionStateActionBuilder implements Builder
     private $state;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class PaymentChangeTransactionStateActionBuilder implements Builder
     }
 
     /**
+     * <p>New TransactionState.</p>
+     *
 
      * @return null|string
      */

@@ -27,6 +27,8 @@ final class ResourceSizeLimitExceededErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;The resource size exceeds the maximal allowed size of 16 MB.&quot;</code></p>
+     *
 
      * @return null|string
      */

@@ -20,13 +20,36 @@ interface EnumKeyAlreadyExistsError extends ErrorObject
 
      * @return null|string
      */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;The $attributeName attribute definition already contains an enum value with the key $enumKey.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Conflicting enum key.</p>
+     *
+
+     * @return null|string
+     */
     public function getConflictingEnumKey();
 
     /**
+     * <p>Name of the conflicting Attribute.</p>
+     *
 
      * @return null|string
      */
     public function getConflictingAttributeName();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $conflictingEnumKey

@@ -63,6 +63,8 @@ final class NotEnabledErrorModel extends JsonObjectModel implements NotEnabledEr
     }
 
     /**
+     * <p><code>&quot;The category recommendations API is not yet enabled for your project.&quot;</code></p>
+     *
      *
      * @return null|string
      */

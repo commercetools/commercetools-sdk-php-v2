@@ -71,6 +71,8 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><code>&quot;A duplicate combination of the variant values (sku, key, images, prices, attributes) exists.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Every Product Variant must have a distinct combination of SKU, prices, and custom Attribute values.</p>
+     *
      *
      * @return null|VariantValues
      */

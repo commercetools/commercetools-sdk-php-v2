@@ -18,13 +18,15 @@ interface MyShoppingListSetTextLineItemDescriptionAction extends MyShoppingListU
     public const FIELD_DESCRIPTION = 'description';
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getTextLineItemId();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
 
      * @return null|LocalizedString

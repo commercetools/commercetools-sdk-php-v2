@@ -90,6 +90,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyTest ext
     public function getRequests()
     {
         return [
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withStaged' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withStaged('staged');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key?staged=staged',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withPriceCurrency' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

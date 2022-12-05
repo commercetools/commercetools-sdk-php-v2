@@ -33,6 +33,8 @@ final class RequiredFieldErrorBuilder implements Builder
     private $field;
 
     /**
+     * <p><code>&quot;A value is required for field $field.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class RequiredFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>Name of the field missing the value.</p>
+     *
 
      * @return null|string
      */

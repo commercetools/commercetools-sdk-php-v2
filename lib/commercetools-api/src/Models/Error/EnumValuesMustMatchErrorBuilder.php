@@ -27,6 +27,8 @@ final class EnumValuesMustMatchErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;The given values must be equal to the existing enum values.&quot;</code></p>
+     *
 
      * @return null|string
      */

@@ -35,6 +35,8 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     private $attribute;
 
     /**
+     * <p><code>&quot;Attribute can't have the same value in a different variant.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     }
 
     /**
+     * <p>Conflicting Attributes.</p>
+     *
 
      * @return null|Attribute
      */
