@@ -36,11 +36,6 @@ class MLRequestBuilder extends Builder
         return $this->with()->imageSearch();
     }
 
-    public function missingData(): ResourceByProjectKeyMissingData
-    {
-        return $this->with()->missingData();
-    }
-
     public function recommendations(): ResourceByProjectKeyRecommendations
     {
         return $this->with()->recommendations();
