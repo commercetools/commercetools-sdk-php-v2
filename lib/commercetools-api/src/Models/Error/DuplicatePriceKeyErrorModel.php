@@ -19,9 +19,9 @@ use stdClass;
 /**
  * @internal
  */
-final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements DuplicatePriceScopeError
+final class DuplicatePriceKeyErrorModel extends JsonObjectModel implements DuplicatePriceKeyError
 {
-    public const DISCRIMINATOR_VALUE = 'DuplicatePriceScope';
+    public const DISCRIMINATOR_VALUE = 'DuplicatePriceKey';
     /**
      *
      * @var ?string
@@ -73,7 +73,7 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
-     * <p><code>&quot;Duplicate price scope: $priceScope. The combination of currency, country, customerGroup and channel must be unique for each price of a product variant.&quot;</code></p>
+     * <p><code>&quot;Duplicate price key: $priceKey. The price key must be unique per variant.&quot;</code></p>
      *
      *
      * @return null|string

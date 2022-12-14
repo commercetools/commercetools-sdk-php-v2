@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Common\Price;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface DuplicatePriceScopeError extends ErrorObject
+interface DuplicatePriceKeyError extends ErrorObject
 {
     public const FIELD_CONFLICTING_PRICE = 'conflictingPrice';
 
@@ -23,7 +23,7 @@ interface DuplicatePriceScopeError extends ErrorObject
     public function getCode();
 
     /**
-     * <p><code>&quot;Duplicate price scope: $priceScope. The combination of currency, country, customerGroup and channel must be unique for each price of a product variant.&quot;</code></p>
+     * <p><code>&quot;Duplicate price key: $priceKey. The price key must be unique per variant.&quot;</code></p>
      *
 
      * @return null|string

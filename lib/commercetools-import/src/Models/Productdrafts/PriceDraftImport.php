@@ -98,6 +98,8 @@ interface PriceDraftImport extends JsonObject
     public function getTiers();
 
     /**
+     * <p>User-defined unique identifier for the Embedded Price.</p>
+     *
 
      * @return null|string
      */

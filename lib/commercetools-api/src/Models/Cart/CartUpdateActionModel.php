@@ -48,6 +48,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
        'changeTaxCalculationMode' => CartChangeTaxCalculationModeActionModel::class,
        'changeTaxMode' => CartChangeTaxModeActionModel::class,
        'changeTaxRoundingMode' => CartChangeTaxRoundingModeActionModel::class,
+       'freezeCart' => CartFreezeCartActionModel::class,
        'recalculate' => CartRecalculateActionModel::class,
        'removeCustomLineItem' => CartRemoveCustomLineItemActionModel::class,
        'removeDiscountCode' => CartRemoveDiscountCodeActionModel::class,
@@ -98,6 +99,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
        'setShippingMethodTaxAmount' => CartSetShippingMethodTaxAmountActionModel::class,
        'setShippingMethodTaxRate' => CartSetShippingMethodTaxRateActionModel::class,
        'setShippingRateInput' => CartSetShippingRateInputActionModel::class,
+       'unfreezeCart' => CartUnfreezeCartActionModel::class,
        'updateItemShippingAddress' => CartUpdateItemShippingAddressActionModel::class,
     ];
 

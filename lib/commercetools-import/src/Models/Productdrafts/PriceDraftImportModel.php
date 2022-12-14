@@ -307,6 +307,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
+     * <p>User-defined unique identifier for the Embedded Price.</p>
+     *
      *
      * @return null|string
      */

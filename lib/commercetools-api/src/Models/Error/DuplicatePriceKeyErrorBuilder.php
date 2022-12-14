@@ -18,9 +18,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<DuplicatePriceScopeError>
+ * @implements Builder<DuplicatePriceKeyError>
  */
-final class DuplicatePriceScopeErrorBuilder implements Builder
+final class DuplicatePriceKeyErrorBuilder implements Builder
 {
     /**
 
@@ -35,7 +35,7 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     private $conflictingPrice;
 
     /**
-     * <p><code>&quot;Duplicate price scope: $priceScope. The combination of currency, country, customerGroup and channel must be unique for each price of a product variant.&quot;</code></p>
+     * <p><code>&quot;Duplicate price key: $priceKey. The price key must be unique per variant.&quot;</code></p>
      *
 
      * @return null|string
@@ -89,15 +89,15 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
         return $this;
     }
 
-    public function build(): DuplicatePriceScopeError
+    public function build(): DuplicatePriceKeyError
     {
-        return new DuplicatePriceScopeErrorModel(
+        return new DuplicatePriceKeyErrorModel(
             $this->message,
             $this->conflictingPrice instanceof PriceBuilder ? $this->conflictingPrice->build() : $this->conflictingPrice
         );
     }
 
-    public static function of(): DuplicatePriceScopeErrorBuilder
+    public static function of(): DuplicatePriceKeyErrorBuilder
     {
         return new self();
     }
