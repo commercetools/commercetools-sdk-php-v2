@@ -13,23 +13,23 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MessageCollection<ProductPriceSetMessage>
- * @method ProductPriceSetMessage current()
- * @method ProductPriceSetMessage end()
- * @method ProductPriceSetMessage at($offset)
+ * @extends MessageCollection<ProductPricesSetMessage>
+ * @method ProductPricesSetMessage current()
+ * @method ProductPricesSetMessage end()
+ * @method ProductPricesSetMessage at($offset)
  */
-class ProductPriceSetMessageCollection extends MessageCollection
+class ProductPricesSetMessageCollection extends MessageCollection
 {
     /**
-     * @psalm-assert ProductPriceSetMessage $value
-     * @psalm-param ProductPriceSetMessage|stdClass $value
+     * @psalm-assert ProductPricesSetMessage $value
+     * @psalm-param ProductPricesSetMessage|stdClass $value
      * @throws InvalidArgumentException
      *
-     * @return ProductPriceSetMessageCollection
+     * @return ProductPricesSetMessageCollection
      */
     public function add($value)
     {
-        if (!$value instanceof ProductPriceSetMessage) {
+        if (!$value instanceof ProductPricesSetMessage) {
             throw new InvalidArgumentException();
         }
         $this->store($value);
@@ -38,15 +38,15 @@ class ProductPriceSetMessageCollection extends MessageCollection
     }
 
     /**
-     * @psalm-return callable(int):?ProductPriceSetMessage
+     * @psalm-return callable(int):?ProductPricesSetMessage
      */
     protected function mapper()
     {
-        return function (?int $index): ?ProductPriceSetMessage {
+        return function (?int $index): ?ProductPricesSetMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var ProductPriceSetMessage $data */
-                $data = ProductPriceSetMessageModel::of($data);
+                /** @var ProductPricesSetMessage $data */
+                $data = ProductPricesSetMessageModel::of($data);
                 $this->set($data, $index);
             }
 

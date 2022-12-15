@@ -24,9 +24,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<ProductPriceSetMessage>
+ * @implements Builder<ProductPricesSetMessage>
  */
-final class ProductPriceSetMessageBuilder implements Builder
+final class ProductPricesSetMessageBuilder implements Builder
 {
     /**
 
@@ -437,9 +437,9 @@ final class ProductPriceSetMessageBuilder implements Builder
         return $this;
     }
 
-    public function build(): ProductPriceSetMessage
+    public function build(): ProductPricesSetMessage
     {
-        return new ProductPriceSetMessageModel(
+        return new ProductPricesSetMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -456,7 +456,7 @@ final class ProductPriceSetMessageBuilder implements Builder
         );
     }
 
-    public static function of(): ProductPriceSetMessageBuilder
+    public static function of(): ProductPricesSetMessageBuilder
     {
         return new self();
     }

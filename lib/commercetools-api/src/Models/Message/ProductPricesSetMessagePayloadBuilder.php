@@ -17,9 +17,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<ProductPriceSetMessagePayload>
+ * @implements Builder<ProductPricesSetMessagePayload>
  */
-final class ProductPriceSetMessagePayloadBuilder implements Builder
+final class ProductPricesSetMessagePayloadBuilder implements Builder
 {
     /**
 
@@ -106,16 +106,16 @@ final class ProductPriceSetMessagePayloadBuilder implements Builder
     }
 
 
-    public function build(): ProductPriceSetMessagePayload
+    public function build(): ProductPricesSetMessagePayload
     {
-        return new ProductPriceSetMessagePayloadModel(
+        return new ProductPricesSetMessagePayloadModel(
             $this->variantId,
             $this->prices,
             $this->staged
         );
     }
 
-    public static function of(): ProductPriceSetMessagePayloadBuilder
+    public static function of(): ProductPricesSetMessagePayloadBuilder
     {
         return new self();
     }

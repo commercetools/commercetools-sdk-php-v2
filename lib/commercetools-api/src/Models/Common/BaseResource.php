@@ -84,7 +84,7 @@ use Commercetools\Api\Models\Message\ProductPriceExternalDiscountSetMessage;
 use Commercetools\Api\Models\Message\ProductPriceKeySetMessage;
 use Commercetools\Api\Models\Message\ProductPriceModeSetMessage;
 use Commercetools\Api\Models\Message\ProductPriceRemovedMessage;
-use Commercetools\Api\Models\Message\ProductPriceSetMessage;
+use Commercetools\Api\Models\Message\ProductPricesSetMessage;
 use Commercetools\Api\Models\Message\ProductPublishedMessage;
 use Commercetools\Api\Models\Message\ProductRemovedFromCategoryMessage;
 use Commercetools\Api\Models\Message\ProductRevertedStagedChangesMessage;

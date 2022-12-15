@@ -25,9 +25,9 @@ use stdClass;
 /**
  * @internal
  */
-final class ProductPriceSetMessageModel extends JsonObjectModel implements ProductPriceSetMessage
+final class ProductPricesSetMessageModel extends JsonObjectModel implements ProductPricesSetMessage
 {
-    public const DISCRIMINATOR_VALUE = 'ProductPriceSet';
+    public const DISCRIMINATOR_VALUE = 'ProductPricesSet';
     /**
      *
      * @var ?string

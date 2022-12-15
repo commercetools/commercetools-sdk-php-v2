@@ -130,7 +130,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'ProductPriceKeySet' => ProductPriceKeySetMessagePayloadModel::class,
        'ProductPriceModeSet' => ProductPriceModeSetMessagePayloadModel::class,
        'ProductPriceRemoved' => ProductPriceRemovedMessagePayloadModel::class,
-       'ProductPriceSet' => ProductPriceSetMessagePayloadModel::class,
+       'ProductPricesSet' => ProductPricesSetMessagePayloadModel::class,
        'ProductPublished' => ProductPublishedMessagePayloadModel::class,
        'ProductRemovedFromCategory' => ProductRemovedFromCategoryMessagePayloadModel::class,
        'ProductRevertedStagedChanges' => ProductRevertedStagedChangesMessagePayloadModel::class,

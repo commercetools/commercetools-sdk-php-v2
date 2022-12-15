@@ -199,7 +199,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'ProductPriceKeySet' => ProductPriceKeySetMessageModel::class,
        'ProductPriceModeSet' => ProductPriceModeSetMessageModel::class,
        'ProductPriceRemoved' => ProductPriceRemovedMessageModel::class,
-       'ProductPriceSet' => ProductPriceSetMessageModel::class,
+       'ProductPricesSet' => ProductPricesSetMessageModel::class,
        'ProductPublished' => ProductPublishedMessageModel::class,
        'ProductRemovedFromCategory' => ProductRemovedFromCategoryMessageModel::class,
        'ProductRevertedStagedChanges' => ProductRevertedStagedChangesMessageModel::class,

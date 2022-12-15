@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface ProductPriceSetMessagePayload extends MessagePayload
+interface ProductPricesSetMessage extends Message
 {
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_PRICES = 'prices';
