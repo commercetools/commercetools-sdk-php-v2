@@ -13,6 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -31,6 +32,12 @@ final class AssignedProductSelectionBuilder implements Builder
      * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
      */
     private $variantSelection;
+
+    /**
+
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * <p>Reference to the Product Selection that this assignment is part of.</p>
@@ -55,6 +62,17 @@ final class AssignedProductSelectionBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) this assignment was initially created.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
      * @param ?ProductSelectionReference $productSelection
      * @return $this
      */
@@ -72,6 +90,17 @@ final class AssignedProductSelectionBuilder implements Builder
     public function withVariantSelection(?ProductVariantSelection $variantSelection)
     {
         $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     * @return $this
+     */
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -102,7 +131,8 @@ final class AssignedProductSelectionBuilder implements Builder
     {
         return new AssignedProductSelectionModel(
             $this->productSelection instanceof ProductSelectionReferenceBuilder ? $this->productSelection->build() : $this->productSelection,
-            $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection
+            $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection,
+            $this->createdAt
         );
     }
 

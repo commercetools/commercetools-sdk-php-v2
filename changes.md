@@ -1,34 +1,6 @@
 **Api changes**
 
 <details>
-<summary>Added Enum(s)</summary>
-
-- added enum `Frozen` to type `CartState` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/cart/CartState.raml:9:4)
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `assets` of type `ProductAddVariantAction` from type `Asset[]` to `AssetDraft[]` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/product/updates/ProductAddVariantAction.raml:33:2)
-</details>
-
-
-<details>
-<summary>Added Property(s)</summary>
-
-- added property `conflictingPrice` to type `DuplicatePriceScopeError` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/error/DuplicatePriceScopeError.raml:16:2)
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `conflictingPrices` from type `DuplicatePriceScopeError` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference-previous/api-specs/api/types/error/DuplicatePriceScopeError.raml:16:2)
-</details>
-
-
-<details>
 <summary>Added Type(s)</summary>
 
 - added type `CartFreezeCartAction` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/types.raml:178:0)
@@ -50,6 +22,35 @@
 - added type `StandalonePriceKeySetMessagePayload` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/types.raml:960:0)
 - added type `ProductSetPriceKeyAction` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/types.raml:1421:0)
 - added type `StandalonePriceSetKeyAction` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/types.raml:1611:0)
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `conflictingPrices` from type `DuplicatePriceScopeError` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference-previous/api-specs/api/types/error/DuplicatePriceScopeError.raml:16:2)
+</details>
+
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `conflictingPrice` to type `DuplicatePriceScopeError` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/error/DuplicatePriceScopeError.raml:16:2)
+- added property `createdAt` to type `AssignedProductSelection` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/product-selection/AssignedProductSelection.raml:12:2)
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `assets` of type `ProductAddVariantAction` from type `Asset[]` to `AssetDraft[]` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/product/updates/ProductAddVariantAction.raml:33:2)
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `Frozen` to type `CartState` (file:/home/runner/work/commercetools-api-reference/commercetools-api-reference/commercetools-api-reference/api-specs/api/types/cart/CartState.raml:9:4)
 </details>
 
 **ML changes**
