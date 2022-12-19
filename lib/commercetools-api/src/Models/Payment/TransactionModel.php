@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -44,7 +44,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $amount;
 
@@ -74,7 +74,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         ?string $id = null,
         ?DateTimeImmutable $timestamp = null,
         ?string $type = null,
-        ?TypedMoney $amount = null,
+        ?CentPrecisionMoney $amount = null,
         ?string $interactionId = null,
         ?string $state = null,
         ?CustomFields $custom = null
@@ -156,7 +156,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
      * <p>Money value of the Transaction.</p>
      *
      *
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getAmount()
     {
@@ -166,8 +166,8 @@ final class TransactionModel extends JsonObjectModel implements Transaction
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->amount = $className::of($data);
+
+            $this->amount = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->amount;
@@ -261,9 +261,9 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
-     * @param ?TypedMoney $amount
+     * @param ?CentPrecisionMoney $amount
      */
-    public function setAmount(?TypedMoney $amount): void
+    public function setAmount(?CentPrecisionMoney $amount): void
     {
         $this->amount = $amount;
     }
