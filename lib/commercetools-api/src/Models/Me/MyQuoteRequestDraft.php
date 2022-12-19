@@ -8,23 +8,22 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MyQuoteRequestDraft extends JsonObject
 {
-    public const FIELD_CART = 'cart';
-    public const FIELD_VERSION = 'version';
+    public const FIELD_CART_ID = 'cartId';
+    public const FIELD_CART_VERSION = 'cartVersion';
     public const FIELD_COMMENT = 'comment';
 
     /**
-     * <p>ResourceIdentifier of the Cart from which the Quote Request is created.</p>
+     * <p><code>id</code> of the Cart from which the Quote Request is created.</p>
      *
 
-     * @return null|CartResourceIdentifier
+     * @return null|string
      */
-    public function getCart();
+    public function getCartId();
 
     /**
      * <p>Current version of the Cart.</p>
@@ -32,7 +31,7 @@ interface MyQuoteRequestDraft extends JsonObject
 
      * @return null|int
      */
-    public function getVersion();
+    public function getCartVersion();
 
     /**
      * <p>Message from the Buyer included in the Quote Request.</p>
@@ -43,14 +42,14 @@ interface MyQuoteRequestDraft extends JsonObject
     public function getComment();
 
     /**
-     * @param ?CartResourceIdentifier $cart
+     * @param ?string $cartId
      */
-    public function setCart(?CartResourceIdentifier $cart): void;
+    public function setCartId(?string $cartId): void;
 
     /**
-     * @param ?int $version
+     * @param ?int $cartVersion
      */
-    public function setVersion(?int $version): void;
+    public function setCartVersion(?int $cartVersion): void;
 
     /**
      * @param ?string $comment

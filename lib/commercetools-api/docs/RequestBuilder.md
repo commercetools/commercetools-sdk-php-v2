@@ -3478,22 +3478,6 @@ $request = $builder
                 ->quoteRequests()
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->get()`
-
-null
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->quoteRequests()
-                ->withId("ID")
-                ->get();
-```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->post(null)`
 
 null
@@ -3526,7 +3510,7 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->get()`
+## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->get()`
 
 null
 
@@ -3539,7 +3523,7 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
                 ->quoteRequests()
-                ->withKey("key")
+                ->withId("ID")
                 ->get();
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->post(null)`
@@ -3573,6 +3557,22 @@ $request = $builder
                 ->quoteRequests()
                 ->withKey("key")
                 ->delete();
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withKey("key")
+                ->get();
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->get()`
 

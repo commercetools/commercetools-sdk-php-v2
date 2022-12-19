@@ -21,9 +21,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsByIDDelete
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsByIDGet
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeQuoteRequestsByID
  */
 class ResourceByProjectKeyMeQuoteRequestsByIDTest extends TestCase
@@ -92,31 +92,6 @@ class ResourceByProjectKeyMeQuoteRequestsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyMeQuoteRequestsByIDGet_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->me()
-                        ->quoteRequests()
-                        ->withId('test_ID')
-                        ->get()
-                        ->withExpand('expand');
-                },
-                'get',
-                'test_projectKey/me/quote-requests/test_ID?expand=expand',
-            ],
-            'ByProjectKeyMeQuoteRequestsByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("test_ID")
-                        ->get();
-                },
-                'get',
-                'test_projectKey/me/quote-requests/test_ID',
-            ],
             'ByProjectKeyMeQuoteRequestsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -179,6 +154,31 @@ class ResourceByProjectKeyMeQuoteRequestsByIDTest extends TestCase
                 },
                 'delete',
                 'test_projectKey/me/quote-requests/test_ID',
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->me()
+                        ->quoteRequests()
+                        ->withId('test_ID')
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                'test_projectKey/me/quote-requests/test_ID?expand=expand',
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("test_ID")
+                        ->get();
+                },
+                'get',
+                'test_projectKey/me/quote-requests/test_ID',
             ]
         ];
     }
@@ -192,16 +192,6 @@ class ResourceByProjectKeyMeQuoteRequestsByIDTest extends TestCase
     public function getRequestBuilders()
     {
         return [
-            'ByProjectKeyMeQuoteRequestsByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                }
-            ],
             'ByProjectKeyMeQuoteRequestsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -221,6 +211,16 @@ class ResourceByProjectKeyMeQuoteRequestsByIDTest extends TestCase
                         ->withId("ID")
                         ->delete();
                 }
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
+                }
             ]
         ];
     }
@@ -228,105 +228,6 @@ class ResourceByProjectKeyMeQuoteRequestsByIDTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyMeQuoteRequestsByIDGet_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                },
-                200
-            ],
-            'ByProjectKeyMeQuoteRequestsByIDGet_400' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                },
-                400
-            ],
-            'ByProjectKeyMeQuoteRequestsByIDGet_401' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                },
-                401
-            ],
-            'ByProjectKeyMeQuoteRequestsByIDGet_403' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                },
-                403
-            ],
-            'ByProjectKeyMeQuoteRequestsByIDGet_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                },
-                404
-            ],
-            'ByProjectKeyMeQuoteRequestsByIDGet_500' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                },
-                500
-            ],
-            'ByProjectKeyMeQuoteRequestsByIDGet_502' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                },
-                502
-            ],
-            'ByProjectKeyMeQuoteRequestsByIDGet_503' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                },
-                503
-            ],
-            'ByProjectKeyMeQuoteRequestsByIDGet_599' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withId("ID")
-                        ->get();
-                },
-                599
-            ],
             'ByProjectKeyMeQuoteRequestsByIDPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -544,6 +445,105 @@ class ResourceByProjectKeyMeQuoteRequestsByIDTest extends TestCase
                         ->quoteRequests()
                         ->withId("ID")
                         ->delete();
+                },
+                599
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
+                },
+                200
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
+                },
+                400
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
+                },
+                401
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
+                },
+                403
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
+                },
+                404
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
+                },
+                500
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
+                },
+                503
+            ],
+            'ByProjectKeyMeQuoteRequestsByIDGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->withId("ID")
+                        ->get();
                 },
                 599
             ]
