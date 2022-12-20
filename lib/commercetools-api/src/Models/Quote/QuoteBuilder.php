@@ -253,6 +253,12 @@ final class QuoteBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $quoteState;
+
+    /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
@@ -621,6 +627,17 @@ final class QuoteBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Predefined states tracking the status of the Quote.</p>
+     *
+
+     * @return null|string
+     */
+    public function getQuoteState()
+    {
+        return $this->quoteState;
     }
 
     /**
@@ -999,6 +1016,17 @@ final class QuoteBuilder implements Builder
     }
 
     /**
+     * @param ?string $quoteState
+     * @return $this
+     */
+    public function withQuoteState(?string $quoteState)
+    {
+        $this->quoteState = $quoteState;
+
+        return $this;
+    }
+
+    /**
      * @param ?StateReference $state
      * @return $this
      */
@@ -1242,6 +1270,7 @@ final class QuoteBuilder implements Builder
             $this->itemShippingAddresses,
             $this->directDiscounts,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->quoteState,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
             $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit
         );
