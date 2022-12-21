@@ -5524,9 +5524,29 @@ $request = $builder
                 ->matchingCart()
                 ->get();
 ```
+## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->get()`
+
+Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location)
+with a `predicate` that matches the given Cart.
+Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
+This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->matchingCartLocation()
+                ->get();
+```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
 Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location).
+ShippingMethods that have a `predicate` defined are automatically disqualified.
 If the `currency` parameter is given, then the ShippingMethods must also have a rate defined in the specified currency.
 Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
 If the `currency` parameter is given, exactly one ShippingRate will contain it.
