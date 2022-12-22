@@ -16,12 +16,20 @@ use Commercetools\Base\JsonObject;
 
 interface QuoteDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_STAGED_QUOTE = 'stagedQuote';
     public const FIELD_STAGED_QUOTE_VERSION = 'stagedQuoteVersion';
     public const FIELD_STAGED_QUOTE_STATE_TO_SENT = 'stagedQuoteStateToSent';
-    public const FIELD_KEY = 'key';
-    public const FIELD_CUSTOM = 'custom';
     public const FIELD_STATE = 'state';
+    public const FIELD_CUSTOM = 'custom';
+
+    /**
+     * <p>User-defined unique identifier for the Quote.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>StagedQuote from which the Quote is created.</p>
@@ -48,12 +56,13 @@ interface QuoteDraft extends JsonObject
     public function getStagedQuoteStateToSent();
 
     /**
-     * <p>User-defined unique identifier for the Quote.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the Quote.
+     * This reference can point to a State in a custom workflow.</p>
      *
 
-     * @return null|string
+     * @return null|StateReference
      */
-    public function getKey();
+    public function getState();
 
     /**
      * <p><a href="/../api/projects/custom-fields">Custom Fields</a> to be added to the Quote.</p>
@@ -68,13 +77,9 @@ interface QuoteDraft extends JsonObject
     public function getCustom();
 
     /**
-     * <p><a href="ctp:api:type:State">State</a> of the Quote.
-     * This reference can point to a State in a custom workflow.</p>
-     *
-
-     * @return null|StateReference
+     * @param ?string $key
      */
-    public function getState();
+    public function setKey(?string $key): void;
 
     /**
      * @param ?StagedQuoteResourceIdentifier $stagedQuote
@@ -92,17 +97,12 @@ interface QuoteDraft extends JsonObject
     public function setStagedQuoteStateToSent(?bool $stagedQuoteStateToSent): void;
 
     /**
-     * @param ?string $key
+     * @param ?StateReference $state
      */
-    public function setKey(?string $key): void;
+    public function setState(?StateReference $state): void;
 
     /**
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
-
-    /**
-     * @param ?StateReference $state
-     */
-    public function setState(?StateReference $state): void;
 }

@@ -8,7 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\PriceCollection;
+use Commercetools\Api\Models\Common\Price;
+use Commercetools\Api\Models\Common\PriceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -29,9 +30,9 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
 
     /**
 
-     * @var ?PriceCollection
+     * @var null|Price|PriceBuilder
      */
-    private $conflictingPrices;
+    private $conflictingPrice;
 
     /**
      * <p><code>&quot;Duplicate price scope: $priceScope. The combination of currency, country, customerGroup and channel must be unique for each price of a product variant.&quot;</code></p>
@@ -45,14 +46,14 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     }
 
     /**
-     * <p>Conflicting Embedded Prices.</p>
+     * <p>Conflicting Embedded Price.</p>
      *
 
-     * @return null|PriceCollection
+     * @return null|Price
      */
-    public function getConflictingPrices()
+    public function getConflictingPrice()
     {
-        return $this->conflictingPrices;
+        return $this->conflictingPrice instanceof PriceBuilder ? $this->conflictingPrice->build() : $this->conflictingPrice;
     }
 
     /**
@@ -67,22 +68,32 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     }
 
     /**
-     * @param ?PriceCollection $conflictingPrices
+     * @param ?Price $conflictingPrice
      * @return $this
      */
-    public function withConflictingPrices(?PriceCollection $conflictingPrices)
+    public function withConflictingPrice(?Price $conflictingPrice)
     {
-        $this->conflictingPrices = $conflictingPrices;
+        $this->conflictingPrice = $conflictingPrice;
 
         return $this;
     }
 
+    /**
+     * @deprecated use withConflictingPrice() instead
+     * @return $this
+     */
+    public function withConflictingPriceBuilder(?PriceBuilder $conflictingPrice)
+    {
+        $this->conflictingPrice = $conflictingPrice;
+
+        return $this;
+    }
 
     public function build(): DuplicatePriceScopeError
     {
         return new DuplicatePriceScopeErrorModel(
             $this->message,
-            $this->conflictingPrices
+            $this->conflictingPrice instanceof PriceBuilder ? $this->conflictingPrice->build() : $this->conflictingPrice
         );
     }
 

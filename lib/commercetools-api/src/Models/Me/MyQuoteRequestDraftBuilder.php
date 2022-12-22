@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\CartResourceIdentifier;
-use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -24,15 +22,15 @@ final class MyQuoteRequestDraftBuilder implements Builder
 {
     /**
 
-     * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
+     * @var ?string
      */
-    private $cart;
+    private $cartId;
 
     /**
 
      * @var ?int
      */
-    private $version;
+    private $cartVersion;
 
     /**
 
@@ -41,14 +39,14 @@ final class MyQuoteRequestDraftBuilder implements Builder
     private $comment;
 
     /**
-     * <p>ResourceIdentifier of the Cart from which the Quote Request is created.</p>
+     * <p><code>id</code> of the Cart from which the Quote Request is created.</p>
      *
 
-     * @return null|CartResourceIdentifier
+     * @return null|string
      */
-    public function getCart()
+    public function getCartId()
     {
-        return $this->cart instanceof CartResourceIdentifierBuilder ? $this->cart->build() : $this->cart;
+        return $this->cartId;
     }
 
     /**
@@ -57,9 +55,9 @@ final class MyQuoteRequestDraftBuilder implements Builder
 
      * @return null|int
      */
-    public function getVersion()
+    public function getCartVersion()
     {
-        return $this->version;
+        return $this->cartVersion;
     }
 
     /**
@@ -74,23 +72,23 @@ final class MyQuoteRequestDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CartResourceIdentifier $cart
+     * @param ?string $cartId
      * @return $this
      */
-    public function withCart(?CartResourceIdentifier $cart)
+    public function withCartId(?string $cartId)
     {
-        $this->cart = $cart;
+        $this->cartId = $cartId;
 
         return $this;
     }
 
     /**
-     * @param ?int $version
+     * @param ?int $cartVersion
      * @return $this
      */
-    public function withVersion(?int $version)
+    public function withCartVersion(?int $cartVersion)
     {
-        $this->version = $version;
+        $this->cartVersion = $cartVersion;
 
         return $this;
     }
@@ -106,22 +104,12 @@ final class MyQuoteRequestDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withCart() instead
-     * @return $this
-     */
-    public function withCartBuilder(?CartResourceIdentifierBuilder $cart)
-    {
-        $this->cart = $cart;
-
-        return $this;
-    }
 
     public function build(): MyQuoteRequestDraft
     {
         return new MyQuoteRequestDraftModel(
-            $this->cart instanceof CartResourceIdentifierBuilder ? $this->cart->build() : $this->cart,
-            $this->version,
+            $this->cartId,
+            $this->cartVersion,
             $this->comment
         );
     }

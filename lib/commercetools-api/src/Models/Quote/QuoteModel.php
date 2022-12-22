@@ -252,6 +252,12 @@ final class QuoteModel extends JsonObjectModel implements Quote
 
     /**
      *
+     * @var ?string
+     */
+    protected $quoteState;
+
+    /**
+     *
      * @var ?StateReference
      */
     protected $state;
@@ -299,6 +305,7 @@ final class QuoteModel extends JsonObjectModel implements Quote
         ?AddressCollection $itemShippingAddresses = null,
         ?DirectDiscountCollection $directDiscounts = null,
         ?CustomFields $custom = null,
+        ?string $quoteState = null,
         ?StateReference $state = null,
         ?BusinessUnitKeyReference $businessUnit = null
     ) {
@@ -334,6 +341,7 @@ final class QuoteModel extends JsonObjectModel implements Quote
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->directDiscounts = $directDiscounts;
         $this->custom = $custom;
+        $this->quoteState = $quoteState;
         $this->state = $state;
         $this->businessUnit = $businessUnit;
     }
@@ -1014,6 +1022,26 @@ final class QuoteModel extends JsonObjectModel implements Quote
     }
 
     /**
+     * <p>Predefined states tracking the status of the Quote.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getQuoteState()
+    {
+        if (is_null($this->quoteState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_QUOTE_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quoteState = (string) $data;
+        }
+
+        return $this->quoteState;
+    }
+
+    /**
      * <p><a href="ctp:api:type:State">State</a> of the Quote.
      * This reference can point to a State in a custom workflow.</p>
      *
@@ -1311,6 +1339,14 @@ final class QuoteModel extends JsonObjectModel implements Quote
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?string $quoteState
+     */
+    public function setQuoteState(?string $quoteState): void
+    {
+        $this->quoteState = $quoteState;
     }
 
     /**

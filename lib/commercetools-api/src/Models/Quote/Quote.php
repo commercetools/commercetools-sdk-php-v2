@@ -63,6 +63,7 @@ interface Quote extends BaseResource
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_QUOTE_STATE = 'quoteState';
     public const FIELD_STATE = 'state';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
 
@@ -331,6 +332,14 @@ interface Quote extends BaseResource
     public function getCustom();
 
     /**
+     * <p>Predefined states tracking the status of the Quote.</p>
+     *
+
+     * @return null|string
+     */
+    public function getQuoteState();
+
+    /**
      * <p><a href="ctp:api:type:State">State</a> of the Quote.
      * This reference can point to a State in a custom workflow.</p>
      *
@@ -506,6 +515,11 @@ interface Quote extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?string $quoteState
+     */
+    public function setQuoteState(?string $quoteState): void;
 
     /**
      * @param ?StateReference $state

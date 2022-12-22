@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\AssetCollection;
+use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -67,7 +67,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
 
     /**
      *
-     * @var ?AssetCollection
+     * @var ?AssetDraftCollection
      */
     protected $assets;
 
@@ -82,7 +82,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
         ?ImageCollection $images = null,
         ?AttributeCollection $attributes = null,
         ?bool $staged = null,
-        ?AssetCollection $assets = null,
+        ?AssetDraftCollection $assets = null,
         ?string $action = null
     ) {
         $this->sku = $sku;
@@ -237,7 +237,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
      * <p>Media assets for the Product Variant.</p>
      *
      *
-     * @return null|AssetCollection
+     * @return null|AssetDraftCollection
      */
     public function getAssets()
     {
@@ -247,7 +247,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
             if (is_null($data)) {
                 return null;
             }
-            $this->assets = AssetCollection::fromArray($data);
+            $this->assets = AssetDraftCollection::fromArray($data);
         }
 
         return $this->assets;
@@ -303,9 +303,9 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * @param ?AssetCollection $assets
+     * @param ?AssetDraftCollection $assets
      */
-    public function setAssets(?AssetCollection $assets): void
+    public function setAssets(?AssetDraftCollection $assets): void
     {
         $this->assets = $assets;
     }

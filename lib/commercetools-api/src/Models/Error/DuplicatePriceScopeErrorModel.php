@@ -8,7 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\PriceCollection;
+use Commercetools\Api\Models\Common\Price;
+use Commercetools\Api\Models\Common\PriceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -35,9 +36,9 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
 
     /**
      *
-     * @var ?PriceCollection
+     * @var ?Price
      */
-    protected $conflictingPrices;
+    protected $conflictingPrice;
 
 
     /**
@@ -45,11 +46,11 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
      */
     public function __construct(
         ?string $message = null,
-        ?PriceCollection $conflictingPrices = null,
+        ?Price $conflictingPrice = null,
         ?string $code = null
     ) {
         $this->message = $message;
-        $this->conflictingPrices = $conflictingPrices;
+        $this->conflictingPrice = $conflictingPrice;
         $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -92,23 +93,24 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
-     * <p>Conflicting Embedded Prices.</p>
+     * <p>Conflicting Embedded Price.</p>
      *
      *
-     * @return null|PriceCollection
+     * @return null|Price
      */
-    public function getConflictingPrices()
+    public function getConflictingPrice()
     {
-        if (is_null($this->conflictingPrices)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_CONFLICTING_PRICES);
+        if (is_null($this->conflictingPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CONFLICTING_PRICE);
             if (is_null($data)) {
                 return null;
             }
-            $this->conflictingPrices = PriceCollection::fromArray($data);
+
+            $this->conflictingPrice = PriceModel::of($data);
         }
 
-        return $this->conflictingPrices;
+        return $this->conflictingPrice;
     }
 
 
@@ -121,11 +123,11 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
-     * @param ?PriceCollection $conflictingPrices
+     * @param ?Price $conflictingPrice
      */
-    public function setConflictingPrices(?PriceCollection $conflictingPrices): void
+    public function setConflictingPrice(?Price $conflictingPrice): void
     {
-        $this->conflictingPrices = $conflictingPrices;
+        $this->conflictingPrice = $conflictingPrice;
     }
 
     /**

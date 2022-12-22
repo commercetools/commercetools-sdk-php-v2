@@ -50,6 +50,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'DuplicateEnumValues' => DuplicateEnumValuesErrorModel::class,
        'DuplicateField' => DuplicateFieldErrorModel::class,
        'DuplicateFieldWithConflictingResource' => DuplicateFieldWithConflictingResourceErrorModel::class,
+       'DuplicatePriceKey' => DuplicatePriceKeyErrorModel::class,
        'DuplicatePriceScope' => DuplicatePriceScopeErrorModel::class,
        'DuplicateStandalonePriceScope' => DuplicateStandalonePriceScopeErrorModel::class,
        'DuplicateVariantValues' => DuplicateVariantValuesErrorModel::class,

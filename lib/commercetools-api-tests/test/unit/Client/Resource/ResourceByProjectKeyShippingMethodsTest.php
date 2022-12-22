@@ -12,6 +12,7 @@ use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsKeyByKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsMatchingCart;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsMatchingCartLocation;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsMatchingLocation;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsMatchingOrderedit;
 use Commercetools\Base\JsonObject;
@@ -240,6 +241,17 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 ResourceByProjectKeyShippingMethodsMatchingCart::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/shipping-methods/matching-cart'
+            ],
+            'ResourceByProjectKeyShippingMethodsMatchingCartLocation' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyShippingMethodsMatchingCartLocation {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation();
+                },
+                ResourceByProjectKeyShippingMethodsMatchingCartLocation::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/shipping-methods/matching-cart-location'
             ],
             'ResourceByProjectKeyShippingMethodsMatchingOrderedit' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyShippingMethodsMatchingOrderedit {

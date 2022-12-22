@@ -64,7 +64,7 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     }
 
     /**
-     * <p>Partially hidden on retrieval.</p>
+     * <p>Must not contain any leading or trailing whitespaces. Partially hidden on retrieval.</p>
      *
      *
      * @return null|string

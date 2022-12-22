@@ -12,6 +12,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -31,16 +32,24 @@ final class AssignedProductSelectionModel extends JsonObjectModel implements Ass
      */
     protected $variantSelection;
 
+    /**
+     *
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?ProductSelectionReference $productSelection = null,
-        ?ProductVariantSelection $variantSelection = null
+        ?ProductVariantSelection $variantSelection = null,
+        ?DateTimeImmutable $createdAt = null
     ) {
         $this->productSelection = $productSelection;
         $this->variantSelection = $variantSelection;
+        $this->createdAt = $createdAt;
     }
 
     /**
@@ -85,6 +94,30 @@ final class AssignedProductSelectionModel extends JsonObjectModel implements Ass
         return $this->variantSelection;
     }
 
+    /**
+     * <p>Date and time (UTC) this assignment was initially created.</p>
+     *
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt()
+    {
+        if (is_null($this->createdAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CREATED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->createdAt = $data;
+        }
+
+        return $this->createdAt;
+    }
+
 
     /**
      * @param ?ProductSelectionReference $productSelection
@@ -100,5 +133,24 @@ final class AssignedProductSelectionModel extends JsonObjectModel implements Ass
     public function setVariantSelection(?ProductVariantSelection $variantSelection): void
     {
         $this->variantSelection = $variantSelection;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[AssignedProductSelection::FIELD_CREATED_AT]) && $data[AssignedProductSelection::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[AssignedProductSelection::FIELD_CREATED_AT] = $data[AssignedProductSelection::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
     }
 }

@@ -37,6 +37,7 @@ final class StandalonePriceUpdateActionModel extends JsonObjectModel implements 
        'setCustomField' => StandalonePriceSetCustomFieldActionModel::class,
        'setCustomType' => StandalonePriceSetCustomTypeActionModel::class,
        'setDiscountedPrice' => StandalonePriceSetDiscountedPriceActionModel::class,
+       'setKey' => StandalonePriceSetKeyActionModel::class,
     ];
 
     /**

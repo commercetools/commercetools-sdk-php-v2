@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\CartResourceIdentifier;
-use Commercetools\Api\Models\Cart\CartResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -23,15 +21,15 @@ final class MyQuoteRequestDraftModel extends JsonObjectModel implements MyQuoteR
 {
     /**
      *
-     * @var ?CartResourceIdentifier
+     * @var ?string
      */
-    protected $cart;
+    protected $cartId;
 
     /**
      *
      * @var ?int
      */
-    protected $version;
+    protected $cartVersion;
 
     /**
      *
@@ -44,34 +42,33 @@ final class MyQuoteRequestDraftModel extends JsonObjectModel implements MyQuoteR
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CartResourceIdentifier $cart = null,
-        ?int $version = null,
+        ?string $cartId = null,
+        ?int $cartVersion = null,
         ?string $comment = null
     ) {
-        $this->cart = $cart;
-        $this->version = $version;
+        $this->cartId = $cartId;
+        $this->cartVersion = $cartVersion;
         $this->comment = $comment;
     }
 
     /**
-     * <p>ResourceIdentifier of the Cart from which the Quote Request is created.</p>
+     * <p><code>id</code> of the Cart from which the Quote Request is created.</p>
      *
      *
-     * @return null|CartResourceIdentifier
+     * @return null|string
      */
-    public function getCart()
+    public function getCartId()
     {
-        if (is_null($this->cart)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CART);
+        if (is_null($this->cartId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CART_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->cart = CartResourceIdentifierModel::of($data);
+            $this->cartId = (string) $data;
         }
 
-        return $this->cart;
+        return $this->cartId;
     }
 
     /**
@@ -80,18 +77,18 @@ final class MyQuoteRequestDraftModel extends JsonObjectModel implements MyQuoteR
      *
      * @return null|int
      */
-    public function getVersion()
+    public function getCartVersion()
     {
-        if (is_null($this->version)) {
+        if (is_null($this->cartVersion)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_CART_VERSION);
             if (is_null($data)) {
                 return null;
             }
-            $this->version = (int) $data;
+            $this->cartVersion = (int) $data;
         }
 
-        return $this->version;
+        return $this->cartVersion;
     }
 
     /**
@@ -116,19 +113,19 @@ final class MyQuoteRequestDraftModel extends JsonObjectModel implements MyQuoteR
 
 
     /**
-     * @param ?CartResourceIdentifier $cart
+     * @param ?string $cartId
      */
-    public function setCart(?CartResourceIdentifier $cart): void
+    public function setCartId(?string $cartId): void
     {
-        $this->cart = $cart;
+        $this->cartId = $cartId;
     }
 
     /**
-     * @param ?int $version
+     * @param ?int $cartVersion
      */
-    public function setVersion(?int $version): void
+    public function setCartVersion(?int $cartVersion): void
     {
-        $this->version = $version;
+        $this->cartVersion = $cartVersion;
     }
 
     /**

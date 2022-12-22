@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -52,7 +52,7 @@ interface Transaction extends JsonObject
      * <p>Money value of the Transaction.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getAmount();
 
@@ -97,9 +97,9 @@ interface Transaction extends JsonObject
     public function setType(?string $type): void;
 
     /**
-     * @param ?TypedMoney $amount
+     * @param ?CentPrecisionMoney $amount
      */
-    public function setAmount(?TypedMoney $amount): void;
+    public function setAmount(?CentPrecisionMoney $amount): void;
 
     /**
      * @param ?string $interactionId

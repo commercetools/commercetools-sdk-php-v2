@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\AssetCollection;
+use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -76,7 +76,7 @@ interface ProductAddVariantAction extends ProductUpdateAction
      * <p>Media assets for the Product Variant.</p>
      *
 
-     * @return null|AssetCollection
+     * @return null|AssetDraftCollection
      */
     public function getAssets();
 
@@ -111,7 +111,7 @@ interface ProductAddVariantAction extends ProductUpdateAction
     public function setStaged(?bool $staged): void;
 
     /**
-     * @param ?AssetCollection $assets
+     * @param ?AssetDraftCollection $assets
      */
-    public function setAssets(?AssetCollection $assets): void;
+    public function setAssets(?AssetDraftCollection $assets): void;
 }

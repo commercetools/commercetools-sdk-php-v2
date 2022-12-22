@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\PriceCollection;
+use Commercetools\Api\Models\Common\Price;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface DuplicatePriceScopeError extends ErrorObject
 {
-    public const FIELD_CONFLICTING_PRICES = 'conflictingPrices';
+    public const FIELD_CONFLICTING_PRICE = 'conflictingPrice';
 
     /**
 
@@ -31,12 +31,12 @@ interface DuplicatePriceScopeError extends ErrorObject
     public function getMessage();
 
     /**
-     * <p>Conflicting Embedded Prices.</p>
+     * <p>Conflicting Embedded Price.</p>
      *
 
-     * @return null|PriceCollection
+     * @return null|Price
      */
-    public function getConflictingPrices();
+    public function getConflictingPrice();
 
     /**
      * @param ?string $message
@@ -44,7 +44,7 @@ interface DuplicatePriceScopeError extends ErrorObject
     public function setMessage(?string $message): void;
 
     /**
-     * @param ?PriceCollection $conflictingPrices
+     * @param ?Price $conflictingPrice
      */
-    public function setConflictingPrices(?PriceCollection $conflictingPrices): void;
+    public function setConflictingPrice(?Price $conflictingPrice): void;
 }

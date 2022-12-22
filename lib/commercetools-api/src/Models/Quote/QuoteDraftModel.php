@@ -27,6 +27,12 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
 {
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?StagedQuoteResourceIdentifier
      */
     protected $stagedQuote;
@@ -45,9 +51,9 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
 
     /**
      *
-     * @var ?string
+     * @var ?StateReference
      */
-    protected $key;
+    protected $state;
 
     /**
      *
@@ -55,30 +61,44 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
      */
     protected $custom;
 
-    /**
-     *
-     * @var ?StateReference
-     */
-    protected $state;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?StagedQuoteResourceIdentifier $stagedQuote = null,
         ?int $stagedQuoteVersion = null,
         ?bool $stagedQuoteStateToSent = null,
-        ?string $key = null,
-        ?CustomFieldsDraft $custom = null,
-        ?StateReference $state = null
+        ?StateReference $state = null,
+        ?CustomFieldsDraft $custom = null
     ) {
+        $this->key = $key;
         $this->stagedQuote = $stagedQuote;
         $this->stagedQuoteVersion = $stagedQuoteVersion;
         $this->stagedQuoteStateToSent = $stagedQuoteStateToSent;
-        $this->key = $key;
-        $this->custom = $custom;
         $this->state = $state;
+        $this->custom = $custom;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the Quote.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -143,23 +163,25 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
     }
 
     /**
-     * <p>User-defined unique identifier for the Quote.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the Quote.
+     * This reference can point to a State in a custom workflow.</p>
      *
      *
-     * @return null|string
+     * @return null|StateReference
      */
-    public function getKey()
+    public function getState()
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+
+            $this->state = StateReferenceModel::of($data);
         }
 
-        return $this->key;
+        return $this->state;
     }
 
     /**
@@ -187,28 +209,14 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
         return $this->custom;
     }
 
+
     /**
-     * <p><a href="ctp:api:type:State">State</a> of the Quote.
-     * This reference can point to a State in a custom workflow.</p>
-     *
-     *
-     * @return null|StateReference
+     * @param ?string $key
      */
-    public function getState()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->state)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->state = StateReferenceModel::of($data);
-        }
-
-        return $this->state;
+        $this->key = $key;
     }
-
 
     /**
      * @param ?StagedQuoteResourceIdentifier $stagedQuote
@@ -235,11 +243,11 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
     }
 
     /**
-     * @param ?string $key
+     * @param ?StateReference $state
      */
-    public function setKey(?string $key): void
+    public function setState(?StateReference $state): void
     {
-        $this->key = $key;
+        $this->state = $state;
     }
 
     /**
@@ -248,13 +256,5 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
-    }
-
-    /**
-     * @param ?StateReference $state
-     */
-    public function setState(?StateReference $state): void
-    {
-        $this->state = $state;
     }
 }

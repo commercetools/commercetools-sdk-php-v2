@@ -28,6 +28,12 @@ final class QuoteDraftBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|StagedQuoteResourceIdentifier|StagedQuoteResourceIdentifierBuilder
      */
     private $stagedQuote;
@@ -46,9 +52,9 @@ final class QuoteDraftBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|StateReference|StateReferenceBuilder
      */
-    private $key;
+    private $state;
 
     /**
 
@@ -57,10 +63,15 @@ final class QuoteDraftBuilder implements Builder
     private $custom;
 
     /**
+     * <p>User-defined unique identifier for the Quote.</p>
+     *
 
-     * @var null|StateReference|StateReferenceBuilder
+     * @return null|string
      */
-    private $state;
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p>StagedQuote from which the Quote is created.</p>
@@ -96,14 +107,15 @@ final class QuoteDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the Quote.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the Quote.
+     * This reference can point to a State in a custom workflow.</p>
      *
 
-     * @return null|string
+     * @return null|StateReference
      */
-    public function getKey()
+    public function getState()
     {
-        return $this->key;
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
     }
 
     /**
@@ -122,15 +134,14 @@ final class QuoteDraftBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:State">State</a> of the Quote.
-     * This reference can point to a State in a custom workflow.</p>
-     *
-
-     * @return null|StateReference
+     * @param ?string $key
+     * @return $this
      */
-    public function getState()
+    public function withKey(?string $key)
     {
-        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -167,12 +178,12 @@ final class QuoteDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $key
+     * @param ?StateReference $state
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withState(?StateReference $state)
     {
-        $this->key = $key;
+        $this->state = $state;
 
         return $this;
     }
@@ -189,34 +200,12 @@ final class QuoteDraftBuilder implements Builder
     }
 
     /**
-     * @param ?StateReference $state
-     * @return $this
-     */
-    public function withState(?StateReference $state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withStagedQuote() instead
      * @return $this
      */
     public function withStagedQuoteBuilder(?StagedQuoteResourceIdentifierBuilder $stagedQuote)
     {
         $this->stagedQuote = $stagedQuote;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
-    {
-        $this->custom = $custom;
 
         return $this;
     }
@@ -232,15 +221,26 @@ final class QuoteDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): QuoteDraft
     {
         return new QuoteDraftModel(
+            $this->key,
             $this->stagedQuote instanceof StagedQuoteResourceIdentifierBuilder ? $this->stagedQuote->build() : $this->stagedQuote,
             $this->stagedQuoteVersion,
             $this->stagedQuoteStateToSent,
-            $this->key,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 
