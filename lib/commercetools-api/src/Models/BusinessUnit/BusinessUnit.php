@@ -33,7 +33,7 @@ interface BusinessUnit extends BaseResource
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_ADDRESSES = 'addresses';
     public const FIELD_SHIPPING_ADDRESS_IDS = 'shippingAddressIds';
-    public const FIELD_DEFAULT_SHIPING_ADDRESS_ID = 'defaultShipingAddressId';
+    public const FIELD_DEFAULT_SHIPPING_ADDRESS_ID = 'defaultShippingAddressId';
     public const FIELD_BILLING_ADDRESS_IDS = 'billingAddressIds';
     public const FIELD_DEFAULT_BILLING_ADDRESS_ID = 'defaultBillingAddressId';
     public const FIELD_ASSOCIATES = 'associates';
@@ -177,7 +177,7 @@ interface BusinessUnit extends BaseResource
 
      * @return null|string
      */
-    public function getDefaultShipingAddressId();
+    public function getDefaultShippingAddressId();
 
     /**
      * <p>Unique identifiers of addresses used as billing addresses.</p>
@@ -295,9 +295,9 @@ interface BusinessUnit extends BaseResource
     public function setShippingAddressIds(?array $shippingAddressIds): void;
 
     /**
-     * @param ?string $defaultShipingAddressId
+     * @param ?string $defaultShippingAddressId
      */
-    public function setDefaultShipingAddressId(?string $defaultShipingAddressId): void;
+    public function setDefaultShippingAddressId(?string $defaultShippingAddressId): void;
 
     /**
      * @param ?array $billingAddressIds

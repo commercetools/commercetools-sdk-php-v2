@@ -65,7 +65,7 @@ final class MyDivisionDraftBuilder implements Builder
 
      * @var ?int
      */
-    private $defaultShipingAddress;
+    private $defaultShippingAddress;
 
     /**
 
@@ -158,9 +158,9 @@ final class MyDivisionDraftBuilder implements Builder
 
      * @return null|int
      */
-    public function getDefaultShipingAddress()
+    public function getDefaultShippingAddress()
     {
-        return $this->defaultShipingAddress;
+        return $this->defaultShippingAddress;
     }
 
     /**
@@ -264,12 +264,12 @@ final class MyDivisionDraftBuilder implements Builder
     }
 
     /**
-     * @param ?int $defaultShipingAddress
+     * @param ?int $defaultShippingAddress
      * @return $this
      */
-    public function withDefaultShipingAddress(?int $defaultShipingAddress)
+    public function withDefaultShippingAddress(?int $defaultShippingAddress)
     {
-        $this->defaultShipingAddress = $defaultShipingAddress;
+        $this->defaultShippingAddress = $defaultShippingAddress;
 
         return $this;
     }
@@ -338,7 +338,7 @@ final class MyDivisionDraftBuilder implements Builder
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->addresses,
             $this->shippingAddresses,
-            $this->defaultShipingAddress,
+            $this->defaultShippingAddress,
             $this->billingAddresses,
             $this->defaultBillingAddress,
             $this->parentUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->parentUnit->build() : $this->parentUnit

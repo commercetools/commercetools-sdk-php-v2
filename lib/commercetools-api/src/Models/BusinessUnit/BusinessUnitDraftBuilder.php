@@ -82,7 +82,7 @@ final class BusinessUnitDraftBuilder implements Builder
 
      * @var ?int
      */
-    private $defaultShipingAddress;
+    private $defaultShippingAddress;
 
     /**
 
@@ -212,9 +212,9 @@ final class BusinessUnitDraftBuilder implements Builder
 
      * @return null|int
      */
-    public function getDefaultShipingAddress()
+    public function getDefaultShippingAddress()
     {
-        return $this->defaultShipingAddress;
+        return $this->defaultShippingAddress;
     }
 
     /**
@@ -351,12 +351,12 @@ final class BusinessUnitDraftBuilder implements Builder
     }
 
     /**
-     * @param ?int $defaultShipingAddress
+     * @param ?int $defaultShippingAddress
      * @return $this
      */
-    public function withDefaultShipingAddress(?int $defaultShipingAddress)
+    public function withDefaultShippingAddress(?int $defaultShippingAddress)
     {
-        $this->defaultShipingAddress = $defaultShipingAddress;
+        $this->defaultShippingAddress = $defaultShippingAddress;
 
         return $this;
     }
@@ -417,7 +417,7 @@ final class BusinessUnitDraftBuilder implements Builder
             $this->associates,
             $this->addresses,
             $this->shippingAddresses,
-            $this->defaultShipingAddress,
+            $this->defaultShippingAddress,
             $this->billingAddresses,
             $this->defaultBillingAddress,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom

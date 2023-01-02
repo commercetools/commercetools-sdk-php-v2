@@ -131,7 +131,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
      *
      * @var ?string
      */
-    protected $defaultShipingAddressId;
+    protected $defaultShippingAddressId;
 
     /**
      *
@@ -191,7 +191,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
         ?CustomFields $custom = null,
         ?AddressCollection $addresses = null,
         ?array $shippingAddressIds = null,
-        ?string $defaultShipingAddressId = null,
+        ?string $defaultShippingAddressId = null,
         ?array $billingAddressIds = null,
         ?string $defaultBillingAddressId = null,
         ?AssociateCollection $associates = null,
@@ -214,7 +214,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
         $this->custom = $custom;
         $this->addresses = $addresses;
         $this->shippingAddressIds = $shippingAddressIds;
-        $this->defaultShipingAddressId = $defaultShipingAddressId;
+        $this->defaultShippingAddressId = $defaultShippingAddressId;
         $this->billingAddressIds = $billingAddressIds;
         $this->defaultBillingAddressId = $defaultBillingAddressId;
         $this->associates = $associates;
@@ -563,18 +563,18 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
      *
      * @return null|string
      */
-    public function getDefaultShipingAddressId()
+    public function getDefaultShippingAddressId()
     {
-        if (is_null($this->defaultShipingAddressId)) {
+        if (is_null($this->defaultShippingAddressId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_DEFAULT_SHIPING_ADDRESS_ID);
+            $data = $this->raw(self::FIELD_DEFAULT_SHIPPING_ADDRESS_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->defaultShipingAddressId = (string) $data;
+            $this->defaultShippingAddressId = (string) $data;
         }
 
-        return $this->defaultShipingAddressId;
+        return $this->defaultShippingAddressId;
     }
 
     /**
@@ -801,11 +801,11 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
     }
 
     /**
-     * @param ?string $defaultShipingAddressId
+     * @param ?string $defaultShippingAddressId
      */
-    public function setDefaultShipingAddressId(?string $defaultShipingAddressId): void
+    public function setDefaultShippingAddressId(?string $defaultShippingAddressId): void
     {
-        $this->defaultShipingAddressId = $defaultShipingAddressId;
+        $this->defaultShippingAddressId = $defaultShippingAddressId;
     }
 
     /**

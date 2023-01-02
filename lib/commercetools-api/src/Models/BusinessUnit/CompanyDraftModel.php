@@ -88,7 +88,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
      *
      * @var ?int
      */
-    protected $defaultShipingAddress;
+    protected $defaultShippingAddress;
 
     /**
      *
@@ -122,7 +122,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
         ?AssociateDraftCollection $associates = null,
         ?BaseAddressCollection $addresses = null,
         ?array $shippingAddresses = null,
-        ?int $defaultShipingAddress = null,
+        ?int $defaultShippingAddress = null,
         ?array $billingAddresses = null,
         ?int $defaultBillingAddress = null,
         ?CustomFieldsDraft $custom = null,
@@ -137,7 +137,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
         $this->associates = $associates;
         $this->addresses = $addresses;
         $this->shippingAddresses = $shippingAddresses;
-        $this->defaultShipingAddress = $defaultShipingAddress;
+        $this->defaultShippingAddress = $defaultShippingAddress;
         $this->billingAddresses = $billingAddresses;
         $this->defaultBillingAddress = $defaultBillingAddress;
         $this->custom = $custom;
@@ -355,18 +355,18 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
      *
      * @return null|int
      */
-    public function getDefaultShipingAddress()
+    public function getDefaultShippingAddress()
     {
-        if (is_null($this->defaultShipingAddress)) {
+        if (is_null($this->defaultShippingAddress)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_DEFAULT_SHIPING_ADDRESS);
+            $data = $this->raw(self::FIELD_DEFAULT_SHIPPING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
-            $this->defaultShipingAddress = (int) $data;
+            $this->defaultShippingAddress = (int) $data;
         }
 
-        return $this->defaultShipingAddress;
+        return $this->defaultShippingAddress;
     }
 
     /**
@@ -505,11 +505,11 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
     }
 
     /**
-     * @param ?int $defaultShipingAddress
+     * @param ?int $defaultShippingAddress
      */
-    public function setDefaultShipingAddress(?int $defaultShipingAddress): void
+    public function setDefaultShippingAddress(?int $defaultShippingAddress): void
     {
-        $this->defaultShipingAddress = $defaultShipingAddress;
+        $this->defaultShippingAddress = $defaultShippingAddress;
     }
 
     /**
