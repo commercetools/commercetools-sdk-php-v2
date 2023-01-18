@@ -29,7 +29,7 @@ interface ProductPriceChangedMessage extends Message
     public function getVariantId();
 
     /**
-     * <p>The current <a href="ctp:api:type:Price">Embedded Price</a> before the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
+     * <p>The current <a href="/projects/products#embedded-price">Embedded Price</a> before the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
      *
 
      * @return null|Price
@@ -37,7 +37,7 @@ interface ProductPriceChangedMessage extends Message
     public function getOldPrice();
 
     /**
-     * <p>The <a href="ctp:api:type:Price">Embedded Price</a> after the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
+     * <p>The <a href="/projects/products#embedded-price">Embedded Price</a> after the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
      *
 
      * @return null|Price
@@ -53,7 +53,7 @@ interface ProductPriceChangedMessage extends Message
     public function getStaged();
 
     /**
-     * <p>The staged <a href="ctp:api:type:Price">Embedded Price</a> before the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
+     * <p>The staged <a href="/projects/products#embedded-price">Embedded Price</a> before the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
      *
 
      * @return null|Price

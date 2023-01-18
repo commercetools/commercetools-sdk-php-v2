@@ -19,7 +19,7 @@ interface ProductSetDiscountedPriceAction extends ProductUpdateAction
     public const FIELD_DISCOUNTED = 'discounted';
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:Price">Embedded Price</a> to set the Discount.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:Price">Price</a> to set the Discount.</p>
      *
 
      * @return null|string

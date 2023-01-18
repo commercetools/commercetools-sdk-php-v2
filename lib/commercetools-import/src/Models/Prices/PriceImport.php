@@ -77,7 +77,7 @@ interface PriceImport extends ImportResource
     public function getValidUntil();
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the <a href="/../api/types#embedded-price">Embedded Price</a> is associated.
+     * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the <a href="/../api/types#price">Price</a> is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
      *
 
@@ -86,7 +86,7 @@ interface PriceImport extends ImportResource
     public function getCustomerGroup();
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/channels#channel">Channel</a> with which the <a href="/../api/types#embedded-price">Embedded Price</a> is associated.
+     * <p>The Reference to the <a href="/../api/projects/channels#channel">Channel</a> with which the <a href="/../api/types#price">Price</a> is associated.
      * If referenced Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Channel is created.</p>
      *
 
@@ -103,7 +103,7 @@ interface PriceImport extends ImportResource
     public function getDiscounted();
 
     /**
-     * <p>Only the <a href="/../api/types#embedded-price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     * <p>Only the <a href="/../api/projects/products#embedded-price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
      *
 
      * @return null|bool
@@ -127,8 +127,8 @@ interface PriceImport extends ImportResource
     public function getCustom();
 
     /**
-     * <p>The ProductVariant in which this <a href="/../api/types#embedded-price">Embedded Price</a> is contained.
-     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the <a href="/../api/types#embedded-price">Embedded Price</a> is associated.
+     * <p>The ProductVariant in which this <a href="/../api/projects/products#embedded-price">Embedded Price</a> is contained.
+     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the <a href="/../api/types#price">Price</a> is associated.
      * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
 
@@ -137,8 +137,8 @@ interface PriceImport extends ImportResource
     public function getProductVariant();
 
     /**
-     * <p>The Product in which the Product Variant containing this <a href="/../api/types#embedded-price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>.
-     * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the <a href="/../api/types#embedded-price">Embedded Price</a> is associated.
+     * <p>The Product in which the Product Variant containing this <a href="/../api/projects/products#embedded-price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>.
+     * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the <a href="/../api/types#price">Price</a> is associated.
      * If referenced Product does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
      *
 

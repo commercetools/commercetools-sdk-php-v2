@@ -60,7 +60,7 @@ final class ProductPriceKeySetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>Unique identifier of the <a href="ctp:api:type:Price">Embedded Price</a>.</p>
+     * <p>Unique identifier of the <a href="ctp:api:type:Price">Price</a>.</p>
      *
 
      * @return null|string
@@ -71,7 +71,7 @@ final class ProductPriceKeySetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><code>key</code> value of the <a href="ctp:api:type:Price">Embedded Price</a> before the <a href="ctp:api:type:ProductSetPriceKeyAction">Set Price Key</a> update action.</p>
+     * <p><code>key</code> value of the <a href="ctp:api:type:Price">Price</a> before the <a href="ctp:api:type:ProductSetPriceKeyAction">Set Price Key</a> update action.</p>
      *
 
      * @return null|string
@@ -82,7 +82,7 @@ final class ProductPriceKeySetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><code>key</code> value of the <a href="ctp:api:type:Price">Embedded Price</a> after the <a href="ctp:api:type:ProductSetPriceKeyAction">Set Price Key</a> update action.</p>
+     * <p><code>key</code> value of the <a href="ctp:api:type:Price">Price</a> after the <a href="ctp:api:type:ProductSetPriceKeyAction">Set Price Key</a> update action.</p>
      *
 
      * @return null|string

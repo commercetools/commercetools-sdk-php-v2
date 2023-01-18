@@ -165,7 +165,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
-     * <p>Unique identifier of the <a href="ctp:api:type:Price">Embedded Price</a>.</p>
+     * <p>Unique identifier of the <a href="ctp:api:type:Price">Price</a>.</p>
      *
      *
      * @return null|string

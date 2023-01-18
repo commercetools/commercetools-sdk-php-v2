@@ -39,7 +39,7 @@ final class ProductSetPriceKeyActionBuilder implements Builder
     private $key;
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:Price">Embedded Price</a> to set the key.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:Price">Price</a> to set the key.</p>
      *
 
      * @return null|string
@@ -50,7 +50,7 @@ final class ProductSetPriceKeyActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, only the staged <a href="ctp:api:type:Price">Embedded Price</a> is updated. If <code>false</code>, both the current and staged <a href="ctp:api:type:Price">Embedded Price</a> are updated.</p>
+     * <p>If <code>true</code>, only the staged <a href="/projects/products#embedded-price">Embedded Price</a> is updated. If <code>false</code>, both the current and staged Embedded Price are updated.</p>
      *
 
      * @return null|bool

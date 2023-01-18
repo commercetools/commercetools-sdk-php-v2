@@ -101,7 +101,7 @@ final class ProductPriceRemovedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Price">Embedded Price</a> that was removed from the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>The <a href="/projects/products#embedded-price">Embedded Price</a> that was removed from the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
      *
      * @return null|Price

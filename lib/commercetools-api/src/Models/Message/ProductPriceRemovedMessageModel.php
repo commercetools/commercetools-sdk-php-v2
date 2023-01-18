@@ -403,7 +403,7 @@ final class ProductPriceRemovedMessageModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Price">Embedded Price</a> that was removed from the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>The <a href="/projects/products#embedded-price">Embedded Price</a> that was removed from the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
      *
      * @return null|Price
