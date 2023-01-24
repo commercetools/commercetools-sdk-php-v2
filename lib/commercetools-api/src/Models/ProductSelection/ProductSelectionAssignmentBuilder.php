@@ -63,7 +63,8 @@ final class ProductSelectionAssignmentBuilder implements Builder
     }
 
     /**
-     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.</p>
+     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.
+     * The list of SKUs will be updated automatically on any change of those performed on the respective Product itself.</p>
      *
 
      * @return null|ProductVariantSelection

@@ -1,10 +1,31 @@
 **Api changes**
 
 <details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/shipping-methods/matching-cart-location`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `Frozen` to type `CartState`
+</details>
+
+
+<details>
 <summary>Changed Property(s)</summary>
 
 - :warning: changed property `amount` of type `Transaction` from type `TypedMoney` to `CentPrecisionMoney`
 - :warning: changed property `assets` of type `ProductAddVariantAction` from type `Asset[]` to `AssetDraft[]`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- changed property `discounted` of type `StagedStandalonePrice` to be optional
 </details>
 
 
@@ -29,13 +50,6 @@
 
 
 <details>
-<summary>Required Property(s)</summary>
-
-- changed property `discounted` of type `StagedStandalonePrice` to be optional
-</details>
-
-
-<details>
 <summary>Removed Property(s)</summary>
 
 - :warning: removed property `defaultShipingAddressId` from type `BusinessUnit`
@@ -50,20 +64,6 @@
 - :warning: removed property `defaultShipingAddress` from type `MyDivisionDraft`
 - :warning: removed property `cart` from type `MyQuoteRequestDraft`
 - :warning: removed property `version` from type `MyQuoteRequestDraft`
-</details>
-
-
-<details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/shipping-methods/matching-cart-location`
-</details>
-
-
-<details>
-<summary>Added Method(s)</summary>
-
-- added method `$apiRoot->withProjectKey()->shippingMethods()->matchingCartLocation()->get()`
 </details>
 
 
@@ -100,32 +100,12 @@
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Added Method(s)</summary>
 
-- added enum `Frozen` to type `CartState`
+- added method `$apiRoot->withProjectKey()->shippingMethods()->matchingCartLocation()->get()`
 </details>
 
 **ML changes**
-
-<details>
-<summary>Deprecated Property(s)</summary>
-
-- property `MissingAttributes::attributeCount` is removed
-- property `MissingAttributes::attributeCoverage` is removed
-- property `MissingAttributesMeta::productLevel` is removed
-- property `MissingAttributesMeta::variantLevel` is removed
-- property `MissingAttributesPagedQueryResult::meta` is removed
-- property `MissingDataTaskStatus::result` is removed
-- property `MissingImagesMeta::productLevel` is removed
-- property `MissingImagesMeta::variantLevel` is removed
-- property `MissingImagesPagedQueryResult::meta` is removed
-- property `MissingImagesTaskStatus::result` is removed
-- property `MissingPricesMeta::productLevel` is removed
-- property `MissingPricesMeta::variantLevel` is removed
-- property `MissingPricesPagedQueryResult::meta` is removed
-- property `MissingPricesTaskStatus::result` is removed
-</details>
-
 
 <details>
 <summary>Deprecated Type(s)</summary>
@@ -182,5 +162,25 @@
 - method `get /{projectKey}/missing-data/attributes/status/{taskId}` is removed
 - method `get /{projectKey}/missing-data/images/status/{taskId}` is removed
 - method `get /{projectKey}/missing-data/prices/status/{taskId}` is removed
+</details>
+
+
+<details>
+<summary>Deprecated Property(s)</summary>
+
+- property `MissingAttributes::attributeCount` is removed
+- property `MissingAttributes::attributeCoverage` is removed
+- property `MissingAttributesMeta::productLevel` is removed
+- property `MissingAttributesMeta::variantLevel` is removed
+- property `MissingAttributesPagedQueryResult::meta` is removed
+- property `MissingDataTaskStatus::result` is removed
+- property `MissingImagesMeta::productLevel` is removed
+- property `MissingImagesMeta::variantLevel` is removed
+- property `MissingImagesPagedQueryResult::meta` is removed
+- property `MissingImagesTaskStatus::result` is removed
+- property `MissingPricesMeta::productLevel` is removed
+- property `MissingPricesMeta::variantLevel` is removed
+- property `MissingPricesPagedQueryResult::meta` is removed
+- property `MissingPricesTaskStatus::result` is removed
 </details>
 
