@@ -73,6 +73,7 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
        'setParcelItems' => OrderSetParcelItemsActionModel::class,
        'setParcelMeasurements' => OrderSetParcelMeasurementsActionModel::class,
        'setParcelTrackingData' => OrderSetParcelTrackingDataActionModel::class,
+       'setPurchaseOrderNumber' => OrderSetPurchaseOrderNumberActionModel::class,
        'setReturnInfo' => OrderSetReturnInfoActionModel::class,
        'setReturnItemCustomField' => OrderSetReturnItemCustomFieldActionModel::class,
        'setReturnItemCustomType' => OrderSetReturnItemCustomTypeActionModel::class,

@@ -140,6 +140,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetPurchaseOrderNumberAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetPurchaseOrderNumberActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnItemCustomFieldAction;

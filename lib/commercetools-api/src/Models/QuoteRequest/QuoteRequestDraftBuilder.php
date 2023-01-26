@@ -63,6 +63,12 @@ final class QuoteRequestDraftBuilder implements Builder
     private $state;
 
     /**
+
+     * @var ?string
+     */
+    private $purchaseOrderNumber;
+
+    /**
      * <p>Cart for which a Quote is requested.
      * Anonymous Carts, Carts with <a href="ctp:api:type:DiscountCode">Discount Codes</a>, or Carts with a <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a> are not supported.</p>
      *
@@ -128,6 +134,18 @@ final class QuoteRequestDraftBuilder implements Builder
     public function getState()
     {
         return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p>Identifier for a purchase order, usually in a B2B context.
+     * The Purchase Order Number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
     }
 
     /**
@@ -197,6 +215,17 @@ final class QuoteRequestDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCart() instead
      * @return $this
      */
@@ -237,7 +266,8 @@ final class QuoteRequestDraftBuilder implements Builder
             $this->key,
             $this->comment,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->purchaseOrderNumber
         );
     }
 

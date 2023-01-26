@@ -59,6 +59,7 @@ interface QuoteRequest extends BaseResource
     public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STATE = 'state';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
 
     /**
@@ -311,6 +312,15 @@ interface QuoteRequest extends BaseResource
     public function getState();
 
     /**
+     * <p>Identifier for a purchase order, usually in a B2B context.
+     * The Purchase Order Number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
+
+    /**
      * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request.</p>
      *
 
@@ -467,6 +477,11 @@ interface QuoteRequest extends BaseResource
      * @param ?StateReference $state
      */
     public function setState(?StateReference $state): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 
     /**
      * @param ?BusinessUnitKeyReference $businessUnit

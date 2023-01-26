@@ -140,6 +140,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetPurchaseOrderNumberAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetPurchaseOrderNumberActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnItemCustomFieldAction;
@@ -267,6 +269,7 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setParcelItems' => StagedOrderSetParcelItemsActionModel::class,
        'setParcelMeasurements' => StagedOrderSetParcelMeasurementsActionModel::class,
        'setParcelTrackingData' => StagedOrderSetParcelTrackingDataActionModel::class,
+       'setPurchaseOrderNumber' => StagedOrderSetPurchaseOrderNumberActionModel::class,
        'setReturnInfo' => StagedOrderSetReturnInfoActionModel::class,
        'setReturnItemCustomField' => StagedOrderSetReturnItemCustomFieldActionModel::class,
        'setReturnItemCustomType' => StagedOrderSetReturnItemCustomTypeActionModel::class,

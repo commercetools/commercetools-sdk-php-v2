@@ -265,6 +265,12 @@ final class QuoteBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $purchaseOrderNumber;
+
+    /**
+
      * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
      */
     private $businessUnit;
@@ -653,6 +659,18 @@ final class QuoteBuilder implements Builder
     }
 
     /**
+     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
+     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
+    }
+
+    /**
      * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote.</p>
      *
 
@@ -1038,6 +1056,17 @@ final class QuoteBuilder implements Builder
     }
 
     /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
+
+        return $this;
+    }
+
+    /**
      * @param ?BusinessUnitKeyReference $businessUnit
      * @return $this
      */
@@ -1272,6 +1301,7 @@ final class QuoteBuilder implements Builder
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->quoteState,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->purchaseOrderNumber,
             $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit
         );
     }

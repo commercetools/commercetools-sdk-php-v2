@@ -65,6 +65,7 @@ interface Order extends BaseResource
     public const FIELD_SHIPPING_INFO = 'shippingInfo';
     public const FIELD_SYNC_INFO = 'syncInfo';
     public const FIELD_RETURN_INFO = 'returnInfo';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
     public const FIELD_LAST_MESSAGE_SEQUENCE_NUMBER = 'lastMessageSequenceNumber';
     public const FIELD_CART = 'cart';
@@ -324,6 +325,15 @@ interface Order extends BaseResource
     public function getReturnInfo();
 
     /**
+     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
+     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
+
+    /**
 
      * @return null|DiscountCodeInfoCollection
      */
@@ -580,6 +590,11 @@ interface Order extends BaseResource
      * @param ?ReturnInfoCollection $returnInfo
      */
     public function setReturnInfo(?ReturnInfoCollection $returnInfo): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 
     /**
      * @param ?DiscountCodeInfoCollection $discountCodes

@@ -54,6 +54,12 @@ final class OrderFromCartDraftBuilder implements Builder
 
      * @var ?string
      */
+    private $purchaseOrderNumber;
+
+    /**
+
+     * @var ?string
+     */
     private $paymentState;
 
     /**
@@ -124,6 +130,18 @@ final class OrderFromCartDraftBuilder implements Builder
     public function getOrderNumber()
     {
         return $this->orderNumber;
+    }
+
+    /**
+     * <p>Identifier for a purchase order, usually in a B2B context.
+     * The Purchase Order Number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a> and can also be used with <a href="/quotes-overview">Quotes</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
     }
 
     /**
@@ -217,6 +235,17 @@ final class OrderFromCartDraftBuilder implements Builder
     public function withOrderNumber(?string $orderNumber)
     {
         $this->orderNumber = $orderNumber;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
 
         return $this;
     }
@@ -316,6 +345,7 @@ final class OrderFromCartDraftBuilder implements Builder
             $this->cart instanceof CartResourceIdentifierBuilder ? $this->cart->build() : $this->cart,
             $this->version,
             $this->orderNumber,
+            $this->purchaseOrderNumber,
             $this->paymentState,
             $this->shipmentState,
             $this->orderState,

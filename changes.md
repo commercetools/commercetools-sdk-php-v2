@@ -44,8 +44,15 @@
 - added property `defaultShippingAddress` to type `MyDivisionDraft`
 - added property `cartId` to type `MyQuoteRequestDraft`
 - added property `cartVersion` to type `MyQuoteRequestDraft`
+- added property `purchaseOrderNumber` to type `StagedOrder`
+- added property `purchaseOrderNumber` to type `Order`
+- added property `purchaseOrderNumber` to type `OrderFromCartDraft`
 - added property `createdAt` to type `AssignedProductSelection`
+- added property `purchaseOrderNumber` to type `QuoteRequest`
+- added property `purchaseOrderNumber` to type `QuoteRequestDraft`
 - added property `quoteState` to type `Quote`
+- added property `purchaseOrderNumber` to type `Quote`
+- added property `purchaseOrderNumber` to type `StagedQuote`
 </details>
 
 
@@ -80,6 +87,7 @@
 - added type `CartFreezeCartAction`
 - added type `CartUnfreezeCartAction`
 - added type `DuplicatePriceKeyError`
+- added type `OrderPurchaseOrderNumberSetMessage`
 - added type `ProductPriceAddedMessage`
 - added type `ProductPriceChangedMessage`
 - added type `ProductPriceKeySetMessage`
@@ -87,6 +95,7 @@
 - added type `ProductPriceRemovedMessage`
 - added type `ProductPricesSetMessage`
 - added type `StandalonePriceKeySetMessage`
+- added type `OrderPurchaseOrderNumberSetMessagePayload`
 - added type `ProductPriceAddedMessagePayload`
 - added type `ProductPriceChangedMessagePayload`
 - added type `ProductPriceKeySetMessagePayload`
@@ -94,6 +103,8 @@
 - added type `ProductPriceRemovedMessagePayload`
 - added type `ProductPricesSetMessagePayload`
 - added type `StandalonePriceKeySetMessagePayload`
+- added type `StagedOrderSetPurchaseOrderNumberAction`
+- added type `OrderSetPurchaseOrderNumberAction`
 - added type `ProductSetPriceKeyAction`
 - added type `StandalonePriceSetKeyAction`
 </details>
