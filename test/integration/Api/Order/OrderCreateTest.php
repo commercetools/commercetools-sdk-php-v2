@@ -61,6 +61,7 @@ class OrderCreateTest extends ApiTestCase
 
         $builder = $this->getApiBuilder();
 
+// building the product type
         $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
             ->withType(AttributeTextTypeBuilder::of()->build())
             ->withName('test-text')
@@ -77,6 +78,7 @@ class OrderCreateTest extends ApiTestCase
         $request = $builder->with()->productTypes()->post($productTypeDraft);
         $productType = $request->execute();
 
+// building the tax category
         $assetSource = AssetSourceBuilder::of()
             ->withUri("http://www.google.com")
             ->withKey($uniqueString)
@@ -108,6 +110,7 @@ class OrderCreateTest extends ApiTestCase
         $request = $builder->with()->taxCategories()->post($taxCategoryDraft);
         $taxCategory = $request->execute();
 
+// building the product
         $priceDraft = PriceDraftBuilder::of()
             ->withValue(MoneyBuilder::of()
                 ->withCentAmount(100)
@@ -151,6 +154,7 @@ class OrderCreateTest extends ApiTestCase
         $request = $builder->with()->products()->post($productDraft);
         $product = $request->execute();
 
+// building the cart
         $cartDraft = CartDraftBuilder::of()
             ->withCurrency('EUR')
             ->withShippingAddress(
@@ -172,7 +176,7 @@ class OrderCreateTest extends ApiTestCase
             ->post($cartUpdateAction);
         $cartUpdated = $request->execute();
 
-
+// building the order
         $orderDraft = OrderFromCartDraftBuilder::of()
             ->withCart(CartResourceIdentifierBuilder::of()
                 ->withId($cartUpdated->getId())
@@ -182,6 +186,7 @@ class OrderCreateTest extends ApiTestCase
 
         $orderResponse = $builder->with()->orders()->post($orderDraft)->execute();
 
+// filtering the order
         $request = $builder->with()->orders()->get()->withWhere("syncInfo is empty");
         $resultWithPredicateVar = $request->execute();
         $this->assertInstanceOf(Cart::class, $cart);
