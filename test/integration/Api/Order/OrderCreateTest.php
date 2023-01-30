@@ -55,6 +55,7 @@ use Ramsey\Uuid\Uuid;
 
 class OrderCreateTest extends ApiTestCase
 {
+    // TODO to be rewritten
     public function testOrder()
     {
         $uniqueString = 'test-' . Uuid::uuid4();
