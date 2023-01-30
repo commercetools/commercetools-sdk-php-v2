@@ -2,40 +2,25 @@
 
 namespace Commercetools\IntegrationTest\Api\Order;
 
-use Commercetools\Api\Client\Resource\ByProjectKeyProductTypesPost;
 use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Api\Models\Cart\CartAddLineItemActionBuilder as CartAddLineItemActionBuilder;
-use Commercetools\Api\Models\Cart\CartBuilder as CartBuilder;
 use Commercetools\Api\Models\Cart\CartDraftBuilder;
-use Commercetools\Api\Models\Cart\CartDraftModel;
 use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder as CartResourceIdentifierBuilder;
-use Commercetools\Api\Models\Cart\CartSetShippingAddressActionBuilder as CartSetShippingAddressActionBuilder;
 use Commercetools\Api\Models\Cart\CartUpdateActionCollection;
 use Commercetools\Api\Models\Cart\CartUpdateBuilder;
-use Commercetools\Api\Models\Cart\LineItemCollection as LineItemCollection;
-use Commercetools\Api\Models\Category\CategoryDraftBuilder;
-use Commercetools\Api\Models\Category\CategoryResourceIdentifierBuilder;
-use Commercetools\Api\Models\Category\CategoryResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\AddressBuilder as AddressBuilder;
 use Commercetools\Api\Models\Common\AssetDimensionsBuilder;
 use Commercetools\Api\Models\Common\AssetDraftBuilder;
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\AssetSourceBuilder;
 use Commercetools\Api\Models\Common\AssetSourceCollection;
-use Commercetools\Api\Models\Common\ImageBuilder;
-use Commercetools\Api\Models\Common\ImageCollection;
-use Commercetools\Api\Models\Common\ImageDimensionsBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Common\PriceDraftBuilder as PriceDraftBuilder;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
-use Commercetools\Api\Models\Common\PriceTierDraftBuilder;
-use Commercetools\Api\Models\Common\PriceTierDraftCollection;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder as TypedMoneyBuilder;
 use Commercetools\Api\Models\Order\OrderFromCartDraftBuilder;
 use Commercetools\Api\Models\Product\AttributeBuilder;
 use Commercetools\Api\Models\Product\AttributeCollection;
-use Commercetools\Api\Models\Product\CategoryOrderHintsBuilder;
 use Commercetools\Api\Models\Product\ProductDraftBuilder;
 use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
@@ -43,14 +28,11 @@ use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
 use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
-use Commercetools\Api\Models\TaxCategory\SubRateBuilder;
-use Commercetools\Api\Models\TaxCategory\SubRateCollection;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryDraftBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRateDraftBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRateDraftCollection;
 use Commercetools\IntegrationTest\ApiTestCase;
-use DateTimeImmutable;
 use Ramsey\Uuid\Uuid;
 
 class OrderCreateTest extends ApiTestCase
@@ -62,7 +44,7 @@ class OrderCreateTest extends ApiTestCase
 
         $builder = $this->getApiBuilder();
 
-// building the product type
+        // building the product type
         $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
             ->withType(AttributeTextTypeBuilder::of()->build())
             ->withName('test-text')
@@ -79,11 +61,12 @@ class OrderCreateTest extends ApiTestCase
         $request = $builder->with()->productTypes()->post($productTypeDraft);
         $productType = $request->execute();
 
-// building the tax category
+        // building the tax category
         $assetSource = AssetSourceBuilder::of()
             ->withUri("http://www.google.com")
             ->withKey($uniqueString)
-            ->withDimensions(AssetDimensionsBuilder::of()
+            ->withDimensions(
+                AssetDimensionsBuilder::of()
                 ->withW(100)->withH(100)
                 ->build()
             )
@@ -106,14 +89,15 @@ class OrderCreateTest extends ApiTestCase
             ->withName($uniqueString)
             ->withKey($uniqueString)
             ->withDescription($uniqueString)
-            ->withRates( new TaxRateDraftCollection([$taxRateDraft]))
+            ->withRates(new TaxRateDraftCollection([$taxRateDraft]))
             ->build();
         $request = $builder->with()->taxCategories()->post($taxCategoryDraft);
         $taxCategory = $request->execute();
 
-// building the product
+        // building the product
         $priceDraft = PriceDraftBuilder::of()
-            ->withValue(MoneyBuilder::of()
+            ->withValue(
+                MoneyBuilder::of()
                 ->withCentAmount(100)
                 ->withCurrencyCode('EUR')
                 ->build()
@@ -155,7 +139,7 @@ class OrderCreateTest extends ApiTestCase
         $request = $builder->with()->products()->post($productDraft);
         $product = $request->execute();
 
-// building the cart
+        // building the cart
         $cartDraft = CartDraftBuilder::of()
             ->withCurrency('EUR')
             ->withShippingAddress(
@@ -177,7 +161,7 @@ class OrderCreateTest extends ApiTestCase
             ->post($cartUpdateAction);
         $cartUpdated = $request->execute();
 
-// building the order
+        // building the order
         $orderDraft = OrderFromCartDraftBuilder::of()
             ->withCart(CartResourceIdentifierBuilder::of()
                 ->withId($cartUpdated->getId())
@@ -187,7 +171,7 @@ class OrderCreateTest extends ApiTestCase
 
         $orderResponse = $builder->with()->orders()->post($orderDraft)->execute();
 
-// filtering the order
+        // filtering the order
         $request = $builder->with()->orders()->get()->withWhere("syncInfo is empty");
         $resultWithPredicateVar = $request->execute();
         $this->assertInstanceOf(Cart::class, $cart);
