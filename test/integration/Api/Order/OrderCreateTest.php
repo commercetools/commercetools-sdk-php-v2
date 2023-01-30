@@ -38,7 +38,7 @@ use Ramsey\Uuid\Uuid;
 class OrderCreateTest extends ApiTestCase
 {
     // TODO to be rewritten
-    public function testOrder()
+    public function testOrderGetWithPredicate()
     {
         $uniqueString = 'test-' . Uuid::uuid4();
 
@@ -71,11 +71,6 @@ class OrderCreateTest extends ApiTestCase
                 ->build()
             )
             ->withContentType('application/json')
-            ->build();
-        $asset = AssetDraftBuilder::of()
-            ->withKey($uniqueString)
-            ->withSources(new AssetSourceCollection([$assetSource]))
-            ->withName(LocalizedStringBuilder::of()->put('en', $uniqueString)->build())
             ->build();
 
         $taxRateDraft = TaxRateDraftBuilder::of()
@@ -113,7 +108,6 @@ class OrderCreateTest extends ApiTestCase
             ->withSku($uniqueString)
             ->withKey($uniqueString)
             ->withPrices(new PriceDraftCollection([$priceDraft]))
-            ->withAssets(new AssetDraftCollection([$asset]))
             ->withAttributes(new AttributeCollection([$attribute]))
             ->build();
 
