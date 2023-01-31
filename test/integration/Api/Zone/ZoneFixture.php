@@ -1,59 +1,49 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\ProductType;
+namespace Commercetools\IntegrationTest\Api\Zone;
 
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
-use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
-use Commercetools\Api\Models\ProductType\ProductType;
-use Commercetools\Api\Models\ProductType\ProductTypeDraft;
-use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
-use Commercetools\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Models\Zone\Zone;
+use Commercetools\Api\Models\Zone\ZoneDraft;
+use Commercetools\Api\Models\Zone\ZoneDraftBuilder;
 use Ramsey\Uuid\Uuid;
 
-class ProductTypeFixture
+class ZoneFixture
 {
-    final public static function uniqueProductTypeString()
+    final public static function uniqueZoneString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultProductTypeDraftFunction()
+    final public static function defaultZoneDraftFunction()
     {
-        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
-            ->withType(AttributeTextTypeBuilder::of()->build())
-            ->withName('test-text')
-            ->withLabel(LocalizedStringBuilder::of()->put('en', 'test-text')->build())
-            ->withIsRequired(true)
-            ->build();
 
-        $builder = ProductTypeDraftBuilder::of();
-        $builder->withKey(self::uniqueProductTypeString())
-            ->withName(self::uniqueProductTypeString())
-            ->withDescription(self::uniqueProductTypeString())
-            ->withAttributes(new AttributeDefinitionDraftCollection([$attributeDefinitionDraft]));
+        $builder = ZoneDraftBuilder::of();
+        $builder
+            ->withName(self::uniqueZoneString())
+            ->withKey(self::uniqueZoneString())
+            ->withDescription(self::uniqueZoneString());
 
         return $builder;
     }
 
-    final public static function defaultProductTypeDraftBuilderFunction(ProductTypeDraftBuilder $draftBuilder)
+    final public static function defaultZoneDraftBuilderFunction(ZoneDraftBuilder $draftBuilder)
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultProductTypeCreateFunction(ApiRequestBuilder $builder, ProductTypeDraft $draft)
+    final public static function defaultZoneCreateFunction(ApiRequestBuilder $builder, ZoneDraft $draft)
     {
-        $request = $builder->with()->productTypes()->post($draft);
+        $request = $builder->with()->zones()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultProductTypeDeleteFunction(ApiRequestBuilder $builder, ProductType $resource)
+    final public static function defaultZoneDeleteFunction(ApiRequestBuilder $builder, Zone $resource)
     {
         $request = $builder
             ->with()
-            ->productTypes()
+            ->zones()
             ->withId($resource->getId())
             ->delete()
             ->withVersion($resource->getVersion());
@@ -61,7 +51,7 @@ class ProductTypeFixture
         return $request->execute();
     }
 
-    final public static function withDraftProductType(
+    final public static function withDraftZone(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -71,13 +61,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultZoneDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultZoneCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultZoneDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -91,16 +81,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withProductType(
+    final public static function withZone(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftProductType(
+        self::withDraftZone(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultZoneDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -108,7 +98,7 @@ class ProductTypeFixture
         );
     }
 
-    final public static function withUpdateableDraftProductType(
+    final public static function withUpdateableDraftZone(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -118,13 +108,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultZoneDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultZoneCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultZoneDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -140,16 +130,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withUpdateableProductType(
+    final public static function withUpdateableZone(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftProductType(
+        self::withUpdateableDraftZone(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultZoneDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,

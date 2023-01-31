@@ -1,67 +1,60 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\ProductType;
+namespace Commercetools\IntegrationTest\Api\CustomObject;
 
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
-use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
-use Commercetools\Api\Models\ProductType\ProductType;
-use Commercetools\Api\Models\ProductType\ProductTypeDraft;
-use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
+use Commercetools\Api\Models\CustomObject\CustomObject;
+use Commercetools\Api\Models\CustomObject\CustomObjectDraft;
+use Commercetools\Api\Models\CustomObject\CustomObjectDraftBuilder;
+use Commercetools\Api\Models\CustomObject\CustomObjectDraftModel;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
-class ProductTypeFixture
+class CustomObjectFixture
 {
-    final public static function uniqueProductTypeString()
+    public const RAND_MAX = 10000;
+
+    final public static function uniqueCustomObjectString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultProductTypeDraftFunction()
+    final public static function defaultCustomObjectDraftFunction()
     {
-        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
-            ->withType(AttributeTextTypeBuilder::of()->build())
-            ->withName('test-text')
-            ->withLabel(LocalizedStringBuilder::of()->put('en', 'test-text')->build())
-            ->withIsRequired(true)
-            ->build();
-
-        $builder = ProductTypeDraftBuilder::of();
-        $builder->withKey(self::uniqueProductTypeString())
-            ->withName(self::uniqueProductTypeString())
-            ->withDescription(self::uniqueProductTypeString())
-            ->withAttributes(new AttributeDefinitionDraftCollection([$attributeDefinitionDraft]));
+        $builder = CustomObjectDraftBuilder::of();
+        $builder
+            ->withContainer("test_" . self::uniqueCustomObjectString())
+            ->withKey("key_" . self::uniqueCustomObjectString())
+            ->withValue("value_" . self::uniqueCustomObjectString());
 
         return $builder;
     }
 
-    final public static function defaultProductTypeDraftBuilderFunction(ProductTypeDraftBuilder $draftBuilder)
+    final public static function defaultCustomObjectDraftBuilderFunction(CustomObjectDraftBuilder $draftBuilder)
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultProductTypeCreateFunction(ApiRequestBuilder $builder, ProductTypeDraft $draft)
+    final public static function defaultCustomObjectCreateFunction(ApiRequestBuilder $builder, CustomObjectDraft $draft)
     {
-        $request = $builder->with()->productTypes()->post($draft);
+        $request = $builder->with()->customObjects()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultProductTypeDeleteFunction(ApiRequestBuilder $builder, ProductType $resource)
+    final public static function defaultCustomObjectDeleteFunction(ApiRequestBuilder $builder, CustomObject $resource)
     {
         $request = $builder
             ->with()
-            ->productTypes()
-            ->withId($resource->getId())
+            ->customObjects()
+            ->withContainerAndKey($resource->getContainer(), $resource->getKey())
             ->delete()
             ->withVersion($resource->getVersion());
 
         return $request->execute();
     }
 
-    final public static function withDraftProductType(
+    final public static function withDraftCustomObject(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -71,13 +64,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultCustomObjectDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultCustomObjectCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultCustomObjectDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -91,16 +84,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withProductType(
+    final public static function withCustomObject(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftProductType(
+        self::withDraftCustomObject(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultCustomObjectDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -108,7 +101,7 @@ class ProductTypeFixture
         );
     }
 
-    final public static function withUpdateableDraftProductType(
+    final public static function withUpdateableDraftCustomObject(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -118,13 +111,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultCustomObjectDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultCustomObjectCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultCustomObjectDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -140,16 +133,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withUpdateableProductType(
+    final public static function withUpdateableCustomObject(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftProductType(
+        self::withUpdateableDraftCustomObject(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultCustomObjectDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,

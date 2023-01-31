@@ -1,59 +1,54 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\ProductType;
 
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
-use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
-use Commercetools\Api\Models\ProductType\ProductType;
-use Commercetools\Api\Models\ProductType\ProductTypeDraft;
-use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
+namespace Commercetools\IntegrationTest\Api\Store;
+
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Store\Store;
+use Commercetools\Api\Models\Store\StoreDraft;
+use Commercetools\Api\Models\Store\StoreDraftBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
-class ProductTypeFixture
+class StoreFixture
 {
-    final public static function uniqueProductTypeString()
+    final public static function uniqueStoreString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultProductTypeDraftFunction()
+    final public static function defaultStoreDraftFunction()
     {
-        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
-            ->withType(AttributeTextTypeBuilder::of()->build())
-            ->withName('test-text')
-            ->withLabel(LocalizedStringBuilder::of()->put('en', 'test-text')->build())
-            ->withIsRequired(true)
-            ->build();
-
-        $builder = ProductTypeDraftBuilder::of();
-        $builder->withKey(self::uniqueProductTypeString())
-            ->withName(self::uniqueProductTypeString())
-            ->withDescription(self::uniqueProductTypeString())
-            ->withAttributes(new AttributeDefinitionDraftCollection([$attributeDefinitionDraft]));
+        $builder = StoreDraftBuilder::of();
+        $uniqueStoreString = self::uniqueStoreString();
+        $builder
+            ->withName(
+                LocalizedStringBuilder::of()
+                    ->put('en', 'test-' . $uniqueStoreString . '-title')
+                    ->build()
+            )
+            ->withKey('test-' . $uniqueStoreString . '-key');
 
         return $builder;
     }
 
-    final public static function defaultProductTypeDraftBuilderFunction(ProductTypeDraftBuilder $draftBuilder)
+    final public static function defaultStoreDraftBuilderFunction(StoreDraftBuilder $draftBuilder)
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultProductTypeCreateFunction(ApiRequestBuilder $builder, ProductTypeDraft $draft)
+    final public static function defaultStoreCreateFunction(ApiRequestBuilder $builder, StoreDraft $draft)
     {
-        $request = $builder->with()->productTypes()->post($draft);
+        $request = $builder->with()->stores()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultProductTypeDeleteFunction(ApiRequestBuilder $builder, ProductType $resource)
+    final public static function defaultStoreDeleteFunction(ApiRequestBuilder $builder, Store $resource)
     {
         $request = $builder
             ->with()
-            ->productTypes()
+            ->stores()
             ->withId($resource->getId())
             ->delete()
             ->withVersion($resource->getVersion());
@@ -61,7 +56,7 @@ class ProductTypeFixture
         return $request->execute();
     }
 
-    final public static function withDraftProductType(
+    final public static function withDraftStore(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -71,13 +66,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultStoreDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultStoreCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultStoreDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -91,16 +86,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withProductType(
+    final public static function withStore(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftProductType(
+        self::withDraftStore(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultStoreDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -108,7 +103,7 @@ class ProductTypeFixture
         );
     }
 
-    final public static function withUpdateableDraftProductType(
+    final public static function withUpdateableDraftStore(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -118,13 +113,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultStoreDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultStoreCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultStoreDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -140,16 +135,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withUpdateableProductType(
+    final public static function withUpdateableStore(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftProductType(
+        self::withUpdateableDraftStore(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultStoreDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,

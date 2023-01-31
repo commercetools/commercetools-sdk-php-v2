@@ -2,24 +2,18 @@
 
 namespace Commercetools\IntegrationTest\Api\Product;
 
-use Commercetools\Api\Models\Common\AssetDraftCollection;
+use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Common\PriceDraftBuilder as PriceDraftBuilder;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeBuilder;
 use Commercetools\Api\Models\Product\AttributeCollection;
-use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
-use Commercetools\Api\Models\Product\AttributeDefinitionDraftBuilder;
-use Commercetools\Api\Models\Product\AttributeDefinitionDraftCollection;
-use Commercetools\Api\Models\Product\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\Product\Product;
 use Commercetools\Api\Models\Product\ProductDraft;
 use Commercetools\Api\Models\Product\ProductDraftBuilder;
-use Commercetools\Api\Models\Product\ProductDraftModel;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
-use Commercetools\Api\Models\TaxCategory\TaxRateDraftCollection;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
@@ -92,7 +86,12 @@ class ProductFixture
 
     final public static function defaultProductDeleteFunction(ApiRequestBuilder $builder, Product $resource)
     {
-        $request = $builder->with()->products()->withId($resource->getId())->delete()->withVersion($resource->getVersion());
+        $request = $builder
+            ->with()
+            ->products()
+            ->withId($resource->getId())
+            ->delete()
+            ->withVersion($resource->getVersion());
 
         return $request->execute();
     }

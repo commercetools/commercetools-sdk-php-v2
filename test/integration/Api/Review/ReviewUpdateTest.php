@@ -31,25 +31,33 @@ class ReviewUpdateTest extends ApiTestCase
         StateFixture::withDraftState(
             $builder,
             function (StateDraftBuilder $draftBuilder) {
-                $draftBuilder->withType(self::REVIEW_STATE)
+                $draftBuilder
+                    ->withType(self::REVIEW_STATE)
                     ->withInitial(true);
+
                 return $draftBuilder->build();
             },
             function (State $state1) use ($builder) {
                 StateFixture::withDraftState(
                     $builder,
                     function (StateDraftBuilder $draftBuilder) use ($state1) {
-                        $draftBuilder->withType(self::REVIEW_STATE)
+                        $draftBuilder
+                            ->withType(self::REVIEW_STATE)
                             ->withTransitions(StateResourceIdentifierCollection::fromArray([
-                                StateResourceIdentifierBuilder::of()->withKey($state1->getKey())->build()
+                                StateResourceIdentifierBuilder::of()
+                                    ->withKey($state1->getKey())
+                                    ->build()
                             ]));
+
                         return $draftBuilder->build();
                     },
                     function (State $state2) use ($builder, $state1) {
                         ReviewFixture::withUpdateableReview(
                             $builder,
                             function (Review $review) use ($builder, $state1, $state2) {
-                                $stateIdentifier1 = StateResourceIdentifierBuilder::of()->withKey($state1->getKey())->build();
+                                $stateIdentifier1 = StateResourceIdentifierBuilder::of()
+                                    ->withKey($state1->getKey())
+                                    ->build();
                                 $review1Update = ReviewUpdateBuilder::of()
                                     ->withVersion($review->getVersion())
                                     ->withActions(
@@ -59,13 +67,20 @@ class ReviewUpdateTest extends ApiTestCase
                                                 ->build()
                                         ])
                                     )->build();
-                                $reviewWithState1 = $builder->with()->reviews()->withId($review->getId())->post($review1Update)->execute();
+                                $reviewWithState1 = $builder
+                                    ->with()
+                                    ->reviews()
+                                    ->withId($review->getId())
+                                    ->post($review1Update)
+                                    ->execute();
 
                                 $this->assertInstanceOf(Review::class, $reviewWithState1);
                                 $this->assertNotSame($review->getVersion(), $reviewWithState1->getVersion());
                                 $this->assertSame($review->getId(), $reviewWithState1->getId());
 
-                                $stateIdentifier2 = StateResourceIdentifierBuilder::of()->withKey($state2->getKey())->build();
+                                $stateIdentifier2 = StateResourceIdentifierBuilder::of()
+                                    ->withKey($state2->getKey())
+                                    ->build();
 
                                 $review2Update = ReviewUpdateBuilder::of()
                                     ->withVersion($reviewWithState1->getVersion())
@@ -76,7 +91,12 @@ class ReviewUpdateTest extends ApiTestCase
                                                 ->build()
                                         ])
                                     )->build();
-                                $reviewWithState2 = $builder->with()->reviews()->withId($review->getId())->post($review2Update)->execute();
+                                $reviewWithState2 = $builder
+                                    ->with()
+                                    ->reviews()
+                                    ->withId($review->getId())
+                                    ->post($review2Update)
+                                    ->execute();
 
                                 $this->assertInstanceOf(Review::class, $reviewWithState2);
                                 $this->assertNotSame($review->getVersion(), $reviewWithState2->getVersion());

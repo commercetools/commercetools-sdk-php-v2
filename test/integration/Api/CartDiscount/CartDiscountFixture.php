@@ -26,7 +26,8 @@ class CartDiscountFixture
     {
         $builder = CartDiscountDraftBuilder::of();
         $uniqueCategoryString = self::uniqueCategoryString();
-        $builder->withNameBuilder(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString))
+        $builder
+            ->withName(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
             ->withKey($uniqueCategoryString)
             ->withCartPredicate("true")
             ->withTarget(
@@ -46,7 +47,7 @@ class CartDiscountFixture
         return $builder;
     }
 
-    final public static function defaultCartDiscountDraftBuilderFunction(CartDiscountDraftBuilder $draftBuilder)
+    final public static function defaultCartDiscountDraftBuilderFunction(CartDiscountDraftBuilder $draftBuilder): CartDiscountDraft
     {
         return $draftBuilder->build();
     }
@@ -60,7 +61,12 @@ class CartDiscountFixture
 
     final public static function defaultCartDiscountDeleteFunction(ApiRequestBuilder $builder, CartDiscount $resource)
     {
-        $request = $builder->with()->cartDiscounts()->withId($resource->getId())->delete()->withVersion($resource->getVersion());
+        $request = $builder
+            ->with()
+            ->cartDiscounts()
+            ->withId($resource->getId())
+            ->delete()
+            ->withVersion($resource->getVersion());
 
         return $request->execute();
     }

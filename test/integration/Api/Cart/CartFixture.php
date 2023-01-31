@@ -1,59 +1,46 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\ProductType;
+namespace Commercetools\IntegrationTest\Api\Cart;
 
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
-use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
-use Commercetools\Api\Models\ProductType\ProductType;
-use Commercetools\Api\Models\ProductType\ProductTypeDraft;
-use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartDraft;
+use Commercetools\Api\Models\Cart\CartDraftBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
-class ProductTypeFixture
+class CartFixture
 {
-    final public static function uniqueProductTypeString()
+    final public static function uniqueCartString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultProductTypeDraftFunction()
+    final public static function defaultCartDraftFunction()
     {
-        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
-            ->withType(AttributeTextTypeBuilder::of()->build())
-            ->withName('test-text')
-            ->withLabel(LocalizedStringBuilder::of()->put('en', 'test-text')->build())
-            ->withIsRequired(true)
-            ->build();
 
-        $builder = ProductTypeDraftBuilder::of();
-        $builder->withKey(self::uniqueProductTypeString())
-            ->withName(self::uniqueProductTypeString())
-            ->withDescription(self::uniqueProductTypeString())
-            ->withAttributes(new AttributeDefinitionDraftCollection([$attributeDefinitionDraft]));
+        $builder = CartDraftBuilder::of();
+        $builder->withCurrency('EUR')->withCountry('DE');
 
         return $builder;
     }
 
-    final public static function defaultProductTypeDraftBuilderFunction(ProductTypeDraftBuilder $draftBuilder)
+    final public static function defaultCartDraftBuilderFunction(CartDraftBuilder $draftBuilder)
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultProductTypeCreateFunction(ApiRequestBuilder $builder, ProductTypeDraft $draft)
+    final public static function defaultCartCreateFunction(ApiRequestBuilder $builder, CartDraft $draft)
     {
-        $request = $builder->with()->productTypes()->post($draft);
+        $request = $builder->with()->carts()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultProductTypeDeleteFunction(ApiRequestBuilder $builder, ProductType $resource)
+    final public static function defaultCartDeleteFunction(ApiRequestBuilder $builder, Cart $resource)
     {
         $request = $builder
             ->with()
-            ->productTypes()
+            ->carts()
             ->withId($resource->getId())
             ->delete()
             ->withVersion($resource->getVersion());
@@ -61,7 +48,7 @@ class ProductTypeFixture
         return $request->execute();
     }
 
-    final public static function withDraftProductType(
+    final public static function withDraftCart(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -71,13 +58,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultCartDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultCartCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultCartDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -91,16 +78,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withProductType(
+    final public static function withCart(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftProductType(
+        self::withDraftCart(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultCartDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -108,7 +95,7 @@ class ProductTypeFixture
         );
     }
 
-    final public static function withUpdateableDraftProductType(
+    final public static function withUpdateableDraftCart(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -118,13 +105,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultCartDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultCartCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultCartDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -140,16 +127,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withUpdateableProductType(
+    final public static function withUpdateableCart(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftProductType(
+        self::withUpdateableDraftCart(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultCartDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,

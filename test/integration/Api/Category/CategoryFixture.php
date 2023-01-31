@@ -23,8 +23,9 @@ class CategoryFixture
     {
         $builder = CategoryDraftBuilder::of();
         $uniqueCategoryString = self::uniqueCategoryString();
-        $builder->withNameBuilder(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString))
-            ->withSlugBuilder(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString))
+        $builder
+            ->withName(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
+            ->withSlug(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
             ->withKey($uniqueCategoryString);
 
         return $builder;
@@ -44,7 +45,12 @@ class CategoryFixture
 
     final public static function defaultCategoryDeleteFunction(ApiRequestBuilder $builder, Category $resource)
     {
-        $request = $builder->with()->categories()->withId($resource->getId())->delete()->withVersion($resource->getVersion());
+        $request = $builder
+            ->with()
+            ->categories()
+            ->withId($resource->getId())
+            ->delete()
+            ->withVersion($resource->getVersion());
 
         return $request->execute();
     }

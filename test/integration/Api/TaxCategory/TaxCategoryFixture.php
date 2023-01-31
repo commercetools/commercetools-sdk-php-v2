@@ -2,18 +2,9 @@
 
 namespace Commercetools\IntegrationTest\Api\TaxCategory;
 
-use Commercetools\Api\Models\Common\AssetDimensionsBuilder;
-use Commercetools\Api\Models\Common\AssetDraftBuilder;
-use Commercetools\Api\Models\Common\AssetSourceBuilder;
-use Commercetools\Api\Models\Common\AssetSourceCollection;
-use Commercetools\Api\Models\TaxCategory\AttributeDefinitionDraftBuilder;
-use Commercetools\Api\Models\TaxCategory\AttributeDefinitionDraftCollection;
-use Commercetools\Api\Models\TaxCategory\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategory;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryDraftBuilder;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryDraftModel;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRateDraftBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRateDraftCollection;
 use Commercetools\Client\ApiRequestBuilder;
@@ -21,8 +12,6 @@ use Ramsey\Uuid\Uuid;
 
 class TaxCategoryFixture
 {
-    public const RAND_MAX = 10000;
-
     final public static function uniqueTaxCategoryString()
     {
         return 'test-' . Uuid::uuid4();
@@ -30,22 +19,6 @@ class TaxCategoryFixture
 
     final public static function defaultTaxCategoryDraftFunction()
     {
-        $assetSource = AssetSourceBuilder::of()
-            ->withUri("http://www.google.com")
-            ->withKey(self::uniqueTaxCategoryString())
-            ->withDimensions(
-                AssetDimensionsBuilder::of()
-                    ->withW(100)->withH(100)
-                    ->build()
-            )
-            ->withContentType('application/json')
-            ->build();
-        $asset = AssetDraftBuilder::of()
-            ->withKey(self::uniqueTaxCategoryString())
-            ->withSources(new AssetSourceCollection([$assetSource]))
-            ->withName(LocalizedStringBuilder::of()->put('en', self::uniqueTaxCategoryString())->build())
-            ->build();
-
         $taxRateDraft = TaxRateDraftBuilder::of()
             ->withName(self::uniqueTaxCategoryString())
             ->withAmount(0.19)
@@ -54,7 +27,8 @@ class TaxCategoryFixture
             ->build();
 
         $builder = TaxCategoryDraftBuilder::of();
-        $builder->withName(self::uniqueTaxCategoryString())
+        $builder
+            ->withName(self::uniqueTaxCategoryString())
             ->withKey(self::uniqueTaxCategoryString())
             ->withDescription(self::uniqueTaxCategoryString())
             ->withRates(new TaxRateDraftCollection([$taxRateDraft]));
@@ -76,7 +50,12 @@ class TaxCategoryFixture
 
     final public static function defaultTaxCategoryDeleteFunction(ApiRequestBuilder $builder, TaxCategory $resource)
     {
-        $request = $builder->with()->taxCategories()->withId($resource->getId())->delete()->withVersion($resource->getVersion());
+        $request = $builder
+            ->with()
+            ->taxCategories()
+            ->withId($resource->getId())
+            ->delete()
+            ->withVersion($resource->getVersion());
 
         return $request->execute();
     }

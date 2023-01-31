@@ -1,59 +1,53 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\ProductType;
+namespace Commercetools\IntegrationTest\Api\Order;
 
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
-use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
-use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
-use Commercetools\Api\Models\ProductType\ProductType;
-use Commercetools\Api\Models\ProductType\ProductTypeDraft;
-use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
+use Commercetools\Api\Models\Order\Order;
+use Commercetools\Api\Models\Order\OrderFromCartDraft;
+use Commercetools\Api\Models\Order\OrderFromCartDraftBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
-class ProductTypeFixture
+class OrderFixture
 {
-    final public static function uniqueProductTypeString()
+    final public static function uniqueOrderString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultProductTypeDraftFunction()
+    final public static function defaultOrderFromCartDraftFunction(Cart $cart): OrderFromCartDraftBuilder
     {
-        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
-            ->withType(AttributeTextTypeBuilder::of()->build())
-            ->withName('test-text')
-            ->withLabel(LocalizedStringBuilder::of()->put('en', 'test-text')->build())
-            ->withIsRequired(true)
-            ->build();
-
-        $builder = ProductTypeDraftBuilder::of();
-        $builder->withKey(self::uniqueProductTypeString())
-            ->withName(self::uniqueProductTypeString())
-            ->withDescription(self::uniqueProductTypeString())
-            ->withAttributes(new AttributeDefinitionDraftCollection([$attributeDefinitionDraft]));
+        $builder = OrderFromCartDraftBuilder::of();
+        $builder
+            ->withCart(
+                CartResourceIdentifierBuilder::of()
+                    ->withId($cart->getId())
+                    ->build()
+            )
+            ->withVersion($cart->getVersion());
 
         return $builder;
     }
 
-    final public static function defaultProductTypeDraftBuilderFunction(ProductTypeDraftBuilder $draftBuilder)
+    final public static function defaultOrderFromCartDraftBuilderFunction(OrderFromCartDraftBuilder $draftBuilder): OrderFromCartDraft
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultProductTypeCreateFunction(ApiRequestBuilder $builder, ProductTypeDraft $draft)
+    final public static function defaultOrderCreateFunction(ApiRequestBuilder $builder, OrderFromCartDraft $draft)
     {
-        $request = $builder->with()->productTypes()->post($draft);
+        $request = $builder->with()->orders()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultProductTypeDeleteFunction(ApiRequestBuilder $builder, ProductType $resource)
+    final public static function defaultOrderDeleteFunction(ApiRequestBuilder $builder, Order $resource)
     {
         $request = $builder
             ->with()
-            ->productTypes()
+            ->orders()
             ->withId($resource->getId())
             ->delete()
             ->withVersion($resource->getVersion());
@@ -61,7 +55,7 @@ class ProductTypeFixture
         return $request->execute();
     }
 
-    final public static function withDraftProductType(
+    final public static function withDraftOrder(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -71,13 +65,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultOrderFromCartDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultOrderCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultOrderDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -91,16 +85,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withProductType(
+    final public static function withOrder(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftProductType(
+        self::withDraftOrder(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultOrderFromCartDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -108,7 +102,7 @@ class ProductTypeFixture
         );
     }
 
-    final public static function withUpdateableDraftProductType(
+    final public static function withUpdateableCartDraftOrder(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -118,13 +112,13 @@ class ProductTypeFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultOrderFromCartDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultOrderCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultOrderDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -140,16 +134,16 @@ class ProductTypeFixture
         }
     }
 
-    final public static function withUpdateableProductType(
+    final public static function withUpdateableOrder(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftProductType(
+        self::withUpdateableCartDraftOrder(
             $builder,
-            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
+            [__CLASS__, 'defaultOrderFromCartDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
