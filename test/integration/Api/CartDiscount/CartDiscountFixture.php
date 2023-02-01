@@ -37,6 +37,7 @@ class CartDiscountFixture
             )
             ->withRequiresDiscountCode(false)
             ->withSortOrder('0.9' . trim((string)mt_rand(1, self::RAND_MAX), '0'))
+            ->withIsActive(true)
             ->withValue(
                 CartDiscountValueRelativeDraftBuilder::of()
                     ->withPermyriad(1000)

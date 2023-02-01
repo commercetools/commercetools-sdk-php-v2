@@ -6,15 +6,21 @@ use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Common\PriceDraftBuilder as PriceDraftBuilder;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
-use Commercetools\Api\Models\Product\AttributeBuilder;
-use Commercetools\Api\Models\Product\AttributeCollection;
 use Commercetools\Api\Models\Product\Product;
 use Commercetools\Api\Models\Product\ProductDraft;
 use Commercetools\Api\Models\Product\ProductDraftBuilder;
 use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
+use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
+use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
+use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
+use Commercetools\Api\Models\ProductType\ProductType;
+use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
+use Commercetools\Api\Models\TaxCategory\TaxCategory;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
 use Commercetools\Client\ApiRequestBuilder;
+use Commercetools\IntegrationTest\Api\ProductType\ProductTypeFixture;
+use Commercetools\IntegrationTest\Api\TaxCategory\TaxCategoryFixture;
 use Ramsey\Uuid\Uuid;
 
 class ProductFixture
@@ -24,7 +30,22 @@ class ProductFixture
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultProductDraftFunction($productType, $taxCategory)
+    final public static function getAttributesDefinitionDraftCollection(): AttributeDefinitionDraftCollection
+    {
+        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
+            ->withType(AttributeTextTypeBuilder::of()->build())
+            ->withName('test-text')
+            ->withLabel(LocalizedStringBuilder::of()->put('en', 'test-text')->build())
+            ->withIsRequired(false)
+            ->withAttributeConstraint('None')
+            ->withInputHint('SingleLine')
+            ->withIsSearchable(false)
+            ->build();
+
+        return new AttributeDefinitionDraftCollection([$attributeDefinitionDraft]);
+    }
+
+    final public static function defaultProductDraftFunction($productTypeResourceIdentifier, $taxCategoryResourceIdentifier)
     {
         $priceDraft = PriceDraftBuilder::of()
             ->withValue(
@@ -35,34 +56,19 @@ class ProductFixture
             )
             ->build();
 
-        $attribute = AttributeBuilder::of()
-            ->withName('test-text')
-            ->withValue('foo')
-            ->build();
-
         $productVariantDraft = ProductVariantDraftBuilder::of()
             ->withSku(self::uniqueProductString())
-            ->withKey(self::uniqueProductString())
             ->withPrices(new PriceDraftCollection([$priceDraft]))
-            ->withAttributes(new AttributeCollection([$attribute]))
             ->build();
 
         $builder = ProductDraftBuilder::of();
         $builder->withKey(self::uniqueProductString())
             ->withName(LocalizedStringBuilder::of()->put('en', self::uniqueProductString())->build())
-            ->withProductType(
-                ProductTypeResourceIdentifierBuilder::of()
-                    ->withId($productType->getId())
-                    ->build()
-            )
+            ->withProductType($productTypeResourceIdentifier)
             ->withSlug(LocalizedStringBuilder::of()->put('en', self::uniqueProductString())->build())
             ->withDescription(LocalizedStringBuilder::of()->put('en', self::uniqueProductString())->build())
             ->withMasterVariant($productVariantDraft)
-            ->withTaxCategory(
-                TaxCategoryResourceIdentifierBuilder::of()
-                    ->withId($taxCategory->getId())
-                    ->build()
-            );
+            ->withTaxCategory($taxCategoryResourceIdentifier);
 
         return $builder;
     }
@@ -102,28 +108,82 @@ class ProductFixture
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
-        callable $draftFunction = null,
-        array $additionalResources = []
+        callable $draftFunction = null
     ) {
-        if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductDraftFunction'];
-        }
-        if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductCreateFunction'];
-        }
-        if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductDeleteFunction'];
-        }
-        $initialDraft = call_user_func($draftFunction);
+        ProductTypeFixture::withDraftProductType(
+            $builder,
+            function (ProductTypeDraftBuilder $draftBuilder) {
+                $draftBuilder->withAttributes(self::getAttributesDefinitionDraftCollection())->build();
 
-        $resourceDraft = call_user_func($draftBuilderFunction, $initialDraft);
+                return $draftBuilder->build();
+            },
+            function (ProductType $productType) use (
+                $builder,
+                $draftBuilderFunction,
+                $assertFunction,
+                $createFunction,
+                $deleteFunction,
+                $draftFunction
+            ) {
+                TaxCategoryFixture::withTaxCategory(
+                    $builder,
+                    function (TaxCategory $taxCategory) use (
+                        $builder,
+                        $productType,
+                        $draftBuilderFunction,
+                        $assertFunction,
+                        $createFunction,
+                        $deleteFunction,
+                        $draftFunction
+                    ) {
+                        $taxCategoryResourceIdentifier = TaxCategoryResourceIdentifierBuilder::of()
+                            ->withId($taxCategory->getId())
+                            ->build();
+                        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+                            ->withId($productType->getId())
+                            ->build();
+                        if ($draftFunction == null) {
+                            $draftFunction = function () use ($productTypeResourceIdentifier, $taxCategoryResourceIdentifier) {
+                                return call_user_func(
+                                    [__CLASS__, 'defaultProductDraftFunction'],
+                                    $productTypeResourceIdentifier,
+                                    $taxCategoryResourceIdentifier
+                                );
+                            };
+                        } else {
+                            $draftFunction = function () use (
+                                $productTypeResourceIdentifier,
+                                $taxCategoryResourceIdentifier,
+                                $draftFunction
+                            ) {
+                                return call_user_func($draftFunction, $productTypeResourceIdentifier, $taxCategoryResourceIdentifier);
+                            };
+                        }
+                        if ($createFunction == null) {
+                            $createFunction = [__CLASS__, 'defaultProductCreateFunction'];
+                        }
+                        if ($deleteFunction == null) {
+                            $deleteFunction = [__CLASS__, 'defaultProductDeleteFunction'];
+                        }
+                        $initialDraft = call_user_func($draftFunction);
 
-        $resource = call_user_func($createFunction, $builder, $resourceDraft, ...$additionalResources);
-        try {
-            call_user_func($assertFunction, $resource, ...$additionalResources);
-        } finally {
-            call_user_func($deleteFunction, $builder, $resource);
-        }
+                        $resourceDraft = call_user_func($draftBuilderFunction, $initialDraft);
+
+                        $resource = call_user_func(
+                            $createFunction,
+                            $builder,
+                            $resourceDraft,
+                            [$productTypeResourceIdentifier, $taxCategoryResourceIdentifier]
+                        );
+                        try {
+                            call_user_func($assertFunction, $resource, [$productTypeResourceIdentifier, $taxCategoryResourceIdentifier]);
+                        } finally {
+                            call_user_func($deleteFunction, $builder, $resource);
+                        }
+                    }
+                );
+            }
+        );
     }
 
     final public static function withProduct(
@@ -143,36 +203,106 @@ class ProductFixture
         );
     }
 
+    final public static function withPublishedProduct(
+        ApiRequestBuilder $builder,
+        callable $assertFunction,
+        callable $createFunction = null,
+        callable $deleteFunction = null,
+        callable $draftFunction = null
+    ) {
+        self::withDraftProduct(
+            $builder,
+            [__CLASS__, 'publishedProductDraftBuilderFunction'],
+            $assertFunction,
+            $createFunction,
+            $deleteFunction,
+            $draftFunction
+        );
+    }
+
     final public static function withUpdateableDraftProduct(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
-        callable $draftFunction = null,
-        array $additionalResources = []
+        callable $draftFunction = null
     ) {
-        if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultProductDraftFunction'];
-        }
-        if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultProductCreateFunction'];
-        }
-        if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultProductDeleteFunction'];
-        }
-        $initialDraft = call_user_func($draftFunction);
+        ProductTypeFixture::withDraftProductType(
+            $builder,
+            function (ProductTypeDraftBuilder $draftBuilder) {
+                $draftBuilder->withAttributes(self::getAttributesDefinitionDraftCollection())->build();
 
-        $resourceDraft = call_user_func($draftBuilderFunction, $initialDraft);
+                return $draftBuilder->build();
+            },
+            function (ProductType $productType) use (
+                $builder,
+                $draftBuilderFunction,
+                $assertFunction,
+                $createFunction,
+                $deleteFunction,
+                $draftFunction
+            ) {
+                TaxCategoryFixture::withTaxCategory(
+                    $builder,
+                    function (TaxCategory $taxCategory) use (
+                        $builder,
+                        $productType,
+                        $draftBuilderFunction,
+                        $assertFunction,
+                        $createFunction,
+                        $deleteFunction,
+                        $draftFunction
+                    ) {
+                        $taxCategoryResourceIdentifier = TaxCategoryResourceIdentifierBuilder::of()
+                            ->withId($taxCategory->getId())
+                            ->build();
+                        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+                            ->withId($productType->getId())
+                            ->build();
+                        if ($draftFunction == null) {
+                            $draftFunction = function () use ($productTypeResourceIdentifier, $taxCategoryResourceIdentifier) {
+                                return call_user_func(
+                                    [__CLASS__, 'defaultProductDraftFunction'],
+                                    $productTypeResourceIdentifier,
+                                    $taxCategoryResourceIdentifier
+                                );
+                            };
+                        } else {
+                            $draftFunction = function () use (
+                                $productTypeResourceIdentifier,
+                                $taxCategoryResourceIdentifier,
+                                $draftFunction
+                            ) {
+                                return call_user_func($draftFunction, $productTypeResourceIdentifier, $taxCategoryResourceIdentifier);
+                            };
+                        }
+                        if ($createFunction == null) {
+                            $createFunction = [__CLASS__, 'defaultProductCreateFunction'];
+                        }
+                        if ($deleteFunction == null) {
+                            $deleteFunction = [__CLASS__, 'defaultProductDeleteFunction'];
+                        }
+                        $initialDraft = call_user_func($draftFunction);
 
-        $resource = call_user_func($createFunction, $builder, $resourceDraft, ...$additionalResources);
+                        $resourceDraft = call_user_func($draftBuilderFunction, $initialDraft);
 
-        $updatedResource = null;
-        try {
-            $updatedResource = call_user_func($assertFunction, $resource, ...$additionalResources);
-        } finally {
-            call_user_func($deleteFunction, $builder, $updatedResource != null ? $updatedResource : $resource);
-        }
+                        $resource = call_user_func(
+                            $createFunction,
+                            $builder,
+                            $resourceDraft,
+                            [$productTypeResourceIdentifier, $taxCategoryResourceIdentifier]
+                        );
+                        $updatedResource = null;
+                        try {
+                            $updatedResource = call_user_func($assertFunction, $resource, [$productTypeResourceIdentifier, $taxCategoryResourceIdentifier]);
+                        } finally {
+                            call_user_func($deleteFunction, $builder, $updatedResource != null ? $updatedResource : $resource);
+                        }
+                    }
+                );
+            }
+        );
     }
 
     final public static function withUpdateableProduct(
@@ -185,6 +315,23 @@ class ProductFixture
         self::withUpdateableDraftProduct(
             $builder,
             [__CLASS__, 'defaultProductDraftBuilderFunction'],
+            $assertFunction,
+            $createFunction,
+            $deleteFunction,
+            $draftFunction
+        );
+    }
+
+    final public static function withUpdateablePublishedProduct(
+        ApiRequestBuilder $builder,
+        callable $assertFunction,
+        callable $createFunction = null,
+        callable $deleteFunction = null,
+        callable $draftFunction = null
+    ) {
+        self::withUpdateableDraftProduct(
+            $builder,
+            [__CLASS__, 'publishedProductDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,

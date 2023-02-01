@@ -14,12 +14,12 @@ use Ramsey\Uuid\Uuid;
 
 class ProductTypeFixture
 {
-    final public static function uniqueProductTypeString()
+    final public static function uniqueProductTypeString(): string
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultProductTypeDraftFunction()
+    final public static function defaultProductTypeDraftFunction(): ProductTypeDraftBuilder
     {
         $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
             ->withType(AttributeTextTypeBuilder::of()->build())
@@ -37,7 +37,7 @@ class ProductTypeFixture
         return $builder;
     }
 
-    final public static function defaultProductTypeDraftBuilderFunction(ProductTypeDraftBuilder $draftBuilder)
+    final public static function defaultProductTypeDraftBuilderFunction(ProductTypeDraftBuilder $draftBuilder): ProductTypeDraft
     {
         return $draftBuilder->build();
     }
