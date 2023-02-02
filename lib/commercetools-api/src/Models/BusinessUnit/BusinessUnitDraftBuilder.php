@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -38,7 +38,7 @@ final class BusinessUnitDraftBuilder implements Builder
 
     /**
 
-     * @var ?StoreKeyReferenceCollection
+     * @var ?StoreResourceIdentifierCollection
      */
     private $stores;
 
@@ -125,13 +125,13 @@ final class BusinessUnitDraftBuilder implements Builder
     }
 
     /**
-     * <p>References to <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
      * If not empty, the Business Unit can only be linked to <a href="ctp:api:type:Cart">Carts</a> and <a href="ctp:api:type:Order">Orders</a> of a referenced Store.
      * If empty, the Business Unit can only create <a href="ctp:api:type:Cart">Carts</a>, <a href="ctp:api:type:Order">Orders</a>, or <a href="/../api/quotes-overview">Quotes</a> that have no <code>store</code> value.
      * Defaults to empty for <a href="ctp:api:type:BusinessUnitType">Companies</a> and not set for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
      *
 
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
     {
@@ -274,10 +274,10 @@ final class BusinessUnitDraftBuilder implements Builder
     }
 
     /**
-     * @param ?StoreKeyReferenceCollection $stores
+     * @param ?StoreResourceIdentifierCollection $stores
      * @return $this
      */
-    public function withStores(?StoreKeyReferenceCollection $stores)
+    public function withStores(?StoreResourceIdentifierCollection $stores)
     {
         $this->stores = $stores;
 

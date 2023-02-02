@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -38,7 +38,7 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
 
     /**
      *
-     * @var ?StoreKeyReferenceCollection
+     * @var ?StoreResourceIdentifierCollection
      */
     protected $stores;
 
@@ -123,7 +123,7 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
     public function __construct(
         ?string $key = null,
         ?string $status = null,
-        ?StoreKeyReferenceCollection $stores = null,
+        ?StoreResourceIdentifierCollection $stores = null,
         ?string $storeMode = null,
         ?string $name = null,
         ?string $contactEmail = null,
@@ -193,13 +193,13 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
     }
 
     /**
-     * <p>References to <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
      * If not empty, the Business Unit can only be linked to <a href="ctp:api:type:Cart">Carts</a> and <a href="ctp:api:type:Order">Orders</a> of a referenced Store.
      * If empty, the Business Unit can only create <a href="ctp:api:type:Cart">Carts</a>, <a href="ctp:api:type:Order">Orders</a>, or <a href="/../api/quotes-overview">Quotes</a> that have no <code>store</code> value.
      * Defaults to empty for <a href="ctp:api:type:BusinessUnitType">Companies</a> and not set for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
      *
      *
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
     {
@@ -209,7 +209,7 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
             if (is_null($data)) {
                 return null;
             }
-            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+            $this->stores = StoreResourceIdentifierCollection::fromArray($data);
         }
 
         return $this->stores;
@@ -457,9 +457,9 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
     }
 
     /**
-     * @param ?StoreKeyReferenceCollection $stores
+     * @param ?StoreResourceIdentifierCollection $stores
      */
-    public function setStores(?StoreKeyReferenceCollection $stores): void
+    public function setStores(?StoreResourceIdentifierCollection $stores): void
     {
         $this->stores = $stores;
     }
