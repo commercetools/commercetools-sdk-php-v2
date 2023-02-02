@@ -2,7 +2,6 @@
 
 namespace Commercetools\IntegrationTest\Api\Customer;
 
-
 use Commercetools\Api\Models\Customer\CustomerPagedQueryResponse;
 use Commercetools\Api\Models\Customer\CustomerSignInResult;
 use Commercetools\IntegrationTest\ApiTestCase;

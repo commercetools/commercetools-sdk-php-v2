@@ -17,7 +17,6 @@ class ZoneFixture
 
     final public static function defaultZoneDraftFunction()
     {
-
         $builder = ZoneDraftBuilder::of();
         $builder
             ->withName(self::uniqueZoneString())

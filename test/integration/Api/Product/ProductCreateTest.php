@@ -29,6 +29,26 @@ class ProductCreateTest extends ApiTestCase
         );
     }
 
+    public function testCreateWithPublishedProduct()
+    {
+        $builder = $this->getApiBuilder();
+
+        ProductFixture::withPublishedProduct(
+            $builder,
+            function (Product $product) use ($builder) {
+                $request = $builder
+                    ->with()
+                    ->products()
+                    ->withId($product->getId())
+                    ->get();
+                $productQueryResponse = $request->execute();
+
+                $this->assertSame($product->getKey(), $productQueryResponse->getKey());
+                $this->assertSame(1, $productQueryResponse->getVersion());
+            }
+        );
+    }
+
     public function testDeleteByKey()
     {
         $this->expectException(NotFoundException::class);

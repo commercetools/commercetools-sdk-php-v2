@@ -5,8 +5,6 @@ namespace Commercetools\IntegrationTest\Api\CustomObject;
 use Commercetools\Api\Models\CustomObject\CustomObject;
 use Commercetools\Api\Models\CustomObject\CustomObjectDraft;
 use Commercetools\Api\Models\CustomObject\CustomObjectDraftBuilder;
-use Commercetools\Api\Models\CustomObject\CustomObjectDraftModel;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 

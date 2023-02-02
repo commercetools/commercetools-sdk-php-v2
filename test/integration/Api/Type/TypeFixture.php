@@ -18,7 +18,6 @@ class TypeFixture
 
     final public static function defaultTypeDraftFunction()
     {
-
         $builder = TypeDraftBuilder::of();
         $builder
             ->withKey(self::uniqueTypeString())
@@ -90,8 +89,7 @@ class TypeFixture
         callable          $createFunction = null,
         callable          $deleteFunction = null,
         callable          $draftFunction = null
-    )
-    {
+    ) {
         self::withDraftType(
             $builder,
             [__CLASS__, 'defaultTypeDraftBuilderFunction'],
@@ -110,8 +108,7 @@ class TypeFixture
         callable          $deleteFunction = null,
         callable          $draftFunction = null,
         array             $additionalResources = []
-    )
-    {
+    ) {
         if ($draftFunction == null) {
             $draftFunction = [__CLASS__, 'defaultTypeDraftFunction'];
         }
@@ -141,8 +138,7 @@ class TypeFixture
         callable          $createFunction = null,
         callable          $deleteFunction = null,
         callable          $draftFunction = null
-    )
-    {
+    ) {
         self::withUpdateableDraftType(
             $builder,
             [__CLASS__, 'defaultTypeDraftBuilderFunction'],

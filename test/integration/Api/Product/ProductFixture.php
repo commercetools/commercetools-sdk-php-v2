@@ -9,6 +9,10 @@ use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\Product;
 use Commercetools\Api\Models\Product\ProductDraft;
 use Commercetools\Api\Models\Product\ProductDraftBuilder;
+use Commercetools\Api\Models\Product\ProductUnpublishActionBuilder;
+use Commercetools\Api\Models\Product\ProductUnpublishActionModel;
+use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
+use Commercetools\Api\Models\Product\ProductUpdateBuilder;
 use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
@@ -19,6 +23,8 @@ use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategory;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
 use Commercetools\Client\ApiRequestBuilder;
+use Commercetools\Exception\ConcurrentModificationException;
+use Commercetools\Exception\NotFoundException;
 use Commercetools\IntegrationTest\Api\ProductType\ProductTypeFixture;
 use Commercetools\IntegrationTest\Api\TaxCategory\TaxCategoryFixture;
 use Ramsey\Uuid\Uuid;
@@ -92,6 +98,25 @@ class ProductFixture
 
     final public static function defaultProductDeleteFunction(ApiRequestBuilder $builder, Product $resource)
     {
+        $updateAction = new ProductUnpublishActionModel();
+
+        $updateActionCollection = new ProductUpdateActionCollection();
+        $updateActionCollection->add($updateAction);
+        $resourceUpdate = ProductUpdateBuilder::of()
+            ->withVersion($resource->getVersion())
+            ->withActions($updateActionCollection)
+            ->build();
+        $request = $builder
+            ->with()
+            ->products()
+            ->withId($resource->getId())
+            ->post($resourceUpdate);
+        try {
+            $resource = $request->execute();
+        } catch (NotFoundException $e) {
+            return null;
+        }
+
         $request = $builder
             ->with()
             ->products()
