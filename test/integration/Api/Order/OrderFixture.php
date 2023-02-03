@@ -18,7 +18,7 @@ use Commercetools\IntegrationTest\Api\Cart\CartFixture;
 use Commercetools\IntegrationTest\Api\Product\ProductFixture;
 use Ramsey\Uuid\Uuid;
 
-class OrderFixture
+class Bla
 {
     final public static function uniqueOrderString()
     {

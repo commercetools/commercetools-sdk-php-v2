@@ -2,13 +2,13 @@
 
 namespace Commercetools\IntegrationTest\Api\ProductType;
 
+use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
 use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductType;
 use Commercetools\Api\Models\ProductType\ProductTypeDraft;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
