@@ -5,9 +5,7 @@ namespace Commercetools\IntegrationTest\Api\Cart;
 use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Api\Models\Cart\CartDraft;
 use Commercetools\Api\Models\Cart\CartDraftBuilder;
-use Commercetools\Api\Models\Customer\Customer;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethod;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierBuilder;
+use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
@@ -21,7 +19,14 @@ class CartFixture
     final public static function defaultCartDraftFunction()
     {
         $builder = CartDraftBuilder::of();
-        $builder->withCurrency('EUR')->withCountry('DE');
+        $builder
+            ->withCurrency('EUR')
+            ->withCountry('DE')
+            ->withShippingAddress(
+                AddressBuilder::of()
+                    ->withCountry('DE')
+                    ->build()
+            );
 
         return $builder;
     }
