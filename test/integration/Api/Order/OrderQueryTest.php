@@ -24,5 +24,3 @@ class OrderQueryTest extends ApiTestCase
         );
     }
 }
-
-
