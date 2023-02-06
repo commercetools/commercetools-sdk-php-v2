@@ -4,7 +4,6 @@ namespace Commercetools\IntegrationTest\Api\Product;
 
 use Commercetools\Api\Models\Product\Product;
 use Commercetools\Exception\NotFoundException;
-use Commercetools\IntegrationTest\Api\Product\ProductFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
 
 class ProductCreateTest extends ApiTestCase

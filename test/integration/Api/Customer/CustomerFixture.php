@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\Api\Customer;
 
-use Commercetools\Api\Models\Customer\Customer;
 use Commercetools\Api\Models\Customer\CustomerDraft;
 use Commercetools\Api\Models\Customer\CustomerDraftBuilder;
 use Commercetools\Api\Models\Customer\CustomerSignInResult;

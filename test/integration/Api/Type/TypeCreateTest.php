@@ -4,7 +4,6 @@ namespace Commercetools\IntegrationTest\Api\Type;
 
 use Commercetools\Api\Models\Type\Type;
 use Commercetools\Exception\NotFoundException;
-use Commercetools\IntegrationTest\Api\Type\TypeFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
 
 class TypeCreateTest extends ApiTestCase

@@ -4,7 +4,6 @@ namespace Commercetools\IntegrationTest\Api\TaxCategory;
 
 use Commercetools\Api\Models\TaxCategory\TaxCategory;
 use Commercetools\Exception\NotFoundException;
-use Commercetools\IntegrationTest\Api\TaxCategory\TaxCategoryFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
 
 class TaxCategoryCreateTest extends ApiTestCase

@@ -5,7 +5,6 @@ namespace Commercetools\IntegrationTest\Api\Category;
 use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryDraft;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
-use Commercetools\Api\Models\Category\CategoryDraftModel;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;

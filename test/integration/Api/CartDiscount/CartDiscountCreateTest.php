@@ -8,14 +8,9 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountDraftBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscountValueGiftLineItemDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Product\Product;
-use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Api\Models\Product\ProductResourceIdentifierBuilder;
-use Commercetools\Api\Models\ProductType\ProductType;
-use Commercetools\Api\Models\TaxCategory\TaxCategory;
 use Commercetools\Import\Models\Importsinks\ImportSinkDraftBuilder;
 use Commercetools\IntegrationTest\Api\Product\ProductFixture;
-use Commercetools\IntegrationTest\Api\ProductType\ProductTypeFixture;
-use Commercetools\IntegrationTest\Api\TaxCategory\TaxCategoryFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
 
 class CartDiscountCreateTest extends ApiTestCase

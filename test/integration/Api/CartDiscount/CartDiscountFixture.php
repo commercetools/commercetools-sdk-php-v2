@@ -6,7 +6,6 @@ namespace Commercetools\IntegrationTest\Api\CartDiscount;
 use Commercetools\Api\Models\CartDiscount\CartDiscount;
 use Commercetools\Api\Models\CartDiscount\CartDiscountDraft;
 use Commercetools\Api\Models\CartDiscount\CartDiscountDraftBuilder;
-use Commercetools\Api\Models\CartDiscount\CartDiscountLineItemsTarget;
 use Commercetools\Api\Models\CartDiscount\CartDiscountLineItemsTargetBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscountValueRelativeDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
