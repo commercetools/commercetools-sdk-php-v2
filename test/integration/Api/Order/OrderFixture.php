@@ -3,290 +3,105 @@
 namespace Commercetools\IntegrationTest\Api\Order;
 
 use Commercetools\Api\Models\Cart\Cart;
-use Commercetools\Api\Models\Cart\CartDraftBuilder;
-use Commercetools\Api\Models\Cart\CartRecalculateActionBuilder;
+use Commercetools\Api\Models\Cart\CartAddLineItemActionModel;
 use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
+use Commercetools\Api\Models\Cart\CartSetShippingAddressActionModel;
 use Commercetools\Api\Models\Cart\CartUpdateActionCollection;
 use Commercetools\Api\Models\Cart\CartUpdateBuilder;
+use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Order\Order;
-use Commercetools\Api\Models\Order\OrderFromCartDraft;
 use Commercetools\Api\Models\Order\OrderFromCartDraftBuilder;
 use Commercetools\Api\Models\Product\Product;
 use Commercetools\Client\ApiRequestBuilder;
-use Commercetools\Exception\BadRequestException;
 use Commercetools\IntegrationTest\Api\Cart\CartFixture;
 use Commercetools\IntegrationTest\Api\Product\ProductFixture;
+use Commercetools\IntegrationTest\ApiTestCase;
 use Ramsey\Uuid\Uuid;
 
-class Bla
+class OrderFixture extends ApiTestCase
 {
-    final public static function uniqueOrderString()
+
+    final public static function uniqueCartString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultCartDraftBuilderFunction(CartDraftBuilder $builder)
-    {
-        return $builder;
+    final public static function withOrder(
+        ApiRequestBuilder $builder,
+        callable $assertFunction
+    ) {
+            self::withCreateOrder(
+                $builder,
+                $assertFunction
+            );
+
     }
 
-//    final public static function defaultOrderFromCartBuilderFunction(OrderFromCartDraftBuilder $builder)
-//    {
-//        return $builder;
-//    }
-
-    final public static function defaultOrderFromCartDraftFunction(Cart $cart): OrderFromCartDraftBuilder
-    {
-        $builder = OrderFromCartDraftBuilder::of();
-        $builder
-            ->withCart(
-                CartResourceIdentifierBuilder::of()
-                    ->withId($cart->getId())
-                    ->build()
-            )
-            ->withVersion($cart->getVersion());
-
-        return $builder;
-    }
-
-    final public static function defaultOrderFromCartDraftBuilderFunction(OrderFromCartDraftBuilder $draftBuilder): OrderFromCartDraft
-    {
-        return $draftBuilder->build();
-    }
-
-    final public static function defaultOrderCreateFunction(ApiRequestBuilder $builder, OrderFromCartDraftBuilder $draft)
-    {
-        $request = $builder->with()->orders()->post($draft->build());
-
-        return $request->execute();
-    }
-
-    final public static function defaultOrderDeleteFunction(ApiRequestBuilder $builder, Order $resource)
-    {
+    final public static function deleteOrder(ApiRequestBuilder $builder, Order $order) {
         $request = $builder
             ->with()
             ->orders()
-            ->withId($resource->getId())
+            ->withId($order->getId())
             ->delete()
-            ->withVersion($resource->getVersion());
+            ->withVersion($order->getVersion());
 
         return $request->execute();
     }
 
-    final public static function withUpdateableCartDraftOrder(
+    final public static function withCreateOrder(
         ApiRequestBuilder $builder,
-        callable          $cartDraftBuilderFunction,
-        callable          $orderRequestBuilderFunction,
-        callable          $assertFunction,
-        callable          $createFunction = null,
-        callable          $deleteFunction = null,
-        callable          $orderRequestDraftFunction = null
-    )
-    {
-        self::withOrderResource(
-            $builder,
-            function ($builder, $deleteFunction, $assertFunction, $resource, $customer, $product, $cart) {
-                $updatedResource = null;
-                try {
-                    $updatedResource = call_user_func($assertFunction, $resource, $customer, $product, $cart);
-                } finally {
-                    call_user_func($deleteFunction, $builder, $updatedResource != null ? $updatedResource : $resource);
-                }
-            },
-            $cartDraftBuilderFunction,
-            $orderRequestBuilderFunction,
-            $assertFunction,
-            $createFunction,
-            $deleteFunction,
-            $orderRequestDraftFunction
-        );
-    }
-
-    final public static function withCartDraftOrder(
-        ApiRequestBuilder $builder,
-        callable          $cartDraftBuilderFunction,
-        callable          $orderFromCartBuilderFunction,
-        callable          $assertFunction,
-        callable          $createFunction = null,
-        callable          $deleteFunction = null,
-        callable          $orderDraftFunction = null
-    )
-    {
-        self::withOrderResource(
-            $builder,
-            function ($builder, $deleteFunction, $assertFunction, $resource, $customer, $product, $cart) {
-                try {
-                    call_user_func($assertFunction, $resource, $customer, $product, $cart);
-                } finally {
-                    call_user_func($deleteFunction, $builder, $resource);
-                }
-            },
-            $cartDraftBuilderFunction,
-            $orderFromCartBuilderFunction,
-            $assertFunction,
-            $createFunction,
-            $deleteFunction,
-            $orderDraftFunction
-        );
-    }
-
-    final public static function withUpdateableOrder(
-        ApiRequestBuilder $builder,
-        callable          $assertFunction,
-        callable          $createFunction = null,
-        callable          $deleteFunction = null,
-        callable          $orderDraftFunction = null
-    )
-    {
-        self::withUpdateableCartDraftOrder(
-            $builder,
-            [__CLASS__, 'defaultCartDraftBuilderFunction'],
-//            [__CLASS__, 'defaultOrderFromCartBuilderFunction'],
-            $assertFunction,
-            $createFunction,
-            $deleteFunction,
-            $orderDraftFunction
-        );
-    }
-
-    final public static function withUpdateableDraftOrder(
-        ApiRequestBuilder $builder,
-        callable          $orderFromCartBuilderFunction,
-        callable          $assertFunction,
-        callable          $createFunction = null,
-        callable          $deleteFunction = null,
-        callable          $orderDraftFunction = null
-    )
-    {
-        self::withUpdateableCartDraftOrder(
-            $builder,
-            [__CLASS__, 'defaultCartDraftBuilderFunction'],
-            $orderFromCartBuilderFunction,
-            $assertFunction,
-            $createFunction,
-            $deleteFunction,
-            $orderDraftFunction
-        );
-    }
-
-    final public static function withOrder(
-        ApiRequestBuilder $builder,
-        callable          $assertFunction,
-        callable          $createFunction = null,
-        callable          $deleteFunction = null,
-        callable          $orderDraftFunction = null
-    )
-    {
-        self::withCartDraftOrder(
-            $builder,
-            [__CLASS__, 'defaultCartDraftBuilderFunction'],
-//            [__CLASS__, 'defaultOrderFromCartBuilderFunction'],
-            $assertFunction,
-            $createFunction,
-            $deleteFunction,
-            $orderDraftFunction
-        );
-    }
-
-    final public static function withDraftOrder(
-        ApiRequestBuilder $builder,
-        callable          $orderFromCartBuilderFunction,
-        callable          $assertFunction,
-        callable          $createFunction = null,
-        callable          $deleteFunction = null,
-        callable          $orderDraftFunction = null
-    )
-    {
-        self::withCartDraftOrder(
-            $builder,
-            [__CLASS__, 'defaultCartDraftBuilderFunction'],
-            $orderFromCartBuilderFunction,
-            $assertFunction,
-            $createFunction,
-            $deleteFunction,
-            $orderDraftFunction
-        );
-    }
-
-    private static function withOrderResource(
-        ApiRequestBuilder $builder,
-        callable          $fixtureFunction,
-        callable          $cartDraftBuilderFunction,
-//        callable          $orderFromCartBuilderFunction,
-        callable          $assertFunction,
-        callable          $createFunction = null,
-        callable          $deleteFunction = null,
-        callable          $orderDraftFunction = null
-    )
-    {
+        callable $assertFunction
+    ) {
         ProductFixture::withPublishedProduct(
             $builder,
-            function (Product $product) use (
-                $builder,
-                $cartDraftBuilderFunction,
-//                $orderFromCartBuilderFunction,
-                $assertFunction,
-                $createFunction,
-                $deleteFunction,
-                $orderDraftFunction,
-                $fixtureFunction
-            ) {
-                CartFixture::withUpdateableDraftCart(
+            function (Product $product) use ($builder, $assertFunction) {
+                CartFixture::withUpdateableCart(
                     $builder,
-                    $cartDraftBuilderFunction,
-                    function (Cart $cart) use (
-                        $builder,
-//                        $orderFromCartBuilderFunction,
-                        $assertFunction,
-                        $createFunction,
-                        $deleteFunction,
-                        $orderDraftFunction,
-                        $product,
-                        $fixtureFunction
-                    ) {
-                        if ($orderDraftFunction == null) {
-                            $orderDraftFunction = [__CLASS__, 'defaultOrderFromCartDraftFunction'];
-                        }
-                        if ($createFunction == null) {
-                            $createFunction = [__CLASS__, 'defaultOrderCreateFunction'];
-                        }
-                        if ($deleteFunction == null) {
-                            $deleteFunction = [__CLASS__, 'defaultOrderDeleteFunction'];
-                        }
+                    function (Cart $cart) use ($builder, $assertFunction, $product) {
+                        $address = AddressBuilder::of()
+                            ->withCountry('DE')
+                            ->build();
+                        $updateAction1 = new CartAddLineItemActionModel();
+                        $updateAction1->setProductId($product->getId());
 
-                        $orderFromCartDraftRequest = call_user_func($orderDraftFunction, $cart);
+                        $updateAction2 = new CartSetShippingAddressActionModel();
+                        $updateAction2->setAddress($address);
 
-                        $orderFromCartRequest = call_user_func($orderFromCartDraftRequest);
-//                        $orderFromCartRequest = call_user_func($orderFromCartBuilderFunction, $orderFromCartDraftRequest);
+                        $updateActionCollection = new CartUpdateActionCollection();
+                        $updateActionCollection->add($updateAction1)->add($updateAction2);
+                        $cartUpdate = CartUpdateBuilder::of()
+                            ->withVersion($cart->getVersion())
+                            ->withActions($updateActionCollection)
+                            ->build();
+                        $request = $builder
+                            ->with()
+                            ->carts()
+                            ->withId($cart->getId())
+                            ->post($cartUpdate);
+                        $cartQueryResponse = $request->execute();
+
+                        $orderCartDraft = OrderFromCartDraftBuilder::of()
+                            ->withCart(
+                                CartResourceIdentifierBuilder::of()
+                                    ->withId($cartQueryResponse->getId())
+                                    ->build()
+                            )
+                            ->withVersion($cartQueryResponse->getVersion())
+                            ->build();
+
+                        $orderResponse = $builder->with()->orders()->post($orderCartDraft)->execute();
 
                         try {
-                            $resource = $createFunction($builder, $orderFromCartRequest);
-                        } catch (BadRequestException $e) {
-                            $updateAction = new CartRecalculateActionBuilder();
-
-                            $updateActionCollection = new CartUpdateActionCollection();
-                            $updateActionCollection->add($updateAction);
-                            $cartUpdate = CartUpdateBuilder::of()
-                                ->withVersion($cart->getVersion())
-                                ->withActions($updateActionCollection)
-                                ->build();
-                            $request = $builder
+                            call_user_func($assertFunction, $orderResponse);
+                            return $builder
                                 ->with()
                                 ->carts()
-                                ->withId($cart->getId())
-                                ->post($cartUpdate);
-
-                            $cartQueryResponse = $request->execute();
-
-                            $orderFromCartDraftRequest = call_user_func($orderDraftFunction, $cartQueryResponse);
-//                            $orderFromCartRequest = call_user_func($orderFromCartBuilderFunction, $orderFromCartDraftRequest);
-                            $orderFromCartRequest = call_user_func( $orderFromCartDraftRequest);
-                            $resource = $createFunction($builder, $orderFromCartRequest);
+                                ->withId($cartQueryResponse->getId())
+                                ->get()
+                                ->execute();
+                        } finally {
+                            OrderFixture::deleteOrder($builder, $orderResponse);
                         }
-
-                        $fixtureFunction($builder, $deleteFunction, $assertFunction, $resource, $product, $cart);
-
-                        return $cart;
                     }
                 );
             }

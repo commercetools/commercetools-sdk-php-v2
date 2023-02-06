@@ -12,7 +12,7 @@ use Ramsey\Uuid\Uuid;
 
 class TaxCategoryFixture
 {
-    const RAND_MAX = 10000;
+    public const RAND_MAX = 10000;
 
     final public static function uniqueTaxCategoryString()
     {

@@ -60,8 +60,7 @@ class TypeFixture
         callable          $deleteFunction = null,
         callable          $draftFunction = null,
         array             $additionalResources = []
-    )
-    {
+    ) {
         if ($draftFunction == null) {
             $draftFunction = [__CLASS__, 'defaultTypeDraftFunction'];
         }
