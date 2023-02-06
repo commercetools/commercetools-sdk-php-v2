@@ -40,6 +40,12 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
      */
     protected $staged;
 
+    /**
+     *
+     * @var ?Money
+     */
+    protected $oldValue;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -47,10 +53,12 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
     public function __construct(
         ?Money $value = null,
         ?bool $staged = null,
+        ?Money $oldValue = null,
         ?string $type = null
     ) {
         $this->value = $value;
         $this->staged = $staged;
+        $this->oldValue = $oldValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -113,6 +121,28 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
         return $this->staged;
     }
 
+    /**
+     * <p>The old value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.
+     * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
+     *
+     *
+     * @return null|Money
+     */
+    public function getOldValue()
+    {
+        if (is_null($this->oldValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_OLD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->oldValue = MoneyModel::of($data);
+        }
+
+        return $this->oldValue;
+    }
+
 
     /**
      * @param ?Money $value
@@ -128,5 +158,13 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
+    }
+
+    /**
+     * @param ?Money $oldValue
+     */
+    public function setOldValue(?Money $oldValue): void
+    {
+        $this->oldValue = $oldValue;
     }
 }

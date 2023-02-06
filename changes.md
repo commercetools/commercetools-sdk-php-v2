@@ -47,6 +47,8 @@
 - added property `defaultShippingAddress` to type `MyDivisionDraft`
 - added property `cartId` to type `MyQuoteRequestDraft`
 - added property `cartVersion` to type `MyQuoteRequestDraft`
+- added property `oldValue` to type `StandalonePriceValueChangedMessage`
+- added property `oldValue` to type `StandalonePriceValueChangedMessagePayload`
 - added property `purchaseOrderNumber` to type `StagedOrder`
 - added property `purchaseOrderNumber` to type `Order`
 - added property `purchaseOrderNumber` to type `OrderFromCartDraft`
