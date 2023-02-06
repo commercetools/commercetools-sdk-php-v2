@@ -20,7 +20,8 @@ class OrderQueryTest extends ApiTestCase
                 $this->assertNotEmpty($resultWithPredicateVar);
                 $this->assertNotEmpty($order);
                 $this->assertNotEmpty($order->getCart());
-            });
+            }
+        );
     }
 }
 

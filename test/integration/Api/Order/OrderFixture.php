@@ -20,7 +20,6 @@ use Ramsey\Uuid\Uuid;
 
 class OrderFixture extends ApiTestCase
 {
-
     final public static function uniqueCartString()
     {
         return 'test-' . Uuid::uuid4();
@@ -30,14 +29,14 @@ class OrderFixture extends ApiTestCase
         ApiRequestBuilder $builder,
         callable $assertFunction
     ) {
-            self::withCreateOrder(
-                $builder,
-                $assertFunction
-            );
-
+        self::withCreateOrder(
+            $builder,
+            $assertFunction
+        );
     }
 
-    final public static function deleteOrder(ApiRequestBuilder $builder, Order $order) {
+    final public static function deleteOrder(ApiRequestBuilder $builder, Order $order)
+    {
         $request = $builder
             ->with()
             ->orders()

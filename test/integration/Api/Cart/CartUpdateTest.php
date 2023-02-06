@@ -4,10 +4,8 @@ namespace Commercetools\IntegrationTest\Api\Cart;
 
 use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Api\Models\Cart\CartAddLineItemActionModel;
-use Commercetools\Api\Models\Cart\CartDraft;
 use Commercetools\Api\Models\Cart\CartDraftBuilder;
 use Commercetools\Api\Models\Cart\CartSetKeyActionModel;
-use Commercetools\Api\Models\Cart\CartSetShippingAddressActionBuilder;
 use Commercetools\Api\Models\Cart\CartSetShippingAddressActionModel;
 use Commercetools\Api\Models\Cart\CartUpdateActionCollection;
 use Commercetools\Api\Models\Cart\CartUpdateBuilder;
@@ -96,7 +94,7 @@ class CartUpdateTest extends ApiTestCase
         CartFixture::withUpdateableDraftCart(
             $builder,
             function (CartDraftBuilder $cartDraft) use ($key) {
-                $cartDraftBuilder =  CartDraftBuilder::of()
+                $cartDraftBuilder = CartDraftBuilder::of()
                     ->withCurrency('EUR')
                     ->withKey($key);
 
