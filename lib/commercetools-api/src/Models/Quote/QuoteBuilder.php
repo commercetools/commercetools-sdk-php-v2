@@ -253,9 +253,21 @@ final class QuoteBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $quoteState;
+
+    /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
+
+    /**
+
+     * @var ?string
+     */
+    private $purchaseOrderNumber;
 
     /**
 
@@ -624,6 +636,17 @@ final class QuoteBuilder implements Builder
     }
 
     /**
+     * <p>Predefined states tracking the status of the Quote.</p>
+     *
+
+     * @return null|string
+     */
+    public function getQuoteState()
+    {
+        return $this->quoteState;
+    }
+
+    /**
      * <p><a href="ctp:api:type:State">State</a> of the Quote.
      * This reference can point to a State in a custom workflow.</p>
      *
@@ -633,6 +656,18 @@ final class QuoteBuilder implements Builder
     public function getState()
     {
         return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
+     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
     }
 
     /**
@@ -999,12 +1034,34 @@ final class QuoteBuilder implements Builder
     }
 
     /**
+     * @param ?string $quoteState
+     * @return $this
+     */
+    public function withQuoteState(?string $quoteState)
+    {
+        $this->quoteState = $quoteState;
+
+        return $this;
+    }
+
+    /**
      * @param ?StateReference $state
      * @return $this
      */
     public function withState(?StateReference $state)
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
 
         return $this;
     }
@@ -1242,7 +1299,9 @@ final class QuoteBuilder implements Builder
             $this->itemShippingAddresses,
             $this->directDiscounts,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->quoteState,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->purchaseOrderNumber,
             $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit
         );
     }

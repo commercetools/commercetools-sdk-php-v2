@@ -22,6 +22,7 @@ interface QuoteRequestDraft extends JsonObject
     public const FIELD_COMMENT = 'comment';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STATE = 'state';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
 
     /**
      * <p>Cart for which a Quote is requested.
@@ -74,6 +75,15 @@ interface QuoteRequestDraft extends JsonObject
     public function getState();
 
     /**
+     * <p>Identifier for a purchase order, usually in a B2B context.
+     * The Purchase Order Number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
+
+    /**
      * @param ?CartResourceIdentifier $cart
      */
     public function setCart(?CartResourceIdentifier $cart): void;
@@ -102,4 +112,9 @@ interface QuoteRequestDraft extends JsonObject
      * @param ?StateReference $state
      */
     public function setState(?StateReference $state): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 }

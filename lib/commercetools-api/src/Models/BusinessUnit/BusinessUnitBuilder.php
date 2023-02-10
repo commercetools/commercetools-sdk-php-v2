@@ -125,7 +125,7 @@ final class BusinessUnitBuilder implements Builder
 
      * @var ?string
      */
-    private $defaultShipingAddressId;
+    private $defaultShippingAddressId;
 
     /**
 
@@ -331,9 +331,9 @@ final class BusinessUnitBuilder implements Builder
 
      * @return null|string
      */
-    public function getDefaultShipingAddressId()
+    public function getDefaultShippingAddressId()
     {
-        return $this->defaultShipingAddressId;
+        return $this->defaultShippingAddressId;
     }
 
     /**
@@ -557,12 +557,12 @@ final class BusinessUnitBuilder implements Builder
     }
 
     /**
-     * @param ?string $defaultShipingAddressId
+     * @param ?string $defaultShippingAddressId
      * @return $this
      */
-    public function withDefaultShipingAddressId(?string $defaultShipingAddressId)
+    public function withDefaultShippingAddressId(?string $defaultShippingAddressId)
     {
-        $this->defaultShipingAddressId = $defaultShipingAddressId;
+        $this->defaultShippingAddressId = $defaultShippingAddressId;
 
         return $this;
     }
@@ -695,7 +695,7 @@ final class BusinessUnitBuilder implements Builder
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->addresses,
             $this->shippingAddressIds,
-            $this->defaultShipingAddressId,
+            $this->defaultShippingAddressId,
             $this->billingAddressIds,
             $this->defaultBillingAddressId,
             $this->associates,

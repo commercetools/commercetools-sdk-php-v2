@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -27,7 +27,7 @@ interface BusinessUnitDraft extends JsonObject
     public const FIELD_ASSOCIATES = 'associates';
     public const FIELD_ADDRESSES = 'addresses';
     public const FIELD_SHIPPING_ADDRESSES = 'shippingAddresses';
-    public const FIELD_DEFAULT_SHIPING_ADDRESS = 'defaultShipingAddress';
+    public const FIELD_DEFAULT_SHIPPING_ADDRESS = 'defaultShippingAddress';
     public const FIELD_BILLING_ADDRESSES = 'billingAddresses';
     public const FIELD_DEFAULT_BILLING_ADDRESS = 'defaultBillingAddress';
     public const FIELD_CUSTOM = 'custom';
@@ -49,13 +49,13 @@ interface BusinessUnitDraft extends JsonObject
     public function getStatus();
 
     /**
-     * <p>References to <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
      * If not empty, the Business Unit can only be linked to <a href="ctp:api:type:Cart">Carts</a> and <a href="ctp:api:type:Order">Orders</a> of a referenced Store.
      * If empty, the Business Unit can only create <a href="ctp:api:type:Cart">Carts</a>, <a href="ctp:api:type:Order">Orders</a>, or <a href="/../api/quotes-overview">Quotes</a> that have no <code>store</code> value.
      * Defaults to empty for <a href="ctp:api:type:BusinessUnitType">Companies</a> and not set for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
      *
 
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores();
 
@@ -123,7 +123,7 @@ interface BusinessUnitDraft extends JsonObject
 
      * @return null|int
      */
-    public function getDefaultShipingAddress();
+    public function getDefaultShippingAddress();
 
     /**
      * <p>Indexes of entries in <code>addresses</code> to set as billing addresses.
@@ -161,9 +161,9 @@ interface BusinessUnitDraft extends JsonObject
     public function setStatus(?string $status): void;
 
     /**
-     * @param ?StoreKeyReferenceCollection $stores
+     * @param ?StoreResourceIdentifierCollection $stores
      */
-    public function setStores(?StoreKeyReferenceCollection $stores): void;
+    public function setStores(?StoreResourceIdentifierCollection $stores): void;
 
     /**
      * @param ?string $storeMode
@@ -196,9 +196,9 @@ interface BusinessUnitDraft extends JsonObject
     public function setShippingAddresses(?array $shippingAddresses): void;
 
     /**
-     * @param ?int $defaultShipingAddress
+     * @param ?int $defaultShippingAddress
      */
-    public function setDefaultShipingAddress(?int $defaultShipingAddress): void;
+    public function setDefaultShippingAddress(?int $defaultShippingAddress): void;
 
     /**
      * @param ?array $billingAddresses

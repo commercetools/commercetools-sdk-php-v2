@@ -20,6 +20,7 @@ interface OrderFromCartDraft extends JsonObject
     public const FIELD_CART = 'cart';
     public const FIELD_VERSION = 'version';
     public const FIELD_ORDER_NUMBER = 'orderNumber';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_PAYMENT_STATE = 'paymentState';
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
     public const FIELD_ORDER_STATE = 'orderState';
@@ -59,6 +60,15 @@ interface OrderFromCartDraft extends JsonObject
      * @return null|string
      */
     public function getOrderNumber();
+
+    /**
+     * <p>Identifier for a purchase order, usually in a B2B context.
+     * The Purchase Order Number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a> and can also be used with <a href="/quotes-overview">Quotes</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
 
     /**
 
@@ -115,6 +125,11 @@ interface OrderFromCartDraft extends JsonObject
      * @param ?string $orderNumber
      */
     public function setOrderNumber(?string $orderNumber): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 
     /**
      * @param ?string $paymentState

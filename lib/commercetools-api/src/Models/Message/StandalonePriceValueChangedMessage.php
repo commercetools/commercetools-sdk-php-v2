@@ -16,6 +16,7 @@ interface StandalonePriceValueChangedMessage extends Message
 {
     public const FIELD_VALUE = 'value';
     public const FIELD_STAGED = 'staged';
+    public const FIELD_OLD_VALUE = 'oldValue';
 
     /**
      * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
@@ -34,6 +35,15 @@ interface StandalonePriceValueChangedMessage extends Message
     public function getStaged();
 
     /**
+     * <p>The old value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.
+     * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
+     *
+
+     * @return null|Money
+     */
+    public function getOldValue();
+
+    /**
      * @param ?Money $value
      */
     public function setValue(?Money $value): void;
@@ -42,4 +52,9 @@ interface StandalonePriceValueChangedMessage extends Message
      * @param ?bool $staged
      */
     public function setStaged(?bool $staged): void;
+
+    /**
+     * @param ?Money $oldValue
+     */
+    public function setOldValue(?Money $oldValue): void;
 }

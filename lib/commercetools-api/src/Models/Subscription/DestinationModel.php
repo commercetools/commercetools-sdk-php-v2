@@ -35,7 +35,6 @@ final class DestinationModel extends JsonObjectModel implements Destination
        'EventBridge' => EventBridgeDestinationModel::class,
        'EventGrid' => AzureEventGridDestinationModel::class,
        'GoogleCloudPubSub' => GoogleCloudPubSubDestinationModel::class,
-       'IronMQ' => IronMqDestinationModel::class,
        'SNS' => SnsDestinationModel::class,
        'SQS' => SqsDestinationModel::class,
     ];

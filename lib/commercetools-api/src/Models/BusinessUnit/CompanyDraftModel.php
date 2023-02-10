@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -38,7 +38,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
 
     /**
      *
-     * @var ?StoreKeyReferenceCollection
+     * @var ?StoreResourceIdentifierCollection
      */
     protected $stores;
 
@@ -88,7 +88,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
      *
      * @var ?int
      */
-    protected $defaultShipingAddress;
+    protected $defaultShippingAddress;
 
     /**
      *
@@ -115,14 +115,14 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
     public function __construct(
         ?string $key = null,
         ?string $status = null,
-        ?StoreKeyReferenceCollection $stores = null,
+        ?StoreResourceIdentifierCollection $stores = null,
         ?string $storeMode = null,
         ?string $name = null,
         ?string $contactEmail = null,
         ?AssociateDraftCollection $associates = null,
         ?BaseAddressCollection $addresses = null,
         ?array $shippingAddresses = null,
-        ?int $defaultShipingAddress = null,
+        ?int $defaultShippingAddress = null,
         ?array $billingAddresses = null,
         ?int $defaultBillingAddress = null,
         ?CustomFieldsDraft $custom = null,
@@ -137,7 +137,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
         $this->associates = $associates;
         $this->addresses = $addresses;
         $this->shippingAddresses = $shippingAddresses;
-        $this->defaultShipingAddress = $defaultShipingAddress;
+        $this->defaultShippingAddress = $defaultShippingAddress;
         $this->billingAddresses = $billingAddresses;
         $this->defaultBillingAddress = $defaultBillingAddress;
         $this->custom = $custom;
@@ -185,13 +185,13 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
     }
 
     /**
-     * <p>References to <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
      * If not empty, the Business Unit can only be linked to <a href="ctp:api:type:Cart">Carts</a> and <a href="ctp:api:type:Order">Orders</a> of a referenced Store.
      * If empty, the Business Unit can only create <a href="ctp:api:type:Cart">Carts</a>, <a href="ctp:api:type:Order">Orders</a>, or <a href="/../api/quotes-overview">Quotes</a> that have no <code>store</code> value.
      * Defaults to empty for <a href="ctp:api:type:BusinessUnitType">Companies</a> and not set for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
      *
      *
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
     {
@@ -201,7 +201,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
             if (is_null($data)) {
                 return null;
             }
-            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+            $this->stores = StoreResourceIdentifierCollection::fromArray($data);
         }
 
         return $this->stores;
@@ -355,18 +355,18 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
      *
      * @return null|int
      */
-    public function getDefaultShipingAddress()
+    public function getDefaultShippingAddress()
     {
-        if (is_null($this->defaultShipingAddress)) {
+        if (is_null($this->defaultShippingAddress)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_DEFAULT_SHIPING_ADDRESS);
+            $data = $this->raw(self::FIELD_DEFAULT_SHIPPING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
-            $this->defaultShipingAddress = (int) $data;
+            $this->defaultShippingAddress = (int) $data;
         }
 
-        return $this->defaultShipingAddress;
+        return $this->defaultShippingAddress;
     }
 
     /**
@@ -449,9 +449,9 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
     }
 
     /**
-     * @param ?StoreKeyReferenceCollection $stores
+     * @param ?StoreResourceIdentifierCollection $stores
      */
-    public function setStores(?StoreKeyReferenceCollection $stores): void
+    public function setStores(?StoreResourceIdentifierCollection $stores): void
     {
         $this->stores = $stores;
     }
@@ -505,11 +505,11 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
     }
 
     /**
-     * @param ?int $defaultShipingAddress
+     * @param ?int $defaultShippingAddress
      */
-    public function setDefaultShipingAddress(?int $defaultShipingAddress): void
+    public function setDefaultShippingAddress(?int $defaultShippingAddress): void
     {
-        $this->defaultShipingAddress = $defaultShipingAddress;
+        $this->defaultShippingAddress = $defaultShippingAddress;
     }
 
     /**

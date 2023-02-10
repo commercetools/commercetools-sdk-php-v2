@@ -102,6 +102,12 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
     private $staged;
 
     /**
+
+     * @var null|Money|MoneyBuilder
+     */
+    private $oldValue;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -232,6 +238,18 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
     public function getStaged()
     {
         return $this->staged;
+    }
+
+    /**
+     * <p>The old value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.
+     * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
+     *
+
+     * @return null|Money
+     */
+    public function getOldValue()
+    {
+        return $this->oldValue instanceof MoneyBuilder ? $this->oldValue->build() : $this->oldValue;
     }
 
     /**
@@ -367,6 +385,17 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?Money $oldValue
+     * @return $this
+     */
+    public function withOldValue(?Money $oldValue)
+    {
+        $this->oldValue = $oldValue;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -421,6 +450,17 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withOldValue() instead
+     * @return $this
+     */
+    public function withOldValueBuilder(?MoneyBuilder $oldValue)
+    {
+        $this->oldValue = $oldValue;
+
+        return $this;
+    }
+
     public function build(): StandalonePriceValueChangedMessage
     {
         return new StandalonePriceValueChangedMessageModel(
@@ -435,7 +475,8 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
-            $this->staged
+            $this->staged,
+            $this->oldValue instanceof MoneyBuilder ? $this->oldValue->build() : $this->oldValue
         );
     }
 

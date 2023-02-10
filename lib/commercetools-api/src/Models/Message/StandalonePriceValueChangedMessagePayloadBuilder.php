@@ -35,6 +35,12 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
     private $staged;
 
     /**
+
+     * @var null|Money|MoneyBuilder
+     */
+    private $oldValue;
+
+    /**
      * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
 
@@ -54,6 +60,18 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
     public function getStaged()
     {
         return $this->staged;
+    }
+
+    /**
+     * <p>The old value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.
+     * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
+     *
+
+     * @return null|Money
+     */
+    public function getOldValue()
+    {
+        return $this->oldValue instanceof MoneyBuilder ? $this->oldValue->build() : $this->oldValue;
     }
 
     /**
@@ -79,6 +97,17 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Money $oldValue
+     * @return $this
+     */
+    public function withOldValue(?Money $oldValue)
+    {
+        $this->oldValue = $oldValue;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withValue() instead
      * @return $this
      */
@@ -89,11 +118,23 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withOldValue() instead
+     * @return $this
+     */
+    public function withOldValueBuilder(?MoneyBuilder $oldValue)
+    {
+        $this->oldValue = $oldValue;
+
+        return $this;
+    }
+
     public function build(): StandalonePriceValueChangedMessagePayload
     {
         return new StandalonePriceValueChangedMessagePayloadModel(
             $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
-            $this->staged
+            $this->staged,
+            $this->oldValue instanceof MoneyBuilder ? $this->oldValue->build() : $this->oldValue
         );
     }
 

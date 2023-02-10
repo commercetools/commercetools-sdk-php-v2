@@ -34,6 +34,7 @@ interface StagedQuote extends BaseResource
     public const FIELD_SELLER_COMMENT = 'sellerComment';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STATE = 'state';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
 
     /**
@@ -158,6 +159,15 @@ interface StagedQuote extends BaseResource
     public function getState();
 
     /**
+     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
+     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
+
+    /**
      * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Staged Quote.</p>
      *
 
@@ -239,6 +249,11 @@ interface StagedQuote extends BaseResource
      * @param ?StateReference $state
      */
     public function setState(?StateReference $state): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 
     /**
      * @param ?BusinessUnitKeyReference $businessUnit

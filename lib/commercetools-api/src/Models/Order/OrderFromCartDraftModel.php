@@ -53,6 +53,12 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
      *
      * @var ?string
      */
+    protected $purchaseOrderNumber;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $paymentState;
 
     /**
@@ -88,6 +94,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         ?CartResourceIdentifier $cart = null,
         ?int $version = null,
         ?string $orderNumber = null,
+        ?string $purchaseOrderNumber = null,
         ?string $paymentState = null,
         ?string $shipmentState = null,
         ?string $orderState = null,
@@ -98,6 +105,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         $this->cart = $cart;
         $this->version = $version;
         $this->orderNumber = $orderNumber;
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
         $this->paymentState = $paymentState;
         $this->shipmentState = $shipmentState;
         $this->orderState = $orderState;
@@ -186,6 +194,27 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         }
 
         return $this->orderNumber;
+    }
+
+    /**
+     * <p>Identifier for a purchase order, usually in a B2B context.
+     * The Purchase Order Number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a> and can also be used with <a href="/quotes-overview">Quotes</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        if (is_null($this->purchaseOrderNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PURCHASE_ORDER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->purchaseOrderNumber = (string) $data;
+        }
+
+        return $this->purchaseOrderNumber;
     }
 
     /**
@@ -317,6 +346,14 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     public function setOrderNumber(?string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
     }
 
     /**

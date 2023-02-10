@@ -107,6 +107,12 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
      */
     protected $staged;
 
+    /**
+     *
+     * @var ?Money
+     */
+    protected $oldValue;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -124,6 +130,7 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?Money $value = null,
         ?bool $staged = null,
+        ?Money $oldValue = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -138,6 +145,7 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->value = $value;
         $this->staged = $staged;
+        $this->oldValue = $oldValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -415,6 +423,28 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         return $this->staged;
     }
 
+    /**
+     * <p>The old value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.
+     * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
+     *
+     *
+     * @return null|Money
+     */
+    public function getOldValue()
+    {
+        if (is_null($this->oldValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_OLD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->oldValue = MoneyModel::of($data);
+        }
+
+        return $this->oldValue;
+    }
+
 
     /**
      * @param ?string $id
@@ -510,6 +540,14 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
+    }
+
+    /**
+     * @param ?Money $oldValue
+     */
+    public function setOldValue(?Money $oldValue): void
+    {
+        $this->oldValue = $oldValue;
     }
 
 

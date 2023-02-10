@@ -252,9 +252,21 @@ final class QuoteModel extends JsonObjectModel implements Quote
 
     /**
      *
+     * @var ?string
+     */
+    protected $quoteState;
+
+    /**
+     *
      * @var ?StateReference
      */
     protected $state;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $purchaseOrderNumber;
 
     /**
      *
@@ -299,7 +311,9 @@ final class QuoteModel extends JsonObjectModel implements Quote
         ?AddressCollection $itemShippingAddresses = null,
         ?DirectDiscountCollection $directDiscounts = null,
         ?CustomFields $custom = null,
+        ?string $quoteState = null,
         ?StateReference $state = null,
+        ?string $purchaseOrderNumber = null,
         ?BusinessUnitKeyReference $businessUnit = null
     ) {
         $this->id = $id;
@@ -334,7 +348,9 @@ final class QuoteModel extends JsonObjectModel implements Quote
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->directDiscounts = $directDiscounts;
         $this->custom = $custom;
+        $this->quoteState = $quoteState;
         $this->state = $state;
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
         $this->businessUnit = $businessUnit;
     }
 
@@ -1014,6 +1030,26 @@ final class QuoteModel extends JsonObjectModel implements Quote
     }
 
     /**
+     * <p>Predefined states tracking the status of the Quote.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getQuoteState()
+    {
+        if (is_null($this->quoteState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_QUOTE_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quoteState = (string) $data;
+        }
+
+        return $this->quoteState;
+    }
+
+    /**
      * <p><a href="ctp:api:type:State">State</a> of the Quote.
      * This reference can point to a State in a custom workflow.</p>
      *
@@ -1033,6 +1069,27 @@ final class QuoteModel extends JsonObjectModel implements Quote
         }
 
         return $this->state;
+    }
+
+    /**
+     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
+     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        if (is_null($this->purchaseOrderNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PURCHASE_ORDER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->purchaseOrderNumber = (string) $data;
+        }
+
+        return $this->purchaseOrderNumber;
     }
 
     /**
@@ -1314,11 +1371,27 @@ final class QuoteModel extends JsonObjectModel implements Quote
     }
 
     /**
+     * @param ?string $quoteState
+     */
+    public function setQuoteState(?string $quoteState): void
+    {
+        $this->quoteState = $quoteState;
+    }
+
+    /**
      * @param ?StateReference $state
      */
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
     }
 
     /**

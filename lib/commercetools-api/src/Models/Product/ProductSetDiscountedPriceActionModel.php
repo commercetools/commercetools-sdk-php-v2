@@ -81,7 +81,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:Price">Embedded Price</a> to set the Discount.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:Price">Price</a> to set the Discount.</p>
      *
      *
      * @return null|string

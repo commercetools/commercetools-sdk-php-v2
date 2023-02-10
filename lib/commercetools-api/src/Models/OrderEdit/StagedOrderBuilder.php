@@ -261,6 +261,12 @@ final class StagedOrderBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $purchaseOrderNumber;
+
+    /**
+
      * @var ?DiscountCodeInfoCollection
      */
     private $discountCodes;
@@ -678,6 +684,18 @@ final class StagedOrderBuilder implements Builder
     public function getReturnInfo()
     {
         return $this->returnInfo;
+    }
+
+    /**
+     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
+     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
     }
 
     /**
@@ -1176,6 +1194,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
+
+        return $this;
+    }
+
+    /**
      * @param ?DiscountCodeInfoCollection $discountCodes
      * @return $this
      */
@@ -1541,6 +1570,7 @@ final class StagedOrderBuilder implements Builder
             $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo,
             $this->syncInfo,
             $this->returnInfo,
+            $this->purchaseOrderNumber,
             $this->discountCodes,
             $this->lastMessageSequenceNumber,
             $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart,

@@ -63,7 +63,9 @@ interface Quote extends BaseResource
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_QUOTE_STATE = 'quoteState';
     public const FIELD_STATE = 'state';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
 
     /**
@@ -331,6 +333,14 @@ interface Quote extends BaseResource
     public function getCustom();
 
     /**
+     * <p>Predefined states tracking the status of the Quote.</p>
+     *
+
+     * @return null|string
+     */
+    public function getQuoteState();
+
+    /**
      * <p><a href="ctp:api:type:State">State</a> of the Quote.
      * This reference can point to a State in a custom workflow.</p>
      *
@@ -338,6 +348,15 @@ interface Quote extends BaseResource
      * @return null|StateReference
      */
     public function getState();
+
+    /**
+     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
+     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
 
     /**
      * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote.</p>
@@ -508,9 +527,19 @@ interface Quote extends BaseResource
     public function setCustom(?CustomFields $custom): void;
 
     /**
+     * @param ?string $quoteState
+     */
+    public function setQuoteState(?string $quoteState): void;
+
+    /**
      * @param ?StateReference $state
      */
     public function setState(?StateReference $state): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 
     /**
      * @param ?BusinessUnitKeyReference $businessUnit

@@ -42,15 +42,6 @@ class ResourceByProjectKey extends ApiResource
         return new ResourceByProjectKeyRecommendations($args, $this->getClient());
     }
     /**
-     * @deprecated
-     */
-    public function missingData(): ResourceByProjectKeyMissingData
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyMissingData($args, $this->getClient());
-    }
-    /**
      */
     public function similarities(): ResourceByProjectKeySimilarities
     {

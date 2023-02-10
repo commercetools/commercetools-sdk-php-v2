@@ -130,6 +130,12 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
 
     /**
      *
+     * @var ?string
+     */
+    protected $purchaseOrderNumber;
+
+    /**
+     *
      * @var ?BusinessUnitKeyReference
      */
     protected $businessUnit;
@@ -154,6 +160,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         ?string $sellerComment = null,
         ?CustomFields $custom = null,
         ?StateReference $state = null,
+        ?string $purchaseOrderNumber = null,
         ?BusinessUnitKeyReference $businessUnit = null
     ) {
         $this->id = $id;
@@ -171,6 +178,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         $this->sellerComment = $sellerComment;
         $this->custom = $custom;
         $this->state = $state;
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
         $this->businessUnit = $businessUnit;
     }
 
@@ -495,6 +503,27 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
+     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
+     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        if (is_null($this->purchaseOrderNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PURCHASE_ORDER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->purchaseOrderNumber = (string) $data;
+        }
+
+        return $this->purchaseOrderNumber;
+    }
+
+    /**
      * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Staged Quote.</p>
      *
      *
@@ -634,6 +663,14 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
     }
 
     /**

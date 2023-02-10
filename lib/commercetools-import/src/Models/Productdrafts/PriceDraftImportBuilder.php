@@ -186,6 +186,8 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier for the Embedded Price.</p>
+     *
 
      * @return null|string
      */

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\AssetCollection;
+use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\Builder;
@@ -61,7 +61,7 @@ final class ProductAddVariantActionBuilder implements Builder
 
     /**
 
-     * @var ?AssetCollection
+     * @var ?AssetDraftCollection
      */
     private $assets;
 
@@ -135,7 +135,7 @@ final class ProductAddVariantActionBuilder implements Builder
      * <p>Media assets for the Product Variant.</p>
      *
 
-     * @return null|AssetCollection
+     * @return null|AssetDraftCollection
      */
     public function getAssets()
     {
@@ -209,10 +209,10 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
-     * @param ?AssetCollection $assets
+     * @param ?AssetDraftCollection $assets
      * @return $this
      */
-    public function withAssets(?AssetCollection $assets)
+    public function withAssets(?AssetDraftCollection $assets)
     {
         $this->assets = $assets;
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -38,7 +38,7 @@ final class DivisionDraftBuilder implements Builder
 
     /**
 
-     * @var ?StoreKeyReferenceCollection
+     * @var ?StoreResourceIdentifierCollection
      */
     private $stores;
 
@@ -82,7 +82,7 @@ final class DivisionDraftBuilder implements Builder
 
      * @var ?int
      */
-    private $defaultShipingAddress;
+    private $defaultShippingAddress;
 
     /**
 
@@ -131,13 +131,13 @@ final class DivisionDraftBuilder implements Builder
     }
 
     /**
-     * <p>References to <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>.
      * If not empty, the Business Unit can only be linked to <a href="ctp:api:type:Cart">Carts</a> and <a href="ctp:api:type:Order">Orders</a> of a referenced Store.
      * If empty, the Business Unit can only create <a href="ctp:api:type:Cart">Carts</a>, <a href="ctp:api:type:Order">Orders</a>, or <a href="/../api/quotes-overview">Quotes</a> that have no <code>store</code> value.
      * Defaults to empty for <a href="ctp:api:type:BusinessUnitType">Companies</a> and not set for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
      *
 
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
     {
@@ -218,9 +218,9 @@ final class DivisionDraftBuilder implements Builder
 
      * @return null|int
      */
-    public function getDefaultShipingAddress()
+    public function getDefaultShippingAddress()
     {
-        return $this->defaultShipingAddress;
+        return $this->defaultShippingAddress;
     }
 
     /**
@@ -291,10 +291,10 @@ final class DivisionDraftBuilder implements Builder
     }
 
     /**
-     * @param ?StoreKeyReferenceCollection $stores
+     * @param ?StoreResourceIdentifierCollection $stores
      * @return $this
      */
-    public function withStores(?StoreKeyReferenceCollection $stores)
+    public function withStores(?StoreResourceIdentifierCollection $stores)
     {
         $this->stores = $stores;
 
@@ -368,12 +368,12 @@ final class DivisionDraftBuilder implements Builder
     }
 
     /**
-     * @param ?int $defaultShipingAddress
+     * @param ?int $defaultShippingAddress
      * @return $this
      */
-    public function withDefaultShipingAddress(?int $defaultShipingAddress)
+    public function withDefaultShippingAddress(?int $defaultShippingAddress)
     {
-        $this->defaultShipingAddress = $defaultShipingAddress;
+        $this->defaultShippingAddress = $defaultShippingAddress;
 
         return $this;
     }
@@ -456,7 +456,7 @@ final class DivisionDraftBuilder implements Builder
             $this->associates,
             $this->addresses,
             $this->shippingAddresses,
-            $this->defaultShipingAddress,
+            $this->defaultShippingAddress,
             $this->billingAddresses,
             $this->defaultBillingAddress,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,

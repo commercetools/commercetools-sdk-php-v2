@@ -258,6 +258,12 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      *
+     * @var ?string
+     */
+    protected $purchaseOrderNumber;
+
+    /**
+     *
      * @var ?DiscountCodeInfoCollection
      */
     protected $discountCodes;
@@ -372,6 +378,7 @@ final class OrderModel extends JsonObjectModel implements Order
         ?ShippingInfo $shippingInfo = null,
         ?SyncInfoCollection $syncInfo = null,
         ?ReturnInfoCollection $returnInfo = null,
+        ?string $purchaseOrderNumber = null,
         ?DiscountCodeInfoCollection $discountCodes = null,
         ?int $lastMessageSequenceNumber = null,
         ?CartReference $cart = null,
@@ -419,6 +426,7 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->shippingInfo = $shippingInfo;
         $this->syncInfo = $syncInfo;
         $this->returnInfo = $returnInfo;
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
         $this->discountCodes = $discountCodes;
         $this->lastMessageSequenceNumber = $lastMessageSequenceNumber;
         $this->cart = $cart;
@@ -1099,6 +1107,27 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
+     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
+     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        if (is_null($this->purchaseOrderNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PURCHASE_ORDER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->purchaseOrderNumber = (string) $data;
+        }
+
+        return $this->purchaseOrderNumber;
+    }
+
+    /**
      *
      * @return null|DiscountCodeInfoCollection
      */
@@ -1615,6 +1644,14 @@ final class OrderModel extends JsonObjectModel implements Order
     public function setReturnInfo(?ReturnInfoCollection $returnInfo): void
     {
         $this->returnInfo = $returnInfo;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
     }
 
     /**

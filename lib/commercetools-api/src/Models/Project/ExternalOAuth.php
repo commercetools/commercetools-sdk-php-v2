@@ -25,7 +25,7 @@ interface ExternalOAuth extends JsonObject
     public function getUrl();
 
     /**
-     * <p>Partially hidden on retrieval.</p>
+     * <p>Must not contain any leading or trailing whitespaces. Partially hidden on retrieval.</p>
      *
 
      * @return null|string

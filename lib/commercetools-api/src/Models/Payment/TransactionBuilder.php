@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -45,7 +45,7 @@ final class TransactionBuilder implements Builder
 
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $amount;
 
@@ -104,11 +104,11 @@ final class TransactionBuilder implements Builder
      * <p>Money value of the Transaction.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getAmount()
     {
-        return $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount;
+        return $this->amount instanceof CentPrecisionMoneyBuilder ? $this->amount->build() : $this->amount;
     }
 
     /**
@@ -179,10 +179,10 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $amount
+     * @param ?CentPrecisionMoney $amount
      * @return $this
      */
-    public function withAmount(?TypedMoney $amount)
+    public function withAmount(?CentPrecisionMoney $amount)
     {
         $this->amount = $amount;
 
@@ -226,7 +226,7 @@ final class TransactionBuilder implements Builder
      * @deprecated use withAmount() instead
      * @return $this
      */
-    public function withAmountBuilder(?TypedMoneyBuilder $amount)
+    public function withAmountBuilder(?CentPrecisionMoneyBuilder $amount)
     {
         $this->amount = $amount;
 
@@ -250,7 +250,7 @@ final class TransactionBuilder implements Builder
             $this->id,
             $this->timestamp,
             $this->type,
-            $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount,
+            $this->amount instanceof CentPrecisionMoneyBuilder ? $this->amount->build() : $this->amount,
             $this->interactionId,
             $this->state,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom

@@ -23,7 +23,7 @@ interface MyBusinessUnitDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_ADDRESSES = 'addresses';
     public const FIELD_SHIPPING_ADDRESSES = 'shippingAddresses';
-    public const FIELD_DEFAULT_SHIPING_ADDRESS = 'defaultShipingAddress';
+    public const FIELD_DEFAULT_SHIPPING_ADDRESS = 'defaultShippingAddress';
     public const FIELD_BILLING_ADDRESSES = 'billingAddresses';
     public const FIELD_DEFAULT_BILLING_ADDRESS = 'defaultBillingAddress';
 
@@ -90,7 +90,7 @@ interface MyBusinessUnitDraft extends JsonObject
 
      * @return null|int
      */
-    public function getDefaultShipingAddress();
+    public function getDefaultShippingAddress();
 
     /**
      * <p>Indexes of entries in <code>addresses</code> to set as billing addresses.
@@ -140,9 +140,9 @@ interface MyBusinessUnitDraft extends JsonObject
     public function setShippingAddresses(?array $shippingAddresses): void;
 
     /**
-     * @param ?int $defaultShipingAddress
+     * @param ?int $defaultShippingAddress
      */
-    public function setDefaultShipingAddress(?int $defaultShipingAddress): void;
+    public function setDefaultShippingAddress(?int $defaultShippingAddress): void;
 
     /**
      * @param ?array $billingAddresses

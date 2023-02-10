@@ -75,16 +75,6 @@ class ResourceByProjectKeyTest extends TestCase
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/recommendations'
             ],
-            'ResourceByProjectKeyMissingData' => [
-                function (MlRequestBuilder $builder): ResourceByProjectKeyMissingData {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->missingData();
-                },
-                ResourceByProjectKeyMissingData::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/missing-data'
-            ],
             'ResourceByProjectKeySimilarities' => [
                 function (MlRequestBuilder $builder): ResourceByProjectKeySimilarities {
                     return $builder

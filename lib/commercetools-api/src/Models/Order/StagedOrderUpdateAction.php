@@ -74,6 +74,7 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetPurchaseOrderNumberAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnItemCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnItemCustomTypeAction;
