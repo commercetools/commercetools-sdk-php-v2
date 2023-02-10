@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.0.0</span>
+   &#160;<span id="projectnumber">8.1.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -206,13 +206,23 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>ProductVariant.attributes</code>. The referenced attribute must be defined in an already existing <a href="../..//../api/projects/productTypes#producttype">ProductType</a> in the Project, or the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be <code>unresolved</code>.</p>
+<p>Maps to <code>ProductVariant.attributes</code>.</p>
+<ul>
+<li>
+The referenced <a class="el" href="../../d4/da3/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_attribute.html">Attribute</a> must be defined in an existing <a href="../..//../api/projects/productTypes#producttype">ProductType</a>, or the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be <code>validationFailed</code>. </li>
+<li>
+Setting the value of a non-required <a class="el" href="../../d4/da3/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_attribute.html">Attribute</a> to <code>null</code> will remove the <a class="el" href="../../d4/da3/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_attribute.html">Attribute</a>. </li>
+<li>
+Attempting to set a <code>null</code> value to a required <a class="el" href="../../d4/da3/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_attribute.html">Attribute</a> will make the import operation fail with an <a href="../..//error#invalidoperation">InvalidOperation</a> error. </li>
+<li>
+Importing <a href="../..//product-variant#localizabletextattribute">LocalizableTextAttributes</a> or <a href="../..//product-variant#localizabletextsetattribute">LocalizableTextSetAttributes</a> follows an override pattern, meaning that omitted localized fields will be deleted, new fields will be created, and existing fields will be updated. You can also delete localized fields by setting their value to <code>null</code>. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|Attributes </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d9/dde/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_patch.html#aeb453c68c586468a8499d2cab604e299">Commercetools\Import\Models\Productvariants\ProductVariantPatch</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00086">86</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00091">91</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
 
 </div>
 </div>
@@ -260,7 +270,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/dde/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_patch.html#ab439fef662860f8f5b5ce64386b3e53c">Commercetools\Import\Models\Productvariants\ProductVariantPatch</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00107">107</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00112">112</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
 
 </div>
 </div>
@@ -288,7 +298,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/dde/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_patch.html#aaf92e7c4b623ab48c455a5cb30a7b10e">Commercetools\Import\Models\Productvariants\ProductVariantPatch</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00133">133</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00138">138</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
 
 </div>
 </div>
@@ -316,7 +326,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/dde/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_patch.html#a093eb6983fd3b91a0fa0e5e1680b7500">Commercetools\Import\Models\Productvariants\ProductVariantPatch</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00125">125</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00130">130</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
 
 </div>
 </div>
@@ -344,7 +354,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/dde/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_patch.html#a4f10916402cad76387ead5572ce2fe98">Commercetools\Import\Models\Productvariants\ProductVariantPatch</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00141">141</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00146">146</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
 
 </div>
 </div>

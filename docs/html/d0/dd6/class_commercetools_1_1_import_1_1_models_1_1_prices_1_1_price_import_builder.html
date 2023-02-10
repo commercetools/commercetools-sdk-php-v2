@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.0.0</span>
+   &#160;<span id="projectnumber">8.1.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -204,7 +204,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Reference to the <a href="../..//../api/projects/channels#channel">Channel</a> with which the <a href="../..//../api/types#embedded-price">Embedded Price</a> is associated. If referenced Channel does not exist, the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Channel is created.</p>
+<p>The Reference to the <a href="../..//../api/projects/channels#channel">Channel</a> with which the <a href="../..//../api/types#price">Price</a> is associated. If referenced Channel does not exist, the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Channel is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelKeyReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html#l00193">193</a> of file <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html">PriceImportBuilder.php</a>.</p>
@@ -267,7 +267,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Reference to the <a href="../..//../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the <a href="../..//../api/types#embedded-price">Embedded Price</a> is associated. If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
+<p>The Reference to the <a href="../..//../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the <a href="../..//../api/types#price">Price</a> is associated. If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupKeyReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html#l00181">181</a> of file <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html">PriceImportBuilder.php</a>.</p>
@@ -330,7 +330,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Product in which the Product Variant containing this <a href="../..//../api/types#embedded-price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>. The Reference to the <a href="../..//../api/projects/products#product">Product</a> with which the <a href="../..//../api/types#embedded-price">Embedded Price</a> is associated. If referenced Product does not exist, the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
+<p>The Product in which the Product Variant containing this <a href="../..//../api/projects/products#embedded-price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>. The Reference to the <a href="../..//../api/projects/products#product">Product</a> with which the <a href="../..//../api/types#price">Price</a> is associated. If referenced Product does not exist, the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductKeyReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html#l00263">263</a> of file <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html">PriceImportBuilder.php</a>.</p>
@@ -351,7 +351,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ProductVariant in which this <a href="../..//../api/types#embedded-price">Embedded Price</a> is contained. The Reference to the <a href="../..//../api/projects/products#productvariant">ProductVariant</a> with which the <a href="../..//../api/types#embedded-price">Embedded Price</a> is associated. If referenced ProductVariant does not exist, the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
+<p>The ProductVariant in which this <a href="../..//../api/projects/products#embedded-price">Embedded Price</a> is contained. The Reference to the <a href="../..//../api/projects/products#productvariant">ProductVariant</a> with which the <a href="../..//../api/types#price">Price</a> is associated. If referenced ProductVariant does not exist, the <code>state</code> of the <a href="../..//import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantKeyReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html#l00250">250</a> of file <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html">PriceImportBuilder.php</a>.</p>
@@ -372,7 +372,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Only the <a href="../..//../api/types#embedded-price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+<p>Only the <a href="../..//../api/projects/products#embedded-price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html#l00215">215</a> of file <a class="el" href="../../d6/d8e/_price_import_builder_8php_source.html">PriceImportBuilder.php</a>.</p>
