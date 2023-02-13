@@ -172,6 +172,8 @@ final class BaseAddressBuilder implements Builder
 
     /**
      * <p>Unique identifier of the Address.</p>
+     * <p>It is not recommended to set it manually since the API overwrites this ID when creating an Address for a <a href="ctp:api:type:Customer">Customer</a>.
+     * Use <code>key</code> instead and omit this field from the request to let the API generate the ID for the Address.</p>
      *
 
      * @return null|string
@@ -182,7 +184,7 @@ final class BaseAddressBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the Address.</p>
+     * <p>User-defined identifier of the Address that must be unique when multiple addresses are referenced in <a href="ctp:api:type:BusinessUnit">BusinessUnits</a>, <a href="ctp:api:type:Customer">Customers</a>, and <code>itemShippingAddresses</code> (LineItem-specific addresses) of a <a href="ctp:api:type:Cart">Cart</a>, <a href="ctp:api:type:Order">Order</a>, <a href="ctp:api:type:QuoteRequest">QuoteRequest</a>, or <a href="ctp:api:type:Quote">Quote</a>.</p>
      *
 
      * @return null|string
@@ -193,7 +195,7 @@ final class BaseAddressBuilder implements Builder
     }
 
     /**
-     * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Name of the country.</p>
      *
 
      * @return null|string
