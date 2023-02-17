@@ -32,6 +32,7 @@ final class ExtensionDestinationModel extends JsonObjectModel implements Extensi
      */
     private static $discriminatorClasses = [
        'AWSLambda' => AWSLambdaDestinationModel::class,
+       'GoogleCloudFunction' => GoogleCloudFunctionDestinationModel::class,
        'HTTP' => HttpDestinationModel::class,
     ];
 
