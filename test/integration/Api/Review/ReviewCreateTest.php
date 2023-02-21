@@ -18,7 +18,11 @@ class ReviewCreateTest extends ApiTestCase
         ReviewFixture::withReview(
             $builder,
             function (Review $review) use ($builder) {
-                $request = $builder->with()->reviews()->withId($review->getId())->get();
+                $request = $builder
+                    ->with()
+                    ->reviews()
+                    ->withId($review->getId())
+                    ->get();
                 $reviewQueryResponse = $request->execute();
 
                 $this->assertSame($review->getTitle(), $reviewQueryResponse->getTitle());
@@ -39,7 +43,12 @@ class ReviewCreateTest extends ApiTestCase
         ReviewFixture::withReview(
             $builder,
             function (Review $review) use ($builder) {
-                $request = $builder->with()->reviews()->withId($review->getId())->delete()->withVersion($review->getVersion());
+                $request = $builder
+                    ->with()
+                    ->reviews()
+                    ->withId($review->getId())
+                    ->delete()
+                    ->withVersion($review->getVersion());
                 $reviewQueryResponse = $request->execute();
 
                 $this->assertSame($review->getId(), $reviewQueryResponse->getId());
@@ -61,7 +70,12 @@ class ReviewCreateTest extends ApiTestCase
         ReviewFixture::withReview(
             $builder,
             function (Review $review) use ($builder) {
-                $request = $builder->with()->reviews()->withKey($review->getKey())->delete()->withVersion($review->getVersion());
+                $request = $builder
+                    ->with()
+                    ->reviews()
+                    ->withKey($review->getKey())
+                    ->delete()
+                    ->withVersion($review->getVersion());
                 $reviewQueryResponse = $request->execute();
 
                 $this->assertSame($review->getKey(), $reviewQueryResponse->getKey());

@@ -19,11 +19,15 @@ class CategoryQueryTest extends ApiTestCase
         CategoryFixture::withCategory(
             $builder,
             function (Category $category) use ($builder) {
-                $request = $builder->with()->categories()->get();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->get()
+                    ->withWhere("id = :id")
+                    ->withPredicateVar("id", $category->getId());
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(CategoryPagedQueryResponse::class, $categoryQueryResponse);
-                $this->assertCount(1, $categoryQueryResponse->getResults());
                 $this->assertSame($category->getId(), $categoryQueryResponse->getResults()->current()->getId());
             }
         );
@@ -36,7 +40,11 @@ class CategoryQueryTest extends ApiTestCase
         CategoryFixture::withCategory(
             $builder,
             function (Category $category) use ($builder) {
-                $request = $builder->with()->categories()->withId($category->getId())->get();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
+                    ->get();
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
@@ -52,7 +60,11 @@ class CategoryQueryTest extends ApiTestCase
         CategoryFixture::withCategory(
             $builder,
             function (Category $category) use ($builder) {
-                $request = $builder->with()->categories()->withKey($category->getKey())->get();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withKey($category->getKey())
+                    ->get();
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
@@ -71,8 +83,10 @@ class CategoryQueryTest extends ApiTestCase
                 CategoryFixture::withDraftCategory(
                     $builder,
                     function (CategoryDraftBuilder $level2Builder) use ($level1) {
-                        $categoryResourceIdentifierBuilder = CategoryResourceIdentifierBuilder::of()->withId($level1->getId());
-                        $level2Builder->withParentBuilder($categoryResourceIdentifierBuilder);
+                        $categoryResourceIdentifier = CategoryResourceIdentifierBuilder::of()
+                            ->withId($level1->getId())
+                            ->build();
+                        $level2Builder->withParent($categoryResourceIdentifier);
 
                         return $level2Builder->build();
                     },
@@ -80,8 +94,10 @@ class CategoryQueryTest extends ApiTestCase
                         CategoryFixture::withDraftCategory(
                             $builder,
                             function (CategoryDraftBuilder $level3Builder) use ($level2) {
-                                $categoryResourceIdentifierBuilder = CategoryResourceIdentifierBuilder::of()->withId($level2->getId());
-                                $level3Builder->withParentBuilder($categoryResourceIdentifierBuilder);
+                                $categoryResourceIdentifier = CategoryResourceIdentifierBuilder::of()
+                                    ->withId($level2->getId())
+                                    ->build();
+                                $level3Builder->withParent($categoryResourceIdentifier);
 
                                 return $level3Builder->build();
                             },
@@ -89,8 +105,10 @@ class CategoryQueryTest extends ApiTestCase
                                 CategoryFixture::withDraftCategory(
                                     $builder,
                                     function (CategoryDraftBuilder $level4Builder) use ($level3) {
-                                        $categoryResourceIdentifierBuilder = CategoryResourceIdentifierBuilder::of()->withId($level3->getId());
-                                        $level4Builder->withParentBuilder($categoryResourceIdentifierBuilder);
+                                        $categoryResourceIdentifier = CategoryResourceIdentifierBuilder::of()
+                                            ->withId($level3->getId())
+                                            ->build();
+                                        $level4Builder->withParent($categoryResourceIdentifier);
 
                                         return $level4Builder->build();
                                     },
@@ -139,13 +157,19 @@ class CategoryQueryTest extends ApiTestCase
                 CategoryFixture::withDraftCategory(
                     $builder,
                     function (CategoryDraftBuilder $level2Builder) use ($level1) {
-                        $categoryResourceIdentifierBuilder = CategoryResourceIdentifierBuilder::of()->withId($level1->getId());
-                        $level2Builder->withParentBuilder($categoryResourceIdentifierBuilder);
+                        $categoryResourceIdentifier = CategoryResourceIdentifierBuilder::of()
+                            ->withId($level1->getId())
+                            ->build();
+                        $level2Builder->withParent($categoryResourceIdentifier);
 
                         return $level2Builder->build();
                     },
                     function (Category $level2) use ($level1, $builder) {
-                        $request = $builder->with()->categories()->withId($level2->getId())->get()
+                        $request = $builder
+                            ->with()
+                            ->categories()
+                            ->withId($level2->getId())
+                            ->get()
                             ->withExpand('parent');
                         $categoryQueryResponse = $request->execute();
 
@@ -163,10 +187,20 @@ class CategoryQueryTest extends ApiTestCase
         CategoryFixture::withDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                return $draftBuilder->withNameBuilder(LocalizedStringBuilder::of()->put('en', 'MyCategory'))->build();
+                return $draftBuilder
+                    ->withName(
+                        LocalizedStringBuilder::of()
+                            ->put('en', 'MyCategory')
+                            ->build()
+                    )
+                    ->build();
             },
             function (Category $category) use ($builder) {
-                $request = $builder->with()->categories()->get()->withOffset(10000);
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->get()
+                    ->withOffset(10000);
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertSame(10000, $categoryQueryResponse->getOffset());
@@ -183,12 +217,16 @@ class CategoryQueryTest extends ApiTestCase
         CategoryFixture::withDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                return $draftBuilder->withNameBuilder(LocalizedStringBuilder::of()->put('en', 'min'))
-                    ->withSlugBuilder(LocalizedStringBuilder::of()->put('en', '12'))
+                return $draftBuilder->withName(LocalizedStringBuilder::of()->put('en', 'min')->build())
+                    ->withSlug(LocalizedStringBuilder::of()->put('en', '12')->build())
                     ->build();
             },
             function (Category $category) use ($builder) {
-                $request = $builder->with()->categories()->withId($category->getId())->get();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
+                    ->get();
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertSame('min', $categoryQueryResponse->getName()->current());
@@ -207,12 +245,16 @@ class CategoryQueryTest extends ApiTestCase
         CategoryFixture::withDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                return $draftBuilder->withNameBuilder(LocalizedStringBuilder::of()->put('en', 'min'))
-                    ->withSlugBuilder(LocalizedStringBuilder::of()->put('en', '1'))
+                return $draftBuilder->withName(LocalizedStringBuilder::of()->put('en', 'min')->build())
+                    ->withSlug(LocalizedStringBuilder::of()->put('en', '1')->build())
                     ->build();
             },
             function (Category $category) use ($builder) {
-                $request = $builder->with()->categories()->withId($category->getId())->get();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
+                    ->get();
                 $request->execute();
             }
         );
@@ -227,12 +269,16 @@ class CategoryQueryTest extends ApiTestCase
         CategoryFixture::withDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) use ($slug) {
-                return $draftBuilder->withNameBuilder(LocalizedStringBuilder::of()->put('en', 'max'))
-                    ->withSlugBuilder(LocalizedStringBuilder::of()->put('en', $slug))
+                return $draftBuilder->withName(LocalizedStringBuilder::of()->put('en', 'max')->build())
+                    ->withSlug(LocalizedStringBuilder::of()->put('en', $slug)->build())
                     ->build();
             },
             function (Category $category) use ($builder, $slug) {
-                $request = $builder->with()->categories()->withId($category->getId())->get();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
+                    ->get();
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertSame('max', $categoryQueryResponse->getName()->current());
@@ -251,12 +297,20 @@ class CategoryQueryTest extends ApiTestCase
         CategoryFixture::withDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                return $draftBuilder->withNameBuilder(LocalizedStringBuilder::of()->put('en', 'max'))
-                    ->withSlugBuilder(LocalizedStringBuilder::of()->put('en', str_pad('1', 257, '0')))
+                return $draftBuilder->withName(LocalizedStringBuilder::of()->put('en', 'max')->build())
+                    ->withSlug(
+                        LocalizedStringBuilder::of()
+                            ->put('en', str_pad('1', 257, '0'))
+                            ->build()
+                    )
                     ->build();
             },
             function (Category $category) use ($builder) {
-                $request = $builder->with()->categories()->withId($category->getId())->get();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
+                    ->get();
                 $request->execute();
             }
         );

@@ -1,52 +1,53 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\Category;
+namespace Commercetools\IntegrationTest\Api\Cart;
 
-use Commercetools\Api\Models\Category\Category;
-use Commercetools\Api\Models\Category\CategoryDraft;
-use Commercetools\Api\Models\Category\CategoryDraftBuilder;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartDraft;
+use Commercetools\Api\Models\Cart\CartDraftBuilder;
+use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
-class CategoryFixture
+class CartFixture
 {
-    public const RAND_MAX = 10000;
-
-    final public static function uniqueCategoryString()
+    final public static function uniqueCartString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultCategoryDraftFunction()
+    final public static function defaultCartDraftFunction()
     {
-        $builder = CategoryDraftBuilder::of();
-        $uniqueCategoryString = self::uniqueCategoryString();
+        $builder = CartDraftBuilder::of();
         $builder
-            ->withName(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withSlug(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withKey($uniqueCategoryString);
+            ->withCurrency('EUR')
+            ->withCountry('DE')
+            ->withShippingAddress(
+                AddressBuilder::of()
+                    ->withCountry('DE')
+                    ->build()
+            );
 
         return $builder;
     }
 
-    final public static function defaultCategoryDraftBuilderFunction(CategoryDraftBuilder $draftBuilder)
+    final public static function defaultCartDraftBuilderFunction(CartDraftBuilder $draftBuilder)
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultCategoryCreateFunction(ApiRequestBuilder $builder, CategoryDraft $draft)
+    final public static function defaultCartCreateFunction(ApiRequestBuilder $builder, CartDraft $draft)
     {
-        $request = $builder->with()->categories()->post($draft);
+        $request = $builder->with()->carts()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultCategoryDeleteFunction(ApiRequestBuilder $builder, Category $resource)
+    final public static function defaultCartDeleteFunction(ApiRequestBuilder $builder, Cart $resource)
     {
         $request = $builder
             ->with()
-            ->categories()
+            ->carts()
             ->withId($resource->getId())
             ->delete()
             ->withVersion($resource->getVersion());
@@ -54,7 +55,7 @@ class CategoryFixture
         return $request->execute();
     }
 
-    final public static function withDraftCategory(
+    final public static function withDraftCart(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -64,13 +65,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultCartDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultCartCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultCartDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -84,16 +85,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withCategory(
+    final public static function withCart(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftCategory(
+        self::withDraftCart(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultCartDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -101,7 +102,7 @@ class CategoryFixture
         );
     }
 
-    final public static function withUpdateableDraftCategory(
+    final public static function withUpdateableDraftCart(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -111,13 +112,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultCartDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultCartCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultCartDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -133,16 +134,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withUpdateableCategory(
+    final public static function withUpdateableCart(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftCategory(
+        self::withUpdateableDraftCart(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultCartDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,

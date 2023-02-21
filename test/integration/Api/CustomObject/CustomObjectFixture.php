@@ -1,60 +1,58 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\Category;
+namespace Commercetools\IntegrationTest\Api\CustomObject;
 
-use Commercetools\Api\Models\Category\Category;
-use Commercetools\Api\Models\Category\CategoryDraft;
-use Commercetools\Api\Models\Category\CategoryDraftBuilder;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\CustomObject\CustomObject;
+use Commercetools\Api\Models\CustomObject\CustomObjectDraft;
+use Commercetools\Api\Models\CustomObject\CustomObjectDraftBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
-class CategoryFixture
+class CustomObjectFixture
 {
     public const RAND_MAX = 10000;
 
-    final public static function uniqueCategoryString()
+    final public static function uniqueCustomObjectString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultCategoryDraftFunction()
+    final public static function defaultCustomObjectDraftFunction()
     {
-        $builder = CategoryDraftBuilder::of();
-        $uniqueCategoryString = self::uniqueCategoryString();
+        $builder = CustomObjectDraftBuilder::of();
         $builder
-            ->withName(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withSlug(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withKey($uniqueCategoryString);
+            ->withContainer("test_" . self::uniqueCustomObjectString())
+            ->withKey("key_" . self::uniqueCustomObjectString())
+            ->withValue("value_" . self::uniqueCustomObjectString());
 
         return $builder;
     }
 
-    final public static function defaultCategoryDraftBuilderFunction(CategoryDraftBuilder $draftBuilder)
+    final public static function defaultCustomObjectDraftBuilderFunction(CustomObjectDraftBuilder $draftBuilder)
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultCategoryCreateFunction(ApiRequestBuilder $builder, CategoryDraft $draft)
+    final public static function defaultCustomObjectCreateFunction(ApiRequestBuilder $builder, CustomObjectDraft $draft)
     {
-        $request = $builder->with()->categories()->post($draft);
+        $request = $builder->with()->customObjects()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultCategoryDeleteFunction(ApiRequestBuilder $builder, Category $resource)
+    final public static function defaultCustomObjectDeleteFunction(ApiRequestBuilder $builder, CustomObject $resource)
     {
         $request = $builder
             ->with()
-            ->categories()
-            ->withId($resource->getId())
+            ->customObjects()
+            ->withContainerAndKey($resource->getContainer(), $resource->getKey())
             ->delete()
             ->withVersion($resource->getVersion());
 
         return $request->execute();
     }
 
-    final public static function withDraftCategory(
+    final public static function withDraftCustomObject(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -64,13 +62,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultCustomObjectDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultCustomObjectCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultCustomObjectDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -84,16 +82,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withCategory(
+    final public static function withCustomObject(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftCategory(
+        self::withDraftCustomObject(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultCustomObjectDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -101,7 +99,7 @@ class CategoryFixture
         );
     }
 
-    final public static function withUpdateableDraftCategory(
+    final public static function withUpdateableDraftCustomObject(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -111,13 +109,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultCustomObjectDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultCustomObjectCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultCustomObjectDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -133,16 +131,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withUpdateableCategory(
+    final public static function withUpdateableCustomObject(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftCategory(
+        self::withUpdateableDraftCustomObject(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultCustomObjectDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,

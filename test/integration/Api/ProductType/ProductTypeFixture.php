@@ -1,52 +1,59 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\Category;
+namespace Commercetools\IntegrationTest\Api\ProductType;
 
-use Commercetools\Api\Models\Category\Category;
-use Commercetools\Api\Models\Category\CategoryDraft;
-use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
+use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
+use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
+use Commercetools\Api\Models\ProductType\ProductType;
+use Commercetools\Api\Models\ProductType\ProductTypeDraft;
+use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
-class CategoryFixture
+class ProductTypeFixture
 {
-    public const RAND_MAX = 10000;
-
-    final public static function uniqueCategoryString()
+    final public static function uniqueProductTypeString(): string
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultCategoryDraftFunction()
+    final public static function defaultProductTypeDraftFunction(): ProductTypeDraftBuilder
     {
-        $builder = CategoryDraftBuilder::of();
-        $uniqueCategoryString = self::uniqueCategoryString();
-        $builder
-            ->withName(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withSlug(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withKey($uniqueCategoryString);
+        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
+            ->withType(AttributeTextTypeBuilder::of()->build())
+            ->withName('test-text')
+            ->withLabel(LocalizedStringBuilder::of()->put('en', 'test-text')->build())
+            ->withIsRequired(true)
+            ->build();
+
+        $builder = ProductTypeDraftBuilder::of();
+        $builder->withKey(self::uniqueProductTypeString())
+            ->withName(self::uniqueProductTypeString())
+            ->withDescription(self::uniqueProductTypeString())
+            ->withAttributes(new AttributeDefinitionDraftCollection([$attributeDefinitionDraft]));
 
         return $builder;
     }
 
-    final public static function defaultCategoryDraftBuilderFunction(CategoryDraftBuilder $draftBuilder)
+    final public static function defaultProductTypeDraftBuilderFunction(ProductTypeDraftBuilder $draftBuilder): ProductTypeDraft
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultCategoryCreateFunction(ApiRequestBuilder $builder, CategoryDraft $draft)
+    final public static function defaultProductTypeCreateFunction(ApiRequestBuilder $builder, ProductTypeDraft $draft)
     {
-        $request = $builder->with()->categories()->post($draft);
+        $request = $builder->with()->productTypes()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultCategoryDeleteFunction(ApiRequestBuilder $builder, Category $resource)
+    final public static function defaultProductTypeDeleteFunction(ApiRequestBuilder $builder, ProductType $resource)
     {
         $request = $builder
             ->with()
-            ->categories()
+            ->productTypes()
             ->withId($resource->getId())
             ->delete()
             ->withVersion($resource->getVersion());
@@ -54,7 +61,7 @@ class CategoryFixture
         return $request->execute();
     }
 
-    final public static function withDraftCategory(
+    final public static function withDraftProductType(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -64,13 +71,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -84,16 +91,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withCategory(
+    final public static function withProductType(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftCategory(
+        self::withDraftProductType(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -101,7 +108,7 @@ class CategoryFixture
         );
     }
 
-    final public static function withUpdateableDraftCategory(
+    final public static function withUpdateableDraftProductType(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -111,13 +118,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultProductTypeDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultProductTypeCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultProductTypeDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -133,16 +140,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withUpdateableCategory(
+    final public static function withUpdateableProductType(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftCategory(
+        self::withUpdateableDraftProductType(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultProductTypeDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,

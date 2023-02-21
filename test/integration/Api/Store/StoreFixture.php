@@ -1,52 +1,54 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\Category;
 
-use Commercetools\Api\Models\Category\Category;
-use Commercetools\Api\Models\Category\CategoryDraft;
-use Commercetools\Api\Models\Category\CategoryDraftBuilder;
+namespace Commercetools\IntegrationTest\Api\Store;
+
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Store\Store;
+use Commercetools\Api\Models\Store\StoreDraft;
+use Commercetools\Api\Models\Store\StoreDraftBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
-class CategoryFixture
+class StoreFixture
 {
-    public const RAND_MAX = 10000;
-
-    final public static function uniqueCategoryString()
+    final public static function uniqueStoreString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultCategoryDraftFunction()
+    final public static function defaultStoreDraftFunction()
     {
-        $builder = CategoryDraftBuilder::of();
-        $uniqueCategoryString = self::uniqueCategoryString();
+        $builder = StoreDraftBuilder::of();
+        $uniqueStoreString = self::uniqueStoreString();
         $builder
-            ->withName(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withSlug(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withKey($uniqueCategoryString);
+            ->withName(
+                LocalizedStringBuilder::of()
+                    ->put('en', 'test-' . $uniqueStoreString . '-title')
+                    ->build()
+            )
+            ->withKey('test-' . $uniqueStoreString . '-key');
 
         return $builder;
     }
 
-    final public static function defaultCategoryDraftBuilderFunction(CategoryDraftBuilder $draftBuilder)
+    final public static function defaultStoreDraftBuilderFunction(StoreDraftBuilder $draftBuilder)
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultCategoryCreateFunction(ApiRequestBuilder $builder, CategoryDraft $draft)
+    final public static function defaultStoreCreateFunction(ApiRequestBuilder $builder, StoreDraft $draft)
     {
-        $request = $builder->with()->categories()->post($draft);
+        $request = $builder->with()->stores()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultCategoryDeleteFunction(ApiRequestBuilder $builder, Category $resource)
+    final public static function defaultStoreDeleteFunction(ApiRequestBuilder $builder, Store $resource)
     {
         $request = $builder
             ->with()
-            ->categories()
+            ->stores()
             ->withId($resource->getId())
             ->delete()
             ->withVersion($resource->getVersion());
@@ -54,7 +56,7 @@ class CategoryFixture
         return $request->execute();
     }
 
-    final public static function withDraftCategory(
+    final public static function withDraftStore(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -64,13 +66,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultStoreDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultStoreCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultStoreDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -84,16 +86,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withCategory(
+    final public static function withStore(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftCategory(
+        self::withDraftStore(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultStoreDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -101,7 +103,7 @@ class CategoryFixture
         );
     }
 
-    final public static function withUpdateableDraftCategory(
+    final public static function withUpdateableDraftStore(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -111,13 +113,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultStoreDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultStoreCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultStoreDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -133,16 +135,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withUpdateableCategory(
+    final public static function withUpdateableStore(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftCategory(
+        self::withUpdateableDraftStore(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultStoreDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,

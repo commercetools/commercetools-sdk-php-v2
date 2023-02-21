@@ -37,9 +37,11 @@ class CategoryUpdateTest extends ApiTestCase
     private function getAssetDraftCollection($assetKey = null): AssetDraftCollection
     {
         $assertName = LocalizedStringBuilder::of()
-            ->put('en', 'asset-name-' . CategoryFixture::uniqueCategoryString())->build();
+            ->put('en', 'asset-name-' . CategoryFixture::uniqueCategoryString())
+            ->build();
         $assetSource = AssetSourceBuilder::of()
-            ->withUri(CategoryFixture::uniqueCategoryString() . '.jpg')->withKey('test');
+            ->withUri(CategoryFixture::uniqueCategoryString() . '.jpg')
+            ->withKey('test');
         $sources = new AssetSourceCollection();
         $sources->add($assetSource->build());
         $assetDraftBuilder = AssetDraftBuilder::of()->withName($assertName)->withSources($sources);
@@ -61,10 +63,12 @@ class CategoryUpdateTest extends ApiTestCase
 
     private function getAssertDraft($assetKey = null): AssetDraft
     {
-        $assertName = LocalizedStringBuilder::of()->put('en', 'asset-name-' . CategoryFixture::uniqueCategoryString())
+        $assertName = LocalizedStringBuilder::of()
+            ->put('en', 'asset-name-' . CategoryFixture::uniqueCategoryString())
             ->build();
         $assetSource = AssetSourceBuilder::of()
-            ->withUri(CategoryFixture::uniqueCategoryString() . '.jpg')->withKey('test');
+            ->withUri(CategoryFixture::uniqueCategoryString() . '.jpg')
+            ->withKey('test');
         $sources = new AssetSourceCollection();
         $sources->add($assetSource->build());
 
@@ -89,10 +93,15 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setName($newName);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
 
-                $request = $builder->with()->categories()->withId($category->getId())
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -119,10 +128,15 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setName($newName);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
 
-                $request = $builder->with()->categories()->withKey($category->getKey())
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withKey($category->getKey())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -134,7 +148,6 @@ class CategoryUpdateTest extends ApiTestCase
             }
         );
     }
-
 
     public function testUpdateLocalizedName()
     {
@@ -150,14 +163,22 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setName($newName);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
 
-                $request = $builder->with()->categories()->withKey($category->getKey())
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withKey($category->getKey())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
-                $this->assertJsonStringEqualsJsonString('{"en":"' . $randomName . '", "en-US":"' . $randomName . '"}', json_encode($newName));
+                $this->assertJsonStringEqualsJsonString(
+                    '{"en":"' . $randomName . '", "en-US":"' . $randomName . '"}',
+                    json_encode($newName)
+                );
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
@@ -179,9 +200,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setOrderHint($hint);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -204,15 +230,22 @@ class CategoryUpdateTest extends ApiTestCase
                 CategoryFixture::withUpdateableCategory(
                     $builder,
                     function (Category $category2) use ($builder, $category1) {
-                        $categoryResourceIdentifier = CategoryResourceIdentifierBuilder::of()->withId($category1->getId())->build();
+                        $categoryResourceIdentifier = CategoryResourceIdentifierBuilder::of()
+                            ->withId($category1->getId())
+                            ->build();
 
                         $updateAction = new CategoryChangeParentActionModel();
                         $updateAction->setParent($categoryResourceIdentifier);
                         $updateActionCollection = new CategoryUpdateActionCollection();
                         $updateActionCollection->add($updateAction);
-                        $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category2->getVersion())
-                            ->withActions($updateActionCollection)->build();
-                        $request = $builder->with()->categories()->withId($category2->getId())
+                        $categoryUpdate = CategoryUpdateBuilder::of()
+                            ->withVersion($category2->getVersion())
+                            ->withActions($updateActionCollection)
+                            ->build();
+                        $request = $builder
+                            ->with()
+                            ->categories()
+                            ->withId($category2->getId())
                             ->post($categoryUpdate);
                         $categoryQueryResponse = $request->execute();
 
@@ -241,9 +274,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setSlug($newSlug);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -277,9 +315,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setDescription($newDescription);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -311,9 +354,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setExternalId($externalId);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -347,9 +395,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setMetaDescription($newMetaDescription);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -383,9 +436,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setMetaTitle($newTitle);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -419,9 +477,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setMetaKeywords($newAssetKeywords);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -433,7 +496,6 @@ class CategoryUpdateTest extends ApiTestCase
             }
         );
     }
-
 
     public function testAddAsset()
     {
@@ -448,9 +510,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setAsset($assetDraft);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -465,7 +532,6 @@ class CategoryUpdateTest extends ApiTestCase
             }
         );
     }
-
 
     public function testRemoveAsset()
     {
@@ -484,9 +550,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setAssetId($category->getAssets()->current()->getId());
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -519,9 +590,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setAssetId($category->getAssets()->current()->getId());
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -557,9 +633,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setAssetId($category->getAssets()->current()->getId());
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -594,9 +675,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setAssetId($category->getAssets()->current()->getId());
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -634,9 +720,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setAssetId($category->getAssets()->current()->getId());
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -671,9 +762,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setAssetId($category->getAssets()->current()->getId());
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -702,9 +798,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setAsset($assetDraft);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -739,9 +840,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setAssetKey($category->getAssets()->current()->getKey());
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -775,9 +881,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setName($newName);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -814,9 +925,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setDescription($newDescription);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -852,9 +968,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setTags($newTag);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
@@ -893,9 +1014,14 @@ class CategoryUpdateTest extends ApiTestCase
                 $updateAction->setSources($newSource);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
-                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build();
-                $request = $builder->with()->categories()->withId($category->getId())
+                $categoryUpdate = CategoryUpdateBuilder::of()
+                    ->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)
+                    ->build();
+                $request = $builder
+                    ->with()
+                    ->categories()
+                    ->withId($category->getId())
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 

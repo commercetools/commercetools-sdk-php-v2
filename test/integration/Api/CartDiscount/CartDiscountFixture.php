@@ -6,7 +6,6 @@ namespace Commercetools\IntegrationTest\Api\CartDiscount;
 use Commercetools\Api\Models\CartDiscount\CartDiscount;
 use Commercetools\Api\Models\CartDiscount\CartDiscountDraft;
 use Commercetools\Api\Models\CartDiscount\CartDiscountDraftBuilder;
-use Commercetools\Api\Models\CartDiscount\CartDiscountLineItemsTarget;
 use Commercetools\Api\Models\CartDiscount\CartDiscountLineItemsTargetBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscountValueRelativeDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
@@ -26,7 +25,8 @@ class CartDiscountFixture
     {
         $builder = CartDiscountDraftBuilder::of();
         $uniqueCategoryString = self::uniqueCategoryString();
-        $builder->withNameBuilder(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString))
+        $builder
+            ->withName(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
             ->withKey($uniqueCategoryString)
             ->withCartPredicate("true")
             ->withTarget(
@@ -36,6 +36,7 @@ class CartDiscountFixture
             )
             ->withRequiresDiscountCode(false)
             ->withSortOrder('0.9' . trim((string)mt_rand(1, self::RAND_MAX), '0'))
+            ->withIsActive(true)
             ->withValue(
                 CartDiscountValueRelativeDraftBuilder::of()
                     ->withPermyriad(1000)
@@ -46,7 +47,7 @@ class CartDiscountFixture
         return $builder;
     }
 
-    final public static function defaultCartDiscountDraftBuilderFunction(CartDiscountDraftBuilder $draftBuilder)
+    final public static function defaultCartDiscountDraftBuilderFunction(CartDiscountDraftBuilder $draftBuilder): CartDiscountDraft
     {
         return $draftBuilder->build();
     }
@@ -60,7 +61,12 @@ class CartDiscountFixture
 
     final public static function defaultCartDiscountDeleteFunction(ApiRequestBuilder $builder, CartDiscount $resource)
     {
-        $request = $builder->with()->cartDiscounts()->withId($resource->getId())->delete()->withVersion($resource->getVersion());
+        $request = $builder
+            ->with()
+            ->cartDiscounts()
+            ->withId($resource->getId())
+            ->delete()
+            ->withVersion($resource->getVersion());
 
         return $request->execute();
     }

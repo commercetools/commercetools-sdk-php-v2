@@ -1,52 +1,45 @@
 <?php
 
-namespace Commercetools\IntegrationTest\Api\Category;
+namespace Commercetools\IntegrationTest\Api\Subscription;
 
-use Commercetools\Api\Models\Category\Category;
-use Commercetools\Api\Models\Category\CategoryDraft;
-use Commercetools\Api\Models\Category\CategoryDraftBuilder;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Subscription\Subscription;
+use Commercetools\Api\Models\Subscription\SubscriptionDraft;
+use Commercetools\Api\Models\Subscription\SubscriptionDraftBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
 
-class CategoryFixture
+class SubscriptionFixture
 {
-    public const RAND_MAX = 10000;
-
-    final public static function uniqueCategoryString()
+    final public static function uniqueSubscriptionString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    final public static function defaultCategoryDraftFunction()
+    final public static function defaultSubscriptionDraftFunction()
     {
-        $builder = CategoryDraftBuilder::of();
-        $uniqueCategoryString = self::uniqueCategoryString();
-        $builder
-            ->withName(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withSlug(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
-            ->withKey($uniqueCategoryString);
+        $builder = SubscriptionDraftBuilder::of();
+        $builder->withKey(self::uniqueSubscriptionString());
 
         return $builder;
     }
 
-    final public static function defaultCategoryDraftBuilderFunction(CategoryDraftBuilder $draftBuilder)
+    final public static function defaultSubscriptionDraftBuilderFunction(SubscriptionDraftBuilder $draftBuilder)
     {
         return $draftBuilder->build();
     }
 
-    final public static function defaultCategoryCreateFunction(ApiRequestBuilder $builder, CategoryDraft $draft)
+    final public static function defaultSubscriptionCreateFunction(ApiRequestBuilder $builder, SubscriptionDraft $draft)
     {
-        $request = $builder->with()->categories()->post($draft);
+        $request = $builder->with()->subscriptions()->post($draft);
 
         return $request->execute();
     }
 
-    final public static function defaultCategoryDeleteFunction(ApiRequestBuilder $builder, Category $resource)
+    final public static function defaultSubscriptionDeleteFunction(ApiRequestBuilder $builder, Subscription $resource)
     {
         $request = $builder
             ->with()
-            ->categories()
+            ->subscriptions()
             ->withId($resource->getId())
             ->delete()
             ->withVersion($resource->getVersion());
@@ -54,7 +47,7 @@ class CategoryFixture
         return $request->execute();
     }
 
-    final public static function withDraftCategory(
+    final public static function withDraftSubscription(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -64,13 +57,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultSubscriptionDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultSubscriptionCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultSubscriptionDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -84,16 +77,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withCategory(
+    final public static function withSubscription(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withDraftCategory(
+        self::withDraftSubscription(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultSubscriptionDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
@@ -101,7 +94,7 @@ class CategoryFixture
         );
     }
 
-    final public static function withUpdateableDraftCategory(
+    final public static function withUpdateableDraftSubscription(
         ApiRequestBuilder $builder,
         callable $draftBuilderFunction,
         callable $assertFunction,
@@ -111,13 +104,13 @@ class CategoryFixture
         array $additionalResources = []
     ) {
         if ($draftFunction == null) {
-            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+            $draftFunction = [__CLASS__, 'defaultSubscriptionDraftFunction'];
         }
         if ($createFunction == null) {
-            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+            $createFunction = [__CLASS__, 'defaultSubscriptionCreateFunction'];
         }
         if ($deleteFunction == null) {
-            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+            $deleteFunction = [__CLASS__, 'defaultSubscriptionDeleteFunction'];
         }
         $initialDraft = call_user_func($draftFunction);
 
@@ -133,16 +126,16 @@ class CategoryFixture
         }
     }
 
-    final public static function withUpdateableCategory(
+    final public static function withUpdateableSubscription(
         ApiRequestBuilder $builder,
         callable $assertFunction,
         callable $createFunction = null,
         callable $deleteFunction = null,
         callable $draftFunction = null
     ) {
-        self::withUpdateableDraftCategory(
+        self::withUpdateableDraftSubscription(
             $builder,
-            [__CLASS__, 'defaultCategoryDraftBuilderFunction'],
+            [__CLASS__, 'defaultSubscriptionDraftBuilderFunction'],
             $assertFunction,
             $createFunction,
             $deleteFunction,
