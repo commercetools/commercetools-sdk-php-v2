@@ -197,7 +197,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->orders()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Orders or updating existing ones.
+Creates a request for creating new Orders.
 
 ### Example
 ```php
