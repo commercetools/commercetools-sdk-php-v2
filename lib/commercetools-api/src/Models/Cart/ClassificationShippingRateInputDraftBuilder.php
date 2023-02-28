@@ -27,6 +27,8 @@ final class ClassificationShippingRateInputDraftBuilder implements Builder
     private $key;
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
 
      * @return null|string
      */

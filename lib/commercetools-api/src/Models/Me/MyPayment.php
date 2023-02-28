@@ -52,7 +52,7 @@ interface MyPayment extends JsonObject
     public function getCustomer();
 
     /**
-     * <p><a href="/../api/authorization#tokens-for-anonymous-sessions">Anonymous session</a> associated with the Payment. Set automatically with a <a href="/../api/authorization#tokens-for-anonymous-sessions">token for an anonymous session</a>. Either <code>customer</code> or <code>anonymousId</code> is present.</p>
+     * <p><a href="ctp:api:type:AnonymousSession">Anonymous session</a> associated with the Payment. Set automatically with a <a href="ctp:api:type:AnonymousSession">token for an anonymous session</a>. Either <code>customer</code> or <code>anonymousId</code> is present.</p>
      *
 
      * @return null|string

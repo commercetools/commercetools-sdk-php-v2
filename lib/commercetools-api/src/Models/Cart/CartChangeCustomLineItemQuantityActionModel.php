@@ -71,6 +71,8 @@ final class CartChangeCustomLineItemQuantityActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,9 @@ final class CartChangeCustomLineItemQuantityActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p>New value to set.</p>
+     * <p>If <code>0</code>, the Custom Line Item is removed from the Cart.</p>
+     *
      *
      * @return null|int
      */

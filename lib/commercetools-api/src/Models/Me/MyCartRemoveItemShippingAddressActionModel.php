@@ -63,6 +63,8 @@ final class MyCartRemoveItemShippingAddressActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p><code>key</code> of the Address to remove from <code>itemShippingAddresses</code>.</p>
+     *
      *
      * @return null|string
      */

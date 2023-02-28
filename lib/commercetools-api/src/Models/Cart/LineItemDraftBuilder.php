@@ -77,12 +77,6 @@ final class LineItemDraftBuilder implements Builder
 
     /**
 
-     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-
      * @var null|Money|MoneyBuilder
      */
     private $externalPrice;
@@ -107,6 +101,14 @@ final class LineItemDraftBuilder implements Builder
 
     /**
 
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
+
      * @return null|string
      */
     public function getProductId()
@@ -115,6 +117,9 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
+     *
 
      * @return null|int
      */
@@ -124,6 +129,8 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|string
      */
@@ -133,8 +140,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>The amount of a <code>LineItem</code>in the cart.
-     * Must be a positive integer.</p>
+     * <p>Number of Product Variants to add to the Cart.</p>
      *
 
      * @return null|int
@@ -145,8 +151,9 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>When the line item was added to the cart. Optional for backwards
-     * compatibility reasons only.</p>
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -157,10 +164,8 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>By providing supply channel information, you can unique identify
-     * inventory entries that should be reserved.
-     * The provided channel should have
-     * the InventorySupply role.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The referenced Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -171,8 +176,10 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
+     * The referenced Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set,
+     * the Channel must match one of the Store's distribution channels.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -183,7 +190,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
+     * <p>External Tax Rate for the Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
 
      * @return null|ExternalTaxRateDraft
@@ -194,18 +201,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>
-     *
-
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> value, and the <code>priceMode</code> to <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
      *
 
      * @return null|Money
@@ -216,7 +212,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> values, and the <code>priceMode</code> to <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
      *
 
      * @return null|ExternalLineItemTotalPrice
@@ -227,8 +223,8 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
-     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Set only if the inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
 
      * @return null|string
@@ -239,7 +235,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Container for line item specific address(es).</p>
+     * <p>Container for Line Item-specific addresses.</p>
      *
 
      * @return null|ItemShippingDetailsDraft
@@ -247,6 +243,17 @@ final class LineItemDraftBuilder implements Builder
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <p>Custom Fields for the Line Item.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -338,17 +345,6 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @param ?Money $externalPrice
      * @return $this
      */
@@ -393,6 +389,17 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withSupplyChannel() instead
      * @return $this
      */
@@ -421,17 +428,6 @@ final class LineItemDraftBuilder implements Builder
     public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
-    {
-        $this->custom = $custom;
 
         return $this;
     }
@@ -469,6 +465,17 @@ final class LineItemDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): LineItemDraft
     {
         return new LineItemDraftModel(
@@ -480,11 +487,11 @@ final class LineItemDraftBuilder implements Builder
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
             $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,
             $this->inventoryMode,
-            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

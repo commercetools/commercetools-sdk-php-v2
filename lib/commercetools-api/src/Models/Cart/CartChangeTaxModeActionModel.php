@@ -63,6 +63,8 @@ final class CartChangeTaxModeActionModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * <p>The new TaxMode.</p>
+     *
      *
      * @return null|string
      */

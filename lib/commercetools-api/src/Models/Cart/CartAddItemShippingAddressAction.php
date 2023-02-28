@@ -17,9 +17,8 @@ interface CartAddItemShippingAddressAction extends CartUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
-     * <p>Polymorphic base type that represents a postal address and contact details.
-     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
-     * only differ in the data type for the optional <code>custom</code> field.</p>
+     * <p>Address to append to <code>itemShippingAddresses</code>.</p>
+     * <p>The new Address must have a <code>key</code> that is unique accross this Cart.</p>
      *
 
      * @return null|BaseAddress

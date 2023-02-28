@@ -83,6 +83,8 @@ final class MyCartSetLineItemCustomTypeActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -102,7 +104,7 @@ final class MyCartSetLineItemCustomTypeActionModel extends JsonObjectModel imple
 
     /**
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the LineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the LineItem.</p>
+     * If absent, any existing Type and Custom Fields are removed from the Line Item.</p>
      *
      *
      * @return null|TypeResourceIdentifier
@@ -123,7 +125,7 @@ final class MyCartSetLineItemCustomTypeActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the LineItem.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Line Item.</p>
      *
      *
      * @return null|FieldContainer

@@ -65,6 +65,8 @@ final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p>Determines how monetary values are rounded.</p>
+     *
      *
      * @return null|string
      */

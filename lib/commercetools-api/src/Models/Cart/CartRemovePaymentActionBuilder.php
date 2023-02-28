@@ -29,6 +29,8 @@ final class CartRemovePaymentActionBuilder implements Builder
     private $payment;
 
     /**
+     * <p>Payment to remove from the Cart.</p>
+     *
 
      * @return null|PaymentResourceIdentifier
      */

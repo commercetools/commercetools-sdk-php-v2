@@ -27,6 +27,11 @@ final class MyCartRecalculateActionBuilder implements Builder
     private $updateProductData;
 
     /**
+     * <ul>
+     * <li>Leave empty or set to <code>false</code> to only update the Prices and TaxRates of the Line Items.</li>
+     * <li>Set to <code>true</code> to update the Line Items' product data (like <code>name</code>, <code>variant</code> and <code>productType</code>) also.</li>
+     * </ul>
+     *
 
      * @return null|bool
      */

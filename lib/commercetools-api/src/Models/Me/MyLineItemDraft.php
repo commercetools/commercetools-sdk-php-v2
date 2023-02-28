@@ -19,35 +19,51 @@ interface MyLineItemDraft extends JsonObject
 {
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_SKU = 'sku';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
-    public const FIELD_CUSTOM = 'custom';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
-    public const FIELD_SKU = 'sku';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
 
      * @return null|string
      */
     public function getProductId();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
+     *
 
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSku();
+
+    /**
+     * <p>Number of Product Variants to add to the Cart.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
-     * <p>When the line item was added to the cart. Optional for backwards
-     * compatibility reasons only.</p>
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -55,9 +71,8 @@ interface MyLineItemDraft extends JsonObject
     public function getAddedAt();
 
     /**
-     * <p>By providing supply channel information, you can unique identify
-     * inventory entries that should be reserved.
-     * The provided channel should have the InventorySupply role.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -65,8 +80,10 @@ interface MyLineItemDraft extends JsonObject
     public function getSupplyChannel();
 
     /**
-     * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
+     * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set,
+     * the Channel must match one of the Store's distribution channels.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -74,15 +91,7 @@ interface MyLineItemDraft extends JsonObject
     public function getDistributionChannel();
 
     /**
-     * <p>The custom fields.</p>
-     *
-
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom();
-
-    /**
-     * <p>Container for line item specific address(es).</p>
+     * <p>Container for Line Item-specific addresses.</p>
      *
 
      * @return null|ItemShippingDetailsDraft
@@ -90,10 +99,12 @@ interface MyLineItemDraft extends JsonObject
     public function getShippingDetails();
 
     /**
+     * <p>Custom Fields for the Cart.</p>
+     *
 
-     * @return null|string
+     * @return null|CustomFieldsDraft
      */
-    public function getSku();
+    public function getCustom();
 
     /**
      * @param ?string $productId
@@ -104,6 +115,11 @@ interface MyLineItemDraft extends JsonObject
      * @param ?int $variantId
      */
     public function setVariantId(?int $variantId): void;
+
+    /**
+     * @param ?string $sku
+     */
+    public function setSku(?string $sku): void;
 
     /**
      * @param ?int $quantity
@@ -126,17 +142,12 @@ interface MyLineItemDraft extends JsonObject
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
 
     /**
-     * @param ?CustomFieldsDraft $custom
-     */
-    public function setCustom(?CustomFieldsDraft $custom): void;
-
-    /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
 
     /**
-     * @param ?string $sku
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setSku(?string $sku): void;
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

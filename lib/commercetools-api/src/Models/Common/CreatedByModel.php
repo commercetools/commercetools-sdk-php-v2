@@ -123,7 +123,7 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
     }
 
     /**
-     * <p>Indicates the <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a> during which the resource was created.</p>
+     * <p>Indicates the <a href="ctp:api:type:AnonymousSession">anonymous session</a> during which the resource was created.</p>
      *
      *
      * @return null|string

@@ -16,10 +16,12 @@ interface CartSetShippingRateInputAction extends CartUpdateAction
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
 
     /**
-     * <p>Based on the definition of ShippingRateInputType.
-     * If CartClassification is defined, it must be ClassificationShippingRateInput.
-     * If CartScore is defined, it must be ScoreShippingRateInput.
-     * Otherwise it can not bet set.</p>
+     * <p>The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="ctp:api:type:Project">Project</a>:</p>
+     * <ul>
+     * <li>If <code>CartClassification</code>, it must be <a href="ctp:api:type:ClassificationShippingRateInputDraft">ClassificationShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartScore</code>, it must be <a href="ctp:api:type:ScoreShippingRateInputDraft">ScoreShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartValue</code>, it cannot be set.</li>
+     * </ul>
      *
 
      * @return null|ShippingRateInputDraft

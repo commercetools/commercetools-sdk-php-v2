@@ -63,6 +63,8 @@ final class ClassificationShippingRateInputDraftModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
      *
      * @return null|string
      */

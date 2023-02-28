@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -24,13 +24,13 @@ final class TaxedPriceBuilder implements Builder
 {
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $totalNet;
 
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $totalGross;
 
@@ -42,30 +42,35 @@ final class TaxedPriceBuilder implements Builder
 
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $totalTax;
 
     /**
+     * <p>Total net price of the Cart or Order.</p>
+     *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalNet()
     {
-        return $this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet;
+        return $this->totalNet instanceof CentPrecisionMoneyBuilder ? $this->totalNet->build() : $this->totalNet;
     }
 
     /**
+     * <p>Total gross price of the Cart or Order.</p>
+     *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalGross()
     {
-        return $this->totalGross instanceof TypedMoneyBuilder ? $this->totalGross->build() : $this->totalGross;
+        return $this->totalGross instanceof CentPrecisionMoneyBuilder ? $this->totalGross->build() : $this->totalGross;
     }
 
     /**
-     * <p>TaxedPrice fields that can be used in query predicates: <code>totalNet</code>, <code>totalGross</code>.</p>
+     * <p>Taxable portions added to the total net price.</p>
+     * <p>Calculated from the <a href="ctp:api:type:TaxRate">TaxRates</a>.</p>
      *
 
      * @return null|TaxPortionCollection
@@ -76,21 +81,22 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
-     * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
+     * <p>Total tax applicable for the Cart or Order.</p>
+     * <p>Automatically calculated as the difference between the <code>totalGross</code> and <code>totalNet</code> values.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalTax()
     {
-        return $this->totalTax instanceof TypedMoneyBuilder ? $this->totalTax->build() : $this->totalTax;
+        return $this->totalTax instanceof CentPrecisionMoneyBuilder ? $this->totalTax->build() : $this->totalTax;
     }
 
     /**
-     * @param ?TypedMoney $totalNet
+     * @param ?CentPrecisionMoney $totalNet
      * @return $this
      */
-    public function withTotalNet(?TypedMoney $totalNet)
+    public function withTotalNet(?CentPrecisionMoney $totalNet)
     {
         $this->totalNet = $totalNet;
 
@@ -98,10 +104,10 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $totalGross
+     * @param ?CentPrecisionMoney $totalGross
      * @return $this
      */
-    public function withTotalGross(?TypedMoney $totalGross)
+    public function withTotalGross(?CentPrecisionMoney $totalGross)
     {
         $this->totalGross = $totalGross;
 
@@ -120,10 +126,10 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $totalTax
+     * @param ?CentPrecisionMoney $totalTax
      * @return $this
      */
-    public function withTotalTax(?TypedMoney $totalTax)
+    public function withTotalTax(?CentPrecisionMoney $totalTax)
     {
         $this->totalTax = $totalTax;
 
@@ -134,7 +140,7 @@ final class TaxedPriceBuilder implements Builder
      * @deprecated use withTotalNet() instead
      * @return $this
      */
-    public function withTotalNetBuilder(?TypedMoneyBuilder $totalNet)
+    public function withTotalNetBuilder(?CentPrecisionMoneyBuilder $totalNet)
     {
         $this->totalNet = $totalNet;
 
@@ -145,7 +151,7 @@ final class TaxedPriceBuilder implements Builder
      * @deprecated use withTotalGross() instead
      * @return $this
      */
-    public function withTotalGrossBuilder(?TypedMoneyBuilder $totalGross)
+    public function withTotalGrossBuilder(?CentPrecisionMoneyBuilder $totalGross)
     {
         $this->totalGross = $totalGross;
 
@@ -156,7 +162,7 @@ final class TaxedPriceBuilder implements Builder
      * @deprecated use withTotalTax() instead
      * @return $this
      */
-    public function withTotalTaxBuilder(?TypedMoneyBuilder $totalTax)
+    public function withTotalTaxBuilder(?CentPrecisionMoneyBuilder $totalTax)
     {
         $this->totalTax = $totalTax;
 
@@ -166,10 +172,10 @@ final class TaxedPriceBuilder implements Builder
     public function build(): TaxedPrice
     {
         return new TaxedPriceModel(
-            $this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet,
-            $this->totalGross instanceof TypedMoneyBuilder ? $this->totalGross->build() : $this->totalGross,
+            $this->totalNet instanceof CentPrecisionMoneyBuilder ? $this->totalNet->build() : $this->totalNet,
+            $this->totalGross instanceof CentPrecisionMoneyBuilder ? $this->totalGross->build() : $this->totalGross,
             $this->taxPortions,
-            $this->totalTax instanceof TypedMoneyBuilder ? $this->totalTax->build() : $this->totalTax
+            $this->totalTax instanceof CentPrecisionMoneyBuilder ? $this->totalTax->build() : $this->totalTax
         );
     }
 

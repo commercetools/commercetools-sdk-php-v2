@@ -39,6 +39,8 @@ final class CartSetItemShippingAddressCustomFieldActionBuilder implements Builde
     private $value;
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> in <code>itemShippingAddress</code>.</p>
+     *
 
      * @return null|string
      */

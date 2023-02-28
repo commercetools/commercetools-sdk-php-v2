@@ -71,6 +71,8 @@ final class CartSetCustomLineItemShippingDetailsActionModel extends JsonObjectMo
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,9 @@ final class CartSetCustomLineItemShippingDetailsActionModel extends JsonObjectMo
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
      *
      * @return null|ItemShippingDetailsDraft
      */

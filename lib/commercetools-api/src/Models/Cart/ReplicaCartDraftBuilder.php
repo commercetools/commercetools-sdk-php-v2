@@ -33,6 +33,8 @@ final class ReplicaCartDraftBuilder implements Builder
     private $key;
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> that is replicated.</p>
+     *
 
      * @return null|JsonObject
      */
@@ -42,7 +44,7 @@ final class ReplicaCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier of the cart.</p>
+     * <p>User-defined unique identifier for the Cart.</p>
      *
 
      * @return null|string

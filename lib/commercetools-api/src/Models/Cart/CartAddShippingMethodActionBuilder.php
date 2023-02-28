@@ -10,9 +10,11 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressBuilder;
-use Commercetools\Api\Models\Order\DeliveryCollection;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceBuilder;
+use Commercetools\Api\Models\Order\DeliveryDraftCollection;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -33,7 +35,7 @@ final class CartAddShippingMethodActionBuilder implements Builder
 
     /**
 
-     * @var null|ShippingMethodReference|ShippingMethodReferenceBuilder
+     * @var null|ShippingMethodResourceIdentifier|ShippingMethodResourceIdentifierBuilder
      */
     private $shippingMethod;
 
@@ -51,24 +53,24 @@ final class CartAddShippingMethodActionBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
 
-     * @var ?DeliveryCollection
+     * @var ?DeliveryDraftCollection
      */
     private $deliveries;
 
     /**
 
-     * @var ?string
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined identifier for the <a href="ctp:api:type:Shipping">Shipping</a> that must be unique across the Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|string
@@ -79,15 +81,15 @@ final class CartAddShippingMethodActionBuilder implements Builder
     }
 
     /**
-     * <p>Value to set.
-     * If empty, any existing value is removed.</p>
+     * <p>RecourceIdentifier to a <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> to add to the Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * If the referenced Shipping Method has a predicate that does not match the Cart, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
-     * @return null|ShippingMethodReference
+     * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
     {
-        return $this->shippingMethod instanceof ShippingMethodReferenceBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
+        return $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
     }
 
     /**
@@ -102,12 +104,13 @@ final class CartAddShippingMethodActionBuilder implements Builder
     }
 
     /**
-     * <p>Used as an input to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+     * <p>Input used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.
+     * The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="ctp:api:type:Project">Project</a>:</p>
      * <ul>
-     * <li>Must be <a href="ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartClassificationType">CartClassificationType</a>.</li>
-     * <li>Must be <a href="ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartScoreType">CartScoreType</a>.</li>
+     * <li>If <code>CartClassification</code>, it must be <a href="ctp:api:type:ClassificationShippingRateInputDraft">ClassificationShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartScore</code>, it must be <a href="ctp:api:type:ScoreShippingRateInputDraft">ScoreShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartValue</code>, it cannot be set.</li>
      * </ul>
-     * <p>The <code>shippingRateInput</code> cannot be set on the Cart if <a href="ctp:api:type:CartValueType">CartValueType</a> is defined.</p>
      *
 
      * @return null|ShippingRateInputDraft
@@ -118,22 +121,21 @@ final class CartAddShippingMethodActionBuilder implements Builder
     }
 
     /**
-     * <p>Tax Rate used to tax a shipping expense if a Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>Tax Rate used to tax a shipping expense if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
 
-     * @return null|string
+     * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
     {
-        return $this->externalTaxRate;
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
     }
 
     /**
-     * <p>Deliveries tied to a Shipping Method in a multi-shipping method Cart.
-     * It holds information on how items are delivered to customers.</p>
+     * <p>Deliveries to be shipped with the referenced Shipping Method.</p>
      *
 
-     * @return null|DeliveryCollection
+     * @return null|DeliveryDraftCollection
      */
     public function getDeliveries()
     {
@@ -144,11 +146,11 @@ final class CartAddShippingMethodActionBuilder implements Builder
      * <p>Custom Fields for the Shipping Method.</p>
      *
 
-     * @return null|string
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
-        return $this->custom;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -163,10 +165,10 @@ final class CartAddShippingMethodActionBuilder implements Builder
     }
 
     /**
-     * @param ?ShippingMethodReference $shippingMethod
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
      * @return $this
      */
-    public function withShippingMethod(?ShippingMethodReference $shippingMethod)
+    public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
 
@@ -196,10 +198,10 @@ final class CartAddShippingMethodActionBuilder implements Builder
     }
 
     /**
-     * @param ?string $externalTaxRate
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
-    public function withExternalTaxRate(?string $externalTaxRate)
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
 
@@ -207,10 +209,10 @@ final class CartAddShippingMethodActionBuilder implements Builder
     }
 
     /**
-     * @param ?DeliveryCollection $deliveries
+     * @param ?DeliveryDraftCollection $deliveries
      * @return $this
      */
-    public function withDeliveries(?DeliveryCollection $deliveries)
+    public function withDeliveries(?DeliveryDraftCollection $deliveries)
     {
         $this->deliveries = $deliveries;
 
@@ -218,10 +220,10 @@ final class CartAddShippingMethodActionBuilder implements Builder
     }
 
     /**
-     * @param ?string $custom
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withCustom(?string $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -232,7 +234,7 @@ final class CartAddShippingMethodActionBuilder implements Builder
      * @deprecated use withShippingMethod() instead
      * @return $this
      */
-    public function withShippingMethodBuilder(?ShippingMethodReferenceBuilder $shippingMethod)
+    public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
 
@@ -261,16 +263,38 @@ final class CartAddShippingMethodActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withExternalTaxRate() instead
+     * @return $this
+     */
+    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    {
+        $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): CartAddShippingMethodAction
     {
         return new CartAddShippingMethodActionModel(
             $this->shippingKey,
-            $this->shippingMethod instanceof ShippingMethodReferenceBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
+            $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
             $this->shippingAddress instanceof BaseAddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
             $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
-            $this->externalTaxRate,
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->deliveries,
-            $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

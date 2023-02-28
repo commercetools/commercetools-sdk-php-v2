@@ -20,20 +20,25 @@ interface CartChangeLineItemQuantityAction extends CartUpdateAction
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+     * <p>New value to set.</p>
+     * <p>If <code>0</code>, the Line Item is removed from the Cart.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when changing the quantity of a Line Item with the <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     * <p>The LineItem price is updated as described in LineItem Price selection.</p>
      *
 
      * @return null|Money
@@ -41,6 +46,8 @@ interface CartChangeLineItemQuantityAction extends CartUpdateAction
     public function getExternalPrice();
 
     /**
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> to the given value when changing the quantity of a Line Item with the <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     *
 
      * @return null|ExternalLineItemTotalPrice
      */

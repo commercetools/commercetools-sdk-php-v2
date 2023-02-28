@@ -186,6 +186,8 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     }
 
     /**
+     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+     *
      *
      * @return null|ExternalTaxRateDraft
      */

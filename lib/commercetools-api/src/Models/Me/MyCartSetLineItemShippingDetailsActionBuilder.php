@@ -35,6 +35,8 @@ final class MyCartSetLineItemShippingDetailsActionBuilder implements Builder
     private $shippingDetails;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,9 @@ final class MyCartSetLineItemShippingDetailsActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set.
+     * If empty, the existing value is removed.</p>
+     *
 
      * @return null|ItemShippingDetailsDraft
      */

@@ -27,6 +27,9 @@ final class CartSetShippingMethodTaxRateActionBuilder implements Builder
     private $externalTaxRate;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|ExternalTaxRateDraft
      */

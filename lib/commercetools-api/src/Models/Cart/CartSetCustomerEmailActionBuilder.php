@@ -27,6 +27,9 @@ final class CartSetCustomerEmailActionBuilder implements Builder
     private $email;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|string
      */

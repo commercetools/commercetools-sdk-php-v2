@@ -19,20 +19,23 @@ interface TaxPortionDraft extends JsonObject
     public const FIELD_AMOUNT = 'amount';
 
     /**
+     * <p>Name of the tax portion.</p>
+     *
 
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>A number in the range 0-1.</p>
+     *
 
      * @return null|float
      */
     public function getRate();
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Money value for the tax portion.</p>
      *
 
      * @return null|Money

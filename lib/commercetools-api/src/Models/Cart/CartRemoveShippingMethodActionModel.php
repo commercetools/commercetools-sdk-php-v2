@@ -63,7 +63,7 @@ final class CartRemoveShippingMethodActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method to remove in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined unique identifier of the Shipping Method to remove from the Cart.</p>
      *
      *
      * @return null|string

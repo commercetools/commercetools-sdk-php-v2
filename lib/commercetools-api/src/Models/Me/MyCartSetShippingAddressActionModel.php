@@ -65,9 +65,8 @@ final class MyCartSetShippingAddressActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Polymorphic base type that represents a postal address and contact details.
-     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
-     * only differ in the data type for the optional <code>custom</code> field.</p>
+     * <p>Value to set.
+     * If not set, the shipping address is unset, and the <code>taxedPrice</code> and <code>taxRate</code> are unset in all Line Items.</p>
      *
      *
      * @return null|BaseAddress

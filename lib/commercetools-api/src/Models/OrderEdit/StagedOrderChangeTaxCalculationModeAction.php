@@ -17,6 +17,8 @@ interface StagedOrderChangeTaxCalculationModeAction extends StagedOrderUpdateAct
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
 
     /**
+     * <p>Determines in which <a href="/carts-orders-overview#tax-calculation-mode">Tax calculation mode</a> taxed prices are calculated.</p>
+     *
 
      * @return null|string
      */

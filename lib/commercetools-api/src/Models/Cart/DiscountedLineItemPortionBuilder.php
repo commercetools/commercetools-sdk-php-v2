@@ -37,6 +37,8 @@ final class DiscountedLineItemPortionBuilder implements Builder
     private $discountedAmount;
 
     /**
+     * <p>Cart Discount applicable on the Line Item.</p>
+     *
 
      * @return null|CartDiscountReference
      */
@@ -46,6 +48,8 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
+     * <p>Money value of the discount applicable.</p>
+     *
 
      * @return null|TypedMoney
      */

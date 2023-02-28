@@ -34,16 +34,16 @@ final class CartAddShoppingListActionBuilder implements Builder
 
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
-    private $supplyChannel;
+    private $distributionChannel;
 
     /**
 
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
-    private $distributionChannel;
+    private $supplyChannel;
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     * <p>Shopping List that contains the Line Items to be added.</p>
      *
 
      * @return null|ShoppingListResourceIdentifier
@@ -54,18 +54,8 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
-     *
-
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel()
-    {
-        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><code>distributionChannel</code> to set for all <a href="ctp:api:type:LineItem">LineItems</a> that are added to the Cart.
+     * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -76,23 +66,24 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * <p><code>supplyChannel</code> to set for all <a href="ctp:api:type:LineItem">LineItems</a> that are added to the Cart.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     *
+
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getSupplyChannel()
+    {
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
+    }
+
+    /**
      * @param ?ShoppingListResourceIdentifier $shoppingList
      * @return $this
      */
     public function withShoppingList(?ShoppingListResourceIdentifier $shoppingList)
     {
         $this->shoppingList = $shoppingList;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
-     * @return $this
-     */
-    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
-    {
-        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -109,23 +100,23 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     * @return $this
+     */
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withShoppingList() instead
      * @return $this
      */
     public function withShoppingListBuilder(?ShoppingListResourceIdentifierBuilder $shoppingList)
     {
         $this->shoppingList = $shoppingList;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withSupplyChannel() instead
-     * @return $this
-     */
-    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
-    {
-        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -141,12 +132,23 @@ final class CartAddShoppingListActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withSupplyChannel() instead
+     * @return $this
+     */
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
+
+        return $this;
+    }
+
     public function build(): CartAddShoppingListAction
     {
         return new CartAddShoppingListActionModel(
             $this->shoppingList instanceof ShoppingListResourceIdentifierBuilder ? $this->shoppingList->build() : $this->shoppingList,
-            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
-            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel
+            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel
         );
     }
 

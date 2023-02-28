@@ -73,7 +73,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     }
 
     /**
-     * <p>The total gross amount of the cart (totalNet + taxes).</p>
+     * <p>The Cart's total gross price becoming the <code>totalGross</code> field (<code>totalNet</code> + taxes) on the Cart's <code>taxedPrice</code>.</p>
      *
      *
      * @return null|Money
@@ -94,6 +94,8 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     }
 
     /**
+     * <p>Set if the <code>externalTotalGross</code> price is a sum of portions with different tax rates.</p>
+     *
      *
      * @return null|TaxPortionDraftCollection
      */

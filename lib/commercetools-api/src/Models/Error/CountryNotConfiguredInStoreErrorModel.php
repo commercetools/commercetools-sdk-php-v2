@@ -17,7 +17,7 @@ use stdClass;
 /**
  * @internal
  */
-final class CountryNotConfiguredInStoreModel extends JsonObjectModel implements CountryNotConfiguredInStore
+final class CountryNotConfiguredInStoreErrorModel extends JsonObjectModel implements CountryNotConfiguredInStoreError
 {
     public const DISCRIMINATOR_VALUE = 'CountryNotConfiguredInStore';
     /**

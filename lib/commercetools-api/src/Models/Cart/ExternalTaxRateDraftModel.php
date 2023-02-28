@@ -34,6 +34,12 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
 
     /**
      *
+     * @var ?bool
+     */
+    protected $includedInPrice;
+
+    /**
+     *
      * @var ?string
      */
     protected $country;
@@ -50,12 +56,6 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
      */
     protected $subRates;
 
-    /**
-     *
-     * @var ?bool
-     */
-    protected $includedInPrice;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -63,20 +63,22 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     public function __construct(
         ?string $name = null,
         ?float $amount = null,
+        ?bool $includedInPrice = null,
         ?string $country = null,
         ?string $state = null,
-        ?SubRateCollection $subRates = null,
-        ?bool $includedInPrice = null
+        ?SubRateCollection $subRates = null
     ) {
         $this->name = $name;
         $this->amount = $amount;
+        $this->includedInPrice = $includedInPrice;
         $this->country = $country;
         $this->state = $state;
         $this->subRates = $subRates;
-        $this->includedInPrice = $includedInPrice;
     }
 
     /**
+     * <p>Name of the Tax Rate.</p>
+     *
      *
      * @return null|string
      */
@@ -95,10 +97,11 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
-     * <p>Percentage in the range of [0..1].
-     * Must be supplied if no <code>subRates</code> are specified.
-     * If <code>subRates</code> are specified
-     * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>
+     * <p>Percentage in the range of 0-1.</p>
+     * <ul>
+     * <li>If no <code>subRates</code> are specified, a value must be defined.</li>
+     * <li>If <code>subRates</code> are specified, this can be omitted or its value must be the sum of all <code>subRates</code> amounts.</li>
+     * </ul>
      *
      *
      * @return null|float
@@ -118,7 +121,30 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <ul>
+     * <li>If set to <code>false</code>, the related price is considered the net price and the provided <code>amount</code> is applied to calculate the gross price.</li>
+     * <li>If set to <code>true</code>, the related price is considered the gross price, and the provided <code>amount</code> is applied to calculate the net price.</li>
+     * </ul>
+     *
+     *
+     * @return null|bool
+     */
+    public function getIncludedInPrice()
+    {
+        if (is_null($this->includedInPrice)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_INCLUDED_IN_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->includedInPrice = (bool) $data;
+        }
+
+        return $this->includedInPrice;
+    }
+
+    /**
+     * <p>Country for which the tax applies.</p>
      *
      *
      * @return null|string
@@ -138,7 +164,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
-     * <p>The state in the country</p>
+     * <p>State within the specified country.</p>
      *
      *
      * @return null|string
@@ -158,9 +184,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
-     * <p>For countries (e.g.
-     * the US) where the total tax is a combination of multiple taxes (e.g.
-     * state and local taxes).</p>
+     * <p>For countries (such as the US) where the total tax is a combination of multiple taxes (such as state and local taxes).</p>
      *
      *
      * @return null|SubRateCollection
@@ -179,26 +203,6 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
         return $this->subRates;
     }
 
-    /**
-     * <p>The default value for <code>includedInPrice</code> is FALSE.</p>
-     *
-     *
-     * @return null|bool
-     */
-    public function getIncludedInPrice()
-    {
-        if (is_null($this->includedInPrice)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_INCLUDED_IN_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->includedInPrice = (bool) $data;
-        }
-
-        return $this->includedInPrice;
-    }
-
 
     /**
      * @param ?string $name
@@ -214,6 +218,14 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     public function setAmount(?float $amount): void
     {
         $this->amount = $amount;
+    }
+
+    /**
+     * @param ?bool $includedInPrice
+     */
+    public function setIncludedInPrice(?bool $includedInPrice): void
+    {
+        $this->includedInPrice = $includedInPrice;
     }
 
     /**
@@ -238,13 +250,5 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     public function setSubRates(?SubRateCollection $subRates): void
     {
         $this->subRates = $subRates;
-    }
-
-    /**
-     * @param ?bool $includedInPrice
-     */
-    public function setIncludedInPrice(?bool $includedInPrice): void
-    {
-        $this->includedInPrice = $includedInPrice;
     }
 }

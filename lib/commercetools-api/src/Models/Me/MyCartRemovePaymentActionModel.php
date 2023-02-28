@@ -65,7 +65,7 @@ final class MyCartRemovePaymentActionModel extends JsonObjectModel implements My
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     * <p>Payment to remove from the Cart.</p>
      *
      *
      * @return null|PaymentResourceIdentifier

@@ -27,6 +27,9 @@ final class CartSetKeyActionBuilder implements Builder
     private $key;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing key will be removed.</p>
+     *
 
      * @return null|string
      */

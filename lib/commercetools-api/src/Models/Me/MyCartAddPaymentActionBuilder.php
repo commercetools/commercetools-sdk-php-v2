@@ -29,7 +29,8 @@ final class MyCartAddPaymentActionBuilder implements Builder
     private $payment;
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     * <p>Payment to add to the Cart.
+     * Must not be assigned to another Order or active Cart already.</p>
      *
 
      * @return null|PaymentResourceIdentifier

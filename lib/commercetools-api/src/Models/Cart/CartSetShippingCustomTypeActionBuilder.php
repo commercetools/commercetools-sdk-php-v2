@@ -43,7 +43,9 @@ final class CartSetShippingCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>The <code>shippingKey</code> of the <a href="ctp:api:type:Shipping">Shipping</a> to customize. Used to specify which Shipping Method to customize
+     * on a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Leave this empty to customize the one and only ShippingMethod on a <code>Single</code> ShippingMode Cart.</p>
      *
 
      * @return null|string
@@ -54,8 +56,8 @@ final class CartSetShippingCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>shippingAddress</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the <code>shippingAddress</code>.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the specified ShippingMethod with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the ShippingMethod.</p>
      *
 
      * @return null|TypeResourceIdentifier
@@ -66,7 +68,7 @@ final class CartSetShippingCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>shippingAddress</code>.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>shippingMethod</code>.</p>
      *
 
      * @return null|FieldContainer

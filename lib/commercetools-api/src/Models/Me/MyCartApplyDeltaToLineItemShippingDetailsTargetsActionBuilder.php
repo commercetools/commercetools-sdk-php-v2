@@ -34,6 +34,8 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implem
     private $targetsDelta;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -43,6 +45,8 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implem
     }
 
     /**
+     * <p>Using positive or negative quantities increases or decreases the number of items shipped to an address.</p>
+     *
 
      * @return null|ItemShippingTargetCollection
      */

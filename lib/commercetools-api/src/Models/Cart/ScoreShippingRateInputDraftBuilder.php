@@ -27,6 +27,8 @@ final class ScoreShippingRateInputDraftBuilder implements Builder
     private $score;
 
     /**
+     * <p>Abstract value for categorizing a Cart.</p>
+     *
 
      * @return null|int
      */

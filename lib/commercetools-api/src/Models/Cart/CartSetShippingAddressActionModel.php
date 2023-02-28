@@ -65,6 +65,9 @@ final class CartSetShippingAddressActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value to set.
+     * If not set, the shipping address is unset, and the <code>taxedPrice</code> and <code>taxRate</code> are unset in all Line Items of the Cart.</p>
+     *
      *
      * @return null|BaseAddress
      */

@@ -71,6 +71,8 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,9 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Value to set.
+     * If empty, an existing value is removed.</p>
+     *
      *
      * @return null|ExternalTaxRateDraft
      */

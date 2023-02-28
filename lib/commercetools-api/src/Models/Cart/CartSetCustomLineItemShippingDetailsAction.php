@@ -17,12 +17,17 @@ interface CartSetCustomLineItemShippingDetailsAction extends CartUpdateAction
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|ItemShippingDetailsDraft
      */

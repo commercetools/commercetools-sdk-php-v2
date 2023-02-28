@@ -27,6 +27,8 @@ final class CartRemoveItemShippingAddressActionBuilder implements Builder
     private $addressKey;
 
     /**
+     * <p><code>key</code> of the Address to remove from <code>itemShippingAddresses</code>.</p>
+     *
 
      * @return null|string
      */

@@ -363,7 +363,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p><a href="/../api/authorization#tokens-for-anonymous-sessions">Anonymous session</a> associated with the Payment.</p>
+     * <p><a href="ctp:api:type:AnonymousSession">Anonymous session</a> associated with the Payment.</p>
      *
      *
      * @return null|string

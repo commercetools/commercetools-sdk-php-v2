@@ -63,6 +63,8 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Abstract value for categorizing a Cart.</p>
+     *
      *
      * @return null|int
      */

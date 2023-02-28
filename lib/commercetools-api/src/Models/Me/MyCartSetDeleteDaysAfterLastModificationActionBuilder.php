@@ -27,6 +27,9 @@ final class MyCartSetDeleteDaysAfterLastModificationActionBuilder implements Bui
     private $deleteDaysAfterLastModification;
 
     /**
+     * <p>Value to set.
+     * If not provided, the default value for this field configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a> is assigned.</p>
+     *
 
      * @return null|int
      */

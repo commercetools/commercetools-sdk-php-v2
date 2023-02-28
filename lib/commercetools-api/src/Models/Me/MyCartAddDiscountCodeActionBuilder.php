@@ -27,6 +27,8 @@ final class MyCartAddDiscountCodeActionBuilder implements Builder
     private $code;
 
     /**
+     * <p><code>code</code> of a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     *
 
      * @return null|string
      */

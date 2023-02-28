@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -23,13 +23,13 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
 {
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $totalNet;
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $totalGross;
 
@@ -41,7 +41,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $totalTax;
 
@@ -50,10 +50,10 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TypedMoney $totalNet = null,
-        ?TypedMoney $totalGross = null,
+        ?CentPrecisionMoney $totalNet = null,
+        ?CentPrecisionMoney $totalGross = null,
         ?TaxPortionCollection $taxPortions = null,
-        ?TypedMoney $totalTax = null
+        ?CentPrecisionMoney $totalTax = null
     ) {
         $this->totalNet = $totalNet;
         $this->totalGross = $totalGross;
@@ -62,8 +62,10 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
+     * <p>Total net price of the Cart or Order.</p>
      *
-     * @return null|TypedMoney
+     *
+     * @return null|CentPrecisionMoney
      */
     public function getTotalNet()
     {
@@ -74,15 +76,17 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
                 return null;
             }
 
-            $this->totalNet = TypedMoneyModel::of($data);
+            $this->totalNet = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->totalNet;
     }
 
     /**
+     * <p>Total gross price of the Cart or Order.</p>
      *
-     * @return null|TypedMoney
+     *
+     * @return null|CentPrecisionMoney
      */
     public function getTotalGross()
     {
@@ -93,14 +97,15 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
                 return null;
             }
 
-            $this->totalGross = TypedMoneyModel::of($data);
+            $this->totalGross = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->totalGross;
     }
 
     /**
-     * <p>TaxedPrice fields that can be used in query predicates: <code>totalNet</code>, <code>totalGross</code>.</p>
+     * <p>Taxable portions added to the total net price.</p>
+     * <p>Calculated from the <a href="ctp:api:type:TaxRate">TaxRates</a>.</p>
      *
      *
      * @return null|TaxPortionCollection
@@ -120,10 +125,11 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
-     * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
+     * <p>Total tax applicable for the Cart or Order.</p>
+     * <p>Automatically calculated as the difference between the <code>totalGross</code> and <code>totalNet</code> values.</p>
      *
      *
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalTax()
     {
@@ -134,7 +140,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
                 return null;
             }
 
-            $this->totalTax = TypedMoneyModel::of($data);
+            $this->totalTax = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->totalTax;
@@ -142,17 +148,17 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
 
 
     /**
-     * @param ?TypedMoney $totalNet
+     * @param ?CentPrecisionMoney $totalNet
      */
-    public function setTotalNet(?TypedMoney $totalNet): void
+    public function setTotalNet(?CentPrecisionMoney $totalNet): void
     {
         $this->totalNet = $totalNet;
     }
 
     /**
-     * @param ?TypedMoney $totalGross
+     * @param ?CentPrecisionMoney $totalGross
      */
-    public function setTotalGross(?TypedMoney $totalGross): void
+    public function setTotalGross(?CentPrecisionMoney $totalGross): void
     {
         $this->totalGross = $totalGross;
     }
@@ -166,9 +172,9 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
-     * @param ?TypedMoney $totalTax
+     * @param ?CentPrecisionMoney $totalTax
      */
-    public function setTotalTax(?TypedMoney $totalTax): void
+    public function setTotalTax(?CentPrecisionMoney $totalTax): void
     {
         $this->totalTax = $totalTax;
     }

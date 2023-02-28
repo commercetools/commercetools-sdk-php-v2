@@ -18,7 +18,9 @@ interface CartSetShippingCustomFieldAction extends CartUpdateAction
     public const FIELD_VALUE = 'value';
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>The <code>shippingKey</code> of the <a href="ctp:api:type:Shipping">Shipping</a> to customize. Used to specify which Shipping Method to customize
+     * on a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Leave this empty to customize the one and only ShippingMethod on a <code>Single</code> ShippingMode Cart.</p>
      *
 
      * @return null|string

@@ -17,12 +17,17 @@ interface CartSetCustomLineItemTaxRateAction extends CartUpdateAction
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+     * <p>Value to set.
+     * If empty, an existing value is removed.</p>
+     *
 
      * @return null|ExternalTaxRateDraft
      */

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -20,19 +20,24 @@ interface TaxedPrice extends JsonObject
     public const FIELD_TOTAL_TAX = 'totalTax';
 
     /**
+     * <p>Total net price of the Cart or Order.</p>
+     *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalNet();
 
     /**
+     * <p>Total gross price of the Cart or Order.</p>
+     *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalGross();
 
     /**
-     * <p>TaxedPrice fields that can be used in query predicates: <code>totalNet</code>, <code>totalGross</code>.</p>
+     * <p>Taxable portions added to the total net price.</p>
+     * <p>Calculated from the <a href="ctp:api:type:TaxRate">TaxRates</a>.</p>
      *
 
      * @return null|TaxPortionCollection
@@ -40,22 +45,23 @@ interface TaxedPrice extends JsonObject
     public function getTaxPortions();
 
     /**
-     * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
+     * <p>Total tax applicable for the Cart or Order.</p>
+     * <p>Automatically calculated as the difference between the <code>totalGross</code> and <code>totalNet</code> values.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalTax();
 
     /**
-     * @param ?TypedMoney $totalNet
+     * @param ?CentPrecisionMoney $totalNet
      */
-    public function setTotalNet(?TypedMoney $totalNet): void;
+    public function setTotalNet(?CentPrecisionMoney $totalNet): void;
 
     /**
-     * @param ?TypedMoney $totalGross
+     * @param ?CentPrecisionMoney $totalGross
      */
-    public function setTotalGross(?TypedMoney $totalGross): void;
+    public function setTotalGross(?CentPrecisionMoney $totalGross): void;
 
     /**
      * @param ?TaxPortionCollection $taxPortions
@@ -63,7 +69,7 @@ interface TaxedPrice extends JsonObject
     public function setTaxPortions(?TaxPortionCollection $taxPortions): void;
 
     /**
-     * @param ?TypedMoney $totalTax
+     * @param ?CentPrecisionMoney $totalTax
      */
-    public function setTotalTax(?TypedMoney $totalTax): void;
+    public function setTotalTax(?CentPrecisionMoney $totalTax): void;
 }

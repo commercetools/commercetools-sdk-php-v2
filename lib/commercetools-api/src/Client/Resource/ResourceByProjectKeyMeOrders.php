@@ -37,6 +37,14 @@ class ResourceByProjectKeyMeOrders extends ApiResource
 
         return new ResourceByProjectKeyMeOrdersByID($args, $this->getClient());
     }
+    /**
+     */
+    public function quotes(): ResourceByProjectKeyMeOrdersQuotes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyMeOrdersQuotes($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

@@ -18,6 +18,8 @@ interface CartSetItemShippingAddressCustomFieldAction extends CartUpdateAction
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> in <code>itemShippingAddress</code>.</p>
+     *
 
      * @return null|string
      */

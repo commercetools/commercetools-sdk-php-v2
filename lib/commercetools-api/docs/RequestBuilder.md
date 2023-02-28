@@ -462,8 +462,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->post(null)`
 
-Creating a cart can fail with an InvalidOperation if the referenced shipping method in the
-CartDraft has a predicate which does not match the cart.
+Creating a Cart fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error if the
+[ShippingMethod](ctp:api:type:ShippingMethod) referenced in the CartDraft
+has a `predicate` that does not match the Cart.
 
 
 ### Example
@@ -478,8 +479,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->get()`
 
-The cart may not contain up-to-date prices, discounts etc.
-If you want to ensure they're up-to-date, send an Update request with the Recalculate update action instead.
+To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
 
 ### Example
@@ -525,11 +525,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withCustomerId("customerId")->get()`
 
-Retrieves the active cart of the customer that has been modified most recently.
-It does not consider carts with CartOrigin Merchant. If no active cart exists, a 404 Not Found error is returned.
+Retrieves the recently modified active Cart of a Customer with [CartOrigin](ctp:api:type:CartOrigin) `Customer`. If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
-The cart may not contain up-to-date prices, discounts etc. If you want to ensure they're up-to-date,
-send an Update request with the Recalculate update action instead.
+To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
 
 ### Example
@@ -545,8 +543,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->get()`
 
-The cart may not contain up-to-date prices, discounts etc.
-If you want to ensure they're up-to-date, send an Update request with the Recalculate update action instead.
+To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
 
 ### Example
@@ -592,7 +589,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->replicate()->post(null)`
 
-null
+Creates a new Cart by replicating an existing Cart or Order. Can be useful in cases where a customer wants to cancel a recent order to make some changes or reorder a previous order.
+
+The replicated Cart preserves Customer information, Line Items and Custom Line Items, Custom Fields, Discount Codes, and other settings of the Cart or Order. If the Line Items become invalid, for example, due to removed Products or Prices, they are removed from the new Cart. If the Customer switches to another Customer Group, the new Cart is updated with the new value. It has up-to-date Tax Rates, Prices, and Line Item product data and is in `Active` [CartState](ctp:api:type:CartState).
+
+The new Cart does not contain Payments or Deliveries. The [State](ctp:api:type:ItemState) of Line Items and Custom Line Items is reset to `initial`.
+
 
 ### Example
 ```php
@@ -1460,7 +1462,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
 
-Queries carts in a specific Store.
+null
 
 ### Example
 ```php
@@ -1475,9 +1477,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->post(null)`
 
-Creates a [Cart](ctp:api:type:Cart) in the Store specified by `storeKey`.
-When using this endpoint the Cart's `store` field is always set to the store specified in the path parameter.
-If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+The `store` field in the created [Cart](ctp:api:type:Cart) is set to the Store specified by the `storeKey` path parameter.
+
+Specific Error Codes: [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
 
 
 ### Example
@@ -1493,11 +1495,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->get()`
 
-Returns a cart by its ID from a specific Store.
-If the cart exists in the project but does not have the store field,
-or the store field references a different store, this method returns a ResourceNotFound error.
-The cart may not contain up-to-date prices, discounts etc.
-If you want to ensure they're up-to-date, send an Update request with the Recalculate update action instead.
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
 
 ### Example
@@ -1532,7 +1532,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->delete()`
 
-null
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -1548,13 +1549,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withCustomerId("customerId")->get()`
 
-Retrieves the active cart of the customer that has been modified most recently in a specific Store.
+Retrieves the recently modified active Cart of a Customer with [CartOrigin](ctp:api:type:CartOrigin) `Customer`. If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
-If the cart exists in the project but does not have the store field, or the store field
-references a different store, this method returns a ResourceNotFound error.
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
-The cart may not contain up-to-date prices, discounts etc. If you want to ensure they're up-to-date,
-send an Update request with the Recalculate update action instead.
+To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
 
 ### Example
@@ -1571,11 +1570,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
-Returns a cart by its key from a specific Store.
-If the cart exists in the project but does not have the store field,
-or the store field references a different store, this method returns a ResourceNotFound error.
-The cart may not contain up-to-date prices, discounts etc.
-If you want to ensure they're up-to-date, send an Update request with the Recalculate update action instead.
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
 
 ### Example
@@ -1592,9 +1589,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->post(null)`
 
-Updates a [Cart](ctp:api:type:Cart) in the Store specified by `storeKey`.
-If the Cart exists in the Project but does not have the store field,
-or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFound) error.
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -1611,7 +1606,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->delete()`
 
-null
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -1627,7 +1623,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->replicate()->post(null)`
 
-null
+Creates a new Cart by replicating an existing Cart or Order. Can be useful in cases where a customer wants to cancel a recent order to make some changes or reorder a previous order.
+
+The replicated Cart preserves Customer information, Line Items and Custom Line Items, Custom Fields, Discount Codes, and other settings of the Cart or Order. If the Line Items become invalid, for example, due to removed Products or Prices, they are removed from the new Cart. If the Customer switches to another Customer Group, the new Cart is updated with the new value. It has up-to-date Tax Rates, Prices, and Line Item product data and is in `Active` [CartState](ctp:api:type:CartState).
+
+The new Cart does not contain payments or deliveries. The [State](ctp:api:type:ItemState) of Line Items and Custom Line Items is reset to `initial`.
+
 
 ### Example
 ```php
@@ -1972,7 +1973,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->activeCart()->get()`
 
-null
+Retrieves the Customer's most recently modified active Cart in the Store specified by the `storeKey` path parameter.
+
+Carts with `Merchant` or `Quote` [CartOrigin](ctp:api:type:CartOrigin) are ignored.
+
+If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
 
 ### Example
 ```php
@@ -2004,7 +2010,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->post(null)`
 
-null
+The `store` field in the created [Cart](ctp:api:type:Cart) is set to the Store specified by the `storeKey` path parameter.
+
+Specific Error Codes: [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+
 
 ### Example
 ```php
@@ -2037,7 +2046,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->post(null)`
 
-null
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -2093,7 +2103,7 @@ Retrieves the authenticated Customer (that matches the given email/password pair
 - If the Customer does not have a Cart, the most recently modified anonymous cart becomes the Customer's Cart.
 - If the Customer already has a Cart, the most recently modified anonymous cart is handled according to [AnonymousCartSignInMode](ctp:api:type:AnonymousCartSignInMode).
 
-If a Cart is returned as part of [CustomerSignInResult](ctp:api:type:CustomerSignInResult), it has been [recalculated](/../api/projects/carts#recalculate) with up-to-date prices, taxes, discounts, and invalid line items removed.
+If a Cart is returned as part of [CustomerSignInResult](ctp:api:type:CustomerSignInResult), it has been [recalculated](ctp:api:type:MyCartRecalculateAction) with up-to-date prices, taxes, discounts, and invalid line items removed.
 
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
@@ -2399,7 +2409,7 @@ $request = $builder
 
 Returns an order by its ID from a specific Store.
 If the order exists in the project but does not have the store field,
-or the store field references a different store, this method returns a ResourceNotFound error.
+or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2418,7 +2428,7 @@ $request = $builder
 
 Updates an order in the store specified by {storeKey}.
 If the order exists in the project but does not have the store field,
-or the store field references a different store, this method returns a ResourceNotFound error.
+or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2454,7 +2464,7 @@ $request = $builder
 Returns an order by its order number from a specific Store.
 
 If the order exists in the project but does not have the store field,
-or the store field references a different store, this method returns a ResourceNotFound error.
+or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
 it should be provided in URL-encoded format.
 
@@ -2475,7 +2485,7 @@ $request = $builder
 
 Updates an order in the store specified by {storeKey}.
 If the order exists in the project but does not have the store field,
-or the store field references a different store, this method returns a ResourceNotFound error.
+or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
 it should be provided in URL-encoded format.
 
@@ -2912,7 +2922,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->activeCart()->get()`
 
-null
+Retrieves the Customer's most recently modified active Cart.
+Carts with `Merchant` or `Quote` [CartOrigin](ctp:api:type:CartOrigin) are ignored.
+
+If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
 
 ### Example
 ```php
@@ -2942,7 +2956,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->post(null)`
 
-null
+Automatically assigns the authenticated user to the Business Unit in the [Associate Roles](ctp:api:type:AssociateRole) of `Admin` as well as `Buyer`.
+
 
 ### Example
 ```php
@@ -3179,7 +3194,18 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->replicate()->post(null)`
 
-null
+Creates a new Cart by replicating an existing Cart or Order of the authenticated Customer.
+This can be useful in cases where a customer wants to cancel a recent order to make some changes or reorder a previous order.
+
+The replicated Cart preserves Customer information, Line Items and Custom Line Items, Custom Fields, Discount Codes, and other settings of the Cart or Order.
+If the Line Items become invalid, for example, due to removed Products or Prices, they are removed from the new Cart.
+If the Customer switches to another Customer Group, the new Cart is updated with the new value.
+It has up-to-date Tax Rates, Prices, and Line Item product data and is in `Active` [CartState](ctp:api:type:CartState).
+
+The new Cart does not contain Payments or Deliveries. The [State](ctp:api:type:ItemState) of Line Items and Custom Line Items is reset to `initial`.
+
+In case the Cart or Order to be replicated does not belong to the authenticaed Customer, the API returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error
+
 
 ### Example
 ```php
@@ -3213,12 +3239,12 @@ $request = $builder
 
 Retrieves the authenticated customer (that matches the given email/password pair).
 
-If used with [an access token for an anonymous session](/../api/authorization#tokens-for-anonymous-sessions), all Orders and Carts that belong to the `anonymousId` are assigned to the newly logged-in Customer.
+If used with [an access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly logged-in Customer.
 
 - If the Customer does not have a Cart yet, the most recently modified anonymous cart becomes the Customer's Cart.
 - If the Customer already has a Cart, the most recently modified anonymous cart is handled in accordance with [AnonymousCartSignInMode](ctp:api:type:AnonymousCartSignInMode).
 
-A Cart returned as part of the [CustomerSignInResult](ctp:api:type:CustomerSignInResult) is [recalculated](ctp:api:type:Recalculate) with up-to-date prices, taxes, discounts, and invalid line items removed.
+A Cart returned as part of the [CustomerSignInResult](ctp:api:type:CustomerSignInResult) is [recalculated](ctp:api:type:MyCartRecalculateAction) with up-to-date prices, taxes, discounts, and invalid line items removed.
 
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
@@ -3279,6 +3305,22 @@ $request = $builder
                 ->orders()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->orders()->quotes()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->orders()
+                ->quotes()
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->me()->password()->post(null)`
 
@@ -3781,7 +3823,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->signup()->post(null)`
 
-If used with an [access token for an anonymous session](/../api/authorization#tokens-for-anonymous-sessions), all Orders and Carts that belong to the `anonymousId` are assigned to the newly created Customer.
+If used with an [access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly created Customer.
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
 

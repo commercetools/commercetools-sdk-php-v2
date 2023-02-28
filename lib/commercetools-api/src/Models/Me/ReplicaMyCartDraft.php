@@ -18,6 +18,8 @@ interface ReplicaMyCartDraft extends JsonObject
     public const FIELD_REFERENCE = 'reference';
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> that is replicated.</p>
+     *
 
      * @return null|mixed
      */

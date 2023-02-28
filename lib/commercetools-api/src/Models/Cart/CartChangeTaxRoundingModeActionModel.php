@@ -63,6 +63,8 @@ final class CartChangeTaxRoundingModeActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>New value to set.</p>
+     *
      *
      * @return null|string
      */

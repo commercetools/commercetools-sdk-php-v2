@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -36,11 +36,13 @@ final class TaxPortionBuilder implements Builder
 
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $amount;
 
     /**
+     * <p>Name of the tax portion.</p>
+     *
 
      * @return null|string
      */
@@ -50,7 +52,7 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
-     * <p>A number in the range [0..1]</p>
+     * <p>A number in the range 0-1.</p>
      *
 
      * @return null|float
@@ -61,12 +63,14 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
+     * <p>Money value of the tax portion.</p>
+     *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getAmount()
     {
-        return $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount;
+        return $this->amount instanceof CentPrecisionMoneyBuilder ? $this->amount->build() : $this->amount;
     }
 
     /**
@@ -92,10 +96,10 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $amount
+     * @param ?CentPrecisionMoney $amount
      * @return $this
      */
-    public function withAmount(?TypedMoney $amount)
+    public function withAmount(?CentPrecisionMoney $amount)
     {
         $this->amount = $amount;
 
@@ -106,7 +110,7 @@ final class TaxPortionBuilder implements Builder
      * @deprecated use withAmount() instead
      * @return $this
      */
-    public function withAmountBuilder(?TypedMoneyBuilder $amount)
+    public function withAmountBuilder(?CentPrecisionMoneyBuilder $amount)
     {
         $this->amount = $amount;
 
@@ -118,7 +122,7 @@ final class TaxPortionBuilder implements Builder
         return new TaxPortionModel(
             $this->name,
             $this->rate,
-            $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount
+            $this->amount instanceof CentPrecisionMoneyBuilder ? $this->amount->build() : $this->amount
         );
     }
 

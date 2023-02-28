@@ -44,6 +44,7 @@ final class MyCartUpdateActionModel extends JsonObjectModel implements MyCartUpd
        'removeLineItem' => MyCartRemoveLineItemActionModel::class,
        'removePayment' => MyCartRemovePaymentActionModel::class,
        'setBillingAddress' => MyCartSetBillingAddressActionModel::class,
+       'setBusinessUnit' => MyCartSetBusinessUnitActionModel::class,
        'setCountry' => MyCartSetCountryActionModel::class,
        'setCustomField' => MyCartSetCustomFieldActionModel::class,
        'setCustomType' => MyCartSetCustomTypeActionModel::class,

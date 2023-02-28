@@ -29,6 +29,9 @@ final class CartSetBillingAddressActionBuilder implements Builder
     private $address;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|BaseAddress
      */

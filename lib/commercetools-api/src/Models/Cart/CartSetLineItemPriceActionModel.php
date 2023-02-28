@@ -73,6 +73,8 @@ final class CartSetLineItemPriceActionModel extends JsonObjectModel implements C
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -91,8 +93,8 @@ final class CartSetLineItemPriceActionModel extends JsonObjectModel implements C
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Value to set.
+     * If <code>externalPrice</code> is not given and the <code>priceMode</code> is <code>ExternalPrice</code>, the external price is unset and the <code>priceMode</code> is set to <code>Platform</code>.</p>
      *
      *
      * @return null|Money

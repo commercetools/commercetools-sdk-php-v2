@@ -16,6 +16,8 @@ interface CartChangeTaxRoundingModeAction extends CartUpdateAction
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
 
     /**
+     * <p>New value to set.</p>
+     *
 
      * @return null|string
      */

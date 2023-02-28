@@ -83,6 +83,8 @@ final class CartSetItemShippingAddressCustomTypeActionModel extends JsonObjectMo
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> in <code>itemShippingAddress</code>.</p>
+     *
      *
      * @return null|string
      */

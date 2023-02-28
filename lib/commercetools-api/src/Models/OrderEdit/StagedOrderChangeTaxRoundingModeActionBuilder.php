@@ -29,6 +29,8 @@ final class StagedOrderChangeTaxRoundingModeActionBuilder implements Builder
     private $taxRoundingMode;
 
     /**
+     * <p>Determines how monetary values are rounded.</p>
+     *
 
      * @return null|string
      */

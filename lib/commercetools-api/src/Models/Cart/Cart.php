@@ -13,9 +13,9 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\Order\PaymentInfo;
 use Commercetools\Api\Models\Store\StoreKeyReference;
@@ -27,41 +27,41 @@ use DateTimeImmutable;
 interface Cart extends BaseResource
 {
     public const FIELD_KEY = 'key';
-    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    public const FIELD_CREATED_BY = 'createdBy';
     public const FIELD_CUSTOMER_ID = 'customerId';
     public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
     public const FIELD_LINE_ITEMS = 'lineItems';
     public const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
+    public const FIELD_TOTAL_LINE_ITEM_QUANTITY = 'totalLineItemQuantity';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_TAXED_SHIPPING_PRICE = 'taxedShippingPrice';
-    public const FIELD_CART_STATE = 'cartState';
-    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
-    public const FIELD_BILLING_ADDRESS = 'billingAddress';
-    public const FIELD_SHIPPING_MODE = 'shippingMode';
-    public const FIELD_SHIPPING = 'shipping';
-    public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
-    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    public const FIELD_COUNTRY = 'country';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
+    public const FIELD_CART_STATE = 'cartState';
+    public const FIELD_BILLING_ADDRESS = 'billingAddress';
+    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
+    public const FIELD_SHIPPING_MODE = 'shippingMode';
     public const FIELD_SHIPPING_INFO = 'shippingInfo';
-    public const FIELD_DISCOUNT_CODES = 'discountCodes';
-    public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
-    public const FIELD_CUSTOM = 'custom';
-    public const FIELD_PAYMENT_INFO = 'paymentInfo';
-    public const FIELD_LOCALE = 'locale';
-    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
-    public const FIELD_REFUSED_GIFTS = 'refusedGifts';
-    public const FIELD_ORIGIN = 'origin';
+    public const FIELD_SHIPPING = 'shipping';
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
-    public const FIELD_TOTAL_LINE_ITEM_QUANTITY = 'totalLineItemQuantity';
+    public const FIELD_DISCOUNT_CODES = 'discountCodes';
+    public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
+    public const FIELD_REFUSED_GIFTS = 'refusedGifts';
+    public const FIELD_PAYMENT_INFO = 'paymentInfo';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_ORIGIN = 'origin';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
 
     /**
      * <p>Unique identifier of the Cart.</p>
@@ -72,6 +72,14 @@ interface Cart extends BaseResource
     public function getId();
 
     /**
+     * <p>Current version of the Cart.</p>
+     *
+
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
      * <p>User-defined unique identifier of the Cart.</p>
      *
 
@@ -80,184 +88,23 @@ interface Cart extends BaseResource
     public function getKey();
 
     /**
-     * <p>The current version of the cart.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Customer">Customer</a> that the Cart belongs to.</p>
      *
-
-     * @return null|int
-     */
-    public function getVersion();
-
-    /**
-
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt();
-
-    /**
-
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt();
-
-    /**
-     * <p>Present on resources updated after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy();
-
-    /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy();
-
-    /**
 
      * @return null|string
      */
     public function getCustomerId();
 
     /**
+     * <p>Email address of the Customer that the Cart belongs to.</p>
+     *
 
      * @return null|string
      */
     public function getCustomerEmail();
 
     /**
-     * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
-     *
-
-     * @return null|string
-     */
-    public function getAnonymousId();
-
-    /**
-     * <p>The Business Unit the Cart belongs to.</p>
-     *
-
-     * @return null|BusinessUnitKeyReference
-     */
-    public function getBusinessUnit();
-
-    /**
-
-     * @return null|StoreKeyReference
-     */
-    public function getStore();
-
-    /**
-
-     * @return null|LineItemCollection
-     */
-    public function getLineItems();
-
-    /**
-
-     * @return null|CustomLineItemCollection
-     */
-    public function getCustomLineItems();
-
-    /**
-     * <p>The sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
-     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>
-     *
-
-     * @return null|TypedMoney
-     */
-    public function getTotalPrice();
-
-    /**
-     * <p>Not set until the shipping address is set.
-     * Will be set automatically in the <code>Platform</code> TaxMode.
-     * For the <code>External</code> tax mode it will be set  as soon as the external tax rates for all line items, custom line items, and shipping in the cart are set.</p>
-     *
-
-     * @return null|TaxedPrice
-     */
-    public function getTaxedPrice();
-
-    /**
-     * <p>Sum of <code>taxedPrice</code> of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.
-     * For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is set automatically only if <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a> or <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to the Cart.</p>
-     *
-
-     * @return null|TaxedPrice
-     */
-    public function getTaxedShippingPrice();
-
-    /**
-
-     * @return null|string
-     */
-    public function getCartState();
-
-    /**
-     * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>
-     *
-
-     * @return null|Address
-     */
-    public function getShippingAddress();
-
-    /**
-
-     * @return null|Address
-     */
-    public function getBillingAddress();
-
-    /**
-     * <p>Indicates whether one or multiple Shipping Methods are added to the Cart.</p>
-     *
-
-     * @return null|string
-     */
-    public function getShippingMode();
-
-    /**
-     * <p>Holds all shipping-related information per Shipping Method of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     * <p>It is automatically updated after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
-     *
-
-     * @return null|ShippingCollection
-     */
-    public function getShipping();
-
-    /**
-
-     * @return null|string
-     */
-    public function getInventoryMode();
-
-    /**
-
-     * @return null|string
-     */
-    public function getTaxMode();
-
-    /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>
-     *
-
-     * @return null|string
-     */
-    public function getTaxRoundingMode();
-
-    /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with <code>LineItemLevel</code> (horizontally) or <code>UnitPriceLevel</code> (vertically) calculation mode.</p>
-     *
-
-     * @return null|string
-     */
-    public function getTaxCalculationMode();
-
-    /**
-     * <p>Set automatically when the customer is set and the customer is a member of a customer group.
-     * Used for product variant
-     * price selection.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Cart belongs to. Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
      *
 
      * @return null|CustomerGroupReference
@@ -265,99 +112,47 @@ interface Cart extends BaseResource
     public function getCustomerGroup();
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
-     * Used for product variant price selection.</p>
+     * <p><a href="ctp:api:type:AnonymousSession">Anonymous session</a> associated with the Cart.</p>
      *
 
      * @return null|string
      */
-    public function getCountry();
+    public function getAnonymousId();
 
     /**
-     * <p>Shipping-related information of a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
-     * Set automatically once the ShippingMethod is set.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to.</p>
      *
 
-     * @return null|ShippingInfo
+     * @return null|BusinessUnitKeyReference
      */
-    public function getShippingInfo();
+    public function getBusinessUnit();
 
     /**
-
-     * @return null|DiscountCodeInfoCollection
-     */
-    public function getDiscountCodes();
-
-    /**
-
-     * @return null|DirectDiscountCollection
-     */
-    public function getDirectDiscounts();
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getCustom();
-
-    /**
-
-     * @return null|PaymentInfo
-     */
-    public function getPaymentInfo();
-
-    /**
-
-     * @return null|string
-     */
-    public function getLocale();
-
-    /**
-     * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Store the Cart belongs to.</p>
      *
 
-     * @return null|int
+     * @return null|StoreKeyReference
      */
-    public function getDeleteDaysAfterLastModification();
+    public function getStore();
 
     /**
-     * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from the cart.</p>
+     * <p><a href="ctp:api:type:LineItems">Line Items</a> added to the Cart.</p>
      *
 
-     * @return null|CartDiscountReferenceCollection
+     * @return null|LineItemCollection
      */
-    public function getRefusedGifts();
+    public function getLineItems();
 
     /**
-     * <p>The origin field indicates how this cart was created.
-     * The value <code>Customer</code> indicates, that the cart was created by the customer.</p>
+     * <p><a href="ctp:api:type:CustomLineItems">Custom Line Items</a> added to the Cart.</p>
      *
 
-     * @return null|string
+     * @return null|CustomLineItemCollection
      */
-    public function getOrigin();
+    public function getCustomLineItems();
 
     /**
-     * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
-     *
-
-     * @return null|ShippingRateInput
-     */
-    public function getShippingRateInput();
-
-    /**
-     * <p>Contains addresses for carts with multiple shipping addresses.
-     * Line items reference these addresses under their <code>shippingDetails</code>.
-     * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
-     * Only the cart's <code>shippingAddress</code> is used for this.</p>
-     *
-
-     * @return null|AddressCollection
-     */
-    public function getItemShippingAddresses();
-
-    /**
-     * <p>The sum off all the <a href="ctp:api:type:LineItem">Line Items</a> quantities. Does not take <a href="ctp:api:type:CustomLineItem">Custom Line Items</a> into consideration.</p>
+     * <p>Sum of all <a href="ctp:api:type:LineItem">LineItem</a> quantities, excluding <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>. Only present when the Cart has at least one LineItem.</p>
      *
 
      * @return null|int
@@ -365,14 +160,244 @@ interface Cart extends BaseResource
     public function getTotalLineItemQuantity();
 
     /**
+     * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.</p>
+     * <p>Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
+     *
+
+     * @return null|CentPrecisionMoney
+     */
+    public function getTotalPrice();
+
+    /**
+     * <ul>
+     * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a>.</li>
+     * <li>For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when the external Tax Rate for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
+     * </ul>
+     *
+
+     * @return null|TaxedPrice
+     */
+    public function getTaxedPrice();
+
+    /**
+     * <p>Sum of the <code>taxedPrice</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.</p>
+     *
+
+     * @return null|TaxedPrice
+     */
+    public function getTaxedShippingPrice();
+
+    /**
+     * <p>Indicates how Tax Rates are set.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxMode();
+
+    /**
+     * <p>Indicates how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingMode();
+
+    /**
+     * <p>Indicates how taxes are calculated when calculating taxes for <code>taxedPrice</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxCalculationMode();
+
+    /**
+     * <p>Indicates how stock quantities are tracked for Line Items in the Cart.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode();
+
+    /**
+     * <p>Current status of the Cart.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCartState();
+
+    /**
+     * <p>Billing address associated with the Cart.</p>
+     *
+
+     * @return null|Address
+     */
+    public function getBillingAddress();
+
+    /**
+     * <p>Shipping address associated with the Cart. Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates and Tax Rates of Line Items.</p>
+     *
+
+     * @return null|Address
+     */
+    public function getShippingAddress();
+
+    /**
+     * <p>Indicates whether the Cart has one or multiple Shipping Methods.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode();
+
+    /**
+     * <p>Shipping-related information of a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Automatically set when a <a href="ctp:api:type:CartSetShippingMethodAction">Shipping Method is set</a>.</p>
+     *
+
+     * @return null|ShippingInfo
+     */
+    public function getShippingInfo();
+
+    /**
+     * <p>Shipping-related information of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Updated automatically each time a new <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+
+     * @return null|ShippingCollection
+     */
+    public function getShipping();
+
+    /**
+     * <p>Input used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.
+     * The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="ctp:api:type:Project">Project</a>:</p>
+     * <ul>
+     * <li>If <code>CartClassification</code>, it is <a href="ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a>.</li>
+     * <li>If <code>CartScore</code>, it is <a href="ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a>.</li>
+     * <li>If <code>CartValue</code>, it cannot be used.</li>
+     * </ul>
+     *
+
+     * @return null|ShippingRateInput
+     */
+    public function getShippingRateInput();
+
+    /**
+     * <p>Additional shipping addresses of the Cart as specified by <a href="ctp:api:type:LineItem">LineItems</a> using the <code>shippingDetails</code> field.</p>
+     * <p>Eligible Shipping Methods or applicable Tax Rates are determined by the address in <code>shippingAddress</code>, and not <code>itemShippingAddresses</code>.</p>
+     *
+
+     * @return null|AddressCollection
+     */
+    public function getItemShippingAddresses();
+
+    /**
+     * <p>Discount Codes applied to the Cart. A Cart that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
+     *
+
+     * @return null|DiscountCodeInfoCollection
+     */
+    public function getDiscountCodes();
+
+    /**
+     * <p>Direct Discounts added to the Cart. A Cart that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
+     *
+
+     * @return null|DirectDiscountCollection
+     */
+    public function getDirectDiscounts();
+
+    /**
+     * <p>Automatically set when a Line Item with <code>GiftLineItem</code> <a href="ctp:api:type:LineItemMode">LineItemMode</a> is <a href="ctp:api:type:CartRemoveLineItemAction">removed</a> from the Cart.</p>
+     *
+
+     * @return null|CartDiscountReferenceCollection
+     */
+    public function getRefusedGifts();
+
+    /**
+     * <p>Payment information related to the Cart.</p>
+     *
+
+     * @return null|PaymentInfo
+     */
+    public function getPaymentInfo();
+
+    /**
+     * <p>Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCountry();
+
+    /**
+     * <p>Languages of the Cart. Can only contain languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLocale();
+
+    /**
+     * <p>Indicates how the Cart was created.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOrigin();
+
+    /**
+     * <p>Custom Fields of the Cart.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
+     * <p>Number of days after which an active Cart is deleted since its last modification. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification();
+
+    /**
+     * <p>Date and time (UTC) the Cart was initially created.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * <p>Date and time (UTC) the Cart was last updated.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
-
-    /**
-     * @param ?string $key
-     */
-    public function setKey(?string $key): void;
 
     /**
      * @param ?int $version
@@ -380,24 +405,9 @@ interface Cart extends BaseResource
     public function setVersion(?int $version): void;
 
     /**
-     * @param ?DateTimeImmutable $createdAt
+     * @param ?string $key
      */
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
-
-    /**
-     * @param ?DateTimeImmutable $lastModifiedAt
-     */
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
-
-    /**
-     * @param ?LastModifiedBy $lastModifiedBy
-     */
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
-
-    /**
-     * @param ?CreatedBy $createdBy
-     */
-    public function setCreatedBy(?CreatedBy $createdBy): void;
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $customerId
@@ -408,6 +418,11 @@ interface Cart extends BaseResource
      * @param ?string $customerEmail
      */
     public function setCustomerEmail(?string $customerEmail): void;
+
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
+    public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
 
     /**
      * @param ?string $anonymousId
@@ -435,9 +450,14 @@ interface Cart extends BaseResource
     public function setCustomLineItems(?CustomLineItemCollection $customLineItems): void;
 
     /**
-     * @param ?TypedMoney $totalPrice
+     * @param ?int $totalLineItemQuantity
      */
-    public function setTotalPrice(?TypedMoney $totalPrice): void;
+    public function setTotalLineItemQuantity(?int $totalLineItemQuantity): void;
+
+    /**
+     * @param ?CentPrecisionMoney $totalPrice
+     */
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void;
 
     /**
      * @param ?TaxedPrice $taxedPrice
@@ -448,36 +468,6 @@ interface Cart extends BaseResource
      * @param ?TaxedPrice $taxedShippingPrice
      */
     public function setTaxedShippingPrice(?TaxedPrice $taxedShippingPrice): void;
-
-    /**
-     * @param ?string $cartState
-     */
-    public function setCartState(?string $cartState): void;
-
-    /**
-     * @param ?Address $shippingAddress
-     */
-    public function setShippingAddress(?Address $shippingAddress): void;
-
-    /**
-     * @param ?Address $billingAddress
-     */
-    public function setBillingAddress(?Address $billingAddress): void;
-
-    /**
-     * @param ?string $shippingMode
-     */
-    public function setShippingMode(?string $shippingMode): void;
-
-    /**
-     * @param ?ShippingCollection $shipping
-     */
-    public function setShipping(?ShippingCollection $shipping): void;
-
-    /**
-     * @param ?string $inventoryMode
-     */
-    public function setInventoryMode(?string $inventoryMode): void;
 
     /**
      * @param ?string $taxMode
@@ -495,14 +485,29 @@ interface Cart extends BaseResource
     public function setTaxCalculationMode(?string $taxCalculationMode): void;
 
     /**
-     * @param ?CustomerGroupReference $customerGroup
+     * @param ?string $inventoryMode
      */
-    public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
+    public function setInventoryMode(?string $inventoryMode): void;
 
     /**
-     * @param ?string $country
+     * @param ?string $cartState
      */
-    public function setCountry(?string $country): void;
+    public function setCartState(?string $cartState): void;
+
+    /**
+     * @param ?Address $billingAddress
+     */
+    public function setBillingAddress(?Address $billingAddress): void;
+
+    /**
+     * @param ?Address $shippingAddress
+     */
+    public function setShippingAddress(?Address $shippingAddress): void;
+
+    /**
+     * @param ?string $shippingMode
+     */
+    public function setShippingMode(?string $shippingMode): void;
 
     /**
      * @param ?ShippingInfo $shippingInfo
@@ -510,44 +515,9 @@ interface Cart extends BaseResource
     public function setShippingInfo(?ShippingInfo $shippingInfo): void;
 
     /**
-     * @param ?DiscountCodeInfoCollection $discountCodes
+     * @param ?ShippingCollection $shipping
      */
-    public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void;
-
-    /**
-     * @param ?DirectDiscountCollection $directDiscounts
-     */
-    public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void;
-
-    /**
-     * @param ?CustomFields $custom
-     */
-    public function setCustom(?CustomFields $custom): void;
-
-    /**
-     * @param ?PaymentInfo $paymentInfo
-     */
-    public function setPaymentInfo(?PaymentInfo $paymentInfo): void;
-
-    /**
-     * @param ?string $locale
-     */
-    public function setLocale(?string $locale): void;
-
-    /**
-     * @param ?int $deleteDaysAfterLastModification
-     */
-    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
-
-    /**
-     * @param ?CartDiscountReferenceCollection $refusedGifts
-     */
-    public function setRefusedGifts(?CartDiscountReferenceCollection $refusedGifts): void;
-
-    /**
-     * @param ?string $origin
-     */
-    public function setOrigin(?string $origin): void;
+    public function setShipping(?ShippingCollection $shipping): void;
 
     /**
      * @param ?ShippingRateInput $shippingRateInput
@@ -560,7 +530,67 @@ interface Cart extends BaseResource
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 
     /**
-     * @param ?int $totalLineItemQuantity
+     * @param ?DiscountCodeInfoCollection $discountCodes
      */
-    public function setTotalLineItemQuantity(?int $totalLineItemQuantity): void;
+    public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void;
+
+    /**
+     * @param ?DirectDiscountCollection $directDiscounts
+     */
+    public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void;
+
+    /**
+     * @param ?CartDiscountReferenceCollection $refusedGifts
+     */
+    public function setRefusedGifts(?CartDiscountReferenceCollection $refusedGifts): void;
+
+    /**
+     * @param ?PaymentInfo $paymentInfo
+     */
+    public function setPaymentInfo(?PaymentInfo $paymentInfo): void;
+
+    /**
+     * @param ?string $country
+     */
+    public function setCountry(?string $country): void;
+
+    /**
+     * @param ?string $locale
+     */
+    public function setLocale(?string $locale): void;
+
+    /**
+     * @param ?string $origin
+     */
+    public function setOrigin(?string $origin): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
+    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
+
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
+
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
+
+    /**
+     * @param ?CreatedBy $createdBy
+     */
+    public function setCreatedBy(?CreatedBy $createdBy): void;
 }

@@ -71,6 +71,8 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,9 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Value to set.
+     * If <code>externalTotalPrice</code> is not given and the <code>priceMode</code> is <code>ExternalTotal</code>, the external price is unset and the <code>priceMode</code> is set to <code>Platform</code>.</p>
+     *
      *
      * @return null|ExternalLineItemTotalPrice
      */

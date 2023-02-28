@@ -46,7 +46,7 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
     }
 
     /**
-     * <p>The total gross amount of the item (totalNet + taxes).</p>
+     * <p>Total gross amount (<code>totalNet</code> + <code>taxPortions</code>) of the Line Item or Custom Line Item.</p>
      *
      *
      * @return null|Money
@@ -67,6 +67,8 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
     }
 
     /**
+     * <p>Tax Rates and subrates of states and countries.</p>
+     *
      *
      * @return null|ExternalTaxRateDraft
      */

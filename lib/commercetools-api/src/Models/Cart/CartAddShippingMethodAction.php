@@ -9,8 +9,9 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\BaseAddress;
-use Commercetools\Api\Models\Order\DeliveryCollection;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
+use Commercetools\Api\Models\Order\DeliveryDraftCollection;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -25,7 +26,7 @@ interface CartAddShippingMethodAction extends CartUpdateAction
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined identifier for the <a href="ctp:api:type:Shipping">Shipping</a> that must be unique across the Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|string
@@ -33,11 +34,11 @@ interface CartAddShippingMethodAction extends CartUpdateAction
     public function getShippingKey();
 
     /**
-     * <p>Value to set.
-     * If empty, any existing value is removed.</p>
+     * <p>RecourceIdentifier to a <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> to add to the Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * If the referenced Shipping Method has a predicate that does not match the Cart, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
-     * @return null|ShippingMethodReference
+     * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod();
 
@@ -50,12 +51,13 @@ interface CartAddShippingMethodAction extends CartUpdateAction
     public function getShippingAddress();
 
     /**
-     * <p>Used as an input to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+     * <p>Input used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.
+     * The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="ctp:api:type:Project">Project</a>:</p>
      * <ul>
-     * <li>Must be <a href="ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartClassificationType">CartClassificationType</a>.</li>
-     * <li>Must be <a href="ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartScoreType">CartScoreType</a>.</li>
+     * <li>If <code>CartClassification</code>, it must be <a href="ctp:api:type:ClassificationShippingRateInputDraft">ClassificationShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartScore</code>, it must be <a href="ctp:api:type:ScoreShippingRateInputDraft">ScoreShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartValue</code>, it cannot be set.</li>
      * </ul>
-     * <p>The <code>shippingRateInput</code> cannot be set on the Cart if <a href="ctp:api:type:CartValueType">CartValueType</a> is defined.</p>
      *
 
      * @return null|ShippingRateInputDraft
@@ -63,19 +65,18 @@ interface CartAddShippingMethodAction extends CartUpdateAction
     public function getShippingRateInput();
 
     /**
-     * <p>Tax Rate used to tax a shipping expense if a Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>Tax Rate used to tax a shipping expense if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
 
-     * @return null|string
+     * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
 
     /**
-     * <p>Deliveries tied to a Shipping Method in a multi-shipping method Cart.
-     * It holds information on how items are delivered to customers.</p>
+     * <p>Deliveries to be shipped with the referenced Shipping Method.</p>
      *
 
-     * @return null|DeliveryCollection
+     * @return null|DeliveryDraftCollection
      */
     public function getDeliveries();
 
@@ -83,7 +84,7 @@ interface CartAddShippingMethodAction extends CartUpdateAction
      * <p>Custom Fields for the Shipping Method.</p>
      *
 
-     * @return null|string
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
@@ -93,9 +94,9 @@ interface CartAddShippingMethodAction extends CartUpdateAction
     public function setShippingKey(?string $shippingKey): void;
 
     /**
-     * @param ?ShippingMethodReference $shippingMethod
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
      */
-    public function setShippingMethod(?ShippingMethodReference $shippingMethod): void;
+    public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
 
     /**
      * @param ?BaseAddress $shippingAddress
@@ -108,17 +109,17 @@ interface CartAddShippingMethodAction extends CartUpdateAction
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void;
 
     /**
-     * @param ?string $externalTaxRate
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      */
-    public function setExternalTaxRate(?string $externalTaxRate): void;
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 
     /**
-     * @param ?DeliveryCollection $deliveries
+     * @param ?DeliveryDraftCollection $deliveries
      */
-    public function setDeliveries(?DeliveryCollection $deliveries): void;
+    public function setDeliveries(?DeliveryDraftCollection $deliveries): void;
 
     /**
-     * @param ?string $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?string $custom): void;
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

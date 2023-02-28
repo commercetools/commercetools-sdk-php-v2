@@ -16,6 +16,9 @@ interface CartSetKeyAction extends CartUpdateAction
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing key will be removed.</p>
+     *
 
      * @return null|string
      */
