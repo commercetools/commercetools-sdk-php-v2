@@ -167,6 +167,12 @@ final class CustomerImportBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var ?string
+     */
+    private $authenticationMode;
+
+    /**
      * <p>User-defined unique identifier.</p>
      *
 
@@ -410,7 +416,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields for this Customer.</p>
+     * <p>The Custom Fields for this Customer.</p>
      *
 
      * @return null|Custom
@@ -418,6 +424,20 @@ final class CustomerImportBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <ul>
+     * <li>Set to <code>Password</code> to make the <code>password</code> field required for the Customer.</li>
+     * <li>Set to <code>ExternalAuth</code> when the password is not required for the Customer.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        return $this->authenticationMode;
     }
 
     /**
@@ -674,6 +694,17 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $authenticationMode
+     * @return $this
+     */
+    public function withAuthenticationMode(?string $authenticationMode)
+    {
+        $this->authenticationMode = $authenticationMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomerGroup() instead
      * @return $this
      */
@@ -720,7 +751,8 @@ final class CustomerImportBuilder implements Builder
             $this->defaultShippingAddress,
             $this->shippingAddresses,
             $this->locale,
-            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom,
+            $this->authenticationMode
         );
     }
 

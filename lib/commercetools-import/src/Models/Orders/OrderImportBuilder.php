@@ -20,6 +20,8 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\StateKeyReference;
+use Commercetools\Import\Models\Common\StateKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\StoreKeyReference;
 use Commercetools\Import\Models\Common\StoreKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\TypedMoney;
@@ -171,6 +173,12 @@ final class OrderImportBuilder implements Builder
      * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
+
+    /**
+
+     * @var null|StateKeyReference|StateKeyReferenceBuilder
+     */
+    private $state;
 
     /**
      * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order. It should be unique across a project. Once it's set it cannot be changed.</p>
@@ -421,6 +429,17 @@ final class OrderImportBuilder implements Builder
     public function getStore()
     {
         return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
+    }
+
+    /**
+     * <p>Reference to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateKeyReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state;
     }
 
     /**
@@ -677,6 +696,17 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @param ?StateKeyReference $state
+     * @return $this
+     */
+    public function withState(?StateKeyReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomer() instead
      * @return $this
      */
@@ -775,6 +805,17 @@ final class OrderImportBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateKeyReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
     public function build(): OrderImport
     {
         return new OrderImportModel(
@@ -800,7 +841,8 @@ final class OrderImportBuilder implements Builder
             $this->taxCalculationMode,
             $this->origin,
             $this->itemShippingAddresses,
-            $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store
+            $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
+            $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

@@ -22,17 +22,17 @@ interface LineItemDraft extends JsonObject
     public const FIELD_SKU = 'sku';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_ADDED_AT = 'addedAt';
-    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
-    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
+    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><code>id</code> of a published <a href="ctp:api:type:Product">Product</a>.</p>
      *
 
      * @return null|string
@@ -57,7 +57,7 @@ interface LineItemDraft extends JsonObject
     public function getSku();
 
     /**
-     * <p>Number of Product Variants to add to the Cart.</p>
+     * <p>Quantity of the Product Variant to add to the Cart.</p>
      *
 
      * @return null|int
@@ -75,15 +75,6 @@ interface LineItemDraft extends JsonObject
     public function getAddedAt();
 
     /**
-     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
-     * The referenced Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
-     *
-
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel();
-
-    /**
      * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
      * The referenced Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      * <p>If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set,
@@ -95,12 +86,13 @@ interface LineItemDraft extends JsonObject
     public function getDistributionChannel();
 
     /**
-     * <p>External Tax Rate for the Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The referenced Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
-     * @return null|ExternalTaxRateDraft
+     * @return null|ChannelResourceIdentifier
      */
-    public function getExternalTaxRate();
+    public function getSupplyChannel();
 
     /**
      * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> value, and the <code>priceMode</code> to <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
@@ -117,6 +109,14 @@ interface LineItemDraft extends JsonObject
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice();
+
+    /**
+     * <p>External Tax Rate for the Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate();
 
     /**
      * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
@@ -169,19 +169,14 @@ interface LineItemDraft extends JsonObject
     public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
     /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
-     */
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
-
-    /**
      * @param ?ChannelResourceIdentifier $distributionChannel
      */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
 
     /**
-     * @param ?ExternalTaxRateDraft $externalTaxRate
+     * @param ?ChannelResourceIdentifier $supplyChannel
      */
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 
     /**
      * @param ?Money $externalPrice
@@ -192,6 +187,11 @@ interface LineItemDraft extends JsonObject
      * @param ?ExternalLineItemTotalPrice $externalTotalPrice
      */
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void;
+
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 
     /**
      * @param ?string $inventoryMode

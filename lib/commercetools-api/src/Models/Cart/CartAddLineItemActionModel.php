@@ -18,6 +18,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -58,6 +59,12 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
 
     /**
      *
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
+
+    /**
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -88,6 +95,12 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
 
     /**
      *
+     * @var ?string
+     */
+    protected $inventoryMode;
+
+    /**
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -107,11 +120,13 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         ?int $variantId = null,
         ?string $sku = null,
         ?int $quantity = null,
+        ?DateTimeImmutable $addedAt = null,
         ?ChannelResourceIdentifier $distributionChannel = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?string $inventoryMode = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
         ?CustomFieldsDraft $custom = null,
         ?string $action = null
@@ -120,11 +135,13 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->quantity = $quantity;
+        $this->addedAt = $addedAt;
         $this->distributionChannel = $distributionChannel;
         $this->supplyChannel = $supplyChannel;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
         $this->externalTaxRate = $externalTaxRate;
+        $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
         $this->custom = $custom;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
@@ -149,7 +166,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
-     * <p>ID of an existing <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><code>id</code> of the published <a href="ctp:api:type:Product">Product</a>.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
      *
@@ -170,8 +187,8 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
-     * <p>ID of an existing <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.</p>
-     * <p>If not given, the Master Variant is used.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
      *
@@ -192,7 +209,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
-     * <p>SKU of an existing <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
      *
@@ -213,7 +230,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
-     * <p>Number of Line Items to add to the Cart.</p>
+     * <p>Quantity of the Product Variant to add to the Cart.</p>
      *
      *
      * @return null|int
@@ -230,6 +247,32 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         }
 
         return $this->quantity;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
+     *
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        if (is_null($this->addedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->addedAt = $data;
+        }
+
+        return $this->addedAt;
     }
 
     /**
@@ -341,6 +384,27 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
+     * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Set only if the inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
+    }
+
+    /**
      * <p>Container for Line Item-specific addresses.</p>
      *
      *
@@ -416,6 +480,14 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    {
+        $this->addedAt = $addedAt;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifier $distributionChannel
      */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
@@ -456,6 +528,14 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void
+    {
+        $this->inventoryMode = $inventoryMode;
+    }
+
+    /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
@@ -469,5 +549,16 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[CartAddLineItemAction::FIELD_ADDED_AT]) && $data[CartAddLineItemAction::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
+            $data[CartAddLineItemAction::FIELD_ADDED_AT] = $data[CartAddLineItemAction::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
     }
 }

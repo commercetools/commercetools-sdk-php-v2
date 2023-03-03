@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use DateTimeImmutable;
 
 interface CartAddLineItemAction extends CartUpdateAction
 {
@@ -20,16 +21,18 @@ interface CartAddLineItemAction extends CartUpdateAction
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_SKU = 'sku';
     public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>ID of an existing <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><code>id</code> of the published <a href="ctp:api:type:Product">Product</a>.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
 
@@ -38,8 +41,8 @@ interface CartAddLineItemAction extends CartUpdateAction
     public function getProductId();
 
     /**
-     * <p>ID of an existing <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.</p>
-     * <p>If not given, the Master Variant is used.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
 
@@ -48,7 +51,7 @@ interface CartAddLineItemAction extends CartUpdateAction
     public function getVariantId();
 
     /**
-     * <p>SKU of an existing <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
 
@@ -57,12 +60,22 @@ interface CartAddLineItemAction extends CartUpdateAction
     public function getSku();
 
     /**
-     * <p>Number of Line Items to add to the Cart.</p>
+     * <p>Quantity of the Product Variant to add to the Cart.</p>
      *
 
      * @return null|int
      */
     public function getQuantity();
+
+    /**
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt();
 
     /**
      * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
@@ -108,6 +121,15 @@ interface CartAddLineItemAction extends CartUpdateAction
     public function getExternalTaxRate();
 
     /**
+     * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Set only if the inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode();
+
+    /**
      * <p>Container for Line Item-specific addresses.</p>
      *
 
@@ -144,6 +166,11 @@ interface CartAddLineItemAction extends CartUpdateAction
     public function setQuantity(?int $quantity): void;
 
     /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void;
+
+    /**
      * @param ?ChannelResourceIdentifier $distributionChannel
      */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
@@ -167,6 +194,11 @@ interface CartAddLineItemAction extends CartUpdateAction
      * @param ?ExternalTaxRateDraft $externalTaxRate
      */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void;
 
     /**
      * @param ?ItemShippingDetailsDraft $shippingDetails

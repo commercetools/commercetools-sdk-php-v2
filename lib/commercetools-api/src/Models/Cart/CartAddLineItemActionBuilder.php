@@ -19,6 +19,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -52,6 +53,12 @@ final class CartAddLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?DateTimeImmutable
+     */
+    private $addedAt;
+
+    /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
@@ -82,6 +89,12 @@ final class CartAddLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $inventoryMode;
+
+    /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
@@ -93,7 +106,7 @@ final class CartAddLineItemActionBuilder implements Builder
     private $custom;
 
     /**
-     * <p>ID of an existing <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><code>id</code> of the published <a href="ctp:api:type:Product">Product</a>.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
 
@@ -105,8 +118,8 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>ID of an existing <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.</p>
-     * <p>If not given, the Master Variant is used.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
 
@@ -118,7 +131,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>SKU of an existing <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
 
@@ -130,7 +143,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>Number of Line Items to add to the Cart.</p>
+     * <p>Quantity of the Product Variant to add to the Cart.</p>
      *
 
      * @return null|int
@@ -138,6 +151,19 @@ final class CartAddLineItemActionBuilder implements Builder
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        return $this->addedAt;
     }
 
     /**
@@ -196,6 +222,18 @@ final class CartAddLineItemActionBuilder implements Builder
     public function getExternalTaxRate()
     {
         return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+    }
+
+    /**
+     * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Set only if the inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
     }
 
     /**
@@ -265,6 +303,17 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
+     * @return $this
+     */
+    public function withAddedAt(?DateTimeImmutable $addedAt)
+    {
+        $this->addedAt = $addedAt;
+
+        return $this;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifier $distributionChannel
      * @return $this
      */
@@ -315,6 +364,17 @@ final class CartAddLineItemActionBuilder implements Builder
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     * @return $this
+     */
+    public function withInventoryMode(?string $inventoryMode)
+    {
+        $this->inventoryMode = $inventoryMode;
 
         return $this;
     }
@@ -425,11 +485,13 @@ final class CartAddLineItemActionBuilder implements Builder
             $this->variantId,
             $this->sku,
             $this->quantity,
+            $this->addedAt,
             $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
             $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
+            $this->inventoryMode,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );

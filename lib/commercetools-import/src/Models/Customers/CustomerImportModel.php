@@ -165,6 +165,12 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $authenticationMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -192,7 +198,8 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
         ?int $defaultShippingAddress = null,
         ?array $shippingAddresses = null,
         ?string $locale = null,
-        ?Custom $custom = null
+        ?Custom $custom = null,
+        ?string $authenticationMode = null
     ) {
         $this->key = $key;
         $this->customerNumber = $customerNumber;
@@ -217,6 +224,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
         $this->shippingAddresses = $shippingAddresses;
         $this->locale = $locale;
         $this->custom = $custom;
+        $this->authenticationMode = $authenticationMode;
     }
 
     /**
@@ -666,7 +674,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     }
 
     /**
-     * <p>The custom fields for this Customer.</p>
+     * <p>The Custom Fields for this Customer.</p>
      *
      *
      * @return null|Custom
@@ -684,6 +692,29 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
         }
 
         return $this->custom;
+    }
+
+    /**
+     * <ul>
+     * <li>Set to <code>Password</code> to make the <code>password</code> field required for the Customer.</li>
+     * <li>Set to <code>ExternalAuth</code> when the password is not required for the Customer.</li>
+     * </ul>
+     *
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        if (is_null($this->authenticationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_AUTHENTICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authenticationMode = (string) $data;
+        }
+
+        return $this->authenticationMode;
     }
 
 
@@ -869,6 +900,14 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     public function setCustom(?Custom $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void
+    {
+        $this->authenticationMode = $authenticationMode;
     }
 
 

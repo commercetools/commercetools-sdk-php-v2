@@ -8,16 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
-use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceBuilder;
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraftBuilder;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftBuilder;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierBuilder;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -59,6 +53,12 @@ final class MyCartAddLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?DateTimeImmutable
+     */
+    private $addedAt;
+
+    /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
@@ -71,33 +71,9 @@ final class MyCartAddLineItemActionBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
-     */
-    private $externalPrice;
-
-    /**
-
-     * @var null|ExternalLineItemTotalPrice|ExternalLineItemTotalPriceBuilder
-     */
-    private $externalTotalPrice;
-
-    /**
-
-     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
-     */
-    private $externalTaxRate;
-
-    /**
-
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
-
-    /**
-
-     * @var ?DateTimeImmutable
-     */
-    private $addedAt;
 
     /**
 
@@ -154,6 +130,19 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Line Item was added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        return $this->addedAt;
+    }
+
+    /**
      * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
      * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.
      * If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
@@ -179,39 +168,6 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> value, and the <code>priceMode</code> to <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
-     *
-
-     * @return null|Money
-     */
-    public function getExternalPrice()
-    {
-        return $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice;
-    }
-
-    /**
-     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> values, and the <code>priceMode</code> to <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
-     *
-
-     * @return null|ExternalLineItemTotalPrice
-     */
-    public function getExternalTotalPrice()
-    {
-        return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
-    }
-
-    /**
-     * <p>External Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
-     *
-
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
-    }
-
-    /**
      * <p>Container for Line Item-specific addresses.</p>
      *
 
@@ -220,19 +176,6 @@ final class MyCartAddLineItemActionBuilder implements Builder
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
-    }
-
-    /**
-     * <p>Date and time (UTC) the Line Item was added to the Cart.
-     * If not set, it defaults to the current date and time.</p>
-     * <p>Optional for backwards compatibility reasons.</p>
-     *
-
-     * @return null|DateTimeImmutable
-     */
-    public function getAddedAt()
-    {
-        return $this->addedAt;
     }
 
     /**
@@ -291,6 +234,17 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
+     * @return $this
+     */
+    public function withAddedAt(?DateTimeImmutable $addedAt)
+    {
+        $this->addedAt = $addedAt;
+
+        return $this;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifier $distributionChannel
      * @return $this
      */
@@ -313,56 +267,12 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * @param ?Money $externalPrice
-     * @return $this
-     */
-    public function withExternalPrice(?Money $externalPrice)
-    {
-        $this->externalPrice = $externalPrice;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
-     * @return $this
-     */
-    public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
-    {
-        $this->externalTotalPrice = $externalTotalPrice;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ExternalTaxRateDraft $externalTaxRate
-     * @return $this
-     */
-    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
-    {
-        $this->externalTaxRate = $externalTaxRate;
-
-        return $this;
-    }
-
-    /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
-
-        return $this;
-    }
-
-    /**
-     * @param ?DateTimeImmutable $addedAt
-     * @return $this
-     */
-    public function withAddedAt(?DateTimeImmutable $addedAt)
-    {
-        $this->addedAt = $addedAt;
 
         return $this;
     }
@@ -401,39 +311,6 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * @deprecated use withExternalPrice() instead
-     * @return $this
-     */
-    public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)
-    {
-        $this->externalPrice = $externalPrice;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withExternalTotalPrice() instead
-     * @return $this
-     */
-    public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
-    {
-        $this->externalTotalPrice = $externalTotalPrice;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withExternalTaxRate() instead
-     * @return $this
-     */
-    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
-    {
-        $this->externalTaxRate = $externalTaxRate;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withShippingDetails() instead
      * @return $this
      */
@@ -462,13 +339,10 @@ final class MyCartAddLineItemActionBuilder implements Builder
             $this->variantId,
             $this->sku,
             $this->quantity,
+            $this->addedAt,
             $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
-            $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
-            $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,
-            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
-            $this->addedAt,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }

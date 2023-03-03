@@ -61,19 +61,13 @@ final class LineItemDraftBuilder implements Builder
 
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
-    private $supplyChannel;
+    private $distributionChannel;
 
     /**
 
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
-    private $distributionChannel;
-
-    /**
-
-     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
-     */
-    private $externalTaxRate;
+    private $supplyChannel;
 
     /**
 
@@ -86,6 +80,12 @@ final class LineItemDraftBuilder implements Builder
      * @var null|ExternalLineItemTotalPrice|ExternalLineItemTotalPriceBuilder
      */
     private $externalTotalPrice;
+
+    /**
+
+     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
+     */
+    private $externalTaxRate;
 
     /**
 
@@ -106,7 +106,7 @@ final class LineItemDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><code>id</code> of a published <a href="ctp:api:type:Product">Product</a>.</p>
      *
 
      * @return null|string
@@ -140,7 +140,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Number of Product Variants to add to the Cart.</p>
+     * <p>Quantity of the Product Variant to add to the Cart.</p>
      *
 
      * @return null|int
@@ -164,18 +164,6 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
-     * The referenced Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
-     *
-
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel()
-    {
-        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
-    }
-
-    /**
      * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
      * The referenced Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      * <p>If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set,
@@ -190,14 +178,15 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>External Tax Rate for the Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The referenced Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
-     * @return null|ExternalTaxRateDraft
+     * @return null|ChannelResourceIdentifier
      */
-    public function getExternalTaxRate()
+    public function getSupplyChannel()
     {
-        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
 
     /**
@@ -220,6 +209,17 @@ final class LineItemDraftBuilder implements Builder
     public function getExternalTotalPrice()
     {
         return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
+    }
+
+    /**
+     * <p>External Tax Rate for the Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
+    {
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
     }
 
     /**
@@ -312,17 +312,6 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
-     * @return $this
-     */
-    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
-    {
-        $this->supplyChannel = $supplyChannel;
-
-        return $this;
-    }
-
-    /**
      * @param ?ChannelResourceIdentifier $distributionChannel
      * @return $this
      */
@@ -334,12 +323,12 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * @param ?ExternalTaxRateDraft $externalTaxRate
+     * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
-    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
     {
-        $this->externalTaxRate = $externalTaxRate;
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -362,6 +351,17 @@ final class LineItemDraftBuilder implements Builder
     public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
     {
         $this->externalTotalPrice = $externalTotalPrice;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     * @return $this
+     */
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
+    {
+        $this->externalTaxRate = $externalTaxRate;
 
         return $this;
     }
@@ -400,17 +400,6 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withSupplyChannel() instead
-     * @return $this
-     */
-    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
-    {
-        $this->supplyChannel = $supplyChannel;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withDistributionChannel() instead
      * @return $this
      */
@@ -422,12 +411,12 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withExternalTaxRate() instead
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
-    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
-        $this->externalTaxRate = $externalTaxRate;
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -450,6 +439,17 @@ final class LineItemDraftBuilder implements Builder
     public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
     {
         $this->externalTotalPrice = $externalTotalPrice;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withExternalTaxRate() instead
+     * @return $this
+     */
+    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    {
+        $this->externalTaxRate = $externalTaxRate;
 
         return $this;
     }
@@ -484,11 +484,11 @@ final class LineItemDraftBuilder implements Builder
             $this->sku,
             $this->quantity,
             $this->addedAt,
-            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
-            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
             $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->inventoryMode,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom

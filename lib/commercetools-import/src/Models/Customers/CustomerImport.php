@@ -40,6 +40,7 @@ interface CustomerImport extends ImportResource
     public const FIELD_SHIPPING_ADDRESSES = 'shippingAddresses';
     public const FIELD_LOCALE = 'locale';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
      * <p>Maps to <code>Customer.customerNumber</code>.</p>
@@ -211,12 +212,23 @@ interface CustomerImport extends ImportResource
     public function getLocale();
 
     /**
-     * <p>The custom fields for this Customer.</p>
+     * <p>The Custom Fields for this Customer.</p>
      *
 
      * @return null|Custom
      */
     public function getCustom();
+
+    /**
+     * <ul>
+     * <li>Set to <code>Password</code> to make the <code>password</code> field required for the Customer.</li>
+     * <li>Set to <code>ExternalAuth</code> when the password is not required for the Customer.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getAuthenticationMode();
 
     /**
      * @param ?string $customerNumber
@@ -327,4 +339,9 @@ interface CustomerImport extends ImportResource
      * @param ?Custom $custom
      */
     public function setCustom(?Custom $custom): void;
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void;
 }
