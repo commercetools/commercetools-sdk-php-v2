@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -192,13 +192,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to map what sub-quantity should be shipped to which address. Duplicate address keys are not allowed.</p>
+<p>Holds information on the quantity of Line Items or Custom Line Items and the address it is shipped.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ItemShippingTargetCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d8/d55/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_item_shipping_details.html#a6309f0e1bd5f706587bc7178f4bb6ab3">Commercetools\Api\Models\Cart\ItemShippingDetails</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html#l00053">53</a> of file <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html">ItemShippingDetailsModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html#l00052">52</a> of file <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html">ItemShippingDetailsModel.php</a>.</p>
 
 </div>
 </div>
@@ -216,13 +216,18 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>true</code> if the quantity of the Line Item or Custom Line Item is equal to the sum of the sub-quantities in <code>targets</code>, else it is <code>false</code>. Ordering a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with value as <code>false</code> returns an <a href="../../ctp:api:type:InvalidItemShippingDetailsError">InvalidItemShippingDetails</a> error.</p>
+<ul>
+<li>
+<code>true</code> if the quantity of Line Items or Custom Line Items is equal to the sum of sub-quantities defined in <code>targets</code>. </li>
+<li>
+<code>false</code> if the quantity of Line Items or Custom Line Items is not equal to the sum of sub-quantities defined in <code>targets</code>. Ordering a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> when the value is <code>false</code> returns an <a href="../../ctp:api:type:InvalidItemShippingDetailsError">InvalidItemShippingDetails</a> error. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
 <p>Implements <a class="el" href="../../d8/d55/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_item_shipping_details.html#a42f6d101bd6a7ea9cb655aa9c754b055">Commercetools\Api\Models\Cart\ItemShippingDetails</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html#l00074">74</a> of file <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html">ItemShippingDetailsModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html#l00076">76</a> of file <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html">ItemShippingDetailsModel.php</a>.</p>
 
 </div>
 </div>
@@ -250,7 +255,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/d55/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_item_shipping_details.html#ad65f8bf995c4c1b77ddca3d277142d00">Commercetools\Api\Models\Cart\ItemShippingDetails</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html#l00092">92</a> of file <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html">ItemShippingDetailsModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html#l00094">94</a> of file <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html">ItemShippingDetailsModel.php</a>.</p>
 
 </div>
 </div>
@@ -278,7 +283,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/d55/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_item_shipping_details.html#a9921f82428cd4e5ce90b31934751a218">Commercetools\Api\Models\Cart\ItemShippingDetails</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html#l00100">100</a> of file <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html">ItemShippingDetailsModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html#l00102">102</a> of file <a class="el" href="../../dd/d1d/commercetools-api_2src_2_models_2_cart_2_item_shipping_details_model_8php_source.html">ItemShippingDetailsModel.php</a>.</p>
 
 </div>
 </div>

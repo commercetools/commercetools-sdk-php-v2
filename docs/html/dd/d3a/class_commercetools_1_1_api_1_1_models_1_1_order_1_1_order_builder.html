@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -342,7 +342,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01535">1535</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01541">1541</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -691,7 +691,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Contains addresses for orders with multiple shipping addresses.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|AddressCollection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00815">815</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00821">821</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -710,7 +710,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Internal-only field.</p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001571">Deprecated:</a></b></dt><dd></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001581">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00714">714</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
@@ -959,7 +959,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CartDiscountReferenceCollection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00826">826</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00832">832</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1103,10 +1103,18 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
+<p>Input used to select a <a href="../../ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>. The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="../../ctp:api:type:Project">Project</a>:</p>
+<ul>
+<li>
+If <code>CartClassification</code>, it is <a href="../../ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a>. </li>
+<li>
+If <code>CartScore</code>, it is <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a>. </li>
+<li>
+If <code>CartValue</code>, it cannot be used. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingRateInput </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00804">804</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00810">810</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1339,7 +1347,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01588">1588</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01594">1594</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1366,7 +1374,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00945">945</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00951">951</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1393,7 +1401,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01044">1044</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01050">1050</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1412,10 +1420,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001580">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a06e98f63185827cafd63a099784d32a8">withBillingAddress()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001590">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a06e98f63185827cafd63a099784d32a8">withBillingAddress()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01440">1440</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01446">1446</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1442,7 +1450,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00956">956</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00962">962</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1461,10 +1469,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001574">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a2fabff532e7a070e8225074bc381629e">withBusinessUnit()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001584">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a2fabff532e7a070e8225074bc381629e">withBusinessUnit()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01374">1374</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01380">1380</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1491,7 +1499,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01231">1231</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01237">1237</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1510,10 +1518,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001584">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#ae7e363c48f9838c72a3841ed2e7b9ae8">withCart()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001594">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#ae7e363c48f9838c72a3841ed2e7b9ae8">withCart()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01484">1484</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01490">1490</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1540,7 +1548,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00901">901</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00907">907</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1567,7 +1575,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01110">1110</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01116">1116</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1594,7 +1602,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00857">857</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00863">863</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1621,7 +1629,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00890">890</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00896">896</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1640,10 +1648,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001573">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#af0c43137f83ccfe3eacc1b59ffc81b86">withCreatedBy()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001583">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#af0c43137f83ccfe3eacc1b59ffc81b86">withCreatedBy()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01363">1363</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01369">1369</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1670,7 +1678,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01253">1253</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01259">1259</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1689,10 +1697,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001586">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a8c7dbab1e499ac7f1da52f7cf9a7e28a">withCustom()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001596">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a8c7dbab1e499ac7f1da52f7cf9a7e28a">withCustom()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01506">1506</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01512">1512</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1719,7 +1727,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00934">934</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00940">940</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1746,7 +1754,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01099">1099</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01105">1105</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1765,10 +1773,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001581">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a52d14fb460d2a8db98f0712c07579a6a">withCustomerGroup()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001591">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a52d14fb460d2a8db98f0712c07579a6a">withCustomerGroup()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01451">1451</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01457">1457</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1795,7 +1803,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00923">923</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00929">929</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1822,7 +1830,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00989">989</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00995">995</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1849,7 +1857,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01209">1209</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01215">1215</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1876,7 +1884,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00835">835</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00841">841</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1903,7 +1911,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01286">1286</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01292">1292</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1930,7 +1938,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01330">1330</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01336">1336</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1957,7 +1965,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01220">1220</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01226">1226</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -1984,7 +1992,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00868">868</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00874">874</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2011,7 +2019,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00879">879</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00885">885</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2030,10 +2038,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001572">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#aa35fc46cbed84fd8ffddcbb011e17dab">withLastModifiedBy()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001582">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#aa35fc46cbed84fd8ffddcbb011e17dab">withLastModifiedBy()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01352">1352</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01358">1358</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2060,7 +2068,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00978">978</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00984">984</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2087,7 +2095,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01275">1275</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01281">1281</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2114,7 +2122,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00912">912</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00918">918</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2141,7 +2149,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01121">1121</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01127">1127</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2168,7 +2176,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01297">1297</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01303">1303</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2195,7 +2203,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01264">1264</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01270">1270</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2214,10 +2222,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001587">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#ac14d957418d23d0832579820b0c10477">withPaymentInfo()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001597">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#ac14d957418d23d0832579820b0c10477">withPaymentInfo()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01517">1517</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01523">1523</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2244,7 +2252,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01154">1154</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01160">1160</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2271,7 +2279,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01198">1198</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01204">1204</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2298,7 +2306,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01242">1242</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01248">1248</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2317,10 +2325,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001585">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a78e2cf3f1d48dc3c2b538629f38bd064">withQuote()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001595">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a78e2cf3f1d48dc3c2b538629f38bd064">withQuote()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01495">1495</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01501">1501</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2347,7 +2355,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01341">1341</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01347">1347</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2374,7 +2382,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01187">1187</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01193">1193</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2401,7 +2409,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01143">1143</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01149">1149</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2428,7 +2436,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01066">1066</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01072">1072</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2455,7 +2463,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01033">1033</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01039">1039</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2474,10 +2482,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001579">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a571a91ac6f1cfc08777b733e98ecbfe4">withShippingAddress()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001589">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a571a91ac6f1cfc08777b733e98ecbfe4">withShippingAddress()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01429">1429</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01435">1435</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2504,7 +2512,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01165">1165</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01171">1171</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2523,10 +2531,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001583">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#adaf0ace1b6ad9ce06fe8311074f35639">withShippingInfo()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001593">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#adaf0ace1b6ad9ce06fe8311074f35639">withShippingInfo()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01473">1473</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01479">1479</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2553,7 +2561,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01055">1055</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01061">1061</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2580,7 +2588,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01319">1319</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01325">1325</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2599,10 +2607,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001588">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#ac693b4295840931c77f404d87556176a">withShippingRateInput()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001598">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#ac693b4295840931c77f404d87556176a">withShippingRateInput()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01528">1528</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01534">1534</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2629,7 +2637,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01132">1132</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01138">1138</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2648,10 +2656,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001582">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#ab38f8fbd7910ffd9f1a26b569725076a">withState()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001592">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#ab38f8fbd7910ffd9f1a26b569725076a">withState()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01462">1462</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01468">1468</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2678,7 +2686,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00967">967</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00973">973</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2697,10 +2705,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001575">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a0875a9647cf3eac0fd2295c52e824efa">withStore()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001585">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a0875a9647cf3eac0fd2295c52e824efa">withStore()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01385">1385</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01391">1391</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2727,7 +2735,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01176">1176</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01182">1182</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2754,7 +2762,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01308">1308</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01314">1314</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2781,7 +2789,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01011">1011</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01017">1017</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2800,10 +2808,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001577">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#afb09ce8cb9fdaeed3746ca5e07266f4d">withTaxedPrice()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001587">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#afb09ce8cb9fdaeed3746ca5e07266f4d">withTaxedPrice()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01407">1407</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01413">1413</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2830,7 +2838,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01022">1022</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01028">1028</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2849,10 +2857,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001578">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a5e1c61de2bda327a6f074239ffa7a1ce">withTaxedShippingPrice()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001588">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#a5e1c61de2bda327a6f074239ffa7a1ce">withTaxedShippingPrice()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01418">1418</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01424">1424</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2879,7 +2887,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01077">1077</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01083">1083</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2906,7 +2914,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01088">1088</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01094">1094</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2933,7 +2941,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01000">1000</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01006">1006</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2952,10 +2960,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001576">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#abe5eb622c7b5be823cfd55393a9cc921">withTotalPrice()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001586">Deprecated:</a></b></dt><dd>use <a class="el" href="../../dd/d3a/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_builder.html#abe5eb622c7b5be823cfd55393a9cc921">withTotalPrice()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01396">1396</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l01402">1402</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -2982,7 +2990,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00846">846</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_order_builder_8php_source.html#l00852">852</a> of file <a class="el" href="../../de/d97/_order_builder_8php_source.html">OrderBuilder.php</a>.</p>
 
 </div>
 </div>

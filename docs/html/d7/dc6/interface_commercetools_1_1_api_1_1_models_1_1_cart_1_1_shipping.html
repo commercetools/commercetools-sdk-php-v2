@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -156,7 +156,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Determines the shipping rates and Tax Rates of the associated Line Item quantities.</p>
+<p>Determines the shipping rates and Tax Rates of associated Line Items.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Address </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d1/d12/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_model.html#ac4b9f9b4f36c3141bca7ae925369e6e2">Commercetools\Api\Models\Cart\ShippingModel</a>.</p>
@@ -219,7 +219,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier of the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Method in a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+<p>User-defined unique identifier of the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> in a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d1/d12/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_model.html#ae14d321e46526f413b174c167f9027f5">Commercetools\Api\Models\Cart\ShippingModel</a>.</p>
@@ -240,12 +240,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used as an input to select a <a href="../../ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+<p>Used as an input to select a <a href="../../ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>. The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="../../ctp:api:type:Project">Project</a>:</p>
 <ul>
 <li>
-Must be <a href="../../ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a> if <a href="../../ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="../../ctp:api:type:CartClassificationType">CartClassificationType</a>. </li>
+If <code>CartClassification</code>, it is <a href="../../ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a>. </li>
 <li>
-Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a> if <a href="../../ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="../../ctp:api:type:CartScoreType">CartScoreType</a>. </li>
+If <code>CartScore</code>, it is <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a>. </li>
+<li>
+If <code>CartValue</code>, it cannot be used. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingRateInput </dd></dl>
 

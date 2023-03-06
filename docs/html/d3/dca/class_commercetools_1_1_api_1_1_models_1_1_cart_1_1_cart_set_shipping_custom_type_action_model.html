@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -251,13 +251,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the <a href="../..//../api/projects/custom-fields">Custom Fields</a> fields for the <code>shippingAddress</code>.</p>
+<p>Sets the <a href="../..//../api/projects/custom-fields">Custom Fields</a> fields for the <code>shippingMethod</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|FieldContainer </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../dd/d15/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_shipping_custom_type_action.html#a6be6bf3701620ade66e7ccbb941f4876">Commercetools\Api\Models\Cart\CartSetShippingCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00133">133</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00135">135</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -275,13 +275,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier of the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Method in a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+<p>The <code>shippingKey</code> of the <a href="../../ctp:api:type:Shipping">Shipping</a> to customize. Used to specify which <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Method to customize on a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>. Leave this empty to customize the one and only <a class="el" href="../../de/d8f/namespace_commercetools_1_1_api_1_1_models_1_1_shipping_method.html">ShippingMethod</a> on a <code>Single</code> ShippingMode <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dd/d15/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_shipping_custom_type_action.html#a7443fcda47de6513da785a9ce4cd3189">Commercetools\Api\Models\Cart\CartSetShippingCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00091">91</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00093">93</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -299,13 +299,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the <code>shippingAddress</code> with <a href="../..//../api/projects/custom-fields">Custom Fields</a>. If absent, any existing <a class="el" href="../../d3/d91/namespace_commercetools_1_1_api_1_1_models_1_1_type.html">Type</a> and Custom Fields are removed from the <code>shippingAddress</code>.</p>
+<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the specified <a class="el" href="../../de/d8f/namespace_commercetools_1_1_api_1_1_models_1_1_shipping_method.html">ShippingMethod</a> with <a href="../..//../api/projects/custom-fields">Custom Fields</a>. If absent, any existing <a class="el" href="../../d3/d91/namespace_commercetools_1_1_api_1_1_models_1_1_type.html">Type</a> and Custom Fields are removed from the <a class="el" href="../../de/d8f/namespace_commercetools_1_1_api_1_1_models_1_1_shipping_method.html">ShippingMethod</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypeResourceIdentifier </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../dd/d15/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_shipping_custom_type_action.html#a558b4b81cd6ac0d3049c3d3ba48b77e0">Commercetools\Api\Models\Cart\CartSetShippingCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00112">112</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00114">114</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -333,7 +333,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d15/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_shipping_custom_type_action.html#a638f8ca8c6911e36268500a81d856719">Commercetools\Api\Models\Cart\CartSetShippingCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00168">168</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00170">170</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -361,7 +361,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d15/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_shipping_custom_type_action.html#a62aa00a4ed320a488e7c59129a6ea146">Commercetools\Api\Models\Cart\CartSetShippingCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00152">152</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00154">154</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -389,7 +389,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d15/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_shipping_custom_type_action.html#aea9e1d8b06145937e83bdc04d4a8b874">Commercetools\Api\Models\Cart\CartSetShippingCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00160">160</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html#l00162">162</a> of file <a class="el" href="../../d1/da4/_cart_set_shipping_custom_type_action_model_8php_source.html">CartSetShippingCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>

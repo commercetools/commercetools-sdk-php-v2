@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -111,8 +111,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4e8a4c75b06a1099a223f1b47ee76495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab408d808e9dff8381f490aa3ca0fea5f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d4a/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info.html#ab408d808e9dff8381f490aa3ca0fea5f">setShippingMethodName</a> (?string $shippingMethodName)</td></tr>
 <tr class="separator:ab408d808e9dff8381f490aa3ca0fea5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf0f69a7b0abdf31931cace96de57a5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d4a/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info.html#adf0f69a7b0abdf31931cace96de57a5d">setPrice</a> (?<a class="el" href="../../d9/dfa/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_typed_money.html">TypedMoney</a> $price)</td></tr>
-<tr class="separator:adf0f69a7b0abdf31931cace96de57a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad506b631b9208252176423da39d1e256"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d4a/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info.html#ad506b631b9208252176423da39d1e256">setPrice</a> (?<a class="el" href="../../de/d3c/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_cent_precision_money.html">CentPrecisionMoney</a> $price)</td></tr>
+<tr class="separator:ad506b631b9208252176423da39d1e256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a287b4a5bf9484bb44f08dda1053e19d2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d4a/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info.html#a287b4a5bf9484bb44f08dda1053e19d2">setShippingRate</a> (?<a class="el" href="../../d8/de6/interface_commercetools_1_1_api_1_1_models_1_1_shipping_method_1_1_shipping_rate.html">ShippingRate</a> $shippingRate)</td></tr>
 <tr class="separator:a287b4a5bf9484bb44f08dda1053e19d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bdc945af3d09d795a1862a1d297d9f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d4a/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info.html#a5bdc945af3d09d795a1862a1d297d9f3">setTaxedPrice</a> (?<a class="el" href="../../d9/ddc/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_taxed_item_price.html">TaxedItemPrice</a> $taxedPrice)</td></tr>
@@ -186,7 +186,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
+<p>Information on how items are delivered to customers.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DeliveryCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#a9ca7e714888006d1e03fb48429acb858">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
@@ -207,6 +207,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Discounted price of the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Method.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DiscountedLineItemPrice </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#af66c7971adca4aa359a0c420e157cf6e">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
@@ -227,8 +228,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Determined based on the ShippingRate and its tiered prices, and either the sum of <a class="el" href="../../d5/dbd/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_line_item.html">LineItem</a> prices or the <code>shippingRateInput</code> field.</p>
-<dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
+<p>Determined based on the <a href="../../ctp:api:type:ShippingRate">ShippingRate</a> and its tiered prices, and either the sum of <a href="../../ctp:api:type:LineItem">LineItem</a> prices or the <code>shippingRateInput</code> field.</p>
+<dl class="section return"><dt>Returns</dt><dd>null|CentPrecisionMoney </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#aab534e53dffcd1214d148709c31357ab">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
 
@@ -248,7 +249,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Not set if custom shipping method is used.</p>
+<p>Not set if a custom <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Method is used.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingMethodReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#a42750252a0c65dc2cfd9dd358ad83fa5">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
@@ -269,6 +270,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Name of the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Method.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#acef24097827749d78842dd77d05fa77f">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
@@ -289,7 +291,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Indicates whether the <a class="el" href="../../de/d8f/namespace_commercetools_1_1_api_1_1_models_1_1_shipping_method.html">ShippingMethod</a> referenced in this <a class="el" href="../../df/d4a/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info.html">ShippingInfo</a> is allowed for the cart or not.</p>
+<p>Indicates whether the <a href="../../ctp:api:type:ShippingMethod">ShippingMethod</a> referenced in this <a class="el" href="../../df/d4a/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info.html">ShippingInfo</a> is allowed for the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#a982bbd7a0c8a7900f0b5ec02925835ff">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
@@ -310,7 +312,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The shipping rate used to determine the price.</p>
+<p>Used to determine the price.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingRate </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#a18e17f9270190987a9b2df32ee055b2b">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
@@ -331,6 +333,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Used to select a Tax Rate when a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> has the <code>Platform</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxCategoryReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#ad94cf9ec2f400bc6269fca26fb4dc114">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
@@ -351,7 +354,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set once the <code>taxRate</code> is set.</p>
+<p>Automatically set after the <code>taxRate</code> is set.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxedItemPrice </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#aae8d9ebf2e0326878827b5132693b9b7">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
@@ -372,7 +375,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set. For the <code>External</code> tax mode the tax rate has to be set explicitly with the <a class="el" href="../../dd/db0/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_external_tax_rate_draft.html">ExternalTaxRateDraft</a>.</p>
+<p>Automatically set in the <code>Platform</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a> after the <a href="../../ctp:api:type:CartSetShippingAddressAction">shipping address is set</a>.</p>
+<p>For the <code>External</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a> the Tax Rate must be set explicitly with the <a href="../../ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxRate </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#a5316e2f796e81f2f7e03654a2a3d3915">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
@@ -431,8 +435,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="adf0f69a7b0abdf31931cace96de57a5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf0f69a7b0abdf31931cace96de57a5d">&#9670;&nbsp;</a></span>setPrice()</h2>
+<a id="ad506b631b9208252176423da39d1e256"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad506b631b9208252176423da39d1e256">&#9670;&nbsp;</a></span>setPrice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -440,7 +444,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">Commercetools\Api\Models\Cart\ShippingInfo::setPrice </td>
           <td>(</td>
-          <td class="paramtype">?<a class="el" href="../../d9/dfa/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_typed_money.html">TypedMoney</a>&#160;</td>
+          <td class="paramtype">?<a class="el" href="../../de/d3c/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_cent_precision_money.html">CentPrecisionMoney</a>&#160;</td>
           <td class="paramname"><em>$price</em></td><td>)</td>
           <td></td>
         </tr>
@@ -448,12 +452,12 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">?TypedMoney</td><td>$price </td></tr>
+    <tr><td class="paramname">?CentPrecisionMoney</td><td>$price </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#abb362d1465674934e49fed4277c73d49">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
+<p>Implemented in <a class="el" href="../../dc/d2a/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_info_model.html#a20a880aa6742dc4eaf99027d343d5e17">Commercetools\Api\Models\Cart\ShippingInfoModel</a>.</p>
 
 </div>
 </div>

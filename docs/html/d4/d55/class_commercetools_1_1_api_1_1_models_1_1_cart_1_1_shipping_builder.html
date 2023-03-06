@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -148,7 +148,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00215">215</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00217">217</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -166,7 +166,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Determines the shipping rates and Tax Rates of the associated Line Item quantities.</p>
+<p>Determines the shipping rates and Tax Rates of associated Line Items.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Address </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00085">85</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
@@ -190,7 +190,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Custom Fields of <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomFields </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00111">111</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00113">113</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -229,7 +229,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier of the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Method in a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+<p>User-defined unique identifier of the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> in a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00063">63</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
@@ -250,16 +250,18 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used as an input to select a <a href="../../ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+<p>Used as an input to select a <a href="../../ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>. The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="../../ctp:api:type:Project">Project</a>:</p>
 <ul>
 <li>
-Must be <a href="../../ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a> if <a href="../../ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="../../ctp:api:type:CartClassificationType">CartClassificationType</a>. </li>
+If <code>CartClassification</code>, it is <a href="../../ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a>. </li>
 <li>
-Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a> if <a href="../../ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="../../ctp:api:type:CartScoreType">CartScoreType</a>. </li>
+If <code>CartScore</code>, it is <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a>. </li>
+<li>
+If <code>CartValue</code>, it cannot be used. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingRateInput </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00100">100</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00102">102</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -286,7 +288,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00226">226</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00228">228</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -313,7 +315,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00142">142</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00144">144</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -332,10 +334,10 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000356">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d55/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_builder.html#aef1a1b0132e68c08a306061b04cdc324">withShippingAddress()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000366">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d55/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_builder.html#aef1a1b0132e68c08a306061b04cdc324">withShippingAddress()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00186">186</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00188">188</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -362,7 +364,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00164">164</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00166">166</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -381,10 +383,10 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000358">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d55/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_builder.html#a216da97d8c0075cb61a519acbce9057b">withShippingCustomFields()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000368">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d55/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_builder.html#a216da97d8c0075cb61a519acbce9057b">withShippingCustomFields()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00208">208</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00210">210</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -411,7 +413,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00131">131</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00133">133</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -430,10 +432,10 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000355">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d55/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_builder.html#aeb7aed935e5d7633353f41ec104df851">withShippingInfo()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000365">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d55/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_builder.html#aeb7aed935e5d7633353f41ec104df851">withShippingInfo()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00175">175</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00177">177</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -460,7 +462,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00120">120</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00122">122</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -487,7 +489,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00153">153</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00155">155</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -506,10 +508,10 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000357">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d55/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_builder.html#ad6b510976fa6dbd602592dd8da2e047e">withShippingRateInput()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000367">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d55/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_builder.html#ad6b510976fa6dbd602592dd8da2e047e">withShippingRateInput()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00197">197</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html#l00199">199</a> of file <a class="el" href="../../d1/d69/_shipping_builder_8php_source.html">ShippingBuilder.php</a>.</p>
 
 </div>
 </div>

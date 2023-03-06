@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -234,7 +234,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Determines the shipping rates and Tax Rates of the associated Line Item quantities.</p>
+<p>Determines the shipping rates and Tax Rates of associated Line Items.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Address </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -264,7 +264,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html#a710ed439b9ce7c290af4caa46f7d3446">Commercetools\Api\Models\Cart\Shipping</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00167">167</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00169">169</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
 
 </div>
 </div>
@@ -306,7 +306,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier of the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Method in a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+<p>User-defined unique identifier of the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> in a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -330,19 +330,21 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used as an input to select a <a href="../../ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+<p>Used as an input to select a <a href="../../ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>. The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="../../ctp:api:type:Project">Project</a>:</p>
 <ul>
 <li>
-Must be <a href="../../ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a> if <a href="../../ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="../../ctp:api:type:CartClassificationType">CartClassificationType</a>. </li>
+If <code>CartClassification</code>, it is <a href="../../ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a>. </li>
 <li>
-Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a> if <a href="../../ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="../../ctp:api:type:CartScoreType">CartScoreType</a>. </li>
+If <code>CartScore</code>, it is <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a>. </li>
+<li>
+If <code>CartValue</code>, it cannot be used. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingRateInput </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html#a72be914e0c9c7f3e9fc7d08a7ba3ac26">Commercetools\Api\Models\Cart\Shipping</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00146">146</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00148">148</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
 
 </div>
 </div>
@@ -370,7 +372,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 
 <p>Implements <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html#a4a85456ce97a4a212344aba99811699e">Commercetools\Api\Models\Cart\Shipping</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00202">202</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00204">204</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
 
 </div>
 </div>
@@ -398,7 +400,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 
 <p>Implements <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html#abfef6f7d2a3005a3eadf005959074670">Commercetools\Api\Models\Cart\Shipping</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00218">218</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00220">220</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
 
 </div>
 </div>
@@ -426,7 +428,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 
 <p>Implements <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html#a8e9d9f5e1f7e5c16142e3d69ff2725d5">Commercetools\Api\Models\Cart\Shipping</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00194">194</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00196">196</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
 
 </div>
 </div>
@@ -454,7 +456,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 
 <p>Implements <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html#adf7172345da004978ef0140941f75c72">Commercetools\Api\Models\Cart\Shipping</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00186">186</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00188">188</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
 
 </div>
 </div>
@@ -482,7 +484,7 @@ Must be <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInp
 
 <p>Implements <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html#a1dd0279043d3c60a4c06888138c0f0ed">Commercetools\Api\Models\Cart\Shipping</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00210">210</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d20/_shipping_model_8php_source.html#l00212">212</a> of file <a class="el" href="../../d7/d20/_shipping_model_8php_source.html">ShippingModel.php</a>.</p>
 
 </div>
 </div>

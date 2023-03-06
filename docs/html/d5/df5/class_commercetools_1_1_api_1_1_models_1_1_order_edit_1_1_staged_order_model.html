@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -1206,7 +1206,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a04d43b855324c2df8d5ac3177ca29556">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01352">1352</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01358">1358</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -1225,7 +1225,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Internal-only field.</p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001727">Deprecated:</a></b></dt><dd></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001737">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
@@ -1513,7 +1513,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a9cd6171b9c46f65e49f2ee3ffa571be6">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01372">1372</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01378">1378</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -1675,13 +1675,21 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
+<p>Input used to select a <a href="../../ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>. The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="../../ctp:api:type:Project">Project</a>:</p>
+<ul>
+<li>
+If <code>CartClassification</code>, it is <a href="../../ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a>. </li>
+<li>
+If <code>CartScore</code>, it is <a href="../../ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a>. </li>
+<li>
+If <code>CartValue</code>, it cannot be used. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingRateInput </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a246e50d28a7e6c835c28ef607f975878">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01331">1331</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01337">1337</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -1938,7 +1946,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../dd/dc2/class_commercetools_1_1_base_1_1_base_json_object.html#a96e992c3a9ef593f3214ea9cbeda88c5">Commercetools\Base\BaseJsonObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01765">1765</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01771">1771</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -1966,7 +1974,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aa0390503264818e67fe1b6b08183684d">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01470">1470</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01476">1476</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -1994,7 +2002,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#ac2cf5faa1b53b64ab762c7c058bd27fa">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01542">1542</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01548">1548</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2022,7 +2030,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a0dc03df9a4155db22b9e4df2f03b3956">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01478">1478</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01484">1484</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2050,7 +2058,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a0c797991385857cecd395f6b2b71cf36">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01678">1678</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01684">1684</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2078,7 +2086,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#af0cf406343113674e6d4692bfcafb762">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01438">1438</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01444">1444</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2106,7 +2114,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a3deb57de9ff145a250fb9f0d602f9f19">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01590">1590</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01596">1596</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2134,7 +2142,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a16d4ec389370e66a59915d025deda03f">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01406">1406</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01412">1412</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2162,7 +2170,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#ab8dfa0c33d667b0c214d3311294a993d">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01430">1430</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01436">1436</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2190,7 +2198,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a40e3ea828f6ff9e181ac3796f3aca150">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01694">1694</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01700">1700</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2218,7 +2226,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a6bba56e767f636b54f24cdcf51956cd3">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01462">1462</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01468">1468</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2246,7 +2254,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aaa6f6647035ee7489f168a34f6c42b30">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01582">1582</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01588">1588</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2274,7 +2282,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a394cbd3afc340b55ba15e7304f9dd8eb">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01454">1454</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01460">1460</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2302,7 +2310,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#ad0c8b66036fee793d277a66a60eb5e0e">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01502">1502</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01508">1508</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2330,7 +2338,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a0bebb73dc6bde1718cb3fcd73806589b">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01662">1662</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01668">1668</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2358,7 +2366,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a6764ba89f336c2e169a9e3c2b1e9e28b">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01390">1390</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01396">1396</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2386,7 +2394,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aab45c814c77a7dd47bd9caa3d4a6580c">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01718">1718</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01724">1724</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2414,7 +2422,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a52b661d6efa1164530cb04c836970bb0">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01750">1750</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01756">1756</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2442,7 +2450,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aeacb67fe153514cca304859cd106ecea">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01670">1670</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01676">1676</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2470,7 +2478,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a5e1da0a450d233917b0a4114564080bb">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01414">1414</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01420">1420</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2498,7 +2506,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#abcb61fb1d947322bbb584e2ca2ae2c05">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01422">1422</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01428">1428</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2526,7 +2534,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#af9efd75e9d21e313834bcb539e9d02f9">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01494">1494</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01500">1500</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2554,7 +2562,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#ae5cd8ed911af31168ea20243f9494701">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01710">1710</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01716">1716</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2582,7 +2590,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a5949da3df7d5a6caa76d167d233610e1">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01446">1446</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01452">1452</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2610,7 +2618,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a6ce218cb8a60459d4e13b9680c40a40a">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01598">1598</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01604">1604</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2638,7 +2646,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#af9008385c6366bb18c24ff899780b659">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01726">1726</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01732">1732</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2666,7 +2674,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a64a62e0457f88561b5857d082cb7681e">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01702">1702</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01708">1708</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2694,7 +2702,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#ac7d8c898973d6f8968980adf919f989b">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01622">1622</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01628">1628</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2722,7 +2730,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#ad2b04a2702029e7ac267100050fa6014">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01654">1654</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01660">1660</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2750,7 +2758,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#ab52c90ed2273b7393b9ad15d06f567df">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01686">1686</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01692">1692</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2778,7 +2786,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aea34b07b1c8a48b0b5bdffdfbf26be3e">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01758">1758</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01764">1764</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2806,7 +2814,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a333fc0e7b15e3295b874f7ca3101a1c2">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01646">1646</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01652">1652</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2834,7 +2842,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#ae6e9b79dba148a801bab7237986cfc0a">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01614">1614</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01620">1620</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2862,7 +2870,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aabac287f810bb0f27419bba83a314944">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01558">1558</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01564">1564</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2890,7 +2898,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aa72c6c0b50b4c9b3128c232aa460f76a">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01534">1534</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01540">1540</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2918,7 +2926,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#afa980bafb6274b46ffb0ded4d4d4af57">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01630">1630</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01636">1636</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2946,7 +2954,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a8694221cb0d0f72fa3737f9eee22d1ac">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01550">1550</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01556">1556</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -2974,7 +2982,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aca0d40b5a8adea6d50fe3c9bd87c4c67">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01742">1742</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01748">1748</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3002,7 +3010,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a081d1f634a45cffe363b3f1f56f27ef6">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01606">1606</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01612">1612</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3030,7 +3038,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#adbc29c9a31b6f3a7f319a68ea1502db6">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01486">1486</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01492">1492</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3058,7 +3066,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a7566871cb84167564a9e98ce556faee5">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01638">1638</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01644">1644</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3086,7 +3094,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aa944727cb5665eca5883702afa66db81">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01734">1734</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01740">1740</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3114,7 +3122,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#af9632e33e246c216479ef5d227f568aa">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01518">1518</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01524">1524</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3142,7 +3150,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#afe43ebaf5cf19a95fe7942510228d5ae">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01526">1526</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01532">1532</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3170,7 +3178,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#acda06330adfa7c5b1bcea06823712bb1">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01566">1566</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01572">1572</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3198,7 +3206,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#aea2a0beede747aaf8888104dbf21bdd7">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01574">1574</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01580">1580</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3226,7 +3234,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a425251e7ef86bc8b45a599757558fe03">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01510">1510</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01516">1516</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>
@@ -3254,7 +3262,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html#a197cb802d0851d84c85520a1cfce8e0d">Commercetools\Api\Models\Order\Order</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01398">1398</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html#l01404">1404</a> of file <a class="el" href="../../d2/df7/_staged_order_model_8php_source.html">StagedOrderModel.php</a>.</p>
 
 </div>
 </div>

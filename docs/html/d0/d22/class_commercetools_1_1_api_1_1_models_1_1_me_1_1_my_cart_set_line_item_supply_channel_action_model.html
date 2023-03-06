@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -237,12 +237,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><code>id</code> of the <a href="../../ctp:api:type:LineItem">LineItem</a> to update.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../da/d86/interface_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_supply_channel_action.html#ac321bd46ae07d221973dcf5df786421e">Commercetools\Api\Models\Me\MyCartSetLineItemSupplyChannelAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html#l00079">79</a> of file <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html">MyCartSetLineItemSupplyChannelActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html#l00081">81</a> of file <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html">MyCartSetLineItemSupplyChannelActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -260,13 +261,18 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="../../ctp:api:type:Channel">Channel</a>.</p>
+<ul>
+<li>
+If present, a <a href="../../ctp:api:type:Reference">Reference</a> to the <a class="el" href="../../da/d92/namespace_commercetools_1_1_api_1_1_models_1_1_channel.html">Channel</a> is set for the <a href="../../ctp:api:type:LineItem">LineItem</a> specified by <code>lineItemId</code>. </li>
+<li>
+If not present, the current <a href="../../ctp:api:type:Reference">Reference</a> to a supply channel will be removed from the <a href="../../ctp:api:type:LineItem">LineItem</a> specified by <code>lineItemId</code>. The <a class="el" href="../../da/d92/namespace_commercetools_1_1_api_1_1_models_1_1_channel.html">Channel</a> must have the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelResourceIdentifier </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../da/d86/interface_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_supply_channel_action.html#ab77aab0aa31986b4a71682f1448efe3c">Commercetools\Api\Models\Me\MyCartSetLineItemSupplyChannelAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html#l00099">99</a> of file <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html">MyCartSetLineItemSupplyChannelActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html#l00105">105</a> of file <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html">MyCartSetLineItemSupplyChannelActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -294,7 +300,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../da/d86/interface_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_supply_channel_action.html#a739a46566f2350514fd9ab1b03ac740b">Commercetools\Api\Models\Me\MyCartSetLineItemSupplyChannelAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html#l00118">118</a> of file <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html">MyCartSetLineItemSupplyChannelActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html#l00124">124</a> of file <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html">MyCartSetLineItemSupplyChannelActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -322,7 +328,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../da/d86/interface_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_supply_channel_action.html#a5dfc9f9906a53311c597b464d32efd69">Commercetools\Api\Models\Me\MyCartSetLineItemSupplyChannelAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html#l00126">126</a> of file <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html">MyCartSetLineItemSupplyChannelActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html#l00132">132</a> of file <a class="el" href="../../d8/d9b/_my_cart_set_line_item_supply_channel_action_model_8php_source.html">MyCartSetLineItemSupplyChannelActionModel.php</a>.</p>
 
 </div>
 </div>

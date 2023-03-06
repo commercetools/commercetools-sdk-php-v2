@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">8.1.0</span>
+   &#160;<span id="projectnumber">9.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -180,7 +180,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The custom fields.</p>
+<p>Custom Fields for the Custom Line Item.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomFieldsDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d11/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_line_item_draft_model.html#a23ebee196d8fa7f747822fdb2ae82356">Commercetools\Api\Models\Cart\CustomLineItemDraftModel</a>.</p>
@@ -201,7 +201,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
+<p>External Tax Rate for the Custom Line Item if the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> has the <code>External</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ExternalTaxRateDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d11/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_line_item_draft_model.html#a7d2dc95805853b7876a5203ff16897b3">Commercetools\Api\Models\Cart\CustomLineItemDraftModel</a>.</p>
@@ -222,6 +222,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Money value of the Custom Line Item. The value can be negative.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Money </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d11/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_line_item_draft_model.html#aed1adb0f33be200faeff54fbb69747a8">Commercetools\Api\Models\Cart\CustomLineItemDraftModel</a>.</p>
@@ -242,6 +243,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Name of the Custom Line Item.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d11/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_line_item_draft_model.html#a2e922f1a3f0391598dd6e18703ae1c02">Commercetools\Api\Models\Cart\CustomLineItemDraftModel</a>.</p>
@@ -288,7 +290,7 @@ If <code>External</code>, <a class="el" href="../../dd/d7d/interface_commercetoo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The amount of a CustomLineItemin the cart. Must be a positive integer.</p>
+<p>Number of Custom Line Items to add to the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d11/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_line_item_draft_model.html#aa71b344786c9153bfad0eb4c78b2e3a4">Commercetools\Api\Models\Cart\CustomLineItemDraftModel</a>.</p>
@@ -309,7 +311,7 @@ If <code>External</code>, <a class="el" href="../../dd/d7d/interface_commercetoo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Container for custom line item specific address(es).</p>
+<p>Container for Custom Line Item-specific addresses.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ItemShippingDetailsDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d11/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_line_item_draft_model.html#a2cd2a960489c6c3bea730984e11de46e">Commercetools\Api\Models\Cart\CustomLineItemDraftModel</a>.</p>
@@ -330,6 +332,7 @@ If <code>External</code>, <a class="el" href="../../dd/d7d/interface_commercetoo
         </tr>
       </table>
 </div><div class="memdoc">
+<p>User-defined identifier used in a deep-link URL for the Custom Line Item. It must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d11/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_line_item_draft_model.html#a74c301cbdcb444bb52329b178e49769a">Commercetools\Api\Models\Cart\CustomLineItemDraftModel</a>.</p>
@@ -350,7 +353,7 @@ If <code>External</code>, <a class="el" href="../../dd/d7d/interface_commercetoo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>
+<p>Used to select a Tax Rate when a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> has the <code>Platform</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>. This field is required for <code>Platform</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxCategoryResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d11/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_line_item_draft_model.html#abe69cb9f652fbbb01347cbbf459b046b">Commercetools\Api\Models\Cart\CustomLineItemDraftModel</a>.</p>
