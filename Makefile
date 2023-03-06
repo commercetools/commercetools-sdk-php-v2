@@ -32,7 +32,7 @@ parallel_generate_history_test: install_deps parallel_test_sdks_bc
 	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(HISTORY_RAML) generate_sdk_test
 
 parallel_prettify_sdks: install_deps parallel_gen_sdk_tests
-	php -dmemory_limit=-1 vendor/bin/ecs check --output-format=summaryOnly --fix
+	php -dmemory_limit=-1 vendor/bin/ecs check --fix
 
 parallel_analyze_sdks: install_deps parallel_prettify_sdks
 	vendor/bin/psalm --threads=$(CPUS)
