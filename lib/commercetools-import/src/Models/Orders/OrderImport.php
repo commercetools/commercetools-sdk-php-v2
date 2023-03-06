@@ -14,6 +14,7 @@ use Commercetools\Import\Models\Common\Address;
 use Commercetools\Import\Models\Common\AddressCollection;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
+use Commercetools\Import\Models\Common\StateKeyReference;
 use Commercetools\Import\Models\Common\StoreKeyReference;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Customfields\Custom;
@@ -44,6 +45,7 @@ interface OrderImport extends JsonObject
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_STORE = 'store';
+    public const FIELD_STATE = 'state';
 
     /**
      * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order. It should be unique across a project. Once it's set it cannot be changed.</p>
@@ -228,6 +230,14 @@ interface OrderImport extends JsonObject
     public function getStore();
 
     /**
+     * <p>Reference to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateKeyReference
+     */
+    public function getState();
+
+    /**
      * @param ?string $orderNumber
      */
     public function setOrderNumber(?string $orderNumber): void;
@@ -341,4 +351,9 @@ interface OrderImport extends JsonObject
      * @param ?StoreKeyReference $store
      */
     public function setStore(?StoreKeyReference $store): void;
+
+    /**
+     * @param ?StateKeyReference $state
+     */
+    public function setState(?StateKeyReference $state): void;
 }

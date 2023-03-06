@@ -27,6 +27,8 @@ final class CartChangeTaxRoundingModeActionBuilder implements Builder
     private $taxRoundingMode;
 
     /**
+     * <p>New value to set.</p>
+     *
 
      * @return null|string
      */

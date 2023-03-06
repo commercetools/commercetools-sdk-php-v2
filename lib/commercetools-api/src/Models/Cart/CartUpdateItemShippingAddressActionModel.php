@@ -65,6 +65,8 @@ final class CartUpdateItemShippingAddressActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>The new Address with the same <code>key</code> as the Address it will replace.</p>
+     *
      *
      * @return null|BaseAddress
      */

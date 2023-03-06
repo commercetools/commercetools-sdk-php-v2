@@ -123,7 +123,7 @@ final class ClientLoggingModel extends JsonObjectModel implements ClientLogging
     }
 
     /**
-     * <p>Indicates that the resource was modified during an <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a> with the logged ID.</p>
+     * <p>Indicates that the resource was modified during an <a href="ctp:api:type:AnonymousSession">anonymous session</a> with the logged ID.</p>
      *
      *
      * @return null|string

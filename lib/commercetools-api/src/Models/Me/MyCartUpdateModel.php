@@ -44,6 +44,9 @@ final class MyCartUpdateModel extends JsonObjectModel implements MyCartUpdate
     }
 
     /**
+     * <p>Expected version of the Cart on which the changes apply.
+     * If it does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error is returned.</p>
+     *
      *
      * @return null|int
      */
@@ -62,6 +65,8 @@ final class MyCartUpdateModel extends JsonObjectModel implements MyCartUpdate
     }
 
     /**
+     * <p>Update actions to be performed on the Cart.</p>
+     *
      *
      * @return null|MyCartUpdateActionCollection
      */

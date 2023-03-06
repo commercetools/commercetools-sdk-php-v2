@@ -18,7 +18,7 @@ interface ExternalTaxAmountDraft extends JsonObject
     public const FIELD_TAX_RATE = 'taxRate';
 
     /**
-     * <p>The total gross amount of the item (totalNet + taxes).</p>
+     * <p>Total gross amount (<code>totalNet</code> + <code>taxPortions</code>) of the Line Item or Custom Line Item.</p>
      *
 
      * @return null|Money
@@ -26,6 +26,8 @@ interface ExternalTaxAmountDraft extends JsonObject
     public function getTotalGross();
 
     /**
+     * <p>Tax Rates and subrates of states and countries.</p>
+     *
 
      * @return null|ExternalTaxRateDraft
      */

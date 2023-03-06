@@ -8,16 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
-use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceBuilder;
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraftBuilder;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftBuilder;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierBuilder;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -33,24 +27,6 @@ use stdClass;
  */
 final class MyCartAddLineItemActionBuilder implements Builder
 {
-    /**
-
-     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-
-     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
-     */
-    private $distributionChannel;
-
-    /**
-
-     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
-     */
-    private $externalTaxRate;
-
     /**
 
      * @var ?string
@@ -77,21 +53,21 @@ final class MyCartAddLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?DateTimeImmutable
+     */
+    private $addedAt;
+
+    /**
+
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
+     */
+    private $distributionChannel;
+
+    /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
-
-    /**
-
-     * @var null|Money|MoneyBuilder
-     */
-    private $externalPrice;
-
-    /**
-
-     * @var null|ExternalLineItemTotalPrice|ExternalLineItemTotalPriceBuilder
-     */
-    private $externalTotalPrice;
 
     /**
 
@@ -101,23 +77,75 @@ final class MyCartAddLineItemActionBuilder implements Builder
 
     /**
 
-     * @var ?DateTimeImmutable
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
-    private $addedAt;
+    private $custom;
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
 
-     * @return null|CustomFieldsDraft
+     * @return null|string
      */
-    public function getCustom()
+    public function getProductId()
     {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+        return $this->productId;
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.</p>
+     * <p>If not given, the Master Variant is used.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
+     *
+
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        return $this->variantId;
+    }
+
+    /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * <p>Number of Line Items to add to the Cart.</p>
+     *
+
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Line Item was added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        return $this->addedAt;
+    }
+
+    /**
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
+     * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.
+     * If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -128,52 +156,8 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
-
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        return $this->productId;
-    }
-
-    /**
-
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        return $this->variantId;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getSku()
-    {
-        return $this->sku;
-    }
-
-    /**
-
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -184,27 +168,8 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Container for Line Item-specific addresses.</p>
      *
-
-     * @return null|Money
-     */
-    public function getExternalPrice()
-    {
-        return $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice;
-    }
-
-    /**
-
-     * @return null|ExternalLineItemTotalPrice
-     */
-    public function getExternalTotalPrice()
-    {
-        return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
-    }
-
-    /**
 
      * @return null|ItemShippingDetailsDraft
      */
@@ -214,45 +179,14 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields for the Line Item.</p>
+     *
 
-     * @return null|DateTimeImmutable
+     * @return null|CustomFieldsDraft
      */
-    public function getAddedAt()
+    public function getCustom()
     {
-        return $this->addedAt;
-    }
-
-    /**
-     * @param ?CustomFieldsDraft $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ChannelResourceIdentifier $distributionChannel
-     * @return $this
-     */
-    public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
-    {
-        $this->distributionChannel = $distributionChannel;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ExternalTaxRateDraft $externalTaxRate
-     * @return $this
-     */
-    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
-    {
-        $this->externalTaxRate = $externalTaxRate;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -300,34 +234,34 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
+     * @return $this
+     */
+    public function withAddedAt(?DateTimeImmutable $addedAt)
+    {
+        $this->addedAt = $addedAt;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
+     * @return $this
+     */
+    public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
+    {
+        $this->distributionChannel = $distributionChannel;
+
+        return $this;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Money $externalPrice
-     * @return $this
-     */
-    public function withExternalPrice(?Money $externalPrice)
-    {
-        $this->externalPrice = $externalPrice;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
-     * @return $this
-     */
-    public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
-    {
-        $this->externalTotalPrice = $externalTotalPrice;
 
         return $this;
     }
@@ -344,21 +278,10 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * @param ?DateTimeImmutable $addedAt
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withAddedAt(?DateTimeImmutable $addedAt)
-    {
-        $this->addedAt = $addedAt;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -377,45 +300,12 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * @deprecated use withExternalTaxRate() instead
-     * @return $this
-     */
-    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
-    {
-        $this->externalTaxRate = $externalTaxRate;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withExternalPrice() instead
-     * @return $this
-     */
-    public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)
-    {
-        $this->externalPrice = $externalPrice;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withExternalTotalPrice() instead
-     * @return $this
-     */
-    public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
-    {
-        $this->externalTotalPrice = $externalTotalPrice;
 
         return $this;
     }
@@ -431,21 +321,29 @@ final class MyCartAddLineItemActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): MyCartAddLineItemAction
     {
         return new MyCartAddLineItemActionModel(
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
-            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->productId,
             $this->variantId,
             $this->sku,
             $this->quantity,
+            $this->addedAt,
+            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
-            $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
-            $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
-            $this->addedAt
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

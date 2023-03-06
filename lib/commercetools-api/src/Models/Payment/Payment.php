@@ -97,7 +97,7 @@ interface Payment extends BaseResource
     public function getCustomer();
 
     /**
-     * <p><a href="/../api/authorization#tokens-for-anonymous-sessions">Anonymous session</a> associated with the Payment.</p>
+     * <p><a href="ctp:api:type:AnonymousSession">Anonymous session</a> associated with the Payment.</p>
      *
 
      * @return null|string

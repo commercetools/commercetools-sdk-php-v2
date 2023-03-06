@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -35,7 +35,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $amount;
 
@@ -46,7 +46,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     public function __construct(
         ?string $name = null,
         ?float $rate = null,
-        ?TypedMoney $amount = null
+        ?CentPrecisionMoney $amount = null
     ) {
         $this->name = $name;
         $this->rate = $rate;
@@ -54,6 +54,8 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
+     * <p>Name of the tax portion.</p>
+     *
      *
      * @return null|string
      */
@@ -72,7 +74,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
-     * <p>A number in the range [0..1]</p>
+     * <p>A number in the range 0-1.</p>
      *
      *
      * @return null|float
@@ -92,8 +94,10 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
+     * <p>Money value of the tax portion.</p>
      *
-     * @return null|TypedMoney
+     *
+     * @return null|CentPrecisionMoney
      */
     public function getAmount()
     {
@@ -104,7 +108,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
                 return null;
             }
 
-            $this->amount = TypedMoneyModel::of($data);
+            $this->amount = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->amount;
@@ -128,9 +132,9 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
-     * @param ?TypedMoney $amount
+     * @param ?CentPrecisionMoney $amount
      */
-    public function setAmount(?TypedMoney $amount): void
+    public function setAmount(?CentPrecisionMoney $amount): void
     {
         $this->amount = $amount;
     }

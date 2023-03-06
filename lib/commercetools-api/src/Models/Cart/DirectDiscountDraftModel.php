@@ -48,6 +48,8 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
     }
 
     /**
+     * <p>Defines the effect the Discount will have.</p>
+     *
      *
      * @return null|CartDiscountValue
      */
@@ -67,7 +69,8 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
     }
 
     /**
-     * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>
+     * <p>Defines what part of the Cart will be discounted.</p>
+     * <p>If <code>value</code> is set to <code>giftLineItem</code>, this must not be set.</p>
      *
      *
      * @return null|CartDiscountTarget

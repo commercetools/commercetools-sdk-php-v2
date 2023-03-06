@@ -91,6 +91,8 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Name of the custom Shipping Method.</p>
+     *
      *
      * @return null|string
      */
@@ -109,6 +111,8 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Determines the shipping price.</p>
+     *
      *
      * @return null|ShippingRateDraft
      */
@@ -128,7 +132,7 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p>Tax Category used to determine the Tax Rate when the Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
      *
      * @return null|TaxCategoryResourceIdentifier
@@ -149,6 +153,8 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>External Tax Rate for the <code>shippingRate</code> to be set if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
      *
      * @return null|ExternalTaxRateDraft
      */

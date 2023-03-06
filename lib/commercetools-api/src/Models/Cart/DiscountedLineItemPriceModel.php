@@ -46,6 +46,8 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     }
 
     /**
+     * <p>Money value of the discounted Line Item or Custom Line Item.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -65,6 +67,8 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     }
 
     /**
+     * <p>Discount applicable on the Line Item or Custom Line Item.</p>
+     *
      *
      * @return null|DiscountedLineItemPortionCollection
      */

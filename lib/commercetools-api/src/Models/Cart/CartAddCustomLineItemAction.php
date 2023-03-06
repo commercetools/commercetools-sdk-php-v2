@@ -22,13 +22,14 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_SLUG = 'slug';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
-    public const FIELD_CUSTOM = 'custom';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_CUSTOM = 'custom';
     public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Money value of the Custom Line Item.
+     * The value can be negative.</p>
      *
 
      * @return null|Money
@@ -36,7 +37,7 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
     public function getMoney();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Name of the Custom Line Item.</p>
      *
 
      * @return null|LocalizedString
@@ -44,19 +45,25 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
     public function getName();
 
     /**
+     * <p>Number of Custom Line Items to add to the Cart.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
+     * <p>User-defined identifier used in a deep-link URL for the Custom Line Item.
+     * It must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
+     *
 
      * @return null|string
      */
     public function getSlug();
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p>Used to select a Tax Rate when a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>If <a href="ctp:api:type:TaxMode">TaxMode</a> is <code>Platform</code>, this field must not be empty.</p>
      *
 
      * @return null|TaxCategoryResourceIdentifier
@@ -64,18 +71,28 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
     public function getTaxCategory();
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>An external Tax Rate can be set if the Cart has <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate();
+
+    /**
+     * <p>Container for Custom Line Item-specific addresses.</p>
+     *
+
+     * @return null|ItemShippingDetailsDraft
+     */
+    public function getShippingDetails();
+
+    /**
+     * <p>Custom Fields for the Custom Line Item.</p>
      *
 
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
-
-    /**
-
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate();
 
     /**
      * <ul>
@@ -115,14 +132,19 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void;
 
     /**
-     * @param ?CustomFieldsDraft $custom
-     */
-    public function setCustom(?CustomFieldsDraft $custom): void;
-
-    /**
      * @param ?ExternalTaxRateDraft $externalTaxRate
      */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
+
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
+    public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 
     /**
      * @param ?string $priceMode

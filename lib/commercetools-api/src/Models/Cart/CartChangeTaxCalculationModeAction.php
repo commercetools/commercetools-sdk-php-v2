@@ -16,6 +16,8 @@ interface CartChangeTaxCalculationModeAction extends CartUpdateAction
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
 
     /**
+     * <p>New value to set.</p>
+     *
 
      * @return null|string
      */

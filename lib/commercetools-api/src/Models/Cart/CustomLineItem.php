@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Order\ItemStateCollection;
@@ -35,7 +36,7 @@ interface CustomLineItem extends JsonObject
     public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
-     * <p>Unique identifier of the CustomLineItem.</p>
+     * <p>Unique identifier of the Custom Line Item.</p>
      *
 
      * @return null|string
@@ -43,7 +44,7 @@ interface CustomLineItem extends JsonObject
     public function getId();
 
     /**
-     * <p>The name of this CustomLineItem.</p>
+     * <p>Name of the Custom Line Item.</p>
      *
 
      * @return null|LocalizedString
@@ -51,8 +52,7 @@ interface CustomLineItem extends JsonObject
     public function getName();
 
     /**
-     * <p>The cost to add to the cart.
-     * The amount can be negative.</p>
+     * <p>Money value of the Custom Line Item.</p>
      *
 
      * @return null|TypedMoney
@@ -60,7 +60,7 @@ interface CustomLineItem extends JsonObject
     public function getMoney();
 
     /**
-     * <p>Set once the <code>taxRate</code> is set.</p>
+     * <p>Automatically set after the <code>taxRate</code> is set.</p>
      *
 
      * @return null|TaxedItemPrice
@@ -68,18 +68,18 @@ interface CustomLineItem extends JsonObject
     public function getTaxedPrice();
 
     /**
-     * <p>The total price of this custom line item.
-     * If custom line item is discounted, then the <code>totalPrice</code> would be the discounted custom line item price multiplied by <code>quantity</code>.
-     * Otherwise a total price is just a <code>money</code> multiplied by the <code>quantity</code>.
-     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
+     * <p>Total price of the Custom Line Item (<code>money</code> multiplied by <code>quantity</code>).
+     * If the Custom Line Item is discounted, the total price is <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>.</p>
+     * <p>Includes taxes if the <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice();
 
     /**
-     * <p>A unique String in the cart to identify this CustomLineItem.</p>
+     * <p>User-defined identifier used in a deep-link URL for the Custom Line Item.
+     * It matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
      *
 
      * @return null|string
@@ -87,8 +87,7 @@ interface CustomLineItem extends JsonObject
     public function getSlug();
 
     /**
-     * <p>The amount of a CustomLineItem in the cart.
-     * Must be a positive integer.</p>
+     * <p>Number of Custom Line Items in the Cart.</p>
      *
 
      * @return null|int
@@ -96,20 +95,26 @@ interface CustomLineItem extends JsonObject
     public function getQuantity();
 
     /**
+     * <p>State of the Custom Line Item in the Cart.</p>
+     *
 
      * @return null|ItemStateCollection
      */
     public function getState();
 
     /**
+     * <p>Used to select a Tax Rate when a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
 
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory();
 
     /**
-     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
-     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
+     * <ul>
+     * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the <code>taxRate</code> of Custom Line Items is set automatically once a shipping address is set. The rate is based on the <a href="ctp:api:type:TaxCategory">TaxCategory</a> that applies for the shipping address.</li>
+     * <li>For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Custom Line Items can be set using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</li>
+     * </ul>
      *
 
      * @return null|TaxRate
@@ -117,21 +122,23 @@ interface CustomLineItem extends JsonObject
     public function getTaxRate();
 
     /**
+     * <p>Discounted price of a single quantity of the Custom Line Item.</p>
+     *
 
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity();
 
     /**
+     * <p>Custom Fields of the Custom Line Item.</p>
+     *
 
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
-     * <p>Container for custom line item specific address(es).
-     * CustomLineItem fields that can be used in query predicates: <code>slug</code>, <code>name</code>, <code>quantity</code>,
-     * <code>money</code>, <code>state</code>, <code>discountedPricePerQuantity</code>.</p>
+     * <p>Container for Custom Line Item-specific addresses.</p>
      *
 
      * @return null|ItemShippingDetails
@@ -139,8 +146,7 @@ interface CustomLineItem extends JsonObject
     public function getShippingDetails();
 
     /**
-     * <p>Specifies whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
-     * are applied to the Custom Line Item.</p>
+     * <p>Indicates whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a> are applied to the Custom Line Item.</p>
      *
 
      * @return null|string
@@ -168,9 +174,9 @@ interface CustomLineItem extends JsonObject
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
 
     /**
-     * @param ?TypedMoney $totalPrice
+     * @param ?CentPrecisionMoney $totalPrice
      */
-    public function setTotalPrice(?TypedMoney $totalPrice): void;
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void;
 
     /**
      * @param ?string $slug

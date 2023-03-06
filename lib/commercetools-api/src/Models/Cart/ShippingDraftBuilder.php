@@ -10,9 +10,11 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressBuilder;
-use Commercetools\Api\Models\Order\DeliveryCollection;
+use Commercetools\Api\Models\Order\DeliveryDraftCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -51,24 +53,24 @@ final class ShippingDraftBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
 
-     * @var ?DeliveryCollection
+     * @var ?DeliveryDraftCollection
      */
     private $deliveries;
 
     /**
 
-     * @var ?string
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined unique identifier for the Shipping in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|string
@@ -101,12 +103,13 @@ final class ShippingDraftBuilder implements Builder
     }
 
     /**
-     * <p>Used as an input to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+     * <p>Input used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.
+     * The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="ctp:api:type:Project">Project</a>:</p>
      * <ul>
-     * <li>Must be <a href="ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartClassificationType">CartClassificationType</a>.</li>
-     * <li>Must be <a href="ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartScoreType">CartScoreType</a>.</li>
+     * <li>If <code>CartClassification</code>, it must be <a href="ctp:api:type:ClassificationShippingRateInputDraft">ClassificationShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartScore</code>, it must be <a href="ctp:api:type:ScoreShippingRateInputDraft">ScoreShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartValue</code>, it cannot be set.</li>
      * </ul>
-     * <p>The <code>shippingRateInput</code> cannot be set on the Cart if <a href="ctp:api:type:CartValueType">CartValueType</a> is defined.</p>
      *
 
      * @return null|ShippingRateInputDraft
@@ -120,18 +123,18 @@ final class ShippingDraftBuilder implements Builder
      * <p>Tax Rate used for taxing a shipping expense if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
 
-     * @return null|string
+     * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
     {
-        return $this->externalTaxRate;
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
     }
 
     /**
-     * <p>Holds information on how items are delivered to customers.</p>
+     * <p>Deliveries to be shipped with the Shipping Method.</p>
      *
 
-     * @return null|DeliveryCollection
+     * @return null|DeliveryDraftCollection
      */
     public function getDeliveries()
     {
@@ -142,11 +145,11 @@ final class ShippingDraftBuilder implements Builder
      * <p>Custom Fields for Shipping.</p>
      *
 
-     * @return null|string
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
-        return $this->custom;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -194,10 +197,10 @@ final class ShippingDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $externalTaxRate
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
-    public function withExternalTaxRate(?string $externalTaxRate)
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
 
@@ -205,10 +208,10 @@ final class ShippingDraftBuilder implements Builder
     }
 
     /**
-     * @param ?DeliveryCollection $deliveries
+     * @param ?DeliveryDraftCollection $deliveries
      * @return $this
      */
-    public function withDeliveries(?DeliveryCollection $deliveries)
+    public function withDeliveries(?DeliveryDraftCollection $deliveries)
     {
         $this->deliveries = $deliveries;
 
@@ -216,10 +219,10 @@ final class ShippingDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $custom
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withCustom(?string $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -259,6 +262,28 @@ final class ShippingDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withExternalTaxRate() instead
+     * @return $this
+     */
+    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    {
+        $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): ShippingDraft
     {
         return new ShippingDraftModel(
@@ -266,9 +291,9 @@ final class ShippingDraftBuilder implements Builder
             $this->shippingMethod instanceof ShippingMethodReferenceBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
             $this->shippingAddress instanceof BaseAddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
             $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
-            $this->externalTaxRate,
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->deliveries,
-            $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

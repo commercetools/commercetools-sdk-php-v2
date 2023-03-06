@@ -27,6 +27,8 @@ final class ReplicaMyCartDraftBuilder implements Builder
     private $reference;
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> that is replicated.</p>
+     *
 
      * @return null|JsonObject
      */

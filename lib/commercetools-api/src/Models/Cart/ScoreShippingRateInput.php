@@ -16,6 +16,8 @@ interface ScoreShippingRateInput extends ShippingRateInput
     public const FIELD_SCORE = 'score';
 
     /**
+     * <p>Abstract value for categorizing a Cart.</p>
+     *
 
      * @return null|int
      */

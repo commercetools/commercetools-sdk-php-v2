@@ -17,6 +17,9 @@ interface MyCartAddItemShippingAddressAction extends MyCartUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+     * <p>Address to append to <code>itemShippingAddresses</code>.</p>
+     * <p>The new address must have a key that is unique accross this Cart.</p>
+     *
 
      * @return null|BaseAddress
      */

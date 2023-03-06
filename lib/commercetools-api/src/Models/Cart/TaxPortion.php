@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -19,13 +19,15 @@ interface TaxPortion extends JsonObject
     public const FIELD_AMOUNT = 'amount';
 
     /**
+     * <p>Name of the tax portion.</p>
+     *
 
      * @return null|string
      */
     public function getName();
 
     /**
-     * <p>A number in the range [0..1]</p>
+     * <p>A number in the range 0-1.</p>
      *
 
      * @return null|float
@@ -33,8 +35,10 @@ interface TaxPortion extends JsonObject
     public function getRate();
 
     /**
+     * <p>Money value of the tax portion.</p>
+     *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getAmount();
 
@@ -49,7 +53,7 @@ interface TaxPortion extends JsonObject
     public function setRate(?float $rate): void;
 
     /**
-     * @param ?TypedMoney $amount
+     * @param ?CentPrecisionMoney $amount
      */
-    public function setAmount(?TypedMoney $amount): void;
+    public function setAmount(?CentPrecisionMoney $amount): void;
 }

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\TypedMoney;
@@ -57,7 +59,7 @@ final class CustomLineItemBuilder implements Builder
 
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $totalPrice;
 
@@ -116,7 +118,7 @@ final class CustomLineItemBuilder implements Builder
     private $priceMode;
 
     /**
-     * <p>Unique identifier of the CustomLineItem.</p>
+     * <p>Unique identifier of the Custom Line Item.</p>
      *
 
      * @return null|string
@@ -127,7 +129,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>The name of this CustomLineItem.</p>
+     * <p>Name of the Custom Line Item.</p>
      *
 
      * @return null|LocalizedString
@@ -138,8 +140,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>The cost to add to the cart.
-     * The amount can be negative.</p>
+     * <p>Money value of the Custom Line Item.</p>
      *
 
      * @return null|TypedMoney
@@ -150,7 +151,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Set once the <code>taxRate</code> is set.</p>
+     * <p>Automatically set after the <code>taxRate</code> is set.</p>
      *
 
      * @return null|TaxedItemPrice
@@ -161,21 +162,21 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>The total price of this custom line item.
-     * If custom line item is discounted, then the <code>totalPrice</code> would be the discounted custom line item price multiplied by <code>quantity</code>.
-     * Otherwise a total price is just a <code>money</code> multiplied by the <code>quantity</code>.
-     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
+     * <p>Total price of the Custom Line Item (<code>money</code> multiplied by <code>quantity</code>).
+     * If the Custom Line Item is discounted, the total price is <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>.</p>
+     * <p>Includes taxes if the <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice()
     {
-        return $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+        return $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
 
     /**
-     * <p>A unique String in the cart to identify this CustomLineItem.</p>
+     * <p>User-defined identifier used in a deep-link URL for the Custom Line Item.
+     * It matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
      *
 
      * @return null|string
@@ -186,8 +187,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>The amount of a CustomLineItem in the cart.
-     * Must be a positive integer.</p>
+     * <p>Number of Custom Line Items in the Cart.</p>
      *
 
      * @return null|int
@@ -198,6 +198,8 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>State of the Custom Line Item in the Cart.</p>
+     *
 
      * @return null|ItemStateCollection
      */
@@ -207,6 +209,8 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Used to select a Tax Rate when a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
 
      * @return null|TaxCategoryReference
      */
@@ -216,8 +220,10 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
-     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
+     * <ul>
+     * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the <code>taxRate</code> of Custom Line Items is set automatically once a shipping address is set. The rate is based on the <a href="ctp:api:type:TaxCategory">TaxCategory</a> that applies for the shipping address.</li>
+     * <li>For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Custom Line Items can be set using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</li>
+     * </ul>
      *
 
      * @return null|TaxRate
@@ -228,6 +234,8 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Discounted price of a single quantity of the Custom Line Item.</p>
+     *
 
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
@@ -237,6 +245,8 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields of the Custom Line Item.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -246,9 +256,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Container for custom line item specific address(es).
-     * CustomLineItem fields that can be used in query predicates: <code>slug</code>, <code>name</code>, <code>quantity</code>,
-     * <code>money</code>, <code>state</code>, <code>discountedPricePerQuantity</code>.</p>
+     * <p>Container for Custom Line Item-specific addresses.</p>
      *
 
      * @return null|ItemShippingDetails
@@ -259,8 +267,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Specifies whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
-     * are applied to the Custom Line Item.</p>
+     * <p>Indicates whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a> are applied to the Custom Line Item.</p>
      *
 
      * @return null|string
@@ -315,10 +322,10 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $totalPrice
+     * @param ?CentPrecisionMoney $totalPrice
      * @return $this
      */
-    public function withTotalPrice(?TypedMoney $totalPrice)
+    public function withTotalPrice(?CentPrecisionMoney $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -461,7 +468,7 @@ final class CustomLineItemBuilder implements Builder
      * @deprecated use withTotalPrice() instead
      * @return $this
      */
-    public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?CentPrecisionMoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -519,7 +526,7 @@ final class CustomLineItemBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->money instanceof TypedMoneyBuilder ? $this->money->build() : $this->money,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
-            $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
+            $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->slug,
             $this->quantity,
             $this->state,

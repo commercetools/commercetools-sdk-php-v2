@@ -29,7 +29,8 @@ final class CartSetCustomerGroupActionBuilder implements Builder
     private $customerGroup;
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
 
      * @return null|CustomerGroupResourceIdentifier

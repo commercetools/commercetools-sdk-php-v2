@@ -16,6 +16,8 @@ interface MyCartAddDiscountCodeAction extends MyCartUpdateAction
     public const FIELD_CODE = 'code';
 
     /**
+     * <p><code>code</code> of a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     *
 
      * @return null|string
      */

@@ -16,9 +16,10 @@ interface CartRecalculateAction extends CartUpdateAction
     public const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
 
     /**
-     * <p>If set to <code>true</code>, the line item product data (<code>name</code>, <code>variant</code> and <code>productType</code>) will also be updated.
-     * If set to <code>false</code>, only the prices and tax rates of the line item will be updated.
-     * Notice that if the Product's <a href="ctp:api:type:Product">priceMode</a> value is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a>, the updated price of a line item may not correspond to a price in <code>variant.prices</code> anymore.</p>
+     * <ul>
+     * <li>Leave empty or set to <code>false</code> to only update the Prices and TaxRates of the Line Items.</li>
+     * <li>Set to <code>true</code> to update the Line Items' product data (like <code>name</code>, <code>variant</code> and <code>productType</code>) also.</li>
+     * </ul>
      *
 
      * @return null|bool

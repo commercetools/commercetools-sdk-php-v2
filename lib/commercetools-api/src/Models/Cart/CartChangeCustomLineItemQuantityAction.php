@@ -17,12 +17,17 @@ interface CartChangeCustomLineItemQuantityAction extends CartUpdateAction
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+     * <p>New value to set.</p>
+     * <p>If <code>0</code>, the Custom Line Item is removed from the Cart.</p>
+     *
 
      * @return null|int
      */

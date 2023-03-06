@@ -16,7 +16,10 @@ interface CartSetCountryAction extends CartUpdateAction
     public const FIELD_COUNTRY = 'country';
 
     /**
-     * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     * <p>If the Cart is bound to a <code>store</code>, the provided value must be included in the <a href="ctp:api:type:Store">Store's</a> <code>countries</code>.
+     * Otherwise a <a href="ctp:api:type:CountryNotConfiguredInStoreError">CountryNotConfiguredInStore</a> error is returned.</p>
      *
 
      * @return null|string

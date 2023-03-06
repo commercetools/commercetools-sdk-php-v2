@@ -33,7 +33,7 @@ final class CartChangeCustomLineItemPriceModeActionBuilder implements Builder
     private $mode;
 
     /**
-     * <p>ID of the Custom Line Item to be updated.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
      *
 
      * @return null|string
@@ -44,7 +44,7 @@ final class CartChangeCustomLineItemPriceModeActionBuilder implements Builder
     }
 
     /**
-     * <p>New value to set.</p>
+     * <p>New value to set. Must not be empty.</p>
      *
 
      * @return null|string

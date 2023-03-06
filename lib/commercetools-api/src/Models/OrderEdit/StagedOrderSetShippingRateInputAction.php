@@ -18,6 +18,8 @@ interface StagedOrderSetShippingRateInputAction extends StagedOrderUpdateAction
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
 
     /**
+     * <p>Generic type holding specifc ShippingRateInputDraft types.</p>
+     *
 
      * @return null|ShippingRateInputDraft
      */

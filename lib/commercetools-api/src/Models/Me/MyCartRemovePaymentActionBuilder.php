@@ -29,7 +29,7 @@ final class MyCartRemovePaymentActionBuilder implements Builder
     private $payment;
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     * <p>Payment to remove from the Cart.</p>
      *
 
      * @return null|PaymentResourceIdentifier

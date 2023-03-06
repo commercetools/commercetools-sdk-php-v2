@@ -41,6 +41,12 @@ final class MyLineItemDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $sku;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -65,23 +71,19 @@ final class MyLineItemDraftBuilder implements Builder
 
     /**
 
-     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
 
-     * @var ?string
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
-    private $sku;
+    private $custom;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
 
      * @return null|string
      */
@@ -91,6 +93,9 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
+     *
 
      * @return null|int
      */
@@ -100,6 +105,19 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * <p>Number of Product Variants to add to the Cart.</p>
+     *
 
      * @return null|int
      */
@@ -109,8 +127,9 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>When the line item was added to the cart. Optional for backwards
-     * compatibility reasons only.</p>
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -121,9 +140,8 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>By providing supply channel information, you can unique identify
-     * inventory entries that should be reserved.
-     * The provided channel should have the InventorySupply role.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -134,8 +152,10 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
+     * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set,
+     * the Channel must match one of the Store's distribution channels.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -146,18 +166,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>
-     *
-
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * <p>Container for line item specific address(es).</p>
+     * <p>Container for Line Item-specific addresses.</p>
      *
 
      * @return null|ItemShippingDetailsDraft
@@ -168,12 +177,14 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields for the Cart.</p>
+     *
 
-     * @return null|string
+     * @return null|CustomFieldsDraft
      */
-    public function getSku()
+    public function getCustom()
     {
-        return $this->sku;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -194,6 +205,17 @@ final class MyLineItemDraftBuilder implements Builder
     public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $sku
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
 
         return $this;
     }
@@ -243,17 +265,6 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
@@ -265,12 +276,12 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $sku
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withSku(?string $sku)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
-        $this->sku = $sku;
+        $this->custom = $custom;
 
         return $this;
     }
@@ -298,17 +309,6 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withShippingDetails() instead
      * @return $this
      */
@@ -319,18 +319,29 @@ final class MyLineItemDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): MyLineItemDraft
     {
         return new MyLineItemDraftModel(
             $this->productId,
             $this->variantId,
+            $this->sku,
             $this->quantity,
             $this->addedAt,
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
-            $this->sku
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

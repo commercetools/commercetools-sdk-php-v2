@@ -63,6 +63,8 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>New value to set.</p>
+     *
      *
      * @return null|string
      */

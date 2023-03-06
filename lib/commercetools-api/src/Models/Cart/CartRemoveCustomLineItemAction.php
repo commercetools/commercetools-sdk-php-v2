@@ -16,6 +16,8 @@ interface CartRemoveCustomLineItemAction extends CartUpdateAction
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
 
     /**
+     * <p><code>id</code> of the Custom Line Item to remove.</p>
+     *
 
      * @return null|string
      */

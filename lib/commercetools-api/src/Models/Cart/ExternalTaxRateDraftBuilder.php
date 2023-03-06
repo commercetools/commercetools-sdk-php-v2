@@ -35,6 +35,12 @@ final class ExternalTaxRateDraftBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $includedInPrice;
+
+    /**
+
      * @var ?string
      */
     private $country;
@@ -52,12 +58,8 @@ final class ExternalTaxRateDraftBuilder implements Builder
     private $subRates;
 
     /**
-
-     * @var ?bool
-     */
-    private $includedInPrice;
-
-    /**
+     * <p>Name of the Tax Rate.</p>
+     *
 
      * @return null|string
      */
@@ -67,10 +69,11 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
-     * <p>Percentage in the range of [0..1].
-     * Must be supplied if no <code>subRates</code> are specified.
-     * If <code>subRates</code> are specified
-     * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>
+     * <p>Percentage in the range of 0-1.</p>
+     * <ul>
+     * <li>If no <code>subRates</code> are specified, a value must be defined.</li>
+     * <li>If <code>subRates</code> are specified, this can be omitted or its value must be the sum of all <code>subRates</code> amounts.</li>
+     * </ul>
      *
 
      * @return null|float
@@ -81,7 +84,21 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <ul>
+     * <li>If set to <code>false</code>, the related price is considered the net price and the provided <code>amount</code> is applied to calculate the gross price.</li>
+     * <li>If set to <code>true</code>, the related price is considered the gross price, and the provided <code>amount</code> is applied to calculate the net price.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getIncludedInPrice()
+    {
+        return $this->includedInPrice;
+    }
+
+    /**
+     * <p>Country for which the tax applies.</p>
      *
 
      * @return null|string
@@ -92,7 +109,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
-     * <p>The state in the country</p>
+     * <p>State within the specified country.</p>
      *
 
      * @return null|string
@@ -103,9 +120,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
-     * <p>For countries (e.g.
-     * the US) where the total tax is a combination of multiple taxes (e.g.
-     * state and local taxes).</p>
+     * <p>For countries (such as the US) where the total tax is a combination of multiple taxes (such as state and local taxes).</p>
      *
 
      * @return null|SubRateCollection
@@ -113,17 +128,6 @@ final class ExternalTaxRateDraftBuilder implements Builder
     public function getSubRates()
     {
         return $this->subRates;
-    }
-
-    /**
-     * <p>The default value for <code>includedInPrice</code> is FALSE.</p>
-     *
-
-     * @return null|bool
-     */
-    public function getIncludedInPrice()
-    {
-        return $this->includedInPrice;
     }
 
     /**
@@ -144,6 +148,17 @@ final class ExternalTaxRateDraftBuilder implements Builder
     public function withAmount(?float $amount)
     {
         $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $includedInPrice
+     * @return $this
+     */
+    public function withIncludedInPrice(?bool $includedInPrice)
+    {
+        $this->includedInPrice = $includedInPrice;
 
         return $this;
     }
@@ -181,27 +196,16 @@ final class ExternalTaxRateDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?bool $includedInPrice
-     * @return $this
-     */
-    public function withIncludedInPrice(?bool $includedInPrice)
-    {
-        $this->includedInPrice = $includedInPrice;
-
-        return $this;
-    }
-
 
     public function build(): ExternalTaxRateDraft
     {
         return new ExternalTaxRateDraftModel(
             $this->name,
             $this->amount,
+            $this->includedInPrice,
             $this->country,
             $this->state,
-            $this->subRates,
-            $this->includedInPrice
+            $this->subRates
         );
     }
 

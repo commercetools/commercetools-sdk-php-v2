@@ -27,6 +27,8 @@ final class MyCartChangeTaxModeActionBuilder implements Builder
     private $taxMode;
 
     /**
+     * <p>The new TaxMode.</p>
+     *
 
      * @return null|string
      */

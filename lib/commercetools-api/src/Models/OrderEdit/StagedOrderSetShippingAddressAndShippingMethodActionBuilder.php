@@ -47,6 +47,10 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
     private $externalTaxRate;
 
     /**
+     * <p>Polymorphic base type that represents a postal address and contact details.
+     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
+     * only differ in the data type for the optional <code>custom</code> field.</p>
+     *
 
      * @return null|BaseAddress
      */
@@ -67,6 +71,8 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
     }
 
     /**
+     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+     *
 
      * @return null|ExternalTaxRateDraft
      */

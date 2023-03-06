@@ -35,6 +35,8 @@ final class MyCartSetLineItemSupplyChannelActionBuilder implements Builder
     private $supplyChannel;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -44,7 +46,11 @@ final class MyCartSetLineItemSupplyChannelActionBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <ul>
+     * <li>If present, a <a href="ctp:api:type:Reference">Reference</a> to the Channel is set for the <a href="ctp:api:type:LineItem">LineItem</a> specified by <code>lineItemId</code>.</li>
+     * <li>If not present, the current <a href="ctp:api:type:Reference">Reference</a> to a supply channel will be removed from the <a href="ctp:api:type:LineItem">LineItem</a> specified by <code>lineItemId</code>.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</li>
+     * </ul>
      *
 
      * @return null|ChannelResourceIdentifier

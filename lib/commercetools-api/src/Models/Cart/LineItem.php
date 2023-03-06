@@ -9,9 +9,9 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\Price;
-use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
@@ -31,26 +31,26 @@ interface LineItem extends JsonObject
     public const FIELD_PRODUCT_TYPE = 'productType';
     public const FIELD_VARIANT = 'variant';
     public const FIELD_PRICE = 'price';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_TOTAL_PRICE = 'totalPrice';
+    public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_TAXED_PRICE_PORTIONS = 'taxedPricePortions';
-    public const FIELD_TOTAL_PRICE = 'totalPrice';
-    public const FIELD_QUANTITY = 'quantity';
-    public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_STATE = 'state';
     public const FIELD_TAX_RATE = 'taxRate';
     public const FIELD_PER_METHOD_TAX_RATE = 'perMethodTaxRate';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
-    public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
     public const FIELD_PRICE_MODE = 'priceMode';
     public const FIELD_LINE_ITEM_MODE = 'lineItemMode';
-    public const FIELD_CUSTOM = 'custom';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
     /**
-     * <p>Unique identifier of the LineItem.</p>
+     * <p>Unique identifier of the Line Item.</p>
      *
 
      * @return null|string
@@ -58,14 +58,21 @@ interface LineItem extends JsonObject
     public function getId();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
+     *
 
      * @return null|string
      */
     public function getProductId();
 
     /**
-     * <p>User-defined unique identifier of the <a href="ctp:api:type:Product">Product</a>.
-     * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>This field is only present on:</p>
+     * <ul>
+     * <li>Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item was created or updated on the Cart.</li>
+     * <li><a href="ctp:api:type:Order">Orders</a> when the <code>key</code> is available on the specific Product at the time the Order was created from the Cart.</li>
+     * </ul>
+     * <p>Present on resources created or updated after 3 December 2021.</p>
      *
 
      * @return null|string
@@ -73,7 +80,7 @@ interface LineItem extends JsonObject
     public function getProductKey();
 
     /**
-     * <p>The product name.</p>
+     * <p>Name of the Product.</p>
      *
 
      * @return null|LocalizedString
@@ -81,10 +88,8 @@ interface LineItem extends JsonObject
     public function getName();
 
     /**
-     * <p>The slug of a product is inserted on the fly.
-     * It is always up-to-date and can therefore be used to link to the product detail page of the product.
-     * It is empty if the product has been deleted.
-     * The slug is also empty if the cart or order is retrieved via Reference Expansion or is a snapshot in a Message.</p>
+     * <p><code>slug</code> of the current version of the Product. Updated automatically if the <code>slug</code> changes. Empty if the Product has been deleted.
+     * The <code>productSlug</code> field of LineItem is not expanded when using <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a>.</p>
      *
 
      * @return null|LocalizedString
@@ -92,14 +97,17 @@ interface LineItem extends JsonObject
     public function getProductSlug();
 
     /**
+     * <p>Product Type of the Product.</p>
+     *
 
      * @return null|ProductTypeReference
      */
     public function getProductType();
 
     /**
-     * <p>The variant data is saved when the variant is added to the cart, and not updated automatically.
-     * It can manually be updated with the Recalculate update action.</p>
+     * <p>Holds the data of the Product Variant added to the Cart.</p>
+     * <p>The data is saved at the time the Product Variant is added to the Cart and is not updated automatically when Product Variant data changes.
+     * Must be updated using the <a href="ctp:api:type:CartRecalculateAction">Recalculate</a> update action.</p>
      *
 
      * @return null|ProductVariant
@@ -107,8 +115,7 @@ interface LineItem extends JsonObject
     public function getVariant();
 
     /**
-     * <p>The price of a line item is selected from the product variant according to the Product's <a href="ctp:api:type:Product">priceMode</a> value.
-     * If the <code>priceMode</code> is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> and the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
+     * <p>Price of a Line Item selected from the Product Variant according to the <a href="ctp:api:type:Product">Product</a> <code>priceMode</code>. If the <code>priceMode</code> is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> and the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
      *
 
      * @return null|Price
@@ -116,35 +123,7 @@ interface LineItem extends JsonObject
     public function getPrice();
 
     /**
-     * <p>Set once the <code>taxRate</code> is set.</p>
-     *
-
-     * @return null|TaxedItemPrice
-     */
-    public function getTaxedPrice();
-
-    /**
-     * <p>Taxed price of the Shipping Method that is set automatically after <code>perMethodTaxRate</code> is set.</p>
-     *
-
-     * @return null|MethodTaxedPriceCollection
-     */
-    public function getTaxedPricePortions();
-
-    /**
-     * <p>The total price of this line item.
-     * If the line item is discounted, then the <code>totalPrice</code> is the DiscountedLineItemPriceForQuantity multiplied by <code>quantity</code>.
-     * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
-     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
-     *
-
-     * @return null|TypedMoney
-     */
-    public function getTotalPrice();
-
-    /**
-     * <p>The amount of a LineItem in the cart.
-     * Must be a positive integer.</p>
+     * <p>Number of Line Items of the given Product Variant present in the Cart.</p>
      *
 
      * @return null|int
@@ -152,23 +131,51 @@ interface LineItem extends JsonObject
     public function getQuantity();
 
     /**
-     * <p>When the line item was added to the cart. Optional for backwards
-     * compatibility reasons only.</p>
+     * <p>Total price of this Line Item equalling <code>price</code> multiplied by <code>quantity</code>. If the Line Item is discounted, the total price is the <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>.
+     * Includes taxes if the <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
      *
 
-     * @return null|DateTimeImmutable
+     * @return null|CentPrecisionMoney
      */
-    public function getAddedAt();
+    public function getTotalPrice();
 
     /**
+     * <p>Discounted price of a single quantity of the Line Item.</p>
+     *
+
+     * @return null|DiscountedLineItemPriceForQuantityCollection
+     */
+    public function getDiscountedPricePerQuantity();
+
+    /**
+     * <p>Automatically set after <code>taxRate</code> is set.</p>
+     *
+
+     * @return null|TaxedItemPrice
+     */
+    public function getTaxedPrice();
+
+    /**
+     * <p>Taxed price of the Shipping Method that is automatically set after <code>perMethodTaxRate</code> is set.</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions();
+
+    /**
+     * <p>State of the Line Item in the Cart.</p>
+     *
 
      * @return null|ItemStateCollection
      */
     public function getState();
 
     /**
-     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
-     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
+     * <ul>
+     * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the <code>taxRate</code> of Line Items is set automatically once a shipping address is set. The rate is based on the <a href="ctp:api:type:TaxCategory">TaxCategory</a> that applies for the shipping address.</li>
+     * <li>For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line Items can be set using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</li>
+     * </ul>
      *
 
      * @return null|TaxRate
@@ -176,8 +183,8 @@ interface LineItem extends JsonObject
     public function getTaxRate();
 
     /**
-     * <p>Tax Rate per Shipping Method that is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to a Cart with the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     * <p>For the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     * <p>Tax Rate per Shipping Method for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> it is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.
+     * For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
      *
 
      * @return null|MethodTaxRateCollection
@@ -185,9 +192,7 @@ interface LineItem extends JsonObject
     public function getPerMethodTaxRate();
 
     /**
-     * <p>The supply channel identifies the inventory entries that should be reserved.
-     * The channel has
-     * the role InventorySupply.</p>
+     * <p>Identifies <a href="/../api/projects/inventory">Inventory entries</a> that are reserved. The referenced Channel has the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelReference
@@ -195,8 +200,7 @@ interface LineItem extends JsonObject
     public function getSupplyChannel();
 
     /**
-     * <p>The distribution channel is used to select a ProductPrice.
-     * The channel has the role ProductDistribution.</p>
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelReference
@@ -204,32 +208,24 @@ interface LineItem extends JsonObject
     public function getDistributionChannel();
 
     /**
-
-     * @return null|DiscountedLineItemPriceForQuantityCollection
-     */
-    public function getDiscountedPricePerQuantity();
-
-    /**
+     * <p>Indicates how the Price for the Line Item is set.</p>
+     *
 
      * @return null|string
      */
     public function getPriceMode();
 
     /**
+     * <p>Indicates how the Line Item is added to the Cart.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemMode();
 
     /**
-
-     * @return null|CustomFields
-     */
-    public function getCustom();
-
-    /**
-     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
-     * Only present if inventory mode is different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     * <p>Inventory mode specific to this Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Only present if the inventory mode is different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
 
      * @return null|string
@@ -237,7 +233,7 @@ interface LineItem extends JsonObject
     public function getInventoryMode();
 
     /**
-     * <p>Container for line item specific address(es).</p>
+     * <p>Container for Line Item-specific addresses.</p>
      *
 
      * @return null|ItemShippingDetails
@@ -245,9 +241,23 @@ interface LineItem extends JsonObject
     public function getShippingDetails();
 
     /**
-     * <p>The date when the LineItem was last modified by one of the following actions
-     * setLineItemShippingDetails, addLineItem, removeLineItem, or changeLineItemQuantity.
-     * Optional only for backwards compatible reasons. When the LineItem is created lastModifiedAt is set to addedAt.</p>
+     * <p>Custom Fields of the Line Item.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
+     * <p>Date and time (UTC) the Line Item was added to the Cart.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt();
+
+    /**
+     * <p>Date and time (UTC) the Line Item was last updated.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -295,6 +305,21 @@ interface LineItem extends JsonObject
     public function setPrice(?Price $price): void;
 
     /**
+     * @param ?int $quantity
+     */
+    public function setQuantity(?int $quantity): void;
+
+    /**
+     * @param ?CentPrecisionMoney $totalPrice
+     */
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void;
+
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     */
+    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void;
+
+    /**
      * @param ?TaxedItemPrice $taxedPrice
      */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
@@ -303,21 +328,6 @@ interface LineItem extends JsonObject
      * @param ?MethodTaxedPriceCollection $taxedPricePortions
      */
     public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void;
-
-    /**
-     * @param ?TypedMoney $totalPrice
-     */
-    public function setTotalPrice(?TypedMoney $totalPrice): void;
-
-    /**
-     * @param ?int $quantity
-     */
-    public function setQuantity(?int $quantity): void;
-
-    /**
-     * @param ?DateTimeImmutable $addedAt
-     */
-    public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
     /**
      * @param ?ItemStateCollection $state
@@ -345,11 +355,6 @@ interface LineItem extends JsonObject
     public function setDistributionChannel(?ChannelReference $distributionChannel): void;
 
     /**
-     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
-     */
-    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void;
-
-    /**
      * @param ?string $priceMode
      */
     public function setPriceMode(?string $priceMode): void;
@@ -360,11 +365,6 @@ interface LineItem extends JsonObject
     public function setLineItemMode(?string $lineItemMode): void;
 
     /**
-     * @param ?CustomFields $custom
-     */
-    public function setCustom(?CustomFields $custom): void;
-
-    /**
      * @param ?string $inventoryMode
      */
     public function setInventoryMode(?string $inventoryMode): void;
@@ -373,6 +373,16 @@ interface LineItem extends JsonObject
      * @param ?ItemShippingDetails $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
     /**
      * @param ?DateTimeImmutable $lastModifiedAt

@@ -16,9 +16,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<CountryNotConfiguredInStore>
+ * @implements Builder<CountryNotConfiguredInStoreError>
  */
-final class CountryNotConfiguredInStoreBuilder implements Builder
+final class CountryNotConfiguredInStoreErrorBuilder implements Builder
 {
     /**
 
@@ -105,16 +105,16 @@ final class CountryNotConfiguredInStoreBuilder implements Builder
     }
 
 
-    public function build(): CountryNotConfiguredInStore
+    public function build(): CountryNotConfiguredInStoreError
     {
-        return new CountryNotConfiguredInStoreModel(
+        return new CountryNotConfiguredInStoreErrorModel(
             $this->message,
             $this->storeCountries,
             $this->country
         );
     }
 
-    public static function of(): CountryNotConfiguredInStoreBuilder
+    public static function of(): CountryNotConfiguredInStoreErrorBuilder
     {
         return new self();
     }

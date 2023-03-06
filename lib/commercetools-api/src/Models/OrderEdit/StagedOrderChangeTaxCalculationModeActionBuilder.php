@@ -29,6 +29,8 @@ final class StagedOrderChangeTaxCalculationModeActionBuilder implements Builder
     private $taxCalculationMode;
 
     /**
+     * <p>Determines in which <a href="/carts-orders-overview#tax-calculation-mode">Tax calculation mode</a> taxed prices are calculated.</p>
+     *
 
      * @return null|string
      */

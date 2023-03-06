@@ -48,6 +48,8 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
+     * <p>Cart Discount applicable on the Line Item.</p>
+     *
      *
      * @return null|CartDiscountReference
      */
@@ -67,6 +69,8 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
+     * <p>Money value of the discount applicable.</p>
+     *
      *
      * @return null|TypedMoney
      */

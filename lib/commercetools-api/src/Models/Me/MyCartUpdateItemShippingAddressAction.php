@@ -17,6 +17,8 @@ interface MyCartUpdateItemShippingAddressAction extends MyCartUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+     * <p>The new Address with the same <code>key</code> as the Address it will replace.</p>
+     *
 
      * @return null|BaseAddress
      */

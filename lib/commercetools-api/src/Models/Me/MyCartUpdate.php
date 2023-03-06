@@ -17,12 +17,17 @@ interface MyCartUpdate extends JsonObject
     public const FIELD_ACTIONS = 'actions';
 
     /**
+     * <p>Expected version of the Cart on which the changes apply.
+     * If it does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error is returned.</p>
+     *
 
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Update actions to be performed on the Cart.</p>
+     *
 
      * @return null|MyCartUpdateActionCollection
      */

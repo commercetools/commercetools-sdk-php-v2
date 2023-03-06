@@ -16,6 +16,8 @@ interface ClassificationShippingRateInputDraft extends ShippingRateInputDraft
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
 
      * @return null|string
      */

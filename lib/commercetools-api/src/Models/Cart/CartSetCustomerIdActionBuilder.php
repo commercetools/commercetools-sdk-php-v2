@@ -27,7 +27,7 @@ final class CartSetCustomerIdActionBuilder implements Builder
     private $customerId;
 
     /**
-     * <p>If set, a customer with the given ID must exist in the project.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Customer">Customer</a>. If empty, any value is removed.</p>
      *
 
      * @return null|string

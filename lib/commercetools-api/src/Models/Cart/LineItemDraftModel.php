@@ -60,25 +60,13 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
      *
      * @var ?ChannelResourceIdentifier
      */
-    protected $supplyChannel;
+    protected $distributionChannel;
 
     /**
      *
      * @var ?ChannelResourceIdentifier
      */
-    protected $distributionChannel;
-
-    /**
-     *
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-
-    /**
-     *
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
+    protected $supplyChannel;
 
     /**
      *
@@ -94,6 +82,12 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
 
     /**
      *
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
+    /**
+     *
      * @var ?string
      */
     protected $inventoryMode;
@@ -103,6 +97,12 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
+    /**
+     *
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
 
 
     /**
@@ -114,31 +114,33 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
         ?string $sku = null,
         ?int $quantity = null,
         ?DateTimeImmutable $addedAt = null,
-        ?ChannelResourceIdentifier $supplyChannel = null,
         ?ChannelResourceIdentifier $distributionChannel = null,
-        ?ExternalTaxRateDraft $externalTaxRate = null,
-        ?CustomFieldsDraft $custom = null,
+        ?ChannelResourceIdentifier $supplyChannel = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null,
         ?string $inventoryMode = null,
-        ?ItemShippingDetailsDraft $shippingDetails = null
+        ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->productId = $productId;
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->quantity = $quantity;
         $this->addedAt = $addedAt;
-        $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
-        $this->externalTaxRate = $externalTaxRate;
-        $this->custom = $custom;
+        $this->supplyChannel = $supplyChannel;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
+        $this->externalTaxRate = $externalTaxRate;
         $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
+        $this->custom = $custom;
     }
 
     /**
+     * <p><code>id</code> of a published <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -157,6 +159,9 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
+     *
      *
      * @return null|int
      */
@@ -175,6 +180,8 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -193,8 +200,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>The amount of a <code>LineItem</code>in the cart.
-     * Must be a positive integer.</p>
+     * <p>Quantity of the Product Variant to add to the Cart.</p>
      *
      *
      * @return null|int
@@ -214,8 +220,9 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>When the line item was added to the cart. Optional for backwards
-     * compatibility reasons only.</p>
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -239,32 +246,10 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>By providing supply channel information, you can unique identify
-     * inventory entries that should be reserved.
-     * The provided channel should have
-     * the InventorySupply role.</p>
-     *
-     *
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel()
-    {
-        if (is_null($this->supplyChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
-        }
-
-        return $this->supplyChannel;
-    }
-
-    /**
-     * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
+     * The referenced Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set,
+     * the Channel must match one of the Store's distribution channels.</p>
      *
      *
      * @return null|ChannelResourceIdentifier
@@ -285,49 +270,29 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The referenced Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      *
-     * @return null|ExternalTaxRateDraft
+     * @return null|ChannelResourceIdentifier
      */
-    public function getExternalTaxRate()
+    public function getSupplyChannel()
     {
-        if (is_null($this->externalTaxRate)) {
+        if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
         }
 
-        return $this->externalTaxRate;
+        return $this->supplyChannel;
     }
 
     /**
-     * <p>The custom fields.</p>
-     *
-     *
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> value, and the <code>priceMode</code> to <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
      *
      *
      * @return null|Money
@@ -348,7 +313,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> values, and the <code>priceMode</code> to <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
      *
      *
      * @return null|ExternalLineItemTotalPrice
@@ -369,8 +334,29 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
-     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     * <p>External Tax Rate for the Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+     *
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
+    {
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
+    }
+
+    /**
+     * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Set only if the inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
      *
      * @return null|string
@@ -390,7 +376,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>Container for line item specific address(es).</p>
+     * <p>Container for Line Item-specific addresses.</p>
      *
      *
      * @return null|ItemShippingDetailsDraft
@@ -408,6 +394,27 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
         }
 
         return $this->shippingDetails;
+    }
+
+    /**
+     * <p>Custom Fields for the Line Item.</p>
+     *
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
 
 
@@ -452,14 +459,6 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
-     */
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
-    {
-        $this->supplyChannel = $supplyChannel;
-    }
-
-    /**
      * @param ?ChannelResourceIdentifier $distributionChannel
      */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
@@ -468,19 +467,11 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * @param ?ExternalTaxRateDraft $externalTaxRate
+     * @param ?ChannelResourceIdentifier $supplyChannel
      */
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {
-        $this->externalTaxRate = $externalTaxRate;
-    }
-
-    /**
-     * @param ?CustomFieldsDraft $custom
-     */
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
+        $this->supplyChannel = $supplyChannel;
     }
 
     /**
@@ -500,6 +491,14 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    {
+        $this->externalTaxRate = $externalTaxRate;
+    }
+
+    /**
      * @param ?string $inventoryMode
      */
     public function setInventoryMode(?string $inventoryMode): void
@@ -513,6 +512,14 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 
 

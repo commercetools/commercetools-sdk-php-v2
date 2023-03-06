@@ -40,6 +40,8 @@ final class ReplicaMyCartDraftModel extends JsonObjectModel implements ReplicaMy
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> that is replicated.</p>
+     *
      *
      * @return ?mixed
      */
@@ -58,6 +60,8 @@ final class ReplicaMyCartDraftModel extends JsonObjectModel implements ReplicaMy
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> that is replicated.</p>
+     *
      * @return null|CartReference
      */
     public function getReferenceAsCartReference()
@@ -72,6 +76,8 @@ final class ReplicaMyCartDraftModel extends JsonObjectModel implements ReplicaMy
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> that is replicated.</p>
+     *
      * @return null|OrderReference
      */
     public function getReferenceAsOrderReference()

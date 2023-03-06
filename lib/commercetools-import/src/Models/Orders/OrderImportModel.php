@@ -19,6 +19,8 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReferenceModel;
+use Commercetools\Import\Models\Common\StateKeyReference;
+use Commercetools\Import\Models\Common\StateKeyReferenceModel;
 use Commercetools\Import\Models\Common\StoreKeyReference;
 use Commercetools\Import\Models\Common\StoreKeyReferenceModel;
 use Commercetools\Import\Models\Common\TypedMoney;
@@ -171,6 +173,12 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
      */
     protected $store;
 
+    /**
+     *
+     * @var ?StateKeyReference
+     */
+    protected $state;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -198,7 +206,8 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         ?string $taxCalculationMode = null,
         ?string $origin = null,
         ?AddressCollection $itemShippingAddresses = null,
-        ?StoreKeyReference $store = null
+        ?StoreKeyReference $store = null,
+        ?StateKeyReference $state = null
     ) {
         $this->orderNumber = $orderNumber;
         $this->customer = $customer;
@@ -223,6 +232,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         $this->origin = $origin;
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->store = $store;
+        $this->state = $state;
     }
 
     /**
@@ -696,6 +706,27 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         return $this->store;
     }
 
+    /**
+     * <p>Reference to a State in a custom workflow.</p>
+     *
+     *
+     * @return null|StateKeyReference
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateKeyReferenceModel::of($data);
+        }
+
+        return $this->state;
+    }
+
 
     /**
      * @param ?string $orderNumber
@@ -879,6 +910,14 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     public function setStore(?StoreKeyReference $store): void
     {
         $this->store = $store;
+    }
+
+    /**
+     * @param ?StateKeyReference $state
+     */
+    public function setState(?StateKeyReference $state): void
+    {
+        $this->state = $state;
     }
 
 

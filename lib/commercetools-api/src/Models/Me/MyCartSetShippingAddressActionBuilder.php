@@ -29,6 +29,9 @@ final class MyCartSetShippingAddressActionBuilder implements Builder
     private $address;
 
     /**
+     * <p>Value to set.
+     * If not set, the shipping address is unset, and the <code>taxedPrice</code> and <code>taxRate</code> are unset in all Line Items.</p>
+     *
 
      * @return null|BaseAddress
      */

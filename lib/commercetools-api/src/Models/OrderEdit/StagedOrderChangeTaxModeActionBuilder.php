@@ -29,6 +29,8 @@ final class StagedOrderChangeTaxModeActionBuilder implements Builder
     private $taxMode;
 
     /**
+     * <p>Indicates how taxes are set on the Cart.</p>
+     *
 
      * @return null|string
      */

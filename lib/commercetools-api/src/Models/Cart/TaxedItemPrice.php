@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -19,39 +19,42 @@ interface TaxedItemPrice extends JsonObject
     public const FIELD_TOTAL_TAX = 'totalTax';
 
     /**
+     * <p>Total net amount of the Line Item or Custom Line Item.</p>
+     *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalNet();
 
     /**
-     * <p>TaxedItemPrice fields can not be used in query predicates.</p>
+     * <p>Total gross amount of the Line Item or Custom Line Item.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalGross();
 
     /**
-     * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
+     * <p>Total tax applicable for the Line Item or Custom Line Item.
+     * Automatically calculated as the difference between the <code>totalGross</code> and <code>totalNet</code> values.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalTax();
 
     /**
-     * @param ?TypedMoney $totalNet
+     * @param ?CentPrecisionMoney $totalNet
      */
-    public function setTotalNet(?TypedMoney $totalNet): void;
+    public function setTotalNet(?CentPrecisionMoney $totalNet): void;
 
     /**
-     * @param ?TypedMoney $totalGross
+     * @param ?CentPrecisionMoney $totalGross
      */
-    public function setTotalGross(?TypedMoney $totalGross): void;
+    public function setTotalGross(?CentPrecisionMoney $totalGross): void;
 
     /**
-     * @param ?TypedMoney $totalTax
+     * @param ?CentPrecisionMoney $totalTax
      */
-    public function setTotalTax(?TypedMoney $totalTax): void;
+    public function setTotalTax(?CentPrecisionMoney $totalTax): void;
 }

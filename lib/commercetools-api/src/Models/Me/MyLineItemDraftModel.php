@@ -40,6 +40,12 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
 
     /**
      *
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -64,21 +70,15 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
 
     /**
      *
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
 
     /**
      *
-     * @var ?string
+     * @var ?CustomFieldsDraft
      */
-    protected $sku;
+    protected $custom;
 
 
     /**
@@ -87,26 +87,28 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     public function __construct(
         ?string $productId = null,
         ?int $variantId = null,
+        ?string $sku = null,
         ?int $quantity = null,
         ?DateTimeImmutable $addedAt = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?ChannelResourceIdentifier $distributionChannel = null,
-        ?CustomFieldsDraft $custom = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
-        ?string $sku = null
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->productId = $productId;
         $this->variantId = $variantId;
+        $this->sku = $sku;
         $this->quantity = $quantity;
         $this->addedAt = $addedAt;
         $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
-        $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
-        $this->sku = $sku;
+        $this->custom = $custom;
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -125,6 +127,9 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
+     *
      *
      * @return null|int
      */
@@ -143,6 +148,28 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * <p>Number of Product Variants to add to the Cart.</p>
+     *
      *
      * @return null|int
      */
@@ -161,8 +188,9 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
-     * <p>When the line item was added to the cart. Optional for backwards
-     * compatibility reasons only.</p>
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -186,9 +214,8 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
-     * <p>By providing supply channel information, you can unique identify
-     * inventory entries that should be reserved.
-     * The provided channel should have the InventorySupply role.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      *
      * @return null|ChannelResourceIdentifier
@@ -209,8 +236,10 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
-     * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
+     * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set,
+     * the Channel must match one of the Store's distribution channels.</p>
      *
      *
      * @return null|ChannelResourceIdentifier
@@ -231,28 +260,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
-     * <p>The custom fields.</p>
-     *
-     *
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * <p>Container for line item specific address(es).</p>
+     * <p>Container for Line Item-specific addresses.</p>
      *
      *
      * @return null|ItemShippingDetailsDraft
@@ -273,21 +281,24 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
+     * <p>Custom Fields for the Cart.</p>
      *
-     * @return null|string
+     *
+     * @return null|CustomFieldsDraft
      */
-    public function getSku()
+    public function getCustom()
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SKU);
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
-            $this->sku = (string) $data;
+
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
-        return $this->sku;
+        return $this->custom;
     }
 
 
@@ -305,6 +316,14 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
+    }
+
+    /**
+     * @param ?string $sku
+     */
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
     }
 
     /**
@@ -340,14 +359,6 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
-     */
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
@@ -356,11 +367,11 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
-     * @param ?string $sku
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setSku(?string $sku): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
-        $this->sku = $sku;
+        $this->custom = $custom;
     }
 
 

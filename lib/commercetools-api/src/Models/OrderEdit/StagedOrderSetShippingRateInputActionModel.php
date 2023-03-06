@@ -67,6 +67,8 @@ final class StagedOrderSetShippingRateInputActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Generic type holding specifc ShippingRateInputDraft types.</p>
+     *
      *
      * @return null|ShippingRateInputDraft
      */

@@ -71,6 +71,8 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,9 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Value to set.
+     * If empty, the existing value is removed.</p>
+     *
      *
      * @return null|ItemShippingDetailsDraft
      */

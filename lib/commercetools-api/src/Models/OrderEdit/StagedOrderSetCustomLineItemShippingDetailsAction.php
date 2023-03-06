@@ -25,6 +25,8 @@ interface StagedOrderSetCustomLineItemShippingDetailsAction extends StagedOrderU
     public function getCustomLineItemId();
 
     /**
+     * <p>For order creation and updates, the sum of the <code>targets</code> must match the quantity of the Line Items or Custom Line Items.</p>
+     *
 
      * @return null|ItemShippingDetailsDraft
      */

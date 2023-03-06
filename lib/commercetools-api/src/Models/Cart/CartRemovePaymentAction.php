@@ -17,6 +17,8 @@ interface CartRemovePaymentAction extends CartUpdateAction
     public const FIELD_PAYMENT = 'payment';
 
     /**
+     * <p>Payment to remove from the Cart.</p>
+     *
 
      * @return null|PaymentResourceIdentifier
      */

@@ -18,7 +18,7 @@ interface CartSetCartTotalTaxAction extends CartUpdateAction
     public const FIELD_EXTERNAL_TAX_PORTIONS = 'externalTaxPortions';
 
     /**
-     * <p>The total gross amount of the cart (totalNet + taxes).</p>
+     * <p>The Cart's total gross price becoming the <code>totalGross</code> field (<code>totalNet</code> + taxes) on the Cart's <code>taxedPrice</code>.</p>
      *
 
      * @return null|Money
@@ -26,6 +26,8 @@ interface CartSetCartTotalTaxAction extends CartUpdateAction
     public function getExternalTotalGross();
 
     /**
+     * <p>Set if the <code>externalTotalGross</code> price is a sum of portions with different tax rates.</p>
+     *
 
      * @return null|TaxPortionDraftCollection
      */

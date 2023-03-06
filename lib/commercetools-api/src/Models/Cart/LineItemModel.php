@@ -10,12 +10,12 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceModel;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantModel;
@@ -87,6 +87,24 @@ final class LineItemModel extends JsonObjectModel implements LineItem
 
     /**
      *
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     *
+     * @var ?CentPrecisionMoney
+     */
+    protected $totalPrice;
+
+    /**
+     *
+     * @var ?DiscountedLineItemPriceForQuantityCollection
+     */
+    protected $discountedPricePerQuantity;
+
+    /**
+     *
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
@@ -96,24 +114,6 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * @var ?MethodTaxedPriceCollection
      */
     protected $taxedPricePortions;
-
-    /**
-     *
-     * @var ?TypedMoney
-     */
-    protected $totalPrice;
-
-    /**
-     *
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
-     *
-     * @var ?DateTimeImmutable
-     */
-    protected $addedAt;
 
     /**
      *
@@ -147,12 +147,6 @@ final class LineItemModel extends JsonObjectModel implements LineItem
 
     /**
      *
-     * @var ?DiscountedLineItemPriceForQuantityCollection
-     */
-    protected $discountedPricePerQuantity;
-
-    /**
-     *
      * @var ?string
      */
     protected $priceMode;
@@ -165,12 +159,6 @@ final class LineItemModel extends JsonObjectModel implements LineItem
 
     /**
      *
-     * @var ?CustomFields
-     */
-    protected $custom;
-
-    /**
-     *
      * @var ?string
      */
     protected $inventoryMode;
@@ -180,6 +168,18 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * @var ?ItemShippingDetails
      */
     protected $shippingDetails;
+
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     *
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
 
     /**
      *
@@ -200,22 +200,22 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         ?ProductTypeReference $productType = null,
         ?ProductVariant $variant = null,
         ?Price $price = null,
+        ?int $quantity = null,
+        ?CentPrecisionMoney $totalPrice = null,
+        ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?TaxedItemPrice $taxedPrice = null,
         ?MethodTaxedPriceCollection $taxedPricePortions = null,
-        ?TypedMoney $totalPrice = null,
-        ?int $quantity = null,
-        ?DateTimeImmutable $addedAt = null,
         ?ItemStateCollection $state = null,
         ?TaxRate $taxRate = null,
         ?MethodTaxRateCollection $perMethodTaxRate = null,
         ?ChannelReference $supplyChannel = null,
         ?ChannelReference $distributionChannel = null,
-        ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?string $priceMode = null,
         ?string $lineItemMode = null,
-        ?CustomFields $custom = null,
         ?string $inventoryMode = null,
         ?ItemShippingDetails $shippingDetails = null,
+        ?CustomFields $custom = null,
+        ?DateTimeImmutable $addedAt = null,
         ?DateTimeImmutable $lastModifiedAt = null
     ) {
         $this->id = $id;
@@ -226,27 +226,27 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         $this->productType = $productType;
         $this->variant = $variant;
         $this->price = $price;
+        $this->quantity = $quantity;
+        $this->totalPrice = $totalPrice;
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->taxedPrice = $taxedPrice;
         $this->taxedPricePortions = $taxedPricePortions;
-        $this->totalPrice = $totalPrice;
-        $this->quantity = $quantity;
-        $this->addedAt = $addedAt;
         $this->state = $state;
         $this->taxRate = $taxRate;
         $this->perMethodTaxRate = $perMethodTaxRate;
         $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
-        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->priceMode = $priceMode;
         $this->lineItemMode = $lineItemMode;
-        $this->custom = $custom;
         $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
+        $this->custom = $custom;
+        $this->addedAt = $addedAt;
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
     /**
-     * <p>Unique identifier of the LineItem.</p>
+     * <p>Unique identifier of the Line Item.</p>
      *
      *
      * @return null|string
@@ -266,6 +266,8 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
+     *
      *
      * @return null|string
      */
@@ -284,8 +286,13 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>User-defined unique identifier of the <a href="ctp:api:type:Product">Product</a>.
-     * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>This field is only present on:</p>
+     * <ul>
+     * <li>Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item was created or updated on the Cart.</li>
+     * <li><a href="ctp:api:type:Order">Orders</a> when the <code>key</code> is available on the specific Product at the time the Order was created from the Cart.</li>
+     * </ul>
+     * <p>Present on resources created or updated after 3 December 2021.</p>
      *
      *
      * @return null|string
@@ -305,7 +312,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>The product name.</p>
+     * <p>Name of the Product.</p>
      *
      *
      * @return null|LocalizedString
@@ -326,10 +333,8 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>The slug of a product is inserted on the fly.
-     * It is always up-to-date and can therefore be used to link to the product detail page of the product.
-     * It is empty if the product has been deleted.
-     * The slug is also empty if the cart or order is retrieved via Reference Expansion or is a snapshot in a Message.</p>
+     * <p><code>slug</code> of the current version of the Product. Updated automatically if the <code>slug</code> changes. Empty if the Product has been deleted.
+     * The <code>productSlug</code> field of LineItem is not expanded when using <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a>.</p>
      *
      *
      * @return null|LocalizedString
@@ -350,6 +355,8 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * <p>Product Type of the Product.</p>
+     *
      *
      * @return null|ProductTypeReference
      */
@@ -369,8 +376,9 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>The variant data is saved when the variant is added to the cart, and not updated automatically.
-     * It can manually be updated with the Recalculate update action.</p>
+     * <p>Holds the data of the Product Variant added to the Cart.</p>
+     * <p>The data is saved at the time the Product Variant is added to the Cart and is not updated automatically when Product Variant data changes.
+     * Must be updated using the <a href="ctp:api:type:CartRecalculateAction">Recalculate</a> update action.</p>
      *
      *
      * @return null|ProductVariant
@@ -391,8 +399,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>The price of a line item is selected from the product variant according to the Product's <a href="ctp:api:type:Product">priceMode</a> value.
-     * If the <code>priceMode</code> is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> and the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
+     * <p>Price of a Line Item selected from the Product Variant according to the <a href="ctp:api:type:Product">Product</a> <code>priceMode</code>. If the <code>priceMode</code> is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> and the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
      *
      *
      * @return null|Price
@@ -413,7 +420,69 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>Set once the <code>taxRate</code> is set.</p>
+     * <p>Number of Line Items of the given Product Variant present in the Cart.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
+    }
+
+    /**
+     * <p>Total price of this Line Item equalling <code>price</code> multiplied by <code>quantity</code>. If the Line Item is discounted, the total price is the <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>.
+     * Includes taxes if the <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
+     *
+     *
+     * @return null|CentPrecisionMoney
+     */
+    public function getTotalPrice()
+    {
+        if (is_null($this->totalPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TOTAL_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalPrice = CentPrecisionMoneyModel::of($data);
+        }
+
+        return $this->totalPrice;
+    }
+
+    /**
+     * <p>Discounted price of a single quantity of the Line Item.</p>
+     *
+     *
+     * @return null|DiscountedLineItemPriceForQuantityCollection
+     */
+    public function getDiscountedPricePerQuantity()
+    {
+        if (is_null($this->discountedPricePerQuantity)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
+        }
+
+        return $this->discountedPricePerQuantity;
+    }
+
+    /**
+     * <p>Automatically set after <code>taxRate</code> is set.</p>
      *
      *
      * @return null|TaxedItemPrice
@@ -434,7 +503,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>Taxed price of the Shipping Method that is set automatically after <code>perMethodTaxRate</code> is set.</p>
+     * <p>Taxed price of the Shipping Method that is automatically set after <code>perMethodTaxRate</code> is set.</p>
      *
      *
      * @return null|MethodTaxedPriceCollection
@@ -454,53 +523,217 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>The total price of this line item.
-     * If the line item is discounted, then the <code>totalPrice</code> is the DiscountedLineItemPriceForQuantity multiplied by <code>quantity</code>.
-     * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
-     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
+     * <p>State of the Line Item in the Cart.</p>
      *
      *
-     * @return null|TypedMoney
+     * @return null|ItemStateCollection
      */
-    public function getTotalPrice()
+    public function getState()
     {
-        if (is_null($this->totalPrice)) {
+        if (is_null($this->state)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = ItemStateCollection::fromArray($data);
+        }
+
+        return $this->state;
+    }
+
+    /**
+     * <ul>
+     * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the <code>taxRate</code> of Line Items is set automatically once a shipping address is set. The rate is based on the <a href="ctp:api:type:TaxCategory">TaxCategory</a> that applies for the shipping address.</li>
+     * <li>For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line Items can be set using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</li>
+     * </ul>
+     *
+     *
+     * @return null|TaxRate
+     */
+    public function getTaxRate()
+    {
+        if (is_null($this->taxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TOTAL_PRICE);
+            $data = $this->raw(self::FIELD_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->totalPrice = TypedMoneyModel::of($data);
+            $this->taxRate = TaxRateModel::of($data);
         }
 
-        return $this->totalPrice;
+        return $this->taxRate;
     }
 
     /**
-     * <p>The amount of a LineItem in the cart.
-     * Must be a positive integer.</p>
+     * <p>Tax Rate per Shipping Method for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> it is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.
+     * For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
      *
      *
-     * @return null|int
+     * @return null|MethodTaxRateCollection
      */
-    public function getQuantity()
+    public function getPerMethodTaxRate()
     {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_QUANTITY);
+        if (is_null($this->perMethodTaxRate)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PER_METHOD_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->perMethodTaxRate = MethodTaxRateCollection::fromArray($data);
         }
 
-        return $this->quantity;
+        return $this->perMethodTaxRate;
     }
 
     /**
-     * <p>When the line item was added to the cart. Optional for backwards
-     * compatibility reasons only.</p>
+     * <p>Identifies <a href="/../api/projects/inventory">Inventory entries</a> that are reserved. The referenced Channel has the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     *
+     *
+     * @return null|ChannelReference
+     */
+    public function getSupplyChannel()
+    {
+        if (is_null($this->supplyChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->supplyChannel = ChannelReferenceModel::of($data);
+        }
+
+        return $this->supplyChannel;
+    }
+
+    /**
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     *
+     *
+     * @return null|ChannelReference
+     */
+    public function getDistributionChannel()
+    {
+        if (is_null($this->distributionChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->distributionChannel = ChannelReferenceModel::of($data);
+        }
+
+        return $this->distributionChannel;
+    }
+
+    /**
+     * <p>Indicates how the Price for the Line Item is set.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
+    }
+
+    /**
+     * <p>Indicates how the Line Item is added to the Cart.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemMode()
+    {
+        if (is_null($this->lineItemMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemMode = (string) $data;
+        }
+
+        return $this->lineItemMode;
+    }
+
+    /**
+     * <p>Inventory mode specific to this Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Only present if the inventory mode is different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
+    }
+
+    /**
+     * <p>Container for Line Item-specific addresses.</p>
+     *
+     *
+     * @return null|ItemShippingDetails
+     */
+    public function getShippingDetails()
+    {
+        if (is_null($this->shippingDetails)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingDetails = ItemShippingDetailsModel::of($data);
+        }
+
+        return $this->shippingDetails;
+    }
+
+    /**
+     * <p>Custom Fields of the Line Item.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Line Item was added to the Cart.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -524,230 +757,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     *
-     * @return null|ItemStateCollection
-     */
-    public function getState()
-    {
-        if (is_null($this->state)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->state = ItemStateCollection::fromArray($data);
-        }
-
-        return $this->state;
-    }
-
-    /**
-     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
-     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
-     *
-     *
-     * @return null|TaxRate
-     */
-    public function getTaxRate()
-    {
-        if (is_null($this->taxRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->taxRate = TaxRateModel::of($data);
-        }
-
-        return $this->taxRate;
-    }
-
-    /**
-     * <p>Tax Rate per Shipping Method that is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to a Cart with the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     * <p>For the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
-     *
-     *
-     * @return null|MethodTaxRateCollection
-     */
-    public function getPerMethodTaxRate()
-    {
-        if (is_null($this->perMethodTaxRate)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_PER_METHOD_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->perMethodTaxRate = MethodTaxRateCollection::fromArray($data);
-        }
-
-        return $this->perMethodTaxRate;
-    }
-
-    /**
-     * <p>The supply channel identifies the inventory entries that should be reserved.
-     * The channel has
-     * the role InventorySupply.</p>
-     *
-     *
-     * @return null|ChannelReference
-     */
-    public function getSupplyChannel()
-    {
-        if (is_null($this->supplyChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->supplyChannel = ChannelReferenceModel::of($data);
-        }
-
-        return $this->supplyChannel;
-    }
-
-    /**
-     * <p>The distribution channel is used to select a ProductPrice.
-     * The channel has the role ProductDistribution.</p>
-     *
-     *
-     * @return null|ChannelReference
-     */
-    public function getDistributionChannel()
-    {
-        if (is_null($this->distributionChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->distributionChannel = ChannelReferenceModel::of($data);
-        }
-
-        return $this->distributionChannel;
-    }
-
-    /**
-     *
-     * @return null|DiscountedLineItemPriceForQuantityCollection
-     */
-    public function getDiscountedPricePerQuantity()
-    {
-        if (is_null($this->discountedPricePerQuantity)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
-        }
-
-        return $this->discountedPricePerQuantity;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getPriceMode()
-    {
-        if (is_null($this->priceMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PRICE_MODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->priceMode = (string) $data;
-        }
-
-        return $this->priceMode;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getLineItemMode()
-    {
-        if (is_null($this->lineItemMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM_MODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItemMode = (string) $data;
-        }
-
-        return $this->lineItemMode;
-    }
-
-    /**
-     *
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
-     * Only present if inventory mode is different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getInventoryMode()
-    {
-        if (is_null($this->inventoryMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_INVENTORY_MODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->inventoryMode = (string) $data;
-        }
-
-        return $this->inventoryMode;
-    }
-
-    /**
-     * <p>Container for line item specific address(es).</p>
-     *
-     *
-     * @return null|ItemShippingDetails
-     */
-    public function getShippingDetails()
-    {
-        if (is_null($this->shippingDetails)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->shippingDetails = ItemShippingDetailsModel::of($data);
-        }
-
-        return $this->shippingDetails;
-    }
-
-    /**
-     * <p>The date when the LineItem was last modified by one of the following actions
-     * setLineItemShippingDetails, addLineItem, removeLineItem, or changeLineItemQuantity.
-     * Optional only for backwards compatible reasons. When the LineItem is created lastModifiedAt is set to addedAt.</p>
+     * <p>Date and time (UTC) the Line Item was last updated.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -836,6 +846,30 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * @param ?int $quantity
+     */
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @param ?CentPrecisionMoney $totalPrice
+     */
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void
+    {
+        $this->totalPrice = $totalPrice;
+    }
+
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     */
+    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
+    {
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+    }
+
+    /**
      * @param ?TaxedItemPrice $taxedPrice
      */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
@@ -849,30 +883,6 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void
     {
         $this->taxedPricePortions = $taxedPricePortions;
-    }
-
-    /**
-     * @param ?TypedMoney $totalPrice
-     */
-    public function setTotalPrice(?TypedMoney $totalPrice): void
-    {
-        $this->totalPrice = $totalPrice;
-    }
-
-    /**
-     * @param ?int $quantity
-     */
-    public function setQuantity(?int $quantity): void
-    {
-        $this->quantity = $quantity;
-    }
-
-    /**
-     * @param ?DateTimeImmutable $addedAt
-     */
-    public function setAddedAt(?DateTimeImmutable $addedAt): void
-    {
-        $this->addedAt = $addedAt;
     }
 
     /**
@@ -916,14 +926,6 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
-     */
-    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
-    {
-        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
-    }
-
-    /**
      * @param ?string $priceMode
      */
     public function setPriceMode(?string $priceMode): void
@@ -940,14 +942,6 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * @param ?CustomFields $custom
-     */
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    /**
      * @param ?string $inventoryMode
      */
     public function setInventoryMode(?string $inventoryMode): void
@@ -961,6 +955,22 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    {
+        $this->addedAt = $addedAt;
     }
 
     /**

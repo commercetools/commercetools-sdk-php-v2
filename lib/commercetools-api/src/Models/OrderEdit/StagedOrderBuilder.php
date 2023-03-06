@@ -798,7 +798,13 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
+     * <p>Input used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.
+     * The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="ctp:api:type:Project">Project</a>:</p>
+     * <ul>
+     * <li>If <code>CartClassification</code>, it is <a href="ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a>.</li>
+     * <li>If <code>CartScore</code>, it is <a href="ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a>.</li>
+     * <li>If <code>CartValue</code>, it cannot be used.</li>
+     * </ul>
      *
 
      * @return null|ShippingRateInput

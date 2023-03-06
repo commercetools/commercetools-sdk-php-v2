@@ -71,6 +71,8 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel exte
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel exte
     }
 
     /**
+     * <p>Using positive or negative quantities increases or decreases the number of items shipped to an address.</p>
+     *
      *
      * @return null|ItemShippingTargetCollection
      */

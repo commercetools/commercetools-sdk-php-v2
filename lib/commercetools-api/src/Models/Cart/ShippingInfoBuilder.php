@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyBuilder;
 use Commercetools\Api\Models\Order\DeliveryCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceBuilder;
@@ -39,7 +39,7 @@ final class ShippingInfoBuilder implements Builder
 
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $price;
 
@@ -92,6 +92,8 @@ final class ShippingInfoBuilder implements Builder
     private $shippingMethodState;
 
     /**
+     * <p>Name of the Shipping Method.</p>
+     *
 
      * @return null|string
      */
@@ -101,18 +103,18 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Determined based on the ShippingRate and its tiered prices, and either the sum of LineItem prices or the <code>shippingRateInput</code> field.</p>
+     * <p>Determined based on the <a href="ctp:api:type:ShippingRate">ShippingRate</a> and its tiered prices, and either the sum of <a href="ctp:api:type:LineItem">LineItem</a> prices or the <code>shippingRateInput</code> field.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getPrice()
     {
-        return $this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price;
+        return $this->price instanceof CentPrecisionMoneyBuilder ? $this->price->build() : $this->price;
     }
 
     /**
-     * <p>The shipping rate used to determine the price.</p>
+     * <p>Used to determine the price.</p>
      *
 
      * @return null|ShippingRate
@@ -123,7 +125,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Set once the <code>taxRate</code> is set.</p>
+     * <p>Automatically set after the <code>taxRate</code> is set.</p>
      *
 
      * @return null|TaxedItemPrice
@@ -134,8 +136,8 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
-     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
+     * <p>Automatically set in the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> after the <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a>.</p>
+     * <p>For the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a> the Tax Rate must be set explicitly with the <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
      *
 
      * @return null|TaxRate
@@ -146,6 +148,8 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * <p>Used to select a Tax Rate when a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
 
      * @return null|TaxCategoryReference
      */
@@ -155,7 +159,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Not set if custom shipping method is used.</p>
+     * <p>Not set if a custom Shipping Method is used.</p>
      *
 
      * @return null|ShippingMethodReference
@@ -166,7 +170,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
+     * <p>Information on how items are delivered to customers.</p>
      *
 
      * @return null|DeliveryCollection
@@ -177,6 +181,8 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * <p>Discounted price of the Shipping Method.</p>
+     *
 
      * @return null|DiscountedLineItemPrice
      */
@@ -186,7 +192,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Indicates whether the ShippingMethod referenced in this ShippingInfo is allowed for the cart or not.</p>
+     * <p>Indicates whether the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> referenced in this ShippingInfo is allowed for the Cart.</p>
      *
 
      * @return null|string
@@ -208,10 +214,10 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $price
+     * @param ?CentPrecisionMoney $price
      * @return $this
      */
-    public function withPrice(?TypedMoney $price)
+    public function withPrice(?CentPrecisionMoney $price)
     {
         $this->price = $price;
 
@@ -310,7 +316,7 @@ final class ShippingInfoBuilder implements Builder
      * @deprecated use withPrice() instead
      * @return $this
      */
-    public function withPriceBuilder(?TypedMoneyBuilder $price)
+    public function withPriceBuilder(?CentPrecisionMoneyBuilder $price)
     {
         $this->price = $price;
 
@@ -387,7 +393,7 @@ final class ShippingInfoBuilder implements Builder
     {
         return new ShippingInfoModel(
             $this->shippingMethodName,
-            $this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price,
+            $this->price instanceof CentPrecisionMoneyBuilder ? $this->price->build() : $this->price,
             $this->shippingRate instanceof ShippingRateBuilder ? $this->shippingRate->build() : $this->shippingRate,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,

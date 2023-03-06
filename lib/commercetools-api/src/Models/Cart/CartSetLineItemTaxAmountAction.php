@@ -18,19 +18,24 @@ interface CartSetLineItemTaxAmountAction extends CartUpdateAction
     public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|ExternalTaxAmountDraft
      */
     public function getExternalTaxAmount();
 
     /**
-     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Line Item.```
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Line Item.
      * This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 

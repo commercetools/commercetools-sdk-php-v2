@@ -29,6 +29,8 @@ final class CartUpdateItemShippingAddressActionBuilder implements Builder
     private $address;
 
     /**
+     * <p>The new Address with the same <code>key</code> as the Address it will replace.</p>
+     *
 
      * @return null|BaseAddress
      */

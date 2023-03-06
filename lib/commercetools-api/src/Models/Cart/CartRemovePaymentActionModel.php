@@ -65,6 +65,8 @@ final class CartRemovePaymentActionModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * <p>Payment to remove from the Cart.</p>
+     *
      *
      * @return null|PaymentResourceIdentifier
      */

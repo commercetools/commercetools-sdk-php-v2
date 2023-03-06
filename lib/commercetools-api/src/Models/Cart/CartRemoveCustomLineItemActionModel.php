@@ -63,6 +63,8 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><code>id</code> of the Custom Line Item to remove.</p>
+     *
      *
      * @return null|string
      */

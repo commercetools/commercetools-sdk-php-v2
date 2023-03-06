@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressModel;
-use Commercetools\Api\Models\Order\DeliveryCollection;
+use Commercetools\Api\Models\Order\DeliveryDraftCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -71,19 +73,19 @@ final class CartAddCustomShippingMethodActionModel extends JsonObjectModel imple
 
     /**
      *
-     * @var ?string
+     * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
 
     /**
      *
-     * @var ?DeliveryCollection
+     * @var ?DeliveryDraftCollection
      */
     protected $deliveries;
 
     /**
      *
-     * @var ?string
+     * @var ?CustomFieldsDraft
      */
     protected $custom;
 
@@ -98,9 +100,9 @@ final class CartAddCustomShippingMethodActionModel extends JsonObjectModel imple
         ?ShippingRateDraft $shippingRate = null,
         ?ShippingRateInputDraft $shippingRateInput = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
-        ?string $externalTaxRate = null,
-        ?DeliveryCollection $deliveries = null,
-        ?string $custom = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?DeliveryDraftCollection $deliveries = null,
+        ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
         $this->shippingKey = $shippingKey;
@@ -134,7 +136,7 @@ final class CartAddCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>User-defined unique identifier of the custom Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined identifier for the custom Shipping Method that must be unique across the Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|string
@@ -216,12 +218,13 @@ final class CartAddCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Used as an input to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+     * <p>Input used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.
+     * The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="ctp:api:type:Project">Project</a>:</p>
      * <ul>
-     * <li>Must be <a href="ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartClassificationType">CartClassificationType</a>.</li>
-     * <li>Must be <a href="ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartScoreType">CartScoreType</a>.</li>
+     * <li>If <code>CartClassification</code>, it must be <a href="ctp:api:type:ClassificationShippingRateInputDraft">ClassificationShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartScore</code>, it must be <a href="ctp:api:type:ScoreShippingRateInputDraft">ScoreShippingRateInputDraft</a>.</li>
+     * <li>If <code>CartValue</code>, it cannot be set.</li>
      * </ul>
-     * <p>The <code>shippingRateInput</code> cannot be set on the Cart if <a href="ctp:api:type:CartValueType">CartValueType</a> is defined.</p>
      *
      *
      * @return null|ShippingRateInputDraft
@@ -242,7 +245,7 @@ final class CartAddCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Tax Category used to determine a shipping Tax Rate if a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>Tax Category used to determine a shipping Tax Rate if the Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
      *
      * @return null|TaxCategoryResourceIdentifier
@@ -266,28 +269,28 @@ final class CartAddCustomShippingMethodActionModel extends JsonObjectModel imple
      * <p>Tax Rate used to tax a shipping expense if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
      *
-     * @return null|string
+     * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
     {
         if (is_null($this->externalTaxRate)) {
-            /** @psalm-var ?string $data */
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
             $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
-            $this->externalTaxRate = (string) $data;
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
         }
 
         return $this->externalTaxRate;
     }
 
     /**
-     * <p>Deliveries tied to a Shipping Method in a multi-shipping method Cart.
-     * It holds information on how items are delivered to customers.</p>
+     * <p>Deliveries to be shipped with the custom Shipping Method.</p>
      *
      *
-     * @return null|DeliveryCollection
+     * @return null|DeliveryDraftCollection
      */
     public function getDeliveries()
     {
@@ -297,7 +300,7 @@ final class CartAddCustomShippingMethodActionModel extends JsonObjectModel imple
             if (is_null($data)) {
                 return null;
             }
-            $this->deliveries = DeliveryCollection::fromArray($data);
+            $this->deliveries = DeliveryDraftCollection::fromArray($data);
         }
 
         return $this->deliveries;
@@ -307,17 +310,18 @@ final class CartAddCustomShippingMethodActionModel extends JsonObjectModel imple
      * <p>Custom Fields for the custom Shipping Method.</p>
      *
      *
-     * @return null|string
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
         if (is_null($this->custom)) {
-            /** @psalm-var ?string $data */
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
             $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
-            $this->custom = (string) $data;
+
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
         return $this->custom;
@@ -373,25 +377,25 @@ final class CartAddCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
-     * @param ?string $externalTaxRate
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      */
-    public function setExternalTaxRate(?string $externalTaxRate): void
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
     }
 
     /**
-     * @param ?DeliveryCollection $deliveries
+     * @param ?DeliveryDraftCollection $deliveries
      */
-    public function setDeliveries(?DeliveryCollection $deliveries): void
+    public function setDeliveries(?DeliveryDraftCollection $deliveries): void
     {
         $this->deliveries = $deliveries;
     }
 
     /**
-     * @param ?string $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?string $custom): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }

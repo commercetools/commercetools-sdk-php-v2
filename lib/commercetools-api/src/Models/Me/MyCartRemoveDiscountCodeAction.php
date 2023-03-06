@@ -17,7 +17,7 @@ interface MyCartRemoveDiscountCodeAction extends MyCartUpdateAction
     public const FIELD_DISCOUNT_CODE = 'discountCode';
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p>Discount Code to remove from the Cart.</p>
      *
 
      * @return null|DiscountCodeReference

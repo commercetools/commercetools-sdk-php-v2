@@ -8,11 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
-use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -21,23 +21,23 @@ interface MyCartDraft extends JsonObject
 {
     public const FIELD_CURRENCY = 'currency';
     public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
-    public const FIELD_COUNTRY = 'country';
-    public const FIELD_INVENTORY_MODE = 'inventoryMode';
-    public const FIELD_LINE_ITEMS = 'lineItems';
-    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
-    public const FIELD_BILLING_ADDRESS = 'billingAddress';
-    public const FIELD_SHIPPING_METHOD = 'shippingMethod';
-    public const FIELD_CUSTOM = 'custom';
-    public const FIELD_LOCALE = 'locale';
-    public const FIELD_TAX_MODE = 'taxMode';
-    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
-    public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
+    public const FIELD_LINE_ITEMS = 'lineItems';
+    public const FIELD_TAX_MODE = 'taxMode';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
+    public const FIELD_BILLING_ADDRESS = 'billingAddress';
+    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
+    public const FIELD_SHIPPING_METHOD = 'shippingMethod';
+    public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Currency the Cart uses.</p>
      *
 
      * @return null|string
@@ -45,67 +45,39 @@ interface MyCartDraft extends JsonObject
     public function getCurrency();
 
     /**
+     * <p>Email address of the Customer the Cart belongs to.</p>
+     *
 
      * @return null|string
      */
     public function getCustomerEmail();
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Business Unit the Cart should belong to.</p>
      *
 
-     * @return null|string
+     * @return null|BusinessUnitResourceIdentifier
      */
-    public function getCountry();
+    public function getBusinessUnit();
 
     /**
-     * <p>Default inventory mode is <code>None</code>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Store the Cart should belong to. Once set, it cannot be updated.</p>
      *
 
-     * @return null|string
+     * @return null|StoreResourceIdentifier
      */
-    public function getInventoryMode();
+    public function getStore();
 
     /**
+     * <p><a href="ctp:api:type:LineItems">Line Items</a> to add to the Cart.</p>
+     *
 
      * @return null|MyLineItemDraftCollection
      */
     public function getLineItems();
 
     /**
-
-     * @return null|BaseAddress
-     */
-    public function getShippingAddress();
-
-    /**
-
-     * @return null|BaseAddress
-     */
-    public function getBillingAddress();
-
-    /**
-
-     * @return null|ShippingMethodResourceIdentifier
-     */
-    public function getShippingMethod();
-
-    /**
-     * <p>The custom fields.</p>
-     *
-
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom();
-
-    /**
-
-     * @return null|string
-     */
-    public function getLocale();
-
-    /**
-     * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>
+     * <p>Determines how Tax Rates are set. The <code>Disabled</code> TaxMode <strong>cannot</strong> be set.</p>
      *
 
      * @return null|string
@@ -113,17 +85,41 @@ interface MyCartDraft extends JsonObject
     public function getTaxMode();
 
     /**
-     * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
-     * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
+     * <p>Determines how stock quantities are tracked for Line Items in the Cart.</p>
      *
 
-     * @return null|int
+     * @return null|string
      */
-    public function getDeleteDaysAfterLastModification();
+    public function getInventoryMode();
 
     /**
-     * <p>Contains addresses for orders with multiple shipping addresses.
-     * Each address must contain a key which is unique in this cart.</p>
+     * <p>Billing address associated with the Cart.</p>
+     *
+
+     * @return null|BaseAddress
+     */
+    public function getBillingAddress();
+
+    /**
+     * <p>Shipping address associated with the Cart. Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates and Tax Rates of Line Items.</p>
+     *
+
+     * @return null|BaseAddress
+     */
+    public function getShippingAddress();
+
+    /**
+     * <p>Shipping Method for the Cart. If the referenced <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> has a <code>predicate</code> that does not match the Cart, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned when <a href="#create-cart">creating a Cart</a>.</p>
+     *
+
+     * @return null|ShippingMethodResourceIdentifier
+     */
+    public function getShippingMethod();
+
+    /**
+     * <p>Multiple shipping addresses of the Cart. Each address must contain a <code>key</code> that is unique in this Cart.
+     * The keys are used by <a href="ctp:api:type:LineItem">LineItems</a> to reference these addresses under their <code>shippingDetails</code>.</p>
+     * <p>Eligible Shipping Methods or applicable Tax Rates are determined by the <a href="ctp:api:type:Cart">Cart</a> <code>shippingAddress</code>, and not <code>itemShippingAddresses</code>.</p>
      *
 
      * @return null|BaseAddressCollection
@@ -131,28 +127,48 @@ interface MyCartDraft extends JsonObject
     public function getItemShippingAddresses();
 
     /**
-     * <p>The BusinessUnit the cart will belong to.</p>
-     *
-
-     * @return null|BusinessUnitKeyReference
-     */
-    public function getBusinessUnit();
-
-    /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
-     *
-
-     * @return null|StoreKeyReference
-     */
-    public function getStore();
-
-    /**
-     * <p>The code of existing DiscountCodes.</p>
+     * <p><code>code</code> of the existing <a href="ctp:api:type:DiscountCode">DiscountCodes</a> to add to the Cart.</p>
      *
 
      * @return null|array
      */
     public function getDiscountCodes();
+
+    /**
+     * <p>Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.
+     * If used for <a href="ctp:api:endpoint:/{projectKey}/in-store/me/carts:POST">Create Cart in Store</a>, the provided country must be one of the <a href="ctp:api:type:Store">Store's</a> <code>countries</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCountry();
+
+    /**
+     * <p>Languages of the Cart.
+     * Can only contain languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLocale();
+
+    /**
+     * <p>Number of days after which a Cart with <code>Active</code> <a href="ctp:api:type:CartState">CartState</a> is deleted since its last modification.
+     * If not provided, the default value for this field configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a> is assigned.</p>
+     * <p>Create a <a href="ctp:api:type:ChangeSubscription">ChangeSubscription</a> for Carts to receive a <a href="ctp:api:type:ResourceDeletedDeliveryPayload">ResourceDeletedDeliveryPayload</a> upon deletion of the Cart.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification();
+
+    /**
+     * <p>Custom Fields for the Cart.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
 
     /**
      * @param ?string $currency
@@ -165,14 +181,14 @@ interface MyCartDraft extends JsonObject
     public function setCustomerEmail(?string $customerEmail): void;
 
     /**
-     * @param ?string $country
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
      */
-    public function setCountry(?string $country): void;
+    public function setBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit): void;
 
     /**
-     * @param ?string $inventoryMode
+     * @param ?StoreResourceIdentifier $store
      */
-    public function setInventoryMode(?string $inventoryMode): void;
+    public function setStore(?StoreResourceIdentifier $store): void;
 
     /**
      * @param ?MyLineItemDraftCollection $lineItems
@@ -180,9 +196,14 @@ interface MyCartDraft extends JsonObject
     public function setLineItems(?MyLineItemDraftCollection $lineItems): void;
 
     /**
-     * @param ?BaseAddress $shippingAddress
+     * @param ?string $taxMode
      */
-    public function setShippingAddress(?BaseAddress $shippingAddress): void;
+    public function setTaxMode(?string $taxMode): void;
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void;
 
     /**
      * @param ?BaseAddress $billingAddress
@@ -190,29 +211,14 @@ interface MyCartDraft extends JsonObject
     public function setBillingAddress(?BaseAddress $billingAddress): void;
 
     /**
+     * @param ?BaseAddress $shippingAddress
+     */
+    public function setShippingAddress(?BaseAddress $shippingAddress): void;
+
+    /**
      * @param ?ShippingMethodResourceIdentifier $shippingMethod
      */
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
-
-    /**
-     * @param ?CustomFieldsDraft $custom
-     */
-    public function setCustom(?CustomFieldsDraft $custom): void;
-
-    /**
-     * @param ?string $locale
-     */
-    public function setLocale(?string $locale): void;
-
-    /**
-     * @param ?string $taxMode
-     */
-    public function setTaxMode(?string $taxMode): void;
-
-    /**
-     * @param ?int $deleteDaysAfterLastModification
-     */
-    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
 
     /**
      * @param ?BaseAddressCollection $itemShippingAddresses
@@ -220,17 +226,27 @@ interface MyCartDraft extends JsonObject
     public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void;
 
     /**
-     * @param ?BusinessUnitKeyReference $businessUnit
-     */
-    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
-
-    /**
-     * @param ?StoreKeyReference $store
-     */
-    public function setStore(?StoreKeyReference $store): void;
-
-    /**
      * @param ?array $discountCodes
      */
     public function setDiscountCodes(?array $discountCodes): void;
+
+    /**
+     * @param ?string $country
+     */
+    public function setCountry(?string $country): void;
+
+    /**
+     * @param ?string $locale
+     */
+    public function setLocale(?string $locale): void;
+
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
+    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

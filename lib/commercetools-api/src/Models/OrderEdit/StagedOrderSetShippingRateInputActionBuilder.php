@@ -31,6 +31,8 @@ final class StagedOrderSetShippingRateInputActionBuilder implements Builder
     private $shippingRateInput;
 
     /**
+     * <p>Generic type holding specifc ShippingRateInputDraft types.</p>
+     *
 
      * @return null|ShippingRateInputDraft
      */

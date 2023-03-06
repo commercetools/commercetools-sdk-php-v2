@@ -19,8 +19,7 @@ interface TaxedPriceDraft extends JsonObject
     public const FIELD_TAX_PORTIONS = 'taxPortions';
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Total net price of the Line Item or Custom Line Item.</p>
      *
 
      * @return null|Money
@@ -28,8 +27,7 @@ interface TaxedPriceDraft extends JsonObject
     public function getTotalNet();
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Total gross price of the Line Item or Custom Line Item.</p>
      *
 
      * @return null|Money
@@ -37,6 +35,9 @@ interface TaxedPriceDraft extends JsonObject
     public function getTotalGross();
 
     /**
+     * <p>Taxable portions added to the <code>totalGross</code>.</p>
+     * <p>Calculated from the <a href="ctp:api:type:TaxRate">TaxRates</a>.</p>
+     *
 
      * @return null|TaxPortionDraftCollection
      */

@@ -8,16 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
-use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceModel;
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -38,24 +32,6 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
      * @var ?string
      */
     protected $action;
-
-    /**
-     *
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     *
-     * @var ?ChannelResourceIdentifier
-     */
-    protected $distributionChannel;
-
-    /**
-     *
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
 
     /**
      *
@@ -83,21 +59,21 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
 
     /**
      *
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
+
+    /**
+     *
+     * @var ?ChannelResourceIdentifier
+     */
+    protected $distributionChannel;
+
+    /**
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
-
-    /**
-     *
-     * @var ?Money
-     */
-    protected $externalPrice;
-
-    /**
-     *
-     * @var ?ExternalLineItemTotalPrice
-     */
-    protected $externalTotalPrice;
 
     /**
      *
@@ -107,41 +83,35 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
 
     /**
      *
-     * @var ?DateTimeImmutable
+     * @var ?CustomFieldsDraft
      */
-    protected $addedAt;
+    protected $custom;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomFieldsDraft $custom = null,
-        ?ChannelResourceIdentifier $distributionChannel = null,
-        ?ExternalTaxRateDraft $externalTaxRate = null,
         ?string $productId = null,
         ?int $variantId = null,
         ?string $sku = null,
         ?int $quantity = null,
-        ?ChannelResourceIdentifier $supplyChannel = null,
-        ?Money $externalPrice = null,
-        ?ExternalLineItemTotalPrice $externalTotalPrice = null,
-        ?ItemShippingDetailsDraft $shippingDetails = null,
         ?DateTimeImmutable $addedAt = null,
+        ?ChannelResourceIdentifier $distributionChannel = null,
+        ?ChannelResourceIdentifier $supplyChannel = null,
+        ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
-        $this->custom = $custom;
-        $this->distributionChannel = $distributionChannel;
-        $this->externalTaxRate = $externalTaxRate;
         $this->productId = $productId;
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->quantity = $quantity;
-        $this->supplyChannel = $supplyChannel;
-        $this->externalPrice = $externalPrice;
-        $this->externalTotalPrice = $externalTotalPrice;
-        $this->shippingDetails = $shippingDetails;
         $this->addedAt = $addedAt;
+        $this->distributionChannel = $distributionChannel;
+        $this->supplyChannel = $supplyChannel;
+        $this->shippingDetails = $shippingDetails;
+        $this->custom = $custom;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -164,67 +134,9 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
-     *
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
-     *
-     *
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getDistributionChannel()
-    {
-        if (is_null($this->distributionChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->distributionChannel = ChannelResourceIdentifierModel::of($data);
-        }
-
-        return $this->distributionChannel;
-    }
-
-    /**
-     *
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        if (is_null($this->externalTaxRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-        }
-
-        return $this->externalTaxRate;
-    }
-
-    /**
      *
      * @return null|string
      */
@@ -243,6 +155,10 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.</p>
+     * <p>If not given, the Master Variant is used.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
+     *
      *
      * @return null|int
      */
@@ -261,6 +177,9 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
+     *
      *
      * @return null|string
      */
@@ -279,6 +198,8 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
+     * <p>Number of Line Items to add to the Cart.</p>
+     *
      *
      * @return null|int
      */
@@ -297,87 +218,10 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Date and time (UTC) the Line Item was added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
      *
-     *
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel()
-    {
-        if (is_null($this->supplyChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
-        }
-
-        return $this->supplyChannel;
-    }
-
-    /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
-     *
-     *
-     * @return null|Money
-     */
-    public function getExternalPrice()
-    {
-        if (is_null($this->externalPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalPrice = MoneyModel::of($data);
-        }
-
-        return $this->externalPrice;
-    }
-
-    /**
-     *
-     * @return null|ExternalLineItemTotalPrice
-     */
-    public function getExternalTotalPrice()
-    {
-        if (is_null($this->externalTotalPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_TOTAL_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTotalPrice = ExternalLineItemTotalPriceModel::of($data);
-        }
-
-        return $this->externalTotalPrice;
-    }
-
-    /**
-     *
-     * @return null|ItemShippingDetailsDraft
-     */
-    public function getShippingDetails()
-    {
-        if (is_null($this->shippingDetails)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
-        }
-
-        return $this->shippingDetails;
-    }
-
-    /**
      *
      * @return null|DateTimeImmutable
      */
@@ -399,30 +243,93 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         return $this->addedAt;
     }
 
-
     /**
-     * @param ?CustomFieldsDraft $custom
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
+     * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.
+     * If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
+     *
+     *
+     * @return null|ChannelResourceIdentifier
      */
-    public function setCustom(?CustomFieldsDraft $custom): void
+    public function getDistributionChannel()
     {
-        $this->custom = $custom;
+        if (is_null($this->distributionChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->distributionChannel = ChannelResourceIdentifierModel::of($data);
+        }
+
+        return $this->distributionChannel;
     }
 
     /**
-     * @param ?ChannelResourceIdentifier $distributionChannel
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     *
+     *
+     * @return null|ChannelResourceIdentifier
      */
-    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
+    public function getSupplyChannel()
     {
-        $this->distributionChannel = $distributionChannel;
+        if (is_null($this->supplyChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
+        }
+
+        return $this->supplyChannel;
     }
 
     /**
-     * @param ?ExternalTaxRateDraft $externalTaxRate
+     * <p>Container for Line Item-specific addresses.</p>
+     *
+     *
+     * @return null|ItemShippingDetailsDraft
      */
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    public function getShippingDetails()
     {
-        $this->externalTaxRate = $externalTaxRate;
+        if (is_null($this->shippingDetails)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
+        }
+
+        return $this->shippingDetails;
     }
+
+    /**
+     * <p>Custom Fields for the Line Item.</p>
+     *
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $productId
@@ -457,27 +364,27 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    {
+        $this->addedAt = $addedAt;
+    }
+
+    /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
+     */
+    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
+    {
+        $this->distributionChannel = $distributionChannel;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifier $supplyChannel
      */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
-    }
-
-    /**
-     * @param ?Money $externalPrice
-     */
-    public function setExternalPrice(?Money $externalPrice): void
-    {
-        $this->externalPrice = $externalPrice;
-    }
-
-    /**
-     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
-     */
-    public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
-    {
-        $this->externalTotalPrice = $externalTotalPrice;
     }
 
     /**
@@ -489,11 +396,11 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-     * @param ?DateTimeImmutable $addedAt
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
-        $this->addedAt = $addedAt;
+        $this->custom = $custom;
     }
 
 

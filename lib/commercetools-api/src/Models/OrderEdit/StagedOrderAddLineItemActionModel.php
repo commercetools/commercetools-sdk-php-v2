@@ -208,6 +208,8 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+     *
      *
      * @return null|ExternalTaxRateDraft
      */
@@ -383,6 +385,8 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>For order creation and updates, the sum of the <code>targets</code> must match the quantity of the Line Items or Custom Line Items.</p>
+     *
      *
      * @return null|ItemShippingDetailsDraft
      */

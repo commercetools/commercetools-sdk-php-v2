@@ -60,15 +60,21 @@ final class CartAddCustomLineItemActionBuilder implements Builder
 
     /**
 
-     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
+
+    /**
+
+     * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
+     */
+    private $shippingDetails;
+
+    /**
+
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
 
     /**
 
@@ -77,8 +83,8 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     private $priceMode;
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Money value of the Custom Line Item.
+     * The value can be negative.</p>
      *
 
      * @return null|Money
@@ -89,7 +95,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Name of the Custom Line Item.</p>
      *
 
      * @return null|LocalizedString
@@ -100,6 +106,8 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>Number of Custom Line Items to add to the Cart.</p>
+     *
 
      * @return null|int
      */
@@ -109,6 +117,9 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier used in a deep-link URL for the Custom Line Item.
+     * It must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
+     *
 
      * @return null|string
      */
@@ -118,7 +129,8 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p>Used to select a Tax Rate when a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>If <a href="ctp:api:type:TaxMode">TaxMode</a> is <code>Platform</code>, this field must not be empty.</p>
      *
 
      * @return null|TaxCategoryResourceIdentifier
@@ -129,7 +141,29 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>An external Tax Rate can be set if the Cart has <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
+    {
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+    }
+
+    /**
+     * <p>Container for Custom Line Item-specific addresses.</p>
+     *
+
+     * @return null|ItemShippingDetailsDraft
+     */
+    public function getShippingDetails()
+    {
+        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <p>Custom Fields for the Custom Line Item.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -137,15 +171,6 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
     }
 
     /**
@@ -219,23 +244,34 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     * @return $this
+     */
+    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -285,23 +321,34 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withExternalTaxRate() instead
      * @return $this
      */
     public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withShippingDetails() instead
+     * @return $this
+     */
+    public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -314,8 +361,9 @@ final class CartAddCustomLineItemActionBuilder implements Builder
             $this->quantity,
             $this->slug,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->priceMode
         );
     }

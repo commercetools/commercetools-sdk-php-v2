@@ -11,7 +11,7 @@ namespace Commercetools\Api\Models\Error;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface CountryNotConfiguredInStore extends ErrorObject
+interface CountryNotConfiguredInStoreError extends ErrorObject
 {
     public const FIELD_STORE_COUNTRIES = 'storeCountries';
     public const FIELD_COUNTRY = 'country';

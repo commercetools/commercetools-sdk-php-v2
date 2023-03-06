@@ -35,7 +35,7 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     private $taxRate;
 
     /**
-     * <p>The total gross amount of the item (totalNet + taxes).</p>
+     * <p>Total gross amount (<code>totalNet</code> + <code>taxPortions</code>) of the Line Item or Custom Line Item.</p>
      *
 
      * @return null|Money
@@ -46,6 +46,8 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     }
 
     /**
+     * <p>Tax Rates and subrates of states and countries.</p>
+     *
 
      * @return null|ExternalTaxRateDraft
      */

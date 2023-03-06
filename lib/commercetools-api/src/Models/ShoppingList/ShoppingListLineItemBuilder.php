@@ -197,9 +197,8 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Data of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.
-     * Returned when expanded using <code>expand=lineItems[*].variant</code>.</p>
-     * <p><em>Limitation: <code>expand=lineItems[0].variant</code> is not supported.</em></p>
+     * <p>Data of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Returned when expanded using <code>expand=lineItems[*].variant</code>. You cannot expand only a single element of the array.</p>
      *
 
      * @return null|ProductVariant
@@ -210,9 +209,8 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Slug of the current <a href="ctp:api:type:ProductData">ProductData</a>.
-     * Only returned when expanded using <code>expand=lineItems[*].productSlug</code>.</p>
-     * <p><em>Limitation: <code>expand=lineItems[0].productSlug</code> is not supported.</em></p>
+     * <p>Slug of the current <a href="ctp:api:type:ProductData">ProductData</a>.</p>
+     * <p>Returned when expanded using <code>expand=lineItems[*].productSlug</code>. You cannot expand only a single element of the array.</p>
      *
 
      * @return null|LocalizedString

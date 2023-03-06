@@ -27,6 +27,8 @@ final class CartChangeTaxCalculationModeActionBuilder implements Builder
     private $taxCalculationMode;
 
     /**
+     * <p>New value to set.</p>
+     *
 
      * @return null|string
      */

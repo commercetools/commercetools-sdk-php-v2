@@ -63,7 +63,8 @@ final class CartSetAnonymousIdActionModel extends JsonObjectModel implements Car
     }
 
     /**
-     * <p>If not set, any existing anonymous ID will be removed.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
      *
      * @return null|string

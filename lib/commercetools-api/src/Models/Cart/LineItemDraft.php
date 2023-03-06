@@ -22,36 +22,42 @@ interface LineItemDraft extends JsonObject
     public const FIELD_SKU = 'sku';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_ADDED_AT = 'addedAt';
-    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
-    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
-    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
+    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p><code>id</code> of a published <a href="ctp:api:type:Product">Product</a>.</p>
+     *
 
      * @return null|string
      */
     public function getProductId();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
+     *
 
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|string
      */
     public function getSku();
 
     /**
-     * <p>The amount of a <code>LineItem</code>in the cart.
-     * Must be a positive integer.</p>
+     * <p>Quantity of the Product Variant to add to the Cart.</p>
      *
 
      * @return null|int
@@ -59,8 +65,9 @@ interface LineItemDraft extends JsonObject
     public function getQuantity();
 
     /**
-     * <p>When the line item was added to the cart. Optional for backwards
-     * compatibility reasons only.</p>
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -68,19 +75,10 @@ interface LineItemDraft extends JsonObject
     public function getAddedAt();
 
     /**
-     * <p>By providing supply channel information, you can unique identify
-     * inventory entries that should be reserved.
-     * The provided channel should have
-     * the InventorySupply role.</p>
-     *
-
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel();
-
-    /**
-     * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
+     * The referenced Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set,
+     * the Channel must match one of the Store's distribution channels.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -88,23 +86,16 @@ interface LineItemDraft extends JsonObject
     public function getDistributionChannel();
 
     /**
-     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The referenced Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
-     * @return null|ExternalTaxRateDraft
+     * @return null|ChannelResourceIdentifier
      */
-    public function getExternalTaxRate();
+    public function getSupplyChannel();
 
     /**
-     * <p>The custom fields.</p>
-     *
-
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom();
-
-    /**
-     * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> value, and the <code>priceMode</code> to <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
      *
 
      * @return null|Money
@@ -112,7 +103,7 @@ interface LineItemDraft extends JsonObject
     public function getExternalPrice();
 
     /**
-     * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> values, and the <code>priceMode</code> to <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
      *
 
      * @return null|ExternalLineItemTotalPrice
@@ -120,8 +111,16 @@ interface LineItemDraft extends JsonObject
     public function getExternalTotalPrice();
 
     /**
-     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
-     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     * <p>External Tax Rate for the Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate();
+
+    /**
+     * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Set only if the inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
 
      * @return null|string
@@ -129,12 +128,20 @@ interface LineItemDraft extends JsonObject
     public function getInventoryMode();
 
     /**
-     * <p>Container for line item specific address(es).</p>
+     * <p>Container for Line Item-specific addresses.</p>
      *
 
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
+
+    /**
+     * <p>Custom Fields for the Line Item.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
 
     /**
      * @param ?string $productId
@@ -162,24 +169,14 @@ interface LineItemDraft extends JsonObject
     public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
     /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
-     */
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
-
-    /**
      * @param ?ChannelResourceIdentifier $distributionChannel
      */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
 
     /**
-     * @param ?ExternalTaxRateDraft $externalTaxRate
+     * @param ?ChannelResourceIdentifier $supplyChannel
      */
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
-
-    /**
-     * @param ?CustomFieldsDraft $custom
-     */
-    public function setCustom(?CustomFieldsDraft $custom): void;
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 
     /**
      * @param ?Money $externalPrice
@@ -192,6 +189,11 @@ interface LineItemDraft extends JsonObject
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void;
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
+
+    /**
      * @param ?string $inventoryMode
      */
     public function setInventoryMode(?string $inventoryMode): void;
@@ -200,4 +202,9 @@ interface LineItemDraft extends JsonObject
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

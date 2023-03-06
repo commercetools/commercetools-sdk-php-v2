@@ -79,6 +79,8 @@ final class MyCartSetLineItemCustomFieldActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */

@@ -65,6 +65,9 @@ final class CartAddPaymentActionModel extends JsonObjectModel implements CartAdd
     }
 
     /**
+     * <p>Payment to add to the Cart.
+     * Must not be assigned to another Order or active Cart already.</p>
+     *
      *
      * @return null|PaymentResourceIdentifier
      */

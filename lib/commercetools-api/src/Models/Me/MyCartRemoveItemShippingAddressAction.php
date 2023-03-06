@@ -16,6 +16,8 @@ interface MyCartRemoveItemShippingAddressAction extends MyCartUpdateAction
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
+     * <p><code>key</code> of the Address to remove from <code>itemShippingAddresses</code>.</p>
+     *
 
      * @return null|string
      */

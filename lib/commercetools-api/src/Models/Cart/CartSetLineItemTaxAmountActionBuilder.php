@@ -39,6 +39,8 @@ final class CartSetLineItemTaxAmountActionBuilder implements Builder
     private $shippingKey;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,9 @@ final class CartSetLineItemTaxAmountActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|ExternalTaxAmountDraft
      */
@@ -57,7 +62,7 @@ final class CartSetLineItemTaxAmountActionBuilder implements Builder
     }
 
     /**
-     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Line Item.```
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Line Item.
      * This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 

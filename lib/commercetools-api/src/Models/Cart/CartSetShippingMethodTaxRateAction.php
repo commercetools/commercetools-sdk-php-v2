@@ -16,6 +16,9 @@ interface CartSetShippingMethodTaxRateAction extends CartUpdateAction
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|ExternalTaxRateDraft
      */

@@ -35,6 +35,8 @@ final class DiscountCodeInfoBuilder implements Builder
     private $state;
 
     /**
+     * <p>Discount Code associated with the Cart or Order.</p>
+     *
 
      * @return null|DiscountCodeReference
      */
@@ -44,6 +46,8 @@ final class DiscountCodeInfoBuilder implements Builder
     }
 
     /**
+     * <p>Indicates the state of the Discount Code applied to the Cart or Order.</p>
+     *
 
      * @return null|string
      */

@@ -142,6 +142,19 @@ class ResourceByProjectKeyProductSelectionsByIDProductsTest extends TestCase
                 'get',
                 'test_projectKey/product-selections/test_ID/products?withTotal=withTotal',
             ],
+            'ByProjectKeyProductSelectionsByIDProductsGet_withSort' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productSelections()
+                        ->withId('test_ID')
+                        ->products()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                'test_projectKey/product-selections/test_ID/products?sort=sort',
+            ],
             'ByProjectKeyProductSelectionsByIDProductsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

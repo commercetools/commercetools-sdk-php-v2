@@ -79,6 +79,8 @@ final class CartSetDeliveryAddressCustomFieldActionModel extends JsonObjectModel
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
      *
      * @return null|string
      */

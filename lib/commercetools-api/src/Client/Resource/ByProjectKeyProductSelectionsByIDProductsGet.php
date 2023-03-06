@@ -32,10 +32,11 @@ use Psr\Http\Message\ResponseInterface;
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Expandable<ByProjectKeyProductSelectionsByIDProductsGet>
  * @template-implements Paging<ByProjectKeyProductSelectionsByIDProductsGet>
+ * @template-implements Sortable<ByProjectKeyProductSelectionsByIDProductsGet>
  * @template-implements Errorable<ByProjectKeyProductSelectionsByIDProductsGet>
  * @template-implements Deprecatable200<ByProjectKeyProductSelectionsByIDProductsGet>
  */
-class ByProjectKeyProductSelectionsByIDProductsGet extends ApiRequest implements Expandable, Paging, Errorable, Deprecatable200
+class ByProjectKeyProductSelectionsByIDProductsGet extends ApiRequest implements Expandable, Paging, Sortable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -179,5 +180,14 @@ class ByProjectKeyProductSelectionsByIDProductsGet extends ApiRequest implements
     public function withWithTotal($withTotal): ByProjectKeyProductSelectionsByIDProductsGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $sort
+     */
+    public function withSort($sort): ByProjectKeyProductSelectionsByIDProductsGet
+    {
+        return $this->withQueryParam('sort', $sort);
     }
 }

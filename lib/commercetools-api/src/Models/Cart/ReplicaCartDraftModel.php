@@ -46,6 +46,8 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> that is replicated.</p>
+     *
      *
      * @return ?mixed
      */
@@ -64,7 +66,7 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
     }
 
     /**
-     * <p>User-specific unique identifier of the cart.</p>
+     * <p>User-defined unique identifier for the Cart.</p>
      *
      *
      * @return null|string
@@ -84,6 +86,8 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> that is replicated.</p>
+     *
      * @return null|CartReference
      */
     public function getReferenceAsCartReference()
@@ -98,6 +102,8 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> that is replicated.</p>
+     *
      * @return null|OrderReference
      */
     public function getReferenceAsOrderReference()

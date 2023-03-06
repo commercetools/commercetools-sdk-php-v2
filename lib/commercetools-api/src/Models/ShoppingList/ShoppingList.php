@@ -118,7 +118,7 @@ interface ShoppingList extends BaseResource
     public function getDeleteDaysAfterLastModification();
 
     /**
-     * <p>Identifies ShoppingLists belonging to an <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
+     * <p>Identifies ShoppingLists belonging to an <a href="ctp:api:type:AnonymousSession">anonymous session</a>.</p>
      *
 
      * @return null|string

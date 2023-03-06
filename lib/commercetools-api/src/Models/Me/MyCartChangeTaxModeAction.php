@@ -16,6 +16,8 @@ interface MyCartChangeTaxModeAction extends MyCartUpdateAction
     public const FIELD_TAX_MODE = 'taxMode';
 
     /**
+     * <p>The new TaxMode.</p>
+     *
 
      * @return null|string
      */

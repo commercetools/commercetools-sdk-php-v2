@@ -123,7 +123,7 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     }
 
     /**
-     * <p>Indicates the <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a> during which the resource was modified.</p>
+     * <p>Indicates the <a href="ctp:api:type:AnonymousSession">anonymous session</a> during which the resource was modified.</p>
      *
      *
      * @return null|string

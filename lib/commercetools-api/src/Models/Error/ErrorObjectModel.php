@@ -43,7 +43,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'AttributeNameDoesNotExist' => AttributeNameDoesNotExistErrorModel::class,
        'BadGateway' => BadGatewayErrorModel::class,
        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
-       'CountryNotConfiguredInStore' => CountryNotConfiguredInStoreModel::class,
+       'CountryNotConfiguredInStore' => CountryNotConfiguredInStoreErrorModel::class,
        'DiscountCodeNonApplicable' => DiscountCodeNonApplicableErrorModel::class,
        'DuplicateAttributeValue' => DuplicateAttributeValueErrorModel::class,
        'DuplicateAttributeValues' => DuplicateAttributeValuesErrorModel::class,

@@ -18,12 +18,17 @@ interface ExternalLineItemTotalPrice extends JsonObject
     public const FIELD_TOTAL_PRICE = 'totalPrice';
 
     /**
+     * <p>Price of the Line Item.</p>
+     * <p>The value is selected from the Product Variant according to the <a href="ctp:api:type:Product">Product</a> <code>priceMode</code>.</p>
+     *
 
      * @return null|Money
      */
     public function getPrice();
 
     /**
+     * <p>Total price of the Line Item.</p>
+     *
 
      * @return null|Money
      */

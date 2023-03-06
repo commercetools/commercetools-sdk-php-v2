@@ -22,7 +22,7 @@ interface Shipping extends JsonObject
     public const FIELD_SHIPPING_CUSTOM_FIELDS = 'shippingCustomFields';
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined unique identifier of the Shipping in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|string
@@ -38,7 +38,7 @@ interface Shipping extends JsonObject
     public function getShippingInfo();
 
     /**
-     * <p>Determines the shipping rates and Tax Rates of the associated Line Item quantities.</p>
+     * <p>Determines the shipping rates and Tax Rates of associated Line Items.</p>
      *
 
      * @return null|Address
@@ -46,10 +46,12 @@ interface Shipping extends JsonObject
     public function getShippingAddress();
 
     /**
-     * <p>Used as an input to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+     * <p>Used as an input to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.
+     * The data type of this field depends on the <code>shippingRateInputType.type</code> configured in the <a href="ctp:api:type:Project">Project</a>:</p>
      * <ul>
-     * <li>Must be <a href="ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartClassificationType">CartClassificationType</a>.</li>
-     * <li>Must be <a href="ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a> if <a href="ctp:api:type:ShippingRateInputType">ShippingRateInputType</a> is <a href="ctp:api:type:CartScoreType">CartScoreType</a>.</li>
+     * <li>If <code>CartClassification</code>, it is <a href="ctp:api:type:ClassificationShippingRateInput">ClassificationShippingRateInput</a>.</li>
+     * <li>If <code>CartScore</code>, it is <a href="ctp:api:type:ScoreShippingRateInput">ScoreShippingRateInput</a>.</li>
+     * <li>If <code>CartValue</code>, it cannot be used.</li>
      * </ul>
      *
 

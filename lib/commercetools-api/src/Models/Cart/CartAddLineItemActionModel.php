@@ -18,6 +18,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -31,24 +32,6 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
      * @var ?string
      */
     protected $action;
-
-    /**
-     *
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     *
-     * @var ?ChannelResourceIdentifier
-     */
-    protected $distributionChannel;
-
-    /**
-     *
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
 
     /**
      *
@@ -76,6 +59,18 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
 
     /**
      *
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
+
+    /**
+     *
+     * @var ?ChannelResourceIdentifier
+     */
+    protected $distributionChannel;
+
+    /**
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
@@ -94,39 +89,61 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
 
     /**
      *
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $inventoryMode;
+
+    /**
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
+    /**
+     *
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomFieldsDraft $custom = null,
-        ?ChannelResourceIdentifier $distributionChannel = null,
-        ?ExternalTaxRateDraft $externalTaxRate = null,
         ?string $productId = null,
         ?int $variantId = null,
         ?string $sku = null,
         ?int $quantity = null,
+        ?DateTimeImmutable $addedAt = null,
+        ?ChannelResourceIdentifier $distributionChannel = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?string $inventoryMode = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
-        $this->custom = $custom;
-        $this->distributionChannel = $distributionChannel;
-        $this->externalTaxRate = $externalTaxRate;
         $this->productId = $productId;
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->quantity = $quantity;
+        $this->addedAt = $addedAt;
+        $this->distributionChannel = $distributionChannel;
         $this->supplyChannel = $supplyChannel;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
+        $this->externalTaxRate = $externalTaxRate;
+        $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
+        $this->custom = $custom;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -149,28 +166,119 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p><code>id</code> of the published <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
      *
-     * @return null|CustomFieldsDraft
+     * @return null|string
      */
-    public function getCustom()
+    public function getProductId()
     {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
+        if (is_null($this->productId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRODUCT_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
+            $this->productId = (string) $data;
         }
 
-        return $this->custom;
+        return $this->productId;
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
+    }
+
+    /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * <p>Quantity of the Product Variant to add to the Cart.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
+     *
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        if (is_null($this->addedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->addedAt = $data;
+        }
+
+        return $this->addedAt;
+    }
+
+    /**
+     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price.
+     * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.
+     * If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
      *
      *
      * @return null|ChannelResourceIdentifier
@@ -191,98 +299,8 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
-     *
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        if (is_null($this->externalTaxRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-        }
-
-        return $this->externalTaxRate;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        if (is_null($this->productId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PRODUCT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->productId = (string) $data;
-        }
-
-        return $this->productId;
-    }
-
-    /**
-     *
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getSku()
-    {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
-    }
-
-    /**
-     *
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      *
      * @return null|ChannelResourceIdentifier
@@ -303,8 +321,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> value, and the <code>priceMode</code> to <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
      *
      *
      * @return null|Money
@@ -325,6 +342,8 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> values, and the <code>priceMode</code> to <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     *
      *
      * @return null|ExternalLineItemTotalPrice
      */
@@ -344,6 +363,50 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
+     * <p>External Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+     *
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
+    {
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
+    }
+
+    /**
+     * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Set only if the inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
+    }
+
+    /**
+     * <p>Container for Line Item-specific addresses.</p>
+     *
      *
      * @return null|ItemShippingDetailsDraft
      */
@@ -362,30 +425,27 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         return $this->shippingDetails;
     }
 
-
     /**
-     * @param ?CustomFieldsDraft $custom
+     * <p>Custom Fields for the Line Item.</p>
+     *
+     *
+     * @return null|CustomFieldsDraft
      */
-    public function setCustom(?CustomFieldsDraft $custom): void
+    public function getCustom()
     {
-        $this->custom = $custom;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
 
-    /**
-     * @param ?ChannelResourceIdentifier $distributionChannel
-     */
-    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
-    {
-        $this->distributionChannel = $distributionChannel;
-    }
-
-    /**
-     * @param ?ExternalTaxRateDraft $externalTaxRate
-     */
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
-    {
-        $this->externalTaxRate = $externalTaxRate;
-    }
 
     /**
      * @param ?string $productId
@@ -420,6 +480,22 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    {
+        $this->addedAt = $addedAt;
+    }
+
+    /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
+     */
+    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
+    {
+        $this->distributionChannel = $distributionChannel;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifier $supplyChannel
      */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
@@ -444,10 +520,45 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    {
+        $this->externalTaxRate = $externalTaxRate;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void
+    {
+        $this->inventoryMode = $inventoryMode;
+    }
+
+    /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[CartAddLineItemAction::FIELD_ADDED_AT]) && $data[CartAddLineItemAction::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
+            $data[CartAddLineItemAction::FIELD_ADDED_AT] = $data[CartAddLineItemAction::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
     }
 }

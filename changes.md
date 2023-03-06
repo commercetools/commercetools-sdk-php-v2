@@ -1,202 +1,150 @@
 **Api changes**
 
 <details>
-<summary>Added Resource(s)</summary>
+<summary>Removed Property(s)</summary>
 
-- added resource `/{projectKey}/shipping-methods/matching-cart-location`
-</details>
-
-
-<details>
-<summary>Added Enum(s)</summary>
-
-- added enum `Frozen` to type `CartState`
+- :warning: removed property `externalTaxRate` from type `MyCartAddLineItemAction`
+- :warning: removed property `externalPrice` from type `MyCartAddLineItemAction`
+- :warning: removed property `externalTotalPrice` from type `MyCartAddLineItemAction`
 </details>
 
 
 <details>
 <summary>Changed Property(s)</summary>
 
-- :warning: changed property `stores` of type `BusinessUnitDraft` from type `StoreKeyReference[]` to `StoreResourceIdentifier[]`
-- :warning: changed property `stores` of type `CompanyDraft` from type `StoreKeyReference[]` to `StoreResourceIdentifier[]`
-- :warning: changed property `stores` of type `DivisionDraft` from type `StoreKeyReference[]` to `StoreResourceIdentifier[]`
-- :warning: changed property `amount` of type `Transaction` from type `TypedMoney` to `CentPrecisionMoney`
-- :warning: changed property `assets` of type `ProductAddVariantAction` from type `Asset[]` to `AssetDraft[]`
+- :warning: changed property `totalPrice` of type `Cart` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `locale` of type `Cart` from type `string` to `Locale`
+- :warning: changed property `country` of type `CartDraft` from type `string` to `CountryCode`
+- :warning: changed property `locale` of type `CartDraft` from type `string` to `Locale`
+- :warning: changed property `totalPrice` of type `CustomLineItem` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `externalTaxRate` of type `CustomShippingDraft` from type `string` to `ExternalTaxRateDraft`
+- :warning: changed property `deliveries` of type `CustomShippingDraft` from type `Delivery[]` to `DeliveryDraft[]`
+- :warning: changed property `custom` of type `CustomShippingDraft` from type `string` to `CustomFieldsDraft`
+- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
+- :warning: changed property `totalPrice` of type `LineItem` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `externalTaxRate` of type `ShippingDraft` from type `string` to `ExternalTaxRateDraft`
+- :warning: changed property `deliveries` of type `ShippingDraft` from type `Delivery[]` to `DeliveryDraft[]`
+- :warning: changed property `custom` of type `ShippingDraft` from type `string` to `CustomFieldsDraft`
+- :warning: changed property `price` of type `ShippingInfo` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `amount` of type `TaxPortion` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `totalNet` of type `TaxedItemPrice` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `totalGross` of type `TaxedItemPrice` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `totalTax` of type `TaxedItemPrice` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `totalNet` of type `TaxedPrice` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `totalGross` of type `TaxedPrice` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `totalTax` of type `TaxedPrice` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `externalTaxRate` of type `CartAddCustomShippingMethodAction` from type `string` to `ExternalTaxRateDraft`
+- :warning: changed property `deliveries` of type `CartAddCustomShippingMethodAction` from type `Delivery[]` to `DeliveryDraft[]`
+- :warning: changed property `custom` of type `CartAddCustomShippingMethodAction` from type `string` to `CustomFieldsDraft`
+- :warning: changed property `shippingMethod` of type `CartAddShippingMethodAction` from type `ShippingMethodReference` to `ShippingMethodResourceIdentifier`
+- :warning: changed property `externalTaxRate` of type `CartAddShippingMethodAction` from type `string` to `ExternalTaxRateDraft`
+- :warning: changed property `deliveries` of type `CartAddShippingMethodAction` from type `Delivery[]` to `DeliveryDraft[]`
+- :warning: changed property `custom` of type `CartAddShippingMethodAction` from type `string` to `CustomFieldsDraft`
+- :warning: changed property `locale` of type `CartSetLocaleAction` from type `string` to `Locale`
+- :warning: changed property `businessUnit` of type `MyCartDraft` from type `BusinessUnitKeyReference` to `BusinessUnitResourceIdentifier`
+- :warning: changed property `store` of type `MyCartDraft` from type `StoreKeyReference` to `StoreResourceIdentifier`
+- :warning: changed property `country` of type `MyCartDraft` from type `string` to `CountryCode`
+- :warning: changed property `locale` of type `MyCartDraft` from type `string` to `Locale`
+- :warning: changed property `locale` of type `MyCartSetLocaleAction` from type `string` to `Locale`
 </details>
 
 
 <details>
 <summary>Required Property(s)</summary>
 
-- changed property `discounted` of type `StagedStandalonePrice` to be optional
+- :warning: changed property `inventoryMode` of type `Cart` to be required
+- :warning: changed property `itemShippingAddresses` of type `Cart` to be required
+- :warning: changed property `discountCodes` of type `Cart` to be required
+- :warning: changed property `directDiscounts` of type `Cart` to be required
+- :warning: changed property `shippingAddress` of type `ShippingDraft` to be required
+- changed property `quantity` of type `CustomLineItemDraft` to be optional
+- changed property `deliveries` of type `CustomShippingDraft` to be optional
+- changed property `deliveries` of type `ShippingDraft` to be optional
+- changed property `quantity` of type `CartAddCustomLineItemAction` to be optional
+- changed property `deliveries` of type `CartAddCustomShippingMethodAction` to be optional
+- changed property `deliveries` of type `CartAddShippingMethodAction` to be optional
+- changed property `email` of type `CartSetCustomerEmailAction` to be optional
+- changed property `quantity` of type `MyLineItemDraft` to be optional
 </details>
 
 
 <details>
 <summary>Added Property(s)</summary>
 
-- added property `defaultShippingAddressId` to type `BusinessUnit`
-- added property `defaultShippingAddress` to type `BusinessUnitDraft`
-- added property `defaultShippingAddressId` to type `Company`
-- added property `defaultShippingAddress` to type `CompanyDraft`
-- added property `defaultShippingAddressId` to type `Division`
-- added property `defaultShippingAddress` to type `DivisionDraft`
-- added property `conflictingPrice` to type `DuplicatePriceScopeError`
-- added property `defaultShippingAddress` to type `MyBusinessUnitDraft`
-- added property `defaultShippingAddress` to type `MyCompanyDraft`
-- added property `defaultShippingAddress` to type `MyDivisionDraft`
-- added property `cartId` to type `MyQuoteRequestDraft`
-- added property `cartVersion` to type `MyQuoteRequestDraft`
-- added property `oldValue` to type `StandalonePriceValueChangedMessage`
-- added property `oldValue` to type `StandalonePriceValueChangedMessagePayload`
-- added property `purchaseOrderNumber` to type `StagedOrder`
-- added property `purchaseOrderNumber` to type `Order`
-- added property `purchaseOrderNumber` to type `OrderFromCartDraft`
-- added property `createdAt` to type `AssignedProductSelection`
-- added property `purchaseOrderNumber` to type `QuoteRequest`
-- added property `purchaseOrderNumber` to type `QuoteRequestDraft`
-- added property `quoteState` to type `Quote`
-- added property `purchaseOrderNumber` to type `Quote`
-- added property `purchaseOrderNumber` to type `StagedQuote`
+- added property `shippingDetails` to type `CartAddCustomLineItemAction`
+- added property `addedAt` to type `CartAddLineItemAction`
+- added property `inventoryMode` to type `CartAddLineItemAction`
 </details>
 
 
 <details>
-<summary>Removed Property(s)</summary>
+<summary>Added Resource(s)</summary>
 
-- :warning: removed property `defaultShipingAddressId` from type `BusinessUnit`
-- :warning: removed property `defaultShipingAddress` from type `BusinessUnitDraft`
-- :warning: removed property `defaultShipingAddressId` from type `Company`
-- :warning: removed property `defaultShipingAddress` from type `CompanyDraft`
-- :warning: removed property `defaultShipingAddressId` from type `Division`
-- :warning: removed property `defaultShipingAddress` from type `DivisionDraft`
-- :warning: removed property `conflictingPrices` from type `DuplicatePriceScopeError`
-- :warning: removed property `defaultShipingAddress` from type `MyBusinessUnitDraft`
-- :warning: removed property `defaultShipingAddress` from type `MyCompanyDraft`
-- :warning: removed property `defaultShipingAddress` from type `MyDivisionDraft`
-- :warning: removed property `cart` from type `MyQuoteRequestDraft`
-- :warning: removed property `version` from type `MyQuoteRequestDraft`
-</details>
-
-
-<details>
-<summary>Deprecated Type(s)</summary>
-
-- type `IronMqDestination` is removed
-</details>
-
-
-<details>
-<summary>Added Type(s)</summary>
-
-- added type `CartFreezeCartAction`
-- added type `CartUnfreezeCartAction`
-- added type `DuplicatePriceKeyError`
-- added type `OrderPurchaseOrderNumberSetMessage`
-- added type `ProductPriceAddedMessage`
-- added type `ProductPriceChangedMessage`
-- added type `ProductPriceKeySetMessage`
-- added type `ProductPriceModeSetMessage`
-- added type `ProductPriceRemovedMessage`
-- added type `ProductPricesSetMessage`
-- added type `StandalonePriceKeySetMessage`
-- added type `OrderPurchaseOrderNumberSetMessagePayload`
-- added type `ProductPriceAddedMessagePayload`
-- added type `ProductPriceChangedMessagePayload`
-- added type `ProductPriceKeySetMessagePayload`
-- added type `ProductPriceModeSetMessagePayload`
-- added type `ProductPriceRemovedMessagePayload`
-- added type `ProductPricesSetMessagePayload`
-- added type `StandalonePriceKeySetMessagePayload`
-- added type `StagedOrderSetPurchaseOrderNumberAction`
-- added type `OrderSetPurchaseOrderNumberAction`
-- added type `ProductSetPriceKeyAction`
-- added type `StandalonePriceSetKeyAction`
+- added resource `/{projectKey}/me/orders/quotes`
 </details>
 
 
 <details>
 <summary>Added Method(s)</summary>
 
-- added method `$apiRoot->withProjectKey()->shippingMethods()->matchingCartLocation()->get()`
-</details>
-
-**ML changes**
-
-<details>
-<summary>Deprecated Type(s)</summary>
-
-- type `AttributeCount` is removed
-- type `AttributeCoverage` is removed
-- type `MissingAttributesDetails` is removed
-- type `MissingAttributes` is removed
-- type `MissingAttributesMeta` is removed
-- type `MissingAttributesSearchRequest` is removed
-- type `MissingAttributesPagedQueryResult` is removed
-- type `MissingDataTaskStatus` is removed
-- type `MissingImages` is removed
-- type `MissingImagesCount` is removed
-- type `MissingImagesProductLevel` is removed
-- type `MissingImagesVariantLevel` is removed
-- type `MissingImagesMeta` is removed
-- type `MissingImagesSearchRequest` is removed
-- type `MissingImagesPagedQueryResult` is removed
-- type `MissingImagesTaskStatus` is removed
-- type `MissingPrices` is removed
-- type `MissingPricesProductCount` is removed
-- type `MissingPricesProductLevel` is removed
-- type `MissingPricesVariantLevel` is removed
-- type `MissingPricesMeta` is removed
-- type `MissingPricesSearchRequest` is removed
-- type `MissingPricesPagedQueryResult` is removed
-- type `MissingPricesTaskStatus` is removed
+- added method `$apiRoot->withProjectKey()->me()->orders()->quotes()->post()`
 </details>
 
 
 <details>
-<summary>Deprecated Resource(s)</summary>
+<summary>Removed Type(s)</summary>
 
-- resource `/{projectKey}/missing-data` is removed
-- resource `/{projectKey}/missing-data/attributes` is removed
-- resource `/{projectKey}/missing-data/images` is removed
-- resource `/{projectKey}/missing-data/prices` is removed
-- resource `/{projectKey}/missing-data/attributes/status` is removed
-- resource `/{projectKey}/missing-data/attributes/status/{taskId}` is removed
-- resource `/{projectKey}/missing-data/images/status` is removed
-- resource `/{projectKey}/missing-data/images/status/{taskId}` is removed
-- resource `/{projectKey}/missing-data/prices/status` is removed
-- resource `/{projectKey}/missing-data/prices/status/{taskId}` is removed
+- :warning: removed type `CountryNotConfiguredInStore`
 </details>
 
 
 <details>
-<summary>Deprecated Method(s)</summary>
+<summary>Added Type(s)</summary>
 
-- method `post /{projectKey}/missing-data/attributes` is removed
-- method `post /{projectKey}/missing-data/images` is removed
-- method `post /{projectKey}/missing-data/prices` is removed
-- method `get /{projectKey}/missing-data/attributes/status/{taskId}` is removed
-- method `get /{projectKey}/missing-data/images/status/{taskId}` is removed
-- method `get /{projectKey}/missing-data/prices/status/{taskId}` is removed
+- added type `CartSetBusinessUnitAction`
+- added type `CountryNotConfiguredInStoreError`
+- added type `GoogleCloudFunctionDestination`
+- added type `MyOrderFromQuoteDraft`
+- added type `MyCartSetBusinessUnitAction`
 </details>
 
 
 <details>
-<summary>Deprecated Property(s)</summary>
+<summary>Added QueryParameter(s)</summary>
 
-- property `MissingAttributes::attributeCount` is removed
-- property `MissingAttributes::attributeCoverage` is removed
-- property `MissingAttributesMeta::productLevel` is removed
-- property `MissingAttributesMeta::variantLevel` is removed
-- property `MissingAttributesPagedQueryResult::meta` is removed
-- property `MissingDataTaskStatus::result` is removed
-- property `MissingImagesMeta::productLevel` is removed
-- property `MissingImagesMeta::variantLevel` is removed
-- property `MissingImagesPagedQueryResult::meta` is removed
-- property `MissingImagesTaskStatus::result` is removed
-- property `MissingPricesMeta::productLevel` is removed
-- property `MissingPricesMeta::variantLevel` is removed
-- property `MissingPricesPagedQueryResult::meta` is removed
-- property `MissingPricesTaskStatus::result` is removed
+- added query parameter `sort` to method `get /{projectKey}/product-selections/key={key}/products`
+- added query parameter `sort` to method `get /{projectKey}/product-selections/{ID}/products`
+- added query parameter `expand` to method `get /{projectKey}/in-store/key={storeKey}/me/active-cart`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `shipping` to type `ResourceTypeId`
+</details>
+
+**Import changes**
+
+<details>
+<summary>Required Property(s)</summary>
+
+- changed property `password` of type `CustomerImport` to be optional
+</details>
+
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `authenticationMode` to type `CustomerImport`
+- added property `state` to type `OrderImport`
+- added property `custom` to type `Address`
+</details>
+
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `AuthenticationMode`
 </details>
 

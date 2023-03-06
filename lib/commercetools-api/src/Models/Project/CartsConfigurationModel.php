@@ -44,7 +44,9 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
     }
 
     /**
-     * <p>Default value for the <code>deleteDaysAfterLastModification</code> parameter of the <a href="ctp:api:type:CartDraft">CartDraft</a>. This field may not be present on Projects created before January 2020.</p>
+     * <p>Default value for the <code>deleteDaysAfterLastModification</code> parameter of the <a href="ctp:api:type:CartDraft">CartDraft</a> and <a href="ctp:api:type:MyCartDraft">MyCartDraft</a>.
+     * If a <a href="ctp:api:type:ChangeSubscription">ChangeSubscription</a> for Carts exists, a <a href="ctp:api:type:ResourceDeletedDeliveryPayload">ResourceDeletedDeliveryPayload</a> is sent upon deletion of a Cart.</p>
+     * <p>This field may not be present on Projects created before January 2020.</p>
      *
      *
      * @return null|int
