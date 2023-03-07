@@ -63,8 +63,6 @@ final class CloudEventsFormatModel extends JsonObjectModel implements CloudEvent
     }
 
     /**
-     * <p>Supported versions: &quot;1.0&quot;.</p>
-     *
      *
      * @return null|string
      */
