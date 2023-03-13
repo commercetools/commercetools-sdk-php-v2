@@ -77,7 +77,7 @@ interface PriceDraft extends JsonObject
     public function getValidFrom();
 
     /**
-     * <p>Set this field if this Price is only valid until the specified date and time. Must be at least 1 ms later than <code>validFrom</code>.</p>
+     * <p>Set this field if this Price is only valid until the specified date and time. Must be at least 1 ms later than <code>validFrom</code>. Prices that are no longer valid are not automatically removed, but they can be <a href="ctp:api:type:ProductRemovePriceAction">removed</a> if necessary.</p>
      *
 
      * @return null|DateTimeImmutable

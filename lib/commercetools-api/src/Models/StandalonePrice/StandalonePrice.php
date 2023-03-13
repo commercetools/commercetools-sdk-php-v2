@@ -144,7 +144,7 @@ interface StandalonePrice extends BaseResource
     public function getValidFrom();
 
     /**
-     * <p>Date until the Price is valid.</p>
+     * <p>Date until the Price is valid. Standalone Prices that are no longer valid are not automatically deleted, but they can be <a href="/../api/projects/standalone-prices#delete-standaloneprice">deleted</a> if necessary.</p>
      *
 
      * @return null|DateTimeImmutable
