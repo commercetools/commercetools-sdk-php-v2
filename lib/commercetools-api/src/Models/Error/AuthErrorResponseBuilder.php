@@ -84,7 +84,7 @@ final class AuthErrorResponseBuilder implements Builder
     }
 
     /**
-     * <p>Error code as per the <a href="https://tools.ietf.org/html/rfc6749#section-5.2">OAuth 2.0 specification</a>. For example: <code>&quot;access_denied&quot;</code>.</p>
+     * <p>Error code as per the <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-5.2">OAuth 2.0 specification</a>. For example: <code>&quot;access_denied&quot;</code>.</p>
      *
 
      * @return null|string
