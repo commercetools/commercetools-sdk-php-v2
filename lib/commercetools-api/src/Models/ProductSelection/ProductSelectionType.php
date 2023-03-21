@@ -17,7 +17,7 @@ interface ProductSelectionType extends JsonObject
     public const FIELD_TYPE = 'type';
 
     /**
-     * <p>The following type of Product Selections is supported:</p>
+     * <p>The following types of Product Selections are supported:</p>
      *
 
      * @return null|string

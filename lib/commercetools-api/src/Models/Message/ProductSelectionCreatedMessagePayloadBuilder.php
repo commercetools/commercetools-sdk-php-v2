@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionType;
-use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionTypeBuilder;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionType;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionTypeBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -24,7 +24,7 @@ final class ProductSelectionCreatedMessagePayloadBuilder implements Builder
 {
     /**
 
-     * @var null|IndividualProductSelectionType|IndividualProductSelectionTypeBuilder
+     * @var null|ProductSelectionType|ProductSelectionTypeBuilder
      */
     private $productSelection;
 
@@ -32,18 +32,18 @@ final class ProductSelectionCreatedMessagePayloadBuilder implements Builder
      * <p>The <code>type</code> and <code>name</code> of the individual Product Selection.</p>
      *
 
-     * @return null|IndividualProductSelectionType
+     * @return null|ProductSelectionType
      */
     public function getProductSelection()
     {
-        return $this->productSelection instanceof IndividualProductSelectionTypeBuilder ? $this->productSelection->build() : $this->productSelection;
+        return $this->productSelection instanceof ProductSelectionTypeBuilder ? $this->productSelection->build() : $this->productSelection;
     }
 
     /**
-     * @param ?IndividualProductSelectionType $productSelection
+     * @param ?ProductSelectionType $productSelection
      * @return $this
      */
-    public function withProductSelection(?IndividualProductSelectionType $productSelection)
+    public function withProductSelection(?ProductSelectionType $productSelection)
     {
         $this->productSelection = $productSelection;
 
@@ -54,7 +54,7 @@ final class ProductSelectionCreatedMessagePayloadBuilder implements Builder
      * @deprecated use withProductSelection() instead
      * @return $this
      */
-    public function withProductSelectionBuilder(?IndividualProductSelectionTypeBuilder $productSelection)
+    public function withProductSelectionBuilder(?ProductSelectionTypeBuilder $productSelection)
     {
         $this->productSelection = $productSelection;
 
@@ -64,7 +64,7 @@ final class ProductSelectionCreatedMessagePayloadBuilder implements Builder
     public function build(): ProductSelectionCreatedMessagePayload
     {
         return new ProductSelectionCreatedMessagePayloadModel(
-            $this->productSelection instanceof IndividualProductSelectionTypeBuilder ? $this->productSelection->build() : $this->productSelection
+            $this->productSelection instanceof ProductSelectionTypeBuilder ? $this->productSelection->build() : $this->productSelection
         );
     }
 

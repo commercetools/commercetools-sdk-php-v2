@@ -33,16 +33,24 @@ final class AssignedProductReferenceModel extends JsonObjectModel implements Ass
      */
     protected $variantSelection;
 
+    /**
+     *
+     * @var ?ProductVariantExclusion
+     */
+    protected $variantExclusion;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?ProductReference $product = null,
-        ?ProductVariantSelection $variantSelection = null
+        ?ProductVariantSelection $variantSelection = null,
+        ?ProductVariantExclusion $variantExclusion = null
     ) {
         $this->product = $product;
         $this->variantSelection = $variantSelection;
+        $this->variantExclusion = $variantExclusion;
     }
 
     /**
@@ -67,7 +75,8 @@ final class AssignedProductReferenceModel extends JsonObjectModel implements Ass
     }
 
     /**
-     * <p>The Variants of the Product that are included, or excluded, from the Product Selection.
+     * <p>The Variants of the Product that are included from the Product Selection.</p>
+     * <p>This field may exist only for the <a href="ctp:api:type:IndividualProductSelectionType">IndividualProductSelectionType</a>.
      * In absence of this field, all Variants are deemed to be included.</p>
      *
      *
@@ -88,6 +97,29 @@ final class AssignedProductReferenceModel extends JsonObjectModel implements Ass
         return $this->variantSelection;
     }
 
+    /**
+     * <p>The Variants of the Product that are excluded from the Product Selection.</p>
+     * <p>This field may exist only for the <a href="ctp:api:type:IndividualExclusionProductSelectionType">IndividualExclusionProductSelectionType</a>.
+     * In absence of this field, all Variants are deemed to be excluded.</p>
+     *
+     *
+     * @return null|ProductVariantExclusion
+     */
+    public function getVariantExclusion()
+    {
+        if (is_null($this->variantExclusion)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_VARIANT_EXCLUSION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->variantExclusion = ProductVariantExclusionModel::of($data);
+        }
+
+        return $this->variantExclusion;
+    }
+
 
     /**
      * @param ?ProductReference $product
@@ -103,5 +135,13 @@ final class AssignedProductReferenceModel extends JsonObjectModel implements Ass
     public function setVariantSelection(?ProductVariantSelection $variantSelection): void
     {
         $this->variantSelection = $variantSelection;
+    }
+
+    /**
+     * @param ?ProductVariantExclusion $variantExclusion
+     */
+    public function setVariantExclusion(?ProductVariantExclusion $variantExclusion): void
+    {
+        $this->variantExclusion = $variantExclusion;
     }
 }

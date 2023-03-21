@@ -41,6 +41,12 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $type;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -48,11 +54,13 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     public function __construct(
         ?string $key = null,
         ?LocalizedString $name = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?string $type = null
     ) {
         $this->key = $key;
         $this->name = $name;
         $this->custom = $custom;
+        $this->type = $type;
     }
 
     /**
@@ -117,6 +125,26 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
         return $this->custom;
     }
 
+    /**
+     * <p>Type of the Product Selection.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
+
 
     /**
      * @param ?string $key
@@ -140,5 +168,13 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?string $type
+     */
+    public function setType(?string $type): void
+    {
+        $this->type = $type;
     }
 }

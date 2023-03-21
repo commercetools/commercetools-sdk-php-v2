@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionType;
-use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionTypeModel;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionType;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionTypeModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -30,7 +30,7 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
 
     /**
      *
-     * @var ?IndividualProductSelectionType
+     * @var ?ProductSelectionType
      */
     protected $productSelection;
 
@@ -39,7 +39,7 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?IndividualProductSelectionType $productSelection = null,
+        ?ProductSelectionType $productSelection = null,
         ?string $type = null
     ) {
         $this->productSelection = $productSelection;
@@ -68,7 +68,7 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
      * <p>The <code>type</code> and <code>name</code> of the individual Product Selection.</p>
      *
      *
-     * @return null|IndividualProductSelectionType
+     * @return null|ProductSelectionType
      */
     public function getProductSelection()
     {
@@ -79,7 +79,7 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
                 return null;
             }
 
-            $this->productSelection = IndividualProductSelectionTypeModel::of($data);
+            $this->productSelection = ProductSelectionTypeModel::of($data);
         }
 
         return $this->productSelection;
@@ -87,9 +87,9 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
 
 
     /**
-     * @param ?IndividualProductSelectionType $productSelection
+     * @param ?ProductSelectionType $productSelection
      */
-    public function setProductSelection(?IndividualProductSelectionType $productSelection): void
+    public function setProductSelection(?ProductSelectionType $productSelection): void
     {
         $this->productSelection = $productSelection;
     }

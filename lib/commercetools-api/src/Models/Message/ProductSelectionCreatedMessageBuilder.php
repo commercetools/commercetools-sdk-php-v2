@@ -14,8 +14,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
-use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionType;
-use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionTypeBuilder;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionType;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionTypeBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -91,7 +91,7 @@ final class ProductSelectionCreatedMessageBuilder implements Builder
 
     /**
 
-     * @var null|IndividualProductSelectionType|IndividualProductSelectionTypeBuilder
+     * @var null|ProductSelectionType|ProductSelectionTypeBuilder
      */
     private $productSelection;
 
@@ -210,11 +210,11 @@ final class ProductSelectionCreatedMessageBuilder implements Builder
      * <p>The <code>type</code> and <code>name</code> of the individual Product Selection.</p>
      *
 
-     * @return null|IndividualProductSelectionType
+     * @return null|ProductSelectionType
      */
     public function getProductSelection()
     {
-        return $this->productSelection instanceof IndividualProductSelectionTypeBuilder ? $this->productSelection->build() : $this->productSelection;
+        return $this->productSelection instanceof ProductSelectionTypeBuilder ? $this->productSelection->build() : $this->productSelection;
     }
 
     /**
@@ -328,10 +328,10 @@ final class ProductSelectionCreatedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?IndividualProductSelectionType $productSelection
+     * @param ?ProductSelectionType $productSelection
      * @return $this
      */
-    public function withProductSelection(?IndividualProductSelectionType $productSelection)
+    public function withProductSelection(?ProductSelectionType $productSelection)
     {
         $this->productSelection = $productSelection;
 
@@ -386,7 +386,7 @@ final class ProductSelectionCreatedMessageBuilder implements Builder
      * @deprecated use withProductSelection() instead
      * @return $this
      */
-    public function withProductSelectionBuilder(?IndividualProductSelectionTypeBuilder $productSelection)
+    public function withProductSelectionBuilder(?ProductSelectionTypeBuilder $productSelection)
     {
         $this->productSelection = $productSelection;
 
@@ -406,7 +406,7 @@ final class ProductSelectionCreatedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->productSelection instanceof IndividualProductSelectionTypeBuilder ? $this->productSelection->build() : $this->productSelection
+            $this->productSelection instanceof ProductSelectionTypeBuilder ? $this->productSelection->build() : $this->productSelection
         );
     }
 

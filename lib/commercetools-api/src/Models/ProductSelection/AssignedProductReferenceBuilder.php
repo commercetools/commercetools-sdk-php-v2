@@ -35,6 +35,12 @@ final class AssignedProductReferenceBuilder implements Builder
     private $variantSelection;
 
     /**
+
+     * @var null|ProductVariantExclusion|ProductVariantExclusionBuilder
+     */
+    private $variantExclusion;
+
+    /**
      * <p>Reference to a Product that is assigned to the Product Selection.</p>
      *
 
@@ -46,7 +52,8 @@ final class AssignedProductReferenceBuilder implements Builder
     }
 
     /**
-     * <p>The Variants of the Product that are included, or excluded, from the Product Selection.
+     * <p>The Variants of the Product that are included from the Product Selection.</p>
+     * <p>This field may exist only for the <a href="ctp:api:type:IndividualProductSelectionType">IndividualProductSelectionType</a>.
      * In absence of this field, all Variants are deemed to be included.</p>
      *
 
@@ -55,6 +62,19 @@ final class AssignedProductReferenceBuilder implements Builder
     public function getVariantSelection()
     {
         return $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection;
+    }
+
+    /**
+     * <p>The Variants of the Product that are excluded from the Product Selection.</p>
+     * <p>This field may exist only for the <a href="ctp:api:type:IndividualExclusionProductSelectionType">IndividualExclusionProductSelectionType</a>.
+     * In absence of this field, all Variants are deemed to be excluded.</p>
+     *
+
+     * @return null|ProductVariantExclusion
+     */
+    public function getVariantExclusion()
+    {
+        return $this->variantExclusion instanceof ProductVariantExclusionBuilder ? $this->variantExclusion->build() : $this->variantExclusion;
     }
 
     /**
@@ -75,6 +95,17 @@ final class AssignedProductReferenceBuilder implements Builder
     public function withVariantSelection(?ProductVariantSelection $variantSelection)
     {
         $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductVariantExclusion $variantExclusion
+     * @return $this
+     */
+    public function withVariantExclusion(?ProductVariantExclusion $variantExclusion)
+    {
+        $this->variantExclusion = $variantExclusion;
 
         return $this;
     }
@@ -101,11 +132,23 @@ final class AssignedProductReferenceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withVariantExclusion() instead
+     * @return $this
+     */
+    public function withVariantExclusionBuilder(?ProductVariantExclusionBuilder $variantExclusion)
+    {
+        $this->variantExclusion = $variantExclusion;
+
+        return $this;
+    }
+
     public function build(): AssignedProductReference
     {
         return new AssignedProductReferenceModel(
             $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
-            $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection
+            $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection,
+            $this->variantExclusion instanceof ProductVariantExclusionBuilder ? $this->variantExclusion->build() : $this->variantExclusion
         );
     }
 

@@ -35,6 +35,12 @@ final class AssignedProductSelectionBuilder implements Builder
 
     /**
 
+     * @var null|ProductVariantExclusion|ProductVariantExclusionBuilder
+     */
+    private $variantExclusion;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
@@ -51,7 +57,8 @@ final class AssignedProductSelectionBuilder implements Builder
     }
 
     /**
-     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.</p>
+     * <p>Defines which Variants of the Product will be included from the Product Selection.</p>
+     * <p>This field is only available for Assignments to a Product Selection of type <a href="ctp:api:type:IndividualProductSelectionType">Individual</a>.</p>
      *
 
      * @return null|ProductVariantSelection
@@ -59,6 +66,18 @@ final class AssignedProductSelectionBuilder implements Builder
     public function getVariantSelection()
     {
         return $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection;
+    }
+
+    /**
+     * <p>Defines which Variants of the Product will be excluded from the Product Selection.</p>
+     * <p>This field is only available for Assignments to a Product Selection of type <a href="ctp:api:type:IndividualExclusionProductSelectionType">Individual Exclusion</a>.</p>
+     *
+
+     * @return null|ProductVariantExclusion
+     */
+    public function getVariantExclusion()
+    {
+        return $this->variantExclusion instanceof ProductVariantExclusionBuilder ? $this->variantExclusion->build() : $this->variantExclusion;
     }
 
     /**
@@ -90,6 +109,17 @@ final class AssignedProductSelectionBuilder implements Builder
     public function withVariantSelection(?ProductVariantSelection $variantSelection)
     {
         $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductVariantExclusion $variantExclusion
+     * @return $this
+     */
+    public function withVariantExclusion(?ProductVariantExclusion $variantExclusion)
+    {
+        $this->variantExclusion = $variantExclusion;
 
         return $this;
     }
@@ -127,11 +157,23 @@ final class AssignedProductSelectionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withVariantExclusion() instead
+     * @return $this
+     */
+    public function withVariantExclusionBuilder(?ProductVariantExclusionBuilder $variantExclusion)
+    {
+        $this->variantExclusion = $variantExclusion;
+
+        return $this;
+    }
+
     public function build(): AssignedProductSelection
     {
         return new AssignedProductSelectionModel(
             $this->productSelection instanceof ProductSelectionReferenceBuilder ? $this->productSelection->build() : $this->productSelection,
             $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection,
+            $this->variantExclusion instanceof ProductVariantExclusionBuilder ? $this->variantExclusion->build() : $this->variantExclusion,
             $this->createdAt
         );
     }

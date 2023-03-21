@@ -32,6 +32,7 @@ final class ProductSelectionTypeModel extends JsonObjectModel implements Product
      */
     private static $discriminatorClasses = [
        'individual' => IndividualProductSelectionTypeModel::class,
+       'individualExclusion' => IndividualExclusionProductSelectionTypeModel::class,
     ];
 
     /**
@@ -44,7 +45,7 @@ final class ProductSelectionTypeModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The following type of Product Selections is supported:</p>
+     * <p>The following types of Product Selections are supported:</p>
      *
      *
      * @return null|string

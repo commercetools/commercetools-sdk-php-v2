@@ -46,7 +46,7 @@ final class ProductSelectionAddProductActionBuilder implements Builder
     }
 
     /**
-     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.
+     * <p>Defines which Variants of the Product will be included from the Product Selection.
      * If not supplied all Variants are deemed to be included.</p>
      *
 

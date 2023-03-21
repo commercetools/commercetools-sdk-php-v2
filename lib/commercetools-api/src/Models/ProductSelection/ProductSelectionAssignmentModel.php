@@ -39,6 +39,12 @@ final class ProductSelectionAssignmentModel extends JsonObjectModel implements P
      */
     protected $variantSelection;
 
+    /**
+     *
+     * @var ?ProductVariantExclusion
+     */
+    protected $variantExclusion;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -46,11 +52,13 @@ final class ProductSelectionAssignmentModel extends JsonObjectModel implements P
     public function __construct(
         ?ProductReference $product = null,
         ?ProductSelectionReference $productSelection = null,
-        ?ProductVariantSelection $variantSelection = null
+        ?ProductVariantSelection $variantSelection = null,
+        ?ProductVariantExclusion $variantExclusion = null
     ) {
         $this->product = $product;
         $this->productSelection = $productSelection;
         $this->variantSelection = $variantSelection;
+        $this->variantExclusion = $variantExclusion;
     }
 
     /**
@@ -96,7 +104,8 @@ final class ProductSelectionAssignmentModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.
+     * <p>Define which Variants of the added Product will be included from the Product Selection.</p>
+     * <p>This field is only available for Assignments to a Product Selection of type <a href="ctp:api:type:IndividualProductSelectionType">Individual</a>.
      * The list of SKUs will be updated automatically on any change of those performed on the respective Product itself.</p>
      *
      *
@@ -115,6 +124,29 @@ final class ProductSelectionAssignmentModel extends JsonObjectModel implements P
         }
 
         return $this->variantSelection;
+    }
+
+    /**
+     * <p>Defines which Variants of the Product will be excluded from the Product Selection.</p>
+     * <p>This field is only available for Assignments to a Product Selection of type <a href="ctp:api:type:IndividualExclusionProductSelectionType">Individual Exclusion</a>.
+     * The list of SKUs will be updated automatically on any change of those performed on the respective Product itself.</p>
+     *
+     *
+     * @return null|ProductVariantExclusion
+     */
+    public function getVariantExclusion()
+    {
+        if (is_null($this->variantExclusion)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_VARIANT_EXCLUSION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->variantExclusion = ProductVariantExclusionModel::of($data);
+        }
+
+        return $this->variantExclusion;
     }
 
 
@@ -140,5 +172,13 @@ final class ProductSelectionAssignmentModel extends JsonObjectModel implements P
     public function setVariantSelection(?ProductVariantSelection $variantSelection): void
     {
         $this->variantSelection = $variantSelection;
+    }
+
+    /**
+     * @param ?ProductVariantExclusion $variantExclusion
+     */
+    public function setVariantExclusion(?ProductVariantExclusion $variantExclusion): void
+    {
+        $this->variantExclusion = $variantExclusion;
     }
 }

@@ -100,7 +100,8 @@ interface ProductSelection extends BaseResource
     public function getProductCount();
 
     /**
-     * <p>Specifies in which way the Products are assigned to the ProductSelection. Currently, the only way of doing this is to specify each Product individually. Hence, the type is fixed to <code>individual</code> for now, but we have plans to add other types in the future.</p>
+     * <p>Specifies in which way the Products are assigned to the ProductSelection.
+     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:IndividualProductSelectionType">including</a> or <a href="ctp:api:type:IndividualExclusionProductSelectionType">excluding</a> them explicitly.</p>
      *
 
      * @return null|string
@@ -108,7 +109,7 @@ interface ProductSelection extends BaseResource
     public function getType();
 
     /**
-     * <p>Custom Fields of this ProductSelection.</p>
+     * <p>Custom Fields of the ProductSelection.</p>
      *
 
      * @return null|CustomFields

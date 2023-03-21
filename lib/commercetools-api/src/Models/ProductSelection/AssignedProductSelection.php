@@ -16,6 +16,7 @@ interface AssignedProductSelection extends JsonObject
 {
     public const FIELD_PRODUCT_SELECTION = 'productSelection';
     public const FIELD_VARIANT_SELECTION = 'variantSelection';
+    public const FIELD_VARIANT_EXCLUSION = 'variantExclusion';
     public const FIELD_CREATED_AT = 'createdAt';
 
     /**
@@ -27,12 +28,22 @@ interface AssignedProductSelection extends JsonObject
     public function getProductSelection();
 
     /**
-     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.</p>
+     * <p>Defines which Variants of the Product will be included from the Product Selection.</p>
+     * <p>This field is only available for Assignments to a Product Selection of type <a href="ctp:api:type:IndividualProductSelectionType">Individual</a>.</p>
      *
 
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection();
+
+    /**
+     * <p>Defines which Variants of the Product will be excluded from the Product Selection.</p>
+     * <p>This field is only available for Assignments to a Product Selection of type <a href="ctp:api:type:IndividualExclusionProductSelectionType">Individual Exclusion</a>.</p>
+     *
+
+     * @return null|ProductVariantExclusion
+     */
+    public function getVariantExclusion();
 
     /**
      * <p>Date and time (UTC) this assignment was initially created.</p>
@@ -51,6 +62,11 @@ interface AssignedProductSelection extends JsonObject
      * @param ?ProductVariantSelection $variantSelection
      */
     public function setVariantSelection(?ProductVariantSelection $variantSelection): void;
+
+    /**
+     * @param ?ProductVariantExclusion $variantExclusion
+     */
+    public function setVariantExclusion(?ProductVariantExclusion $variantExclusion): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt
