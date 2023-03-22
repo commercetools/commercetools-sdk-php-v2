@@ -138,7 +138,7 @@ final class CartDiscountDraftBuilder implements Builder
 
     /**
      * <p>Effect of the CartDiscount.
-     * For a target, relative or absolute discount values, or a fixed item price value can be specified. If no target is specified, a gift line item can be added to the cart.</p>
+     * For a <a href="ctp:api:type:CartDiscountTarget">target</a>, relative or absolute Discount values or a fixed item Price value can be specified. If no target is specified, a <a href="/../api/projects/cartDiscounts#gift-line-item">Gift Line Item</a> can be added to the Cart.</p>
      *
 
      * @return null|CartDiscountValueDraft
