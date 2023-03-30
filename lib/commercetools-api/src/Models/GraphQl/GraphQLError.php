@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQl;
 
+use Commercetools\Api\Models\Error\GraphQLErrorObject;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -16,6 +17,7 @@ interface GraphQLError extends JsonObject
     public const FIELD_MESSAGE = 'message';
     public const FIELD_LOCATIONS = 'locations';
     public const FIELD_PATH = 'path';
+    public const FIELD_EXTENSIONS = 'extensions';
 
     /**
 
@@ -36,6 +38,14 @@ interface GraphQLError extends JsonObject
     public function getPath();
 
     /**
+     * <p>Represents a single error.</p>
+     *
+
+     * @return null|GraphQLErrorObject
+     */
+    public function getExtensions();
+
+    /**
      * @param ?string $message
      */
     public function setMessage(?string $message): void;
@@ -49,4 +59,9 @@ interface GraphQLError extends JsonObject
      * @param ?array $path
      */
     public function setPath(?array $path): void;
+
+    /**
+     * @param ?GraphQLErrorObject $extensions
+     */
+    public function setExtensions(?GraphQLErrorObject $extensions): void;
 }

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQl;
 
+use Commercetools\Api\Models\Error\GraphQLErrorObject;
+use Commercetools\Api\Models\Error\GraphQLErrorObjectBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -40,6 +42,12 @@ final class GraphQLErrorBuilder implements Builder
 
     /**
 
+     * @var null|GraphQLErrorObject|GraphQLErrorObjectBuilder
+     */
+    private $extensions;
+
+    /**
+
      * @return null|string
      */
     public function getMessage()
@@ -63,6 +71,17 @@ final class GraphQLErrorBuilder implements Builder
     public function getPath()
     {
         return $this->path;
+    }
+
+    /**
+     * <p>Represents a single error.</p>
+     *
+
+     * @return null|GraphQLErrorObject
+     */
+    public function getExtensions()
+    {
+        return $this->extensions instanceof GraphQLErrorObjectBuilder ? $this->extensions->build() : $this->extensions;
     }
 
     /**
@@ -98,13 +117,35 @@ final class GraphQLErrorBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?GraphQLErrorObject $extensions
+     * @return $this
+     */
+    public function withExtensions(?GraphQLErrorObject $extensions)
+    {
+        $this->extensions = $extensions;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withExtensions() instead
+     * @return $this
+     */
+    public function withExtensionsBuilder(?GraphQLErrorObjectBuilder $extensions)
+    {
+        $this->extensions = $extensions;
+
+        return $this;
+    }
 
     public function build(): GraphQLError
     {
         return new GraphQLErrorModel(
             $this->message,
             $this->locations,
-            $this->path
+            $this->path,
+            $this->extensions instanceof GraphQLErrorObjectBuilder ? $this->extensions->build() : $this->extensions
         );
     }
 
