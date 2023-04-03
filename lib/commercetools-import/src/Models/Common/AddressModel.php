@@ -690,7 +690,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
-     * <p>Custom Fields for the address.</p>
+     * <p>Custom Fields defined for the Address. Custom Fields can only be applied to <code>shippingAddress</code>.</p>
      *
      *
      * @return null|Custom

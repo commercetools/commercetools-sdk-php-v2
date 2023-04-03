@@ -154,8 +154,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     }
 
     /**
-     * <p>Must be either <code>SingleLine</code> or <code>MultiLine</code>.
-     * Defines the visual representation of the field in user interfaces like the Merchant Center.
+     * <p>Defines the visual representation of the field in user interfaces like the Merchant Center.
      * It is only relevant for string-based <a href="ctp:api:type:FieldType">FieldTypes</a> like <a href="ctp:api:type:CustomFieldStringType">CustomFieldStringType</a> and <a href="ctp:api:type:CustomFieldLocalizedStringType">CustomFieldLocalizedStringType</a>.</p>
      *
      *

@@ -10,6 +10,7 @@ namespace Commercetools\Import\Models\Orders;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
 
 interface Parcel extends JsonObject
@@ -19,6 +20,7 @@ interface Parcel extends JsonObject
     public const FIELD_MEASUREMENTS = 'measurements';
     public const FIELD_TRACKING_DATA = 'trackingData';
     public const FIELD_ITEMS = 'items';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
 
@@ -51,6 +53,14 @@ interface Parcel extends JsonObject
     public function getItems();
 
     /**
+     * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
+     *
+
+     * @return null|Custom
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -74,4 +84,9 @@ interface Parcel extends JsonObject
      * @param ?DeliveryItemCollection $items
      */
     public function setItems(?DeliveryItemCollection $items): void;
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void;
 }

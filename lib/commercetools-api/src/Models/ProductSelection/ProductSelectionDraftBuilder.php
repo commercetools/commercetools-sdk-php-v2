@@ -43,6 +43,12 @@ final class ProductSelectionDraftBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var ?string
+     */
+    private $type;
+
+    /**
      * <p>User-defined unique identifier for the ProductSelection.</p>
      *
 
@@ -73,6 +79,17 @@ final class ProductSelectionDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Type of the Product Selection.</p>
+     *
+
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -109,6 +126,17 @@ final class ProductSelectionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $type
+     * @return $this
+     */
+    public function withType(?string $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -135,7 +163,8 @@ final class ProductSelectionDraftBuilder implements Builder
         return new ProductSelectionDraftModel(
             $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->type
         );
     }
 

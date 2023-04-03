@@ -14,8 +14,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
-use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionType;
-use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionTypeModel;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionType;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionTypeModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -97,7 +97,7 @@ final class ProductSelectionCreatedMessageModel extends JsonObjectModel implemen
 
     /**
      *
-     * @var ?IndividualProductSelectionType
+     * @var ?ProductSelectionType
      */
     protected $productSelection;
 
@@ -116,7 +116,7 @@ final class ProductSelectionCreatedMessageModel extends JsonObjectModel implemen
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?IndividualProductSelectionType $productSelection = null,
+        ?ProductSelectionType $productSelection = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -370,7 +370,7 @@ final class ProductSelectionCreatedMessageModel extends JsonObjectModel implemen
      * <p>The <code>type</code> and <code>name</code> of the individual Product Selection.</p>
      *
      *
-     * @return null|IndividualProductSelectionType
+     * @return null|ProductSelectionType
      */
     public function getProductSelection()
     {
@@ -381,7 +381,7 @@ final class ProductSelectionCreatedMessageModel extends JsonObjectModel implemen
                 return null;
             }
 
-            $this->productSelection = IndividualProductSelectionTypeModel::of($data);
+            $this->productSelection = ProductSelectionTypeModel::of($data);
         }
 
         return $this->productSelection;
@@ -469,9 +469,9 @@ final class ProductSelectionCreatedMessageModel extends JsonObjectModel implemen
     }
 
     /**
-     * @param ?IndividualProductSelectionType $productSelection
+     * @param ?ProductSelectionType $productSelection
      */
-    public function setProductSelection(?IndividualProductSelectionType $productSelection): void
+    public function setProductSelection(?ProductSelectionType $productSelection): void
     {
         $this->productSelection = $productSelection;
     }

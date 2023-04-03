@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQl;
 
+use Commercetools\Api\Models\Error\GraphQLErrorObject;
+use Commercetools\Api\Models\Error\GraphQLErrorObjectModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -37,6 +39,12 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
      */
     protected $path;
 
+    /**
+     *
+     * @var ?GraphQLErrorObject
+     */
+    protected $extensions;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -44,11 +52,13 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     public function __construct(
         ?string $message = null,
         ?GraphQLErrorLocationCollection $locations = null,
-        ?array $path = null
+        ?array $path = null,
+        ?GraphQLErrorObject $extensions = null
     ) {
         $this->message = $message;
         $this->locations = $locations;
         $this->path = $path;
+        $this->extensions = $extensions;
     }
 
     /**
@@ -105,6 +115,27 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
         return $this->path;
     }
 
+    /**
+     * <p>Represents a single error.</p>
+     *
+     *
+     * @return null|GraphQLErrorObject
+     */
+    public function getExtensions()
+    {
+        if (is_null($this->extensions)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_EXTENSIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = GraphQLErrorObjectModel::resolveDiscriminatorClass($data);
+            $this->extensions = $className::of($data);
+        }
+
+        return $this->extensions;
+    }
+
 
     /**
      * @param ?string $message
@@ -128,5 +159,13 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     public function setPath(?array $path): void
     {
         $this->path = $path;
+    }
+
+    /**
+     * @param ?GraphQLErrorObject $extensions
+     */
+    public function setExtensions(?GraphQLErrorObject $extensions): void
+    {
+        $this->extensions = $extensions;
     }
 }

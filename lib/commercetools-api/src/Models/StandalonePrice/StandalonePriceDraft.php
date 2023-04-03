@@ -91,7 +91,7 @@ interface StandalonePriceDraft extends JsonObject
     public function getValidFrom();
 
     /**
-     * <p>Sets the date until the Price is valid. Must be at least 1 ms later than <code>validFrom</code>.</p>
+     * <p>Sets the date until the Price is valid. Must be at least 1 ms later than <code>validFrom</code>. Standalone Prices that are no longer valid are not automatically deleted, but they can be <a href="/../api/projects/standalone-prices#delete-standaloneprice">deleted</a> if necessary.</p>
      *
 
      * @return null|DateTimeImmutable

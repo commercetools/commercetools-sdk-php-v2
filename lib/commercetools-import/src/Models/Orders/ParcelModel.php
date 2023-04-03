@@ -12,6 +12,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomModel;
 use DateTimeImmutable;
 use stdClass;
 
@@ -50,6 +52,12 @@ final class ParcelModel extends JsonObjectModel implements Parcel
      */
     protected $items;
 
+    /**
+     *
+     * @var ?Custom
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -59,13 +67,15 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         ?DateTimeImmutable $createdAt = null,
         ?ParcelMeasurements $measurements = null,
         ?TrackingData $trackingData = null,
-        ?DeliveryItemCollection $items = null
+        ?DeliveryItemCollection $items = null,
+        ?Custom $custom = null
     ) {
         $this->id = $id;
         $this->createdAt = $createdAt;
         $this->measurements = $measurements;
         $this->trackingData = $trackingData;
         $this->items = $items;
+        $this->custom = $custom;
     }
 
     /**
@@ -164,6 +174,27 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         return $this->items;
     }
 
+    /**
+     * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
+     *
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -203,6 +234,14 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
+    }
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void
+    {
+        $this->custom = $custom;
     }
 
 

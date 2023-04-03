@@ -13,6 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomBuilder;
 use DateTimeImmutable;
 use stdClass;
 
@@ -50,6 +52,12 @@ final class ParcelBuilder implements Builder
      * @var ?DeliveryItemCollection
      */
     private $items;
+
+    /**
+
+     * @var null|Custom|CustomBuilder
+     */
+    private $custom;
 
     /**
 
@@ -94,6 +102,17 @@ final class ParcelBuilder implements Builder
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
+     *
+
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -152,6 +171,17 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * @param ?Custom $custom
+     * @return $this
+     */
+    public function withCustom(?Custom $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMeasurements() instead
      * @return $this
      */
@@ -173,6 +203,17 @@ final class ParcelBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): Parcel
     {
         return new ParcelModel(
@@ -180,7 +221,8 @@ final class ParcelBuilder implements Builder
             $this->createdAt,
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
             $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
-            $this->items
+            $this->items,
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
         );
     }
 

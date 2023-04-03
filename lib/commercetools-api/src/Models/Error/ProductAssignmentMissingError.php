@@ -23,7 +23,10 @@ interface ProductAssignmentMissingError extends ErrorObject
     public function getCode();
 
     /**
-     * <p><code>&quot;A Product Variant Selection can only be set for a Product previously added to the Product Selection.&quot;</code></p>
+     * <p>For Product Selection of type Individual, the message is:</p>
+     * <p><code>&quot;A Product Variant Selection can only be set for a Product that has previously been added to the Product Selection.&quot;</code></p>
+     * <p>For Product Selection of type Individual Exclusion, the message is:</p>
+     * <p><code>&quot;A Variant Exclusion can only be set for a Product that has previously been added to the Product Selection of type Individual Exclusion.&quot;</code></p>
      *
 
      * @return null|string

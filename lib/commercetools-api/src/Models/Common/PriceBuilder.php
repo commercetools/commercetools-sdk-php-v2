@@ -171,7 +171,7 @@ final class PriceBuilder implements Builder
     }
 
     /**
-     * <p>Date and time until this Price is valid.</p>
+     * <p>Date and time until this Price is valid. Prices that are no longer valid are not automatically removed, but they can be <a href="ctp:api:type:ProductRemovePriceAction">removed</a> if necessary.</p>
      *
 
      * @return null|DateTimeImmutable

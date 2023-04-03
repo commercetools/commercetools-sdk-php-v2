@@ -65,7 +65,7 @@ final class ProductPresentWithDifferentVariantSelectionErrorBuilder implements B
     }
 
     /**
-     * <p>Existing Product Variant Selection for the <a href="/../api/projects/products">Product</a> in the <a href="/../api/projects/product-selections">Product Selection</a>.</p>
+     * <p>Existing Product Variant Selection or Exclusion for the <a href="/../api/projects/products">Product</a> in the <a href="/../api/projects/product-selections">Product Selection</a>.</p>
      *
 
      * @return null|ProductVariantSelection

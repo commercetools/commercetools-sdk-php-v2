@@ -16,8 +16,6 @@ interface CloudEventsFormat extends DeliveryFormat
     public const FIELD_CLOUD_EVENTS_VERSION = 'cloudEventsVersion';
 
     /**
-     * <p>Supported versions: &quot;1.0&quot;.</p>
-     *
 
      * @return null|string
      */
