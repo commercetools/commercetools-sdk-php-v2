@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.0.0</span>
+   &#160;<span id="projectnumber">9.1.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -306,7 +306,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#a795a3b8c16c34c7939dab159264c0f04">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00252">252</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00254">254</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -420,19 +420,23 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Controls availability of Products for this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a> via active <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections.</p>
+<p>Controls availability of Products for this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a> via active/inactive <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections:</p>
 <ul>
 <li>
 Leave empty if all Products in the <a href="../../ctp:api:type:Project">Project</a> should be available in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
 <li>
-If provided, Products from <code>active</code> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections are available in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
+If only <code>inactive</code> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections of type <a href="../../ctp:api:type:IndividualExclusionProductSelectionType">Individual Exclusion</a> are provided, all the Products are availlable in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
+<li>
+If all the <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections provided are <code>inactive</code> and there's at least a <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selection of type <code>individual</code>, no <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> is availlable in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
+<li>
+If at least an <code>active</code> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selection is provided, only <code>active</code> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections are considered to compute the availlability in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductSelectionSettingDraftCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#a9cc70dd9e6078c3bebc8282650290b9a">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00232">232</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00234">234</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -484,7 +488,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#a1fa5817bde2fc6d813a0b7ec79e22fa3">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00295">295</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00297">297</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -512,7 +516,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#ae77d37f91a6bbcc76ebeb6372c944f67">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00327">327</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00329">329</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -540,7 +544,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#ae29625ce11fc46a2f2da5a96403582a7">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00303">303</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00305">305</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -568,7 +572,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#a9a7063a81aafbbd20905b4bf9b65cbb0">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00271">271</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00273">273</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -596,7 +600,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#a46f3f8221fcfdc90652fb9c5ae57d467">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00287">287</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00289">289</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -624,7 +628,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#aecc43895c67fcb84ddf5d9b63c11cc61">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00279">279</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00281">281</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -652,7 +656,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#a1b5caa0f09ef03e09b907b09c9bb5750">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00319">319</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00321">321</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -680,7 +684,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 
 <p>Implements <a class="el" href="../../d9/d5c/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft.html#af0252ffdf28c6878e513a4f1da4e39f9">Commercetools\Api\Models\Store\StoreDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00311">311</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html#l00313">313</a> of file <a class="el" href="../../da/d1b/_store_draft_model_8php_source.html">StoreDraftModel.php</a>.</p>
 
 </div>
 </div>

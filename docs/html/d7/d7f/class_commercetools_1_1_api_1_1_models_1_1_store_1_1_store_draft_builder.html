@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.0.0</span>
+   &#160;<span id="projectnumber">9.1.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -156,7 +156,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00280">280</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00282">282</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -198,7 +198,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Custom fields for the <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomFieldsDraft </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00165">165</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00167">167</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -300,16 +300,20 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Controls availability of Products for this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a> via active <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections.</p>
+<p>Controls availability of Products for this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a> via active/inactive <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections:</p>
 <ul>
 <li>
 Leave empty if all Products in the <a href="../../ctp:api:type:Project">Project</a> should be available in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
 <li>
-If provided, Products from <code>active</code> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections are available in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
+If only <code>inactive</code> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections of type <a href="../../ctp:api:type:IndividualExclusionProductSelectionType">Individual Exclusion</a> are provided, all the Products are availlable in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
+<li>
+If all the <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections provided are <code>inactive</code> and there's at least a <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selection of type <code>individual</code>, no <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> is availlable in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
+<li>
+If at least an <code>active</code> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selection is provided, only <code>active</code> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Selections are considered to compute the availlability in this <a class="el" href="../../d4/db2/interface_commercetools_1_1_api_1_1_models_1_1_store_1_1_store.html">Store</a>. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductSelectionSettingDraftCollection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00154">154</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00156">156</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -357,7 +361,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00294">294</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00296">296</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -384,7 +388,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00207">207</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00209">209</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -411,7 +415,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00251">251</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00253">253</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -430,10 +434,10 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002181">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/d7f/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft_builder.html#a77e4a752bbcb4d8af276fa0104860954">withCustom()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002230">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/d7f/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft_builder.html#a77e4a752bbcb4d8af276fa0104860954">withCustom()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00273">273</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00275">275</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -460,7 +464,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00218">218</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00220">220</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -487,7 +491,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00174">174</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00176">176</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -514,7 +518,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00196">196</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00198">198</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -541,7 +545,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00185">185</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00187">187</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -560,10 +564,10 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002180">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/d7f/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft_builder.html#af8024ed50c62d4da469f48c6c461ad7f">withName()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002229">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/d7f/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_draft_builder.html#af8024ed50c62d4da469f48c6c461ad7f">withName()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00262">262</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00264">264</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -590,7 +594,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00240">240</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00242">242</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -617,7 +621,7 @@ If provided, Products from <code>active</code> <a class="el" href="../../db/d30/
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00229">229</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html#l00231">231</a> of file <a class="el" href="../../d3/d98/_store_draft_builder_8php_source.html">StoreDraftBuilder.php</a>.</p>
 
 </div>
 </div>
