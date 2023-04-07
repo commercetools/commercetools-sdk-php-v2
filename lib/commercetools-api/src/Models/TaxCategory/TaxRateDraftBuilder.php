@@ -57,6 +57,12 @@ final class TaxRateDraftBuilder implements Builder
     private $subRates;
 
     /**
+
+     * @var ?string
+     */
+    private $key;
+
+    /**
      * <p>Name of the TaxRate.</p>
      *
 
@@ -125,6 +131,17 @@ final class TaxRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the TaxRate.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -190,6 +207,17 @@ final class TaxRateDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
 
     public function build(): TaxRateDraft
     {
@@ -199,7 +227,8 @@ final class TaxRateDraftBuilder implements Builder
             $this->includedInPrice,
             $this->country,
             $this->state,
-            $this->subRates
+            $this->subRates,
+            $this->key
         );
     }
 

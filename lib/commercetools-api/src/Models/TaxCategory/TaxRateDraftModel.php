@@ -55,6 +55,12 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
      */
     protected $subRates;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $key;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -65,7 +71,8 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         ?bool $includedInPrice = null,
         ?string $country = null,
         ?string $state = null,
-        ?SubRateCollection $subRates = null
+        ?SubRateCollection $subRates = null,
+        ?string $key = null
     ) {
         $this->name = $name;
         $this->amount = $amount;
@@ -73,6 +80,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         $this->country = $country;
         $this->state = $state;
         $this->subRates = $subRates;
+        $this->key = $key;
     }
 
     /**
@@ -197,6 +205,26 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         return $this->subRates;
     }
 
+    /**
+     * <p>User-defined unique identifier of the TaxRate.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
 
     /**
      * @param ?string $name
@@ -244,5 +272,13 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     public function setSubRates(?SubRateCollection $subRates): void
     {
         $this->subRates = $subRates;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 }

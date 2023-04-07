@@ -30,6 +30,12 @@ final class TaxRateBuilder implements Builder
 
      * @var ?string
      */
+    private $key;
+
+    /**
+
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -72,6 +78,18 @@ final class TaxRateBuilder implements Builder
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the TaxRate.
+     * Present when set using <a href="ctp:api:type:TaxRateDraft">TaxRateDraft</a>. Not available for external TaxRates created using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -152,6 +170,17 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -222,6 +251,7 @@ final class TaxRateBuilder implements Builder
     {
         return new TaxRateModel(
             $this->id,
+            $this->key,
             $this->name,
             $this->amount,
             $this->includedInPrice,

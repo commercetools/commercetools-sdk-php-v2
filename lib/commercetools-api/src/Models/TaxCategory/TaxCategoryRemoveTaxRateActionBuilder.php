@@ -27,7 +27,14 @@ final class TaxCategoryRemoveTaxRateActionBuilder implements Builder
     private $taxRateId;
 
     /**
-     * <p>ID of the TaxRate to remove.</p>
+
+     * @var ?string
+     */
+    private $taxRateKey;
+
+    /**
+     * <p>ID of the TaxRate to remove.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
      *
 
      * @return null|string
@@ -35,6 +42,18 @@ final class TaxCategoryRemoveTaxRateActionBuilder implements Builder
     public function getTaxRateId()
     {
         return $this->taxRateId;
+    }
+
+    /**
+     * <p>Key of the TaxRate to remove.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRateKey()
+    {
+        return $this->taxRateKey;
     }
 
     /**
@@ -48,11 +67,23 @@ final class TaxCategoryRemoveTaxRateActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $taxRateKey
+     * @return $this
+     */
+    public function withTaxRateKey(?string $taxRateKey)
+    {
+        $this->taxRateKey = $taxRateKey;
+
+        return $this;
+    }
+
 
     public function build(): TaxCategoryRemoveTaxRateAction
     {
         return new TaxCategoryRemoveTaxRateActionModel(
-            $this->taxRateId
+            $this->taxRateId,
+            $this->taxRateKey
         );
     }
 

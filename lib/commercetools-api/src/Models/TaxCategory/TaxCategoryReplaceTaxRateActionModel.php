@@ -34,6 +34,12 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
 
     /**
      *
+     * @var ?string
+     */
+    protected $taxRateKey;
+
+    /**
+     *
      * @var ?TaxRateDraft
      */
     protected $taxRate;
@@ -44,10 +50,12 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $taxRateId = null,
+        ?string $taxRateKey = null,
         ?TaxRateDraft $taxRate = null,
         ?string $action = null
     ) {
         $this->taxRateId = $taxRateId;
+        $this->taxRateKey = $taxRateKey;
         $this->taxRate = $taxRate;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -71,7 +79,8 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>ID of the TaxRate to replace.</p>
+     * <p>ID of the TaxRate to replace.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
      *
      *
      * @return null|string
@@ -88,6 +97,27 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
         }
 
         return $this->taxRateId;
+    }
+
+    /**
+     * <p>Key of the TaxRate to replace.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getTaxRateKey()
+    {
+        if (is_null($this->taxRateKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_RATE_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxRateKey = (string) $data;
+        }
+
+        return $this->taxRateKey;
     }
 
     /**
@@ -118,6 +148,14 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     public function setTaxRateId(?string $taxRateId): void
     {
         $this->taxRateId = $taxRateId;
+    }
+
+    /**
+     * @param ?string $taxRateKey
+     */
+    public function setTaxRateKey(?string $taxRateKey): void
+    {
+        $this->taxRateKey = $taxRateKey;
     }
 
     /**

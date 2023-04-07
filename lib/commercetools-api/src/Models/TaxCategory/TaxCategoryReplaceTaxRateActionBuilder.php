@@ -28,12 +28,19 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $taxRateKey;
+
+    /**
+
      * @var null|TaxRateDraft|TaxRateDraftBuilder
      */
     private $taxRate;
 
     /**
-     * <p>ID of the TaxRate to replace.</p>
+     * <p>ID of the TaxRate to replace.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
      *
 
      * @return null|string
@@ -41,6 +48,18 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     public function getTaxRateId()
     {
         return $this->taxRateId;
+    }
+
+    /**
+     * <p>Key of the TaxRate to replace.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRateKey()
+    {
+        return $this->taxRateKey;
     }
 
     /**
@@ -61,6 +80,17 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     public function withTaxRateId(?string $taxRateId)
     {
         $this->taxRateId = $taxRateId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $taxRateKey
+     * @return $this
+     */
+    public function withTaxRateKey(?string $taxRateKey)
+    {
+        $this->taxRateKey = $taxRateKey;
 
         return $this;
     }
@@ -91,6 +121,7 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     {
         return new TaxCategoryReplaceTaxRateActionModel(
             $this->taxRateId,
+            $this->taxRateKey,
             $this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate
         );
     }

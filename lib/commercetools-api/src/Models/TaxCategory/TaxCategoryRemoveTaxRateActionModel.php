@@ -32,15 +32,23 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
      */
     protected $taxRateId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $taxRateKey;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $taxRateId = null,
+        ?string $taxRateKey = null,
         ?string $action = null
     ) {
         $this->taxRateId = $taxRateId;
+        $this->taxRateKey = $taxRateKey;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -63,7 +71,8 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>ID of the TaxRate to remove.</p>
+     * <p>ID of the TaxRate to remove.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
      *
      *
      * @return null|string
@@ -82,6 +91,27 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
         return $this->taxRateId;
     }
 
+    /**
+     * <p>Key of the TaxRate to remove.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getTaxRateKey()
+    {
+        if (is_null($this->taxRateKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_RATE_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxRateKey = (string) $data;
+        }
+
+        return $this->taxRateKey;
+    }
+
 
     /**
      * @param ?string $taxRateId
@@ -89,5 +119,13 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
     public function setTaxRateId(?string $taxRateId): void
     {
         $this->taxRateId = $taxRateId;
+    }
+
+    /**
+     * @param ?string $taxRateKey
+     */
+    public function setTaxRateKey(?string $taxRateKey): void
+    {
+        $this->taxRateKey = $taxRateKey;
     }
 }
