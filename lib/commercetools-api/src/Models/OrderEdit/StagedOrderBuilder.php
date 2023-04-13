@@ -189,6 +189,18 @@ final class StagedOrderBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $shippingCustomFields;
+
+    /**
+
      * @var ?ShippingCollection
      */
     private $shipping;
@@ -559,6 +571,28 @@ final class StagedOrderBuilder implements Builder
     public function getShippingMode()
     {
         return $this->shippingMode;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
+    }
+
+    /**
+     * <p>Custom Fields of the Shipping Method for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getShippingCustomFields()
+    {
+        return $this->shippingCustomFields instanceof CustomFieldsBuilder ? $this->shippingCustomFields->build() : $this->shippingCustomFields;
     }
 
     /**
@@ -1068,6 +1102,28 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFields $shippingCustomFields
+     * @return $this
+     */
+    public function withShippingCustomFields(?CustomFields $shippingCustomFields)
+    {
+        $this->shippingCustomFields = $shippingCustomFields;
+
+        return $this;
+    }
+
+    /**
      * @param ?ShippingCollection $shipping
      * @return $this
      */
@@ -1453,6 +1509,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingCustomFields() instead
+     * @return $this
+     */
+    public function withShippingCustomFieldsBuilder(?CustomFieldsBuilder $shippingCustomFields)
+    {
+        $this->shippingCustomFields = $shippingCustomFields;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomerGroup() instead
      * @return $this
      */
@@ -1564,6 +1631,8 @@ final class StagedOrderBuilder implements Builder
             $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
             $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
             $this->shippingMode,
+            $this->shippingKey,
+            $this->shippingCustomFields instanceof CustomFieldsBuilder ? $this->shippingCustomFields->build() : $this->shippingCustomFields,
             $this->shipping,
             $this->taxMode,
             $this->taxRoundingMode,

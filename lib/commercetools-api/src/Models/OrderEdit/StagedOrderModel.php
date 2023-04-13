@@ -188,6 +188,18 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
 
     /**
      *
+     * @var ?string
+     */
+    protected $shippingKey;
+
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $shippingCustomFields;
+
+    /**
+     *
      * @var ?ShippingCollection
      */
     protected $shipping;
@@ -368,6 +380,8 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
         ?Address $shippingAddress = null,
         ?Address $billingAddress = null,
         ?string $shippingMode = null,
+        ?string $shippingKey = null,
+        ?CustomFields $shippingCustomFields = null,
         ?ShippingCollection $shipping = null,
         ?string $taxMode = null,
         ?string $taxRoundingMode = null,
@@ -416,6 +430,8 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
         $this->shippingAddress = $shippingAddress;
         $this->billingAddress = $billingAddress;
         $this->shippingMode = $shippingMode;
+        $this->shippingKey = $shippingKey;
+        $this->shippingCustomFields = $shippingCustomFields;
         $this->shipping = $shipping;
         $this->taxMode = $taxMode;
         $this->taxRoundingMode = $taxRoundingMode;
@@ -870,6 +886,47 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
         }
 
         return $this->shippingMode;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
+    }
+
+    /**
+     * <p>Custom Fields of the Shipping Method for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getShippingCustomFields()
+    {
+        if (is_null($this->shippingCustomFields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHIPPING_CUSTOM_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingCustomFields = CustomFieldsModel::of($data);
+        }
+
+        return $this->shippingCustomFields;
     }
 
     /**
@@ -1556,6 +1613,22 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     public function setShippingMode(?string $shippingMode): void
     {
         $this->shippingMode = $shippingMode;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
+    }
+
+    /**
+     * @param ?CustomFields $shippingCustomFields
+     */
+    public function setShippingCustomFields(?CustomFields $shippingCustomFields): void
+    {
+        $this->shippingCustomFields = $shippingCustomFields;
     }
 
     /**

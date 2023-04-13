@@ -161,7 +161,7 @@ final class ShippingModel extends JsonObjectModel implements Shipping
     }
 
     /**
-     * <p>Custom Fields of Shipping.</p>
+     * <p>Custom Fields of Shipping with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|CustomFields

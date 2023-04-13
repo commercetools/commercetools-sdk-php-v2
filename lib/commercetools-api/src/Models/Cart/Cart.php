@@ -47,9 +47,11 @@ interface Cart extends BaseResource
     public const FIELD_BILLING_ADDRESS = 'billingAddress';
     public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
     public const FIELD_SHIPPING_MODE = 'shippingMode';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
     public const FIELD_SHIPPING_INFO = 'shippingInfo';
-    public const FIELD_SHIPPING = 'shipping';
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
+    public const FIELD_SHIPPING_CUSTOM_FIELDS = 'shippingCustomFields';
+    public const FIELD_SHIPPING = 'shipping';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
     public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
@@ -252,20 +254,20 @@ interface Cart extends BaseResource
     public function getShippingMode();
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
      * <p>Shipping-related information of a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Automatically set when a <a href="ctp:api:type:CartSetShippingMethodAction">Shipping Method is set</a>.</p>
      *
 
      * @return null|ShippingInfo
      */
     public function getShippingInfo();
-
-    /**
-     * <p>Shipping-related information of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Updated automatically each time a new <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
-     *
-
-     * @return null|ShippingCollection
-     */
-    public function getShipping();
 
     /**
      * <p>Input used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.
@@ -280,6 +282,22 @@ interface Cart extends BaseResource
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput();
+
+    /**
+     * <p>Custom Fields of the Shipping Method in a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getShippingCustomFields();
+
+    /**
+     * <p>Shipping-related information of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Updated automatically each time a new <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+
+     * @return null|ShippingCollection
+     */
+    public function getShipping();
 
     /**
      * <p>Additional shipping addresses of the Cart as specified by <a href="ctp:api:type:LineItem">LineItems</a> using the <code>shippingDetails</code> field.</p>
@@ -510,19 +528,29 @@ interface Cart extends BaseResource
     public function setShippingMode(?string $shippingMode): void;
 
     /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
+
+    /**
      * @param ?ShippingInfo $shippingInfo
      */
     public function setShippingInfo(?ShippingInfo $shippingInfo): void;
 
     /**
-     * @param ?ShippingCollection $shipping
-     */
-    public function setShipping(?ShippingCollection $shipping): void;
-
-    /**
      * @param ?ShippingRateInput $shippingRateInput
      */
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void;
+
+    /**
+     * @param ?CustomFields $shippingCustomFields
+     */
+    public function setShippingCustomFields(?CustomFields $shippingCustomFields): void;
+
+    /**
+     * @param ?ShippingCollection $shipping
+     */
+    public function setShipping(?ShippingCollection $shipping): void;
 
     /**
      * @param ?AddressCollection $itemShippingAddresses
