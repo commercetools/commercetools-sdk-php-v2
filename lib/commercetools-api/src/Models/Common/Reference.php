@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Common;
 use Commercetools\Api\Models\AttributeGroup\AttributeGroupReference;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitReference;
 use Commercetools\Api\Models\Cart\CartReference;
+use Commercetools\Api\Models\Cart\DirectDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\Category\CategoryReference;
 use Commercetools\Api\Models\Channel\ChannelReference;

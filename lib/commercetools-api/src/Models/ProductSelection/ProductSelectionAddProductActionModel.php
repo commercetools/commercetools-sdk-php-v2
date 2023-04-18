@@ -94,7 +94,7 @@ final class ProductSelectionAddProductActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Defines which Variants of the Product will be included from the Product Selection.
+     * <p>Defines which Variants of the Product will be included in the Product Selection.
      * If not supplied all Variants are deemed to be included.</p>
      *
      *

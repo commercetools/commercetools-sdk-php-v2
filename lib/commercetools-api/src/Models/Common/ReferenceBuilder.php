@@ -14,6 +14,8 @@ use Commercetools\Api\Models\BusinessUnit\BusinessUnitReference;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitReferenceBuilder;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceBuilder;
+use Commercetools\Api\Models\Cart\DirectDiscountReference;
+use Commercetools\Api\Models\Cart\DirectDiscountReferenceBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceBuilder;
 use Commercetools\Api\Models\Category\CategoryReference;

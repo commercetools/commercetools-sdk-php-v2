@@ -21,7 +21,7 @@ final class ProductSelectionTypeModel extends JsonObjectModel implements Product
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-     *
+     * @deprecated
      * @var ?string
      */
     protected $type;
@@ -47,7 +47,7 @@ final class ProductSelectionTypeModel extends JsonObjectModel implements Product
     /**
      * <p>The following types of Product Selections are supported:</p>
      *
-     *
+     * @deprecated
      * @return null|string
      */
     public function getType()

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
-use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceBuilder;
+use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Base\Builder;
@@ -26,7 +26,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
 {
     /**
 
-     * @var null|CartDiscountReference|CartDiscountReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $discount;
 
@@ -37,14 +37,14 @@ final class DiscountedLineItemPortionBuilder implements Builder
     private $discountedAmount;
 
     /**
-     * <p>Cart Discount applicable on the Line Item.</p>
+     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> for the applicable discount on the Line Item.</p>
      *
 
-     * @return null|CartDiscountReference
+     * @return null|Reference
      */
     public function getDiscount()
     {
-        return $this->discount instanceof CartDiscountReferenceBuilder ? $this->discount->build() : $this->discount;
+        return $this->discount instanceof ReferenceBuilder ? $this->discount->build() : $this->discount;
     }
 
     /**
@@ -59,10 +59,10 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
-     * @param ?CartDiscountReference $discount
+     * @param ?Reference $discount
      * @return $this
      */
-    public function withDiscount(?CartDiscountReference $discount)
+    public function withDiscount(?Reference $discount)
     {
         $this->discount = $discount;
 
@@ -84,7 +84,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
      * @deprecated use withDiscount() instead
      * @return $this
      */
-    public function withDiscountBuilder(?CartDiscountReferenceBuilder $discount)
+    public function withDiscountBuilder(?ReferenceBuilder $discount)
     {
         $this->discount = $discount;
 
@@ -105,7 +105,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     public function build(): DiscountedLineItemPortion
     {
         return new DiscountedLineItemPortionModel(
-            $this->discount instanceof CartDiscountReferenceBuilder ? $this->discount->build() : $this->discount,
+            $this->discount instanceof ReferenceBuilder ? $this->discount->build() : $this->discount,
             $this->discountedAmount instanceof TypedMoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount
         );
     }

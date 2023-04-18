@@ -36,8 +36,8 @@ interface ProductSelectionAssignment extends JsonObject
     public function getProductSelection();
 
     /**
-     * <p>Define which Variants of the added Product will be included from the Product Selection.</p>
-     * <p>This field is only available for Assignments to a Product Selection of type <a href="ctp:api:type:IndividualProductSelectionType">Individual</a>.
+     * <p>Define which Variants of the added Product will be included in the Product Selection.</p>
+     * <p>This field is only available for assignments to a Product Selection with <code>Individual</code> <a href="ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>.
      * The list of SKUs will be updated automatically on any change of those performed on the respective Product itself.</p>
      *
 
@@ -47,7 +47,7 @@ interface ProductSelectionAssignment extends JsonObject
 
     /**
      * <p>Defines which Variants of the Product will be excluded from the Product Selection.</p>
-     * <p>This field is only available for Assignments to a Product Selection of type <a href="ctp:api:type:IndividualExclusionProductSelectionType">Individual Exclusion</a>.
+     * <p>This field is only available for assignments to a Product Selection with <code>IndividualExclusion</code> <a href="ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>.
      * The list of SKUs will be updated automatically on any change of those performed on the respective Product itself.</p>
      *
 

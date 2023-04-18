@@ -23,7 +23,7 @@ final class IndividualExclusionProductSelectionTypeModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'individualExclusion';
     /**
-     *
+     * @deprecated
      * @var ?string
      */
     protected $type;
@@ -49,7 +49,7 @@ final class IndividualExclusionProductSelectionTypeModel extends JsonObjectModel
     /**
      * <p>The following types of Product Selections are supported:</p>
      *
-     *
+     * @deprecated
      * @return null|string
      */
     public function getType()
