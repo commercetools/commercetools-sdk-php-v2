@@ -16,6 +16,7 @@ use DateTimeImmutable;
 interface Parcel extends JsonObject
 {
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_CREATED_AT = 'createdAt';
     public const FIELD_MEASUREMENTS = 'measurements';
     public const FIELD_TRACKING_DATA = 'trackingData';
@@ -29,6 +30,14 @@ interface Parcel extends JsonObject
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-defined unique identifier of the Parcel.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
 
@@ -68,6 +77,11 @@ interface Parcel extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt

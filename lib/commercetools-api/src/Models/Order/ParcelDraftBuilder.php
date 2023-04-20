@@ -48,6 +48,12 @@ final class ParcelDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -84,6 +90,17 @@ final class ParcelDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Parcel.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -131,6 +148,17 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMeasurements() instead
      * @return $this
      */
@@ -169,7 +197,8 @@ final class ParcelDraftBuilder implements Builder
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
             $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
             $this->items,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->key
         );
     }
 

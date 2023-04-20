@@ -18,6 +18,7 @@ interface ParcelDraft extends JsonObject
     public const FIELD_TRACKING_DATA = 'trackingData';
     public const FIELD_ITEMS = 'items';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_KEY = 'key';
 
     /**
 
@@ -48,6 +49,14 @@ interface ParcelDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>User-defined unique identifier of the Parcel.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * @param ?ParcelMeasurements $measurements
      */
     public function setMeasurements(?ParcelMeasurements $measurements): void;
@@ -66,4 +75,9 @@ interface ParcelDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 }

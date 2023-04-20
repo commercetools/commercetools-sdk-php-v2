@@ -45,6 +45,12 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $key;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -53,12 +59,14 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
         ?ParcelMeasurements $measurements = null,
         ?TrackingData $trackingData = null,
         ?DeliveryItemCollection $items = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?string $key = null
     ) {
         $this->measurements = $measurements;
         $this->trackingData = $trackingData;
         $this->items = $items;
         $this->custom = $custom;
+        $this->key = $key;
     }
 
     /**
@@ -140,6 +148,26 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
         return $this->custom;
     }
 
+    /**
+     * <p>User-defined unique identifier of the Parcel.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
 
     /**
      * @param ?ParcelMeasurements $measurements
@@ -171,5 +199,13 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 }

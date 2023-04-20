@@ -16,13 +16,24 @@ use Commercetools\Base\JsonObject;
 interface StagedOrderSetParcelItemsAction extends StagedOrderUpdateAction
 {
     public const FIELD_PARCEL_ID = 'parcelId';
+    public const FIELD_PARCEL_KEY = 'parcelKey';
     public const FIELD_ITEMS = 'items';
 
     /**
+     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getParcelId();
+
+    /**
+     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getParcelKey();
 
     /**
 
@@ -34,6 +45,11 @@ interface StagedOrderSetParcelItemsAction extends StagedOrderUpdateAction
      * @param ?string $parcelId
      */
     public function setParcelId(?string $parcelId): void;
+
+    /**
+     * @param ?string $parcelKey
+     */
+    public function setParcelKey(?string $parcelKey): void;
 
     /**
      * @param ?DeliveryItemCollection $items

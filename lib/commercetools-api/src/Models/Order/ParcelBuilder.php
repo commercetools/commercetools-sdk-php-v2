@@ -31,6 +31,12 @@ final class ParcelBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
@@ -68,6 +74,17 @@ final class ParcelBuilder implements Builder
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Parcel.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -126,6 +143,17 @@ final class ParcelBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -222,6 +250,7 @@ final class ParcelBuilder implements Builder
     {
         return new ParcelModel(
             $this->id,
+            $this->key,
             $this->createdAt,
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
             $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,

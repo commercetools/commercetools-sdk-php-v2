@@ -28,17 +28,36 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $parcelKey;
+
+    /**
+
      * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
     /**
+     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getParcelId()
     {
         return $this->parcelId;
+    }
+
+    /**
+     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getParcelKey()
+    {
+        return $this->parcelKey;
     }
 
     /**
@@ -57,6 +76,17 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     public function withParcelId(?string $parcelId)
     {
         $this->parcelId = $parcelId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $parcelKey
+     * @return $this
+     */
+    public function withParcelKey(?string $parcelKey)
+    {
+        $this->parcelKey = $parcelKey;
 
         return $this;
     }
@@ -87,6 +117,7 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     {
         return new OrderSetParcelTrackingDataActionModel(
             $this->parcelId,
+            $this->parcelKey,
             $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData
         );
     }
