@@ -32,12 +32,6 @@ final class OrderSetParcelCustomTypeActionBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $parcelKey;
-
-    /**
-
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -49,25 +43,12 @@ final class OrderSetParcelCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
 
      * @return null|string
      */
     public function getParcelId()
     {
         return $this->parcelId;
-    }
-
-    /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
-
-     * @return null|string
-     */
-    public function getParcelKey()
-    {
-        return $this->parcelKey;
     }
 
     /**
@@ -100,17 +81,6 @@ final class OrderSetParcelCustomTypeActionBuilder implements Builder
     public function withParcelId(?string $parcelId)
     {
         $this->parcelId = $parcelId;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $parcelKey
-     * @return $this
-     */
-    public function withParcelKey(?string $parcelKey)
-    {
-        $this->parcelKey = $parcelKey;
 
         return $this;
     }
@@ -163,7 +133,6 @@ final class OrderSetParcelCustomTypeActionBuilder implements Builder
     {
         return new OrderSetParcelCustomTypeActionModel(
             $this->parcelId,
-            $this->parcelKey,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );

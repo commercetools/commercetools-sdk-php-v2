@@ -36,12 +36,6 @@ final class OrderSetParcelCustomFieldActionModel extends JsonObjectModel impleme
      *
      * @var ?string
      */
-    protected $parcelKey;
-
-    /**
-     *
-     * @var ?string
-     */
     protected $name;
 
     /**
@@ -56,13 +50,11 @@ final class OrderSetParcelCustomFieldActionModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $parcelId = null,
-        ?string $parcelKey = null,
         ?string $name = null,
         $value = null,
         ?string $action = null
     ) {
         $this->parcelId = $parcelId;
-        $this->parcelKey = $parcelKey;
         $this->name = $name;
         $this->value = $value;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
@@ -87,8 +79,6 @@ final class OrderSetParcelCustomFieldActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
      *
      * @return null|string
      */
@@ -104,26 +94,6 @@ final class OrderSetParcelCustomFieldActionModel extends JsonObjectModel impleme
         }
 
         return $this->parcelId;
-    }
-
-    /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getParcelKey()
-    {
-        if (is_null($this->parcelKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PARCEL_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->parcelKey = (string) $data;
-        }
-
-        return $this->parcelKey;
     }
 
     /**
@@ -175,14 +145,6 @@ final class OrderSetParcelCustomFieldActionModel extends JsonObjectModel impleme
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
-    }
-
-    /**
-     * @param ?string $parcelKey
-     */
-    public function setParcelKey(?string $parcelKey): void
-    {
-        $this->parcelKey = $parcelKey;
     }
 
     /**

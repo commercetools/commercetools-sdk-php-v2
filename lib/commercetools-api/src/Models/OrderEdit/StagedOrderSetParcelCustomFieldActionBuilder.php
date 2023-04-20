@@ -32,12 +32,6 @@ final class StagedOrderSetParcelCustomFieldActionBuilder implements Builder
 
      * @var ?string
      */
-    private $parcelKey;
-
-    /**
-
-     * @var ?string
-     */
     private $name;
 
     /**
@@ -47,25 +41,12 @@ final class StagedOrderSetParcelCustomFieldActionBuilder implements Builder
     private $value;
 
     /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
 
      * @return null|string
      */
     public function getParcelId()
     {
         return $this->parcelId;
-    }
-
-    /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
-
-     * @return null|string
-     */
-    public function getParcelKey()
-    {
-        return $this->parcelKey;
     }
 
     /**
@@ -104,17 +85,6 @@ final class StagedOrderSetParcelCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * @param ?string $parcelKey
-     * @return $this
-     */
-    public function withParcelKey(?string $parcelKey)
-    {
-        $this->parcelKey = $parcelKey;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $name
      * @return $this
      */
@@ -141,7 +111,6 @@ final class StagedOrderSetParcelCustomFieldActionBuilder implements Builder
     {
         return new StagedOrderSetParcelCustomFieldActionModel(
             $this->parcelId,
-            $this->parcelKey,
             $this->name,
             $this->value
         );

@@ -31,36 +31,17 @@ final class StagedOrderSetParcelItemsActionBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $parcelKey;
-
-    /**
-
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
 
      * @return null|string
      */
     public function getParcelId()
     {
         return $this->parcelId;
-    }
-
-    /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
-
-     * @return null|string
-     */
-    public function getParcelKey()
-    {
-        return $this->parcelKey;
     }
 
     /**
@@ -84,17 +65,6 @@ final class StagedOrderSetParcelItemsActionBuilder implements Builder
     }
 
     /**
-     * @param ?string $parcelKey
-     * @return $this
-     */
-    public function withParcelKey(?string $parcelKey)
-    {
-        $this->parcelKey = $parcelKey;
-
-        return $this;
-    }
-
-    /**
      * @param ?DeliveryItemCollection $items
      * @return $this
      */
@@ -110,7 +80,6 @@ final class StagedOrderSetParcelItemsActionBuilder implements Builder
     {
         return new StagedOrderSetParcelItemsActionModel(
             $this->parcelId,
-            $this->parcelKey,
             $this->items
         );
     }

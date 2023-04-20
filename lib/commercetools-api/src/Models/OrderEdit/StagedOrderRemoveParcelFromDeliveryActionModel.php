@@ -34,23 +34,15 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
      */
     protected $parcelId;
 
-    /**
-     *
-     * @var ?string
-     */
-    protected $parcelKey;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $parcelId = null,
-        ?string $parcelKey = null,
         ?string $action = null
     ) {
         $this->parcelId = $parcelId;
-        $this->parcelKey = $parcelKey;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -73,8 +65,6 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
      *
      * @return null|string
      */
@@ -92,26 +82,6 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
         return $this->parcelId;
     }
 
-    /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getParcelKey()
-    {
-        if (is_null($this->parcelKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PARCEL_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->parcelKey = (string) $data;
-        }
-
-        return $this->parcelKey;
-    }
-
 
     /**
      * @param ?string $parcelId
@@ -119,13 +89,5 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
-    }
-
-    /**
-     * @param ?string $parcelKey
-     */
-    public function setParcelKey(?string $parcelKey): void
-    {
-        $this->parcelKey = $parcelKey;
     }
 }

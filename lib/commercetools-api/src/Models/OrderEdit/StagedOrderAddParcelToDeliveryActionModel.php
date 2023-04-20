@@ -41,12 +41,6 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
 
     /**
      *
-     * @var ?string
-     */
-    protected $parcelKey;
-
-    /**
-     *
      * @var ?ParcelMeasurements
      */
     protected $measurements;
@@ -69,14 +63,12 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
      */
     public function __construct(
         ?string $deliveryId = null,
-        ?string $parcelKey = null,
         ?ParcelMeasurements $measurements = null,
         ?TrackingData $trackingData = null,
         ?DeliveryItemCollection $items = null,
         ?string $action = null
     ) {
         $this->deliveryId = $deliveryId;
-        $this->parcelKey = $parcelKey;
         $this->measurements = $measurements;
         $this->trackingData = $trackingData;
         $this->items = $items;
@@ -117,24 +109,6 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
         }
 
         return $this->deliveryId;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getParcelKey()
-    {
-        if (is_null($this->parcelKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PARCEL_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->parcelKey = (string) $data;
-        }
-
-        return $this->parcelKey;
     }
 
     /**
@@ -200,14 +174,6 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
-    }
-
-    /**
-     * @param ?string $parcelKey
-     */
-    public function setParcelKey(?string $parcelKey): void
-    {
-        $this->parcelKey = $parcelKey;
     }
 
     /**

@@ -30,12 +30,6 @@ final class ParcelModel extends JsonObjectModel implements Parcel
 
     /**
      *
-     * @var ?string
-     */
-    protected $key;
-
-    /**
-     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
@@ -70,7 +64,6 @@ final class ParcelModel extends JsonObjectModel implements Parcel
      */
     public function __construct(
         ?string $id = null,
-        ?string $key = null,
         ?DateTimeImmutable $createdAt = null,
         ?ParcelMeasurements $measurements = null,
         ?TrackingData $trackingData = null,
@@ -78,7 +71,6 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
-        $this->key = $key;
         $this->createdAt = $createdAt;
         $this->measurements = $measurements;
         $this->trackingData = $trackingData;
@@ -104,26 +96,6 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         }
 
         return $this->id;
-    }
-
-    /**
-     * <p>User-defined unique identifier of the Parcel.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
     }
 
     /**
@@ -234,14 +206,6 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     public function setId(?string $id): void
     {
         $this->id = $id;
-    }
-
-    /**
-     * @param ?string $key
-     */
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 
     /**

@@ -32,36 +32,17 @@ final class StagedOrderSetParcelMeasurementsActionBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $parcelKey;
-
-    /**
-
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
 
      * @return null|string
      */
     public function getParcelId()
     {
         return $this->parcelId;
-    }
-
-    /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
-
-     * @return null|string
-     */
-    public function getParcelKey()
-    {
-        return $this->parcelKey;
     }
 
     /**
@@ -80,17 +61,6 @@ final class StagedOrderSetParcelMeasurementsActionBuilder implements Builder
     public function withParcelId(?string $parcelId)
     {
         $this->parcelId = $parcelId;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $parcelKey
-     * @return $this
-     */
-    public function withParcelKey(?string $parcelKey)
-    {
-        $this->parcelKey = $parcelKey;
 
         return $this;
     }
@@ -121,7 +91,6 @@ final class StagedOrderSetParcelMeasurementsActionBuilder implements Builder
     {
         return new StagedOrderSetParcelMeasurementsActionModel(
             $this->parcelId,
-            $this->parcelKey,
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements
         );
     }

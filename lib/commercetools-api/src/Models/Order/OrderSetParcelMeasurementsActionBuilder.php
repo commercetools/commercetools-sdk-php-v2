@@ -28,36 +28,17 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $parcelKey;
-
-    /**
-
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
 
      * @return null|string
      */
     public function getParcelId()
     {
         return $this->parcelId;
-    }
-
-    /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
-     *
-
-     * @return null|string
-     */
-    public function getParcelKey()
-    {
-        return $this->parcelKey;
     }
 
     /**
@@ -76,17 +57,6 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
     public function withParcelId(?string $parcelId)
     {
         $this->parcelId = $parcelId;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $parcelKey
-     * @return $this
-     */
-    public function withParcelKey(?string $parcelKey)
-    {
-        $this->parcelKey = $parcelKey;
 
         return $this;
     }
@@ -117,7 +87,6 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
     {
         return new OrderSetParcelMeasurementsActionModel(
             $this->parcelId,
-            $this->parcelKey,
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements
         );
     }
