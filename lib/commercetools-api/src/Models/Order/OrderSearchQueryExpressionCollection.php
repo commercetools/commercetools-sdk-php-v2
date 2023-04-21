@@ -8,32 +8,32 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Order\OrderSearchQueryCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @template T of OrderSearchQuery
- * @extends MapperSequence<T>
+ * @template T of OrderSearchQueryExpression
+ * @extends OrderSearchQueryCollection<T>
  * @psalm-method T current()
  * @psalm-method T end()
  * @psalm-method T at($offset)
- * @method OrderSearchQuery current()
- * @method OrderSearchQuery end()
- * @method OrderSearchQuery at($offset)
+ * @method OrderSearchQueryExpression current()
+ * @method OrderSearchQueryExpression end()
+ * @method OrderSearchQueryExpression at($offset)
  */
-class OrderSearchQueryCollection extends MapperSequence
+class OrderSearchQueryExpressionCollection extends OrderSearchQueryCollection
 {
     /**
      * @psalm-assert T $value
      * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
-     * @return OrderSearchQueryCollection
+     * @return OrderSearchQueryExpressionCollection
      */
     public function add($value)
     {
-        if (!$value instanceof OrderSearchQuery) {
+        if (!$value instanceof OrderSearchQueryExpression) {
             throw new InvalidArgumentException();
         }
         $this->store($value);
@@ -46,11 +46,11 @@ class OrderSearchQueryCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (?int $index): ?OrderSearchQuery {
+        return function (?int $index): ?OrderSearchQueryExpression {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */
-                $data = OrderSearchQueryModel::of($data);
+                $data = OrderSearchQueryExpressionModel::of($data);
                 $this->set($data, $index);
             }
 
