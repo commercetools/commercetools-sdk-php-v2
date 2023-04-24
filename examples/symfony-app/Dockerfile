@@ -127,7 +127,7 @@ RUN curl -L https://download.newrelic.com/php_agent/archive/10.2.0.314/newrelic-
     && /tmp/newrelic-php5-10.2.0.314-linux/newrelic-install install \
     && rm -rf /tmp/newrelic-php5-* /tmp/nrinstall*
 
-RUN sed -i -e "s/REPLACE_WITH_REAL_KEY/eu01xx4bc733a9eecdc8f38af97523ae26c0NRAL/" \
+RUN sed -i -e "s/REPLACE_WITH_REAL_KEY/LICENCE_KEY/" \
     -e "s/newrelic.appname[[:space:]]=[[:space:]].*/newrelic.appname=\"PHP-SDK\"/" \
     -e '$anewrelic.daemon.address="newrelic-php-daemon:31339"' \
     $(php -r "echo(PHP_CONFIG_FILE_SCAN_DIR);")/newrelic.ini
