@@ -1,0 +1,16 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+get_categories:
+    path: /categories
+    methods: GET
+    controller: 'App\Controller\CategoryController::getCategories'
+
+get_products:
+    path: /products
+    methods: GET
+    defaults:
+        _controller: 'App\Controller\ProductController::getProducts'
