@@ -1,6 +1,6 @@
 version: "3.4"
 
-services:
+services:    
   php:
     build:
       context: .
@@ -8,6 +8,9 @@ services:
       args:
         SYMFONY_VERSION: ${SYMFONY_VERSION:-}
         STABILITY: ${STABILITY:-stable}
+#      I tried to pass the environment variable
+        LICENSE_KEY: ${LICENSE_KEY}
+    env_file: .env
     restart: unless-stopped
     volumes:
       - php_socket:/var/run/php
@@ -21,7 +24,6 @@ services:
       MERCURE_URL: ${CADDY_MERCURE_URL:-http://caddy/.well-known/mercure}
       MERCURE_PUBLIC_URL: https://${SERVER_NAME:-localhost}/.well-known/mercure
       MERCURE_JWT_SECRET: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
-
   caddy:
     build:
       context: .

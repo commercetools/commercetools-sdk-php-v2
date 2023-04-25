@@ -18,18 +18,11 @@ RUN xcaddy build \
 	--with github.com/dunglas/vulcain \
 	--with github.com/dunglas/vulcain/caddy
 
-# Prod image
-FROM php:8.2-fpm-alpine AS app_php
+# Dev image
 
-# Allow to use development versions of Symfony
-ARG STABILITY="stable"
-ENV STABILITY ${STABILITY}
+FROM php:8.1-fpm-alpine AS app_php
 
-# Allow to select Symfony version
-ARG SYMFONY_VERSION=""
-ENV SYMFONY_VERSION ${SYMFONY_VERSION}
-
-ENV APP_ENV=prod
+ENV APP_ENV=dev XDEBUG_MODE=off
 
 WORKDIR /srv/app
 
@@ -51,14 +44,13 @@ RUN set -eux; \
 		intl \
 		opcache \
 		zip \
+    	xdebug \
     ;
 
-###> recipes ###
-###< recipes ###
 
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+#RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 COPY --link docker/php/conf.d/app.ini $PHP_INI_DIR/conf.d/
-COPY --link docker/php/conf.d/app.prod.ini $PHP_INI_DIR/conf.d/
+#COPY --link docker/php/conf.d/app.prod.ini $PHP_INI_DIR/conf.d/
 
 COPY --link docker/php/php-fpm.d/zz-docker.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 RUN mkdir -p /var/run/php
@@ -74,7 +66,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]
 
-# https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
+## https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
 
@@ -102,35 +94,48 @@ RUN set -eux; \
     fi
 
 # Dev image
-FROM app_php AS app_php_dev
-
-ENV APP_ENV=dev XDEBUG_MODE=off
-VOLUME /srv/app/var/
-
-RUN rm "$PHP_INI_DIR/conf.d/app.prod.ini"; \
-	mv "$PHP_INI_DIR/php.ini" "$PHP_INI_DIR/php.ini-production"; \
-	mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
-
-COPY --link docker/php/conf.d/app.dev.ini $PHP_INI_DIR/conf.d/
-
-RUN set -eux; \
-	install-php-extensions \
-    	xdebug \
-    ;
+#FROM app_php AS app_php_dev
+#
+#ENV APP_ENV=dev XDEBUG_MODE=off
+#VOLUME /srv/app/var/
+#
+#RUN rm "$PHP_INI_DIR/conf.d/app.prod.ini"; \
+#	mv "$PHP_INI_DIR/php.ini" "$PHP_INI_DIR/php.ini-production"; \
+#	mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+#
+#COPY --link docker/php/conf.d/app.dev.ini $PHP_INI_DIR/conf.d/
+#
+#RUN set -eux; \
+#	install-php-extensions \
+#    	xdebug \
+#    ;
 
 RUN rm -f .env.local.php
 
+ARG LICENSE_KEY
 # New Relic PHP Agent configuration
+
+#RUN sed -i "s/^newrelic.appname = .*/newrelic.appname = \"${NEWRELIC_APPNAME}\"/g" /usr/local/etc/php/conf.d/newrelic.ini
+#RUN sed -i "s/^newrelic.license = .*/newrelic.license = \"${NEWRELIC_LICENSE}\"/g" /usr/local/etc/php/conf.d/newrelic.ini
 RUN curl -L https://download.newrelic.com/php_agent/archive/10.2.0.314/newrelic-php5-10.2.0.314-linux.tar.gz | tar -C /tmp -zx \
     && export NR_INSTALL_USE_CP_NOT_LN=1 \
     && export NR_INSTALL_SILENT=1 \
     && /tmp/newrelic-php5-10.2.0.314-linux/newrelic-install install \
     && rm -rf /tmp/newrelic-php5-* /tmp/nrinstall*
 
-RUN sed -i -e "s/REPLACE_WITH_REAL_KEY/LICENCE_KEY/" \
+#RUN sed -i \
+#    -e "s/newrelic.license =.*/newrelic.license = ${NEW_RELIC_LICENSE_KEY}/" \
+#    -e "s/newrelic.appname =.*/newrelic.appname = ${NEW_RELIC_APP_NAME}/" \
+#    /usr/local/etc/php/conf.d/newrelic.ini
+
+# LICENSE KEY HARDCODED for now this LICENSE-KEY has to be replaced with the one that belong to your account
+RUN sed -i -e "s/REPLACE_WITH_REAL_KEY/LICENSE-KEY/" \
     -e "s/newrelic.appname[[:space:]]=[[:space:]].*/newrelic.appname=\"PHP-SDK\"/" \
     -e '$anewrelic.daemon.address="newrelic-php-daemon:31339"' \
-    $(php -r "echo(PHP_CONFIG_FILE_SCAN_DIR);")/newrelic.ini
+    /usr/local/etc/php/conf.d/newrelic.ini
+
+
+
 
 # Caddy image
 FROM caddy:2.6-alpine AS app_caddy
