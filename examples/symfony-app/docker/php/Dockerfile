@@ -32,8 +32,6 @@ RUN sed -i \
    -e 's/;newrelic.daemon.start_timeout =.*/newrelic.daemon.start_timeout=20s/' \
    /usr/local/etc/php/conf.d/newrelic.ini
 
-#   -e 's/;newrelic.daemon.address =.*/newrelic.daemon.address='"$NEWRELIC_DAEMON_ADDRESS"'/' \
-#   -e 's/;newrelic.daemon.dont_launch =.*/newrelic.daemon.dont_launch = 3/' \
 WORKDIR /var/www/symfony/public
 
 EXPOSE 9000

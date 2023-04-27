@@ -20,9 +20,6 @@ class RequestBuilder
         $clientSecret = $_ENV['APP_CTP_CLIENT_SECRET'];
         $this->projectKey = $_ENV['APP_CTP_PROJECT_KEY'];
 
-        // TODO
-//        $middleware = new NewRelicHandler(Logger::INFO, true, $appName, true, 'php');
-
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
         $this->client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3]), $authConfig);
 
