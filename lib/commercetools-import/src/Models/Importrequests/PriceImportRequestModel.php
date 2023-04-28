@@ -46,7 +46,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     }
 
     /**
-     * <p>The type of the import resource.</p>
+     * <p>The resource types that can be imported.</p>
      *
      *
      * @return null|string

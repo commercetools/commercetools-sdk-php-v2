@@ -206,7 +206,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Customer.password</code>.</p>
+     * <p>Required when <code>authenticationMode</code> is set to <code>Password</code>. Maps to <code>Customer.password</code>.</p>
      *
 
      * @return null|string
