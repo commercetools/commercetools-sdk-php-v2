@@ -4503,7 +4503,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->search()->post(null)`
 
-Search Product Projection
+Product Projection Search
 
 ### Example
 ```php
@@ -4518,7 +4518,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->search()->get()`
 
-Search Product Projection
+Product Projection Search
 
 ### Example
 ```php

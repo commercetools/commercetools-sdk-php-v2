@@ -19,6 +19,7 @@ interface TaxRateDraft extends JsonObject
     public const FIELD_COUNTRY = 'country';
     public const FIELD_STATE = 'state';
     public const FIELD_SUB_RATES = 'subRates';
+    public const FIELD_KEY = 'key';
 
     /**
      * <p>Name of the TaxRate.</p>
@@ -71,6 +72,14 @@ interface TaxRateDraft extends JsonObject
     public function getSubRates();
 
     /**
+     * <p>User-defined unique identifier of the TaxRate.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * @param ?string $name
      */
     public function setName(?string $name): void;
@@ -99,4 +108,9 @@ interface TaxRateDraft extends JsonObject
      * @param ?SubRateCollection $subRates
      */
     public function setSubRates(?SubRateCollection $subRates): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 }

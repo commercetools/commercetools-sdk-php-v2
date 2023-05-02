@@ -183,7 +183,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>..</p>
+     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|MethodTaxedPriceCollection

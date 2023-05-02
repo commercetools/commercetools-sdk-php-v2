@@ -19,6 +19,7 @@ interface ProductSelectionDraft extends JsonObject
     public const FIELD_NAME = 'name';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_TYPE = 'type';
+    public const FIELD_MODE = 'mode';
 
     /**
      * <p>User-defined unique identifier for the ProductSelection.</p>
@@ -47,10 +48,18 @@ interface ProductSelectionDraft extends JsonObject
     /**
      * <p>Type of the Product Selection.</p>
      *
-
+     * @deprecated
      * @return null|string
      */
     public function getType();
+
+    /**
+     * <p>Mode of the Product Selection.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMode();
 
     /**
      * @param ?string $key
@@ -71,4 +80,9 @@ interface ProductSelectionDraft extends JsonObject
      * @param ?string $type
      */
     public function setType(?string $type): void;
+
+    /**
+     * @param ?string $mode
+     */
+    public function setMode(?string $mode): void;
 }

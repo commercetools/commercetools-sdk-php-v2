@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
-use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
+use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -25,7 +25,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
 {
     /**
      *
-     * @var ?CartDiscountReference
+     * @var ?Reference
      */
     protected $discount;
 
@@ -40,7 +40,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CartDiscountReference $discount = null,
+        ?Reference $discount = null,
         ?TypedMoney $discountedAmount = null
     ) {
         $this->discount = $discount;
@@ -48,10 +48,10 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
-     * <p>Cart Discount applicable on the Line Item.</p>
+     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> for the applicable discount on the Line Item.</p>
      *
      *
-     * @return null|CartDiscountReference
+     * @return null|Reference
      */
     public function getDiscount()
     {
@@ -62,7 +62,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
                 return null;
             }
 
-            $this->discount = CartDiscountReferenceModel::of($data);
+            $this->discount = ReferenceModel::of($data);
         }
 
         return $this->discount;
@@ -91,9 +91,9 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
 
 
     /**
-     * @param ?CartDiscountReference $discount
+     * @param ?Reference $discount
      */
-    public function setDiscount(?CartDiscountReference $discount): void
+    public function setDiscount(?Reference $discount): void
     {
         $this->discount = $discount;
     }

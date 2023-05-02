@@ -13,7 +13,11 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderSearchQuery>
+ * @template T of OrderSearchQuery
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T end()
+ * @psalm-method T at($offset)
  * @method OrderSearchQuery current()
  * @method OrderSearchQuery end()
  * @method OrderSearchQuery at($offset)
@@ -21,8 +25,8 @@ use stdClass;
 class OrderSearchQueryCollection extends MapperSequence
 {
     /**
-     * @psalm-assert OrderSearchQuery $value
-     * @psalm-param OrderSearchQuery|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return OrderSearchQueryCollection
@@ -38,14 +42,14 @@ class OrderSearchQueryCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?OrderSearchQuery
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (?int $index): ?OrderSearchQuery {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var OrderSearchQuery $data */
+                /** @var T $data */
                 $data = OrderSearchQueryModel::of($data);
                 $this->set($data, $index);
             }

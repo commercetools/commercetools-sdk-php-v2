@@ -36,7 +36,7 @@ final class ProductVariantExclusionModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * <p>Non-empty array of SKUs representing Product Variants to be included in the Product Selection of type <a href="ctp:api:type:IndividualExclusionProductSelectionType">Individual Exclusion</a>.</p>
+     * <p>Non-empty array of SKUs representing Product Variants to be included in the Product Selection with <code>IndividualExclusion</code> <a href="ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>.</p>
      *
      *
      * @return null|array

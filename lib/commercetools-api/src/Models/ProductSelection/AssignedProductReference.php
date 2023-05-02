@@ -28,7 +28,7 @@ interface AssignedProductReference extends JsonObject
 
     /**
      * <p>The Variants of the Product that are included from the Product Selection.</p>
-     * <p>This field may exist only for the <a href="ctp:api:type:IndividualProductSelectionType">IndividualProductSelectionType</a>.
+     * <p>This field may exist only in Product Selections with <code>Individual</code> <a href="ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>.
      * In absence of this field, all Variants are deemed to be included.</p>
      *
 
@@ -38,7 +38,7 @@ interface AssignedProductReference extends JsonObject
 
     /**
      * <p>The Variants of the Product that are excluded from the Product Selection.</p>
-     * <p>This field may exist only for the <a href="ctp:api:type:IndividualExclusionProductSelectionType">IndividualExclusionProductSelectionType</a>.
+     * <p>This field may exist only in Product Selections with <code>IndividualExclusion</code> <a href="ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>.
      * In absence of this field, all Variants are deemed to be excluded.</p>
      *
 

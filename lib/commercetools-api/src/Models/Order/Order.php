@@ -53,6 +53,8 @@ interface Order extends BaseResource
     public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
     public const FIELD_BILLING_ADDRESS = 'billingAddress';
     public const FIELD_SHIPPING_MODE = 'shippingMode';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
+    public const FIELD_SHIPPING_CUSTOM_FIELDS = 'shippingCustomFields';
     public const FIELD_SHIPPING = 'shipping';
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
@@ -234,6 +236,22 @@ interface Order extends BaseResource
      * @return null|string
      */
     public function getShippingMode();
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
+     * <p>Custom Fields of the Shipping Method for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getShippingCustomFields();
 
     /**
      * <p>Holds all shipping-related information per Shipping Method for <code>Multi</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>.</p>
@@ -536,6 +554,16 @@ interface Order extends BaseResource
      * @param ?string $shippingMode
      */
     public function setShippingMode(?string $shippingMode): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
+
+    /**
+     * @param ?CustomFields $shippingCustomFields
+     */
+    public function setShippingCustomFields(?CustomFields $shippingCustomFields): void;
 
     /**
      * @param ?ShippingCollection $shipping

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 interface TaxRate extends JsonObject
 {
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_INCLUDED_IN_PRICE = 'includedInPrice';
@@ -29,6 +30,15 @@ interface TaxRate extends JsonObject
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-defined unique identifier of the TaxRate.
+     * Present when set using <a href="ctp:api:type:TaxRateDraft">TaxRateDraft</a>. Not available for external TaxRates created using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Name of the TaxRate.</p>
@@ -82,6 +92,11 @@ interface TaxRate extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $name
