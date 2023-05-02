@@ -92,6 +92,710 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->businessUnits()
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->businessUnits()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->businessUnits()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->businessUnits()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->businessUnits()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->businessUnits()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->post(null)`
+
+Creates a [Cart](ctp:api:type:Cart) in the [BusinessUnit](ctp:api:type:BusinessUnit) referenced by `businessUnitKey`. As such, the `businessUnit` field on [CartDraft](ctp:api:type:CartDraft) is ignored for this request.
+Creating a Cart can fail with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match the Cart.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withId("ID")->get()`
+
+If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withId("ID")->post(null)`
+
+If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withId("ID")->delete()`
+
+If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withKey("key")->get()`
+
+If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withKey("key")->post(null)`
+
+If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withKey("key")->delete()`
+
+If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->post(null)`
+
+Creates an Order from a [Cart](ctp:api:type:Cart) in a [BusinessUnit](ctp:api:type:BusinessUnit).
+The Cart must have a shipping address set before creating an Order.
+Creating an Order fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Cart does not reference the same BusinessUnit as the `businessUnitKey` path parameter.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->get()`
+
+If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->post(null)`
+
+If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withOrderNumber("orderNumber")->get()`
+
+If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->withOrderNumber("orderNumber")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withOrderNumber("orderNumber")->post(null)`
+
+If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->withOrderNumber("orderNumber")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->orderQuote()->post(null)`
+
+Creates an Order from a [Quote](ctp:api:type:Cart) in a [BusinessUnit](ctp:api:type:BusinessUnit).
+Creating an Order fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Quote does not reference the same BusinessUnit as the `businessUnitKey` path parameter.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->orderQuote()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quoteRequests()
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->post(null)`
+
+Creates a QuoteRequest in a [BusinessUnit](ctp:api:type:BusinessUnit). Creating QuoteRequest fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Cart does not reference the same BusinessUnit as the `businessUnitKey` path parameter.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quoteRequests()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->get()`
+
+If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quoteRequests()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->post(null)`
+
+If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quoteRequests()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->get()`
+
+If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quoteRequests()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->post(null)`
+
+If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quoteRequests()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quotes()
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->get()`
+
+If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quotes()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->post(null)`
+
+If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quotes()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->get()`
+
+If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quotes()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->post(null)`
+
+If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quotes()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->associateRoles()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->get();
+```
+## `withProjectKey("projectKey")->associateRoles()->post(null)`
+
+Creating a Associate Role generates the [AssociateRoleCreated](ctp:api:type:AssociateRoleCreatedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->associateRoles()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->associateRoles()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->associateRoles()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->associateRoles()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->associateRoles()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->associateRoles()->withKey("key")->delete()`
+
+Deleting an AssociateRole generates the [AssociateRoleDeleted](ctp:api:type:AssociateRoleDeletedMessage) Message. An AssociateRole can only be deleted if it is not assigned to any [Associates](ctp:api:type:Associate).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->attributeGroups()->get()`
 
 null
@@ -1443,9 +2147,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->me()->customers()->post(null)`
 
 The My Business Unit endpoint does not support assigning existing Customers to a Business Unit.
-Use this endpoint to create a new Customer and associate it with the Business Unit.
-The user must have the `Admin` role within the Business Unit to perform this request.
-The new Customer is created with an empty set of roles.
+Associates with the `UpdateAssociates` [Permission](ctp:api:type:Permission) can use this endpoint to create a new Customer and associate it with the Business Unit.
+The new Associate is created with an empty set of roles.
 
 
 ### Example
@@ -2956,7 +3659,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->post(null)`
 
-Automatically assigns the authenticated user to the Business Unit in the [Associate Roles](ctp:api:type:AssociateRole) of `Admin` as well as `Buyer`.
+Automatically assigns the Associate to the Business Unit in the default [Associate Role](ctp:api:type:AssociateRole) defined in [BusinessUnitConfiguration](ctp:api:type:BusinessUnitConfiguration). If there is no default Associate Role configured, this request fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error. When creating a Division, the Associate must have the `AddChildUnits` [Permission](ctp:api:type:Permission) in the parent unit.
 
 
 ### Example

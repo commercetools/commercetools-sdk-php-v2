@@ -117,7 +117,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p><code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which an Order is created.</p>
+     * <p><code>version</code> of the <a href="ctp:api:type:Quote">Quote</a> from which an Order is created.</p>
      *
      *
      * @return null|int
@@ -137,7 +137,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p>If <code>true</code>, the <code>quoteState</code> of the referenced <a href="ctp:api:type:quote">Quote</a> will be set to <code>Accepted</code>.</p>
+     * <p>If <code>true</code>, the <code>quoteState</code> of the referenced <a href="ctp:api:type:Quote">Quote</a> will be set to <code>Accepted</code>.</p>
      *
      *
      * @return null|bool
@@ -181,6 +181,8 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
+     * <p>Payment state of the Order.</p>
+     *
      *
      * @return null|string
      */
@@ -199,6 +201,8 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
+     * <p>Shipment state of the Order.</p>
+     *
      *
      * @return null|string
      */
@@ -237,6 +241,8 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a> indicating the Order's state.</p>
+     *
      *
      * @return null|StateResourceIdentifier
      */

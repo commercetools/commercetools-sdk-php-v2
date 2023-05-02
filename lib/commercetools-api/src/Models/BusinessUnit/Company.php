@@ -14,7 +14,7 @@ use Commercetools\Base\JsonObject;
 interface Company extends BusinessUnit
 {
     /**
-     * <p>Is always <code>Explicit</code> since a Company does not have a parent Business Unit the Stores can be inherited from.</p>
+     * <p>Is always <code>Explicit</code> since a Company cannot have a parent Business Unit that Stores can be inherited from.</p>
      *
 
      * @return null|string
@@ -22,7 +22,20 @@ interface Company extends BusinessUnit
     public function getStoreMode();
 
     /**
+     * <p>Is always <code>Explicit</code> since a Company cannot have a parent Business Unit that Associates can be inherited from.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAssociateMode();
+
+    /**
      * @param ?string $storeMode
      */
     public function setStoreMode(?string $storeMode): void;
+
+    /**
+     * @param ?string $associateMode
+     */
+    public function setAssociateMode(?string $associateMode): void;
 }

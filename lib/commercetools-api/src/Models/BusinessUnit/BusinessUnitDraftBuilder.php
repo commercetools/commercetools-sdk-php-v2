@@ -62,6 +62,12 @@ final class BusinessUnitDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $associateMode;
+
+    /**
+
      * @var ?AssociateDraftCollection
      */
     private $associates;
@@ -170,6 +176,18 @@ final class BusinessUnitDraftBuilder implements Builder
     public function getContactEmail()
     {
         return $this->contactEmail;
+    }
+
+    /**
+     * <p>Determines whether the Business Unit can inherit Associates from a parent.
+     * Always <code>Explicit</code> for <a href="ctp:api:type:BusinessUnitType">Companies</a> and defaults to <code>ExplicitAndFromParent</code> for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAssociateMode()
+    {
+        return $this->associateMode;
     }
 
     /**
@@ -318,6 +336,17 @@ final class BusinessUnitDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $associateMode
+     * @return $this
+     */
+    public function withAssociateMode(?string $associateMode)
+    {
+        $this->associateMode = $associateMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?AssociateDraftCollection $associates
      * @return $this
      */
@@ -414,6 +443,7 @@ final class BusinessUnitDraftBuilder implements Builder
             $this->storeMode,
             $this->name,
             $this->contactEmail,
+            $this->associateMode,
             $this->associates,
             $this->addresses,
             $this->shippingAddresses,

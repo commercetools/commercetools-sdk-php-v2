@@ -84,7 +84,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
-     * <p><code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which an Order is created.</p>
+     * <p><code>version</code> of the <a href="ctp:api:type:Quote">Quote</a> from which an Order is created.</p>
      *
 
      * @return null|int
@@ -95,7 +95,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the <code>quoteState</code> of the referenced <a href="ctp:api:type:quote">Quote</a> will be set to <code>Accepted</code>.</p>
+     * <p>If <code>true</code>, the <code>quoteState</code> of the referenced <a href="ctp:api:type:Quote">Quote</a> will be set to <code>Accepted</code>.</p>
      *
 
      * @return null|bool
@@ -121,6 +121,8 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
+     * <p>Payment state of the Order.</p>
+     *
 
      * @return null|string
      */
@@ -130,6 +132,8 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
+     * <p>Shipment state of the Order.</p>
+     *
 
      * @return null|string
      */
@@ -150,6 +154,8 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a> indicating the Order's state.</p>
+     *
 
      * @return null|StateResourceIdentifier
      */

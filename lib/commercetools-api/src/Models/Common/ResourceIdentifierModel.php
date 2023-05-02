@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\AssociateRole\AssociateRoleResourceIdentifier;
+use Commercetools\Api\Models\AssociateRole\AssociateRoleResourceIdentifierModel;
 use Commercetools\Api\Models\AttributeGroup\AttributeGroupResourceIdentifier;
 use Commercetools\Api\Models\AttributeGroup\AttributeGroupResourceIdentifierModel;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
@@ -101,6 +103,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
      *
      */
     private static $discriminatorClasses = [
+       'associate-role' => AssociateRoleResourceIdentifierModel::class,
        'attribute-group' => AttributeGroupResourceIdentifierModel::class,
        'business-unit' => BusinessUnitResourceIdentifierModel::class,
        'cart' => CartResourceIdentifierModel::class,

@@ -10,6 +10,8 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyApiClients;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyAsAssociate;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyAssociateRoles;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyAttributeGroups;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnits;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartDiscounts;
@@ -163,6 +165,26 @@ class ResourceByProjectKeyTest extends TestCase
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyAsAssociate' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyAsAssociate {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->asAssociate();
+                },
+                ResourceByProjectKeyAsAssociate::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/as-associate'
+            ],
+            'ResourceByProjectKeyAssociateRoles' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyAssociateRoles {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->associateRoles();
+                },
+                ResourceByProjectKeyAssociateRoles::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/associate-roles'
+            ],
             'ResourceByProjectKeyBusinessUnits' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyBusinessUnits {
                     return $builder

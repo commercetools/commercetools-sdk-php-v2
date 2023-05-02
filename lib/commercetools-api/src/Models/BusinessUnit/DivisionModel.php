@@ -145,9 +145,21 @@ final class DivisionModel extends JsonObjectModel implements Division
 
     /**
      *
+     * @var ?string
+     */
+    protected $associateMode;
+
+    /**
+     *
      * @var ?AssociateCollection
      */
     protected $associates;
+
+    /**
+     *
+     * @var ?InheritedAssociateCollection
+     */
+    protected $inheritedAssociates;
 
     /**
      *
@@ -184,7 +196,9 @@ final class DivisionModel extends JsonObjectModel implements Division
         ?string $defaultShippingAddressId = null,
         ?array $billingAddressIds = null,
         ?string $defaultBillingAddressId = null,
+        ?string $associateMode = null,
         ?AssociateCollection $associates = null,
+        ?InheritedAssociateCollection $inheritedAssociates = null,
         ?BusinessUnitKeyReference $parentUnit = null,
         ?BusinessUnitKeyReference $topLevelUnit = null,
         ?string $unitType = null
@@ -207,7 +221,9 @@ final class DivisionModel extends JsonObjectModel implements Division
         $this->defaultShippingAddressId = $defaultShippingAddressId;
         $this->billingAddressIds = $billingAddressIds;
         $this->defaultBillingAddressId = $defaultBillingAddressId;
+        $this->associateMode = $associateMode;
         $this->associates = $associates;
+        $this->inheritedAssociates = $inheritedAssociates;
         $this->parentUnit = $parentUnit;
         $this->topLevelUnit = $topLevelUnit;
         $this->unitType = $unitType ?? self::DISCRIMINATOR_VALUE;
@@ -607,7 +623,27 @@ final class DivisionModel extends JsonObjectModel implements Division
     }
 
     /**
-     * <p>Members that are part of the Business Unit in specific <a href="ctp:api:type:AssociateRole">roles</a>.</p>
+     * <p>Determines whether the Division can inherit Associates from a parent.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAssociateMode()
+    {
+        if (is_null($this->associateMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ASSOCIATE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->associateMode = (string) $data;
+        }
+
+        return $this->associateMode;
+    }
+
+    /**
+     * <p>Associates that are part of the Business Unit in specific <a href="ctp:api:type:AssociateRole">roles</a>.</p>
      *
      *
      * @return null|AssociateCollection
@@ -624,6 +660,26 @@ final class DivisionModel extends JsonObjectModel implements Division
         }
 
         return $this->associates;
+    }
+
+    /**
+     * <p>Associates that are inherited from a parent Business Unit. This value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
+     *
+     *
+     * @return null|InheritedAssociateCollection
+     */
+    public function getInheritedAssociates()
+    {
+        if (is_null($this->inheritedAssociates)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_INHERITED_ASSOCIATES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inheritedAssociates = InheritedAssociateCollection::fromArray($data);
+        }
+
+        return $this->inheritedAssociates;
     }
 
     /**
@@ -814,11 +870,27 @@ final class DivisionModel extends JsonObjectModel implements Division
     }
 
     /**
+     * @param ?string $associateMode
+     */
+    public function setAssociateMode(?string $associateMode): void
+    {
+        $this->associateMode = $associateMode;
+    }
+
+    /**
      * @param ?AssociateCollection $associates
      */
     public function setAssociates(?AssociateCollection $associates): void
     {
         $this->associates = $associates;
+    }
+
+    /**
+     * @param ?InheritedAssociateCollection $inheritedAssociates
+     */
+    public function setInheritedAssociates(?InheritedAssociateCollection $inheritedAssociates): void
+    {
+        $this->inheritedAssociates = $inheritedAssociates;
     }
 
     /**

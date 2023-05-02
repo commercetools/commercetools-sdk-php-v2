@@ -36,7 +36,9 @@ interface BusinessUnit extends BaseResource
     public const FIELD_DEFAULT_SHIPPING_ADDRESS_ID = 'defaultShippingAddressId';
     public const FIELD_BILLING_ADDRESS_IDS = 'billingAddressIds';
     public const FIELD_DEFAULT_BILLING_ADDRESS_ID = 'defaultBillingAddressId';
+    public const FIELD_ASSOCIATE_MODE = 'associateMode';
     public const FIELD_ASSOCIATES = 'associates';
+    public const FIELD_INHERITED_ASSOCIATES = 'inheritedAssociates';
     public const FIELD_PARENT_UNIT = 'parentUnit';
     public const FIELD_TOP_LEVEL_UNIT = 'topLevelUnit';
 
@@ -195,12 +197,28 @@ interface BusinessUnit extends BaseResource
     public function getDefaultBillingAddressId();
 
     /**
-     * <p>Members that are part of the Business Unit in specific <a href="ctp:api:type:AssociateRole">roles</a>.</p>
+     * <p>Set to <code>Explicit</code> to prevent the Business Unit inheriting Associates from a parent, set to <code>ExplicitAndFromParent</code> to enable inheritance.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAssociateMode();
+
+    /**
+     * <p>Associates that are part of the Business Unit in specific <a href="ctp:api:type:AssociateRole">roles</a>.</p>
      *
 
      * @return null|AssociateCollection
      */
     public function getAssociates();
+
+    /**
+     * <p>Associates that are inherited from a parent Business Unit. This value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
+     *
+
+     * @return null|InheritedAssociateCollection
+     */
+    public function getInheritedAssociates();
 
     /**
      * <p>Parent unit of the Business Unit. Only present when the <code>unitType</code> is <code>Division</code>.</p>
@@ -309,9 +327,19 @@ interface BusinessUnit extends BaseResource
     public function setDefaultBillingAddressId(?string $defaultBillingAddressId): void;
 
     /**
+     * @param ?string $associateMode
+     */
+    public function setAssociateMode(?string $associateMode): void;
+
+    /**
      * @param ?AssociateCollection $associates
      */
     public function setAssociates(?AssociateCollection $associates): void;
+
+    /**
+     * @param ?InheritedAssociateCollection $inheritedAssociates
+     */
+    public function setInheritedAssociates(?InheritedAssociateCollection $inheritedAssociates): void;
 
     /**
      * @param ?BusinessUnitKeyReference $parentUnit

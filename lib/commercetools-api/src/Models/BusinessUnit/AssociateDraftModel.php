@@ -23,6 +23,12 @@ final class AssociateDraftModel extends JsonObjectModel implements AssociateDraf
 {
     /**
      *
+     * @var ?AssociateRoleAssignmentDraftCollection
+     */
+    protected $associateRoleAssignments;
+
+    /**
+     * @deprecated
      * @var ?array
      */
     protected $roles;
@@ -38,17 +44,39 @@ final class AssociateDraftModel extends JsonObjectModel implements AssociateDraf
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?AssociateRoleAssignmentDraftCollection $associateRoleAssignments = null,
         ?array $roles = null,
         ?CustomerResourceIdentifier $customer = null
     ) {
+        $this->associateRoleAssignments = $associateRoleAssignments;
         $this->roles = $roles;
         $this->customer = $customer;
     }
 
     /**
-     * <p>Roles the Associate should hold within the Business Unit.</p>
+     * <p>Roles assigned to the Associate within a Business Unit.</p>
      *
      *
+     * @return null|AssociateRoleAssignmentDraftCollection
+     */
+    public function getAssociateRoleAssignments()
+    {
+        if (is_null($this->associateRoleAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ASSOCIATE_ROLE_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->associateRoleAssignments = AssociateRoleAssignmentDraftCollection::fromArray($data);
+        }
+
+        return $this->associateRoleAssignments;
+    }
+
+    /**
+     * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
+     *
+     * @deprecated
      * @return null|array
      */
     public function getRoles()
@@ -86,6 +114,14 @@ final class AssociateDraftModel extends JsonObjectModel implements AssociateDraf
         return $this->customer;
     }
 
+
+    /**
+     * @param ?AssociateRoleAssignmentDraftCollection $associateRoleAssignments
+     */
+    public function setAssociateRoleAssignments(?AssociateRoleAssignmentDraftCollection $associateRoleAssignments): void
+    {
+        $this->associateRoleAssignments = $associateRoleAssignments;
+    }
 
     /**
      * @param ?array $roles

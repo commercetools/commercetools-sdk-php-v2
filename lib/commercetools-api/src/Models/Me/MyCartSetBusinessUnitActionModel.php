@@ -66,7 +66,7 @@ final class MyCartSetBusinessUnitActionModel extends JsonObjectModel implements 
 
     /**
      * <p>New Business Unit to assign to the Cart, which must have access to the <a href="/../api/projects/stores">Store</a> that is set on the Cart.
-     * Additionally, the authenticated user must have <a href="/projects/business-units#associate">Buyer</a> access to the <a href="/projects/business-units#businessunit">Business Unit</a>.</p>
+     * Additionally, the authenticated user must be an <a href="/projects/business-units#associate">Associate</a> in the <a href="/projects/business-units#businessunit">Business Unit</a>.</p>
      *
      *
      * @return null|BusinessUnitResourceIdentifier

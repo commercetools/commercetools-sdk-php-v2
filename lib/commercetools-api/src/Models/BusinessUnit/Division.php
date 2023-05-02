@@ -30,6 +30,14 @@ interface Division extends BusinessUnit
     public function getStoreMode();
 
     /**
+     * <p>Determines whether the Division can inherit Associates from a parent.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAssociateMode();
+
+    /**
      * @param ?BusinessUnitKeyReference $parentUnit
      */
     public function setParentUnit(?BusinessUnitKeyReference $parentUnit): void;
@@ -38,4 +46,9 @@ interface Division extends BusinessUnit
      * @param ?string $storeMode
      */
     public function setStoreMode(?string $storeMode): void;
+
+    /**
+     * @param ?string $associateMode
+     */
+    public function setAssociateMode(?string $associateMode): void;
 }

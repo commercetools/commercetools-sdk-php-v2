@@ -44,6 +44,9 @@ final class OrderUpdateModel extends JsonObjectModel implements OrderUpdate
     }
 
     /**
+     * <p>Expected version of the Order on which the changes should be applied.
+     * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     *
      *
      * @return null|int
      */
@@ -62,6 +65,8 @@ final class OrderUpdateModel extends JsonObjectModel implements OrderUpdate
     }
 
     /**
+     * <p>Update actions to be performed on the Order.</p>
+     *
      *
      * @return null|OrderUpdateActionCollection
      */

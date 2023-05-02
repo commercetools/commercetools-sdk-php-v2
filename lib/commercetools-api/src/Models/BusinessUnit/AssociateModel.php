@@ -23,6 +23,12 @@ final class AssociateModel extends JsonObjectModel implements Associate
 {
     /**
      *
+     * @var ?AssociateRoleAssignmentCollection
+     */
+    protected $associateRoleAssignments;
+
+    /**
+     * @deprecated
      * @var ?array
      */
     protected $roles;
@@ -38,17 +44,39 @@ final class AssociateModel extends JsonObjectModel implements Associate
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?AssociateRoleAssignmentCollection $associateRoleAssignments = null,
         ?array $roles = null,
         ?CustomerReference $customer = null
     ) {
+        $this->associateRoleAssignments = $associateRoleAssignments;
         $this->roles = $roles;
         $this->customer = $customer;
     }
 
     /**
-     * <p>Roles the Associate holds within the Business Unit.</p>
+     * <p>Roles assigned to the Associate within a Business Unit.</p>
      *
      *
+     * @return null|AssociateRoleAssignmentCollection
+     */
+    public function getAssociateRoleAssignments()
+    {
+        if (is_null($this->associateRoleAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ASSOCIATE_ROLE_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->associateRoleAssignments = AssociateRoleAssignmentCollection::fromArray($data);
+        }
+
+        return $this->associateRoleAssignments;
+    }
+
+    /**
+     * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
+     *
+     * @deprecated
      * @return null|array
      */
     public function getRoles()
@@ -66,7 +94,7 @@ final class AssociateModel extends JsonObjectModel implements Associate
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Customer">Customer</a> that is part of the Business Unit.</p>
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> that acts as an Associate in the Business Unit.</p>
      *
      *
      * @return null|CustomerReference
@@ -86,6 +114,14 @@ final class AssociateModel extends JsonObjectModel implements Associate
         return $this->customer;
     }
 
+
+    /**
+     * @param ?AssociateRoleAssignmentCollection $associateRoleAssignments
+     */
+    public function setAssociateRoleAssignments(?AssociateRoleAssignmentCollection $associateRoleAssignments): void
+    {
+        $this->associateRoleAssignments = $associateRoleAssignments;
+    }
 
     /**
      * @param ?array $roles

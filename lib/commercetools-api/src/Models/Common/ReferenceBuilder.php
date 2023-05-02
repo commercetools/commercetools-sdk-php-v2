@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\AssociateRole\AssociateRoleReference;
+use Commercetools\Api\Models\AssociateRole\AssociateRoleReferenceBuilder;
 use Commercetools\Api\Models\AttributeGroup\AttributeGroupReference;
 use Commercetools\Api\Models\AttributeGroup\AttributeGroupReferenceBuilder;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitReference;

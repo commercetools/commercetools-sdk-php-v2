@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\AssociateRole\AssociateRoleReference;
+use Commercetools\Api\Models\AssociateRole\AssociateRoleReferenceModel;
 use Commercetools\Api\Models\AttributeGroup\AttributeGroupReference;
 use Commercetools\Api\Models\AttributeGroup\AttributeGroupReferenceModel;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitReference;
@@ -99,6 +101,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
      *
      */
     private static $discriminatorClasses = [
+       'associate-role' => AssociateRoleReferenceModel::class,
        'attribute-group' => AttributeGroupReferenceModel::class,
        'business-unit' => BusinessUnitReferenceModel::class,
        'cart' => CartReferenceModel::class,

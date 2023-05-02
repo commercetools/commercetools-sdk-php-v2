@@ -14,13 +14,22 @@ use Commercetools\Base\JsonObject;
 
 interface AssociateDraft extends JsonObject
 {
+    public const FIELD_ASSOCIATE_ROLE_ASSIGNMENTS = 'associateRoleAssignments';
     public const FIELD_ROLES = 'roles';
     public const FIELD_CUSTOMER = 'customer';
 
     /**
-     * <p>Roles the Associate should hold within the Business Unit.</p>
+     * <p>Roles assigned to the Associate within a Business Unit.</p>
      *
 
+     * @return null|AssociateRoleAssignmentDraftCollection
+     */
+    public function getAssociateRoleAssignments();
+
+    /**
+     * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
+     *
+     * @deprecated
      * @return null|array
      */
     public function getRoles();
@@ -32,6 +41,11 @@ interface AssociateDraft extends JsonObject
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer();
+
+    /**
+     * @param ?AssociateRoleAssignmentDraftCollection $associateRoleAssignments
+     */
+    public function setAssociateRoleAssignments(?AssociateRoleAssignmentDraftCollection $associateRoleAssignments): void;
 
     /**
      * @param ?array $roles

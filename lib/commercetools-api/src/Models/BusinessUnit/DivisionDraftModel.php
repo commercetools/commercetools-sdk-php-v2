@@ -68,6 +68,12 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
 
     /**
      *
+     * @var ?string
+     */
+    protected $associateMode;
+
+    /**
+     *
      * @var ?AssociateDraftCollection
      */
     protected $associates;
@@ -125,6 +131,7 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
         ?string $storeMode = null,
         ?string $name = null,
         ?string $contactEmail = null,
+        ?string $associateMode = null,
         ?AssociateDraftCollection $associates = null,
         ?BaseAddressCollection $addresses = null,
         ?array $shippingAddresses = null,
@@ -141,6 +148,7 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
         $this->storeMode = $storeMode;
         $this->name = $name;
         $this->contactEmail = $contactEmail;
+        $this->associateMode = $associateMode;
         $this->associates = $associates;
         $this->addresses = $addresses;
         $this->shippingAddresses = $shippingAddresses;
@@ -216,7 +224,7 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
     }
 
     /**
-     * <p>If not set, the Division inherits the <a href="ctp:api:type:Store">Stores</a> from its <code>parentUnit</code>.
+     * <p>If not set, the Division inherits the <a href="ctp:api:type:Store">Stores</a> from a parent unit.
      * Set this to <code>Explicit</code> if you want to set the Stores explicitly in the <code>stores</code> field instead.</p>
      *
      *
@@ -294,6 +302,26 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
         }
 
         return $this->contactEmail;
+    }
+
+    /**
+     * <p>Determines whether the Division can inherit Associates from a parent.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAssociateMode()
+    {
+        if (is_null($this->associateMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ASSOCIATE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->associateMode = (string) $data;
+        }
+
+        return $this->associateMode;
     }
 
     /**
@@ -507,6 +535,14 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
     public function setContactEmail(?string $contactEmail): void
     {
         $this->contactEmail = $contactEmail;
+    }
+
+    /**
+     * @param ?string $associateMode
+     */
+    public function setAssociateMode(?string $associateMode): void
+    {
+        $this->associateMode = $associateMode;
     }
 
     /**
