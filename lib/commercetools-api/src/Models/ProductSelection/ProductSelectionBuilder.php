@@ -86,10 +86,16 @@ final class ProductSelectionBuilder implements Builder
     private $productCount;
 
     /**
-
+     * @deprecated
      * @var ?string
      */
     private $type;
+
+    /**
+
+     * @var ?string
+     */
+    private $mode;
 
     /**
 
@@ -198,14 +204,26 @@ final class ProductSelectionBuilder implements Builder
 
     /**
      * <p>Specifies in which way the Products are assigned to the ProductSelection.
-     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:IndividualProductSelectionType">including</a> or <a href="ctp:api:type:IndividualExclusionProductSelectionType">excluding</a> them explicitly.</p>
+     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:ProductSelectionMode">including or excluding</a> them explicitly.</p>
      *
-
+     * @deprecated
      * @return null|string
      */
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * <p>Specifies in which way the Products are assigned to the ProductSelection.
+     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:ProductSelectionMode">including or excluding</a> them explicitly.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMode()
+    {
+        return $this->mode;
     }
 
     /**
@@ -330,6 +348,17 @@ final class ProductSelectionBuilder implements Builder
     }
 
     /**
+     * @param ?string $mode
+     * @return $this
+     */
+    public function withMode(?string $mode)
+    {
+        $this->mode = $mode;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -397,6 +426,7 @@ final class ProductSelectionBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->productCount,
             $this->type,
+            $this->mode,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }

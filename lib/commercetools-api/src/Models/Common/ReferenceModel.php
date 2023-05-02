@@ -14,6 +14,8 @@ use Commercetools\Api\Models\BusinessUnit\BusinessUnitReference;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitReferenceModel;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceModel;
+use Commercetools\Api\Models\Cart\DirectDiscountReference;
+use Commercetools\Api\Models\Cart\DirectDiscountReferenceModel;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
 use Commercetools\Api\Models\Category\CategoryReference;
@@ -105,6 +107,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'channel' => ChannelReferenceModel::class,
        'customer' => CustomerReferenceModel::class,
        'customer-group' => CustomerGroupReferenceModel::class,
+       'direct-discount' => DirectDiscountReferenceModel::class,
        'discount-code' => DiscountCodeReferenceModel::class,
        'inventory-entry' => InventoryEntryReferenceModel::class,
        'key-value-document' => CustomObjectReferenceModel::class,

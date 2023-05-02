@@ -14,15 +14,26 @@ use Commercetools\Base\JsonObject;
 interface TaxCategoryReplaceTaxRateAction extends TaxCategoryUpdateAction
 {
     public const FIELD_TAX_RATE_ID = 'taxRateId';
+    public const FIELD_TAX_RATE_KEY = 'taxRateKey';
     public const FIELD_TAX_RATE = 'taxRate';
 
     /**
-     * <p>ID of the TaxRate to replace.</p>
+     * <p>ID of the TaxRate to replace.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
      *
 
      * @return null|string
      */
     public function getTaxRateId();
+
+    /**
+     * <p>Key of the TaxRate to replace.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRateKey();
 
     /**
      * <p>New TaxRate to replace with.</p>
@@ -36,6 +47,11 @@ interface TaxCategoryReplaceTaxRateAction extends TaxCategoryUpdateAction
      * @param ?string $taxRateId
      */
     public function setTaxRateId(?string $taxRateId): void;
+
+    /**
+     * @param ?string $taxRateKey
+     */
+    public function setTaxRateKey(?string $taxRateKey): void;
 
     /**
      * @param ?TaxRateDraft $taxRate

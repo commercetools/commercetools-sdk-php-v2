@@ -194,21 +194,33 @@ final class CartModel extends JsonObjectModel implements Cart
 
     /**
      *
+     * @var ?string
+     */
+    protected $shippingKey;
+
+    /**
+     *
      * @var ?ShippingInfo
      */
     protected $shippingInfo;
 
     /**
      *
-     * @var ?ShippingCollection
-     */
-    protected $shipping;
-
-    /**
-     *
      * @var ?ShippingRateInput
      */
     protected $shippingRateInput;
+
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $shippingCustomFields;
+
+    /**
+     *
+     * @var ?ShippingCollection
+     */
+    protected $shipping;
 
     /**
      *
@@ -312,9 +324,11 @@ final class CartModel extends JsonObjectModel implements Cart
         ?Address $billingAddress = null,
         ?Address $shippingAddress = null,
         ?string $shippingMode = null,
+        ?string $shippingKey = null,
         ?ShippingInfo $shippingInfo = null,
-        ?ShippingCollection $shipping = null,
         ?ShippingRateInput $shippingRateInput = null,
+        ?CustomFields $shippingCustomFields = null,
+        ?ShippingCollection $shipping = null,
         ?AddressCollection $itemShippingAddresses = null,
         ?DiscountCodeInfoCollection $discountCodes = null,
         ?DirectDiscountCollection $directDiscounts = null,
@@ -353,9 +367,11 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->billingAddress = $billingAddress;
         $this->shippingAddress = $shippingAddress;
         $this->shippingMode = $shippingMode;
+        $this->shippingKey = $shippingKey;
         $this->shippingInfo = $shippingInfo;
-        $this->shipping = $shipping;
         $this->shippingRateInput = $shippingRateInput;
+        $this->shippingCustomFields = $shippingCustomFields;
+        $this->shipping = $shipping;
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->discountCodes = $discountCodes;
         $this->directDiscounts = $directDiscounts;
@@ -891,6 +907,26 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
+    }
+
+    /**
      * <p>Shipping-related information of a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Automatically set when a <a href="ctp:api:type:CartSetShippingMethodAction">Shipping Method is set</a>.</p>
      *
      *
@@ -909,26 +945,6 @@ final class CartModel extends JsonObjectModel implements Cart
         }
 
         return $this->shippingInfo;
-    }
-
-    /**
-     * <p>Shipping-related information of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Updated automatically each time a new <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
-     *
-     *
-     * @return null|ShippingCollection
-     */
-    public function getShipping()
-    {
-        if (is_null($this->shipping)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_SHIPPING);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->shipping = ShippingCollection::fromArray($data);
-        }
-
-        return $this->shipping;
     }
 
     /**
@@ -956,6 +972,47 @@ final class CartModel extends JsonObjectModel implements Cart
         }
 
         return $this->shippingRateInput;
+    }
+
+    /**
+     * <p>Custom Fields of the Shipping Method in a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getShippingCustomFields()
+    {
+        if (is_null($this->shippingCustomFields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHIPPING_CUSTOM_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingCustomFields = CustomFieldsModel::of($data);
+        }
+
+        return $this->shippingCustomFields;
+    }
+
+    /**
+     * <p>Shipping-related information of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Updated automatically each time a new <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+     *
+     * @return null|ShippingCollection
+     */
+    public function getShipping()
+    {
+        if (is_null($this->shipping)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_SHIPPING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shipping = ShippingCollection::fromArray($data);
+        }
+
+        return $this->shipping;
     }
 
     /**
@@ -1405,6 +1462,14 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
+    }
+
+    /**
      * @param ?ShippingInfo $shippingInfo
      */
     public function setShippingInfo(?ShippingInfo $shippingInfo): void
@@ -1413,19 +1478,27 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
-     * @param ?ShippingCollection $shipping
-     */
-    public function setShipping(?ShippingCollection $shipping): void
-    {
-        $this->shipping = $shipping;
-    }
-
-    /**
      * @param ?ShippingRateInput $shippingRateInput
      */
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void
     {
         $this->shippingRateInput = $shippingRateInput;
+    }
+
+    /**
+     * @param ?CustomFields $shippingCustomFields
+     */
+    public function setShippingCustomFields(?CustomFields $shippingCustomFields): void
+    {
+        $this->shippingCustomFields = $shippingCustomFields;
+    }
+
+    /**
+     * @param ?ShippingCollection $shipping
+     */
+    public function setShipping(?ShippingCollection $shipping): void
+    {
+        $this->shipping = $shipping;
     }
 
     /**

@@ -46,7 +46,7 @@ final class ProductImportRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The type of the import resource.</p>
+     * <p>The resource types that can be imported.</p>
      *
      *
      * @return null|string

@@ -26,7 +26,7 @@ interface ProductSelectionAddProductAction extends ProductSelectionUpdateAction
     public function getProduct();
 
     /**
-     * <p>Defines which Variants of the Product will be included from the Product Selection.
+     * <p>Defines which Variants of the Product will be included in the Product Selection.
      * If not supplied all Variants are deemed to be included.</p>
      *
 

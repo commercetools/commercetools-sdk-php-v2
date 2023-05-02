@@ -14,9 +14,11 @@ use Commercetools\Base\JsonObject;
 interface TaxCategoryRemoveTaxRateAction extends TaxCategoryUpdateAction
 {
     public const FIELD_TAX_RATE_ID = 'taxRateId';
+    public const FIELD_TAX_RATE_KEY = 'taxRateKey';
 
     /**
-     * <p>ID of the TaxRate to remove.</p>
+     * <p>ID of the TaxRate to remove.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
      *
 
      * @return null|string
@@ -24,7 +26,21 @@ interface TaxCategoryRemoveTaxRateAction extends TaxCategoryUpdateAction
     public function getTaxRateId();
 
     /**
+     * <p>Key of the TaxRate to remove.
+     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRateKey();
+
+    /**
      * @param ?string $taxRateId
      */
     public function setTaxRateId(?string $taxRateId): void;
+
+    /**
+     * @param ?string $taxRateKey
+     */
+    public function setTaxRateKey(?string $taxRateKey): void;
 }

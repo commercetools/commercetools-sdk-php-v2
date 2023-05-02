@@ -85,10 +85,16 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     protected $productCount;
 
     /**
-     *
+     * @deprecated
      * @var ?string
      */
     protected $type;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $mode;
 
     /**
      *
@@ -111,6 +117,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
         ?LocalizedString $name = null,
         ?int $productCount = null,
         ?string $type = null,
+        ?string $mode = null,
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
@@ -123,6 +130,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
         $this->name = $name;
         $this->productCount = $productCount;
         $this->type = $type;
+        $this->mode = $mode;
         $this->custom = $custom;
     }
 
@@ -319,9 +327,9 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
 
     /**
      * <p>Specifies in which way the Products are assigned to the ProductSelection.
-     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:IndividualProductSelectionType">including</a> or <a href="ctp:api:type:IndividualExclusionProductSelectionType">excluding</a> them explicitly.</p>
+     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:ProductSelectionMode">including or excluding</a> them explicitly.</p>
      *
-     *
+     * @deprecated
      * @return null|string
      */
     public function getType()
@@ -336,6 +344,27 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
         }
 
         return $this->type;
+    }
+
+    /**
+     * <p>Specifies in which way the Products are assigned to the ProductSelection.
+     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:ProductSelectionMode">including or excluding</a> them explicitly.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getMode()
+    {
+        if (is_null($this->mode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->mode = (string) $data;
+        }
+
+        return $this->mode;
     }
 
     /**
@@ -438,6 +467,14 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     public function setType(?string $type): void
     {
         $this->type = $type;
+    }
+
+    /**
+     * @param ?string $mode
+     */
+    public function setMode(?string $mode): void
+    {
+        $this->mode = $mode;
     }
 
     /**

@@ -36,7 +36,7 @@ final class AttributeReferenceModel extends JsonObjectModel implements Attribute
     }
 
     /**
-     * <p>Key of the attribute.</p>
+     * <p>The Attribute's <code>name</code> as given in its <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
      *
      * @return null|string

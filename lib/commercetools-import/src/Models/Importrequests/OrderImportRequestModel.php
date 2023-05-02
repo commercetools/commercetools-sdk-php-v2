@@ -46,7 +46,7 @@ final class OrderImportRequestModel extends JsonObjectModel implements OrderImpo
     }
 
     /**
-     * <p>The type of the import resource.</p>
+     * <p>The resource types that can be imported.</p>
      *
      *
      * @return null|string

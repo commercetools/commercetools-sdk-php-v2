@@ -195,21 +195,33 @@ final class CartBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
      * @var null|ShippingInfo|ShippingInfoBuilder
      */
     private $shippingInfo;
 
     /**
 
-     * @var ?ShippingCollection
-     */
-    private $shipping;
-
-    /**
-
      * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $shippingRateInput;
+
+    /**
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $shippingCustomFields;
+
+    /**
+
+     * @var ?ShippingCollection
+     */
+    private $shipping;
 
     /**
 
@@ -563,6 +575,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
+    }
+
+    /**
      * <p>Shipping-related information of a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Automatically set when a <a href="ctp:api:type:CartSetShippingMethodAction">Shipping Method is set</a>.</p>
      *
 
@@ -571,17 +594,6 @@ final class CartBuilder implements Builder
     public function getShippingInfo()
     {
         return $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo;
-    }
-
-    /**
-     * <p>Shipping-related information of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Updated automatically each time a new <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
-     *
-
-     * @return null|ShippingCollection
-     */
-    public function getShipping()
-    {
-        return $this->shipping;
     }
 
     /**
@@ -599,6 +611,28 @@ final class CartBuilder implements Builder
     public function getShippingRateInput()
     {
         return $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput;
+    }
+
+    /**
+     * <p>Custom Fields of the Shipping Method in a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getShippingCustomFields()
+    {
+        return $this->shippingCustomFields instanceof CustomFieldsBuilder ? $this->shippingCustomFields->build() : $this->shippingCustomFields;
+    }
+
+    /**
+     * <p>Shipping-related information of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Updated automatically each time a new <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+
+     * @return null|ShippingCollection
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
     }
 
     /**
@@ -1010,6 +1044,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?ShippingInfo $shippingInfo
      * @return $this
      */
@@ -1021,23 +1066,34 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * @param ?ShippingCollection $shipping
-     * @return $this
-     */
-    public function withShipping(?ShippingCollection $shipping)
-    {
-        $this->shipping = $shipping;
-
-        return $this;
-    }
-
-    /**
      * @param ?ShippingRateInput $shippingRateInput
      * @return $this
      */
     public function withShippingRateInput(?ShippingRateInput $shippingRateInput)
     {
         $this->shippingRateInput = $shippingRateInput;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFields $shippingCustomFields
+     * @return $this
+     */
+    public function withShippingCustomFields(?CustomFields $shippingCustomFields)
+    {
+        $this->shippingCustomFields = $shippingCustomFields;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShippingCollection $shipping
+     * @return $this
+     */
+    public function withShipping(?ShippingCollection $shipping)
+    {
+        $this->shipping = $shipping;
 
         return $this;
     }
@@ -1285,6 +1341,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingCustomFields() instead
+     * @return $this
+     */
+    public function withShippingCustomFieldsBuilder(?CustomFieldsBuilder $shippingCustomFields)
+    {
+        $this->shippingCustomFields = $shippingCustomFields;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPaymentInfo() instead
      * @return $this
      */
@@ -1356,9 +1423,11 @@ final class CartBuilder implements Builder
             $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
             $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
             $this->shippingMode,
+            $this->shippingKey,
             $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo,
-            $this->shipping,
             $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
+            $this->shippingCustomFields instanceof CustomFieldsBuilder ? $this->shippingCustomFields->build() : $this->shippingCustomFields,
+            $this->shipping,
             $this->itemShippingAddresses,
             $this->discountCodes,
             $this->directDiscounts,
