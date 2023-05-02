@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Controller\Client\RequestBuilder;
+use App\Client\RequestBuilder;
 
 class ProductService
 {
