@@ -1,0 +1,28 @@
+version: "3.4"
+
+
+services:
+  application:
+    build:
+      context: docker/php
+      dockerfile: Dockerfile
+      args:
+        NEWRELIC_KEY: "<newrelic license key>"
+        NEWRELIC_APP_NAME: "PHP_SDK"
+    tty: true
+    ports:
+      - 9000:9000
+    volumes:
+      - .:/var/www/symfony
+      - ./var/logs/newrelic:/var/log/newrelic
+  nginx:
+    build:
+      context: docker/nginx
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    links:
+      - application
+    volumes:
+      - ./var/logs/nginx:/var/log/nginx
+      - .:/var/www/symfony
