@@ -98,6 +98,9 @@ $project = $request->mapFromResponse($response);
 To migrate from the 1.x to the 2.x, there is a guideline below:
 * [Migration guidelines from v1 to v2](./Migration.md)
 
+### Observability
+To monitor and observe the SDK, see the official documentation [Observability](https://docs.commercetools.com/sdk/observability), there is a [Demo application](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app) which shows how to monitor the PHP SDK with New Relic.
+
 ### Documentation
 
 * [Documentation](https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/index.html)
