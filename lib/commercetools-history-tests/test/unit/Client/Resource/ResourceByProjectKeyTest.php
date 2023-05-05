@@ -100,15 +100,15 @@ class ResourceByProjectKeyTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyGet_withResourceType' => [
+            'ByProjectKeyGet_withResourceTypes' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue('test_projectKey')
                         ->get()
-                        ->withResourceType('resourceType');
+                        ->withResourceTypes('resourceTypes');
                 },
                 'get',
-                'test_projectKey?resourceType=resourceType',
+                'test_projectKey?resourceTypes=resourceTypes',
             ],
             'ByProjectKeyGet_withDateFrom' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
