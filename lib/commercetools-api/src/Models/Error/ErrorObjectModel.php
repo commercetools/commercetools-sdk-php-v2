@@ -38,6 +38,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
      */
     private static $discriminatorClasses = [
        'AnonymousIdAlreadyInUse' => AnonymousIdAlreadyInUseErrorModel::class,
+       'AssociateMissingPermission' => AssociateMissingPermissionErrorModel::class,
        'AttributeDefinitionAlreadyExists' => AttributeDefinitionAlreadyExistsErrorModel::class,
        'AttributeDefinitionTypeConflict' => AttributeDefinitionTypeConflictErrorModel::class,
        'AttributeNameDoesNotExist' => AttributeNameDoesNotExistErrorModel::class,

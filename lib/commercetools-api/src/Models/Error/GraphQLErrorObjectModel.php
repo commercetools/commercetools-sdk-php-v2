@@ -32,6 +32,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
      */
     private static $discriminatorClasses = [
        'AnonymousIdAlreadyInUse' => GraphQLAnonymousIdAlreadyInUseErrorModel::class,
+       'AssociateMissingPermission' => GraphQLAssociateMissingPermissionErrorModel::class,
        'AttributeDefinitionAlreadyExists' => GraphQLAttributeDefinitionAlreadyExistsErrorModel::class,
        'AttributeDefinitionTypeConflict' => GraphQLAttributeDefinitionTypeConflictErrorModel::class,
        'AttributeNameDoesNotExist' => GraphQLAttributeNameDoesNotExistErrorModel::class,
