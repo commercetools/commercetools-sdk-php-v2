@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importrequests;
+namespace Commercetools\Import\Models\Types;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -17,62 +17,59 @@ use stdClass;
 /**
  * @internal
  */
-final class ImportRequestModel extends JsonObjectModel implements ImportRequest
+final class FieldTypeModel extends JsonObjectModel implements FieldType
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
      *
      * @var ?string
      */
-    protected $type;
+    protected $name;
 
     /**
-     * @psalm-var array<string, class-string<ImportRequest> >
+     * @psalm-var array<string, class-string<FieldType> >
      *
      */
     private static $discriminatorClasses = [
-       'category' => CategoryImportRequestModel::class,
-       'customer' => CustomerImportRequestModel::class,
-       'inventory' => InventoryImportRequestModel::class,
-       'order' => OrderImportRequestModel::class,
-       'order-patch' => OrderPatchImportRequestModel::class,
-       'price' => PriceImportRequestModel::class,
-       'product' => ProductImportRequestModel::class,
-       'product-draft' => ProductDraftImportRequestModel::class,
-       'product-type' => ProductTypeImportRequestModel::class,
-       'product-variant' => ProductVariantImportRequestModel::class,
-       'product-variant-patch' => ProductVariantPatchRequestModel::class,
-       'standalone-price' => StandalonePriceImportRequestModel::class,
-       'type' => TypeImportRequestModel::class,
+       'Boolean' => CustomFieldBooleanTypeModel::class,
+       'Date' => CustomFieldDateTypeModel::class,
+       'DateTime' => CustomFieldDateTimeTypeModel::class,
+       'Enum' => CustomFieldEnumTypeModel::class,
+       'LocalizedEnum' => CustomFieldLocalizedEnumTypeModel::class,
+       'LocalizedString' => CustomFieldLocalizedStringTypeModel::class,
+       'Money' => CustomFieldMoneyTypeModel::class,
+       'Number' => CustomFieldNumberTypeModel::class,
+       'Reference' => CustomFieldReferenceTypeModel::class,
+       'Set' => CustomFieldSetTypeModel::class,
+       'String' => CustomFieldStringTypeModel::class,
+       'Time' => CustomFieldTimeTypeModel::class,
     ];
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $type = null
+        ?string $name = null
     ) {
-        $this->type = $type;
+        $this->name = $name;
     }
 
     /**
-     * <p>The resource types that can be imported.</p>
-     *
      *
      * @return null|string
      */
-    public function getType()
+    public function getName()
     {
-        if (is_null($this->type)) {
+        if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->type = (string) $data;
+            $this->name = (string) $data;
         }
 
-        return $this->type;
+        return $this->name;
     }
 
 
@@ -81,11 +78,11 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 
     /**
      * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<ImportRequest>
+     * @psalm-return class-string<FieldType>
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = ImportRequest::DISCRIMINATOR_FIELD;
+        $fieldName = FieldType::DISCRIMINATOR_FIELD;
         if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value->$fieldName;
@@ -101,8 +98,8 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
             }
         }
 
-        /** @psalm-var class-string<ImportRequest> */
-        $type = ImportRequestModel::class;
+        /** @psalm-var class-string<FieldType> */
+        $type = FieldTypeModel::class;
         return $type;
     }
 }

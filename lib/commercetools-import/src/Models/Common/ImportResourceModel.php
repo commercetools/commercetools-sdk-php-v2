@@ -30,6 +30,8 @@ use Commercetools\Import\Models\Productvariants\ProductVariantImport;
 use Commercetools\Import\Models\Productvariants\ProductVariantImportModel;
 use Commercetools\Import\Models\StandalonePrices\StandalonePriceImport;
 use Commercetools\Import\Models\StandalonePrices\StandalonePriceImportModel;
+use Commercetools\Import\Models\Types\TypeImport;
+use Commercetools\Import\Models\Types\TypeImportModel;
 use stdClass;
 
 /**

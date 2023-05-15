@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\BusinessUnit\AssociateRoleAssignmentDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -31,16 +32,24 @@ final class MyBusinessUnitAssociateDraftModel extends JsonObjectModel implements
      */
     protected $customer;
 
+    /**
+     *
+     * @var ?AssociateRoleAssignmentDraftCollection
+     */
+    protected $associateRoleAssignments;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?int $version = null,
-        ?MyCustomerDraft $customer = null
+        ?MyCustomerDraft $customer = null,
+        ?AssociateRoleAssignmentDraftCollection $associateRoleAssignments = null
     ) {
         $this->version = $version;
         $this->customer = $customer;
+        $this->associateRoleAssignments = $associateRoleAssignments;
     }
 
     /**
@@ -84,6 +93,26 @@ final class MyBusinessUnitAssociateDraftModel extends JsonObjectModel implements
         return $this->customer;
     }
 
+    /**
+     * <p>Roles assigned to the new Associate within a Business Unit.</p>
+     *
+     *
+     * @return null|AssociateRoleAssignmentDraftCollection
+     */
+    public function getAssociateRoleAssignments()
+    {
+        if (is_null($this->associateRoleAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ASSOCIATE_ROLE_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->associateRoleAssignments = AssociateRoleAssignmentDraftCollection::fromArray($data);
+        }
+
+        return $this->associateRoleAssignments;
+    }
+
 
     /**
      * @param ?int $version
@@ -99,5 +128,13 @@ final class MyBusinessUnitAssociateDraftModel extends JsonObjectModel implements
     public function setCustomer(?MyCustomerDraft $customer): void
     {
         $this->customer = $customer;
+    }
+
+    /**
+     * @param ?AssociateRoleAssignmentDraftCollection $associateRoleAssignments
+     */
+    public function setAssociateRoleAssignments(?AssociateRoleAssignmentDraftCollection $associateRoleAssignments): void
+    {
+        $this->associateRoleAssignments = $associateRoleAssignments;
     }
 }

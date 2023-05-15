@@ -1,9 +1,37 @@
 **Api changes**
 
 <details>
-<summary>Changed Type(s)</summary>
+<summary>Added Property(s)</summary>
 
-- :warning: changed type `AssociateRole` from type `string` to `BaseResource`
+- added property `associateRoleAssignments` to type `Associate`
+- added property `associateRoleAssignments` to type `AssociateDraft`
+- added property `associateMode` to type `BusinessUnit`
+- added property `inheritedAssociates` to type `BusinessUnit`
+- added property `associateMode` to type `BusinessUnitDraft`
+- added property `associateMode` to type `Company`
+- added property `inheritedAssociates` to type `Company`
+- added property `associateMode` to type `CompanyDraft`
+- added property `associateMode` to type `Division`
+- added property `inheritedAssociates` to type `Division`
+- added property `associateMode` to type `DivisionDraft`
+- added property `associateRoleAssignments` to type `MyBusinessUnitAssociateDraft`
+- added property `myBusinessUnitAssociateRoleOnCreation` to type `BusinessUnitConfiguration`
+</details>
+
+
+<details>
+<summary>MarkDeprecated Property(s)</summary>
+
+- marked property `Associate::roles` as deprecated
+- marked property `AssociateDraft::roles` as deprecated
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `roles` of type `Associate` from type `AssociateRole[]` to `AssociateRoleDeprecated[]`
+- :warning: changed property `roles` of type `AssociateDraft` from type `AssociateRole[]` to `AssociateRoleDeprecated[]`
 </details>
 
 
@@ -56,45 +84,9 @@
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Changed Type(s)</summary>
 
-- added enum `associate-role` to type `ReferenceTypeId`
-- added enum `associate-role` to type `MessageSubscriptionResourceTypeId`
-- added enum `associate-role` to type `ResourceTypeId`
-</details>
-
-
-<details>
-<summary>Added Property(s)</summary>
-
-- added property `associateRoleAssignments` to type `Associate`
-- added property `associateRoleAssignments` to type `AssociateDraft`
-- added property `associateMode` to type `BusinessUnit`
-- added property `inheritedAssociates` to type `BusinessUnit`
-- added property `associateMode` to type `BusinessUnitDraft`
-- added property `associateMode` to type `Company`
-- added property `inheritedAssociates` to type `Company`
-- added property `associateMode` to type `CompanyDraft`
-- added property `associateMode` to type `Division`
-- added property `inheritedAssociates` to type `Division`
-- added property `associateMode` to type `DivisionDraft`
-- added property `myBusinessUnitAssociateRoleOnCreation` to type `BusinessUnitConfiguration`
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `roles` of type `Associate` from type `AssociateRole[]` to `AssociateRoleDeprecated[]`
-- :warning: changed property `roles` of type `AssociateDraft` from type `AssociateRole[]` to `AssociateRoleDeprecated[]`
-</details>
-
-
-<details>
-<summary>MarkDeprecated Property(s)</summary>
-
-- marked property `Associate::roles` as deprecated
-- marked property `AssociateDraft::roles` as deprecated
+- :warning: changed type `AssociateRole` from type `string` to `BaseResource`
 </details>
 
 
@@ -123,6 +115,15 @@
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/quote-requests/{ID}`
 - added resource `/{projectKey}/associate-roles/key={key}`
 - added resource `/{projectKey}/associate-roles/{ID}`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `associate-role` to type `ReferenceTypeId`
+- added enum `associate-role` to type `MessageSubscriptionResourceTypeId`
+- added enum `associate-role` to type `ResourceTypeId`
 </details>
 
 
@@ -171,12 +172,65 @@
 - added method `$apiRoot->withProjectKey()->associateRoles()->withId()->delete()`
 </details>
 
+**Import changes**
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `TypeImportRequest`
+- added type `TypeTextInputHint`
+- added type `ResourceTypeId`
+- added type `FieldType`
+- added type `CustomFieldBooleanType`
+- added type `CustomFieldDateTimeType`
+- added type `CustomFieldDateType`
+- added type `CustomFieldEnumType`
+- added type `CustomFieldEnumValue`
+- added type `CustomFieldLocalizedEnumType`
+- added type `CustomFieldLocalizedEnumValue`
+- added type `CustomFieldLocalizedStringType`
+- added type `CustomFieldMoneyType`
+- added type `CustomFieldNumberType`
+- added type `CustomFieldReferenceType`
+- added type `CustomFieldReferenceValue`
+- added type `CustomFieldSetType`
+- added type `CustomFieldStringType`
+- added type `CustomFieldTimeType`
+- added type `FieldDefinition`
+- added type `TypeImport`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/types`
+- added resource `/{projectKey}/types/import-containers`
+- added resource `/{projectKey}/types/import-containers/{importContainerKey}`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `type` to type `ImportResourceType`
+</details>
+
+
+<details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKeyValue()->types()->importContainers()->withImportContainerKeyValue()->post()`
+</details>
+
 **History changes**
 
 <details>
-<summary>Added QueryParameter(s)</summary>
+<summary>Added Type(s)</summary>
 
-- added query parameter `resourceTypes` to method `get /{projectKey}`
+- added type `SetCountriesChange`
+- added type `SetPurchaseOrderNumberChange`
+- added type `StoreCountry`
 </details>
 
 
@@ -188,10 +242,8 @@
 
 
 <details>
-<summary>Added Type(s)</summary>
+<summary>Added QueryParameter(s)</summary>
 
-- added type `SetCountriesChange`
-- added type `SetPurchaseOrderNumberChange`
-- added type `StoreCountry`
+- added query parameter `resourceTypes` to method `get /{projectKey}`
 </details>
 

@@ -324,3 +324,19 @@ $request = $builder
                 ->withImportContainerKeyValue("importContainerKey")
                 ->post(null);
 ```
+## `withProjectKeyValue("projectKey")->types()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
+
+Creates a request for creating new Type or updating existing ones.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->types()
+                ->importContainers()
+                ->withImportContainerKeyValue("importContainerKey")
+                ->post(null);
+```

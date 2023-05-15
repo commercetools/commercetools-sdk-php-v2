@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\BusinessUnit\AssociateRoleAssignmentDraftCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -33,6 +34,12 @@ final class MyBusinessUnitAssociateDraftBuilder implements Builder
     private $customer;
 
     /**
+
+     * @var ?AssociateRoleAssignmentDraftCollection
+     */
+    private $associateRoleAssignments;
+
+    /**
      * <p>Expected version of the BusinessUnit on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
      *
 
@@ -52,6 +59,17 @@ final class MyBusinessUnitAssociateDraftBuilder implements Builder
     public function getCustomer()
     {
         return $this->customer instanceof MyCustomerDraftBuilder ? $this->customer->build() : $this->customer;
+    }
+
+    /**
+     * <p>Roles assigned to the new Associate within a Business Unit.</p>
+     *
+
+     * @return null|AssociateRoleAssignmentDraftCollection
+     */
+    public function getAssociateRoleAssignments()
+    {
+        return $this->associateRoleAssignments;
     }
 
     /**
@@ -77,6 +95,17 @@ final class MyBusinessUnitAssociateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?AssociateRoleAssignmentDraftCollection $associateRoleAssignments
+     * @return $this
+     */
+    public function withAssociateRoleAssignments(?AssociateRoleAssignmentDraftCollection $associateRoleAssignments)
+    {
+        $this->associateRoleAssignments = $associateRoleAssignments;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomer() instead
      * @return $this
      */
@@ -91,7 +120,8 @@ final class MyBusinessUnitAssociateDraftBuilder implements Builder
     {
         return new MyBusinessUnitAssociateDraftModel(
             $this->version,
-            $this->customer instanceof MyCustomerDraftBuilder ? $this->customer->build() : $this->customer
+            $this->customer instanceof MyCustomerDraftBuilder ? $this->customer->build() : $this->customer,
+            $this->associateRoleAssignments
         );
     }
 
