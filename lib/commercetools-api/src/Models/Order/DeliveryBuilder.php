@@ -33,6 +33,12 @@ final class DeliveryBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
@@ -70,6 +76,17 @@ final class DeliveryBuilder implements Builder
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Delivery.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -129,6 +146,17 @@ final class DeliveryBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -214,6 +242,7 @@ final class DeliveryBuilder implements Builder
     {
         return new DeliveryModel(
             $this->id,
+            $this->key,
             $this->createdAt,
             $this->items,
             $this->parcels,

@@ -14,14 +14,25 @@ use Commercetools\Base\JsonObject;
 interface OrderSetDeliveryCustomFieldAction extends OrderUpdateAction
 {
     public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_DELIVERY_KEY = 'deliveryKey';
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId();
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey();
 
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
@@ -45,6 +56,11 @@ interface OrderSetDeliveryCustomFieldAction extends OrderUpdateAction
      * @param ?string $deliveryId
      */
     public function setDeliveryId(?string $deliveryId): void;
+
+    /**
+     * @param ?string $deliveryKey
+     */
+    public function setDeliveryKey(?string $deliveryKey): void;
 
     /**
      * @param ?string $name

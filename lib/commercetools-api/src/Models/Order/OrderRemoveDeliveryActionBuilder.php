@@ -28,11 +28,30 @@ final class OrderRemoveDeliveryActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $deliveryKey;
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
      * @return null|string
      */
     public function getDeliveryId()
     {
         return $this->deliveryId;
+    }
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        return $this->deliveryKey;
     }
 
     /**
@@ -46,11 +65,23 @@ final class OrderRemoveDeliveryActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $deliveryKey
+     * @return $this
+     */
+    public function withDeliveryKey(?string $deliveryKey)
+    {
+        $this->deliveryKey = $deliveryKey;
+
+        return $this;
+    }
+
 
     public function build(): OrderRemoveDeliveryAction
     {
         return new OrderRemoveDeliveryActionModel(
-            $this->deliveryId
+            $this->deliveryId,
+            $this->deliveryKey
         );
     }
 

@@ -32,6 +32,12 @@ final class OrderSetDeliveryAddressCustomTypeActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $deliveryKey;
+
+    /**
+
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -43,12 +49,25 @@ final class OrderSetDeliveryAddressCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId()
     {
         return $this->deliveryId;
+    }
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        return $this->deliveryKey;
     }
 
     /**
@@ -81,6 +100,17 @@ final class OrderSetDeliveryAddressCustomTypeActionBuilder implements Builder
     public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $deliveryKey
+     * @return $this
+     */
+    public function withDeliveryKey(?string $deliveryKey)
+    {
+        $this->deliveryKey = $deliveryKey;
 
         return $this;
     }
@@ -133,6 +163,7 @@ final class OrderSetDeliveryAddressCustomTypeActionBuilder implements Builder
     {
         return new OrderSetDeliveryAddressCustomTypeActionModel(
             $this->deliveryId,
+            $this->deliveryKey,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );

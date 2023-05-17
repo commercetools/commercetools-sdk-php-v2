@@ -26,6 +26,12 @@ final class DeliveryDraftBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
@@ -47,6 +53,17 @@ final class DeliveryDraftBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+     * <p>User-defined unique identifier of the Delivery.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p>Items which are shipped in this delivery regardless their distribution over several parcels.
@@ -87,6 +104,17 @@ final class DeliveryDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -158,6 +186,7 @@ final class DeliveryDraftBuilder implements Builder
     public function build(): DeliveryDraft
     {
         return new DeliveryDraftModel(
+            $this->key,
             $this->items,
             $this->parcels,
             $this->address instanceof AddressDraftBuilder ? $this->address->build() : $this->address,

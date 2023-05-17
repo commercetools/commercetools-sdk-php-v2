@@ -17,6 +17,7 @@ use DateTimeImmutable;
 interface Delivery extends JsonObject
 {
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_CREATED_AT = 'createdAt';
     public const FIELD_ITEMS = 'items';
     public const FIELD_PARCELS = 'parcels';
@@ -30,6 +31,14 @@ interface Delivery extends JsonObject
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-defined unique identifier of the Delivery.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
 
@@ -70,6 +79,11 @@ interface Delivery extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt

@@ -16,14 +16,25 @@ use Commercetools\Base\JsonObject;
 interface OrderSetDeliveryAddressCustomTypeAction extends OrderUpdateAction
 {
     public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_DELIVERY_KEY = 'deliveryKey';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId();
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey();
 
     /**
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> in a Delivery with <a href="/../api/projects/custom-fields">Custom Fields</a>.
@@ -46,6 +57,11 @@ interface OrderSetDeliveryAddressCustomTypeAction extends OrderUpdateAction
      * @param ?string $deliveryId
      */
     public function setDeliveryId(?string $deliveryId): void;
+
+    /**
+     * @param ?string $deliveryKey
+     */
+    public function setDeliveryKey(?string $deliveryKey): void;
 
     /**
      * @param ?TypeResourceIdentifier $type

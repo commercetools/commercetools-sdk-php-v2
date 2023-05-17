@@ -15,13 +15,24 @@ use Commercetools\Base\JsonObject;
 interface OrderSetDeliveryAddressAction extends OrderUpdateAction
 {
     public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_DELIVERY_KEY = 'deliveryKey';
     public const FIELD_ADDRESS = 'address';
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId();
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey();
 
     /**
      * <p>Polymorphic base type that represents a postal address and contact details.
@@ -37,6 +48,11 @@ interface OrderSetDeliveryAddressAction extends OrderUpdateAction
      * @param ?string $deliveryId
      */
     public function setDeliveryId(?string $deliveryId): void;
+
+    /**
+     * @param ?string $deliveryKey
+     */
+    public function setDeliveryKey(?string $deliveryKey): void;
 
     /**
      * @param ?BaseAddress $address

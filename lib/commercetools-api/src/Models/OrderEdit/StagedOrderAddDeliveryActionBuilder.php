@@ -30,6 +30,12 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $deliveryKey;
+
+    /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
@@ -51,6 +57,17 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+     * <p>User-defined unique identifier of a Delivery.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        return $this->deliveryKey;
+    }
 
     /**
 
@@ -92,6 +109,17 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @param ?string $deliveryKey
+     * @return $this
+     */
+    public function withDeliveryKey(?string $deliveryKey)
+    {
+        $this->deliveryKey = $deliveryKey;
+
+        return $this;
     }
 
     /**
@@ -163,6 +191,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     public function build(): StagedOrderAddDeliveryAction
     {
         return new StagedOrderAddDeliveryActionModel(
+            $this->deliveryKey,
             $this->items,
             $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,
             $this->parcels,

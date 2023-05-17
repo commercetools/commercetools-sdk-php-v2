@@ -28,6 +28,12 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $deliveryKey;
+
+    /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
@@ -45,12 +51,25 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     private $items;
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId()
     {
         return $this->deliveryId;
+    }
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        return $this->deliveryKey;
     }
 
     /**
@@ -87,6 +106,17 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $deliveryKey
+     * @return $this
+     */
+    public function withDeliveryKey(?string $deliveryKey)
+    {
+        $this->deliveryKey = $deliveryKey;
 
         return $this;
     }
@@ -150,6 +180,7 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     {
         return new OrderAddParcelToDeliveryActionModel(
             $this->deliveryId,
+            $this->deliveryKey,
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
             $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
             $this->items

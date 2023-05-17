@@ -15,11 +15,20 @@ use Commercetools\Base\JsonObject;
 
 interface OrderAddDeliveryAction extends OrderUpdateAction
 {
+    public const FIELD_DELIVERY_KEY = 'deliveryKey';
     public const FIELD_ITEMS = 'items';
     public const FIELD_SHIPPING_KEY = 'shippingKey';
     public const FIELD_ADDRESS = 'address';
     public const FIELD_PARCELS = 'parcels';
     public const FIELD_CUSTOM = 'custom';
+
+    /**
+     * <p>User-defined unique identifier of a Delivery.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey();
 
     /**
 
@@ -58,6 +67,11 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * @param ?string $deliveryKey
+     */
+    public function setDeliveryKey(?string $deliveryKey): void;
 
     /**
      * @param ?DeliveryItemCollection $items

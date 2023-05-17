@@ -14,13 +14,24 @@ use Commercetools\Base\JsonObject;
 interface OrderSetDeliveryItemsAction extends OrderUpdateAction
 {
     public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_DELIVERY_KEY = 'deliveryKey';
     public const FIELD_ITEMS = 'items';
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId();
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey();
 
     /**
 
@@ -32,6 +43,11 @@ interface OrderSetDeliveryItemsAction extends OrderUpdateAction
      * @param ?string $deliveryId
      */
     public function setDeliveryId(?string $deliveryId): void;
+
+    /**
+     * @param ?string $deliveryKey
+     */
+    public function setDeliveryKey(?string $deliveryKey): void;
 
     /**
      * @param ?DeliveryItemCollection $items
