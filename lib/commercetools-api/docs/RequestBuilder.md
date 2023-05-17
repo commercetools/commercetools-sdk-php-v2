@@ -230,7 +230,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withId("ID")->get()`
 
-If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -286,7 +286,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withKey("key")->get()`
 
-If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -379,7 +379,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->get()`
 
-If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -417,7 +417,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withOrderNumber("orderNumber")->get()`
 
-If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -509,7 +509,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->get()`
 
-If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -547,7 +547,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->get()`
 
-If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -602,7 +602,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->get()`
 
-If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -640,7 +640,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->get()`
 
-If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
