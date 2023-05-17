@@ -543,7 +543,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
-     * <p>Unique VAT ID of the Customer.</p>
+     * <p>Individual VAT ID of the Customer.</p>
      *
      *
      * @return null|string

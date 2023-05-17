@@ -346,7 +346,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * <p>Unique VAT ID of the Customer.</p>
+     * <p>Individual VAT ID of the Customer.</p>
      *
      *
      * @return null|string
