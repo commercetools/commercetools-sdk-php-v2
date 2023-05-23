@@ -32,6 +32,12 @@ final class StagedOrderSetDeliveryCustomFieldActionBuilder implements Builder
 
      * @var ?string
      */
+    private $deliveryKey;
+
+    /**
+
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -41,12 +47,25 @@ final class StagedOrderSetDeliveryCustomFieldActionBuilder implements Builder
     private $value;
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId()
     {
         return $this->deliveryId;
+    }
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        return $this->deliveryKey;
     }
 
     /**
@@ -85,6 +104,17 @@ final class StagedOrderSetDeliveryCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryKey
+     * @return $this
+     */
+    public function withDeliveryKey(?string $deliveryKey)
+    {
+        $this->deliveryKey = $deliveryKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -111,6 +141,7 @@ final class StagedOrderSetDeliveryCustomFieldActionBuilder implements Builder
     {
         return new StagedOrderSetDeliveryCustomFieldActionModel(
             $this->deliveryId,
+            $this->deliveryKey,
             $this->name,
             $this->value
         );

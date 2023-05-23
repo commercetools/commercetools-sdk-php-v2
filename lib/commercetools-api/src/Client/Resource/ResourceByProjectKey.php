@@ -28,6 +28,22 @@ class ResourceByProjectKey extends ApiResource
 
     /**
      */
+    public function asAssociate(): ResourceByProjectKeyAsAssociate
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyAsAssociate($args, $this->getClient());
+    }
+    /**
+     */
+    public function associateRoles(): ResourceByProjectKeyAssociateRoles
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyAssociateRoles($args, $this->getClient());
+    }
+    /**
+     */
     public function businessUnits(): ResourceByProjectKeyBusinessUnits
     {
         $args = $this->getArgs();

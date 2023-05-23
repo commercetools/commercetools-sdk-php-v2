@@ -24,6 +24,12 @@ final class AssociateBuilder implements Builder
 {
     /**
 
+     * @var ?AssociateRoleAssignmentCollection
+     */
+    private $associateRoleAssignments;
+
+    /**
+     * @deprecated
      * @var ?array
      */
     private $roles;
@@ -35,9 +41,20 @@ final class AssociateBuilder implements Builder
     private $customer;
 
     /**
-     * <p>Roles the Associate holds within the Business Unit.</p>
+     * <p>Roles assigned to the Associate within a Business Unit.</p>
      *
 
+     * @return null|AssociateRoleAssignmentCollection
+     */
+    public function getAssociateRoleAssignments()
+    {
+        return $this->associateRoleAssignments;
+    }
+
+    /**
+     * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
+     *
+     * @deprecated
      * @return null|array
      */
     public function getRoles()
@@ -46,7 +63,7 @@ final class AssociateBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Customer">Customer</a> that is part of the Business Unit.</p>
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> that acts as an Associate in the Business Unit.</p>
      *
 
      * @return null|CustomerReference
@@ -54,6 +71,17 @@ final class AssociateBuilder implements Builder
     public function getCustomer()
     {
         return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
+    }
+
+    /**
+     * @param ?AssociateRoleAssignmentCollection $associateRoleAssignments
+     * @return $this
+     */
+    public function withAssociateRoleAssignments(?AssociateRoleAssignmentCollection $associateRoleAssignments)
+    {
+        $this->associateRoleAssignments = $associateRoleAssignments;
+
+        return $this;
     }
 
     /**
@@ -92,6 +120,7 @@ final class AssociateBuilder implements Builder
     public function build(): Associate
     {
         return new AssociateModel(
+            $this->associateRoleAssignments,
             $this->roles,
             $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer
         );

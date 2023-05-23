@@ -27,7 +27,7 @@ final class ProjectChangeBusinessUnitStatusOnCreationActionBuilder implements Bu
     private $status;
 
     /**
-     * <p>Status for Business Units created using the <a href="/../api/projects/me-business-units#create-businessunit">My Business Unit endpoint</a>.</p>
+     * <p>Status for Business Units created using the <a href="ctp:api:endpoint:/{projectKey}/me/business-units:POST">My Business Unit endpoint</a>.</p>
      *
 
      * @return null|string

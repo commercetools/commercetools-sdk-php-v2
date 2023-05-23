@@ -108,7 +108,7 @@ interface MyCustomerDraft extends JsonObject
     public function getCompanyName();
 
     /**
-     * <p>Unique VAT ID of the Customer.</p>
+     * <p>Individual VAT ID of the Customer.</p>
      *
 
      * @return null|string

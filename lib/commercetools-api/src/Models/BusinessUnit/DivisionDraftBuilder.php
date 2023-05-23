@@ -62,6 +62,12 @@ final class DivisionDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $associateMode;
+
+    /**
+
      * @var ?AssociateDraftCollection
      */
     private $associates;
@@ -145,7 +151,7 @@ final class DivisionDraftBuilder implements Builder
     }
 
     /**
-     * <p>If not set, the Division inherits the <a href="ctp:api:type:Store">Stores</a> from its <code>parentUnit</code>.
+     * <p>If not set, the Division inherits the <a href="ctp:api:type:Store">Stores</a> from a parent unit.
      * Set this to <code>Explicit</code> if you want to set the Stores explicitly in the <code>stores</code> field instead.</p>
      *
 
@@ -176,6 +182,17 @@ final class DivisionDraftBuilder implements Builder
     public function getContactEmail()
     {
         return $this->contactEmail;
+    }
+
+    /**
+     * <p>Determines whether the Division can inherit Associates from a parent.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAssociateMode()
+    {
+        return $this->associateMode;
     }
 
     /**
@@ -335,6 +352,17 @@ final class DivisionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $associateMode
+     * @return $this
+     */
+    public function withAssociateMode(?string $associateMode)
+    {
+        $this->associateMode = $associateMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?AssociateDraftCollection $associates
      * @return $this
      */
@@ -453,6 +481,7 @@ final class DivisionDraftBuilder implements Builder
             $this->storeMode,
             $this->name,
             $this->contactEmail,
+            $this->associateMode,
             $this->associates,
             $this->addresses,
             $this->shippingAddresses,

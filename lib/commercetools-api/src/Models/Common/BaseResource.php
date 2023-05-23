@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\AssociateRole\AssociateRole;
 use Commercetools\Api\Models\AttributeGroup\AttributeGroup;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnit;
 use Commercetools\Api\Models\BusinessUnit\Company;
@@ -22,11 +23,19 @@ use Commercetools\Api\Models\CustomObject\CustomObject;
 use Commercetools\Api\Models\DiscountCode\DiscountCode;
 use Commercetools\Api\Models\Extension\Extension;
 use Commercetools\Api\Models\Inventory\InventoryEntry;
+use Commercetools\Api\Models\Message\AssociateRoleBuyerAssignableChangedMessage;
+use Commercetools\Api\Models\Message\AssociateRoleCreatedMessage;
+use Commercetools\Api\Models\Message\AssociateRoleDeletedMessage;
+use Commercetools\Api\Models\Message\AssociateRoleNameChangedMessage;
+use Commercetools\Api\Models\Message\AssociateRolePermissionAddedMessage;
+use Commercetools\Api\Models\Message\AssociateRolePermissionRemovedMessage;
+use Commercetools\Api\Models\Message\AssociateRolePermissionsSetMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAddressAddedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAddressChangedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAddressRemovedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAssociateAddedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAssociateChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateModeChangedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAssociateRemovedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAssociatesSetMessage;
 use Commercetools\Api\Models\Message\BusinessUnitBillingAddressAddedMessage;

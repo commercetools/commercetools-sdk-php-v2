@@ -28,17 +28,36 @@ final class OrderSetDeliveryItemsActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $deliveryKey;
+
+    /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId()
     {
         return $this->deliveryId;
+    }
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        return $this->deliveryKey;
     }
 
     /**
@@ -62,6 +81,17 @@ final class OrderSetDeliveryItemsActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryKey
+     * @return $this
+     */
+    public function withDeliveryKey(?string $deliveryKey)
+    {
+        $this->deliveryKey = $deliveryKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?DeliveryItemCollection $items
      * @return $this
      */
@@ -77,6 +107,7 @@ final class OrderSetDeliveryItemsActionBuilder implements Builder
     {
         return new OrderSetDeliveryItemsActionModel(
             $this->deliveryId,
+            $this->deliveryKey,
             $this->items
         );
     }

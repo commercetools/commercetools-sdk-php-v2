@@ -80,7 +80,7 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
-     * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
+     * <p>Appears in response to <a href="ctp:api:endpoint:/{projectKey}/shipping-methods/matching-cart:GET">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
      *
 
      * @return null|bool

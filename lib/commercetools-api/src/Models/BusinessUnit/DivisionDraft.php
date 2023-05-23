@@ -24,13 +24,21 @@ interface DivisionDraft extends BusinessUnitDraft
     public function getParentUnit();
 
     /**
-     * <p>If not set, the Division inherits the <a href="ctp:api:type:Store">Stores</a> from its <code>parentUnit</code>.
+     * <p>If not set, the Division inherits the <a href="ctp:api:type:Store">Stores</a> from a parent unit.
      * Set this to <code>Explicit</code> if you want to set the Stores explicitly in the <code>stores</code> field instead.</p>
      *
 
      * @return null|string
      */
     public function getStoreMode();
+
+    /**
+     * <p>Determines whether the Division can inherit Associates from a parent.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAssociateMode();
 
     /**
      * @param ?BusinessUnitResourceIdentifier $parentUnit
@@ -41,4 +49,9 @@ interface DivisionDraft extends BusinessUnitDraft
      * @param ?string $storeMode
      */
     public function setStoreMode(?string $storeMode): void;
+
+    /**
+     * @param ?string $associateMode
+     */
+    public function setAssociateMode(?string $associateMode): void;
 }

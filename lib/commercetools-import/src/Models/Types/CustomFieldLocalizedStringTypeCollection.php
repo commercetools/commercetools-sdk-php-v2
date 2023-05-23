@@ -1,0 +1,56 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Import\Models\Types;
+
+use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Types\FieldTypeCollection;
+use stdClass;
+
+/**
+ * @extends FieldTypeCollection<CustomFieldLocalizedStringType>
+ * @method CustomFieldLocalizedStringType current()
+ * @method CustomFieldLocalizedStringType end()
+ * @method CustomFieldLocalizedStringType at($offset)
+ */
+class CustomFieldLocalizedStringTypeCollection extends FieldTypeCollection
+{
+    /**
+     * @psalm-assert CustomFieldLocalizedStringType $value
+     * @psalm-param CustomFieldLocalizedStringType|stdClass $value
+     * @throws InvalidArgumentException
+     *
+     * @return CustomFieldLocalizedStringTypeCollection
+     */
+    public function add($value)
+    {
+        if (!$value instanceof CustomFieldLocalizedStringType) {
+            throw new InvalidArgumentException();
+        }
+        $this->store($value);
+
+        return $this;
+    }
+
+    /**
+     * @psalm-return callable(int):?CustomFieldLocalizedStringType
+     */
+    protected function mapper()
+    {
+        return function (?int $index): ?CustomFieldLocalizedStringType {
+            $data = $this->get($index);
+            if ($data instanceof stdClass) {
+                /** @var CustomFieldLocalizedStringType $data */
+                $data = CustomFieldLocalizedStringTypeModel::of($data);
+                $this->set($data, $index);
+            }
+
+            return $data;
+        };
+    }
+}

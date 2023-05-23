@@ -24,6 +24,7 @@ interface BusinessUnitDraft extends JsonObject
     public const FIELD_UNIT_TYPE = 'unitType';
     public const FIELD_NAME = 'name';
     public const FIELD_CONTACT_EMAIL = 'contactEmail';
+    public const FIELD_ASSOCIATE_MODE = 'associateMode';
     public const FIELD_ASSOCIATES = 'associates';
     public const FIELD_ADDRESSES = 'addresses';
     public const FIELD_SHIPPING_ADDRESSES = 'shippingAddresses';
@@ -91,6 +92,15 @@ interface BusinessUnitDraft extends JsonObject
      * @return null|string
      */
     public function getContactEmail();
+
+    /**
+     * <p>Determines whether the Business Unit can inherit Associates from a parent.
+     * Always <code>Explicit</code> for <a href="ctp:api:type:BusinessUnitType">Companies</a> and defaults to <code>ExplicitAndFromParent</code> for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAssociateMode();
 
     /**
      * <p>List of members that are part of the Business Unit in specific <a href="ctp:api:type:AssociateRole">roles</a>.</p>
@@ -179,6 +189,11 @@ interface BusinessUnitDraft extends JsonObject
      * @param ?string $contactEmail
      */
     public function setContactEmail(?string $contactEmail): void;
+
+    /**
+     * @param ?string $associateMode
+     */
+    public function setAssociateMode(?string $associateMode): void;
 
     /**
      * @param ?AssociateDraftCollection $associates

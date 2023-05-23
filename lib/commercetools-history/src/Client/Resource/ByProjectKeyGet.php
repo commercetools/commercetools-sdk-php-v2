@@ -140,11 +140,11 @@ class ByProjectKeyGet extends ApiRequest
 
     /**
      * 
-     * @psalm-param scalar|scalar[] $resourceType
+     * @psalm-param scalar|scalar[] $resourceTypes
      */
-    public function withResourceType($resourceType): ByProjectKeyGet
+    public function withResourceTypes($resourceTypes): ByProjectKeyGet
     {
-        return $this->withQueryParam('resourceType', $resourceType);
+        return $this->withQueryParam('resourceTypes', $resourceTypes);
     }
 
     /**

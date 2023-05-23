@@ -32,6 +32,12 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
 
     /**
      *
+     * @var ?string
+     */
+    protected $deliveryKey;
+
+    /**
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -65,6 +71,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $deliveryKey = null,
         ?DeliveryItemCollection $items = null,
         ?string $shippingKey = null,
         ?BaseAddress $address = null,
@@ -72,6 +79,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
         ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
+        $this->deliveryKey = $deliveryKey;
         $this->items = $items;
         $this->shippingKey = $shippingKey;
         $this->address = $address;
@@ -96,6 +104,26 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
         }
 
         return $this->action;
+    }
+
+    /**
+     * <p>User-defined unique identifier of a Delivery.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        if (is_null($this->deliveryKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryKey = (string) $data;
+        }
+
+        return $this->deliveryKey;
     }
 
     /**
@@ -198,6 +226,14 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
         return $this->custom;
     }
 
+
+    /**
+     * @param ?string $deliveryKey
+     */
+    public function setDeliveryKey(?string $deliveryKey): void
+    {
+        $this->deliveryKey = $deliveryKey;
+    }
 
     /**
      * @param ?DeliveryItemCollection $items

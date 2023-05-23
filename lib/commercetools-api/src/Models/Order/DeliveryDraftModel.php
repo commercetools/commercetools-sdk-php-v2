@@ -25,6 +25,12 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
 {
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -52,15 +58,37 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?DeliveryItemCollection $items = null,
         ?ParcelDraftCollection $parcels = null,
         ?AddressDraft $address = null,
         ?CustomFieldsDraft $custom = null
     ) {
+        $this->key = $key;
         $this->items = $items;
         $this->parcels = $parcels;
         $this->address = $address;
         $this->custom = $custom;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Delivery.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -142,6 +170,14 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
         return $this->custom;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?DeliveryItemCollection $items

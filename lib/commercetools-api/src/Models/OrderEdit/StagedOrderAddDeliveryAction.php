@@ -18,10 +18,19 @@ use Commercetools\Base\JsonObject;
 
 interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
 {
+    public const FIELD_DELIVERY_KEY = 'deliveryKey';
     public const FIELD_ITEMS = 'items';
     public const FIELD_ADDRESS = 'address';
     public const FIELD_PARCELS = 'parcels';
     public const FIELD_CUSTOM = 'custom';
+
+    /**
+     * <p>User-defined unique identifier of a Delivery.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey();
 
     /**
 
@@ -52,6 +61,11 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * @param ?string $deliveryKey
+     */
+    public function setDeliveryKey(?string $deliveryKey): void;
 
     /**
      * @param ?DeliveryItemCollection $items

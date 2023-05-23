@@ -32,15 +32,23 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
      */
     protected $deliveryId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $deliveryKey;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $deliveryId = null,
+        ?string $deliveryKey = null,
         ?string $action = null
     ) {
         $this->deliveryId = $deliveryId;
+        $this->deliveryKey = $deliveryKey;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -63,6 +71,8 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
     }
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
      *
      * @return null|string
      */
@@ -80,6 +90,26 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
         return $this->deliveryId;
     }
 
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        if (is_null($this->deliveryKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryKey = (string) $data;
+        }
+
+        return $this->deliveryKey;
+    }
+
 
     /**
      * @param ?string $deliveryId
@@ -87,5 +117,13 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
+    }
+
+    /**
+     * @param ?string $deliveryKey
+     */
+    public function setDeliveryKey(?string $deliveryKey): void
+    {
+        $this->deliveryKey = $deliveryKey;
     }
 }

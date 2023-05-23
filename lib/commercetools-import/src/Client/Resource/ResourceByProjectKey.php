@@ -137,4 +137,12 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeyInventories($args, $this->getClient());
     }
+    /**
+     */
+    public function types(): ResourceByProjectKeyTypes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyTypes($args, $this->getClient());
+    }
 }

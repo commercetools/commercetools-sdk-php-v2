@@ -35,7 +35,7 @@ final class CustomerSignInResultBuilder implements Builder
     private $cart;
 
     /**
-     * <p>Customer <a href="#create-sign-up-customer">signed up</a> or <a href="#authenticate-sign-in-customer">signed in</a> after authentication.</p>
+     * <p>Customer <a href="ctp:api:endpoint:/{projectKey}/customers:POST">signed up</a> or <a href="ctp:api:endpoint:/{projectKey}/login:POST">signed in</a> after authentication.</p>
      *
 
      * @return null|Customer

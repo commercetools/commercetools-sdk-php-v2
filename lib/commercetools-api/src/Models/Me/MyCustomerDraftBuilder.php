@@ -222,7 +222,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>Unique VAT ID of the Customer.</p>
+     * <p>Individual VAT ID of the Customer.</p>
      *
 
      * @return null|string

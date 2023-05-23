@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Api\Models\AssociateRole\AssociateRoleKeyReference;
+use Commercetools\Api\Models\AssociateRole\AssociateRoleKeyReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -27,7 +29,13 @@ final class BusinessUnitConfigurationBuilder implements Builder
     private $myBusinessUnitStatusOnCreation;
 
     /**
-     * <p>Status of Business Units created using the <a href="/../api/projects/me-business-units#create-businessunit">My Business Unit endpoint</a>.</p>
+
+     * @var null|AssociateRoleKeyReference|AssociateRoleKeyReferenceBuilder
+     */
+    private $myBusinessUnitAssociateRoleOnCreation;
+
+    /**
+     * <p>Status of Business Units created using the <a href="ctp:api:endpoint:/{projectKey}/me/business-units:POST">My Business Unit endpoint</a>.</p>
      *
 
      * @return null|string
@@ -35,6 +43,17 @@ final class BusinessUnitConfigurationBuilder implements Builder
     public function getMyBusinessUnitStatusOnCreation()
     {
         return $this->myBusinessUnitStatusOnCreation;
+    }
+
+    /**
+     * <p>Default <a href="ctp:api:type:AssociateRole">Associate Role</a> assigned to the Associate creating a Business Unit using the <a href="ctp:api:endpoint:/{projectKey}/me/business-units:POST">My Business Unit endpoint</a>.</p>
+     *
+
+     * @return null|AssociateRoleKeyReference
+     */
+    public function getMyBusinessUnitAssociateRoleOnCreation()
+    {
+        return $this->myBusinessUnitAssociateRoleOnCreation instanceof AssociateRoleKeyReferenceBuilder ? $this->myBusinessUnitAssociateRoleOnCreation->build() : $this->myBusinessUnitAssociateRoleOnCreation;
     }
 
     /**
@@ -48,11 +67,33 @@ final class BusinessUnitConfigurationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?AssociateRoleKeyReference $myBusinessUnitAssociateRoleOnCreation
+     * @return $this
+     */
+    public function withMyBusinessUnitAssociateRoleOnCreation(?AssociateRoleKeyReference $myBusinessUnitAssociateRoleOnCreation)
+    {
+        $this->myBusinessUnitAssociateRoleOnCreation = $myBusinessUnitAssociateRoleOnCreation;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withMyBusinessUnitAssociateRoleOnCreation() instead
+     * @return $this
+     */
+    public function withMyBusinessUnitAssociateRoleOnCreationBuilder(?AssociateRoleKeyReferenceBuilder $myBusinessUnitAssociateRoleOnCreation)
+    {
+        $this->myBusinessUnitAssociateRoleOnCreation = $myBusinessUnitAssociateRoleOnCreation;
+
+        return $this;
+    }
 
     public function build(): BusinessUnitConfiguration
     {
         return new BusinessUnitConfigurationModel(
-            $this->myBusinessUnitStatusOnCreation
+            $this->myBusinessUnitStatusOnCreation,
+            $this->myBusinessUnitAssociateRoleOnCreation instanceof AssociateRoleKeyReferenceBuilder ? $this->myBusinessUnitAssociateRoleOnCreation->build() : $this->myBusinessUnitAssociateRoleOnCreation
         );
     }
 

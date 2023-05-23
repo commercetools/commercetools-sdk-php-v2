@@ -98,7 +98,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>ResourceIdentifier of the Cart from which this order is created.</p>
+     * <p>ResourceIdentifier of the Cart from which the Order is created.</p>
      *
 
      * @return null|CartResourceIdentifier
@@ -109,6 +109,9 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * <p>Expected version of the Cart from which the Order is created.
+     * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     *
 
      * @return null|int
      */
@@ -145,6 +148,8 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * <p>Payment state for the Order.</p>
+     *
 
      * @return null|string
      */
@@ -154,6 +159,8 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * <p>Shipment state for the Order.</p>
+     *
 
      * @return null|string
      */
@@ -174,6 +181,8 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a> indicating the Order's state.</p>
+     *
 
      * @return null|StateResourceIdentifier
      */

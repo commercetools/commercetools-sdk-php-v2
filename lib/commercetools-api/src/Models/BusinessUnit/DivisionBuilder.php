@@ -139,9 +139,21 @@ final class DivisionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $associateMode;
+
+    /**
+
      * @var ?AssociateCollection
      */
     private $associates;
+
+    /**
+
+     * @var ?InheritedAssociateCollection
+     */
+    private $inheritedAssociates;
 
     /**
 
@@ -356,7 +368,18 @@ final class DivisionBuilder implements Builder
     }
 
     /**
-     * <p>Members that are part of the Business Unit in specific <a href="ctp:api:type:AssociateRole">roles</a>.</p>
+     * <p>Determines whether the Division can inherit Associates from a parent.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAssociateMode()
+    {
+        return $this->associateMode;
+    }
+
+    /**
+     * <p>Associates that are part of the Business Unit in specific <a href="ctp:api:type:AssociateRole">roles</a>.</p>
      *
 
      * @return null|AssociateCollection
@@ -364,6 +387,17 @@ final class DivisionBuilder implements Builder
     public function getAssociates()
     {
         return $this->associates;
+    }
+
+    /**
+     * <p>Associates that are inherited from a parent Business Unit. This value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
+     *
+
+     * @return null|InheritedAssociateCollection
+     */
+    public function getInheritedAssociates()
+    {
+        return $this->inheritedAssociates;
     }
 
     /**
@@ -587,12 +621,34 @@ final class DivisionBuilder implements Builder
     }
 
     /**
+     * @param ?string $associateMode
+     * @return $this
+     */
+    public function withAssociateMode(?string $associateMode)
+    {
+        $this->associateMode = $associateMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?AssociateCollection $associates
      * @return $this
      */
     public function withAssociates(?AssociateCollection $associates)
     {
         $this->associates = $associates;
+
+        return $this;
+    }
+
+    /**
+     * @param ?InheritedAssociateCollection $inheritedAssociates
+     * @return $this
+     */
+    public function withInheritedAssociates(?InheritedAssociateCollection $inheritedAssociates)
+    {
+        $this->inheritedAssociates = $inheritedAssociates;
 
         return $this;
     }
@@ -695,7 +751,9 @@ final class DivisionBuilder implements Builder
             $this->defaultShippingAddressId,
             $this->billingAddressIds,
             $this->defaultBillingAddressId,
+            $this->associateMode,
             $this->associates,
+            $this->inheritedAssociates,
             $this->parentUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->parentUnit->build() : $this->parentUnit,
             $this->topLevelUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->topLevelUnit->build() : $this->topLevelUnit
         );

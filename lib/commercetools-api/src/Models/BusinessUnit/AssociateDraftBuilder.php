@@ -24,6 +24,12 @@ final class AssociateDraftBuilder implements Builder
 {
     /**
 
+     * @var ?AssociateRoleAssignmentDraftCollection
+     */
+    private $associateRoleAssignments;
+
+    /**
+     * @deprecated
      * @var ?array
      */
     private $roles;
@@ -35,9 +41,20 @@ final class AssociateDraftBuilder implements Builder
     private $customer;
 
     /**
-     * <p>Roles the Associate should hold within the Business Unit.</p>
+     * <p>Roles assigned to the Associate within a Business Unit.</p>
      *
 
+     * @return null|AssociateRoleAssignmentDraftCollection
+     */
+    public function getAssociateRoleAssignments()
+    {
+        return $this->associateRoleAssignments;
+    }
+
+    /**
+     * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
+     *
+     * @deprecated
      * @return null|array
      */
     public function getRoles()
@@ -54,6 +71,17 @@ final class AssociateDraftBuilder implements Builder
     public function getCustomer()
     {
         return $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer;
+    }
+
+    /**
+     * @param ?AssociateRoleAssignmentDraftCollection $associateRoleAssignments
+     * @return $this
+     */
+    public function withAssociateRoleAssignments(?AssociateRoleAssignmentDraftCollection $associateRoleAssignments)
+    {
+        $this->associateRoleAssignments = $associateRoleAssignments;
+
+        return $this;
     }
 
     /**
@@ -92,6 +120,7 @@ final class AssociateDraftBuilder implements Builder
     public function build(): AssociateDraft
     {
         return new AssociateDraftModel(
+            $this->associateRoleAssignments,
             $this->roles,
             $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer
         );

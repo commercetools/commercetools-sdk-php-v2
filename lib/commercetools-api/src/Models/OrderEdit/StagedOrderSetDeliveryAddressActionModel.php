@@ -38,6 +38,12 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
 
     /**
      *
+     * @var ?string
+     */
+    protected $deliveryKey;
+
+    /**
+     *
      * @var ?BaseAddress
      */
     protected $address;
@@ -48,10 +54,12 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
      */
     public function __construct(
         ?string $deliveryId = null,
+        ?string $deliveryKey = null,
         ?BaseAddress $address = null,
         ?string $action = null
     ) {
         $this->deliveryId = $deliveryId;
+        $this->deliveryKey = $deliveryKey;
         $this->address = $address;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -75,6 +83,8 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
      *
      * @return null|string
      */
@@ -90,6 +100,26 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
         }
 
         return $this->deliveryId;
+    }
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        if (is_null($this->deliveryKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryKey = (string) $data;
+        }
+
+        return $this->deliveryKey;
     }
 
     /**
@@ -122,6 +152,14 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
+    }
+
+    /**
+     * @param ?string $deliveryKey
+     */
+    public function setDeliveryKey(?string $deliveryKey): void
+    {
+        $this->deliveryKey = $deliveryKey;
     }
 
     /**

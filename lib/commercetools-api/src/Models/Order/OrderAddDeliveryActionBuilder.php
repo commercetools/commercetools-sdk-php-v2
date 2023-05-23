@@ -26,6 +26,12 @@ final class OrderAddDeliveryActionBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $deliveryKey;
+
+    /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
@@ -53,6 +59,17 @@ final class OrderAddDeliveryActionBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+     * <p>User-defined unique identifier of a Delivery.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        return $this->deliveryKey;
+    }
 
     /**
 
@@ -105,6 +122,17 @@ final class OrderAddDeliveryActionBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @param ?string $deliveryKey
+     * @return $this
+     */
+    public function withDeliveryKey(?string $deliveryKey)
+    {
+        $this->deliveryKey = $deliveryKey;
+
+        return $this;
     }
 
     /**
@@ -187,6 +215,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     public function build(): OrderAddDeliveryAction
     {
         return new OrderAddDeliveryActionModel(
+            $this->deliveryKey,
             $this->items,
             $this->shippingKey,
             $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,

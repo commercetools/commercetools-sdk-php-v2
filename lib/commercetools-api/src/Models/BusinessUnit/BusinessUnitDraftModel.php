@@ -68,6 +68,12 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
 
     /**
      *
+     * @var ?string
+     */
+    protected $associateMode;
+
+    /**
+     *
      * @var ?AssociateDraftCollection
      */
     protected $associates;
@@ -127,6 +133,7 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
         ?string $storeMode = null,
         ?string $name = null,
         ?string $contactEmail = null,
+        ?string $associateMode = null,
         ?AssociateDraftCollection $associates = null,
         ?BaseAddressCollection $addresses = null,
         ?array $shippingAddresses = null,
@@ -142,6 +149,7 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
         $this->storeMode = $storeMode;
         $this->name = $name;
         $this->contactEmail = $contactEmail;
+        $this->associateMode = $associateMode;
         $this->associates = $associates;
         $this->addresses = $addresses;
         $this->shippingAddresses = $shippingAddresses;
@@ -294,6 +302,27 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
         }
 
         return $this->contactEmail;
+    }
+
+    /**
+     * <p>Determines whether the Business Unit can inherit Associates from a parent.
+     * Always <code>Explicit</code> for <a href="ctp:api:type:BusinessUnitType">Companies</a> and defaults to <code>ExplicitAndFromParent</code> for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAssociateMode()
+    {
+        if (is_null($this->associateMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ASSOCIATE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->associateMode = (string) $data;
+        }
+
+        return $this->associateMode;
     }
 
     /**
@@ -486,6 +515,14 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
     public function setContactEmail(?string $contactEmail): void
     {
         $this->contactEmail = $contactEmail;
+    }
+
+    /**
+     * @param ?string $associateMode
+     */
+    public function setAssociateMode(?string $associateMode): void
+    {
+        $this->associateMode = $associateMode;
     }
 
     /**

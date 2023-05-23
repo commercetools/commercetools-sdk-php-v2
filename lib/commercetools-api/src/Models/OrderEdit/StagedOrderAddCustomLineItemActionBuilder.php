@@ -81,8 +81,7 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     private $priceMode;
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
      *
 
      * @return null|Money

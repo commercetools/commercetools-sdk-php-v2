@@ -31,11 +31,19 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
      * @psalm-suppress InvalidPropertyAssignmentValue
      */
     private static $discriminatorClasses = [
+       'AssociateRoleBuyerAssignableChanged' => AssociateRoleBuyerAssignableChangedMessagePayloadModel::class,
+       'AssociateRoleCreated' => AssociateRoleCreatedMessagePayloadModel::class,
+       'AssociateRoleDeleted' => AssociateRoleDeletedMessagePayloadModel::class,
+       'AssociateRoleNameSet' => AssociateRoleNameChangedMessagePayloadModel::class,
+       'AssociateRolePermissionAdded' => AssociateRolePermissionAddedMessagePayloadModel::class,
+       'AssociateRolePermissionRemoved' => AssociateRolePermissionRemovedMessagePayloadModel::class,
+       'AssociateRolePermissionsSet' => AssociateRolePermissionsSetMessagePayloadModel::class,
        'BusinessUnitAddressAdded' => BusinessUnitAddressAddedMessagePayloadModel::class,
        'BusinessUnitAddressChanged' => BusinessUnitAddressChangedMessagePayloadModel::class,
        'BusinessUnitAddressRemoved' => BusinessUnitAddressRemovedMessagePayloadModel::class,
        'BusinessUnitAssociateAdded' => BusinessUnitAssociateAddedMessagePayloadModel::class,
        'BusinessUnitAssociateChanged' => BusinessUnitAssociateChangedMessagePayloadModel::class,
+       'BusinessUnitAssociateModeChanged' => BusinessUnitAssociateModeChangedMessagePayloadModel::class,
        'BusinessUnitAssociateRemoved' => BusinessUnitAssociateRemovedMessagePayloadModel::class,
        'BusinessUnitAssociatesSet' => BusinessUnitAssociatesSetMessagePayloadModel::class,
        'BusinessUnitBillingAddressAdded' => BusinessUnitBillingAddressAddedMessagePayloadModel::class,

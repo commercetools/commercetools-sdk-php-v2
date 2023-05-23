@@ -145,9 +145,21 @@ final class CompanyModel extends JsonObjectModel implements Company
 
     /**
      *
+     * @var ?string
+     */
+    protected $associateMode;
+
+    /**
+     *
      * @var ?AssociateCollection
      */
     protected $associates;
+
+    /**
+     *
+     * @var ?InheritedAssociateCollection
+     */
+    protected $inheritedAssociates;
 
     /**
      *
@@ -184,7 +196,9 @@ final class CompanyModel extends JsonObjectModel implements Company
         ?string $defaultShippingAddressId = null,
         ?array $billingAddressIds = null,
         ?string $defaultBillingAddressId = null,
+        ?string $associateMode = null,
         ?AssociateCollection $associates = null,
+        ?InheritedAssociateCollection $inheritedAssociates = null,
         ?BusinessUnitKeyReference $parentUnit = null,
         ?BusinessUnitKeyReference $topLevelUnit = null,
         ?string $unitType = null
@@ -207,7 +221,9 @@ final class CompanyModel extends JsonObjectModel implements Company
         $this->defaultShippingAddressId = $defaultShippingAddressId;
         $this->billingAddressIds = $billingAddressIds;
         $this->defaultBillingAddressId = $defaultBillingAddressId;
+        $this->associateMode = $associateMode;
         $this->associates = $associates;
+        $this->inheritedAssociates = $inheritedAssociates;
         $this->parentUnit = $parentUnit;
         $this->topLevelUnit = $topLevelUnit;
         $this->unitType = $unitType ?? self::DISCRIMINATOR_VALUE;
@@ -406,7 +422,7 @@ final class CompanyModel extends JsonObjectModel implements Company
     }
 
     /**
-     * <p>Is always <code>Explicit</code> since a Company does not have a parent Business Unit the Stores can be inherited from.</p>
+     * <p>Is always <code>Explicit</code> since a Company cannot have a parent Business Unit that Stores can be inherited from.</p>
      *
      *
      * @return null|string
@@ -607,7 +623,27 @@ final class CompanyModel extends JsonObjectModel implements Company
     }
 
     /**
-     * <p>Members that are part of the Business Unit in specific <a href="ctp:api:type:AssociateRole">roles</a>.</p>
+     * <p>Is always <code>Explicit</code> since a Company cannot have a parent Business Unit that Associates can be inherited from.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAssociateMode()
+    {
+        if (is_null($this->associateMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ASSOCIATE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->associateMode = (string) $data;
+        }
+
+        return $this->associateMode;
+    }
+
+    /**
+     * <p>Associates that are part of the Business Unit in specific <a href="ctp:api:type:AssociateRole">roles</a>.</p>
      *
      *
      * @return null|AssociateCollection
@@ -624,6 +660,26 @@ final class CompanyModel extends JsonObjectModel implements Company
         }
 
         return $this->associates;
+    }
+
+    /**
+     * <p>Associates that are inherited from a parent Business Unit. This value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
+     *
+     *
+     * @return null|InheritedAssociateCollection
+     */
+    public function getInheritedAssociates()
+    {
+        if (is_null($this->inheritedAssociates)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_INHERITED_ASSOCIATES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inheritedAssociates = InheritedAssociateCollection::fromArray($data);
+        }
+
+        return $this->inheritedAssociates;
     }
 
     /**
@@ -814,11 +870,27 @@ final class CompanyModel extends JsonObjectModel implements Company
     }
 
     /**
+     * @param ?string $associateMode
+     */
+    public function setAssociateMode(?string $associateMode): void
+    {
+        $this->associateMode = $associateMode;
+    }
+
+    /**
      * @param ?AssociateCollection $associates
      */
     public function setAssociates(?AssociateCollection $associates): void
     {
         $this->associates = $associates;
+    }
+
+    /**
+     * @param ?InheritedAssociateCollection $inheritedAssociates
+     */
+    public function setInheritedAssociates(?InheritedAssociateCollection $inheritedAssociates): void
+    {
+        $this->inheritedAssociates = $inheritedAssociates;
     }
 
     /**

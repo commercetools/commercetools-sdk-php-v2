@@ -30,11 +30,30 @@ final class StagedOrderRemoveDeliveryActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $deliveryKey;
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
      * @return null|string
      */
     public function getDeliveryId()
     {
         return $this->deliveryId;
+    }
+
+    /**
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryKey()
+    {
+        return $this->deliveryKey;
     }
 
     /**
@@ -48,11 +67,23 @@ final class StagedOrderRemoveDeliveryActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $deliveryKey
+     * @return $this
+     */
+    public function withDeliveryKey(?string $deliveryKey)
+    {
+        $this->deliveryKey = $deliveryKey;
+
+        return $this;
+    }
+
 
     public function build(): StagedOrderRemoveDeliveryAction
     {
         return new StagedOrderRemoveDeliveryActionModel(
-            $this->deliveryId
+            $this->deliveryId,
+            $this->deliveryKey
         );
     }
 

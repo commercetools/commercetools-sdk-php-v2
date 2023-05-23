@@ -36,7 +36,7 @@ interface OrderFromCartDraft extends JsonObject
     public function getId();
 
     /**
-     * <p>ResourceIdentifier of the Cart from which this order is created.</p>
+     * <p>ResourceIdentifier of the Cart from which the Order is created.</p>
      *
 
      * @return null|CartResourceIdentifier
@@ -44,6 +44,9 @@ interface OrderFromCartDraft extends JsonObject
     public function getCart();
 
     /**
+     * <p>Expected version of the Cart from which the Order is created.
+     * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     *
 
      * @return null|int
      */
@@ -71,12 +74,16 @@ interface OrderFromCartDraft extends JsonObject
     public function getPurchaseOrderNumber();
 
     /**
+     * <p>Payment state for the Order.</p>
+     *
 
      * @return null|string
      */
     public function getPaymentState();
 
     /**
+     * <p>Shipment state for the Order.</p>
+     *
 
      * @return null|string
      */
@@ -91,6 +98,8 @@ interface OrderFromCartDraft extends JsonObject
     public function getOrderState();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a> indicating the Order's state.</p>
+     *
 
      * @return null|StateResourceIdentifier
      */
