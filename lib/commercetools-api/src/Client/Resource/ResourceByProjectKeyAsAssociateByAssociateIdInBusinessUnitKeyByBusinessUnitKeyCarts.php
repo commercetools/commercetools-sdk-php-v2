@@ -48,6 +48,14 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
 
         return new ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsByID($args, $this->getClient());
     }
+    /**
+     */
+    public function replicate(): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsReplicate
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsReplicate($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body
