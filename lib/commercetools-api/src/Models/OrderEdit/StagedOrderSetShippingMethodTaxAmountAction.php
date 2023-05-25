@@ -15,7 +15,16 @@ use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetShippingMethodTaxAmountAction extends StagedOrderUpdateAction
 {
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
     public const FIELD_EXTERNAL_TAX_AMOUNT = 'externalTaxAmount';
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> to update. This is required for Orders with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
 
     /**
      * <p>Cannot be used in <a href="ctp:api:type:LineItemDraft">LineItemDraft</a> or <a href="ctp:api:type:CustomLineItemDraft">CustomLineItemDraft</a>.</p>
@@ -29,6 +38,11 @@ interface StagedOrderSetShippingMethodTaxAmountAction extends StagedOrderUpdateA
      * @return null|ExternalTaxAmountDraft
      */
     public function getExternalTaxAmount();
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 
     /**
      * @param ?ExternalTaxAmountDraft $externalTaxAmount

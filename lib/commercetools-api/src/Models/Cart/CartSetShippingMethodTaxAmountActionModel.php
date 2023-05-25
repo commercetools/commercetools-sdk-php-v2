@@ -28,6 +28,12 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
 
     /**
      *
+     * @var ?string
+     */
+    protected $shippingKey;
+
+    /**
+     *
      * @var ?ExternalTaxAmountDraft
      */
     protected $externalTaxAmount;
@@ -37,9 +43,11 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $shippingKey = null,
         ?ExternalTaxAmountDraft $externalTaxAmount = null,
         ?string $action = null
     ) {
+        $this->shippingKey = $shippingKey;
         $this->externalTaxAmount = $externalTaxAmount;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -60,6 +68,26 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
         }
 
         return $this->action;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> to update. This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
     }
 
     /**
@@ -84,6 +112,14 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
         return $this->externalTaxAmount;
     }
 
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
+    }
 
     /**
      * @param ?ExternalTaxAmountDraft $externalTaxAmount
