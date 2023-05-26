@@ -141,7 +141,7 @@ interface Quote extends BaseResource
     public function getStagedQuote();
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who owns the Quote.</p>
      *
 
      * @return null|CustomerReference
@@ -150,6 +150,7 @@ interface Quote extends BaseResource
 
     /**
      * <p>Set automatically when <code>customer</code> is set and the Customer is a member of a Customer Group.
+     * Not updated if Customer is changed after Quote creation.
      * Used for Product Variant price selection.</p>
      *
 

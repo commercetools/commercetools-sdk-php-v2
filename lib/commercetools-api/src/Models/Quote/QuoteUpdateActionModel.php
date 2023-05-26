@@ -31,6 +31,7 @@ final class QuoteUpdateActionModel extends JsonObjectModel implements QuoteUpdat
      *
      */
     private static $discriminatorClasses = [
+       'changeCustomer' => QuoteChangeCustomerActionModel::class,
        'changeQuoteState' => QuoteChangeQuoteStateActionModel::class,
        'requestQuoteRenegotiation' => QuoteRequestQuoteRenegotiationActionModel::class,
        'setCustomField' => QuoteSetCustomFieldActionModel::class,

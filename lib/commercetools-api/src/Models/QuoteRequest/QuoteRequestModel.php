@@ -509,7 +509,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who raised the request.</p>
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who owns the request.</p>
      *
      *
      * @return null|CustomerReference
@@ -531,6 +531,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
 
     /**
      * <p>Set automatically when <code>customer</code> is set and the Customer is a member of a Customer Group.
+     * Not updated if Customer is changed after Quote Request creation.
      * Used for Product Variant price selection.</p>
      *
      *
