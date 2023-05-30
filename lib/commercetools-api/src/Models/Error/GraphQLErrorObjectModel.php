@@ -75,6 +75,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'MaxResourceLimitExceeded' => GraphQLMaxResourceLimitExceededErrorModel::class,
        'MissingRoleOnChannel' => GraphQLMissingRoleOnChannelErrorModel::class,
        'MissingTaxRateForCountry' => GraphQLMissingTaxRateForCountryErrorModel::class,
+       'MoneyOverflow' => GraphQLMoneyOverflowErrorModel::class,
        'NoMatchingProductDiscountFound' => GraphQLNoMatchingProductDiscountFoundErrorModel::class,
        'NotEnabled' => GraphQLNotEnabledErrorModel::class,
        'ObjectNotFound' => GraphQLObjectNotFoundErrorModel::class,
