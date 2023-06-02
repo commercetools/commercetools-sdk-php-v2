@@ -38,6 +38,7 @@
 
 - added enum `ReassignMyQuotes` to type `Permission`
 - added enum `ReassignOthersQuotes` to type `Permission`
+- added enum `RenegotiationAddressed` to type `QuoteState`
 </details>
 
 
