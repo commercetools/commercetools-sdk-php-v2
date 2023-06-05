@@ -90,7 +90,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -108,7 +108,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
             if (is_null($data)) {
                 return null;
             }
-            $this->createdAt =  (string) $data;
+            $this->createdAt = (string) $data;
         }
 
         return $this->createdAt;
@@ -126,7 +126,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
             if (is_null($data)) {
                 return null;
             }
-            $this->items =  DeliveryItemCollection::fromArray($data);
+            $this->items = DeliveryItemCollection::fromArray($data);
         }
 
         return $this->items;
@@ -144,7 +144,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
             if (is_null($data)) {
                 return null;
             }
-            $this->parcels =  ParcelCollection::fromArray($data);
+            $this->parcels = ParcelCollection::fromArray($data);
         }
 
         return $this->parcels;
@@ -163,7 +163,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
                 return null;
             }
 
-            $this->address =  AddressModel::of($data);
+            $this->address = AddressModel::of($data);
         }
 
         return $this->address;
@@ -184,7 +184,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
                 return null;
             }
 
-            $this->custom =  CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsModel::of($data);
         }
 
         return $this->custom;

@@ -74,7 +74,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
             if (is_null($data)) {
                 return null;
             }
-            $this->isOnStock =  (bool) $data;
+            $this->isOnStock = (bool) $data;
         }
 
         return $this->isOnStock;
@@ -92,7 +92,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
             if (is_null($data)) {
                 return null;
             }
-            $this->restockableInDays =  (int) $data;
+            $this->restockableInDays = (int) $data;
         }
 
         return $this->restockableInDays;
@@ -110,7 +110,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
             if (is_null($data)) {
                 return null;
             }
-            $this->availableQuantity =  (int) $data;
+            $this->availableQuantity = (int) $data;
         }
 
         return $this->availableQuantity;
@@ -129,7 +129,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
                 return null;
             }
 
-            $this->channels =  ProductVariantChannelAvailabilityMapModel::of($data);
+            $this->channels = ProductVariantChannelAvailabilityMapModel::of($data);
         }
 
         return $this->channels;

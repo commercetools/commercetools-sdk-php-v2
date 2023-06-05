@@ -75,7 +75,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -114,7 +114,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
                 return null;
             }
 
-            $this->nextValue =  TaxedPriceModel::of($data);
+            $this->nextValue = TaxedPriceModel::of($data);
         }
 
         return $this->nextValue;
@@ -133,7 +133,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
                 return null;
             }
 
-            $this->previousValue =  TaxedPriceModel::of($data);
+            $this->previousValue = TaxedPriceModel::of($data);
         }
 
         return $this->previousValue;

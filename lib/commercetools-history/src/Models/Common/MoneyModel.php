@@ -76,7 +76,7 @@ final class MoneyModel extends JsonObjectModel implements Money
             if (is_null($data)) {
                 return null;
             }
-            $this->currencyCode =  (string) $data;
+            $this->currencyCode = (string) $data;
         }
 
         return $this->currencyCode;
@@ -94,7 +94,7 @@ final class MoneyModel extends JsonObjectModel implements Money
             if (is_null($data)) {
                 return null;
             }
-            $this->centAmount =  (int) $data;
+            $this->centAmount = (int) $data;
         }
 
         return $this->centAmount;
@@ -112,7 +112,7 @@ final class MoneyModel extends JsonObjectModel implements Money
             if (is_null($data)) {
                 return null;
             }
-            $this->fractionDigits =  (int) $data;
+            $this->fractionDigits = (int) $data;
         }
 
         return $this->fractionDigits;
@@ -130,7 +130,7 @@ final class MoneyModel extends JsonObjectModel implements Money
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;

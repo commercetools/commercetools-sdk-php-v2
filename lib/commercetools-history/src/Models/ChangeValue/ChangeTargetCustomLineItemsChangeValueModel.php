@@ -57,7 +57,7 @@ final class ChangeTargetCustomLineItemsChangeValueModel extends JsonObjectModel 
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -75,7 +75,7 @@ final class ChangeTargetCustomLineItemsChangeValueModel extends JsonObjectModel 
             if (is_null($data)) {
                 return null;
             }
-            $this->predicate =  (string) $data;
+            $this->predicate = (string) $data;
         }
 
         return $this->predicate;

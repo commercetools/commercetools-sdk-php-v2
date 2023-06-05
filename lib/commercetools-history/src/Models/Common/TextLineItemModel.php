@@ -90,7 +90,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
             if (is_null($data)) {
                 return null;
             }
-            $this->addedAt =  (string) $data;
+            $this->addedAt = (string) $data;
         }
 
         return $this->addedAt;
@@ -109,7 +109,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
                 return null;
             }
 
-            $this->custom =  CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsModel::of($data);
         }
 
         return $this->custom;
@@ -128,7 +128,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
                 return null;
             }
 
-            $this->description =  LocalizedStringModel::of($data);
+            $this->description = LocalizedStringModel::of($data);
         }
 
         return $this->description;
@@ -146,7 +146,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -165,7 +165,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
                 return null;
             }
 
-            $this->name =  LocalizedStringModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
         return $this->name;
@@ -183,7 +183,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity =  (int) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;

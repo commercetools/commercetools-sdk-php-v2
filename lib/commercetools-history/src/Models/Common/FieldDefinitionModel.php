@@ -75,7 +75,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
                 return null;
             }
 
-            $this->type =  FieldTypeModel::of($data);
+            $this->type = FieldTypeModel::of($data);
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;
@@ -114,7 +114,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
                 return null;
             }
 
-            $this->label =  LocalizedStringModel::of($data);
+            $this->label = LocalizedStringModel::of($data);
         }
 
         return $this->label;
@@ -132,7 +132,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
             if (is_null($data)) {
                 return null;
             }
-            $this->inputHint =  (string) $data;
+            $this->inputHint = (string) $data;
         }
 
         return $this->inputHint;

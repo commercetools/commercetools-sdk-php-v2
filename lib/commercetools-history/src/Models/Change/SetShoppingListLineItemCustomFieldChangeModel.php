@@ -99,7 +99,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -119,7 +119,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -137,7 +137,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;
@@ -155,7 +155,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->customTypeId =  (string) $data;
+            $this->customTypeId = (string) $data;
         }
 
         return $this->customTypeId;
@@ -174,7 +174,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
                 return null;
             }
 
-            $this->lineItem =  ShoppingListLineItemValueModel::of($data);
+            $this->lineItem = ShoppingListLineItemValueModel::of($data);
         }
 
         return $this->lineItem;
@@ -192,7 +192,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  $data;
+            $this->nextValue = $data;
         }
 
         return $this->nextValue;
@@ -210,7 +210,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  $data;
+            $this->previousValue = $data;
         }
 
         return $this->previousValue;

@@ -75,7 +75,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
                 return null;
             }
 
-            $this->price =  MoneyModel::of($data);
+            $this->price = MoneyModel::of($data);
         }
 
         return $this->price;
@@ -94,7 +94,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
                 return null;
             }
 
-            $this->freeAbove =  MoneyModel::of($data);
+            $this->freeAbove = MoneyModel::of($data);
         }
 
         return $this->freeAbove;
@@ -114,7 +114,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
             if (is_null($data)) {
                 return null;
             }
-            $this->isMatching =  (bool) $data;
+            $this->isMatching = (bool) $data;
         }
 
         return $this->isMatching;
@@ -132,7 +132,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
             if (is_null($data)) {
                 return null;
             }
-            $this->tiers =  ShippingRatePriceTierCollection::fromArray($data);
+            $this->tiers = ShippingRatePriceTierCollection::fromArray($data);
         }
 
         return $this->tiers;

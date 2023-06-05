@@ -61,7 +61,7 @@ final class ChangeTargetChangeValueModel extends JsonObjectModel implements Chan
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;

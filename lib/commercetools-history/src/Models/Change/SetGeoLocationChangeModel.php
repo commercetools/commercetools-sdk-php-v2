@@ -75,7 +75,7 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -114,7 +114,7 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
                 return null;
             }
 
-            $this->nextValue =  GeoLocationModel::of($data);
+            $this->nextValue = GeoLocationModel::of($data);
         }
 
         return $this->nextValue;
@@ -133,7 +133,7 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
                 return null;
             }
 
-            $this->previousValue =  GeoLocationModel::of($data);
+            $this->previousValue = GeoLocationModel::of($data);
         }
 
         return $this->previousValue;

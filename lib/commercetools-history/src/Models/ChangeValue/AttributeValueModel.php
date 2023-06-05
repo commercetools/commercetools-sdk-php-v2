@@ -58,7 +58,7 @@ final class AttributeValueModel extends JsonObjectModel implements AttributeValu
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;
@@ -76,7 +76,7 @@ final class AttributeValueModel extends JsonObjectModel implements AttributeValu
             if (is_null($data)) {
                 return null;
             }
-            $this->value =  $data;
+            $this->value = $data;
         }
 
         return $this->value;

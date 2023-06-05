@@ -83,7 +83,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -103,7 +103,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -121,7 +121,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->taxMode =  (string) $data;
+            $this->taxMode = (string) $data;
         }
 
         return $this->taxMode;
@@ -142,7 +142,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
                 return null;
             }
 
-            $this->nextValue =  TaxRateModel::of($data);
+            $this->nextValue = TaxRateModel::of($data);
         }
 
         return $this->nextValue;
@@ -163,7 +163,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
                 return null;
             }
 
-            $this->previousValue =  TaxRateModel::of($data);
+            $this->previousValue = TaxRateModel::of($data);
         }
 
         return $this->previousValue;

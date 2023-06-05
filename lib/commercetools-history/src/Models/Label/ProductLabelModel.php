@@ -67,7 +67,7 @@ final class ProductLabelModel extends JsonObjectModel implements ProductLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -86,7 +86,7 @@ final class ProductLabelModel extends JsonObjectModel implements ProductLabel
                 return null;
             }
 
-            $this->slug =  LocalizedStringModel::of($data);
+            $this->slug = LocalizedStringModel::of($data);
         }
 
         return $this->slug;
@@ -105,7 +105,7 @@ final class ProductLabelModel extends JsonObjectModel implements ProductLabel
                 return null;
             }
 
-            $this->name =  LocalizedStringModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
         return $this->name;

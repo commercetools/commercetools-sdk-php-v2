@@ -50,7 +50,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
             if (is_null($data)) {
                 return null;
             }
-            $this->payments =  ReferenceCollection::fromArray($data);
+            $this->payments = ReferenceCollection::fromArray($data);
         }
 
         return $this->payments;

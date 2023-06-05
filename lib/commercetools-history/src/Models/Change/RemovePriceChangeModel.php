@@ -91,7 +91,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -111,7 +111,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -129,7 +129,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
             if (is_null($data)) {
                 return null;
             }
-            $this->catalogData =  (string) $data;
+            $this->catalogData = (string) $data;
         }
 
         return $this->catalogData;
@@ -147,7 +147,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
             if (is_null($data)) {
                 return null;
             }
-            $this->priceId =  (string) $data;
+            $this->priceId = (string) $data;
         }
 
         return $this->priceId;
@@ -166,7 +166,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
                 return null;
             }
 
-            $this->previousValue =  PriceModel::of($data);
+            $this->previousValue = PriceModel::of($data);
         }
 
         return $this->previousValue;
@@ -185,7 +185,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
                 return null;
             }
 
-            $this->nextValue =  PriceModel::of($data);
+            $this->nextValue = PriceModel::of($data);
         }
 
         return $this->nextValue;

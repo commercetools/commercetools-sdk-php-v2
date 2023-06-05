@@ -75,7 +75,7 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -113,7 +113,7 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
             if (is_null($data)) {
                 return null;
             }
-            $this->deliveryId =  (string) $data;
+            $this->deliveryId = (string) $data;
         }
 
         return $this->deliveryId;
@@ -132,7 +132,7 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
                 return null;
             }
 
-            $this->nextValue =  ParcelModel::of($data);
+            $this->nextValue = ParcelModel::of($data);
         }
 
         return $this->nextValue;

@@ -122,7 +122,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
             if (is_null($data)) {
                 return null;
             }
-            $this->addedAt =  (string) $data;
+            $this->addedAt = (string) $data;
         }
 
         return $this->addedAt;
@@ -141,7 +141,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
                 return null;
             }
 
-            $this->custom =  CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsModel::of($data);
         }
 
         return $this->custom;
@@ -159,7 +159,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -178,7 +178,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
                 return null;
             }
 
-            $this->name =  LocalizedStringModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
         return $this->name;
@@ -196,7 +196,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
             if (is_null($data)) {
                 return null;
             }
-            $this->productId =  (string) $data;
+            $this->productId = (string) $data;
         }
 
         return $this->productId;
@@ -215,7 +215,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
                 return null;
             }
 
-            $this->productSlug =  LocalizedStringModel::of($data);
+            $this->productSlug = LocalizedStringModel::of($data);
         }
 
         return $this->productSlug;
@@ -234,7 +234,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
                 return null;
             }
 
-            $this->productType =  ReferenceModel::of($data);
+            $this->productType = ReferenceModel::of($data);
         }
 
         return $this->productType;
@@ -252,7 +252,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity =  (int) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -271,7 +271,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
                 return null;
             }
 
-            $this->variant =  VariantModel::of($data);
+            $this->variant = VariantModel::of($data);
         }
 
         return $this->variant;
@@ -289,7 +289,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
             if (is_null($data)) {
                 return null;
             }
-            $this->variantId =  (int) $data;
+            $this->variantId = (int) $data;
         }
 
         return $this->variantId;

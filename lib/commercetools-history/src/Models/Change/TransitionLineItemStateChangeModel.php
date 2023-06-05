@@ -90,7 +90,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -110,7 +110,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -128,7 +128,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
             if (is_null($data)) {
                 return null;
             }
-            $this->lineItemId =  (string) $data;
+            $this->lineItemId = (string) $data;
         }
 
         return $this->lineItemId;
@@ -146,7 +146,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
             if (is_null($data)) {
                 return null;
             }
-            $this->stateId =  (string) $data;
+            $this->stateId = (string) $data;
         }
 
         return $this->stateId;
@@ -164,7 +164,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  ItemStateCollection::fromArray($data);
+            $this->nextValue = ItemStateCollection::fromArray($data);
         }
 
         return $this->nextValue;
@@ -182,7 +182,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  ItemStateCollection::fromArray($data);
+            $this->previousValue = ItemStateCollection::fromArray($data);
         }
 
         return $this->previousValue;

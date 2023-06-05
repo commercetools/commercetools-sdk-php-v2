@@ -75,7 +75,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -116,7 +116,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
                 return null;
             }
 
-            $this->previousValue =  LocationModel::of($data);
+            $this->previousValue = LocationModel::of($data);
         }
 
         return $this->previousValue;
@@ -137,7 +137,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
                 return null;
             }
 
-            $this->nextValue =  LocationModel::of($data);
+            $this->nextValue = LocationModel::of($data);
         }
 
         return $this->nextValue;

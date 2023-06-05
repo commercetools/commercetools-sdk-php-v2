@@ -59,7 +59,7 @@ final class LocalizedLabelModel extends JsonObjectModel implements LocalizedLabe
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -78,7 +78,7 @@ final class LocalizedLabelModel extends JsonObjectModel implements LocalizedLabe
                 return null;
             }
 
-            $this->value =  LocalizedStringModel::of($data);
+            $this->value = LocalizedStringModel::of($data);
         }
 
         return $this->value;

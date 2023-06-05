@@ -75,7 +75,7 @@ final class SetShippingInfoPriceChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class SetShippingInfoPriceChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -114,7 +114,7 @@ final class SetShippingInfoPriceChangeModel extends JsonObjectModel implements S
                 return null;
             }
 
-            $this->nextValue =  MoneyModel::of($data);
+            $this->nextValue = MoneyModel::of($data);
         }
 
         return $this->nextValue;
@@ -133,7 +133,7 @@ final class SetShippingInfoPriceChangeModel extends JsonObjectModel implements S
                 return null;
             }
 
-            $this->previousValue =  MoneyModel::of($data);
+            $this->previousValue = MoneyModel::of($data);
         }
 
         return $this->previousValue;

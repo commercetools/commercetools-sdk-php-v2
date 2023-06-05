@@ -58,7 +58,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity =  (int) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -77,7 +77,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
                 return null;
             }
 
-            $this->state =  ReferenceModel::of($data);
+            $this->state = ReferenceModel::of($data);
         }
 
         return $this->state;

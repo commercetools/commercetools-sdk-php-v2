@@ -59,7 +59,7 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
                 return null;
             }
 
-            $this->type =  ReferenceModel::of($data);
+            $this->type = ReferenceModel::of($data);
         }
 
         return $this->type;
@@ -79,7 +79,7 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
             if (is_null($data)) {
                 return null;
             }
-            $this->fields =  JsonObjectModel::of($data);
+            $this->fields = JsonObjectModel::of($data);
         }
 
         return $this->fields;

@@ -75,7 +75,7 @@ final class SetDefaultBillingAddressChangeModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class SetDefaultBillingAddressChangeModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -114,7 +114,7 @@ final class SetDefaultBillingAddressChangeModel extends JsonObjectModel implemen
                 return null;
             }
 
-            $this->nextValue =  AddressModel::of($data);
+            $this->nextValue = AddressModel::of($data);
         }
 
         return $this->nextValue;
@@ -133,7 +133,7 @@ final class SetDefaultBillingAddressChangeModel extends JsonObjectModel implemen
                 return null;
             }
 
-            $this->previousValue =  AddressModel::of($data);
+            $this->previousValue = AddressModel::of($data);
         }
 
         return $this->previousValue;

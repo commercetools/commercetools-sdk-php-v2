@@ -60,7 +60,7 @@ final class TextLineItemValueModel extends JsonObjectModel implements TextLineIt
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -79,7 +79,7 @@ final class TextLineItemValueModel extends JsonObjectModel implements TextLineIt
                 return null;
             }
 
-            $this->name =  LocalizedStringModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
         return $this->name;

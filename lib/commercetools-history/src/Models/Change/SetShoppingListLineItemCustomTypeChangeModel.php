@@ -85,7 +85,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -105,7 +105,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -124,7 +124,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
                 return null;
             }
 
-            $this->lineItem =  ShoppingListLineItemValueModel::of($data);
+            $this->lineItem = ShoppingListLineItemValueModel::of($data);
         }
 
         return $this->lineItem;
@@ -143,7 +143,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
                 return null;
             }
 
-            $this->nextValue =  CustomFieldsModel::of($data);
+            $this->nextValue = CustomFieldsModel::of($data);
         }
 
         return $this->nextValue;
@@ -162,7 +162,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
                 return null;
             }
 
-            $this->previousValue =  CustomFieldsModel::of($data);
+            $this->previousValue = CustomFieldsModel::of($data);
         }
 
         return $this->previousValue;

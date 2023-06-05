@@ -58,7 +58,7 @@ final class GeoLocationModel extends JsonObjectModel implements GeoLocation
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -76,7 +76,7 @@ final class GeoLocationModel extends JsonObjectModel implements GeoLocation
             if (is_null($data)) {
                 return null;
             }
-            $this->coordinates =  $data;
+            $this->coordinates = $data;
         }
 
         return $this->coordinates;

@@ -101,7 +101,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -121,7 +121,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -140,7 +140,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
                 return null;
             }
 
-            $this->lineItem =  LocalizedStringModel::of($data);
+            $this->lineItem = LocalizedStringModel::of($data);
         }
 
         return $this->lineItem;
@@ -158,7 +158,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->variant =  (string) $data;
+            $this->variant = (string) $data;
         }
 
         return $this->variant;
@@ -176,7 +176,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->taxMode =  (string) $data;
+            $this->taxMode = (string) $data;
         }
 
         return $this->taxMode;
@@ -197,7 +197,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
                 return null;
             }
 
-            $this->nextValue =  TaxRateModel::of($data);
+            $this->nextValue = TaxRateModel::of($data);
         }
 
         return $this->nextValue;
@@ -218,7 +218,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
                 return null;
             }
 
-            $this->previousValue =  TaxRateModel::of($data);
+            $this->previousValue = TaxRateModel::of($data);
         }
 
         return $this->previousValue;

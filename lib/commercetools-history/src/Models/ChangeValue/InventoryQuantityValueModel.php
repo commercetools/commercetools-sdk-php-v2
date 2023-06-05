@@ -58,7 +58,7 @@ final class InventoryQuantityValueModel extends JsonObjectModel implements Inven
             if (is_null($data)) {
                 return null;
             }
-            $this->quantityOnStock =  (int) $data;
+            $this->quantityOnStock = (int) $data;
         }
 
         return $this->quantityOnStock;
@@ -76,7 +76,7 @@ final class InventoryQuantityValueModel extends JsonObjectModel implements Inven
             if (is_null($data)) {
                 return null;
             }
-            $this->availableQuantity =  (int) $data;
+            $this->availableQuantity = (int) $data;
         }
 
         return $this->availableQuantity;

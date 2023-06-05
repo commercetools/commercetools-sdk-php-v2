@@ -84,7 +84,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
             if (is_null($data)) {
                 return null;
             }
-            $this->trackingId =  (string) $data;
+            $this->trackingId = (string) $data;
         }
 
         return $this->trackingId;
@@ -104,7 +104,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
             if (is_null($data)) {
                 return null;
             }
-            $this->carrier =  (string) $data;
+            $this->carrier = (string) $data;
         }
 
         return $this->carrier;
@@ -122,7 +122,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
             if (is_null($data)) {
                 return null;
             }
-            $this->provider =  (string) $data;
+            $this->provider = (string) $data;
         }
 
         return $this->provider;
@@ -140,7 +140,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
             if (is_null($data)) {
                 return null;
             }
-            $this->providerTransaction =  (string) $data;
+            $this->providerTransaction = (string) $data;
         }
 
         return $this->providerTransaction;
@@ -160,7 +160,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
             if (is_null($data)) {
                 return null;
             }
-            $this->isReturn =  (bool) $data;
+            $this->isReturn = (bool) $data;
         }
 
         return $this->isReturn;

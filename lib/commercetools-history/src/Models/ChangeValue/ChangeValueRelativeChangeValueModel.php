@@ -57,7 +57,7 @@ final class ChangeValueRelativeChangeValueModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -75,7 +75,7 @@ final class ChangeValueRelativeChangeValueModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->permyriad =  (int) $data;
+            $this->permyriad = (int) $data;
         }
 
         return $this->permyriad;

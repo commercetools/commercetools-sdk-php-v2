@@ -81,7 +81,7 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -101,7 +101,7 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -121,7 +121,7 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName =  (string) $data;
+            $this->attributeName = (string) $data;
         }
 
         return $this->attributeName;
@@ -139,7 +139,7 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  (bool) $data;
+            $this->nextValue = (bool) $data;
         }
 
         return $this->nextValue;
@@ -157,7 +157,7 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  (bool) $data;
+            $this->previousValue = (bool) $data;
         }
 
         return $this->previousValue;

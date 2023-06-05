@@ -74,7 +74,7 @@ final class ReservationModel extends JsonObjectModel implements Reservation
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity =  (int) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -93,7 +93,7 @@ final class ReservationModel extends JsonObjectModel implements Reservation
                 return null;
             }
 
-            $this->owner =  ReferenceModel::of($data);
+            $this->owner = ReferenceModel::of($data);
         }
 
         return $this->owner;
@@ -111,7 +111,7 @@ final class ReservationModel extends JsonObjectModel implements Reservation
             if (is_null($data)) {
                 return null;
             }
-            $this->createdAt =  (string) $data;
+            $this->createdAt = (string) $data;
         }
 
         return $this->createdAt;
@@ -129,7 +129,7 @@ final class ReservationModel extends JsonObjectModel implements Reservation
             if (is_null($data)) {
                 return null;
             }
-            $this->checkoutStartedAt =  (string) $data;
+            $this->checkoutStartedAt = (string) $data;
         }
 
         return $this->checkoutStartedAt;

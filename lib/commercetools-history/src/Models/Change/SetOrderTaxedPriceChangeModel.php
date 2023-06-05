@@ -83,7 +83,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -103,7 +103,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -121,7 +121,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
             if (is_null($data)) {
                 return null;
             }
-            $this->taxMode =  (string) $data;
+            $this->taxMode = (string) $data;
         }
 
         return $this->taxMode;
@@ -140,7 +140,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
                 return null;
             }
 
-            $this->nextValue =  TaxedItemPriceModel::of($data);
+            $this->nextValue = TaxedItemPriceModel::of($data);
         }
 
         return $this->nextValue;
@@ -159,7 +159,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
                 return null;
             }
 
-            $this->previousValue =  TaxedItemPriceModel::of($data);
+            $this->previousValue = TaxedItemPriceModel::of($data);
         }
 
         return $this->previousValue;

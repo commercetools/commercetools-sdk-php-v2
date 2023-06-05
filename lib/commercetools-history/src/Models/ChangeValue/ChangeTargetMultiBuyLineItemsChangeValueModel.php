@@ -89,7 +89,7 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -107,7 +107,7 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->predicate =  (string) $data;
+            $this->predicate = (string) $data;
         }
 
         return $this->predicate;
@@ -127,7 +127,7 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->triggerQuantity =  (int) $data;
+            $this->triggerQuantity = (int) $data;
         }
 
         return $this->triggerQuantity;
@@ -147,7 +147,7 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->discountedQuantity =  (int) $data;
+            $this->discountedQuantity = (int) $data;
         }
 
         return $this->discountedQuantity;
@@ -167,7 +167,7 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->maxOccurrence =  (int) $data;
+            $this->maxOccurrence = (int) $data;
         }
 
         return $this->maxOccurrence;
@@ -185,7 +185,7 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
             if (is_null($data)) {
                 return null;
             }
-            $this->selectionMode =  (string) $data;
+            $this->selectionMode = (string) $data;
         }
 
         return $this->selectionMode;

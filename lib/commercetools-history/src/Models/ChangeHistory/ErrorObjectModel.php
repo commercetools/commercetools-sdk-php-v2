@@ -58,7 +58,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
             if (is_null($data)) {
                 return null;
             }
-            $this->code =  (string) $data;
+            $this->code = (string) $data;
         }
 
         return $this->code;
@@ -76,7 +76,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
             if (is_null($data)) {
                 return null;
             }
-            $this->message =  (string) $data;
+            $this->message = (string) $data;
         }
 
         return $this->message;

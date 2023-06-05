@@ -84,7 +84,7 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
             if (is_null($data)) {
                 return null;
             }
-            $this->limit =  (int) $data;
+            $this->limit = (int) $data;
         }
 
         return $this->limit;
@@ -104,7 +104,7 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
             if (is_null($data)) {
                 return null;
             }
-            $this->count =  (int) $data;
+            $this->count = (int) $data;
         }
 
         return $this->count;
@@ -125,7 +125,7 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
             if (is_null($data)) {
                 return null;
             }
-            $this->total =  (int) $data;
+            $this->total = (int) $data;
         }
 
         return $this->total;
@@ -145,7 +145,7 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
             if (is_null($data)) {
                 return null;
             }
-            $this->offset =  (int) $data;
+            $this->offset = (int) $data;
         }
 
         return $this->offset;
@@ -163,7 +163,7 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
             if (is_null($data)) {
                 return null;
             }
-            $this->results =  RecordCollection::fromArray($data);
+            $this->results = RecordCollection::fromArray($data);
         }
 
         return $this->results;

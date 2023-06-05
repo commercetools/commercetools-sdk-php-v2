@@ -58,7 +58,7 @@ final class ParcelChangeValueModel extends JsonObjectModel implements ParcelChan
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -76,7 +76,7 @@ final class ParcelChangeValueModel extends JsonObjectModel implements ParcelChan
             if (is_null($data)) {
                 return null;
             }
-            $this->createdAt =  (string) $data;
+            $this->createdAt = (string) $data;
         }
 
         return $this->createdAt;

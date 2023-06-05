@@ -58,7 +58,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity =  (int) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -77,7 +77,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
                 return null;
             }
 
-            $this->discountedPrice =  DiscountedLineItemPriceModel::of($data);
+            $this->discountedPrice = DiscountedLineItemPriceModel::of($data);
         }
 
         return $this->discountedPrice;

@@ -75,7 +75,7 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -93,7 +93,7 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -112,7 +112,7 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
                 return null;
             }
 
-            $this->nextValue =  InventoryQuantityValueModel::of($data);
+            $this->nextValue = InventoryQuantityValueModel::of($data);
         }
 
         return $this->nextValue;
@@ -131,7 +131,7 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
                 return null;
             }
 
-            $this->previousValue =  InventoryQuantityValueModel::of($data);
+            $this->previousValue = InventoryQuantityValueModel::of($data);
         }
 
         return $this->previousValue;

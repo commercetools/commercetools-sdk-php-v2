@@ -52,7 +52,7 @@ final class StoreCountryModel extends JsonObjectModel implements StoreCountry
             if (is_null($data)) {
                 return null;
             }
-            $this->code =  (string) $data;
+            $this->code = (string) $data;
         }
 
         return $this->code;

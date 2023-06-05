@@ -75,7 +75,7 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -113,7 +113,7 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->deliveryId =  (string) $data;
+            $this->deliveryId = (string) $data;
         }
 
         return $this->deliveryId;
@@ -132,7 +132,7 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
                 return null;
             }
 
-            $this->previousValue =  ParcelModel::of($data);
+            $this->previousValue = ParcelModel::of($data);
         }
 
         return $this->previousValue;

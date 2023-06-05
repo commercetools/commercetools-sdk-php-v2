@@ -60,7 +60,7 @@ final class FieldDefinitionOrderValueModel extends JsonObjectModel implements Fi
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;
@@ -79,7 +79,7 @@ final class FieldDefinitionOrderValueModel extends JsonObjectModel implements Fi
                 return null;
             }
 
-            $this->label =  LocalizedStringModel::of($data);
+            $this->label = LocalizedStringModel::of($data);
         }
 
         return $this->label;

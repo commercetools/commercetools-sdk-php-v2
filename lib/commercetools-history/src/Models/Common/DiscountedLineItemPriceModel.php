@@ -59,7 +59,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
                 return null;
             }
 
-            $this->value =  MoneyModel::of($data);
+            $this->value = MoneyModel::of($data);
         }
 
         return $this->value;
@@ -77,7 +77,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
             if (is_null($data)) {
                 return null;
             }
-            $this->includedDiscounts =  DiscountedLineItemPortionCollection::fromArray($data);
+            $this->includedDiscounts = DiscountedLineItemPortionCollection::fromArray($data);
         }
 
         return $this->includedDiscounts;

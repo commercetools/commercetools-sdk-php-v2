@@ -68,7 +68,7 @@ final class SetCartClassificationShippingRateInputValueModel extends JsonObjectM
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -86,7 +86,7 @@ final class SetCartClassificationShippingRateInputValueModel extends JsonObjectM
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;
@@ -105,7 +105,7 @@ final class SetCartClassificationShippingRateInputValueModel extends JsonObjectM
                 return null;
             }
 
-            $this->label =  LocalizedStringModel::of($data);
+            $this->label = LocalizedStringModel::of($data);
         }
 
         return $this->label;

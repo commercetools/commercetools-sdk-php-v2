@@ -67,7 +67,7 @@ final class RemoveAttributeDefinitionChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -87,7 +87,7 @@ final class RemoveAttributeDefinitionChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -106,7 +106,7 @@ final class RemoveAttributeDefinitionChangeModel extends JsonObjectModel impleme
                 return null;
             }
 
-            $this->previousValue =  AttributeDefinitionModel::of($data);
+            $this->previousValue = AttributeDefinitionModel::of($data);
         }
 
         return $this->previousValue;

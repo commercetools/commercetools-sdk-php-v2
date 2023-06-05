@@ -58,7 +58,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -76,7 +76,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity =  (int) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;

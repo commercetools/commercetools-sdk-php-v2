@@ -93,7 +93,7 @@ final class SetOrderLineItemCustomTypeChangeModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -113,7 +113,7 @@ final class SetOrderLineItemCustomTypeChangeModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -132,7 +132,7 @@ final class SetOrderLineItemCustomTypeChangeModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->lineItem =  LocalizedStringModel::of($data);
+            $this->lineItem = LocalizedStringModel::of($data);
         }
 
         return $this->lineItem;
@@ -150,7 +150,7 @@ final class SetOrderLineItemCustomTypeChangeModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->variant =  (string) $data;
+            $this->variant = (string) $data;
         }
 
         return $this->variant;
@@ -169,7 +169,7 @@ final class SetOrderLineItemCustomTypeChangeModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->nextValue =  CustomFieldsModel::of($data);
+            $this->nextValue = CustomFieldsModel::of($data);
         }
 
         return $this->nextValue;
@@ -188,7 +188,7 @@ final class SetOrderLineItemCustomTypeChangeModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->previousValue =  CustomFieldsModel::of($data);
+            $this->previousValue = CustomFieldsModel::of($data);
         }
 
         return $this->previousValue;

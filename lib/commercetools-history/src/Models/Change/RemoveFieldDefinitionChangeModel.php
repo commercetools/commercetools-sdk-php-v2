@@ -67,7 +67,7 @@ final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -87,7 +87,7 @@ final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -106,7 +106,7 @@ final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements 
                 return null;
             }
 
-            $this->previousValue =  FieldDefinitionModel::of($data);
+            $this->previousValue = FieldDefinitionModel::of($data);
         }
 
         return $this->previousValue;

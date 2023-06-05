@@ -75,7 +75,7 @@ final class AddOrderLineItemChangeModel extends JsonObjectModel implements AddOr
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -93,7 +93,7 @@ final class AddOrderLineItemChangeModel extends JsonObjectModel implements AddOr
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -112,7 +112,7 @@ final class AddOrderLineItemChangeModel extends JsonObjectModel implements AddOr
                 return null;
             }
 
-            $this->previousValue =  LineItemModel::of($data);
+            $this->previousValue = LineItemModel::of($data);
         }
 
         return $this->previousValue;
@@ -131,7 +131,7 @@ final class AddOrderLineItemChangeModel extends JsonObjectModel implements AddOr
                 return null;
             }
 
-            $this->nextValue =  LineItemModel::of($data);
+            $this->nextValue = LineItemModel::of($data);
         }
 
         return $this->nextValue;

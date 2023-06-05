@@ -63,7 +63,7 @@ final class ShippingMethodTaxAmountChangeValueModel extends JsonObjectModel impl
                 return null;
             }
 
-            $this->taxedPrice =  TaxedPriceModel::of($data);
+            $this->taxedPrice = TaxedPriceModel::of($data);
         }
 
         return $this->taxedPrice;
@@ -84,7 +84,7 @@ final class ShippingMethodTaxAmountChangeValueModel extends JsonObjectModel impl
                 return null;
             }
 
-            $this->taxRate =  TaxRateModel::of($data);
+            $this->taxRate = TaxRateModel::of($data);
         }
 
         return $this->taxRate;

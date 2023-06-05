@@ -84,7 +84,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -104,7 +104,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -123,7 +123,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
                 return null;
             }
 
-            $this->asset =  AssetChangeValueModel::of($data);
+            $this->asset = AssetChangeValueModel::of($data);
         }
 
         return $this->asset;
@@ -141,7 +141,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  AssetSourceCollection::fromArray($data);
+            $this->nextValue = AssetSourceCollection::fromArray($data);
         }
 
         return $this->nextValue;
@@ -159,7 +159,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  AssetSourceCollection::fromArray($data);
+            $this->previousValue = AssetSourceCollection::fromArray($data);
         }
 
         return $this->previousValue;

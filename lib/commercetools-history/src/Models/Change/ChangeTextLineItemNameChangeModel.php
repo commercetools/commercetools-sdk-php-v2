@@ -85,7 +85,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -105,7 +105,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -124,7 +124,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
                 return null;
             }
 
-            $this->textLineItem =  TextLineItemValueModel::of($data);
+            $this->textLineItem = TextLineItemValueModel::of($data);
         }
 
         return $this->textLineItem;
@@ -143,7 +143,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
                 return null;
             }
 
-            $this->nextValue =  LocalizedStringModel::of($data);
+            $this->nextValue = LocalizedStringModel::of($data);
         }
 
         return $this->nextValue;
@@ -162,7 +162,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
                 return null;
             }
 
-            $this->previousValue =  LocalizedStringModel::of($data);
+            $this->previousValue = LocalizedStringModel::of($data);
         }
 
         return $this->previousValue;

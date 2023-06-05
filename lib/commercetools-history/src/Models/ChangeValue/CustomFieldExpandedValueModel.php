@@ -70,7 +70,7 @@ final class CustomFieldExpandedValueModel extends JsonObjectModel implements Cus
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;
@@ -88,7 +88,7 @@ final class CustomFieldExpandedValueModel extends JsonObjectModel implements Cus
             if (is_null($data)) {
                 return null;
             }
-            $this->value =  $data;
+            $this->value = $data;
         }
 
         return $this->value;
@@ -107,7 +107,7 @@ final class CustomFieldExpandedValueModel extends JsonObjectModel implements Cus
                 return null;
             }
 
-            $this->label =  LocalizedStringModel::of($data);
+            $this->label = LocalizedStringModel::of($data);
         }
 
         return $this->label;

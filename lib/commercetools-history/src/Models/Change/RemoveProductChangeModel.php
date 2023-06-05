@@ -67,7 +67,7 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -87,7 +87,7 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -106,7 +106,7 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
                 return null;
             }
 
-            $this->previousValue =  ReferenceModel::of($data);
+            $this->previousValue = ReferenceModel::of($data);
         }
 
         return $this->previousValue;

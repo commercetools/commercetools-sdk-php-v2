@@ -58,7 +58,7 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;
@@ -76,7 +76,7 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
             if (is_null($data)) {
                 return null;
             }
-            $this->label =  (string) $data;
+            $this->label = (string) $data;
         }
 
         return $this->label;

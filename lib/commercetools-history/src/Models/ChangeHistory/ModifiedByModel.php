@@ -95,7 +95,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -116,7 +116,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -140,7 +140,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
                 return null;
             }
 
-            $this->customer =  ReferenceModel::of($data);
+            $this->customer = ReferenceModel::of($data);
         }
 
         return $this->customer;
@@ -161,7 +161,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
             if (is_null($data)) {
                 return null;
             }
-            $this->anonymousId =  (string) $data;
+            $this->anonymousId = (string) $data;
         }
 
         return $this->anonymousId;
@@ -183,7 +183,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
             if (is_null($data)) {
                 return null;
             }
-            $this->clientId =  (string) $data;
+            $this->clientId = (string) $data;
         }
 
         return $this->clientId;
@@ -203,7 +203,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
             if (is_null($data)) {
                 return null;
             }
-            $this->isPlatformClient =  (bool) $data;
+            $this->isPlatformClient = (bool) $data;
         }
 
         return $this->isPlatformClient;

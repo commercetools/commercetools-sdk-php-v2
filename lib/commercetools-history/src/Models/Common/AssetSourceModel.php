@@ -74,7 +74,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
             if (is_null($data)) {
                 return null;
             }
-            $this->uri =  (string) $data;
+            $this->uri = (string) $data;
         }
 
         return $this->uri;
@@ -92,7 +92,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;
@@ -111,7 +111,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
                 return null;
             }
 
-            $this->dimensions =  AssetDimensionsModel::of($data);
+            $this->dimensions = AssetDimensionsModel::of($data);
         }
 
         return $this->dimensions;
@@ -129,7 +129,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
             if (is_null($data)) {
                 return null;
             }
-            $this->contentType =  (string) $data;
+            $this->contentType = (string) $data;
         }
 
         return $this->contentType;

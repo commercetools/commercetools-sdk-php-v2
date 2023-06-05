@@ -106,7 +106,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -124,7 +124,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity =  (int) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -142,7 +142,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -160,7 +160,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->comment =  (string) $data;
+            $this->comment = (string) $data;
         }
 
         return $this->comment;
@@ -178,7 +178,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->shipmentState =  (string) $data;
+            $this->shipmentState = (string) $data;
         }
 
         return $this->shipmentState;
@@ -196,7 +196,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->paymentState =  (string) $data;
+            $this->paymentState = (string) $data;
         }
 
         return $this->paymentState;
@@ -214,7 +214,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->lastModifiedAt =  (string) $data;
+            $this->lastModifiedAt = (string) $data;
         }
 
         return $this->lastModifiedAt;
@@ -232,7 +232,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->createdAt =  (string) $data;
+            $this->createdAt = (string) $data;
         }
 
         return $this->createdAt;

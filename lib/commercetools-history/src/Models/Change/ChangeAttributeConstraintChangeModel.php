@@ -81,7 +81,7 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -99,7 +99,7 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -119,7 +119,7 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName =  (string) $data;
+            $this->attributeName = (string) $data;
         }
 
         return $this->attributeName;
@@ -137,7 +137,7 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  (string) $data;
+            $this->previousValue = (string) $data;
         }
 
         return $this->previousValue;
@@ -155,7 +155,7 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  (string) $data;
+            $this->nextValue = (string) $data;
         }
 
         return $this->nextValue;

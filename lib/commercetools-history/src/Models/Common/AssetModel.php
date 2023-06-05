@@ -82,7 +82,7 @@ final class AssetModel extends JsonObjectModel implements Asset
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -101,7 +101,7 @@ final class AssetModel extends JsonObjectModel implements Asset
                 return null;
             }
 
-            $this->name =  LocalizedStringModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
         return $this->name;
@@ -120,7 +120,7 @@ final class AssetModel extends JsonObjectModel implements Asset
                 return null;
             }
 
-            $this->description =  LocalizedStringModel::of($data);
+            $this->description = LocalizedStringModel::of($data);
         }
 
         return $this->description;
@@ -139,7 +139,7 @@ final class AssetModel extends JsonObjectModel implements Asset
                 return null;
             }
 
-            $this->custom =  CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsModel::of($data);
         }
 
         return $this->custom;
@@ -157,7 +157,7 @@ final class AssetModel extends JsonObjectModel implements Asset
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;

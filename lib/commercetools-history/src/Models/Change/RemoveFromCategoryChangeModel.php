@@ -84,7 +84,7 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -104,7 +104,7 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -123,7 +123,7 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
                 return null;
             }
 
-            $this->category =  ReferenceModel::of($data);
+            $this->category = ReferenceModel::of($data);
         }
 
         return $this->category;
@@ -141,7 +141,7 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  ReferenceCollection::fromArray($data);
+            $this->previousValue = ReferenceCollection::fromArray($data);
         }
 
         return $this->previousValue;
@@ -159,7 +159,7 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  ReferenceCollection::fromArray($data);
+            $this->nextValue = ReferenceCollection::fromArray($data);
         }
 
         return $this->nextValue;

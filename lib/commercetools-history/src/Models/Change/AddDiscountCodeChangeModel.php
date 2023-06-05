@@ -67,7 +67,7 @@ final class AddDiscountCodeChangeModel extends JsonObjectModel implements AddDis
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -87,7 +87,7 @@ final class AddDiscountCodeChangeModel extends JsonObjectModel implements AddDis
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -106,7 +106,7 @@ final class AddDiscountCodeChangeModel extends JsonObjectModel implements AddDis
                 return null;
             }
 
-            $this->nextValue =  DiscountCodeInfoModel::of($data);
+            $this->nextValue = DiscountCodeInfoModel::of($data);
         }
 
         return $this->nextValue;
