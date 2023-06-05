@@ -132,8 +132,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when changing the quantity of a Line Item with the <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
-     * <p>The LineItem price is updated as described in LineItem Price selection.</p>
+     * <p>Deprecated. Will be ignored.</p>
      *
      *
      * @return null|Money
@@ -154,7 +153,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> to the given value when changing the quantity of a Line Item with the <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     * <p>Deprecated. Will be ignored.</p>
      *
      *
      * @return null|ExternalLineItemTotalPrice
