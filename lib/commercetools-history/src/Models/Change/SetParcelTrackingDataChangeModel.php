@@ -85,7 +85,7 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -105,7 +105,7 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -124,7 +124,7 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
                 return null;
             }
 
-            $this->parcel =  ParcelChangeValueModel::of($data);
+            $this->parcel = ParcelChangeValueModel::of($data);
         }
 
         return $this->parcel;
@@ -143,7 +143,7 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
                 return null;
             }
 
-            $this->nextValue =  TrackingDataModel::of($data);
+            $this->nextValue = TrackingDataModel::of($data);
         }
 
         return $this->nextValue;
@@ -162,7 +162,7 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
                 return null;
             }
 
-            $this->previousValue =  TrackingDataModel::of($data);
+            $this->previousValue = TrackingDataModel::of($data);
         }
 
         return $this->previousValue;

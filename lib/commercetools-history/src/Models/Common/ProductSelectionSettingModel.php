@@ -59,7 +59,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
                 return null;
             }
 
-            $this->productSelection =  ReferenceModel::of($data);
+            $this->productSelection = ReferenceModel::of($data);
         }
 
         return $this->productSelection;
@@ -77,7 +77,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
             if (is_null($data)) {
                 return null;
             }
-            $this->active =  (bool) $data;
+            $this->active = (bool) $data;
         }
 
         return $this->active;

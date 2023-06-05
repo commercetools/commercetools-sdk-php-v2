@@ -58,7 +58,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
             if (is_null($data)) {
                 return null;
             }
-            $this->targets =  ItemShippingTargetCollection::fromArray($data);
+            $this->targets = ItemShippingTargetCollection::fromArray($data);
         }
 
         return $this->targets;
@@ -78,7 +78,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
             if (is_null($data)) {
                 return null;
             }
-            $this->valid =  (bool) $data;
+            $this->valid = (bool) $data;
         }
 
         return $this->valid;

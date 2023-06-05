@@ -74,7 +74,7 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -92,7 +92,7 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -110,7 +110,7 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  ShoppingListLineItemValueCollection::fromArray($data);
+            $this->previousValue = ShoppingListLineItemValueCollection::fromArray($data);
         }
 
         return $this->previousValue;
@@ -128,7 +128,7 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  ShoppingListLineItemValueCollection::fromArray($data);
+            $this->nextValue = ShoppingListLineItemValueCollection::fromArray($data);
         }
 
         return $this->nextValue;

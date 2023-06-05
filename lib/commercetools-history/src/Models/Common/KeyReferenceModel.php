@@ -58,7 +58,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;
@@ -76,7 +76,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
             if (is_null($data)) {
                 return null;
             }
-            $this->typeId =  (string) $data;
+            $this->typeId = (string) $data;
         }
 
         return $this->typeId;

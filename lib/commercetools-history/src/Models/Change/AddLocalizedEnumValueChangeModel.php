@@ -83,7 +83,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -103,7 +103,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -123,7 +123,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->fieldName =  (string) $data;
+            $this->fieldName = (string) $data;
         }
 
         return $this->fieldName;
@@ -143,7 +143,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName =  (string) $data;
+            $this->attributeName = (string) $data;
         }
 
         return $this->attributeName;
@@ -162,7 +162,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
                 return null;
             }
 
-            $this->nextValue =  LocalizedEnumValueModel::of($data);
+            $this->nextValue = LocalizedEnumValueModel::of($data);
         }
 
         return $this->nextValue;

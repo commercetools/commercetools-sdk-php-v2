@@ -75,7 +75,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -115,7 +115,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName =  (string) $data;
+            $this->attributeName = (string) $data;
         }
 
         return $this->attributeName;
@@ -134,7 +134,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
                 return null;
             }
 
-            $this->nextValue =  EnumValueModel::of($data);
+            $this->nextValue = EnumValueModel::of($data);
         }
 
         return $this->nextValue;

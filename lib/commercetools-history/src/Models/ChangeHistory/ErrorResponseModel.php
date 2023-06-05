@@ -82,7 +82,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
             if (is_null($data)) {
                 return null;
             }
-            $this->statusCode =  (int) $data;
+            $this->statusCode = (int) $data;
         }
 
         return $this->statusCode;
@@ -100,7 +100,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
             if (is_null($data)) {
                 return null;
             }
-            $this->message =  (string) $data;
+            $this->message = (string) $data;
         }
 
         return $this->message;
@@ -118,7 +118,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
             if (is_null($data)) {
                 return null;
             }
-            $this->error =  (string) $data;
+            $this->error = (string) $data;
         }
 
         return $this->error;
@@ -136,7 +136,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
             if (is_null($data)) {
                 return null;
             }
-            $this->error_description =  (string) $data;
+            $this->error_description = (string) $data;
         }
 
         return $this->error_description;
@@ -154,7 +154,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
             if (is_null($data)) {
                 return null;
             }
-            $this->errors =  ErrorObjectCollection::fromArray($data);
+            $this->errors = ErrorObjectCollection::fromArray($data);
         }
 
         return $this->errors;

@@ -60,7 +60,7 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
             if (is_null($data)) {
                 return null;
             }
-            $this->addressKey =  (string) $data;
+            $this->addressKey = (string) $data;
         }
 
         return $this->addressKey;
@@ -80,7 +80,7 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity =  (int) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;

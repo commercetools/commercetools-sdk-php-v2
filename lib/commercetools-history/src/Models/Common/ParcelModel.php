@@ -82,7 +82,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -100,7 +100,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
             if (is_null($data)) {
                 return null;
             }
-            $this->createdAt =  (string) $data;
+            $this->createdAt = (string) $data;
         }
 
         return $this->createdAt;
@@ -119,7 +119,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
                 return null;
             }
 
-            $this->measurements =  ParcelMeasurementsModel::of($data);
+            $this->measurements = ParcelMeasurementsModel::of($data);
         }
 
         return $this->measurements;
@@ -138,7 +138,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
                 return null;
             }
 
-            $this->trackingData =  TrackingDataModel::of($data);
+            $this->trackingData = TrackingDataModel::of($data);
         }
 
         return $this->trackingData;
@@ -156,7 +156,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
             if (is_null($data)) {
                 return null;
             }
-            $this->items =  DeliveryItemCollection::fromArray($data);
+            $this->items = DeliveryItemCollection::fromArray($data);
         }
 
         return $this->items;

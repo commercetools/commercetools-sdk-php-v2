@@ -58,7 +58,7 @@ final class SetCartScoreShippingRateInputValueModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -76,7 +76,7 @@ final class SetCartScoreShippingRateInputValueModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->score =  (int) $data;
+            $this->score = (int) $data;
         }
 
         return $this->score;

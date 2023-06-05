@@ -66,7 +66,7 @@ interface QuoteRequestDraft extends JsonObject
     public function getCustom();
 
     /**
-     * <p><a href="ctp:api:type:State">State</a> of this Quote Request.
+     * <p><a href="ctp:api:type:State">State</a> of the Quote Request.
      * This reference can point to a State in a custom workflow.</p>
      *
 

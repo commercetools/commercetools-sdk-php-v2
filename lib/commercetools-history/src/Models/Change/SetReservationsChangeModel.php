@@ -74,7 +74,7 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -94,7 +94,7 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -112,7 +112,7 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  ReservationCollection::fromArray($data);
+            $this->nextValue = ReservationCollection::fromArray($data);
         }
 
         return $this->nextValue;
@@ -130,7 +130,7 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  ReservationCollection::fromArray($data);
+            $this->previousValue = ReservationCollection::fromArray($data);
         }
 
         return $this->previousValue;

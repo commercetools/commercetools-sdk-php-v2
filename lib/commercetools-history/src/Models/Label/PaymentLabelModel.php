@@ -67,7 +67,7 @@ final class PaymentLabelModel extends JsonObjectModel implements PaymentLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -85,7 +85,7 @@ final class PaymentLabelModel extends JsonObjectModel implements PaymentLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;
@@ -104,7 +104,7 @@ final class PaymentLabelModel extends JsonObjectModel implements PaymentLabel
                 return null;
             }
 
-            $this->amountPlanned =  MoneyModel::of($data);
+            $this->amountPlanned = MoneyModel::of($data);
         }
 
         return $this->amountPlanned;

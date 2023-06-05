@@ -22,9 +22,26 @@ final class CartSetShippingMethodTaxRateActionBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> to update. This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
+    }
 
     /**
      * <p>Value to set.
@@ -36,6 +53,17 @@ final class CartSetShippingMethodTaxRateActionBuilder implements Builder
     public function getExternalTaxRate()
     {
         return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
     }
 
     /**
@@ -63,6 +91,7 @@ final class CartSetShippingMethodTaxRateActionBuilder implements Builder
     public function build(): CartSetShippingMethodTaxRateAction
     {
         return new CartSetShippingMethodTaxRateActionModel(
+            $this->shippingKey,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate
         );
     }

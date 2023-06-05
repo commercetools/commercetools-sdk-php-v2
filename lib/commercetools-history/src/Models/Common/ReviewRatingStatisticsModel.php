@@ -84,7 +84,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
             if (is_null($data)) {
                 return null;
             }
-            $this->averageRating =  (int) $data;
+            $this->averageRating = (int) $data;
         }
 
         return $this->averageRating;
@@ -104,7 +104,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
             if (is_null($data)) {
                 return null;
             }
-            $this->highestRating =  (int) $data;
+            $this->highestRating = (int) $data;
         }
 
         return $this->highestRating;
@@ -124,7 +124,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
             if (is_null($data)) {
                 return null;
             }
-            $this->lowestRating =  (int) $data;
+            $this->lowestRating = (int) $data;
         }
 
         return $this->lowestRating;
@@ -144,7 +144,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
             if (is_null($data)) {
                 return null;
             }
-            $this->count =  (int) $data;
+            $this->count = (int) $data;
         }
 
         return $this->count;
@@ -164,7 +164,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
             if (is_null($data)) {
                 return null;
             }
-            $this->ratingsDistribution =  JsonObjectModel::of($data);
+            $this->ratingsDistribution = JsonObjectModel::of($data);
         }
 
         return $this->ratingsDistribution;

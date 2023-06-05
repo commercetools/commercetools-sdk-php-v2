@@ -59,7 +59,7 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
                 return null;
             }
 
-            $this->discountCode =  ReferenceModel::of($data);
+            $this->discountCode = ReferenceModel::of($data);
         }
 
         return $this->discountCode;
@@ -77,7 +77,7 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
             if (is_null($data)) {
                 return null;
             }
-            $this->state =  (string) $data;
+            $this->state = (string) $data;
         }
 
         return $this->state;

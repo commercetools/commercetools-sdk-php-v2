@@ -59,7 +59,7 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
                 return null;
             }
 
-            $this->totalNet =  MoneyModel::of($data);
+            $this->totalNet = MoneyModel::of($data);
         }
 
         return $this->totalNet;
@@ -78,7 +78,7 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
                 return null;
             }
 
-            $this->totalGross =  MoneyModel::of($data);
+            $this->totalGross = MoneyModel::of($data);
         }
 
         return $this->totalGross;

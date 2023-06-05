@@ -73,7 +73,7 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -93,7 +93,7 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -113,7 +113,7 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
             if (is_null($data)) {
                 return null;
             }
-            $this->path =  (string) $data;
+            $this->path = (string) $data;
         }
 
         return $this->path;
@@ -131,7 +131,7 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  $data;
+            $this->previousValue = $data;
         }
 
         return $this->previousValue;

@@ -99,7 +99,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -119,7 +119,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -137,7 +137,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;
@@ -156,7 +156,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
                 return null;
             }
 
-            $this->customLineItem =  LocalizedStringModel::of($data);
+            $this->customLineItem = LocalizedStringModel::of($data);
         }
 
         return $this->customLineItem;
@@ -174,7 +174,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->customLineItemId =  (string) $data;
+            $this->customLineItemId = (string) $data;
         }
 
         return $this->customLineItemId;
@@ -192,7 +192,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  $data;
+            $this->nextValue = $data;
         }
 
         return $this->nextValue;
@@ -210,7 +210,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  $data;
+            $this->previousValue = $data;
         }
 
         return $this->previousValue;

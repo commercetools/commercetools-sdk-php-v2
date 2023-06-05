@@ -75,7 +75,7 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -114,7 +114,7 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
                 return null;
             }
 
-            $this->nextValue =  ReviewRatingStatisticsModel::of($data);
+            $this->nextValue = ReviewRatingStatisticsModel::of($data);
         }
 
         return $this->nextValue;
@@ -133,7 +133,7 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
                 return null;
             }
 
-            $this->previousValue =  ReviewRatingStatisticsModel::of($data);
+            $this->previousValue = ReviewRatingStatisticsModel::of($data);
         }
 
         return $this->previousValue;

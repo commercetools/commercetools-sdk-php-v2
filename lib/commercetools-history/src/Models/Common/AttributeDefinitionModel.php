@@ -107,7 +107,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
                 return null;
             }
 
-            $this->type =  AttributeTypeModel::of($data);
+            $this->type = AttributeTypeModel::of($data);
         }
 
         return $this->type;
@@ -127,7 +127,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;
@@ -146,7 +146,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
                 return null;
             }
 
-            $this->label =  LocalizedStringModel::of($data);
+            $this->label = LocalizedStringModel::of($data);
         }
 
         return $this->label;
@@ -166,7 +166,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
             if (is_null($data)) {
                 return null;
             }
-            $this->isRequired =  (bool) $data;
+            $this->isRequired = (bool) $data;
         }
 
         return $this->isRequired;
@@ -184,7 +184,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeConstraint =  (string) $data;
+            $this->attributeConstraint = (string) $data;
         }
 
         return $this->attributeConstraint;
@@ -203,7 +203,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
                 return null;
             }
 
-            $this->inputTip =  LocalizedStringModel::of($data);
+            $this->inputTip = LocalizedStringModel::of($data);
         }
 
         return $this->inputTip;
@@ -221,7 +221,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
             if (is_null($data)) {
                 return null;
             }
-            $this->inputHint =  (string) $data;
+            $this->inputHint = (string) $data;
         }
 
         return $this->inputHint;
@@ -241,7 +241,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
             if (is_null($data)) {
                 return null;
             }
-            $this->isSearchable =  (bool) $data;
+            $this->isSearchable = (bool) $data;
         }
 
         return $this->isSearchable;

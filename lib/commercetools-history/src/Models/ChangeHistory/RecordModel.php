@@ -138,7 +138,7 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-            $this->version =  (int) $data;
+            $this->version = (int) $data;
         }
 
         return $this->version;
@@ -158,7 +158,7 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-            $this->previousVersion =  (int) $data;
+            $this->previousVersion = (int) $data;
         }
 
         return $this->previousVersion;
@@ -178,7 +178,7 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -199,7 +199,7 @@ final class RecordModel extends JsonObjectModel implements Record
                 return null;
             }
 
-            $this->modifiedBy =  ModifiedByModel::of($data);
+            $this->modifiedBy = ModifiedByModel::of($data);
         }
 
         return $this->modifiedBy;
@@ -219,7 +219,7 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-            $this->modifiedAt =  (string) $data;
+            $this->modifiedAt = (string) $data;
         }
 
         return $this->modifiedAt;
@@ -240,7 +240,7 @@ final class RecordModel extends JsonObjectModel implements Record
                 return null;
             }
 
-            $this->label =  LabelModel::of($data);
+            $this->label = LabelModel::of($data);
         }
 
         return $this->label;
@@ -261,7 +261,7 @@ final class RecordModel extends JsonObjectModel implements Record
                 return null;
             }
 
-            $this->previousLabel =  LabelModel::of($data);
+            $this->previousLabel = LabelModel::of($data);
         }
 
         return $this->previousLabel;
@@ -282,7 +282,7 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-            $this->changes =  ChangeCollection::fromArray($data);
+            $this->changes = ChangeCollection::fromArray($data);
         }
 
         return $this->changes;
@@ -303,7 +303,7 @@ final class RecordModel extends JsonObjectModel implements Record
                 return null;
             }
 
-            $this->resource =  ReferenceModel::of($data);
+            $this->resource = ReferenceModel::of($data);
         }
 
         return $this->resource;
@@ -323,7 +323,7 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-            $this->stores =  KeyReferenceCollection::fromArray($data);
+            $this->stores = KeyReferenceCollection::fromArray($data);
         }
 
         return $this->stores;
@@ -344,7 +344,7 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-            $this->withoutChanges =  (bool) $data;
+            $this->withoutChanges = (bool) $data;
         }
 
         return $this->withoutChanges;

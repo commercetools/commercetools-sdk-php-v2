@@ -92,7 +92,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -112,7 +112,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
             if (is_null($data)) {
                 return null;
             }
-            $this->timestamp =  (string) $data;
+            $this->timestamp = (string) $data;
         }
 
         return $this->timestamp;
@@ -130,7 +130,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -149,7 +149,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
                 return null;
             }
 
-            $this->amount =  MoneyModel::of($data);
+            $this->amount = MoneyModel::of($data);
         }
 
         return $this->amount;
@@ -169,7 +169,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
             if (is_null($data)) {
                 return null;
             }
-            $this->interactionId =  (string) $data;
+            $this->interactionId = (string) $data;
         }
 
         return $this->interactionId;
@@ -187,7 +187,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
             if (is_null($data)) {
                 return null;
             }
-            $this->state =  (string) $data;
+            $this->state = (string) $data;
         }
 
         return $this->state;

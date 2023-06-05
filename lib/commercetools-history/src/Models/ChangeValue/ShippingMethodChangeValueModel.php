@@ -58,7 +58,7 @@ final class ShippingMethodChangeValueModel extends JsonObjectModel implements Sh
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -76,7 +76,7 @@ final class ShippingMethodChangeValueModel extends JsonObjectModel implements Sh
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;

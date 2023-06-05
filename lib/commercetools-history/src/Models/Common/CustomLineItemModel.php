@@ -100,7 +100,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -119,7 +119,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
                 return null;
             }
 
-            $this->name =  LocalizedStringModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
         return $this->name;
@@ -138,7 +138,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
                 return null;
             }
 
-            $this->money =  MoneyModel::of($data);
+            $this->money = MoneyModel::of($data);
         }
 
         return $this->money;
@@ -157,7 +157,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
                 return null;
             }
 
-            $this->taxedPrice =  TaxedItemPriceModel::of($data);
+            $this->taxedPrice = TaxedItemPriceModel::of($data);
         }
 
         return $this->taxedPrice;
@@ -176,7 +176,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
                 return null;
             }
 
-            $this->totalPrice =  MoneyModel::of($data);
+            $this->totalPrice = MoneyModel::of($data);
         }
 
         return $this->totalPrice;
@@ -196,7 +196,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
             if (is_null($data)) {
                 return null;
             }
-            $this->slug =  (string) $data;
+            $this->slug = (string) $data;
         }
 
         return $this->slug;
@@ -216,7 +216,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity =  (int) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;

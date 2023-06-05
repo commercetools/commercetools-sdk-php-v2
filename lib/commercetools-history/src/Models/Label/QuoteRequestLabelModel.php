@@ -67,7 +67,7 @@ final class QuoteRequestLabelModel extends JsonObjectModel implements QuoteReque
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -85,7 +85,7 @@ final class QuoteRequestLabelModel extends JsonObjectModel implements QuoteReque
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;
@@ -104,7 +104,7 @@ final class QuoteRequestLabelModel extends JsonObjectModel implements QuoteReque
                 return null;
             }
 
-            $this->customer =  ReferenceModel::of($data);
+            $this->customer = ReferenceModel::of($data);
         }
 
         return $this->customer;

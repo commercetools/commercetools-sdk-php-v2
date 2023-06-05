@@ -58,7 +58,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -76,7 +76,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
             if (is_null($data)) {
                 return null;
             }
-            $this->typeId =  (string) $data;
+            $this->typeId = (string) $data;
         }
 
         return $this->typeId;

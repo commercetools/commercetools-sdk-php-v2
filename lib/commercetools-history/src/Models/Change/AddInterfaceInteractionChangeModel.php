@@ -67,7 +67,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -87,7 +87,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -108,7 +108,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
                 return null;
             }
 
-            $this->nextValue =  CustomFieldExpandedValueModel::of($data);
+            $this->nextValue = CustomFieldExpandedValueModel::of($data);
         }
 
         return $this->nextValue;

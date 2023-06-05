@@ -83,7 +83,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -103,7 +103,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -123,7 +123,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName =  (string) $data;
+            $this->attributeName = (string) $data;
         }
 
         return $this->attributeName;
@@ -142,7 +142,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
                 return null;
             }
 
-            $this->nextValue =  LocalizedStringModel::of($data);
+            $this->nextValue = LocalizedStringModel::of($data);
         }
 
         return $this->nextValue;
@@ -161,7 +161,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
                 return null;
             }
 
-            $this->previousValue =  LocalizedStringModel::of($data);
+            $this->previousValue = LocalizedStringModel::of($data);
         }
 
         return $this->previousValue;

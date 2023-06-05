@@ -83,7 +83,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -103,7 +103,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -121,7 +121,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
             if (is_null($data)) {
                 return null;
             }
-            $this->catalogData =  (string) $data;
+            $this->catalogData = (string) $data;
         }
 
         return $this->catalogData;
@@ -139,7 +139,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
             if (is_null($data)) {
                 return null;
             }
-            $this->priceId =  (string) $data;
+            $this->priceId = (string) $data;
         }
 
         return $this->priceId;
@@ -158,7 +158,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
                 return null;
             }
 
-            $this->nextValue =  PriceModel::of($data);
+            $this->nextValue = PriceModel::of($data);
         }
 
         return $this->nextValue;

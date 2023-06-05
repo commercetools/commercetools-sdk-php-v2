@@ -66,7 +66,7 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -84,7 +84,7 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
             if (is_null($data)) {
                 return null;
             }
-            $this->interactionId =  (string) $data;
+            $this->interactionId = (string) $data;
         }
 
         return $this->interactionId;
@@ -102,7 +102,7 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
             if (is_null($data)) {
                 return null;
             }
-            $this->timestamp =  (string) $data;
+            $this->timestamp = (string) $data;
         }
 
         return $this->timestamp;

@@ -99,7 +99,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -119,7 +119,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -139,7 +139,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->fieldName =  (string) $data;
+            $this->fieldName = (string) $data;
         }
 
         return $this->fieldName;
@@ -159,7 +159,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName =  (string) $data;
+            $this->attributeName = (string) $data;
         }
 
         return $this->attributeName;
@@ -179,7 +179,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->valueKey =  (string) $data;
+            $this->valueKey = (string) $data;
         }
 
         return $this->valueKey;
@@ -198,7 +198,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
                 return null;
             }
 
-            $this->previousValue =  LocalizedStringModel::of($data);
+            $this->previousValue = LocalizedStringModel::of($data);
         }
 
         return $this->previousValue;
@@ -217,7 +217,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
                 return null;
             }
 
-            $this->nextValue =  LocalizedStringModel::of($data);
+            $this->nextValue = LocalizedStringModel::of($data);
         }
 
         return $this->nextValue;

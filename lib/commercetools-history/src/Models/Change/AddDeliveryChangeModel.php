@@ -75,7 +75,7 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -114,7 +114,7 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
                 return null;
             }
 
-            $this->nextValue =  DeliveryChangeValueModel::of($data);
+            $this->nextValue = DeliveryChangeValueModel::of($data);
         }
 
         return $this->nextValue;
@@ -133,7 +133,7 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
                 return null;
             }
 
-            $this->previousValue =  DeliveryChangeValueModel::of($data);
+            $this->previousValue = DeliveryChangeValueModel::of($data);
         }
 
         return $this->previousValue;

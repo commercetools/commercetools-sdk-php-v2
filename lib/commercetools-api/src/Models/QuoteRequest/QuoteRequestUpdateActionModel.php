@@ -31,6 +31,7 @@ final class QuoteRequestUpdateActionModel extends JsonObjectModel implements Quo
      *
      */
     private static $discriminatorClasses = [
+       'changeCustomer' => QuoteRequestChangeCustomerActionModel::class,
        'changeQuoteRequestState' => QuoteRequestChangeQuoteRequestStateActionModel::class,
        'setCustomField' => QuoteRequestSetCustomFieldActionModel::class,
        'setCustomType' => QuoteRequestSetCustomTypeActionModel::class,

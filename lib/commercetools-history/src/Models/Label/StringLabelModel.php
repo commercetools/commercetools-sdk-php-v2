@@ -57,7 +57,7 @@ final class StringLabelModel extends JsonObjectModel implements StringLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -75,7 +75,7 @@ final class StringLabelModel extends JsonObjectModel implements StringLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->value =  (string) $data;
+            $this->value = (string) $data;
         }
 
         return $this->value;

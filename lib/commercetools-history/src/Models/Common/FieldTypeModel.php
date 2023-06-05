@@ -50,7 +50,7 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;

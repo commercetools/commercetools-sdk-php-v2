@@ -70,7 +70,7 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
             if (is_null($data)) {
                 return null;
             }
-            $this->items =  DeliveryItemCollection::fromArray($data);
+            $this->items = DeliveryItemCollection::fromArray($data);
         }
 
         return $this->items;
@@ -89,7 +89,7 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
                 return null;
             }
 
-            $this->address =  AddressModel::of($data);
+            $this->address = AddressModel::of($data);
         }
 
         return $this->address;
@@ -107,7 +107,7 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
             if (is_null($data)) {
                 return null;
             }
-            $this->parcels =  ParcelCollection::fromArray($data);
+            $this->parcels = ParcelCollection::fromArray($data);
         }
 
         return $this->parcels;

@@ -75,7 +75,7 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -95,7 +95,7 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -113,7 +113,7 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
             if (is_null($data)) {
                 return null;
             }
-            $this->channelId =  (string) $data;
+            $this->channelId = (string) $data;
         }
 
         return $this->channelId;
@@ -132,7 +132,7 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
                 return null;
             }
 
-            $this->nextValue =  SyncInfoModel::of($data);
+            $this->nextValue = SyncInfoModel::of($data);
         }
 
         return $this->nextValue;

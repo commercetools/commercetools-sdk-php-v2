@@ -82,7 +82,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -102,7 +102,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -122,7 +122,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
             if (is_null($data)) {
                 return null;
             }
-            $this->fieldName =  (string) $data;
+            $this->fieldName = (string) $data;
         }
 
         return $this->fieldName;
@@ -140,7 +140,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  EnumValueCollection::fromArray($data);
+            $this->nextValue = EnumValueCollection::fromArray($data);
         }
 
         return $this->nextValue;
@@ -158,7 +158,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  EnumValueCollection::fromArray($data);
+            $this->previousValue = EnumValueCollection::fromArray($data);
         }
 
         return $this->previousValue;

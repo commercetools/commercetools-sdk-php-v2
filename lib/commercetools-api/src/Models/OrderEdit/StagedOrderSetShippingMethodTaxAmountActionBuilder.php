@@ -26,9 +26,26 @@ final class StagedOrderSetShippingMethodTaxAmountActionBuilder implements Builde
 {
     /**
 
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
      * @var null|ExternalTaxAmountDraft|ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> to update. This is required for Orders with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
+    }
 
     /**
      * <p>Cannot be used in <a href="ctp:api:type:LineItemDraft">LineItemDraft</a> or <a href="ctp:api:type:CustomLineItemDraft">CustomLineItemDraft</a>.</p>
@@ -44,6 +61,17 @@ final class StagedOrderSetShippingMethodTaxAmountActionBuilder implements Builde
     public function getExternalTaxAmount()
     {
         return $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
     }
 
     /**
@@ -71,6 +99,7 @@ final class StagedOrderSetShippingMethodTaxAmountActionBuilder implements Builde
     public function build(): StagedOrderSetShippingMethodTaxAmountAction
     {
         return new StagedOrderSetShippingMethodTaxAmountActionModel(
+            $this->shippingKey,
             $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount
         );
     }

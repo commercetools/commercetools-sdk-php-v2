@@ -74,7 +74,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
             if (is_null($data)) {
                 return null;
             }
-            $this->heightInMillimeter =  (int) $data;
+            $this->heightInMillimeter = (int) $data;
         }
 
         return $this->heightInMillimeter;
@@ -92,7 +92,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
             if (is_null($data)) {
                 return null;
             }
-            $this->lengthInMillimeter =  (int) $data;
+            $this->lengthInMillimeter = (int) $data;
         }
 
         return $this->lengthInMillimeter;
@@ -110,7 +110,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
             if (is_null($data)) {
                 return null;
             }
-            $this->widthInMillimeter =  (int) $data;
+            $this->widthInMillimeter = (int) $data;
         }
 
         return $this->widthInMillimeter;
@@ -128,7 +128,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
             if (is_null($data)) {
                 return null;
             }
-            $this->weightInGram =  (int) $data;
+            $this->weightInGram = (int) $data;
         }
 
         return $this->weightInGram;

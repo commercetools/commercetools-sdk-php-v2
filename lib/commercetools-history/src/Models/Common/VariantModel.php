@@ -66,7 +66,7 @@ final class VariantModel extends JsonObjectModel implements Variant
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (int) $data;
+            $this->id = (int) $data;
         }
 
         return $this->id;
@@ -84,7 +84,7 @@ final class VariantModel extends JsonObjectModel implements Variant
             if (is_null($data)) {
                 return null;
             }
-            $this->sku =  (string) $data;
+            $this->sku = (string) $data;
         }
 
         return $this->sku;
@@ -102,7 +102,7 @@ final class VariantModel extends JsonObjectModel implements Variant
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;

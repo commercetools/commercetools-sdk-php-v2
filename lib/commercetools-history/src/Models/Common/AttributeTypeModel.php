@@ -50,7 +50,7 @@ final class AttributeTypeModel extends JsonObjectModel implements AttributeType
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;

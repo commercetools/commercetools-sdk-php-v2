@@ -58,7 +58,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;
@@ -76,7 +76,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
             if (is_null($data)) {
                 return null;
             }
-            $this->amount =  (int) $data;
+            $this->amount = (int) $data;
         }
 
         return $this->amount;

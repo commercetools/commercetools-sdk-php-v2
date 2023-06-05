@@ -93,7 +93,7 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -113,7 +113,7 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -132,7 +132,7 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
                 return null;
             }
 
-            $this->customLineItem =  LocalizedStringModel::of($data);
+            $this->customLineItem = LocalizedStringModel::of($data);
         }
 
         return $this->customLineItem;
@@ -150,7 +150,7 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
             if (is_null($data)) {
                 return null;
             }
-            $this->customLineItemId =  (string) $data;
+            $this->customLineItemId = (string) $data;
         }
 
         return $this->customLineItemId;
@@ -169,7 +169,7 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
                 return null;
             }
 
-            $this->nextValue =  MoneyModel::of($data);
+            $this->nextValue = MoneyModel::of($data);
         }
 
         return $this->nextValue;
@@ -188,7 +188,7 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
                 return null;
             }
 
-            $this->previousValue =  MoneyModel::of($data);
+            $this->previousValue = MoneyModel::of($data);
         }
 
         return $this->previousValue;

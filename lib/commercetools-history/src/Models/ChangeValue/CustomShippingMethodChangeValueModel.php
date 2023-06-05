@@ -50,7 +50,7 @@ final class CustomShippingMethodChangeValueModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;

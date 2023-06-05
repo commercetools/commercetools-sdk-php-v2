@@ -68,7 +68,7 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -87,7 +87,7 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
                 return null;
             }
 
-            $this->name =  LocalizedStringModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
         return $this->name;
@@ -105,7 +105,7 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
             if (is_null($data)) {
                 return null;
             }
-            $this->variantId =  (int) $data;
+            $this->variantId = (int) $data;
         }
 
         return $this->variantId;

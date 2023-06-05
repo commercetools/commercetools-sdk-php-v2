@@ -59,7 +59,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
                 return null;
             }
 
-            $this->discount =  ReferenceModel::of($data);
+            $this->discount = ReferenceModel::of($data);
         }
 
         return $this->discount;
@@ -78,7 +78,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
                 return null;
             }
 
-            $this->discountedAmount =  MoneyModel::of($data);
+            $this->discountedAmount = MoneyModel::of($data);
         }
 
         return $this->discountedAmount;

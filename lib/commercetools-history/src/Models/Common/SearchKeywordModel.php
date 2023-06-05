@@ -58,7 +58,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
             if (is_null($data)) {
                 return null;
             }
-            $this->text =  (string) $data;
+            $this->text = (string) $data;
         }
 
         return $this->text;
@@ -77,7 +77,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
                 return null;
             }
 
-            $this->suggestTokenizer =  SuggestTokenizerModel::of($data);
+            $this->suggestTokenizer = SuggestTokenizerModel::of($data);
         }
 
         return $this->suggestTokenizer;

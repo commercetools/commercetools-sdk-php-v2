@@ -67,7 +67,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
                 return null;
             }
 
-            $this->channel =  ReferenceModel::of($data);
+            $this->channel = ReferenceModel::of($data);
         }
 
         return $this->channel;
@@ -87,7 +87,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
             if (is_null($data)) {
                 return null;
             }
-            $this->externalId =  (string) $data;
+            $this->externalId = (string) $data;
         }
 
         return $this->externalId;
@@ -105,7 +105,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
             if (is_null($data)) {
                 return null;
             }
-            $this->syncedAt =  (string) $data;
+            $this->syncedAt = (string) $data;
         }
 
         return $this->syncedAt;

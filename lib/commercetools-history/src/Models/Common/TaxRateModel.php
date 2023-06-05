@@ -100,7 +100,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -118,7 +118,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
             if (is_null($data)) {
                 return null;
             }
-            $this->name =  (string) $data;
+            $this->name = (string) $data;
         }
 
         return $this->name;
@@ -138,7 +138,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
             if (is_null($data)) {
                 return null;
             }
-            $this->amount =  (int) $data;
+            $this->amount = (int) $data;
         }
 
         return $this->amount;
@@ -156,7 +156,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
             if (is_null($data)) {
                 return null;
             }
-            $this->includedInPrice =  (bool) $data;
+            $this->includedInPrice = (bool) $data;
         }
 
         return $this->includedInPrice;
@@ -176,7 +176,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
             if (is_null($data)) {
                 return null;
             }
-            $this->country =  (string) $data;
+            $this->country = (string) $data;
         }
 
         return $this->country;
@@ -196,7 +196,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
             if (is_null($data)) {
                 return null;
             }
-            $this->state =  (string) $data;
+            $this->state = (string) $data;
         }
 
         return $this->state;
@@ -214,7 +214,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
             if (is_null($data)) {
                 return null;
             }
-            $this->subRates =  SubRateCollection::fromArray($data);
+            $this->subRates = SubRateCollection::fromArray($data);
         }
 
         return $this->subRates;

@@ -73,7 +73,7 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -91,7 +91,7 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->firstName =  (string) $data;
+            $this->firstName = (string) $data;
         }
 
         return $this->firstName;
@@ -109,7 +109,7 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->lastName =  (string) $data;
+            $this->lastName = (string) $data;
         }
 
         return $this->lastName;
@@ -127,7 +127,7 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->customerNumber =  (string) $data;
+            $this->customerNumber = (string) $data;
         }
 
         return $this->customerNumber;

@@ -60,7 +60,7 @@ final class LocationModel extends JsonObjectModel implements Location
             if (is_null($data)) {
                 return null;
             }
-            $this->country =  (string) $data;
+            $this->country = (string) $data;
         }
 
         return $this->country;
@@ -78,7 +78,7 @@ final class LocationModel extends JsonObjectModel implements Location
             if (is_null($data)) {
                 return null;
             }
-            $this->state =  (string) $data;
+            $this->state = (string) $data;
         }
 
         return $this->state;

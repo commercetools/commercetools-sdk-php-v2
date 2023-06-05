@@ -66,7 +66,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
             if (is_null($data)) {
                 return null;
             }
-            $this->items =  ReturnItemCollection::fromArray($data);
+            $this->items = ReturnItemCollection::fromArray($data);
         }
 
         return $this->items;
@@ -86,7 +86,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
             if (is_null($data)) {
                 return null;
             }
-            $this->returnTrackingId =  (string) $data;
+            $this->returnTrackingId = (string) $data;
         }
 
         return $this->returnTrackingId;
@@ -104,7 +104,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
             if (is_null($data)) {
                 return null;
             }
-            $this->returnDate =  (string) $data;
+            $this->returnDate = (string) $data;
         }
 
         return $this->returnDate;

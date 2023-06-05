@@ -90,7 +90,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -110,7 +110,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -130,7 +130,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->fieldName =  (string) $data;
+            $this->fieldName = (string) $data;
         }
 
         return $this->fieldName;
@@ -150,7 +150,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName =  (string) $data;
+            $this->attributeName = (string) $data;
         }
 
         return $this->attributeName;
@@ -168,7 +168,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  LocalizedEnumValueCollection::fromArray($data);
+            $this->nextValue = LocalizedEnumValueCollection::fromArray($data);
         }
 
         return $this->nextValue;
@@ -186,7 +186,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  LocalizedEnumValueCollection::fromArray($data);
+            $this->previousValue = LocalizedEnumValueCollection::fromArray($data);
         }
 
         return $this->previousValue;

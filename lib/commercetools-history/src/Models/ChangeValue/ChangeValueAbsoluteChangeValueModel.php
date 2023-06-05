@@ -58,7 +58,7 @@ final class ChangeValueAbsoluteChangeValueModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -76,7 +76,7 @@ final class ChangeValueAbsoluteChangeValueModel extends JsonObjectModel implemen
             if (is_null($data)) {
                 return null;
             }
-            $this->money =  MoneyCollection::fromArray($data);
+            $this->money = MoneyCollection::fromArray($data);
         }
 
         return $this->money;

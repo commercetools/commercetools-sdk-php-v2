@@ -83,7 +83,7 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -103,7 +103,7 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -121,7 +121,7 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
             if (is_null($data)) {
                 return null;
             }
-            $this->deliveryId =  (string) $data;
+            $this->deliveryId = (string) $data;
         }
 
         return $this->deliveryId;
@@ -140,7 +140,7 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
                 return null;
             }
 
-            $this->nextValue =  AddressModel::of($data);
+            $this->nextValue = AddressModel::of($data);
         }
 
         return $this->nextValue;
@@ -159,7 +159,7 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
                 return null;
             }
 
-            $this->previousValue =  AddressModel::of($data);
+            $this->previousValue = AddressModel::of($data);
         }
 
         return $this->previousValue;

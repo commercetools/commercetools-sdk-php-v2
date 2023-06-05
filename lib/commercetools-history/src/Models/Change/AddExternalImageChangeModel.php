@@ -82,7 +82,7 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -102,7 +102,7 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -120,7 +120,7 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
             if (is_null($data)) {
                 return null;
             }
-            $this->catalogData =  (string) $data;
+            $this->catalogData = (string) $data;
         }
 
         return $this->catalogData;
@@ -138,7 +138,7 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  ImageCollection::fromArray($data);
+            $this->previousValue = ImageCollection::fromArray($data);
         }
 
         return $this->previousValue;
@@ -156,7 +156,7 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  ImageCollection::fromArray($data);
+            $this->nextValue = ImageCollection::fromArray($data);
         }
 
         return $this->nextValue;

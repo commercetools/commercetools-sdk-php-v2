@@ -58,7 +58,7 @@ final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensi
             if (is_null($data)) {
                 return null;
             }
-            $this->w =  (int) $data;
+            $this->w = (int) $data;
         }
 
         return $this->w;
@@ -76,7 +76,7 @@ final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensi
             if (is_null($data)) {
                 return null;
             }
-            $this->h =  (int) $data;
+            $this->h = (int) $data;
         }
 
         return $this->h;

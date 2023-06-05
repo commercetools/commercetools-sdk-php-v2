@@ -85,7 +85,7 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -105,7 +105,7 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -124,7 +124,7 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
                 return null;
             }
 
-            $this->lineItem =  LocalizedStringModel::of($data);
+            $this->lineItem = LocalizedStringModel::of($data);
         }
 
         return $this->lineItem;
@@ -143,7 +143,7 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
                 return null;
             }
 
-            $this->nextValue =  PriceModel::of($data);
+            $this->nextValue = PriceModel::of($data);
         }
 
         return $this->nextValue;
@@ -162,7 +162,7 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
                 return null;
             }
 
-            $this->previousValue =  PriceModel::of($data);
+            $this->previousValue = PriceModel::of($data);
         }
 
         return $this->previousValue;

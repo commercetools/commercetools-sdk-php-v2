@@ -60,7 +60,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;
@@ -79,7 +79,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
                 return null;
             }
 
-            $this->label =  LocalizedStringModel::of($data);
+            $this->label = LocalizedStringModel::of($data);
         }
 
         return $this->label;

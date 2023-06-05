@@ -91,7 +91,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -111,7 +111,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -129,7 +129,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->catalogData =  (string) $data;
+            $this->catalogData = (string) $data;
         }
 
         return $this->catalogData;
@@ -147,7 +147,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
             if (is_null($data)) {
                 return null;
             }
-            $this->categoryId =  (string) $data;
+            $this->categoryId = (string) $data;
         }
 
         return $this->categoryId;
@@ -166,7 +166,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
                 return null;
             }
 
-            $this->previousValue =  CategoryOrderHintsModel::of($data);
+            $this->previousValue = CategoryOrderHintsModel::of($data);
         }
 
         return $this->previousValue;
@@ -185,7 +185,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
                 return null;
             }
 
-            $this->nextValue =  CategoryOrderHintsModel::of($data);
+            $this->nextValue = CategoryOrderHintsModel::of($data);
         }
 
         return $this->nextValue;

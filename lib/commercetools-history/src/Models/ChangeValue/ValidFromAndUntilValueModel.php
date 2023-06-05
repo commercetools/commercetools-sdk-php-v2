@@ -58,7 +58,7 @@ final class ValidFromAndUntilValueModel extends JsonObjectModel implements Valid
             if (is_null($data)) {
                 return null;
             }
-            $this->validFrom =  (string) $data;
+            $this->validFrom = (string) $data;
         }
 
         return $this->validFrom;
@@ -76,7 +76,7 @@ final class ValidFromAndUntilValueModel extends JsonObjectModel implements Valid
             if (is_null($data)) {
                 return null;
             }
-            $this->validUntil =  (string) $data;
+            $this->validUntil = (string) $data;
         }
 
         return $this->validUntil;

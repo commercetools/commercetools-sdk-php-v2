@@ -81,6 +81,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'MaxResourceLimitExceeded' => MaxResourceLimitExceededErrorModel::class,
        'MissingRoleOnChannel' => MissingRoleOnChannelErrorModel::class,
        'MissingTaxRateForCountry' => MissingTaxRateForCountryErrorModel::class,
+       'MoneyOverflow' => MoneyOverflowErrorModel::class,
        'NoMatchingProductDiscountFound' => NoMatchingProductDiscountFoundErrorModel::class,
        'NotEnabled' => NotEnabledErrorModel::class,
        'ObjectNotFound' => ObjectNotFoundErrorModel::class,

@@ -58,7 +58,7 @@ final class PriceModel extends JsonObjectModel implements Price
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -77,7 +77,7 @@ final class PriceModel extends JsonObjectModel implements Price
                 return null;
             }
 
-            $this->value =  MoneyModel::of($data);
+            $this->value = MoneyModel::of($data);
         }
 
         return $this->value;

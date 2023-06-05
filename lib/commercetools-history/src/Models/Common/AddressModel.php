@@ -244,7 +244,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->id =  (string) $data;
+            $this->id = (string) $data;
         }
 
         return $this->id;
@@ -262,7 +262,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;
@@ -280,7 +280,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->title =  (string) $data;
+            $this->title = (string) $data;
         }
 
         return $this->title;
@@ -298,7 +298,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->salutation =  (string) $data;
+            $this->salutation = (string) $data;
         }
 
         return $this->salutation;
@@ -316,7 +316,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->firstName =  (string) $data;
+            $this->firstName = (string) $data;
         }
 
         return $this->firstName;
@@ -334,7 +334,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->lastName =  (string) $data;
+            $this->lastName = (string) $data;
         }
 
         return $this->lastName;
@@ -352,7 +352,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->streetName =  (string) $data;
+            $this->streetName = (string) $data;
         }
 
         return $this->streetName;
@@ -370,7 +370,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->streetNumber =  (string) $data;
+            $this->streetNumber = (string) $data;
         }
 
         return $this->streetNumber;
@@ -388,7 +388,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->additionalStreetInfo =  (string) $data;
+            $this->additionalStreetInfo = (string) $data;
         }
 
         return $this->additionalStreetInfo;
@@ -406,7 +406,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->postalCode =  (string) $data;
+            $this->postalCode = (string) $data;
         }
 
         return $this->postalCode;
@@ -424,7 +424,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->city =  (string) $data;
+            $this->city = (string) $data;
         }
 
         return $this->city;
@@ -442,7 +442,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->region =  (string) $data;
+            $this->region = (string) $data;
         }
 
         return $this->region;
@@ -460,7 +460,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->state =  (string) $data;
+            $this->state = (string) $data;
         }
 
         return $this->state;
@@ -480,7 +480,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->country =  (string) $data;
+            $this->country = (string) $data;
         }
 
         return $this->country;
@@ -498,7 +498,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->company =  (string) $data;
+            $this->company = (string) $data;
         }
 
         return $this->company;
@@ -516,7 +516,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->department =  (string) $data;
+            $this->department = (string) $data;
         }
 
         return $this->department;
@@ -534,7 +534,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->building =  (string) $data;
+            $this->building = (string) $data;
         }
 
         return $this->building;
@@ -552,7 +552,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->apartment =  (string) $data;
+            $this->apartment = (string) $data;
         }
 
         return $this->apartment;
@@ -570,7 +570,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->pOBox =  (string) $data;
+            $this->pOBox = (string) $data;
         }
 
         return $this->pOBox;
@@ -588,7 +588,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->phone =  (string) $data;
+            $this->phone = (string) $data;
         }
 
         return $this->phone;
@@ -606,7 +606,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->mobile =  (string) $data;
+            $this->mobile = (string) $data;
         }
 
         return $this->mobile;
@@ -624,7 +624,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->email =  (string) $data;
+            $this->email = (string) $data;
         }
 
         return $this->email;
@@ -642,7 +642,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->fax =  (string) $data;
+            $this->fax = (string) $data;
         }
 
         return $this->fax;
@@ -660,7 +660,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->additionalAddressInfo =  (string) $data;
+            $this->additionalAddressInfo = (string) $data;
         }
 
         return $this->additionalAddressInfo;
@@ -678,7 +678,7 @@ final class AddressModel extends JsonObjectModel implements Address
             if (is_null($data)) {
                 return null;
             }
-            $this->externalId =  (string) $data;
+            $this->externalId = (string) $data;
         }
 
         return $this->externalId;

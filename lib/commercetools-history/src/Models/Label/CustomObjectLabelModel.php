@@ -65,7 +65,7 @@ final class CustomObjectLabelModel extends JsonObjectModel implements CustomObje
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -83,7 +83,7 @@ final class CustomObjectLabelModel extends JsonObjectModel implements CustomObje
             if (is_null($data)) {
                 return null;
             }
-            $this->key =  (string) $data;
+            $this->key = (string) $data;
         }
 
         return $this->key;
@@ -101,7 +101,7 @@ final class CustomObjectLabelModel extends JsonObjectModel implements CustomObje
             if (is_null($data)) {
                 return null;
             }
-            $this->container =  (string) $data;
+            $this->container = (string) $data;
         }
 
         return $this->container;

@@ -65,7 +65,7 @@ final class OrderLabelModel extends JsonObjectModel implements OrderLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -83,7 +83,7 @@ final class OrderLabelModel extends JsonObjectModel implements OrderLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->customerEmail =  (string) $data;
+            $this->customerEmail = (string) $data;
         }
 
         return $this->customerEmail;
@@ -101,7 +101,7 @@ final class OrderLabelModel extends JsonObjectModel implements OrderLabel
             if (is_null($data)) {
                 return null;
             }
-            $this->orderNumber =  (string) $data;
+            $this->orderNumber = (string) $data;
         }
 
         return $this->orderNumber;

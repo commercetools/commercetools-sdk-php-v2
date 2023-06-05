@@ -74,7 +74,7 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  (string) $data;
+            $this->type = (string) $data;
         }
 
         return $this->type;
@@ -94,7 +94,7 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->change =  (string) $data;
+            $this->change = (string) $data;
         }
 
         return $this->change;
@@ -112,7 +112,7 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  FieldDefinitionOrderValueCollection::fromArray($data);
+            $this->previousValue = FieldDefinitionOrderValueCollection::fromArray($data);
         }
 
         return $this->previousValue;
@@ -130,7 +130,7 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  FieldDefinitionOrderValueCollection::fromArray($data);
+            $this->nextValue = FieldDefinitionOrderValueCollection::fromArray($data);
         }
 
         return $this->nextValue;

@@ -66,7 +66,7 @@ final class ImageModel extends JsonObjectModel implements Image
             if (is_null($data)) {
                 return null;
             }
-            $this->url =  (string) $data;
+            $this->url = (string) $data;
         }
 
         return $this->url;
@@ -85,7 +85,7 @@ final class ImageModel extends JsonObjectModel implements Image
                 return null;
             }
 
-            $this->dimensions =  ImageDimensionsModel::of($data);
+            $this->dimensions = ImageDimensionsModel::of($data);
         }
 
         return $this->dimensions;
@@ -103,7 +103,7 @@ final class ImageModel extends JsonObjectModel implements Image
             if (is_null($data)) {
                 return null;
             }
-            $this->label =  (string) $data;
+            $this->label = (string) $data;
         }
 
         return $this->label;
