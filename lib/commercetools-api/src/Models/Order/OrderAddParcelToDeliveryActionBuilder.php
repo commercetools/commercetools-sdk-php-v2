@@ -34,6 +34,12 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $parcelKey;
+
+    /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
@@ -70,6 +76,15 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     public function getDeliveryKey()
     {
         return $this->deliveryKey;
+    }
+
+    /**
+
+     * @return null|string
+     */
+    public function getParcelKey()
+    {
+        return $this->parcelKey;
     }
 
     /**
@@ -117,6 +132,17 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     public function withDeliveryKey(?string $deliveryKey)
     {
         $this->deliveryKey = $deliveryKey;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $parcelKey
+     * @return $this
+     */
+    public function withParcelKey(?string $parcelKey)
+    {
+        $this->parcelKey = $parcelKey;
 
         return $this;
     }
@@ -181,6 +207,7 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
         return new OrderAddParcelToDeliveryActionModel(
             $this->deliveryId,
             $this->deliveryKey,
+            $this->parcelKey,
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
             $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
             $this->items

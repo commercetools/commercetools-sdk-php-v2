@@ -14,10 +14,19 @@ use Commercetools\Base\JsonObject;
 
 interface ParcelDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_MEASUREMENTS = 'measurements';
     public const FIELD_TRACKING_DATA = 'trackingData';
     public const FIELD_ITEMS = 'items';
     public const FIELD_CUSTOM = 'custom';
+
+    /**
+     * <p>User-defined unique identifier of the Parcel.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
 
@@ -46,6 +55,11 @@ interface ParcelDraft extends JsonObject
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?ParcelMeasurements $measurements
