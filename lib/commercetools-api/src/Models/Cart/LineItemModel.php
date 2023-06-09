@@ -47,6 +47,12 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      *
      * @var ?string
      */
+    protected $key;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $productId;
 
     /**
@@ -193,6 +199,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      */
     public function __construct(
         ?string $id = null,
+        ?string $key = null,
         ?string $productId = null,
         ?string $productKey = null,
         ?LocalizedString $name = null,
@@ -219,6 +226,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         ?DateTimeImmutable $lastModifiedAt = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->productId = $productId;
         $this->productKey = $productKey;
         $this->name = $name;
@@ -246,7 +254,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>Unique identifier of the Line Item.</p>
+     * <p>Unique identifier of the LineItem.</p>
      *
      *
      * @return null|string
@@ -263,6 +271,26 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         }
 
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -787,6 +815,14 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

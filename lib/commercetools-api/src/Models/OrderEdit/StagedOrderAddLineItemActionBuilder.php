@@ -37,6 +37,12 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -106,6 +112,17 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
@@ -225,6 +242,17 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -439,6 +467,7 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
     public function build(): StagedOrderAddLineItemAction
     {
         return new StagedOrderAddLineItemActionModel(
+            $this->key,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,

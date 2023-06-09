@@ -21,6 +21,7 @@ use DateTimeImmutable;
 
 interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
@@ -33,6 +34,14 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
@@ -117,6 +126,11 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?CustomFieldsDraft $custom

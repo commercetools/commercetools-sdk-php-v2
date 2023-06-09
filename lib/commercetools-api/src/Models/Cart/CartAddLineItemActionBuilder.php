@@ -31,6 +31,12 @@ final class CartAddLineItemActionBuilder implements Builder
 
      * @var ?string
      */
+    private $key;
+
+    /**
+
+     * @var ?string
+     */
     private $productId;
 
     /**
@@ -104,6 +110,17 @@ final class CartAddLineItemActionBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p><code>id</code> of the published <a href="ctp:api:type:Product">Product</a>.</p>
@@ -256,6 +273,17 @@ final class CartAddLineItemActionBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -481,6 +509,7 @@ final class CartAddLineItemActionBuilder implements Builder
     public function build(): CartAddLineItemAction
     {
         return new CartAddLineItemActionModel(
+            $this->key,
             $this->productId,
             $this->variantId,
             $this->sku,

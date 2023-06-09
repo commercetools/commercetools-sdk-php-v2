@@ -17,6 +17,7 @@ use DateTimeImmutable;
 
 interface MyLineItemDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_SKU = 'sku';
@@ -26,6 +27,14 @@ interface MyLineItemDraft extends JsonObject
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
     public const FIELD_CUSTOM = 'custom';
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
@@ -105,6 +114,11 @@ interface MyLineItemDraft extends JsonObject
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $productId
