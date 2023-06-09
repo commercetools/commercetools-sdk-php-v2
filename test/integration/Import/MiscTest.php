@@ -16,12 +16,13 @@ class MiscTest extends ImportTestCase
     public function testNestedTypeImport()
     {
         $builder = $this->getImportApiBuilder();
-        $builder->with()->productTypes()->importContainers()->withImportContainerKeyValue("")
+        $request = $builder->with()->productTypes()->importContainers()->withImportContainerKeyValue("")
             ->post(ProductTypeImportRequestBuilder::of()
                 ->withResources(ProductTypeImportCollection::of()
                     ->add(ProductTypeImportBuilder::of()
                         ->withKey("my-type")
-                        ->withAttributes(AttributeDefinitionCollection::of()
+                        ->withAttributes(
+                            AttributeDefinitionCollection::of()
                             ->add(AttributeDefinitionBuilder::of()
                                 ->withName("nested-attribute")
                                 ->withType(AttributeNestedTypeBuilder::of()
@@ -33,5 +34,24 @@ class MiscTest extends ImportTestCase
                         )
                         ->build()))
                 ->build());
+        $this->assertJsonStringEqualsJsonString(
+            '{
+                "type": "product-type",
+                "resources": [{
+                    "key": "my-type",
+                    "attributes": [{
+                        "type": {
+                            "name": "nested",
+                            "typeReference": {
+                                "key": "nested-product-type",
+                                "typeId": "product-type"
+                            }
+                        },
+                        "name": "nested-attribute"
+                    }]
+                }]
+            }',
+            $request->getBody()->getContents()
+        );
     }
 }
