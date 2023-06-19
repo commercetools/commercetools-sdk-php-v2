@@ -30,6 +30,18 @@ final class ChangeLineItemQuantityChangeBuilder implements Builder
 
     /**
 
+     * @var ?int
+     */
+    private $previousValue;
+
+    /**
+
+     * @var ?int
+     */
+    private $nextValue;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $lineItem;
@@ -42,20 +54,6 @@ final class ChangeLineItemQuantityChangeBuilder implements Builder
 
     /**
 
-     * @var ?int
-     */
-    private $nextValue;
-
-    /**
-
-     * @var ?int
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>changeLineItemQuantity</code></p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -64,36 +62,7 @@ final class ChangeLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getLineItem()
-    {
-        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getLineItemId()
-    {
-        return $this->lineItemId;
-    }
-
-    /**
-     * <p>The amount of a LineItem in the cart. Must be a positive integer.</p>
-     *
-
-     * @return null|int
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
-     * <p>The amount of a LineItem in the cart. Must be a positive integer.</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|int
@@ -104,12 +73,67 @@ final class ChangeLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change</p>
+     *
+
+     * @return null|int
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        return $this->lineItemId;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?int $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $nextValue
+     * @return $this
+     */
+    public function withNextValue(?int $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -137,28 +161,6 @@ final class ChangeLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
-     * @param ?int $nextValue
-     * @return $this
-     */
-    public function withNextValue(?int $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?int $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withLineItem() instead
      * @return $this
      */
@@ -173,10 +175,10 @@ final class ChangeLineItemQuantityChangeBuilder implements Builder
     {
         return new ChangeLineItemQuantityChangeModel(
             $this->change,
-            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
-            $this->lineItemId,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->lineItemId
         );
     }
 

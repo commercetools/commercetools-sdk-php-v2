@@ -98,6 +98,8 @@ final class RemoveStateRolesChangeModel extends JsonObjectModel implements Remov
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|array
      */
@@ -116,6 +118,8 @@ final class RemoveStateRolesChangeModel extends JsonObjectModel implements Remov
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|array
      */

@@ -81,8 +81,6 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
     }
 
     /**
-     * <p>Shape of the action for <code>setTransitions</code></p>
-     *
      *
      * @return null|string
      */
@@ -101,6 +99,8 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */
@@ -119,6 +119,8 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */

@@ -80,6 +80,8 @@ final class UnknownChangeModel extends JsonObjectModel implements UnknownChange
     }
 
     /**
+     * <p>Identifier for the type of modification.</p>
+     *
      *
      * @return null|string
      */
@@ -98,6 +100,8 @@ final class UnknownChangeModel extends JsonObjectModel implements UnknownChange
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|mixed
      */
@@ -116,6 +120,8 @@ final class UnknownChangeModel extends JsonObjectModel implements UnknownChange
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|mixed
      */

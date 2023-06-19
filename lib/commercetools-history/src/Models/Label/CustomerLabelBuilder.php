@@ -39,6 +39,8 @@ final class CustomerLabelBuilder implements Builder
     private $customerNumber;
 
     /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,8 @@ final class CustomerLabelBuilder implements Builder
     }
 
     /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
 
      * @return null|string
      */
@@ -57,6 +61,8 @@ final class CustomerLabelBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
 
      * @return null|string
      */

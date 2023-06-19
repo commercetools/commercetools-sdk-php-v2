@@ -14,9 +14,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 interface SetPropertyChange extends Change
 {
 
-    public const FIELD_PATH = 'path';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_PATH = 'path';
 
     /**
 
@@ -25,15 +25,29 @@ interface SetPropertyChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setProperty</code> on custom objects</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>Value path to the property that was changed</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Path to the property that was updated.</p>
      *
 
      * @return null|string
@@ -41,26 +55,14 @@ interface SetPropertyChange extends Change
     public function getPath();
 
     /**
-
-     * @return null|mixed
-     */
-    public function getNextValue();
-
-    /**
-
-     * @return null|mixed
-     */
-    public function getPreviousValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $path
+     * @param mixed $previousValue
      */
-    public function setPath(?string $path): void;
+    public function setPreviousValue( $previousValue): void;
 
     /**
      * @param mixed $nextValue
@@ -68,7 +70,7 @@ interface SetPropertyChange extends Change
     public function setNextValue( $nextValue): void;
 
     /**
-     * @param mixed $previousValue
+     * @param ?string $path
      */
-    public function setPreviousValue( $previousValue): void;
+    public function setPath(?string $path): void;
 }

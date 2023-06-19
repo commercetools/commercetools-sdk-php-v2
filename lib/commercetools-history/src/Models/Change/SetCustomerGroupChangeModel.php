@@ -82,8 +82,6 @@ final class SetCustomerGroupChangeModel extends JsonObjectModel implements SetCu
     }
 
     /**
-     * <p>Shape of the action for <code>setCustomerGroup</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,6 +100,8 @@ final class SetCustomerGroupChangeModel extends JsonObjectModel implements SetCu
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|Reference
      */
@@ -121,6 +121,8 @@ final class SetCustomerGroupChangeModel extends JsonObjectModel implements SetCu
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|Reference
      */

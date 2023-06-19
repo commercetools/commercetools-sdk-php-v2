@@ -35,8 +35,6 @@ final class AddFieldDefinitionChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>addFieldDefinition</code> on payments</p>
-     *
 
      * @return null|string
      */
@@ -46,6 +44,8 @@ final class AddFieldDefinitionChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|FieldDefinition
      */

@@ -35,8 +35,6 @@ final class AddProductChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for when a product is assigned to a product selection</p>
-     *
 
      * @return null|string
      */
@@ -46,6 +44,8 @@ final class AddProductChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Reference
      */

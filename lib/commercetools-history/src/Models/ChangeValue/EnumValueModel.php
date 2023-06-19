@@ -47,6 +47,8 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
     }
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -65,6 +67,8 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
     }
 
     /**
+     * <p>Descriptive label of the value.</p>
+     *
      *
      * @return null|string
      */

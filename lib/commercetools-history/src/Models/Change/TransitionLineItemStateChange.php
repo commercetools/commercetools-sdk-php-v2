@@ -15,10 +15,10 @@ use Commercetools\History\Models\Common\ItemStateCollection;
 interface TransitionLineItemStateChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_STATE_ID = 'stateId';
-    public const FIELD_NEXT_VALUE = 'nextValue';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
 
@@ -27,41 +27,57 @@ interface TransitionLineItemStateChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>transitionLineItemState</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getLineItemId();
-
-    /**
-
-     * @return null|string
-     */
-    public function getStateId();
-
-    /**
-
-     * @return null|ItemStateCollection
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ItemStateCollection
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ItemStateCollection
+     */
+    public function getNextValue();
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId();
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:State">State</a> involved in the transition.</p>
+     *
+
+     * @return null|string
+     */
+    public function getStateId();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?ItemStateCollection $previousValue
+     */
+    public function setPreviousValue(?ItemStateCollection $previousValue): void;
+
+    /**
+     * @param ?ItemStateCollection $nextValue
+     */
+    public function setNextValue(?ItemStateCollection $nextValue): void;
 
     /**
      * @param ?string $lineItemId
@@ -72,14 +88,4 @@ interface TransitionLineItemStateChange extends Change
      * @param ?string $stateId
      */
     public function setStateId(?string $stateId): void;
-
-    /**
-     * @param ?ItemStateCollection $nextValue
-     */
-    public function setNextValue(?ItemStateCollection $nextValue): void;
-
-    /**
-     * @param ?ItemStateCollection $previousValue
-     */
-    public function setPreviousValue(?ItemStateCollection $previousValue): void;
 }

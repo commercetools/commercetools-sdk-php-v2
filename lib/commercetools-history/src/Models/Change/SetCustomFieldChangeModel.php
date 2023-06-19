@@ -35,6 +35,18 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
 
     /**
      *
+     * @var ?mixed
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?mixed
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?string
      */
     protected $name;
@@ -45,35 +57,23 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
      */
     protected $customTypeId;
 
-    /**
-     *
-     * @var ?mixed
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?mixed
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+         $previousValue = null,
+         $nextValue = null,
         ?string $name = null,
         ?string $customTypeId = null,
-         $nextValue = null,
-         $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->name = $name;
         $this->customTypeId = $customTypeId;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -96,8 +96,6 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     }
 
     /**
-     * <p>Update action for setting a custom field</p>
-     *
      *
      * @return null|string
      */
@@ -116,7 +114,47 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     }
 
     /**
-     * <p>Custom field name</p>
+     * <p>Value before the change.</p>
+     *
+     *
+     * @return null|mixed
+     */
+    public function getPreviousValue()
+    {
+        if (is_null($this->previousValue)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->previousValue = $data;
+        }
+
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|mixed
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = $data;
+        }
+
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
      *
      * @return null|string
@@ -136,6 +174,8 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     }
 
     /**
+     * <p><code>id</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -153,42 +193,6 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
         return $this->customTypeId;
     }
 
-    /**
-     *
-     * @return null|mixed
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->nextValue = $data;
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
-     *
-     * @return null|mixed
-     */
-    public function getPreviousValue()
-    {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->previousValue = $data;
-        }
-
-        return $this->previousValue;
-    }
-
 
     /**
      * @param ?string $change
@@ -196,6 +200,22 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param mixed $previousValue
+     */
+    public function setPreviousValue( $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param mixed $nextValue
+     */
+    public function setNextValue( $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -212,22 +232,6 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     public function setCustomTypeId(?string $customTypeId): void
     {
         $this->customTypeId = $customTypeId;
-    }
-
-    /**
-     * @param mixed $nextValue
-     */
-    public function setNextValue( $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param mixed $previousValue
-     */
-    public function setPreviousValue( $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

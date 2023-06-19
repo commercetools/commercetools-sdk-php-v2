@@ -41,7 +41,7 @@ final class CustomFieldExpandedValueBuilder implements Builder
     private $label;
 
     /**
-     * <p>Name of a custom field.</p>
+     * <p>Name of the Custom Field.</p>
      *
 
      * @return null|string
@@ -52,6 +52,8 @@ final class CustomFieldExpandedValueBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a>.</p>
+     *
 
      * @return null|mixed
      */
@@ -61,6 +63,8 @@ final class CustomFieldExpandedValueBuilder implements Builder
     }
 
     /**
+     * <p>User-defined label of the Custom Field.</p>
+     *
 
      * @return null|LocalizedString
      */

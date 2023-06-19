@@ -30,6 +30,18 @@ final class ChangeLabelChangeBuilder implements Builder
 
     /**
 
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $previousValue;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $nextValue;
+
+    /**
+
      * @var ?string
      */
     private $fieldName;
@@ -42,20 +54,6 @@ final class ChangeLabelChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
-     */
-    private $nextValue;
-
-    /**
-
-     * @var null|LocalizedString|LocalizedStringBuilder
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>changeLabel</code> on product types and types</p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -64,7 +62,29 @@ final class ChangeLabelChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field definition to update (types).</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getPreviousValue()
+    {
+        return $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>; only present on changes to Types).</p>
      *
 
      * @return null|string
@@ -75,7 +95,7 @@ final class ChangeLabelChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the attribute definition to update (product-type).</p>
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>; only present on changes to Product Types.</p>
      *
 
      * @return null|string
@@ -86,30 +106,34 @@ final class ChangeLabelChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?LocalizedString $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $nextValue
+     * @return $this
+     */
+    public function withNextValue(?LocalizedString $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -137,21 +161,10 @@ final class ChangeLabelChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedString $nextValue
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withNextValue(?LocalizedString $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?LocalizedString $previousValue)
+    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -169,25 +182,14 @@ final class ChangeLabelChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withPreviousValue() instead
-     * @return $this
-     */
-    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
     public function build(): ChangeLabelChange
     {
         return new ChangeLabelChangeModel(
             $this->change,
-            $this->fieldName,
-            $this->attributeName,
+            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->fieldName,
+            $this->attributeName
         );
     }
 

@@ -74,8 +74,6 @@ final class AddTransactionChangeModel extends JsonObjectModel implements AddTran
     }
 
     /**
-     * <p>Update action for <code>addTransaction</code> on payments</p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class AddTransactionChangeModel extends JsonObjectModel implements AddTran
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|Transaction
      */

@@ -32,17 +32,15 @@ final class SetCustomTypeChangeBuilder implements Builder
 
      * @var null|CustomFields|CustomFieldsBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|CustomFields|CustomFieldsBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for setting a custom type</p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class SetCustomTypeChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|CustomFields
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -70,23 +61,23 @@ final class SetCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomFields $nextValue
-     * @return $this
-     */
-    public function withNextValue(?CustomFields $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class SetCustomTypeChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?CustomFields $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?CustomFieldsBuilder $nextValue)
+    public function withNextValue(?CustomFields $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class SetCustomTypeChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?CustomFieldsBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): SetCustomTypeChange
     {
         return new SetCustomTypeChangeModel(
             $this->change,
-            $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

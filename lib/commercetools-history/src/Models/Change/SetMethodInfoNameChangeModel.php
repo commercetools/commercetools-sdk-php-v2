@@ -82,8 +82,6 @@ final class SetMethodInfoNameChangeModel extends JsonObjectModel implements SetM
     }
 
     /**
-     * <p>Shape of the action for <code>setMethodInfoName</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,6 +100,8 @@ final class SetMethodInfoNameChangeModel extends JsonObjectModel implements SetM
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -121,6 +121,8 @@ final class SetMethodInfoNameChangeModel extends JsonObjectModel implements SetM
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */

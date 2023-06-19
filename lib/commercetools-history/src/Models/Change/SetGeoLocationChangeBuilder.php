@@ -32,17 +32,15 @@ final class SetGeoLocationChangeBuilder implements Builder
 
      * @var null|GeoLocation|GeoLocationBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|GeoLocation|GeoLocationBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>setGeoLocation</code></p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class SetGeoLocationChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|GeoLocation
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof GeoLocationBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|GeoLocation
      */
@@ -70,23 +61,23 @@ final class SetGeoLocationChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|GeoLocation
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof GeoLocationBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?GeoLocation $nextValue
-     * @return $this
-     */
-    public function withNextValue(?GeoLocation $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class SetGeoLocationChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?GeoLocation $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?GeoLocationBuilder $nextValue)
+    public function withNextValue(?GeoLocation $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class SetGeoLocationChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?GeoLocationBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): SetGeoLocationChange
     {
         return new SetGeoLocationChangeModel(
             $this->change,
-            $this->nextValue instanceof GeoLocationBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof GeoLocationBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof GeoLocationBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof GeoLocationBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

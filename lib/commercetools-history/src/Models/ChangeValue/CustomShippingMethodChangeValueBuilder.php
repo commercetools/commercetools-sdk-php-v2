@@ -27,6 +27,8 @@ final class CustomShippingMethodChangeValueBuilder implements Builder
     private $name;
 
     /**
+     * <p>Name of the Custom ShippingMethod.</p>
+     *
 
      * @return null|string
      */

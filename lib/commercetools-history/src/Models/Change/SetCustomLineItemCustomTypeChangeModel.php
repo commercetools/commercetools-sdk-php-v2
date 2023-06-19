@@ -39,6 +39,18 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
 
     /**
      *
+     * @var ?CustomFields
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
@@ -49,35 +61,23 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
      */
     protected $customLineItemId;
 
-    /**
-     *
-     * @var ?CustomFields
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?CustomFields
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?CustomFields $previousValue = null,
+        ?CustomFields $nextValue = null,
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
-        ?CustomFields $nextValue = null,
-        ?CustomFields $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -100,8 +100,6 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Update action for <code>setCustomLineItemCustomType</code></p>
-     *
      *
      * @return null|string
      */
@@ -120,43 +118,29 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|CustomFields
      */
-    public function getCustomLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->customLineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->customLineItem = LocalizedStringModel::of($data);
+            $this->previousValue = CustomFieldsModel::of($data);
         }
 
-        return $this->customLineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getCustomLineItemId()
-    {
-        if (is_null($this->customLineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customLineItemId = (string) $data;
-        }
-
-        return $this->customLineItemId;
-    }
-
-    /**
      *
      * @return null|CustomFields
      */
@@ -176,22 +160,44 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
      *
-     * @return null|CustomFields
+     *
+     * @return null|LocalizedString
      */
-    public function getPreviousValue()
+    public function getCustomLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->customLineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = CustomFieldsModel::of($data);
+            $this->customLineItem = LocalizedStringModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->customLineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        if (is_null($this->customLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemId = (string) $data;
+        }
+
+        return $this->customLineItemId;
     }
 
 
@@ -201,6 +207,22 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?CustomFields $previousValue
+     */
+    public function setPreviousValue(?CustomFields $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?CustomFields $nextValue
+     */
+    public function setNextValue(?CustomFields $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -217,22 +239,6 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
-    }
-
-    /**
-     * @param ?CustomFields $nextValue
-     */
-    public function setNextValue(?CustomFields $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param ?CustomFields $previousValue
-     */
-    public function setPreviousValue(?CustomFields $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

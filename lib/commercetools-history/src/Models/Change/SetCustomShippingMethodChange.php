@@ -15,8 +15,8 @@ use Commercetools\History\Models\ChangeValue\CustomShippingMethodChangeValue;
 interface SetCustomShippingMethodChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -25,24 +25,26 @@ interface SetCustomShippingMethodChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setCustomShippingMethod</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|CustomShippingMethodChangeValue
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CustomShippingMethodChangeValue
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|CustomShippingMethodChangeValue
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface SetCustomShippingMethodChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?CustomShippingMethodChangeValue $nextValue
-     */
-    public function setNextValue(?CustomShippingMethodChangeValue $nextValue): void;
-
-    /**
      * @param ?CustomShippingMethodChangeValue $previousValue
      */
     public function setPreviousValue(?CustomShippingMethodChangeValue $previousValue): void;
+
+    /**
+     * @param ?CustomShippingMethodChangeValue $nextValue
+     */
+    public function setNextValue(?CustomShippingMethodChangeValue $nextValue): void;
 }

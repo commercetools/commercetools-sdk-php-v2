@@ -15,12 +15,10 @@ use Commercetools\History\Models\Common\ReviewRatingStatistics;
 interface ChangeReviewRatingStatisticsChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
-     * <p>Update action for <code>changeReviewRatingStatistics</code></p>
-     *
 
      * @return null|string
      */
@@ -33,16 +31,20 @@ interface ChangeReviewRatingStatisticsChange extends Change
     public function getType();
 
     /**
-
-     * @return null|ReviewRatingStatistics
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ReviewRatingStatistics
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ReviewRatingStatistics
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface ChangeReviewRatingStatisticsChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?ReviewRatingStatistics $nextValue
-     */
-    public function setNextValue(?ReviewRatingStatistics $nextValue): void;
-
-    /**
      * @param ?ReviewRatingStatistics $previousValue
      */
     public function setPreviousValue(?ReviewRatingStatistics $previousValue): void;
+
+    /**
+     * @param ?ReviewRatingStatistics $nextValue
+     */
+    public function setNextValue(?ReviewRatingStatistics $nextValue): void;
 }

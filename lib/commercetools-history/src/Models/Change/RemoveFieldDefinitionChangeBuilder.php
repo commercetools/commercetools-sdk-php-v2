@@ -35,8 +35,6 @@ final class RemoveFieldDefinitionChangeBuilder implements Builder
     private $previousValue;
 
     /**
-     * <p>Update action for <code>removeFieldDefinition</code> on payments</p>
-     *
 
      * @return null|string
      */
@@ -46,6 +44,8 @@ final class RemoveFieldDefinitionChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|FieldDefinition
      */

@@ -51,6 +51,8 @@ final class ShippingMethodTaxAmountChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Taxed price for the Shipping Method based on <code>taxRate</code>.</p>
+     *
      *
      * @return null|TaxedPrice
      */
@@ -70,7 +72,7 @@ final class ShippingMethodTaxAmountChangeValueModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Tax rate set externally for the Shipping Method.</p>
      *
      *
      * @return null|TaxRate

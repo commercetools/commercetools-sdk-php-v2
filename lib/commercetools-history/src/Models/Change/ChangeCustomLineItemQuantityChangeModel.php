@@ -37,6 +37,18 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
 
     /**
      *
+     * @var ?int
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?int
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
@@ -47,35 +59,23 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
      */
     protected $customLineItemId;
 
-    /**
-     *
-     * @var ?int
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?int
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?int $previousValue = null,
+        ?int $nextValue = null,
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
-        ?int $nextValue = null,
-        ?int $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -98,8 +98,6 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Update action for <code>changeCustomLineItemQuantity</code></p>
-     *
      *
      * @return null|string
      */
@@ -118,6 +116,48 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getPreviousValue()
+    {
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->previousValue = (int) $data;
+        }
+
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = (int) $data;
+        }
+
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the CustomLineItem.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -137,6 +177,8 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -154,42 +196,6 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
         return $this->customLineItemId;
     }
 
-    /**
-     *
-     * @return null|int
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->nextValue = (int) $data;
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
-     *
-     * @return null|int
-     */
-    public function getPreviousValue()
-    {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->previousValue = (int) $data;
-        }
-
-        return $this->previousValue;
-    }
-
 
     /**
      * @param ?string $change
@@ -197,6 +203,22 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?int $previousValue
+     */
+    public function setPreviousValue(?int $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?int $nextValue
+     */
+    public function setNextValue(?int $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -213,22 +235,6 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
-    }
-
-    /**
-     * @param ?int $nextValue
-     */
-    public function setNextValue(?int $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param ?int $previousValue
-     */
-    public function setPreviousValue(?int $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

@@ -30,9 +30,9 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
-    private $taxMode;
+    private $previousValue;
 
     /**
 
@@ -42,13 +42,11 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
+     * @var ?string
      */
-    private $previousValue;
+    private $taxMode;
 
     /**
-     * <p>Update action for <code>setOrderTaxedPrice</code></p>
-     *
 
      * @return null|string
      */
@@ -58,15 +56,19 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|TaxedItemPrice
      */
-    public function getTaxMode()
+    public function getPreviousValue()
     {
-        return $this->taxMode;
+        return $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|TaxedItemPrice
      */
@@ -77,11 +79,11 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
 
     /**
 
-     * @return null|TaxedItemPrice
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getTaxMode()
     {
-        return $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->taxMode;
     }
 
     /**
@@ -96,12 +98,12 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $taxMode
+     * @param ?TaxedItemPrice $previousValue
      * @return $this
      */
-    public function withTaxMode(?string $taxMode)
+    public function withPreviousValue(?TaxedItemPrice $previousValue)
     {
-        $this->taxMode = $taxMode;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -118,10 +120,21 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?TaxedItemPrice $previousValue
+     * @param ?string $taxMode
      * @return $this
      */
-    public function withPreviousValue(?TaxedItemPrice $previousValue)
+    public function withTaxMode(?string $taxMode)
+    {
+        $this->taxMode = $taxMode;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?TaxedItemPriceBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -139,24 +152,13 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withPreviousValue() instead
-     * @return $this
-     */
-    public function withPreviousValueBuilder(?TaxedItemPriceBuilder $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
     public function build(): SetOrderTaxedPriceChange
     {
         return new SetOrderTaxedPriceChangeModel(
             $this->change,
-            $this->taxMode,
+            $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof TaxedItemPriceBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->taxMode
         );
     }
 

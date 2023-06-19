@@ -81,8 +81,6 @@ final class SetStoresChangeModel extends JsonObjectModel implements SetStoresCha
     }
 
     /**
-     * <p>Shape of the action for <code>setStores</code></p>
-     *
      *
      * @return null|string
      */
@@ -101,6 +99,8 @@ final class SetStoresChangeModel extends JsonObjectModel implements SetStoresCha
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */
@@ -119,6 +119,8 @@ final class SetStoresChangeModel extends JsonObjectModel implements SetStoresCha
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */

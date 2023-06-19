@@ -90,6 +90,8 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Reference to a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|Reference
      */
@@ -109,6 +111,8 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
      *
      * @return null|int
      */
@@ -127,6 +131,8 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Channel with <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>InventorySupply</code>.</p>
+     *
      *
      * @return null|Reference
      */
@@ -146,6 +152,8 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Channel with <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>ProductDistribution</code>.</p>
+     *
      *
      * @return null|Reference
      */

@@ -23,6 +23,8 @@ interface StringLabel extends Label
     public function getType();
 
     /**
+     * <p>Changed value.</p>
+     *
 
      * @return null|string
      */

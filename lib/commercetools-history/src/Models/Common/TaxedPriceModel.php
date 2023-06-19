@@ -47,6 +47,8 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
+     * <p>Total net price of the Order.</p>
+     *
      *
      * @return null|Money
      */
@@ -66,6 +68,8 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
+     * <p>Total gross price of the Order.</p>
+     *
      *
      * @return null|Money
      */

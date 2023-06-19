@@ -39,6 +39,8 @@ final class CustomShippingMethodChangeValueModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Name of the Custom ShippingMethod.</p>
+     *
      *
      * @return null|string
      */

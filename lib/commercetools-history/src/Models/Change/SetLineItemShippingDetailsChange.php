@@ -15,9 +15,9 @@ use Commercetools\History\Models\Common\ItemShippingDetails;
 interface SetLineItemShippingDetailsChange extends Change
 {
 
-    public const FIELD_LINE_ITEM_ID = 'lineItemId';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
 
     /**
 
@@ -26,30 +26,34 @@ interface SetLineItemShippingDetailsChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setLineItemShippingDetails</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|ItemShippingDetails
      */
-    public function getLineItemId();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ItemShippingDetails
      */
     public function getNextValue();
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
 
-     * @return null|ItemShippingDetails
+     * @return null|string
      */
-    public function getPreviousValue();
+    public function getLineItemId();
 
     /**
      * @param ?string $change
@@ -57,9 +61,9 @@ interface SetLineItemShippingDetailsChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $lineItemId
+     * @param ?ItemShippingDetails $previousValue
      */
-    public function setLineItemId(?string $lineItemId): void;
+    public function setPreviousValue(?ItemShippingDetails $previousValue): void;
 
     /**
      * @param ?ItemShippingDetails $nextValue
@@ -67,7 +71,7 @@ interface SetLineItemShippingDetailsChange extends Change
     public function setNextValue(?ItemShippingDetails $nextValue): void;
 
     /**
-     * @param ?ItemShippingDetails $previousValue
+     * @param ?string $lineItemId
      */
-    public function setPreviousValue(?ItemShippingDetails $previousValue): void;
+    public function setLineItemId(?string $lineItemId): void;
 }

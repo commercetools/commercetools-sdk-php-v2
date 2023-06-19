@@ -32,13 +32,7 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
 
      * @var null|LocalizedString|LocalizedStringBuilder
      */
-    private $lineItem;
-
-    /**
-
-     * @var ?string
-     */
-    private $variant;
+    private $previousValue;
 
     /**
 
@@ -50,11 +44,15 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
 
      * @var null|LocalizedString|LocalizedStringBuilder
      */
-    private $previousValue;
+    private $lineItem;
 
     /**
-     * <p>Update action for <code>setLineItemProductSlug</code></p>
-     *
+
+     * @var ?string
+     */
+    private $variant;
+
+    /**
 
      * @return null|string
      */
@@ -64,33 +62,8 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getLineItem()
-    {
-        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getVariant()
-    {
-        return $this->variant;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -100,12 +73,67 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
+     * <p><code>sku</code> or <code>key</code> of the updated <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?LocalizedString $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $nextValue
+     * @return $this
+     */
+    public function withNextValue(?LocalizedString $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -133,34 +161,12 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedString $nextValue
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withNextValue(?LocalizedString $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?LocalizedString $previousValue)
+    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withLineItem() instead
-     * @return $this
-     */
-    public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
-    {
-        $this->lineItem = $lineItem;
 
         return $this;
     }
@@ -177,12 +183,12 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withLineItem() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
+    public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
     {
-        $this->previousValue = $previousValue;
+        $this->lineItem = $lineItem;
 
         return $this;
     }
@@ -191,10 +197,10 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     {
         return new SetLineItemProductSlugChangeModel(
             $this->change,
-            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
-            $this->variant,
+            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->variant
         );
     }
 

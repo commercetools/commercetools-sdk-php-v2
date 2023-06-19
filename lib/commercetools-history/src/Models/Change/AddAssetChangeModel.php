@@ -39,13 +39,13 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
      *
      * @var ?Asset
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?Asset
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
      */
     public function __construct(
         ?string $change = null,
-        ?Asset $nextValue = null,
         ?Asset $previousValue = null,
+        ?Asset $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
     }
 
     /**
-     * <p>Update action for <code>addAsset</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|Asset
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = AssetModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|Asset
      */
@@ -139,6 +120,27 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|Asset
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = AssetModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
     }
 
     /**
-     * @param ?Asset $nextValue
-     */
-    public function setNextValue(?Asset $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?Asset $previousValue
      */
     public function setPreviousValue(?Asset $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?Asset $nextValue
+     */
+    public function setNextValue(?Asset $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

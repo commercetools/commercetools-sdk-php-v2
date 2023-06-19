@@ -82,8 +82,6 @@ final class ChangeLocalizedNameChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
-     * <p>Shape of the action for <code>changeName</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,6 +100,8 @@ final class ChangeLocalizedNameChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -121,6 +121,8 @@ final class ChangeLocalizedNameChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */

@@ -80,8 +80,6 @@ final class SetFirstNameChangeModel extends JsonObjectModel implements SetFirstN
     }
 
     /**
-     * <p>Shape of the action for <code>setFirstName</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetFirstNameChangeModel extends JsonObjectModel implements SetFirstN
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetFirstNameChangeModel extends JsonObjectModel implements SetFirstN
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

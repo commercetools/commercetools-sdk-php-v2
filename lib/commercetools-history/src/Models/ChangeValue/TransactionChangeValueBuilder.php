@@ -39,6 +39,8 @@ final class TransactionChangeValueBuilder implements Builder
     private $timestamp;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,8 @@ final class TransactionChangeValueBuilder implements Builder
     }
 
     /**
+     * <p>Identifier used by the interface that manages the Transaction (usually the PSP).</p>
+     *
 
      * @return null|string
      */
@@ -57,6 +61,8 @@ final class TransactionChangeValueBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Transaction took place.</p>
+     *
 
      * @return null|string
      */

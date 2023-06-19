@@ -28,19 +28,17 @@ final class RemovePropertyChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $path;
-
-    /**
-
      * @var null|mixed|mixed
      */
     private $previousValue;
 
     /**
-     * <p>Update action for <code>removeProperty</code> on custom objects</p>
-     *
+
+     * @var ?string
+     */
+    private $path;
+
+    /**
 
      * @return null|string
      */
@@ -50,7 +48,18 @@ final class RemovePropertyChangeBuilder implements Builder
     }
 
     /**
-     * <p>Value path to the property that was removed</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getPreviousValue()
+    {
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Path to the property that was removed.</p>
      *
 
      * @return null|string
@@ -61,32 +70,12 @@ final class RemovePropertyChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|mixed
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $path
-     * @return $this
-     */
-    public function withPath(?string $path)
-    {
-        $this->path = $path;
 
         return $this;
     }
@@ -102,13 +91,24 @@ final class RemovePropertyChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $path
+     * @return $this
+     */
+    public function withPath(?string $path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
 
     public function build(): RemovePropertyChange
     {
         return new RemovePropertyChangeModel(
             $this->change,
-            $this->path,
-            $this->previousValue
+            $this->previousValue,
+            $this->path
         );
     }
 

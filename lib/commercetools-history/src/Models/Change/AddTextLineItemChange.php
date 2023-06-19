@@ -30,6 +30,8 @@ interface AddTextLineItemChange extends Change
     public function getChange();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|TextLineItem
      */

@@ -74,7 +74,7 @@ final class RecordPagedQueryResponseBuilder implements Builder
 
     /**
      * <p>Total number of results matching the query.
-     * This number is an estimation and not <a href="/general-concepts#strong-consistency">strongly consistent</a>.</p>
+     * This number is an estimation and not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.</p>
      *
 
      * @return null|int
@@ -96,6 +96,8 @@ final class RecordPagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Records matching the query.</p>
+     *
 
      * @return null|RecordCollection
      */

@@ -82,8 +82,6 @@ final class SetMetaTitleChangeModel extends JsonObjectModel implements SetMetaTi
     }
 
     /**
-     * <p>Shape of the action for <code>setMetaTitle</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,6 +100,8 @@ final class SetMetaTitleChangeModel extends JsonObjectModel implements SetMetaTi
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -121,6 +121,8 @@ final class SetMetaTitleChangeModel extends JsonObjectModel implements SetMetaTi
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */

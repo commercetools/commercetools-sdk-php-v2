@@ -16,9 +16,9 @@ use Commercetools\History\Models\Common\ReferenceCollection;
 interface AddToCategoryChange extends Change
 {
 
-    public const FIELD_CATEGORY = 'category';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_CATEGORY = 'category';
 
     /**
 
@@ -27,40 +27,39 @@ interface AddToCategoryChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>addToCategory</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|Reference
-     */
-    public function getCategory();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ReferenceCollection
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ReferenceCollection
      */
     public function getNextValue();
 
     /**
+     * <p>Category to which the Product was added.</p>
+     *
+
+     * @return null|Reference
+     */
+    public function getCategory();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
-
-    /**
-     * @param ?Reference $category
-     */
-    public function setCategory(?Reference $category): void;
 
     /**
      * @param ?ReferenceCollection $previousValue
@@ -71,4 +70,9 @@ interface AddToCategoryChange extends Change
      * @param ?ReferenceCollection $nextValue
      */
     public function setNextValue(?ReferenceCollection $nextValue): void;
+
+    /**
+     * @param ?Reference $category
+     */
+    public function setCategory(?Reference $category): void;
 }

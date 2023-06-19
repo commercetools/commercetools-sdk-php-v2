@@ -33,6 +33,8 @@ final class EnumValueBuilder implements Builder
     private $label;
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class EnumValueBuilder implements Builder
     }
 
     /**
+     * <p>Descriptive label of the value.</p>
+     *
 
      * @return null|string
      */

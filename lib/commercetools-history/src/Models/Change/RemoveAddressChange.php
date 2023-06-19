@@ -18,8 +18,6 @@ interface RemoveAddressChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
-     * <p>Update action for <code>removeAddress</code> action.</p>
-     *
 
      * @return null|string
      */
@@ -32,6 +30,8 @@ interface RemoveAddressChange extends Change
     public function getType();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Address
      */

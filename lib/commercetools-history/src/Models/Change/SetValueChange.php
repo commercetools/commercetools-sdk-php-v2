@@ -14,8 +14,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 interface SetValueChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -24,24 +24,26 @@ interface SetValueChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setValue</code> on custom objects</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|mixed
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|mixed
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -49,12 +51,12 @@ interface SetValueChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param mixed $nextValue
-     */
-    public function setNextValue( $nextValue): void;
-
-    /**
      * @param mixed $previousValue
      */
     public function setPreviousValue( $previousValue): void;
+
+    /**
+     * @param mixed $nextValue
+     */
+    public function setNextValue( $nextValue): void;
 }

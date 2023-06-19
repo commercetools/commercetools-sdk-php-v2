@@ -30,19 +30,17 @@ final class UpdateSyncInfoChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $channelId;
-
-    /**
-
      * @var null|SyncInfo|SyncInfoBuilder
      */
     private $nextValue;
 
     /**
-     * <p>Update action for <code>updateSyncInfo</code></p>
-     *
+
+     * @var ?string
+     */
+    private $channelId;
+
+    /**
 
      * @return null|string
      */
@@ -52,21 +50,25 @@ final class UpdateSyncInfoChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getChannelId()
-    {
-        return $this->channelId;
-    }
-
-    /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|SyncInfo
      */
     public function getNextValue()
     {
         return $this->nextValue instanceof SyncInfoBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getChannelId()
+    {
+        return $this->channelId;
     }
 
     /**
@@ -81,23 +83,23 @@ final class UpdateSyncInfoChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $channelId
-     * @return $this
-     */
-    public function withChannelId(?string $channelId)
-    {
-        $this->channelId = $channelId;
-
-        return $this;
-    }
-
-    /**
      * @param ?SyncInfo $nextValue
      * @return $this
      */
     public function withNextValue(?SyncInfo $nextValue)
     {
         $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $channelId
+     * @return $this
+     */
+    public function withChannelId(?string $channelId)
+    {
+        $this->channelId = $channelId;
 
         return $this;
     }
@@ -117,8 +119,8 @@ final class UpdateSyncInfoChangeBuilder implements Builder
     {
         return new UpdateSyncInfoChangeModel(
             $this->change,
-            $this->channelId,
-            $this->nextValue instanceof SyncInfoBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof SyncInfoBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->channelId
         );
     }
 

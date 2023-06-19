@@ -49,6 +49,8 @@ final class FieldDefinitionOrderValueModel extends JsonObjectModel implements Fi
     }
 
     /**
+     * <p>Name of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -67,6 +69,8 @@ final class FieldDefinitionOrderValueModel extends JsonObjectModel implements Fi
     }
 
     /**
+     * <p>Descriptive label of the field.</p>
+     *
      *
      * @return null|LocalizedString
      */

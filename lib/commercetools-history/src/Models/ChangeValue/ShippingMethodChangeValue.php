@@ -18,12 +18,16 @@ interface ShippingMethodChangeValue extends JsonObject
     public const FIELD_NAME = 'name';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Name of the ShippingMethod.</p>
+     *
 
      * @return null|string
      */

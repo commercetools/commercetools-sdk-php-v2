@@ -32,9 +32,9 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
 
     /**
 
-     * @var null|AssetChangeValue|AssetChangeValueBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
-    private $asset;
+    private $previousValue;
 
     /**
 
@@ -44,13 +44,11 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
 
     /**
 
-     * @var null|CustomFields|CustomFieldsBuilder
+     * @var null|AssetChangeValue|AssetChangeValueBuilder
      */
-    private $previousValue;
+    private $asset;
 
     /**
-     * <p>Update action for <code>setAssetCustomType</code></p>
-     *
 
      * @return null|string
      */
@@ -60,24 +58,8 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|AssetChangeValue
-     */
-    public function getAsset()
-    {
-        return $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset;
-    }
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -87,34 +69,34 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Information about the updated Asset.</p>
+     *
+
+     * @return null|AssetChangeValue
+     */
+    public function getAsset()
+    {
+        return $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?AssetChangeValue $asset
-     * @return $this
-     */
-    public function withAsset(?AssetChangeValue $asset)
-    {
-        $this->asset = $asset;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomFields $nextValue
-     * @return $this
-     */
-    public function withNextValue(?CustomFields $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -131,12 +113,34 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withAsset() instead
+     * @param ?CustomFields $nextValue
      * @return $this
      */
-    public function withAssetBuilder(?AssetChangeValueBuilder $asset)
+    public function withNextValue(?CustomFields $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?AssetChangeValue $asset
+     * @return $this
+     */
+    public function withAsset(?AssetChangeValue $asset)
     {
         $this->asset = $asset;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?CustomFieldsBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -153,12 +157,12 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withAsset() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?CustomFieldsBuilder $previousValue)
+    public function withAssetBuilder(?AssetChangeValueBuilder $asset)
     {
-        $this->previousValue = $previousValue;
+        $this->asset = $asset;
 
         return $this;
     }
@@ -167,9 +171,9 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
     {
         return new SetAssetCustomTypeChangeModel(
             $this->change,
-            $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset,
+            $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset
         );
     }
 

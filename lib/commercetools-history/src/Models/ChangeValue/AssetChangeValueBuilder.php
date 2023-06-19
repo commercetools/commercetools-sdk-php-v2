@@ -35,6 +35,8 @@ final class AssetChangeValueBuilder implements Builder
     private $name;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Asset">Asset</a>.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class AssetChangeValueBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Asset.</p>
+     *
 
      * @return null|LocalizedString
      */

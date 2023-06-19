@@ -35,6 +35,8 @@ final class LocalizedEnumValueBuilder implements Builder
     private $label;
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class LocalizedEnumValueBuilder implements Builder
     }
 
     /**
+     * <p>Descriptive localized label of the value.</p>
+     *
 
      * @return null|LocalizedString
      */

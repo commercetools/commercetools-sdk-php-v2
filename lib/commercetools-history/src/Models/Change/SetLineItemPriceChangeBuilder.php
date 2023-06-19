@@ -32,9 +32,9 @@ final class SetLineItemPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
+     * @var null|Price|PriceBuilder
      */
-    private $lineItem;
+    private $previousValue;
 
     /**
 
@@ -44,13 +44,11 @@ final class SetLineItemPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|Price|PriceBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
-    private $previousValue;
+    private $lineItem;
 
     /**
-     * <p>Update action for <code>setLineItemPrice</code></p>
-     *
 
      * @return null|string
      */
@@ -60,24 +58,8 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getLineItem()
-    {
-        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
-    }
-
-    /**
-
-     * @return null|Price
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof PriceBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Price
      */
@@ -87,34 +69,34 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Price
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof PriceBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $lineItem
-     * @return $this
-     */
-    public function withLineItem(?LocalizedString $lineItem)
-    {
-        $this->lineItem = $lineItem;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Price $nextValue
-     * @return $this
-     */
-    public function withNextValue(?Price $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -131,12 +113,34 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withLineItem() instead
+     * @param ?Price $nextValue
      * @return $this
      */
-    public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
+    public function withNextValue(?Price $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $lineItem
+     * @return $this
+     */
+    public function withLineItem(?LocalizedString $lineItem)
     {
         $this->lineItem = $lineItem;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?PriceBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -153,12 +157,12 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withLineItem() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?PriceBuilder $previousValue)
+    public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
     {
-        $this->previousValue = $previousValue;
+        $this->lineItem = $lineItem;
 
         return $this;
     }
@@ -167,9 +171,9 @@ final class SetLineItemPriceChangeBuilder implements Builder
     {
         return new SetLineItemPriceChangeModel(
             $this->change,
-            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->previousValue instanceof PriceBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof PriceBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof PriceBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem
         );
     }
 

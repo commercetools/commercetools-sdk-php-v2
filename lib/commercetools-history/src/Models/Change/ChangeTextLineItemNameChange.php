@@ -16,9 +16,9 @@ use Commercetools\History\Models\Common\LocalizedString;
 interface ChangeTextLineItemNameChange extends Change
 {
 
-    public const FIELD_TEXT_LINE_ITEM = 'textLineItem';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_TEXT_LINE_ITEM = 'textLineItem';
 
     /**
 
@@ -27,30 +27,34 @@ interface ChangeTextLineItemNameChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeTextLineItemName</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|TextLineItemValue
+     * @return null|LocalizedString
      */
-    public function getTextLineItem();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getNextValue();
 
     /**
+     * <p>Holds information about the updated Text Line Item.</p>
+     *
 
-     * @return null|LocalizedString
+     * @return null|TextLineItemValue
      */
-    public function getPreviousValue();
+    public function getTextLineItem();
 
     /**
      * @param ?string $change
@@ -58,9 +62,9 @@ interface ChangeTextLineItemNameChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?TextLineItemValue $textLineItem
+     * @param ?LocalizedString $previousValue
      */
-    public function setTextLineItem(?TextLineItemValue $textLineItem): void;
+    public function setPreviousValue(?LocalizedString $previousValue): void;
 
     /**
      * @param ?LocalizedString $nextValue
@@ -68,7 +72,7 @@ interface ChangeTextLineItemNameChange extends Change
     public function setNextValue(?LocalizedString $nextValue): void;
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?TextLineItemValue $textLineItem
      */
-    public function setPreviousValue(?LocalizedString $previousValue): void;
+    public function setTextLineItem(?TextLineItemValue $textLineItem): void;
 }

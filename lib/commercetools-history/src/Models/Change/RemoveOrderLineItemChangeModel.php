@@ -100,6 +100,8 @@ final class RemoveOrderLineItemChangeModel extends JsonObjectModel implements Re
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LineItem
      */
@@ -119,6 +121,8 @@ final class RemoveOrderLineItemChangeModel extends JsonObjectModel implements Re
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LineItem
      */

@@ -30,6 +30,18 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
 
     /**
 
+     * @var null|mixed|mixed
+     */
+    private $previousValue;
+
+    /**
+
+     * @var null|mixed|mixed
+     */
+    private $nextValue;
+
+    /**
+
      * @var ?string
      */
     private $customTypeId;
@@ -42,31 +54,17 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $variant;
-
-    /**
-
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $lineItem;
 
     /**
 
-     * @var null|mixed|mixed
+     * @var ?string
      */
-    private $nextValue;
+    private $variant;
 
     /**
-
-     * @var null|mixed|mixed
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>setLineItemCustomField</code></p>
-     *
 
      * @return null|string
      */
@@ -76,51 +74,8 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getCustomTypeId()
-    {
-        return $this->customTypeId;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getVariant()
-    {
-        return $this->variant;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getLineItem()
-    {
-        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
-    }
-
-    /**
-
-     * @return null|mixed
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|mixed
      */
@@ -130,12 +85,89 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p><code>id</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomTypeId()
+    {
+        return $this->customTypeId;
+    }
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
+     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $previousValue
+     * @return $this
+     */
+    public function withPreviousValue( $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $nextValue
+     * @return $this
+     */
+    public function withNextValue( $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -163,17 +195,6 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $variant
-     * @return $this
-     */
-    public function withVariant(?string $variant)
-    {
-        $this->variant = $variant;
-
-        return $this;
-    }
-
-    /**
      * @param ?LocalizedString $lineItem
      * @return $this
      */
@@ -185,23 +206,12 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
-     * @param mixed $nextValue
+     * @param ?string $variant
      * @return $this
      */
-    public function withNextValue( $nextValue)
+    public function withVariant(?string $variant)
     {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $previousValue
-     * @return $this
-     */
-    public function withPreviousValue( $previousValue)
-    {
-        $this->previousValue = $previousValue;
+        $this->variant = $variant;
 
         return $this;
     }
@@ -221,12 +231,12 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
     {
         return new SetOrderLineItemCustomFieldChangeModel(
             $this->change,
+            $this->previousValue,
+            $this->nextValue,
             $this->customTypeId,
             $this->name,
-            $this->variant,
             $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
-            $this->nextValue,
-            $this->previousValue
+            $this->variant
         );
     }
 

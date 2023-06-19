@@ -37,15 +37,15 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
 
     /**
      *
-     * @var ?string
-     */
-    protected $attributeName;
-
-    /**
-     *
      * @var ?EnumValue
      */
     protected $nextValue;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $attributeName;
 
 
     /**
@@ -53,13 +53,13 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
      */
     public function __construct(
         ?string $change = null,
-        ?string $attributeName = null,
         ?EnumValue $nextValue = null,
+        ?string $attributeName = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->attributeName = $attributeName;
         $this->nextValue = $nextValue;
+        $this->attributeName = $attributeName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
     }
 
     /**
-     * <p>Update action for <code>addPlainEnumValue</code> on product types</p>
-     *
      *
      * @return null|string
      */
@@ -102,26 +100,8 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Value after the change.</p>
      *
-     *
-     * @return null|string
-     */
-    public function getAttributeName()
-    {
-        if (is_null($this->attributeName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->attributeName = (string) $data;
-        }
-
-        return $this->attributeName;
-    }
-
-    /**
      *
      * @return null|EnumValue
      */
@@ -140,6 +120,26 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
         return $this->nextValue;
     }
 
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
+    }
+
 
     /**
      * @param ?string $change
@@ -150,19 +150,19 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
     }
 
     /**
-     * @param ?string $attributeName
-     */
-    public function setAttributeName(?string $attributeName): void
-    {
-        $this->attributeName = $attributeName;
-    }
-
-    /**
      * @param ?EnumValue $nextValue
      */
     public function setNextValue(?EnumValue $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void
+    {
+        $this->attributeName = $attributeName;
     }
 
 

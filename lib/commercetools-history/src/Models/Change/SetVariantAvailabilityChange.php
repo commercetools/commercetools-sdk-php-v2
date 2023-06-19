@@ -15,10 +15,10 @@ use Commercetools\History\Models\Common\ProductVariantAvailability;
 interface SetVariantAvailabilityChange extends Change
 {
 
-    public const FIELD_CATALOG_DATA = 'catalogData';
-    public const FIELD_VARIANT = 'variant';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_CATALOG_DATA = 'catalogData';
+    public const FIELD_VARIANT = 'variant';
 
     /**
 
@@ -27,51 +27,50 @@ interface SetVariantAvailabilityChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setVariantAvailability</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getCatalogData();
-
-    /**
-
-     * @return null|string
-     */
-    public function getVariant();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ProductVariantAvailability
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ProductVariantAvailability
      */
     public function getNextValue();
 
     /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData();
+
+    /**
+     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
-
-    /**
-     * @param ?string $catalogData
-     */
-    public function setCatalogData(?string $catalogData): void;
-
-    /**
-     * @param ?string $variant
-     */
-    public function setVariant(?string $variant): void;
 
     /**
      * @param ?ProductVariantAvailability $previousValue
@@ -82,4 +81,14 @@ interface SetVariantAvailabilityChange extends Change
      * @param ?ProductVariantAvailability $nextValue
      */
     public function setNextValue(?ProductVariantAvailability $nextValue): void;
+
+    /**
+     * @param ?string $catalogData
+     */
+    public function setCatalogData(?string $catalogData): void;
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void;
 }

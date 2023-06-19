@@ -15,12 +15,12 @@ use Commercetools\History\Models\Common\LocalizedString;
 interface SetOrderLineItemCustomFieldChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_CUSTOM_TYPE_ID = 'customTypeId';
     public const FIELD_NAME = 'name';
-    public const FIELD_VARIANT = 'variant';
     public const FIELD_LINE_ITEM = 'lineItem';
-    public const FIELD_NEXT_VALUE = 'nextValue';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_VARIANT = 'variant';
 
     /**
 
@@ -29,53 +29,73 @@ interface SetOrderLineItemCustomFieldChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setLineItemCustomField</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getCustomTypeId();
-
-    /**
-
-     * @return null|string
-     */
-    public function getName();
-
-    /**
-
-     * @return null|string
-     */
-    public function getVariant();
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getLineItem();
-
-    /**
-
-     * @return null|mixed
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|mixed
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue();
+
+    /**
+     * <p><code>id</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomTypeId();
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getName();
+
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem();
+
+    /**
+     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param mixed $previousValue
+     */
+    public function setPreviousValue( $previousValue): void;
+
+    /**
+     * @param mixed $nextValue
+     */
+    public function setNextValue( $nextValue): void;
 
     /**
      * @param ?string $customTypeId
@@ -88,22 +108,12 @@ interface SetOrderLineItemCustomFieldChange extends Change
     public function setName(?string $name): void;
 
     /**
-     * @param ?string $variant
-     */
-    public function setVariant(?string $variant): void;
-
-    /**
      * @param ?LocalizedString $lineItem
      */
     public function setLineItem(?LocalizedString $lineItem): void;
 
     /**
-     * @param mixed $nextValue
+     * @param ?string $variant
      */
-    public function setNextValue( $nextValue): void;
-
-    /**
-     * @param mixed $previousValue
-     */
-    public function setPreviousValue( $previousValue): void;
+    public function setVariant(?string $variant): void;
 }

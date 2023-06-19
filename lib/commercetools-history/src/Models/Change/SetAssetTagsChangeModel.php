@@ -37,9 +37,9 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
 
     /**
      *
-     * @var ?AssetChangeValue
+     * @var ?array
      */
-    protected $asset;
+    protected $previousValue;
 
     /**
      *
@@ -49,9 +49,9 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
 
     /**
      *
-     * @var ?array
+     * @var ?AssetChangeValue
      */
-    protected $previousValue;
+    protected $asset;
 
 
     /**
@@ -59,15 +59,15 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
      */
     public function __construct(
         ?string $change = null,
-        ?AssetChangeValue $asset = null,
-        ?array $nextValue = null,
         ?array $previousValue = null,
+        ?array $nextValue = null,
+        ?AssetChangeValue $asset = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->asset = $asset;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->asset = $asset;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     }
 
     /**
-     * <p>Update action for <code>setAssetTags</code></p>
-     *
      *
      * @return null|string
      */
@@ -110,25 +108,28 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|AssetChangeValue
+     *
+     * @return null|array
      */
-    public function getAsset()
+    public function getPreviousValue()
     {
-        if (is_null($this->asset)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ASSET);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->asset = AssetChangeValueModel::of($data);
+            $this->previousValue = $data;
         }
 
-        return $this->asset;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|array
      */
@@ -147,21 +148,24 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     }
 
     /**
+     * <p>Information about the updated Asset.</p>
      *
-     * @return null|array
+     *
+     * @return null|AssetChangeValue
      */
-    public function getPreviousValue()
+    public function getAsset()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?list<mixed> $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->asset)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ASSET);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = $data;
+
+            $this->asset = AssetChangeValueModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->asset;
     }
 
 
@@ -174,11 +178,11 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     }
 
     /**
-     * @param ?AssetChangeValue $asset
+     * @param ?array $previousValue
      */
-    public function setAsset(?AssetChangeValue $asset): void
+    public function setPreviousValue(?array $previousValue): void
     {
-        $this->asset = $asset;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -190,11 +194,11 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     }
 
     /**
-     * @param ?array $previousValue
+     * @param ?AssetChangeValue $asset
      */
-    public function setPreviousValue(?array $previousValue): void
+    public function setAsset(?AssetChangeValue $asset): void
     {
-        $this->previousValue = $previousValue;
+        $this->asset = $asset;
     }
 
 

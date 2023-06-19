@@ -32,6 +32,18 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
 
     /**
 
+     * @var null|Reference|ReferenceBuilder
+     */
+    private $previousValue;
+
+    /**
+
+     * @var null|Reference|ReferenceBuilder
+     */
+    private $nextValue;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $customLineItem;
@@ -44,20 +56,6 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
 
     /**
 
-     * @var null|Reference|ReferenceBuilder
-     */
-    private $nextValue;
-
-    /**
-
-     * @var null|Reference|ReferenceBuilder
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>setCustomLineItemTaxCategory</code></p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -66,33 +64,8 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem()
-    {
-        return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getCustomLineItemId()
-    {
-        return $this->customLineItemId;
-    }
-
-    /**
-
-     * @return null|Reference
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof ReferenceBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Reference
      */
@@ -102,12 +75,67 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Reference
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof ReferenceBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem()
+    {
+        return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        return $this->customLineItemId;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?Reference $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?Reference $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?Reference $nextValue
+     * @return $this
+     */
+    public function withNextValue(?Reference $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -135,34 +163,12 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $nextValue
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withNextValue(?Reference $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Reference $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?Reference $previousValue)
+    public function withPreviousValueBuilder(?ReferenceBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withCustomLineItem() instead
-     * @return $this
-     */
-    public function withCustomLineItemBuilder(?LocalizedStringBuilder $customLineItem)
-    {
-        $this->customLineItem = $customLineItem;
 
         return $this;
     }
@@ -179,12 +185,12 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withCustomLineItem() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?ReferenceBuilder $previousValue)
+    public function withCustomLineItemBuilder(?LocalizedStringBuilder $customLineItem)
     {
-        $this->previousValue = $previousValue;
+        $this->customLineItem = $customLineItem;
 
         return $this;
     }
@@ -193,10 +199,10 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     {
         return new SetCustomLineItemTaxCategoryChangeModel(
             $this->change,
-            $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
-            $this->customLineItemId,
+            $this->previousValue instanceof ReferenceBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof ReferenceBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof ReferenceBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
+            $this->customLineItemId
         );
     }
 

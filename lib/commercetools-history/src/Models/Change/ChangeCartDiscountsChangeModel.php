@@ -81,8 +81,6 @@ final class ChangeCartDiscountsChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
-     * <p>Shape of the action for <code>changeCartDiscounts</code></p>
-     *
      *
      * @return null|string
      */
@@ -101,6 +99,8 @@ final class ChangeCartDiscountsChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */
@@ -119,6 +119,8 @@ final class ChangeCartDiscountsChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */

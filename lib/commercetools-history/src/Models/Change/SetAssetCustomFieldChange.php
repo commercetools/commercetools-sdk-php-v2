@@ -15,15 +15,13 @@ use Commercetools\History\Models\ChangeValue\AssetChangeValue;
 interface SetAssetCustomFieldChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_NAME = 'name';
     public const FIELD_CUSTOM_TYPE_ID = 'customTypeId';
     public const FIELD_ASSET = 'asset';
-    public const FIELD_NEXT_VALUE = 'nextValue';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
-     * <p>Update action for <code>setAssetCustomField</code></p>
-     *
 
      * @return null|string
      */
@@ -36,39 +34,59 @@ interface SetAssetCustomFieldChange extends Change
     public function getType();
 
     /**
-
-     * @return null|string
-     */
-    public function getName();
-
-    /**
-
-     * @return null|string
-     */
-    public function getCustomTypeId();
-
-    /**
-
-     * @return null|AssetChangeValue
-     */
-    public function getAsset();
-
-    /**
-
-     * @return null|mixed
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|mixed
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getName();
+
+    /**
+     * <p><code>id</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomTypeId();
+
+    /**
+     * <p>Information about the updated Asset.</p>
+     *
+
+     * @return null|AssetChangeValue
+     */
+    public function getAsset();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param mixed $previousValue
+     */
+    public function setPreviousValue( $previousValue): void;
+
+    /**
+     * @param mixed $nextValue
+     */
+    public function setNextValue( $nextValue): void;
 
     /**
      * @param ?string $name
@@ -84,14 +102,4 @@ interface SetAssetCustomFieldChange extends Change
      * @param ?AssetChangeValue $asset
      */
     public function setAsset(?AssetChangeValue $asset): void;
-
-    /**
-     * @param mixed $nextValue
-     */
-    public function setNextValue( $nextValue): void;
-
-    /**
-     * @param mixed $previousValue
-     */
-    public function setPreviousValue( $previousValue): void;
 }

@@ -32,17 +32,15 @@ final class SetCustomShippingMethodChangeBuilder implements Builder
 
      * @var null|CustomShippingMethodChangeValue|CustomShippingMethodChangeValueBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|CustomShippingMethodChangeValue|CustomShippingMethodChangeValueBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>setCustomShippingMethod</code></p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class SetCustomShippingMethodChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|CustomShippingMethodChangeValue
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof CustomShippingMethodChangeValueBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CustomShippingMethodChangeValue
      */
@@ -70,23 +61,23 @@ final class SetCustomShippingMethodChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|CustomShippingMethodChangeValue
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof CustomShippingMethodChangeValueBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomShippingMethodChangeValue $nextValue
-     * @return $this
-     */
-    public function withNextValue(?CustomShippingMethodChangeValue $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class SetCustomShippingMethodChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?CustomShippingMethodChangeValue $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?CustomShippingMethodChangeValueBuilder $nextValue)
+    public function withNextValue(?CustomShippingMethodChangeValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class SetCustomShippingMethodChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?CustomShippingMethodChangeValueBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): SetCustomShippingMethodChange
     {
         return new SetCustomShippingMethodChangeModel(
             $this->change,
-            $this->nextValue instanceof CustomShippingMethodChangeValueBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof CustomShippingMethodChangeValueBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof CustomShippingMethodChangeValueBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof CustomShippingMethodChangeValueBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

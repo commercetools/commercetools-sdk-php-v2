@@ -32,17 +32,15 @@ final class ChangeReviewRatingStatisticsChangeBuilder implements Builder
 
      * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>changeReviewRatingStatistics</code></p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class ChangeReviewRatingStatisticsChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|ReviewRatingStatistics
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof ReviewRatingStatisticsBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ReviewRatingStatistics
      */
@@ -70,23 +61,23 @@ final class ChangeReviewRatingStatisticsChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ReviewRatingStatistics
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof ReviewRatingStatisticsBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ReviewRatingStatistics $nextValue
-     * @return $this
-     */
-    public function withNextValue(?ReviewRatingStatistics $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class ChangeReviewRatingStatisticsChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?ReviewRatingStatistics $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?ReviewRatingStatisticsBuilder $nextValue)
+    public function withNextValue(?ReviewRatingStatistics $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class ChangeReviewRatingStatisticsChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?ReviewRatingStatisticsBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): ChangeReviewRatingStatisticsChange
     {
         return new ChangeReviewRatingStatisticsChangeModel(
             $this->change,
-            $this->nextValue instanceof ReviewRatingStatisticsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof ReviewRatingStatisticsBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof ReviewRatingStatisticsBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof ReviewRatingStatisticsBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

@@ -74,8 +74,6 @@ final class AddAttributeDefinitionChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Update action for <code>addAttributeDefinition</code> on product types</p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class AddAttributeDefinitionChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|AttributeDefinition
      */

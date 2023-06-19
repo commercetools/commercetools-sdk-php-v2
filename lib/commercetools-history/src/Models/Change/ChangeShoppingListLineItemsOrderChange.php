@@ -31,12 +31,16 @@ interface ChangeShoppingListLineItemsOrderChange extends Change
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ShoppingListLineItemValueCollection
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ShoppingListLineItemValueCollection
      */

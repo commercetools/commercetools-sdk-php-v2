@@ -39,9 +39,9 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
 
     /**
      *
-     * @var ?LocalizedString
+     * @var ?Money
      */
-    protected $lineItem;
+    protected $previousValue;
 
     /**
      *
@@ -51,9 +51,9 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
 
     /**
      *
-     * @var ?Money
+     * @var ?LocalizedString
      */
-    protected $previousValue;
+    protected $lineItem;
 
 
     /**
@@ -61,15 +61,15 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
      */
     public function __construct(
         ?string $change = null,
-        ?LocalizedString $lineItem = null,
-        ?Money $nextValue = null,
         ?Money $previousValue = null,
+        ?Money $nextValue = null,
+        ?LocalizedString $lineItem = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->lineItem = $lineItem;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->lineItem = $lineItem;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -92,8 +92,6 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Update action for <code>setLineItemTotalPrice</code></p>
-     *
      *
      * @return null|string
      */
@@ -112,25 +110,29 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|Money
      */
-    public function getLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->lineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->lineItem = LocalizedStringModel::of($data);
+            $this->previousValue = MoneyModel::of($data);
         }
 
-        return $this->lineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|Money
      */
@@ -150,22 +152,24 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
      *
-     * @return null|Money
+     *
+     * @return null|LocalizedString
      */
-    public function getPreviousValue()
+    public function getLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->lineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = MoneyModel::of($data);
+            $this->lineItem = LocalizedStringModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->lineItem;
     }
 
 
@@ -178,11 +182,11 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * @param ?LocalizedString $lineItem
+     * @param ?Money $previousValue
      */
-    public function setLineItem(?LocalizedString $lineItem): void
+    public function setPreviousValue(?Money $previousValue): void
     {
-        $this->lineItem = $lineItem;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -194,11 +198,11 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * @param ?Money $previousValue
+     * @param ?LocalizedString $lineItem
      */
-    public function setPreviousValue(?Money $previousValue): void
+    public function setLineItem(?LocalizedString $lineItem): void
     {
-        $this->previousValue = $previousValue;
+        $this->lineItem = $lineItem;
     }
 
 

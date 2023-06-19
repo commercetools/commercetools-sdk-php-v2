@@ -15,11 +15,11 @@ use Commercetools\History\Models\Common\LocalizedString;
 interface ChangeLocalizedEnumValueLabelChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_FIELD_NAME = 'fieldName';
     public const FIELD_ATTRIBUTE_NAME = 'attributeName';
     public const FIELD_VALUE_KEY = 'valueKey';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
-    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -28,15 +28,29 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeLocalizedEnumValueLabel</code> on types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>The name of the field definition updated.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>; only present on changes to Types.</p>
      *
 
      * @return null|string
@@ -44,7 +58,7 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
     public function getFieldName();
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>; only present on changes to Product Types.</p>
      *
 
      * @return null|string
@@ -52,7 +66,7 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
     public function getAttributeName();
 
     /**
-     * <p>Key of the values that was updated</p>
+     * <p>Key of the updated values.</p>
      *
 
      * @return null|string
@@ -60,21 +74,19 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
     public function getValueKey();
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getPreviousValue();
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getNextValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?LocalizedString $previousValue
+     */
+    public function setPreviousValue(?LocalizedString $previousValue): void;
+
+    /**
+     * @param ?LocalizedString $nextValue
+     */
+    public function setNextValue(?LocalizedString $nextValue): void;
 
     /**
      * @param ?string $fieldName
@@ -90,14 +102,4 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
      * @param ?string $valueKey
      */
     public function setValueKey(?string $valueKey): void;
-
-    /**
-     * @param ?LocalizedString $previousValue
-     */
-    public function setPreviousValue(?LocalizedString $previousValue): void;
-
-    /**
-     * @param ?LocalizedString $nextValue
-     */
-    public function setNextValue(?LocalizedString $nextValue): void;
 }

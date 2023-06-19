@@ -15,11 +15,11 @@ use Commercetools\History\Models\Common\Price;
 interface SetDiscountedPriceChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_CATALOG_DATA = 'catalogData';
     public const FIELD_VARIANT = 'variant';
     public const FIELD_PRICE_ID = 'priceId';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
-    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -28,47 +28,68 @@ interface SetDiscountedPriceChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setDiscountedPrice</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getCatalogData();
-
-    /**
-
-     * @return null|string
-     */
-    public function getVariant();
-
-    /**
-
-     * @return null|string
-     */
-    public function getPriceId();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Price
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Price
      */
     public function getNextValue();
 
     /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData();
+
+    /**
+     * <p><code>sku</code> or <code>key</code> of the updated <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant();
+
+    /**
+     * <p><code>id</code> of the Embedded <a href="ctp:api:type:Price">Price</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceId();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?Price $previousValue
+     */
+    public function setPreviousValue(?Price $previousValue): void;
+
+    /**
+     * @param ?Price $nextValue
+     */
+    public function setNextValue(?Price $nextValue): void;
 
     /**
      * @param ?string $catalogData
@@ -84,14 +105,4 @@ interface SetDiscountedPriceChange extends Change
      * @param ?string $priceId
      */
     public function setPriceId(?string $priceId): void;
-
-    /**
-     * @param ?Price $previousValue
-     */
-    public function setPreviousValue(?Price $previousValue): void;
-
-    /**
-     * @param ?Price $nextValue
-     */
-    public function setNextValue(?Price $nextValue): void;
 }

@@ -25,12 +25,16 @@ interface QuoteRequestLabel extends Label
     public function getType();
 
     /**
+     * <p>User-defined unique identifier of the Quote Request.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who raised the Quote Request.</p>
+     *
 
      * @return null|Reference
      */

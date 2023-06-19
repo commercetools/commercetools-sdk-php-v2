@@ -35,8 +35,6 @@ final class AddTransactionChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>addTransaction</code> on payments</p>
-     *
 
      * @return null|string
      */
@@ -46,6 +44,8 @@ final class AddTransactionChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Transaction
      */

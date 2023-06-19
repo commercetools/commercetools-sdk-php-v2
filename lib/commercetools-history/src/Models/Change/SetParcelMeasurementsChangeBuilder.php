@@ -32,9 +32,9 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
 
     /**
 
-     * @var null|ParcelChangeValue|ParcelChangeValueBuilder
+     * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
-    private $parcel;
+    private $previousValue;
 
     /**
 
@@ -44,13 +44,11 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
 
     /**
 
-     * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
+     * @var null|ParcelChangeValue|ParcelChangeValueBuilder
      */
-    private $previousValue;
+    private $parcel;
 
     /**
-     * <p>Update action for <code>setParcelMeasurements</code></p>
-     *
 
      * @return null|string
      */
@@ -60,24 +58,8 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|ParcelChangeValue
-     */
-    public function getParcel()
-    {
-        return $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel;
-    }
-
-    /**
-
-     * @return null|ParcelMeasurements
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof ParcelMeasurementsBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
@@ -87,34 +69,34 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ParcelMeasurements
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof ParcelMeasurementsBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Information about the updated Parcel.</p>
+     *
+
+     * @return null|ParcelChangeValue
+     */
+    public function getParcel()
+    {
+        return $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ParcelChangeValue $parcel
-     * @return $this
-     */
-    public function withParcel(?ParcelChangeValue $parcel)
-    {
-        $this->parcel = $parcel;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ParcelMeasurements $nextValue
-     * @return $this
-     */
-    public function withNextValue(?ParcelMeasurements $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -131,12 +113,34 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withParcel() instead
+     * @param ?ParcelMeasurements $nextValue
      * @return $this
      */
-    public function withParcelBuilder(?ParcelChangeValueBuilder $parcel)
+    public function withNextValue(?ParcelMeasurements $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ParcelChangeValue $parcel
+     * @return $this
+     */
+    public function withParcel(?ParcelChangeValue $parcel)
     {
         $this->parcel = $parcel;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?ParcelMeasurementsBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -153,12 +157,12 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withParcel() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?ParcelMeasurementsBuilder $previousValue)
+    public function withParcelBuilder(?ParcelChangeValueBuilder $parcel)
     {
-        $this->previousValue = $previousValue;
+        $this->parcel = $parcel;
 
         return $this;
     }
@@ -167,9 +171,9 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     {
         return new SetParcelMeasurementsChangeModel(
             $this->change,
-            $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel,
+            $this->previousValue instanceof ParcelMeasurementsBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof ParcelMeasurementsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof ParcelMeasurementsBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel
         );
     }
 

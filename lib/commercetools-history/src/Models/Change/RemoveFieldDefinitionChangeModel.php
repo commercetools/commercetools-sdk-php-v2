@@ -74,8 +74,6 @@ final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Update action for <code>removeFieldDefinition</code> on payments</p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|FieldDefinition
      */

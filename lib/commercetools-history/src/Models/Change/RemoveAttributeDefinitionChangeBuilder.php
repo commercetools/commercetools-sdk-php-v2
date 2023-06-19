@@ -35,8 +35,6 @@ final class RemoveAttributeDefinitionChangeBuilder implements Builder
     private $previousValue;
 
     /**
-     * <p>Update action for <code>removeAttributeDefinition</code> on product types</p>
-     *
 
      * @return null|string
      */
@@ -46,6 +44,8 @@ final class RemoveAttributeDefinitionChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|AttributeDefinition
      */

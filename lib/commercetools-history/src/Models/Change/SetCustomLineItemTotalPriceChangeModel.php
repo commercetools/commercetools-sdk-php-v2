@@ -39,6 +39,18 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
 
     /**
      *
+     * @var ?Money
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?Money
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
@@ -49,35 +61,23 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
      */
     protected $customLineItemId;
 
-    /**
-     *
-     * @var ?Money
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?Money
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?Money $previousValue = null,
+        ?Money $nextValue = null,
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
-        ?Money $nextValue = null,
-        ?Money $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -100,8 +100,6 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Update action for <code>setCustomLineItemTotalPrice</code></p>
-     *
      *
      * @return null|string
      */
@@ -120,43 +118,29 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|Money
      */
-    public function getCustomLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->customLineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->customLineItem = LocalizedStringModel::of($data);
+            $this->previousValue = MoneyModel::of($data);
         }
 
-        return $this->customLineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getCustomLineItemId()
-    {
-        if (is_null($this->customLineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customLineItemId = (string) $data;
-        }
-
-        return $this->customLineItemId;
-    }
-
-    /**
      *
      * @return null|Money
      */
@@ -176,22 +160,44 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
      *
-     * @return null|Money
+     *
+     * @return null|LocalizedString
      */
-    public function getPreviousValue()
+    public function getCustomLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->customLineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = MoneyModel::of($data);
+            $this->customLineItem = LocalizedStringModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->customLineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        if (is_null($this->customLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemId = (string) $data;
+        }
+
+        return $this->customLineItemId;
     }
 
 
@@ -201,6 +207,22 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?Money $previousValue
+     */
+    public function setPreviousValue(?Money $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?Money $nextValue
+     */
+    public function setNextValue(?Money $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -217,22 +239,6 @@ final class SetCustomLineItemTotalPriceChangeModel extends JsonObjectModel imple
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
-    }
-
-    /**
-     * @param ?Money $nextValue
-     */
-    public function setNextValue(?Money $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param ?Money $previousValue
-     */
-    public function setPreviousValue(?Money $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

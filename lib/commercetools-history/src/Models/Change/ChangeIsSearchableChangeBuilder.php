@@ -28,9 +28,9 @@ final class ChangeIsSearchableChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var ?bool
      */
-    private $attributeName;
+    private $previousValue;
 
     /**
 
@@ -40,13 +40,11 @@ final class ChangeIsSearchableChangeBuilder implements Builder
 
     /**
 
-     * @var ?bool
+     * @var ?string
      */
-    private $previousValue;
+    private $attributeName;
 
     /**
-     * <p>Update action for <code>changeIsSearchable</code> on product types</p>
-     *
 
      * @return null|string
      */
@@ -56,17 +54,19 @@ final class ChangeIsSearchableChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the updated attribute.</p>
+     * <p>Value before the change.</p>
      *
 
-     * @return null|string
+     * @return null|bool
      */
-    public function getAttributeName()
+    public function getPreviousValue()
     {
-        return $this->attributeName;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|bool
      */
@@ -76,12 +76,14 @@ final class ChangeIsSearchableChangeBuilder implements Builder
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
 
-     * @return null|bool
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getAttributeName()
     {
-        return $this->previousValue;
+        return $this->attributeName;
     }
 
     /**
@@ -96,12 +98,12 @@ final class ChangeIsSearchableChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $attributeName
+     * @param ?bool $previousValue
      * @return $this
      */
-    public function withAttributeName(?string $attributeName)
+    public function withPreviousValue(?bool $previousValue)
     {
-        $this->attributeName = $attributeName;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -118,12 +120,12 @@ final class ChangeIsSearchableChangeBuilder implements Builder
     }
 
     /**
-     * @param ?bool $previousValue
+     * @param ?string $attributeName
      * @return $this
      */
-    public function withPreviousValue(?bool $previousValue)
+    public function withAttributeName(?string $attributeName)
     {
-        $this->previousValue = $previousValue;
+        $this->attributeName = $attributeName;
 
         return $this;
     }
@@ -133,9 +135,9 @@ final class ChangeIsSearchableChangeBuilder implements Builder
     {
         return new ChangeIsSearchableChangeModel(
             $this->change,
-            $this->attributeName,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->attributeName
         );
     }
 

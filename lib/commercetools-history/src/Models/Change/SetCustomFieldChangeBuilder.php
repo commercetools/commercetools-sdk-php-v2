@@ -28,6 +28,18 @@ final class SetCustomFieldChangeBuilder implements Builder
 
     /**
 
+     * @var null|mixed|mixed
+     */
+    private $previousValue;
+
+    /**
+
+     * @var null|mixed|mixed
+     */
+    private $nextValue;
+
+    /**
+
      * @var ?string
      */
     private $name;
@@ -40,20 +52,6 @@ final class SetCustomFieldChangeBuilder implements Builder
 
     /**
 
-     * @var null|mixed|mixed
-     */
-    private $nextValue;
-
-    /**
-
-     * @var null|mixed|mixed
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for setting a custom field</p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -62,7 +60,29 @@ final class SetCustomFieldChangeBuilder implements Builder
     }
 
     /**
-     * <p>Custom field name</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getPreviousValue()
+    {
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
 
      * @return null|string
@@ -73,6 +93,8 @@ final class SetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * <p><code>id</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     *
 
      * @return null|string
      */
@@ -82,30 +104,34 @@ final class SetCustomFieldChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|mixed
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
-
-     * @return null|mixed
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $previousValue
+     * @return $this
+     */
+    public function withPreviousValue( $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $nextValue
+     * @return $this
+     */
+    public function withNextValue( $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -132,37 +158,15 @@ final class SetCustomFieldChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param mixed $nextValue
-     * @return $this
-     */
-    public function withNextValue( $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $previousValue
-     * @return $this
-     */
-    public function withPreviousValue( $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
 
     public function build(): SetCustomFieldChange
     {
         return new SetCustomFieldChangeModel(
             $this->change,
-            $this->name,
-            $this->customTypeId,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->name,
+            $this->customTypeId
         );
     }
 

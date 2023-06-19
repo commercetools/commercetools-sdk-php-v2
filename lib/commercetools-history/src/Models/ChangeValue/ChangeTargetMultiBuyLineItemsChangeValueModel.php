@@ -96,6 +96,8 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
     }
 
     /**
+     * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -114,7 +116,7 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
     }
 
     /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
+     * <p>Quantity of Line Items that triggered the application of the discount.</p>
      *
      *
      * @return null|int
@@ -134,7 +136,7 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
     }
 
     /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>
+     * <p>Quantity of Line Items discounted per application of this discount.</p>
      *
      *
      * @return null|int
@@ -154,7 +156,7 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
     }
 
     /**
-     * <p>Maximum number of applications of this discount.</p>
+     * <p>Maximum number of times the discount is applicable.</p>
      *
      *
      * @return null|int
@@ -174,6 +176,8 @@ final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectMode
     }
 
     /**
+     * <p>SelectionMode based on which particular Line Items were discounted.</p>
+     *
      *
      * @return null|string
      */

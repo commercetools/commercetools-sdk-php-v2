@@ -39,6 +39,8 @@ final class UnknownChangeBuilder implements Builder
     private $nextValue;
 
     /**
+     * <p>Identifier for the type of modification.</p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,8 @@ final class UnknownChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|mixed
      */
@@ -57,6 +61,8 @@ final class UnknownChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|mixed
      */

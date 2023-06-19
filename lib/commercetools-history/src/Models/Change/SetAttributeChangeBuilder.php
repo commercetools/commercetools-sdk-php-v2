@@ -30,12 +30,6 @@ final class SetAttributeChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $catalogData;
-
-    /**
-
      * @var null|AttributeValue|AttributeValueBuilder
      */
     private $previousValue;
@@ -47,8 +41,12 @@ final class SetAttributeChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>setAttribute</code></p>
-     *
+
+     * @var ?string
+     */
+    private $catalogData;
+
+    /**
 
      * @return null|string
      */
@@ -58,15 +56,8 @@ final class SetAttributeChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getCatalogData()
-    {
-        return $this->catalogData;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|AttributeValue
      */
@@ -76,6 +67,8 @@ final class SetAttributeChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|AttributeValue
      */
@@ -85,23 +78,26 @@ final class SetAttributeChangeBuilder implements Builder
     }
 
     /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        return $this->catalogData;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $catalogData
-     * @return $this
-     */
-    public function withCatalogData(?string $catalogData)
-    {
-        $this->catalogData = $catalogData;
 
         return $this;
     }
@@ -124,6 +120,17 @@ final class SetAttributeChangeBuilder implements Builder
     public function withNextValue(?AttributeValue $nextValue)
     {
         $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $catalogData
+     * @return $this
+     */
+    public function withCatalogData(?string $catalogData)
+    {
+        $this->catalogData = $catalogData;
 
         return $this;
     }
@@ -154,9 +161,9 @@ final class SetAttributeChangeBuilder implements Builder
     {
         return new SetAttributeChangeModel(
             $this->change,
-            $this->catalogData,
             $this->previousValue instanceof AttributeValueBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof AttributeValueBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof AttributeValueBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->catalogData
         );
     }
 

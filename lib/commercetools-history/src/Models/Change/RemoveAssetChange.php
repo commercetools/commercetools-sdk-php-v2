@@ -18,8 +18,6 @@ interface RemoveAssetChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
-     * <p>Update action for <code>removeAsset</code></p>
-     *
 
      * @return null|string
      */
@@ -32,6 +30,8 @@ interface RemoveAssetChange extends Change
     public function getType();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Asset
      */

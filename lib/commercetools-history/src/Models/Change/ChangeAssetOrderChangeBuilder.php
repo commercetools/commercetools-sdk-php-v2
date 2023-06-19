@@ -49,6 +49,8 @@ final class ChangeAssetOrderChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|LocalizedStringCollection
      */
@@ -58,6 +60,8 @@ final class ChangeAssetOrderChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|LocalizedStringCollection
      */

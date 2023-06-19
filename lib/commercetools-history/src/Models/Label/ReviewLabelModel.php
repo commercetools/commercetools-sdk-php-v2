@@ -72,6 +72,8 @@ final class ReviewLabelModel extends JsonObjectModel implements ReviewLabel
     }
 
     /**
+     * <p>User-defined unique identifier of the Review.</p>
+     *
      *
      * @return null|string
      */
@@ -90,6 +92,8 @@ final class ReviewLabelModel extends JsonObjectModel implements ReviewLabel
     }
 
     /**
+     * <p>Title of the Review.</p>
+     *
      *
      * @return null|string
      */

@@ -50,6 +50,8 @@ final class RemoveShoppingListLineItemChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|LineItem
      */
@@ -59,6 +61,8 @@ final class RemoveShoppingListLineItemChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|LineItem
      */

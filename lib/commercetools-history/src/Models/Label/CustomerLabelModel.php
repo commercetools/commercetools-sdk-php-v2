@@ -80,6 +80,8 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
     }
 
     /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -98,6 +100,8 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
     }
 
     /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -116,6 +120,8 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
     }
 
     /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
      *
      * @return null|string
      */

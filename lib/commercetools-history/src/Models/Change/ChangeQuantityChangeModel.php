@@ -39,13 +39,13 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
      *
      * @var ?InventoryQuantityValue
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?InventoryQuantityValue
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
      */
     public function __construct(
         ?string $change = null,
-        ?InventoryQuantityValue $nextValue = null,
         ?InventoryQuantityValue $previousValue = null,
+        ?InventoryQuantityValue $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -100,25 +100,8 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|InventoryQuantityValue
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = InventoryQuantityValueModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|InventoryQuantityValue
      */
@@ -137,6 +120,27 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|InventoryQuantityValue
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = InventoryQuantityValueModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -147,19 +151,19 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
     }
 
     /**
-     * @param ?InventoryQuantityValue $nextValue
-     */
-    public function setNextValue(?InventoryQuantityValue $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?InventoryQuantityValue $previousValue
      */
     public function setPreviousValue(?InventoryQuantityValue $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?InventoryQuantityValue $nextValue
+     */
+    public function setNextValue(?InventoryQuantityValue $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

@@ -27,24 +27,32 @@ interface ChangeValueGiftLineItemChangeValue extends ChangeValueChangeValue
     public function getType();
 
     /**
+     * <p>Reference to a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
 
      * @return null|Reference
      */
     public function getProduct();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>Channel with <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>InventorySupply</code>.</p>
+     *
 
      * @return null|Reference
      */
     public function getSupplyChannel();
 
     /**
+     * <p>Channel with <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>ProductDistribution</code>.</p>
+     *
 
      * @return null|Reference
      */

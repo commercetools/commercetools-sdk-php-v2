@@ -30,17 +30,15 @@ final class SetShippingRateInputChangeBuilder implements Builder
 
      * @var ?JsonObject
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var ?JsonObject
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>setShippingRateInput</code></p>
-     *
 
      * @return null|string
      */
@@ -50,15 +48,8 @@ final class SetShippingRateInputChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|JsonObject
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|JsonObject
      */
@@ -68,23 +59,23 @@ final class SetShippingRateInputChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|JsonObject
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?JsonObject $nextValue
-     * @return $this
-     */
-    public function withNextValue(?JsonObject $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -100,13 +91,24 @@ final class SetShippingRateInputChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?JsonObject $nextValue
+     * @return $this
+     */
+    public function withNextValue(?JsonObject $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
 
     public function build(): SetShippingRateInputChange
     {
         return new SetShippingRateInputChangeModel(
             $this->change,
-            $this->nextValue,
-            $this->previousValue
+            $this->previousValue,
+            $this->nextValue
         );
     }
 

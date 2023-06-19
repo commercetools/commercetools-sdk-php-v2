@@ -35,9 +35,9 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
 
     /**
      *
-     * @var ?string
+     * @var ?bool
      */
-    protected $attributeName;
+    protected $previousValue;
 
     /**
      *
@@ -47,9 +47,9 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
 
     /**
      *
-     * @var ?bool
+     * @var ?string
      */
-    protected $previousValue;
+    protected $attributeName;
 
 
     /**
@@ -57,15 +57,15 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
      */
     public function __construct(
         ?string $change = null,
-        ?string $attributeName = null,
-        ?bool $nextValue = null,
         ?bool $previousValue = null,
+        ?bool $nextValue = null,
+        ?string $attributeName = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->attributeName = $attributeName;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->attributeName = $attributeName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -88,8 +88,6 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
     }
 
     /**
-     * <p>Update action for <code>changeIsSearchable</code> on product types</p>
-     *
      *
      * @return null|string
      */
@@ -108,26 +106,28 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
     }
 
     /**
-     * <p>The name of the updated attribute.</p>
+     * <p>Value before the change.</p>
      *
      *
-     * @return null|string
+     * @return null|bool
      */
-    public function getAttributeName()
+    public function getPreviousValue()
     {
-        if (is_null($this->attributeName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName = (string) $data;
+            $this->previousValue = (bool) $data;
         }
 
-        return $this->attributeName;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|bool
      */
@@ -146,21 +146,23 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
-     * @return null|bool
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getAttributeName()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = (bool) $data;
+            $this->attributeName = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->attributeName;
     }
 
 
@@ -173,11 +175,11 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
     }
 
     /**
-     * @param ?string $attributeName
+     * @param ?bool $previousValue
      */
-    public function setAttributeName(?string $attributeName): void
+    public function setPreviousValue(?bool $previousValue): void
     {
-        $this->attributeName = $attributeName;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -189,11 +191,11 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
     }
 
     /**
-     * @param ?bool $previousValue
+     * @param ?string $attributeName
      */
-    public function setPreviousValue(?bool $previousValue): void
+    public function setAttributeName(?string $attributeName): void
     {
-        $this->previousValue = $previousValue;
+        $this->attributeName = $attributeName;
     }
 
 

@@ -17,6 +17,8 @@ interface CustomShippingMethodChangeValue extends JsonObject
     public const FIELD_NAME = 'name';
 
     /**
+     * <p>Name of the Custom ShippingMethod.</p>
+     *
 
      * @return null|string
      */

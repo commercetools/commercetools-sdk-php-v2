@@ -32,17 +32,15 @@ final class RemovePaymentChangeBuilder implements Builder
 
      * @var null|PaymentInfo|PaymentInfoBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|PaymentInfo|PaymentInfoBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>addPayment</code> &amp; <code>removePayment</code></p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class RemovePaymentChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|PaymentInfo
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof PaymentInfoBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|PaymentInfo
      */
@@ -70,23 +61,23 @@ final class RemovePaymentChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|PaymentInfo
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof PaymentInfoBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?PaymentInfo $nextValue
-     * @return $this
-     */
-    public function withNextValue(?PaymentInfo $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class RemovePaymentChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?PaymentInfo $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?PaymentInfoBuilder $nextValue)
+    public function withNextValue(?PaymentInfo $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class RemovePaymentChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?PaymentInfoBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): RemovePaymentChange
     {
         return new RemovePaymentChangeModel(
             $this->change,
-            $this->nextValue instanceof PaymentInfoBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof PaymentInfoBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof PaymentInfoBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof PaymentInfoBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

@@ -24,14 +24,14 @@ interface AddFieldDefinitionChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>addFieldDefinition</code> on payments</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|FieldDefinition
      */

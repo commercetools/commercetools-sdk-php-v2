@@ -35,8 +35,6 @@ final class RemoveProductChangeBuilder implements Builder
     private $previousValue;
 
     /**
-     * <p>Update action for when a product is unassigned from a product selection</p>
-     *
 
      * @return null|string
      */
@@ -46,6 +44,8 @@ final class RemoveProductChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Reference
      */

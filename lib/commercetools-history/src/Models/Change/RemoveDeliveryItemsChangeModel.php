@@ -74,8 +74,6 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
     }
 
     /**
-     * <p>Update action for <code>removeDelivery</code></p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|Delivery
      */

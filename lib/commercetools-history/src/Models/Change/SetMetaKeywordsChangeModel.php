@@ -82,8 +82,6 @@ final class SetMetaKeywordsChangeModel extends JsonObjectModel implements SetMet
     }
 
     /**
-     * <p>Shape of the action for <code>setMetaKeywords</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,6 +100,8 @@ final class SetMetaKeywordsChangeModel extends JsonObjectModel implements SetMet
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -121,6 +121,8 @@ final class SetMetaKeywordsChangeModel extends JsonObjectModel implements SetMet
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */

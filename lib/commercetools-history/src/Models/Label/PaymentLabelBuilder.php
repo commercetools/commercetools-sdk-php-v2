@@ -35,6 +35,8 @@ final class PaymentLabelBuilder implements Builder
     private $amountPlanned;
 
     /**
+     * <p>User-defined unique identifier of the Payment.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class PaymentLabelBuilder implements Builder
     }
 
     /**
+     * <p>Money value the Payment intends to receive from the Customer.</p>
+     *
 
      * @return null|Money
      */

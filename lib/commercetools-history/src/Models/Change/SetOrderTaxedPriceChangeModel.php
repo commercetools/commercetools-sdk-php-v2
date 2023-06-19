@@ -37,9 +37,9 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
 
     /**
      *
-     * @var ?string
+     * @var ?TaxedItemPrice
      */
-    protected $taxMode;
+    protected $previousValue;
 
     /**
      *
@@ -49,9 +49,9 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
 
     /**
      *
-     * @var ?TaxedItemPrice
+     * @var ?string
      */
-    protected $previousValue;
+    protected $taxMode;
 
 
     /**
@@ -59,15 +59,15 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
      */
     public function __construct(
         ?string $change = null,
-        ?string $taxMode = null,
-        ?TaxedItemPrice $nextValue = null,
         ?TaxedItemPrice $previousValue = null,
+        ?TaxedItemPrice $nextValue = null,
+        ?string $taxMode = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->taxMode = $taxMode;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->taxMode = $taxMode;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * <p>Update action for <code>setOrderTaxedPrice</code></p>
-     *
      *
      * @return null|string
      */
@@ -110,24 +108,29 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
+     *
+     * @return null|TaxedItemPrice
      */
-    public function getTaxMode()
+    public function getPreviousValue()
     {
-        if (is_null($this->taxMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TAX_MODE);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->taxMode = (string) $data;
+
+            $this->previousValue = TaxedItemPriceModel::of($data);
         }
 
-        return $this->taxMode;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|TaxedItemPrice
      */
@@ -148,21 +151,20 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
 
     /**
      *
-     * @return null|TaxedItemPrice
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getTaxMode()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->taxMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_MODE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = TaxedItemPriceModel::of($data);
+            $this->taxMode = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->taxMode;
     }
 
 
@@ -175,11 +177,11 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * @param ?string $taxMode
+     * @param ?TaxedItemPrice $previousValue
      */
-    public function setTaxMode(?string $taxMode): void
+    public function setPreviousValue(?TaxedItemPrice $previousValue): void
     {
-        $this->taxMode = $taxMode;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -191,11 +193,11 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * @param ?TaxedItemPrice $previousValue
+     * @param ?string $taxMode
      */
-    public function setPreviousValue(?TaxedItemPrice $previousValue): void
+    public function setTaxMode(?string $taxMode): void
     {
-        $this->previousValue = $previousValue;
+        $this->taxMode = $taxMode;
     }
 
 

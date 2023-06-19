@@ -39,6 +39,18 @@ final class SetLineItemDiscountedPricePerQuantityChangeModel extends JsonObjectM
 
     /**
      *
+     * @var ?DiscountedLineItemPriceForQuantity
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?DiscountedLineItemPriceForQuantity
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
@@ -49,35 +61,23 @@ final class SetLineItemDiscountedPricePerQuantityChangeModel extends JsonObjectM
      */
     protected $variant;
 
-    /**
-     *
-     * @var ?DiscountedLineItemPriceForQuantity
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?DiscountedLineItemPriceForQuantity
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?DiscountedLineItemPriceForQuantity $previousValue = null,
+        ?DiscountedLineItemPriceForQuantity $nextValue = null,
         ?LocalizedString $lineItem = null,
         ?string $variant = null,
-        ?DiscountedLineItemPriceForQuantity $nextValue = null,
-        ?DiscountedLineItemPriceForQuantity $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->lineItem = $lineItem;
         $this->variant = $variant;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -100,8 +100,6 @@ final class SetLineItemDiscountedPricePerQuantityChangeModel extends JsonObjectM
     }
 
     /**
-     * <p>Update action for <code>setLineItemDiscountedPricePerQuantity</code></p>
-     *
      *
      * @return null|string
      */
@@ -120,43 +118,29 @@ final class SetLineItemDiscountedPricePerQuantityChangeModel extends JsonObjectM
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|DiscountedLineItemPriceForQuantity
      */
-    public function getLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->lineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->lineItem = LocalizedStringModel::of($data);
+            $this->previousValue = DiscountedLineItemPriceForQuantityModel::of($data);
         }
 
-        return $this->lineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getVariant()
-    {
-        if (is_null($this->variant)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_VARIANT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variant = (string) $data;
-        }
-
-        return $this->variant;
-    }
-
-    /**
      *
      * @return null|DiscountedLineItemPriceForQuantity
      */
@@ -176,22 +160,44 @@ final class SetLineItemDiscountedPricePerQuantityChangeModel extends JsonObjectM
     }
 
     /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
      *
-     * @return null|DiscountedLineItemPriceForQuantity
+     *
+     * @return null|LocalizedString
      */
-    public function getPreviousValue()
+    public function getLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->lineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = DiscountedLineItemPriceForQuantityModel::of($data);
+            $this->lineItem = LocalizedStringModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->lineItem;
+    }
+
+    /**
+     * <p><code>sku</code> or <code>key</code> of the updated <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
     }
 
 
@@ -201,6 +207,22 @@ final class SetLineItemDiscountedPricePerQuantityChangeModel extends JsonObjectM
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?DiscountedLineItemPriceForQuantity $previousValue
+     */
+    public function setPreviousValue(?DiscountedLineItemPriceForQuantity $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?DiscountedLineItemPriceForQuantity $nextValue
+     */
+    public function setNextValue(?DiscountedLineItemPriceForQuantity $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -217,22 +239,6 @@ final class SetLineItemDiscountedPricePerQuantityChangeModel extends JsonObjectM
     public function setVariant(?string $variant): void
     {
         $this->variant = $variant;
-    }
-
-    /**
-     * @param ?DiscountedLineItemPriceForQuantity $nextValue
-     */
-    public function setNextValue(?DiscountedLineItemPriceForQuantity $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param ?DiscountedLineItemPriceForQuantity $previousValue
-     */
-    public function setPreviousValue(?DiscountedLineItemPriceForQuantity $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

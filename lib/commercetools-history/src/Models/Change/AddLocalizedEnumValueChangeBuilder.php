@@ -30,6 +30,12 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
 
     /**
 
+     * @var null|LocalizedEnumValue|LocalizedEnumValueBuilder
+     */
+    private $nextValue;
+
+    /**
+
      * @var ?string
      */
     private $fieldName;
@@ -42,14 +48,6 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedEnumValue|LocalizedEnumValueBuilder
-     */
-    private $nextValue;
-
-    /**
-     * <p>Update action for <code>addLocalizedEnumValue</code> on types</p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -58,7 +56,18 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field definition updated.</p>
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedEnumValue
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof LocalizedEnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>; only present on changes to Types.</p>
      *
 
      * @return null|string
@@ -69,7 +78,7 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>; only present on changes to Product Types.</p>
      *
 
      * @return null|string
@@ -80,21 +89,23 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedEnumValue
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof LocalizedEnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedEnumValue $nextValue
+     * @return $this
+     */
+    public function withNextValue(?LocalizedEnumValue $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -122,17 +133,6 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedEnumValue $nextValue
-     * @return $this
-     */
-    public function withNextValue(?LocalizedEnumValue $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withNextValue() instead
      * @return $this
      */
@@ -147,9 +147,9 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     {
         return new AddLocalizedEnumValueChangeModel(
             $this->change,
+            $this->nextValue instanceof LocalizedEnumValueBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->fieldName,
-            $this->attributeName,
-            $this->nextValue instanceof LocalizedEnumValueBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->attributeName
         );
     }
 

@@ -32,9 +32,9 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
 
     /**
 
-     * @var null|TextLineItemValue|TextLineItemValueBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
-    private $textLineItem;
+    private $previousValue;
 
     /**
 
@@ -44,13 +44,11 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
 
     /**
 
-     * @var null|CustomFields|CustomFieldsBuilder
+     * @var null|TextLineItemValue|TextLineItemValueBuilder
      */
-    private $previousValue;
+    private $textLineItem;
 
     /**
-     * <p>Update action for <code>setTextLineItemCustomType</code></p>
-     *
 
      * @return null|string
      */
@@ -60,24 +58,8 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|TextLineItemValue
-     */
-    public function getTextLineItem()
-    {
-        return $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem;
-    }
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -87,34 +69,34 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Holds information about the updated Text Line Item.</p>
+     *
+
+     * @return null|TextLineItemValue
+     */
+    public function getTextLineItem()
+    {
+        return $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TextLineItemValue $textLineItem
-     * @return $this
-     */
-    public function withTextLineItem(?TextLineItemValue $textLineItem)
-    {
-        $this->textLineItem = $textLineItem;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomFields $nextValue
-     * @return $this
-     */
-    public function withNextValue(?CustomFields $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -131,12 +113,34 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withTextLineItem() instead
+     * @param ?CustomFields $nextValue
      * @return $this
      */
-    public function withTextLineItemBuilder(?TextLineItemValueBuilder $textLineItem)
+    public function withNextValue(?CustomFields $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TextLineItemValue $textLineItem
+     * @return $this
+     */
+    public function withTextLineItem(?TextLineItemValue $textLineItem)
     {
         $this->textLineItem = $textLineItem;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?CustomFieldsBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -153,12 +157,12 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withTextLineItem() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?CustomFieldsBuilder $previousValue)
+    public function withTextLineItemBuilder(?TextLineItemValueBuilder $textLineItem)
     {
-        $this->previousValue = $previousValue;
+        $this->textLineItem = $textLineItem;
 
         return $this;
     }
@@ -167,9 +171,9 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
     {
         return new SetTextLineItemCustomTypeChangeModel(
             $this->change,
-            $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem,
+            $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem
         );
     }
 

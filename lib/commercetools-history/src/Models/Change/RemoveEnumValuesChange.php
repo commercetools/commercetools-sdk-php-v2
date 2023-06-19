@@ -15,8 +15,8 @@ use Commercetools\History\Models\ChangeValue\EnumValue;
 interface RemoveEnumValuesChange extends Change
 {
 
-    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
 
     /**
 
@@ -25,15 +25,21 @@ interface RemoveEnumValuesChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>removeEnumValues</code> on product types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|EnumValue
+     */
+    public function getPreviousValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|string
@@ -41,23 +47,17 @@ interface RemoveEnumValuesChange extends Change
     public function getAttributeName();
 
     /**
-
-     * @return null|EnumValue
-     */
-    public function getPreviousValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $attributeName
-     */
-    public function setAttributeName(?string $attributeName): void;
-
-    /**
      * @param ?EnumValue $previousValue
      */
     public function setPreviousValue(?EnumValue $previousValue): void;
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void;
 }

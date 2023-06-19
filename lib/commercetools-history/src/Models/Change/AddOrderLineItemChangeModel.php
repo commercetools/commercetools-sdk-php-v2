@@ -100,6 +100,8 @@ final class AddOrderLineItemChangeModel extends JsonObjectModel implements AddOr
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LineItem
      */
@@ -119,6 +121,8 @@ final class AddOrderLineItemChangeModel extends JsonObjectModel implements AddOr
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LineItem
      */

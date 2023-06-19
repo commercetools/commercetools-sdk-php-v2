@@ -57,6 +57,8 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -75,6 +77,8 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
     }
 
     /**
+     * <p>Name of the corresponding Product the Product Variant belongs to.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -94,6 +98,8 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the ShoppingListLineItem refers to.</p>
+     *
      *
      * @return null|int
      */

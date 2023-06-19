@@ -32,9 +32,9 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
+     * @var null|Money|MoneyBuilder
      */
-    private $lineItem;
+    private $previousValue;
 
     /**
 
@@ -44,13 +44,11 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
-    private $previousValue;
+    private $lineItem;
 
     /**
-     * <p>Update action for <code>setLineItemTotalPrice</code></p>
-     *
 
      * @return null|string
      */
@@ -60,24 +58,8 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getLineItem()
-    {
-        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
-    }
-
-    /**
-
-     * @return null|Money
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Money
      */
@@ -87,34 +69,34 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Money
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $lineItem
-     * @return $this
-     */
-    public function withLineItem(?LocalizedString $lineItem)
-    {
-        $this->lineItem = $lineItem;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Money $nextValue
-     * @return $this
-     */
-    public function withNextValue(?Money $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -131,12 +113,34 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withLineItem() instead
+     * @param ?Money $nextValue
      * @return $this
      */
-    public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
+    public function withNextValue(?Money $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $lineItem
+     * @return $this
+     */
+    public function withLineItem(?LocalizedString $lineItem)
     {
         $this->lineItem = $lineItem;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?MoneyBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -153,12 +157,12 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withLineItem() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?MoneyBuilder $previousValue)
+    public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
     {
-        $this->previousValue = $previousValue;
+        $this->lineItem = $lineItem;
 
         return $this;
     }
@@ -167,9 +171,9 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
     {
         return new SetLineItemTotalPriceChangeModel(
             $this->change,
-            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem
         );
     }
 

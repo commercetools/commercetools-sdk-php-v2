@@ -39,9 +39,9 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
 
     /**
      *
-     * @var ?AssetChangeValue
+     * @var ?LocalizedString
      */
-    protected $asset;
+    protected $previousValue;
 
     /**
      *
@@ -51,9 +51,9 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
 
     /**
      *
-     * @var ?LocalizedString
+     * @var ?AssetChangeValue
      */
-    protected $previousValue;
+    protected $asset;
 
 
     /**
@@ -61,15 +61,15 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
      */
     public function __construct(
         ?string $change = null,
-        ?AssetChangeValue $asset = null,
-        ?LocalizedString $nextValue = null,
         ?LocalizedString $previousValue = null,
+        ?LocalizedString $nextValue = null,
+        ?AssetChangeValue $asset = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->asset = $asset;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->asset = $asset;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -92,8 +92,6 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
-     * <p>Update action for <code>setAssetDescription</code></p>
-     *
      *
      * @return null|string
      */
@@ -112,25 +110,29 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|AssetChangeValue
+     *
+     * @return null|LocalizedString
      */
-    public function getAsset()
+    public function getPreviousValue()
     {
-        if (is_null($this->asset)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ASSET);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->asset = AssetChangeValueModel::of($data);
+            $this->previousValue = LocalizedStringModel::of($data);
         }
 
-        return $this->asset;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -150,22 +152,24 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+     * <p>Information about the updated Asset.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|AssetChangeValue
      */
-    public function getPreviousValue()
+    public function getAsset()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->asset)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_ASSET);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = LocalizedStringModel::of($data);
+            $this->asset = AssetChangeValueModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->asset;
     }
 
 
@@ -178,11 +182,11 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
-     * @param ?AssetChangeValue $asset
+     * @param ?LocalizedString $previousValue
      */
-    public function setAsset(?AssetChangeValue $asset): void
+    public function setPreviousValue(?LocalizedString $previousValue): void
     {
-        $this->asset = $asset;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -194,11 +198,11 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?AssetChangeValue $asset
      */
-    public function setPreviousValue(?LocalizedString $previousValue): void
+    public function setAsset(?AssetChangeValue $asset): void
     {
-        $this->previousValue = $previousValue;
+        $this->asset = $asset;
     }
 
 

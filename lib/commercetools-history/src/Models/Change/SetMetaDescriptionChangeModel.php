@@ -82,8 +82,6 @@ final class SetMetaDescriptionChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * <p>Shape of the action for <code>setMetaDescription</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,6 +100,8 @@ final class SetMetaDescriptionChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -121,6 +121,8 @@ final class SetMetaDescriptionChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */

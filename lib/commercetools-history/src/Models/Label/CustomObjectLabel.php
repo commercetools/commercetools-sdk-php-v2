@@ -24,12 +24,16 @@ interface CustomObjectLabel extends Label
     public function getType();
 
     /**
+     * <p>User-defined unique identifier of the CustomObject within the defined <code>container</code>.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Namespace to group Custom Objects.</p>
+     *
 
      * @return null|string
      */

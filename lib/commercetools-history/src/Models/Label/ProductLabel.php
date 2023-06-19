@@ -25,12 +25,16 @@ interface ProductLabel extends Label
     public function getType();
 
     /**
+     * <p>User-defined identifier used in a deep-link URL for the Product.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getSlug();
 
     /**
+     * <p>Name of the Product.</p>
+     *
 
      * @return null|LocalizedString
      */

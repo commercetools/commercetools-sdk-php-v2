@@ -15,12 +15,10 @@ use Commercetools\History\Models\ChangeValue\ChangeValueChangeValue;
 interface ChangeValueChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
-     * <p>Update action for <code>changeValue</code> on cart discounts and product discounts</p>
-     *
 
      * @return null|string
      */
@@ -33,16 +31,20 @@ interface ChangeValueChange extends Change
     public function getType();
 
     /**
-
-     * @return null|ChangeValueChangeValue
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ChangeValueChangeValue
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ChangeValueChangeValue
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface ChangeValueChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?ChangeValueChangeValue $nextValue
-     */
-    public function setNextValue(?ChangeValueChangeValue $nextValue): void;
-
-    /**
      * @param ?ChangeValueChangeValue $previousValue
      */
     public function setPreviousValue(?ChangeValueChangeValue $previousValue): void;
+
+    /**
+     * @param ?ChangeValueChangeValue $nextValue
+     */
+    public function setNextValue(?ChangeValueChangeValue $nextValue): void;
 }

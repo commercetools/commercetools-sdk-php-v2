@@ -35,6 +35,8 @@ final class FieldDefinitionOrderValueBuilder implements Builder
     private $label;
 
     /**
+     * <p>Name of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class FieldDefinitionOrderValueBuilder implements Builder
     }
 
     /**
+     * <p>Descriptive label of the field.</p>
+     *
 
      * @return null|LocalizedString
      */

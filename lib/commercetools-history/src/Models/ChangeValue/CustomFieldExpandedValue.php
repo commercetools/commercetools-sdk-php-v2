@@ -20,7 +20,7 @@ interface CustomFieldExpandedValue extends JsonObject
     public const FIELD_LABEL = 'label';
 
     /**
-     * <p>Name of a custom field.</p>
+     * <p>Name of the Custom Field.</p>
      *
 
      * @return null|string
@@ -28,12 +28,16 @@ interface CustomFieldExpandedValue extends JsonObject
     public function getName();
 
     /**
+     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a>.</p>
+     *
 
      * @return null|mixed
      */
     public function getValue();
 
     /**
+     * <p>User-defined label of the Custom Field.</p>
+     *
 
      * @return null|LocalizedString
      */

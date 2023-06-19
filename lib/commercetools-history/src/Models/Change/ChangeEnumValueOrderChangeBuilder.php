@@ -29,9 +29,9 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var ?EnumValueCollection
      */
-    private $fieldName;
+    private $previousValue;
 
     /**
 
@@ -41,13 +41,11 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
 
     /**
 
-     * @var ?EnumValueCollection
+     * @var ?string
      */
-    private $previousValue;
+    private $fieldName;
 
     /**
-     * <p>Update action for <code>changeEnumValueOrder</code> on types</p>
-     *
 
      * @return null|string
      */
@@ -57,17 +55,19 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field/attribute definition updated.</p>
+     * <p>Value before the change.</p>
      *
 
-     * @return null|string
+     * @return null|EnumValueCollection
      */
-    public function getFieldName()
+    public function getPreviousValue()
     {
-        return $this->fieldName;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|EnumValueCollection
      */
@@ -77,12 +77,14 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
+     *
 
-     * @return null|EnumValueCollection
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getFieldName()
     {
-        return $this->previousValue;
+        return $this->fieldName;
     }
 
     /**
@@ -97,12 +99,12 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $fieldName
+     * @param ?EnumValueCollection $previousValue
      * @return $this
      */
-    public function withFieldName(?string $fieldName)
+    public function withPreviousValue(?EnumValueCollection $previousValue)
     {
-        $this->fieldName = $fieldName;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -119,12 +121,12 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?string $fieldName
      * @return $this
      */
-    public function withPreviousValue(?EnumValueCollection $previousValue)
+    public function withFieldName(?string $fieldName)
     {
-        $this->previousValue = $previousValue;
+        $this->fieldName = $fieldName;
 
         return $this;
     }
@@ -134,9 +136,9 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
     {
         return new ChangeEnumValueOrderChangeModel(
             $this->change,
-            $this->fieldName,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->fieldName
         );
     }
 

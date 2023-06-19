@@ -25,20 +25,22 @@ interface SetProductSelectionsChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setProductSelections</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */

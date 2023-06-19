@@ -49,6 +49,8 @@ final class TextLineItemValueModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -67,6 +69,8 @@ final class TextLineItemValueModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
+     * <p>Name of the TextLineItem.</p>
+     *
      *
      * @return null|LocalizedString
      */

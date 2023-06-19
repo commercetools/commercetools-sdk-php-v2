@@ -80,8 +80,6 @@ final class ChangeStateTypeChangeModel extends JsonObjectModel implements Change
     }
 
     /**
-     * <p>Update action for <code>changeType</code> on state</p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeStateTypeChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class ChangeStateTypeChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

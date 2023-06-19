@@ -15,8 +15,8 @@ use Commercetools\History\Models\Common\SyncInfo;
 interface UpdateSyncInfoChange extends Change
 {
 
-    public const FIELD_CHANNEL_ID = 'channelId';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_CHANNEL_ID = 'channelId';
 
     /**
 
@@ -25,24 +25,26 @@ interface UpdateSyncInfoChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>updateSyncInfo</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getChannelId();
-
-    /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|SyncInfo
      */
     public function getNextValue();
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getChannelId();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface UpdateSyncInfoChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $channelId
-     */
-    public function setChannelId(?string $channelId): void;
-
-    /**
      * @param ?SyncInfo $nextValue
      */
     public function setNextValue(?SyncInfo $nextValue): void;
+
+    /**
+     * @param ?string $channelId
+     */
+    public function setChannelId(?string $channelId): void;
 }

@@ -29,6 +29,8 @@ final class LocalizedLabelBuilder implements Builder
     private $value;
 
     /**
+     * <p>Changed value.</p>
+     *
 
      * @return null|LocalizedString
      */

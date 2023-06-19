@@ -41,8 +41,6 @@ final class ChangeAmountAuthorizedChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Internal Update action for <code>changeAmountAuthorized</code></p>
-     *
 
      * @return null|string
      */
@@ -52,6 +50,8 @@ final class ChangeAmountAuthorizedChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Money
      */
@@ -61,6 +61,8 @@ final class ChangeAmountAuthorizedChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Money
      */

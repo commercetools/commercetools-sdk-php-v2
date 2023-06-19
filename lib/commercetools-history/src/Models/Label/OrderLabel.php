@@ -24,12 +24,16 @@ interface OrderLabel extends Label
     public function getType();
 
     /**
+     * <p>Email address of the Customer that the Order belongs to.</p>
+     *
 
      * @return null|string
      */
     public function getCustomerEmail();
 
     /**
+     * <p>User-defined unique identifier of the Order that is unique across a Project.</p>
+     *
 
      * @return null|string
      */

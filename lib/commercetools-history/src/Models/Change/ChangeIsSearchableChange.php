@@ -14,9 +14,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 interface ChangeIsSearchableChange extends Change
 {
 
-    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
 
     /**
 
@@ -25,15 +25,29 @@ interface ChangeIsSearchableChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeIsSearchable</code> on product types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>The name of the updated attribute.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|string
@@ -41,26 +55,14 @@ interface ChangeIsSearchableChange extends Change
     public function getAttributeName();
 
     /**
-
-     * @return null|bool
-     */
-    public function getNextValue();
-
-    /**
-
-     * @return null|bool
-     */
-    public function getPreviousValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $attributeName
+     * @param ?bool $previousValue
      */
-    public function setAttributeName(?string $attributeName): void;
+    public function setPreviousValue(?bool $previousValue): void;
 
     /**
      * @param ?bool $nextValue
@@ -68,7 +70,7 @@ interface ChangeIsSearchableChange extends Change
     public function setNextValue(?bool $nextValue): void;
 
     /**
-     * @param ?bool $previousValue
+     * @param ?string $attributeName
      */
-    public function setPreviousValue(?bool $previousValue): void;
+    public function setAttributeName(?string $attributeName): void;
 }

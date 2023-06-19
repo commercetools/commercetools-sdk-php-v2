@@ -24,15 +24,13 @@ interface SetPurchaseOrderNumberChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setPurchaseOrderNumber</code>.</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>Purchase Order number prior to the update action.</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|string
@@ -40,7 +38,7 @@ interface SetPurchaseOrderNumberChange extends Change
     public function getPreviousValue();
 
     /**
-     * <p>Purchase Order number after the update action.</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|string

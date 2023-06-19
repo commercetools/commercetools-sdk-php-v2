@@ -35,8 +35,6 @@ final class RemoveAssetChangeBuilder implements Builder
     private $previousValue;
 
     /**
-     * <p>Update action for <code>removeAsset</code></p>
-     *
 
      * @return null|string
      */
@@ -46,6 +44,8 @@ final class RemoveAssetChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Asset
      */

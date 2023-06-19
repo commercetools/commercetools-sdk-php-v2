@@ -24,14 +24,14 @@ interface RemoveAttributeDefinitionChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>removeAttributeDefinition</code> on product types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|AttributeDefinition
      */

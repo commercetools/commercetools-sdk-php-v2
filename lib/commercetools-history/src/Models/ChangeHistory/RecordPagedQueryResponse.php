@@ -38,7 +38,7 @@ interface RecordPagedQueryResponse extends JsonObject
 
     /**
      * <p>Total number of results matching the query.
-     * This number is an estimation and not <a href="/general-concepts#strong-consistency">strongly consistent</a>.</p>
+     * This number is an estimation and not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.</p>
      *
 
      * @return null|int
@@ -54,6 +54,8 @@ interface RecordPagedQueryResponse extends JsonObject
     public function getOffset();
 
     /**
+     * <p>Records matching the query.</p>
+     *
 
      * @return null|RecordCollection
      */

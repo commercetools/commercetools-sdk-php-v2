@@ -80,8 +80,6 @@ final class SetCustomerNumberChangeModel extends JsonObjectModel implements SetC
     }
 
     /**
-     * <p>Shape of the action for <code>setCustomerNumber</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetCustomerNumberChangeModel extends JsonObjectModel implements SetC
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetCustomerNumberChangeModel extends JsonObjectModel implements SetC
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

@@ -39,13 +39,13 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
      *
      * @var ?CustomFields
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?CustomFields
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
      */
     public function __construct(
         ?string $change = null,
-        ?CustomFields $nextValue = null,
         ?CustomFields $previousValue = null,
+        ?CustomFields $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
     }
 
     /**
-     * <p>Update action for setting a custom type</p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|CustomFields
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = CustomFieldsModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|CustomFields
      */
@@ -139,6 +120,27 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = CustomFieldsModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
     }
 
     /**
-     * @param ?CustomFields $nextValue
-     */
-    public function setNextValue(?CustomFields $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?CustomFields $previousValue
      */
     public function setPreviousValue(?CustomFields $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?CustomFields $nextValue
+     */
+    public function setNextValue(?CustomFields $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

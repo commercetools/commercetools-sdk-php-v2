@@ -80,8 +80,6 @@ final class ChangeAttributeOrderByNameChangeModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Update action for <code>changeAttributeOrderByName</code> on product types</p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeAttributeOrderByNameChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|array
      */
@@ -118,6 +118,8 @@ final class ChangeAttributeOrderByNameChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|array
      */

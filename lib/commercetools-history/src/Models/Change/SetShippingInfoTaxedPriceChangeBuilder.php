@@ -32,17 +32,15 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
 
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>setShippingInfoTaxedPrice</code></p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|TaxedPrice
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof TaxedPriceBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|TaxedPrice
      */
@@ -70,23 +61,23 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|TaxedPrice
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof TaxedPriceBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TaxedPrice $nextValue
-     * @return $this
-     */
-    public function withNextValue(?TaxedPrice $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?TaxedPrice $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?TaxedPriceBuilder $nextValue)
+    public function withNextValue(?TaxedPrice $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?TaxedPriceBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): SetShippingInfoTaxedPriceChange
     {
         return new SetShippingInfoTaxedPriceChangeModel(
             $this->change,
-            $this->nextValue instanceof TaxedPriceBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof TaxedPriceBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof TaxedPriceBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof TaxedPriceBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

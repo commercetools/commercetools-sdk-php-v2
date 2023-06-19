@@ -39,13 +39,13 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
      *
      * @var ?TaxedPrice
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?TaxedPrice
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $change = null,
-        ?TaxedPrice $nextValue = null,
         ?TaxedPrice $previousValue = null,
+        ?TaxedPrice $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Update action for <code>setShippingInfoTaxedPrice</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|TaxedPrice
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = TaxedPriceModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|TaxedPrice
      */
@@ -139,6 +120,27 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|TaxedPrice
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = TaxedPriceModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?TaxedPrice $nextValue
-     */
-    public function setNextValue(?TaxedPrice $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?TaxedPrice $previousValue
      */
     public function setPreviousValue(?TaxedPrice $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?TaxedPrice $nextValue
+     */
+    public function setNextValue(?TaxedPrice $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

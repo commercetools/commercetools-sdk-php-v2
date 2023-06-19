@@ -39,9 +39,9 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
 
     /**
      *
-     * @var ?ParcelChangeValue
+     * @var ?ParcelMeasurements
      */
-    protected $parcel;
+    protected $previousValue;
 
     /**
      *
@@ -51,9 +51,9 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
 
     /**
      *
-     * @var ?ParcelMeasurements
+     * @var ?ParcelChangeValue
      */
-    protected $previousValue;
+    protected $parcel;
 
 
     /**
@@ -61,15 +61,15 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
      */
     public function __construct(
         ?string $change = null,
-        ?ParcelChangeValue $parcel = null,
-        ?ParcelMeasurements $nextValue = null,
         ?ParcelMeasurements $previousValue = null,
+        ?ParcelMeasurements $nextValue = null,
+        ?ParcelChangeValue $parcel = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->parcel = $parcel;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->parcel = $parcel;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -92,8 +92,6 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Update action for <code>setParcelMeasurements</code></p>
-     *
      *
      * @return null|string
      */
@@ -112,25 +110,29 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|ParcelChangeValue
+     *
+     * @return null|ParcelMeasurements
      */
-    public function getParcel()
+    public function getPreviousValue()
     {
-        if (is_null($this->parcel)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PARCEL);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->parcel = ParcelChangeValueModel::of($data);
+            $this->previousValue = ParcelMeasurementsModel::of($data);
         }
 
-        return $this->parcel;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ParcelMeasurements
      */
@@ -150,22 +152,24 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Information about the updated Parcel.</p>
      *
-     * @return null|ParcelMeasurements
+     *
+     * @return null|ParcelChangeValue
      */
-    public function getPreviousValue()
+    public function getParcel()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->parcel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_PARCEL);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = ParcelMeasurementsModel::of($data);
+            $this->parcel = ParcelChangeValueModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->parcel;
     }
 
 
@@ -178,11 +182,11 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * @param ?ParcelChangeValue $parcel
+     * @param ?ParcelMeasurements $previousValue
      */
-    public function setParcel(?ParcelChangeValue $parcel): void
+    public function setPreviousValue(?ParcelMeasurements $previousValue): void
     {
-        $this->parcel = $parcel;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -194,11 +198,11 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * @param ?ParcelMeasurements $previousValue
+     * @param ?ParcelChangeValue $parcel
      */
-    public function setPreviousValue(?ParcelMeasurements $previousValue): void
+    public function setParcel(?ParcelChangeValue $parcel): void
     {
-        $this->previousValue = $previousValue;
+        $this->parcel = $parcel;
     }
 
 

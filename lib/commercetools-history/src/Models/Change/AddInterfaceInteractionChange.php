@@ -24,15 +24,13 @@ interface AddInterfaceInteractionChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>addInterfaceInteraction</code> on payments</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>Only available if <code>expand</code> is set to true</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|CustomFieldExpandedValue

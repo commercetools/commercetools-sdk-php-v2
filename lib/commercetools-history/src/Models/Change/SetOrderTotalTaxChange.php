@@ -15,9 +15,9 @@ use Commercetools\History\Models\Common\Money;
 interface SetOrderTotalTaxChange extends Change
 {
 
-    public const FIELD_TAX_MODE = 'taxMode';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_TAX_MODE = 'taxMode';
 
     /**
 
@@ -26,30 +26,34 @@ interface SetOrderTotalTaxChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setOrderTotalTax</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|Money
      */
-    public function getTaxMode();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Money
      */
     public function getNextValue();
 
     /**
+     * <p><code>&quot;ExternalAmount&quot;</code></p>
+     *
 
-     * @return null|Money
+     * @return null|string
      */
-    public function getPreviousValue();
+    public function getTaxMode();
 
     /**
      * @param ?string $change
@@ -57,9 +61,9 @@ interface SetOrderTotalTaxChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $taxMode
+     * @param ?Money $previousValue
      */
-    public function setTaxMode(?string $taxMode): void;
+    public function setPreviousValue(?Money $previousValue): void;
 
     /**
      * @param ?Money $nextValue
@@ -67,7 +71,7 @@ interface SetOrderTotalTaxChange extends Change
     public function setNextValue(?Money $nextValue): void;
 
     /**
-     * @param ?Money $previousValue
+     * @param ?string $taxMode
      */
-    public function setPreviousValue(?Money $previousValue): void;
+    public function setTaxMode(?string $taxMode): void;
 }

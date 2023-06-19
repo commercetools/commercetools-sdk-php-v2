@@ -31,12 +31,16 @@ interface RemoveTextLineItemChange extends Change
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|TextLineItem
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|TextLineItem
      */

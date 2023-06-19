@@ -27,6 +27,8 @@ final class StringLabelBuilder implements Builder
     private $value;
 
     /**
+     * <p>Changed value.</p>
+     *
 
      * @return null|string
      */

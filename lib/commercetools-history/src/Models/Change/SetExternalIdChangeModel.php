@@ -80,8 +80,6 @@ final class SetExternalIdChangeModel extends JsonObjectModel implements SetExter
     }
 
     /**
-     * <p>Shape of the action for <code>setExternalId</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetExternalIdChangeModel extends JsonObjectModel implements SetExter
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetExternalIdChangeModel extends JsonObjectModel implements SetExter
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

@@ -80,8 +80,6 @@ final class ChangeTaxCalculationModeChangeModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Shape of the action for <code>changeTaxCalculationMode</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeTaxCalculationModeChangeModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class ChangeTaxCalculationModeChangeModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

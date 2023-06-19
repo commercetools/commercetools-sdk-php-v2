@@ -15,9 +15,9 @@ use Commercetools\History\Models\Common\Price;
 interface AddPriceChange extends Change
 {
 
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_CATALOG_DATA = 'catalogData';
     public const FIELD_PRICE_ID = 'priceId';
-    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -26,35 +26,47 @@ interface AddPriceChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for adding prices</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getCatalogData();
-
-    /**
-
-     * @return null|string
-     */
-    public function getPriceId();
-
-    /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Price
      */
     public function getNextValue();
 
     /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData();
+
+    /**
+     * <p><code>id</code> of the Embedded <a href="ctp:api:type:Price">Price</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceId();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?Price $nextValue
+     */
+    public function setNextValue(?Price $nextValue): void;
 
     /**
      * @param ?string $catalogData
@@ -65,9 +77,4 @@ interface AddPriceChange extends Change
      * @param ?string $priceId
      */
     public function setPriceId(?string $priceId): void;
-
-    /**
-     * @param ?Price $nextValue
-     */
-    public function setNextValue(?Price $nextValue): void;
 }

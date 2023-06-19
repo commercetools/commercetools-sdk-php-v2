@@ -33,6 +33,8 @@ final class ReviewLabelBuilder implements Builder
     private $title;
 
     /**
+     * <p>User-defined unique identifier of the Review.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class ReviewLabelBuilder implements Builder
     }
 
     /**
+     * <p>Title of the Review.</p>
+     *
 
      * @return null|string
      */

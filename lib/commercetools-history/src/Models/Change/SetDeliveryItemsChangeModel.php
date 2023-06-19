@@ -36,9 +36,9 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
 
     /**
      *
-     * @var ?string
+     * @var ?DeliveryItemCollection
      */
-    protected $deliveryId;
+    protected $previousValue;
 
     /**
      *
@@ -48,9 +48,9 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
 
     /**
      *
-     * @var ?DeliveryItemCollection
+     * @var ?string
      */
-    protected $previousValue;
+    protected $deliveryId;
 
 
     /**
@@ -58,15 +58,15 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
      */
     public function __construct(
         ?string $change = null,
-        ?string $deliveryId = null,
-        ?DeliveryItemCollection $nextValue = null,
         ?DeliveryItemCollection $previousValue = null,
+        ?DeliveryItemCollection $nextValue = null,
+        ?string $deliveryId = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->deliveryId = $deliveryId;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->deliveryId = $deliveryId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -89,8 +89,6 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
     }
 
     /**
-     * <p>Update action for <code>setDeliveryItems</code></p>
-     *
      *
      * @return null|string
      */
@@ -109,24 +107,28 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
+     *
+     * @return null|DeliveryItemCollection
      */
-    public function getDeliveryId()
+    public function getPreviousValue()
     {
-        if (is_null($this->deliveryId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_DELIVERY_ID);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->deliveryId = (string) $data;
+            $this->previousValue = DeliveryItemCollection::fromArray($data);
         }
 
-        return $this->deliveryId;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */
@@ -145,21 +147,23 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
     }
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
-     * @return null|DeliveryItemCollection
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getDeliveryId()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = DeliveryItemCollection::fromArray($data);
+            $this->deliveryId = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->deliveryId;
     }
 
 
@@ -172,11 +176,11 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
     }
 
     /**
-     * @param ?string $deliveryId
+     * @param ?DeliveryItemCollection $previousValue
      */
-    public function setDeliveryId(?string $deliveryId): void
+    public function setPreviousValue(?DeliveryItemCollection $previousValue): void
     {
-        $this->deliveryId = $deliveryId;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -188,11 +192,11 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
     }
 
     /**
-     * @param ?DeliveryItemCollection $previousValue
+     * @param ?string $deliveryId
      */
-    public function setPreviousValue(?DeliveryItemCollection $previousValue): void
+    public function setDeliveryId(?string $deliveryId): void
     {
-        $this->previousValue = $previousValue;
+        $this->deliveryId = $deliveryId;
     }
 
 

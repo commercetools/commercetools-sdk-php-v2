@@ -24,20 +24,22 @@ interface ChangeAttributeOrderByNameChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeAttributeOrderByName</code> on product types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|array
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|array
      */

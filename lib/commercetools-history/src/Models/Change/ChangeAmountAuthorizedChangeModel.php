@@ -82,8 +82,6 @@ final class ChangeAmountAuthorizedChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Internal Update action for <code>changeAmountAuthorized</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,6 +100,8 @@ final class ChangeAmountAuthorizedChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|Money
      */
@@ -121,6 +121,8 @@ final class ChangeAmountAuthorizedChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|Money
      */

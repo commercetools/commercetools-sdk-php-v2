@@ -37,13 +37,13 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
      *
      * @var ?string
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?string
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -51,13 +51,13 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $change = null,
-        ?string $nextValue = null,
         ?string $previousValue = null,
+        ?string $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -80,8 +80,6 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Update action for <code>setReturnShipmentState</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,24 +98,8 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->nextValue = (string) $data;
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|string
      */
@@ -135,6 +117,26 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = (string) $data;
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -145,19 +147,19 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?string $nextValue
-     */
-    public function setNextValue(?string $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?string $previousValue
      */
     public function setPreviousValue(?string $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?string $nextValue
+     */
+    public function setNextValue(?string $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

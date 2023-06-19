@@ -80,8 +80,6 @@ final class SetRatingChangeModel extends JsonObjectModel implements SetRatingCha
     }
 
     /**
-     * <p>Shape of the action for <code>setRating</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetRatingChangeModel extends JsonObjectModel implements SetRatingCha
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|int
      */
@@ -118,6 +118,8 @@ final class SetRatingChangeModel extends JsonObjectModel implements SetRatingCha
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|int
      */

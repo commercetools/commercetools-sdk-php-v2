@@ -19,12 +19,16 @@ interface FieldDefinitionOrderValue extends JsonObject
     public const FIELD_LABEL = 'label';
 
     /**
+     * <p>Name of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
+     *
 
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>Descriptive label of the field.</p>
+     *
 
      * @return null|LocalizedString
      */

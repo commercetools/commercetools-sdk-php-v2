@@ -37,6 +37,8 @@ final class ShippingMethodTaxAmountChangeValueBuilder implements Builder
     private $taxRate;
 
     /**
+     * <p>Taxed price for the Shipping Method based on <code>taxRate</code>.</p>
+     *
 
      * @return null|TaxedPrice
      */
@@ -46,7 +48,7 @@ final class ShippingMethodTaxAmountChangeValueBuilder implements Builder
     }
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Tax rate set externally for the Shipping Method.</p>
      *
 
      * @return null|TaxRate

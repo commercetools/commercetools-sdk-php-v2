@@ -80,8 +80,6 @@ final class SetAuthenticationModeChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Update action for <code>setAuthenticationMode</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetAuthenticationModeChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetAuthenticationModeChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

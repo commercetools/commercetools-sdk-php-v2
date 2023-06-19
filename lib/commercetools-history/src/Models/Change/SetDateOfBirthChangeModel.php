@@ -80,8 +80,6 @@ final class SetDateOfBirthChangeModel extends JsonObjectModel implements SetDate
     }
 
     /**
-     * <p>Shape of the action for <code>setDateOfBirth</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetDateOfBirthChangeModel extends JsonObjectModel implements SetDate
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetDateOfBirthChangeModel extends JsonObjectModel implements SetDate
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

@@ -74,8 +74,6 @@ final class RemoveAddressChangeModel extends JsonObjectModel implements RemoveAd
     }
 
     /**
-     * <p>Update action for <code>removeAddress</code> action.</p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class RemoveAddressChangeModel extends JsonObjectModel implements RemoveAd
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|Address
      */

@@ -50,6 +50,8 @@ final class ChangeAmountPlannedChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Money
      */
@@ -59,6 +61,8 @@ final class ChangeAmountPlannedChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Money
      */

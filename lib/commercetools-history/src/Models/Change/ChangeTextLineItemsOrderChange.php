@@ -31,12 +31,16 @@ interface ChangeTextLineItemsOrderChange extends Change
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|TextLineItemValueCollection
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|TextLineItemValueCollection
      */

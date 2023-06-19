@@ -80,8 +80,6 @@ final class ChangeEmailChangeModel extends JsonObjectModel implements ChangeEmai
     }
 
     /**
-     * <p>Shape of the action for <code>changeEmail</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeEmailChangeModel extends JsonObjectModel implements ChangeEmai
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class ChangeEmailChangeModel extends JsonObjectModel implements ChangeEmai
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

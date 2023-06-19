@@ -35,8 +35,6 @@ final class RemoveDiscountCodeChangeBuilder implements Builder
     private $previousValue;
 
     /**
-     * <p>Update action for <code>removeDiscountCode</code></p>
-     *
 
      * @return null|string
      */
@@ -46,6 +44,8 @@ final class RemoveDiscountCodeChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|DiscountCodeInfo
      */

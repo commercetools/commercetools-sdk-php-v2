@@ -39,13 +39,13 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
      *
      * @var ?GeoLocation
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?GeoLocation
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
      */
     public function __construct(
         ?string $change = null,
-        ?GeoLocation $nextValue = null,
         ?GeoLocation $previousValue = null,
+        ?GeoLocation $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
     }
 
     /**
-     * <p>Update action for <code>setGeoLocation</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|GeoLocation
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = GeoLocationModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|GeoLocation
      */
@@ -139,6 +120,27 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|GeoLocation
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = GeoLocationModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
     }
 
     /**
-     * @param ?GeoLocation $nextValue
-     */
-    public function setNextValue(?GeoLocation $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?GeoLocation $previousValue
      */
     public function setPreviousValue(?GeoLocation $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?GeoLocation $nextValue
+     */
+    public function setNextValue(?GeoLocation $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

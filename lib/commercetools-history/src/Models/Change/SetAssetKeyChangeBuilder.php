@@ -30,9 +30,9 @@ final class SetAssetKeyChangeBuilder implements Builder
 
     /**
 
-     * @var null|AssetChangeValue|AssetChangeValueBuilder
+     * @var ?string
      */
-    private $asset;
+    private $previousValue;
 
     /**
 
@@ -42,13 +42,11 @@ final class SetAssetKeyChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|AssetChangeValue|AssetChangeValueBuilder
      */
-    private $previousValue;
+    private $asset;
 
     /**
-     * <p>Update action for <code>setAssetKey</code></p>
-     *
 
      * @return null|string
      */
@@ -58,15 +56,19 @@ final class SetAssetKeyChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|AssetChangeValue
+     * @return null|string
      */
-    public function getAsset()
+    public function getPreviousValue()
     {
-        return $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|string
      */
@@ -76,12 +78,14 @@ final class SetAssetKeyChangeBuilder implements Builder
     }
 
     /**
+     * <p>Information about the updated Asset.</p>
+     *
 
-     * @return null|string
+     * @return null|AssetChangeValue
      */
-    public function getPreviousValue()
+    public function getAsset()
     {
-        return $this->previousValue;
+        return $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset;
     }
 
     /**
@@ -96,12 +100,12 @@ final class SetAssetKeyChangeBuilder implements Builder
     }
 
     /**
-     * @param ?AssetChangeValue $asset
+     * @param ?string $previousValue
      * @return $this
      */
-    public function withAsset(?AssetChangeValue $asset)
+    public function withPreviousValue(?string $previousValue)
     {
-        $this->asset = $asset;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -118,12 +122,12 @@ final class SetAssetKeyChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $previousValue
+     * @param ?AssetChangeValue $asset
      * @return $this
      */
-    public function withPreviousValue(?string $previousValue)
+    public function withAsset(?AssetChangeValue $asset)
     {
-        $this->previousValue = $previousValue;
+        $this->asset = $asset;
 
         return $this;
     }
@@ -143,9 +147,9 @@ final class SetAssetKeyChangeBuilder implements Builder
     {
         return new SetAssetKeyChangeModel(
             $this->change,
-            $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset
         );
     }
 

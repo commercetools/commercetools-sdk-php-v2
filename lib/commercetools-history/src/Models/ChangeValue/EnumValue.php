@@ -18,12 +18,16 @@ interface EnumValue extends JsonObject
     public const FIELD_LABEL = 'label';
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Descriptive label of the value.</p>
+     *
 
      * @return null|string
      */

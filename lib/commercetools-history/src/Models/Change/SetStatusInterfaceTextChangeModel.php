@@ -80,8 +80,6 @@ final class SetStatusInterfaceTextChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Shape of the action for <code>setStatusInterfaceText</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetStatusInterfaceTextChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetStatusInterfaceTextChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

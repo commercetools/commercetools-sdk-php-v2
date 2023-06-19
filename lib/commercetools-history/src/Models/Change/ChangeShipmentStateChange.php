@@ -14,8 +14,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 interface ChangeShipmentStateChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -24,24 +24,26 @@ interface ChangeShipmentStateChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeShipmentState</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -49,12 +51,12 @@ interface ChangeShipmentStateChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $nextValue
-     */
-    public function setNextValue(?string $nextValue): void;
-
-    /**
      * @param ?string $previousValue
      */
     public function setPreviousValue(?string $previousValue): void;
+
+    /**
+     * @param ?string $nextValue
+     */
+    public function setNextValue(?string $nextValue): void;
 }

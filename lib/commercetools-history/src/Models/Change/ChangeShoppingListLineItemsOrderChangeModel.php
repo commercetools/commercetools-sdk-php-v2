@@ -99,6 +99,8 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|ShoppingListLineItemValueCollection
      */
@@ -117,6 +119,8 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ShoppingListLineItemValueCollection
      */

@@ -25,20 +25,22 @@ interface ChangeFieldDefinitionOrderChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeFieldDefinitionOrder</code> on types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|FieldDefinitionOrderValueCollection
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|FieldDefinitionOrderValueCollection
      */

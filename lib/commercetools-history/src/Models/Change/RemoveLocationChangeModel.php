@@ -82,8 +82,6 @@ final class RemoveLocationChangeModel extends JsonObjectModel implements RemoveL
     }
 
     /**
-     * <p>Update action for <code>removeLocation</code> on zones</p>
-     *
      *
      * @return null|string
      */
@@ -102,7 +100,7 @@ final class RemoveLocationChangeModel extends JsonObjectModel implements RemoveL
     }
 
     /**
-     * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
+     * <p>Value before the change.</p>
      *
      *
      * @return null|Location
@@ -123,7 +121,7 @@ final class RemoveLocationChangeModel extends JsonObjectModel implements RemoveL
     }
 
     /**
-     * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
+     * <p>Value after the change.</p>
      *
      *
      * @return null|Location

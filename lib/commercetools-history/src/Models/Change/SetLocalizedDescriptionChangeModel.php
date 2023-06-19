@@ -82,8 +82,6 @@ final class SetLocalizedDescriptionChangeModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Shape of the action for <code>setDescription</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,6 +100,8 @@ final class SetLocalizedDescriptionChangeModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -121,6 +121,8 @@ final class SetLocalizedDescriptionChangeModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */

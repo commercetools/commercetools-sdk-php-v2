@@ -28,6 +28,8 @@ final class ChangeValueAbsoluteChangeValueBuilder implements Builder
     private $money;
 
     /**
+     * <p>Money values in different currencies.</p>
+     *
 
      * @return null|MoneyCollection
      */

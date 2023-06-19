@@ -24,20 +24,22 @@ interface SetProductCountChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setProductCount</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|int
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|int
      */

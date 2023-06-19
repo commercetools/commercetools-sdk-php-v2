@@ -30,6 +30,18 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
 
     /**
 
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $previousValue;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $nextValue;
+
+    /**
+
      * @var ?string
      */
     private $fieldName;
@@ -48,20 +60,6 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
-     */
-    private $previousValue;
-
-    /**
-
-     * @var null|LocalizedString|LocalizedStringBuilder
-     */
-    private $nextValue;
-
-    /**
-     * <p>Update action for <code>changeLocalizedEnumValueLabel</code> on types</p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -70,7 +68,29 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field definition updated.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getPreviousValue()
+    {
+        return $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>; only present on changes to Types.</p>
      *
 
      * @return null|string
@@ -81,7 +101,7 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>; only present on changes to Product Types.</p>
      *
 
      * @return null|string
@@ -92,7 +112,7 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
-     * <p>Key of the values that was updated</p>
+     * <p>Key of the updated values.</p>
      *
 
      * @return null|string
@@ -103,30 +123,34 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?LocalizedString $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $nextValue
+     * @return $this
+     */
+    public function withNextValue(?LocalizedString $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -165,28 +189,6 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedString $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?LocalizedString $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $nextValue
-     * @return $this
-     */
-    public function withNextValue(?LocalizedString $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -212,11 +214,11 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     {
         return new ChangeLocalizedEnumValueLabelChangeModel(
             $this->change,
+            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->fieldName,
             $this->attributeName,
-            $this->valueKey,
-            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->valueKey
         );
     }
 

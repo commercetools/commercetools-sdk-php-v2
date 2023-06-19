@@ -96,6 +96,8 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     }
 
     /**
+     * <p>Valid <a href="/../api/projects/predicates#customlineitem-field-identifiers">CustomLineItem target predicate</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -114,7 +116,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     }
 
     /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
+     * <p>Quantity of Custom Line Items that triggered the application of the discount.</p>
      *
      *
      * @return null|int
@@ -134,7 +136,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     }
 
     /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>
+     * <p>Quantity of Custom Line Items discounted per application of this discount.</p>
      *
      *
      * @return null|int
@@ -154,7 +156,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     }
 
     /**
-     * <p>Maximum number of applications of this discount.</p>
+     * <p>Maximum number of times the discount is applicable.</p>
      *
      *
      * @return null|int
@@ -174,6 +176,8 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     }
 
     /**
+     * <p>SelectionMode based on which particular Custom Line Items were discounted.</p>
+     *
      *
      * @return null|string
      */

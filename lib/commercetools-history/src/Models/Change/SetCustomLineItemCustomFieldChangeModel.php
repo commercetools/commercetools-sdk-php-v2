@@ -37,6 +37,18 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
 
     /**
      *
+     * @var ?mixed
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?mixed
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?string
      */
     protected $name;
@@ -53,37 +65,25 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
      */
     protected $customLineItemId;
 
-    /**
-     *
-     * @var ?mixed
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?mixed
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+         $previousValue = null,
+         $nextValue = null,
         ?string $name = null,
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
-         $nextValue = null,
-         $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->name = $name;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -106,8 +106,6 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Update action for <code>setCustomLineItemCustomField</code></p>
-     *
      *
      * @return null|string
      */
@@ -126,6 +124,48 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
+     *
+     * @return null|mixed
+     */
+    public function getPreviousValue()
+    {
+        if (is_null($this->previousValue)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->previousValue = $data;
+        }
+
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|mixed
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = $data;
+        }
+
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -144,6 +184,8 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -163,6 +205,8 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -180,42 +224,6 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
         return $this->customLineItemId;
     }
 
-    /**
-     *
-     * @return null|mixed
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->nextValue = $data;
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
-     *
-     * @return null|mixed
-     */
-    public function getPreviousValue()
-    {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->previousValue = $data;
-        }
-
-        return $this->previousValue;
-    }
-
 
     /**
      * @param ?string $change
@@ -223,6 +231,22 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param mixed $previousValue
+     */
+    public function setPreviousValue( $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param mixed $nextValue
+     */
+    public function setNextValue( $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -247,22 +271,6 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
-    }
-
-    /**
-     * @param mixed $nextValue
-     */
-    public function setNextValue( $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param mixed $previousValue
-     */
-    public function setPreviousValue( $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

@@ -66,6 +66,8 @@ final class LocalizedLabelModel extends JsonObjectModel implements LocalizedLabe
     }
 
     /**
+     * <p>Changed value.</p>
+     *
      *
      * @return null|LocalizedString
      */

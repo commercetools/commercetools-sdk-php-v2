@@ -80,8 +80,6 @@ final class ChangeIsActiveChangeModel extends JsonObjectModel implements ChangeI
     }
 
     /**
-     * <p>Shape of the action for <code>changeIsActive</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeIsActiveChangeModel extends JsonObjectModel implements ChangeI
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|bool
      */
@@ -118,6 +118,8 @@ final class ChangeIsActiveChangeModel extends JsonObjectModel implements ChangeI
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|bool
      */

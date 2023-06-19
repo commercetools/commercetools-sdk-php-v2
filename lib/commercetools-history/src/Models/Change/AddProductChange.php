@@ -24,14 +24,14 @@ interface AddProductChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for when a product is assigned to a product selection</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Reference
      */

@@ -47,6 +47,8 @@ final class ValidFromAndUntilValueModel extends JsonObjectModel implements Valid
     }
 
     /**
+     * <p>Date and time (UTC) from when the Discount is effective.</p>
+     *
      *
      * @return null|string
      */
@@ -65,6 +67,8 @@ final class ValidFromAndUntilValueModel extends JsonObjectModel implements Valid
     }
 
     /**
+     * <p>Date and time (UTC) until when the Discount is effective.</p>
+     *
      *
      * @return null|string
      */

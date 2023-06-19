@@ -15,8 +15,8 @@ use Commercetools\History\Models\ChangeValue\ShippingMethodChangeValue;
 interface SetShippingMethodChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -25,24 +25,26 @@ interface SetShippingMethodChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setShippingMethod</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|ShippingMethodChangeValue
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ShippingMethodChangeValue
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ShippingMethodChangeValue
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface SetShippingMethodChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?ShippingMethodChangeValue $nextValue
-     */
-    public function setNextValue(?ShippingMethodChangeValue $nextValue): void;
-
-    /**
      * @param ?ShippingMethodChangeValue $previousValue
      */
     public function setPreviousValue(?ShippingMethodChangeValue $previousValue): void;
+
+    /**
+     * @param ?ShippingMethodChangeValue $nextValue
+     */
+    public function setNextValue(?ShippingMethodChangeValue $nextValue): void;
 }

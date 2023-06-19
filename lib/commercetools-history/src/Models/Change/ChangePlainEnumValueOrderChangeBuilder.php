@@ -29,9 +29,9 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var ?EnumValueCollection
      */
-    private $attributeName;
+    private $previousValue;
 
     /**
 
@@ -41,13 +41,11 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
 
     /**
 
-     * @var ?EnumValueCollection
+     * @var ?string
      */
-    private $previousValue;
+    private $attributeName;
 
     /**
-     * <p>Update action for <code>changePlainEnumValueOrder</code> on product types</p>
-     *
 
      * @return null|string
      */
@@ -57,17 +55,19 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Value before the change.</p>
      *
 
-     * @return null|string
+     * @return null|EnumValueCollection
      */
-    public function getAttributeName()
+    public function getPreviousValue()
     {
-        return $this->attributeName;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|EnumValueCollection
      */
@@ -77,12 +77,14 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
 
-     * @return null|EnumValueCollection
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getAttributeName()
     {
-        return $this->previousValue;
+        return $this->attributeName;
     }
 
     /**
@@ -97,12 +99,12 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $attributeName
+     * @param ?EnumValueCollection $previousValue
      * @return $this
      */
-    public function withAttributeName(?string $attributeName)
+    public function withPreviousValue(?EnumValueCollection $previousValue)
     {
-        $this->attributeName = $attributeName;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -119,12 +121,12 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?string $attributeName
      * @return $this
      */
-    public function withPreviousValue(?EnumValueCollection $previousValue)
+    public function withAttributeName(?string $attributeName)
     {
-        $this->previousValue = $previousValue;
+        $this->attributeName = $attributeName;
 
         return $this;
     }
@@ -134,9 +136,9 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     {
         return new ChangePlainEnumValueOrderChangeModel(
             $this->change,
-            $this->attributeName,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->attributeName
         );
     }
 

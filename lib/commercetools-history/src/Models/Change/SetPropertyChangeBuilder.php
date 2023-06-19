@@ -28,9 +28,9 @@ final class SetPropertyChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|mixed|mixed
      */
-    private $path;
+    private $previousValue;
 
     /**
 
@@ -40,13 +40,11 @@ final class SetPropertyChangeBuilder implements Builder
 
     /**
 
-     * @var null|mixed|mixed
+     * @var ?string
      */
-    private $previousValue;
+    private $path;
 
     /**
-     * <p>Update action for <code>setProperty</code> on custom objects</p>
-     *
 
      * @return null|string
      */
@@ -56,17 +54,19 @@ final class SetPropertyChangeBuilder implements Builder
     }
 
     /**
-     * <p>Value path to the property that was changed</p>
+     * <p>Value before the change.</p>
      *
 
-     * @return null|string
+     * @return null|mixed
      */
-    public function getPath()
+    public function getPreviousValue()
     {
-        return $this->path;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|mixed
      */
@@ -76,12 +76,14 @@ final class SetPropertyChangeBuilder implements Builder
     }
 
     /**
+     * <p>Path to the property that was updated.</p>
+     *
 
-     * @return null|mixed
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getPath()
     {
-        return $this->previousValue;
+        return $this->path;
     }
 
     /**
@@ -96,12 +98,12 @@ final class SetPropertyChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $path
+     * @param mixed $previousValue
      * @return $this
      */
-    public function withPath(?string $path)
+    public function withPreviousValue( $previousValue)
     {
-        $this->path = $path;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -118,12 +120,12 @@ final class SetPropertyChangeBuilder implements Builder
     }
 
     /**
-     * @param mixed $previousValue
+     * @param ?string $path
      * @return $this
      */
-    public function withPreviousValue( $previousValue)
+    public function withPath(?string $path)
     {
-        $this->previousValue = $previousValue;
+        $this->path = $path;
 
         return $this;
     }
@@ -133,9 +135,9 @@ final class SetPropertyChangeBuilder implements Builder
     {
         return new SetPropertyChangeModel(
             $this->change,
-            $this->path,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->path
         );
     }
 

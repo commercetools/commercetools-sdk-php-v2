@@ -49,6 +49,8 @@ final class AssetChangeValueModel extends JsonObjectModel implements AssetChange
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Asset">Asset</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -67,6 +69,8 @@ final class AssetChangeValueModel extends JsonObjectModel implements AssetChange
     }
 
     /**
+     * <p>Name of the Asset.</p>
+     *
      *
      * @return null|LocalizedString
      */

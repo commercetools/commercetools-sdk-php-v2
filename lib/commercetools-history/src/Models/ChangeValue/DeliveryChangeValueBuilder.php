@@ -43,6 +43,8 @@ final class DeliveryChangeValueBuilder implements Builder
     private $parcels;
 
     /**
+     * <p>Line Items or Custom Line Items shipped in the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
@@ -52,6 +54,8 @@ final class DeliveryChangeValueBuilder implements Builder
     }
 
     /**
+     * <p>Address to which the parcels are delivered.</p>
+     *
 
      * @return null|Address
      */
@@ -61,6 +65,8 @@ final class DeliveryChangeValueBuilder implements Builder
     }
 
     /**
+     * <p>Parcels included in the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|ParcelCollection
      */

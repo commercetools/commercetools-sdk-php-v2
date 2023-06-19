@@ -74,8 +74,6 @@ final class RemoveAssetChangeModel extends JsonObjectModel implements RemoveAsse
     }
 
     /**
-     * <p>Update action for <code>removeAsset</code></p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class RemoveAssetChangeModel extends JsonObjectModel implements RemoveAsse
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|Asset
      */

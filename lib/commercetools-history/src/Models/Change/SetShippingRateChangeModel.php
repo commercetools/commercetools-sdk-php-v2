@@ -39,13 +39,13 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
      *
      * @var ?Money
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?Money
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
      */
     public function __construct(
         ?string $change = null,
-        ?Money $nextValue = null,
         ?Money $previousValue = null,
+        ?Money $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
     }
 
     /**
-     * <p>Update action for <code>setShippingRate</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|Money
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = MoneyModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|Money
      */
@@ -139,6 +120,27 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|Money
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = MoneyModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
     }
 
     /**
-     * @param ?Money $nextValue
-     */
-    public function setNextValue(?Money $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?Money $previousValue
      */
     public function setPreviousValue(?Money $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?Money $nextValue
+     */
+    public function setNextValue(?Money $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

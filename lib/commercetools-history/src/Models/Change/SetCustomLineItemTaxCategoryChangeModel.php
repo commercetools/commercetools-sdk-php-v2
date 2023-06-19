@@ -39,6 +39,18 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
 
     /**
      *
+     * @var ?Reference
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?Reference
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
@@ -49,35 +61,23 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
      */
     protected $customLineItemId;
 
-    /**
-     *
-     * @var ?Reference
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?Reference
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?Reference $previousValue = null,
+        ?Reference $nextValue = null,
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
-        ?Reference $nextValue = null,
-        ?Reference $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -100,8 +100,6 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Update action for <code>setCustomLineItemTaxCategory</code></p>
-     *
      *
      * @return null|string
      */
@@ -120,43 +118,29 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|Reference
      */
-    public function getCustomLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->customLineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->customLineItem = LocalizedStringModel::of($data);
+            $this->previousValue = ReferenceModel::of($data);
         }
 
-        return $this->customLineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getCustomLineItemId()
-    {
-        if (is_null($this->customLineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customLineItemId = (string) $data;
-        }
-
-        return $this->customLineItemId;
-    }
-
-    /**
      *
      * @return null|Reference
      */
@@ -176,22 +160,44 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
      *
-     * @return null|Reference
+     *
+     * @return null|LocalizedString
      */
-    public function getPreviousValue()
+    public function getCustomLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->customLineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = ReferenceModel::of($data);
+            $this->customLineItem = LocalizedStringModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->customLineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        if (is_null($this->customLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemId = (string) $data;
+        }
+
+        return $this->customLineItemId;
     }
 
 
@@ -201,6 +207,22 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?Reference $previousValue
+     */
+    public function setPreviousValue(?Reference $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?Reference $nextValue
+     */
+    public function setNextValue(?Reference $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -217,22 +239,6 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
-    }
-
-    /**
-     * @param ?Reference $nextValue
-     */
-    public function setNextValue(?Reference $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param ?Reference $previousValue
-     */
-    public function setPreviousValue(?Reference $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

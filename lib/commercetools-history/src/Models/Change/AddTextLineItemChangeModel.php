@@ -92,6 +92,8 @@ final class AddTextLineItemChangeModel extends JsonObjectModel implements AddTex
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|TextLineItem
      */

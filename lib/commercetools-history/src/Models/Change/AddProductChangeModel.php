@@ -74,8 +74,6 @@ final class AddProductChangeModel extends JsonObjectModel implements AddProductC
     }
 
     /**
-     * <p>Update action for when a product is assigned to a product selection</p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class AddProductChangeModel extends JsonObjectModel implements AddProductC
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|Reference
      */

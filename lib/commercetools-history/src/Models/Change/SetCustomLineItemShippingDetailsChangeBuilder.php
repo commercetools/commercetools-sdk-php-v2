@@ -30,9 +30,9 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
-    private $customLineItemId;
+    private $previousValue;
 
     /**
 
@@ -42,13 +42,11 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
 
     /**
 
-     * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
+     * @var ?string
      */
-    private $previousValue;
+    private $customLineItemId;
 
     /**
-     * <p>Update action for <code>setCustomLineItemShippingDetails</code></p>
-     *
 
      * @return null|string
      */
@@ -58,15 +56,19 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|ItemShippingDetails
      */
-    public function getCustomLineItemId()
+    public function getPreviousValue()
     {
-        return $this->customLineItemId;
+        return $this->previousValue instanceof ItemShippingDetailsBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ItemShippingDetails
      */
@@ -76,12 +78,14 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
 
-     * @return null|ItemShippingDetails
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getCustomLineItemId()
     {
-        return $this->previousValue instanceof ItemShippingDetailsBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->customLineItemId;
     }
 
     /**
@@ -96,12 +100,12 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $customLineItemId
+     * @param ?ItemShippingDetails $previousValue
      * @return $this
      */
-    public function withCustomLineItemId(?string $customLineItemId)
+    public function withPreviousValue(?ItemShippingDetails $previousValue)
     {
-        $this->customLineItemId = $customLineItemId;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -118,10 +122,21 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
-     * @param ?ItemShippingDetails $previousValue
+     * @param ?string $customLineItemId
      * @return $this
      */
-    public function withPreviousValue(?ItemShippingDetails $previousValue)
+    public function withCustomLineItemId(?string $customLineItemId)
+    {
+        $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?ItemShippingDetailsBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -139,24 +154,13 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withPreviousValue() instead
-     * @return $this
-     */
-    public function withPreviousValueBuilder(?ItemShippingDetailsBuilder $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
     public function build(): SetCustomLineItemShippingDetailsChange
     {
         return new SetCustomLineItemShippingDetailsChangeModel(
             $this->change,
-            $this->customLineItemId,
+            $this->previousValue instanceof ItemShippingDetailsBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof ItemShippingDetailsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof ItemShippingDetailsBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->customLineItemId
         );
     }
 

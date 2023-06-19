@@ -37,9 +37,9 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
 
     /**
      *
-     * @var ?string
+     * @var ?LocalizedString
      */
-    protected $attributeName;
+    protected $previousValue;
 
     /**
      *
@@ -49,9 +49,9 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
 
     /**
      *
-     * @var ?LocalizedString
+     * @var ?string
      */
-    protected $previousValue;
+    protected $attributeName;
 
 
     /**
@@ -59,15 +59,15 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
      */
     public function __construct(
         ?string $change = null,
-        ?string $attributeName = null,
-        ?LocalizedString $nextValue = null,
         ?LocalizedString $previousValue = null,
+        ?LocalizedString $nextValue = null,
+        ?string $attributeName = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->attributeName = $attributeName;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->attributeName = $attributeName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     }
 
     /**
-     * <p>Update action for <code>setInputTip</code> on product types</p>
-     *
      *
      * @return null|string
      */
@@ -110,26 +108,29 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     }
 
     /**
-     * <p>The name of the updated attribute.</p>
+     * <p>Value before the change.</p>
      *
      *
-     * @return null|string
+     * @return null|LocalizedString
      */
-    public function getAttributeName()
+    public function getPreviousValue()
     {
-        if (is_null($this->attributeName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName = (string) $data;
+
+            $this->previousValue = LocalizedStringModel::of($data);
         }
 
-        return $this->attributeName;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -149,22 +150,23 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getAttributeName()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = LocalizedStringModel::of($data);
+            $this->attributeName = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->attributeName;
     }
 
 
@@ -177,11 +179,11 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     }
 
     /**
-     * @param ?string $attributeName
+     * @param ?LocalizedString $previousValue
      */
-    public function setAttributeName(?string $attributeName): void
+    public function setPreviousValue(?LocalizedString $previousValue): void
     {
-        $this->attributeName = $attributeName;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -193,11 +195,11 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     }
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?string $attributeName
      */
-    public function setPreviousValue(?LocalizedString $previousValue): void
+    public function setAttributeName(?string $attributeName): void
     {
-        $this->previousValue = $previousValue;
+        $this->attributeName = $attributeName;
     }
 
 

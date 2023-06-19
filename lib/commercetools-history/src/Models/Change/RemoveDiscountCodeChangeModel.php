@@ -74,8 +74,6 @@ final class RemoveDiscountCodeChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
-     * <p>Update action for <code>removeDiscountCode</code></p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class RemoveDiscountCodeChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|DiscountCodeInfo
      */

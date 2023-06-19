@@ -39,13 +39,7 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
      *
      * @var ?LocalizedString
      */
-    protected $lineItem;
-
-    /**
-     *
-     * @var ?string
-     */
-    protected $variant;
+    protected $previousValue;
 
     /**
      *
@@ -57,7 +51,13 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
      *
      * @var ?LocalizedString
      */
-    protected $previousValue;
+    protected $lineItem;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $variant;
 
 
     /**
@@ -65,17 +65,17 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $change = null,
+        ?LocalizedString $previousValue = null,
+        ?LocalizedString $nextValue = null,
         ?LocalizedString $lineItem = null,
         ?string $variant = null,
-        ?LocalizedString $nextValue = null,
-        ?LocalizedString $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->lineItem = $lineItem;
         $this->variant = $variant;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -98,8 +98,6 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Update action for <code>setLineItemProductSlug</code></p>
-     *
      *
      * @return null|string
      */
@@ -118,43 +116,29 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
-    public function getLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->lineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->lineItem = LocalizedStringModel::of($data);
+            $this->previousValue = LocalizedStringModel::of($data);
         }
 
-        return $this->lineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getVariant()
-    {
-        if (is_null($this->variant)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_VARIANT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variant = (string) $data;
-        }
-
-        return $this->variant;
-    }
-
-    /**
      *
      * @return null|LocalizedString
      */
@@ -174,22 +158,44 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
+     *
      *
      * @return null|LocalizedString
      */
-    public function getPreviousValue()
+    public function getLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->lineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = LocalizedStringModel::of($data);
+            $this->lineItem = LocalizedStringModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->lineItem;
+    }
+
+    /**
+     * <p><code>sku</code> or <code>key</code> of the updated <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
     }
 
 
@@ -199,6 +205,22 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?LocalizedString $previousValue
+     */
+    public function setPreviousValue(?LocalizedString $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?LocalizedString $nextValue
+     */
+    public function setNextValue(?LocalizedString $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -215,22 +237,6 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     public function setVariant(?string $variant): void
     {
         $this->variant = $variant;
-    }
-
-    /**
-     * @param ?LocalizedString $nextValue
-     */
-    public function setNextValue(?LocalizedString $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param ?LocalizedString $previousValue
-     */
-    public function setPreviousValue(?LocalizedString $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

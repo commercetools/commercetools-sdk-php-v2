@@ -74,8 +74,6 @@ final class AddReturnInfoChangeModel extends JsonObjectModel implements AddRetur
     }
 
     /**
-     * <p>Update action for <code>addReturnInfo</code></p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class AddReturnInfoChangeModel extends JsonObjectModel implements AddRetur
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ReturnInfo
      */

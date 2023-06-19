@@ -31,9 +31,9 @@ final class SetAssetSourcesChangeBuilder implements Builder
 
     /**
 
-     * @var null|AssetChangeValue|AssetChangeValueBuilder
+     * @var ?AssetSourceCollection
      */
-    private $asset;
+    private $previousValue;
 
     /**
 
@@ -43,13 +43,11 @@ final class SetAssetSourcesChangeBuilder implements Builder
 
     /**
 
-     * @var ?AssetSourceCollection
+     * @var null|AssetChangeValue|AssetChangeValueBuilder
      */
-    private $previousValue;
+    private $asset;
 
     /**
-     * <p>Update action for <code>setAssetSources</code></p>
-     *
 
      * @return null|string
      */
@@ -59,15 +57,19 @@ final class SetAssetSourcesChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|AssetChangeValue
+     * @return null|AssetSourceCollection
      */
-    public function getAsset()
+    public function getPreviousValue()
     {
-        return $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|AssetSourceCollection
      */
@@ -77,12 +79,14 @@ final class SetAssetSourcesChangeBuilder implements Builder
     }
 
     /**
+     * <p>Information about the updated Asset.</p>
+     *
 
-     * @return null|AssetSourceCollection
+     * @return null|AssetChangeValue
      */
-    public function getPreviousValue()
+    public function getAsset()
     {
-        return $this->previousValue;
+        return $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset;
     }
 
     /**
@@ -97,12 +101,12 @@ final class SetAssetSourcesChangeBuilder implements Builder
     }
 
     /**
-     * @param ?AssetChangeValue $asset
+     * @param ?AssetSourceCollection $previousValue
      * @return $this
      */
-    public function withAsset(?AssetChangeValue $asset)
+    public function withPreviousValue(?AssetSourceCollection $previousValue)
     {
-        $this->asset = $asset;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -119,12 +123,12 @@ final class SetAssetSourcesChangeBuilder implements Builder
     }
 
     /**
-     * @param ?AssetSourceCollection $previousValue
+     * @param ?AssetChangeValue $asset
      * @return $this
      */
-    public function withPreviousValue(?AssetSourceCollection $previousValue)
+    public function withAsset(?AssetChangeValue $asset)
     {
-        $this->previousValue = $previousValue;
+        $this->asset = $asset;
 
         return $this;
     }
@@ -144,9 +148,9 @@ final class SetAssetSourcesChangeBuilder implements Builder
     {
         return new SetAssetSourcesChangeModel(
             $this->change,
-            $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset
         );
     }
 

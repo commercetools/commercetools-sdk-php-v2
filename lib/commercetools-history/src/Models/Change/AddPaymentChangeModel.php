@@ -39,13 +39,13 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
      *
      * @var ?PaymentInfo
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?PaymentInfo
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
      */
     public function __construct(
         ?string $change = null,
-        ?PaymentInfo $nextValue = null,
         ?PaymentInfo $previousValue = null,
+        ?PaymentInfo $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
     }
 
     /**
-     * <p>Update action for <code>addPayment</code> &amp; <code>removePayment</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|PaymentInfo
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = PaymentInfoModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|PaymentInfo
      */
@@ -139,6 +120,27 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|PaymentInfo
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = PaymentInfoModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
     }
 
     /**
-     * @param ?PaymentInfo $nextValue
-     */
-    public function setNextValue(?PaymentInfo $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?PaymentInfo $previousValue
      */
     public function setPreviousValue(?PaymentInfo $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?PaymentInfo $nextValue
+     */
+    public function setNextValue(?PaymentInfo $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

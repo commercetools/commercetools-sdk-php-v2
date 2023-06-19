@@ -16,9 +16,9 @@ use Commercetools\History\Models\Common\ParcelMeasurements;
 interface SetParcelMeasurementsChange extends Change
 {
 
-    public const FIELD_PARCEL = 'parcel';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_PARCEL = 'parcel';
 
     /**
 
@@ -27,30 +27,34 @@ interface SetParcelMeasurementsChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setParcelMeasurements</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|ParcelChangeValue
+     * @return null|ParcelMeasurements
      */
-    public function getParcel();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
     public function getNextValue();
 
     /**
+     * <p>Information about the updated Parcel.</p>
+     *
 
-     * @return null|ParcelMeasurements
+     * @return null|ParcelChangeValue
      */
-    public function getPreviousValue();
+    public function getParcel();
 
     /**
      * @param ?string $change
@@ -58,9 +62,9 @@ interface SetParcelMeasurementsChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?ParcelChangeValue $parcel
+     * @param ?ParcelMeasurements $previousValue
      */
-    public function setParcel(?ParcelChangeValue $parcel): void;
+    public function setPreviousValue(?ParcelMeasurements $previousValue): void;
 
     /**
      * @param ?ParcelMeasurements $nextValue
@@ -68,7 +72,7 @@ interface SetParcelMeasurementsChange extends Change
     public function setNextValue(?ParcelMeasurements $nextValue): void;
 
     /**
-     * @param ?ParcelMeasurements $previousValue
+     * @param ?ParcelChangeValue $parcel
      */
-    public function setPreviousValue(?ParcelMeasurements $previousValue): void;
+    public function setParcel(?ParcelChangeValue $parcel): void;
 }

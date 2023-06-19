@@ -35,15 +35,15 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
 
     /**
      *
-     * @var ?string
-     */
-    protected $path;
-
-    /**
-     *
      * @var ?mixed
      */
     protected $previousValue;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $path;
 
 
     /**
@@ -51,13 +51,13 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
      */
     public function __construct(
         ?string $change = null,
-        ?string $path = null,
          $previousValue = null,
+        ?string $path = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->path = $path;
         $this->previousValue = $previousValue;
+        $this->path = $path;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -80,8 +80,6 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
     }
 
     /**
-     * <p>Update action for <code>removeProperty</code> on custom objects</p>
-     *
      *
      * @return null|string
      */
@@ -100,7 +98,27 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
     }
 
     /**
-     * <p>Value path to the property that was removed</p>
+     * <p>Value before the change.</p>
+     *
+     *
+     * @return null|mixed
+     */
+    public function getPreviousValue()
+    {
+        if (is_null($this->previousValue)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->previousValue = $data;
+        }
+
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Path to the property that was removed.</p>
      *
      *
      * @return null|string
@@ -119,24 +137,6 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
         return $this->path;
     }
 
-    /**
-     *
-     * @return null|mixed
-     */
-    public function getPreviousValue()
-    {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->previousValue = $data;
-        }
-
-        return $this->previousValue;
-    }
-
 
     /**
      * @param ?string $change
@@ -147,19 +147,19 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
     }
 
     /**
-     * @param ?string $path
-     */
-    public function setPath(?string $path): void
-    {
-        $this->path = $path;
-    }
-
-    /**
      * @param mixed $previousValue
      */
     public function setPreviousValue( $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?string $path
+     */
+    public function setPath(?string $path): void
+    {
+        $this->path = $path;
     }
 
 

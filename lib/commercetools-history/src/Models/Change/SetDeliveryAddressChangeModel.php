@@ -37,9 +37,9 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
 
     /**
      *
-     * @var ?string
+     * @var ?Address
      */
-    protected $deliveryId;
+    protected $previousValue;
 
     /**
      *
@@ -49,9 +49,9 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
 
     /**
      *
-     * @var ?Address
+     * @var ?string
      */
-    protected $previousValue;
+    protected $deliveryId;
 
 
     /**
@@ -59,15 +59,15 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
      */
     public function __construct(
         ?string $change = null,
-        ?string $deliveryId = null,
-        ?Address $nextValue = null,
         ?Address $previousValue = null,
+        ?Address $nextValue = null,
+        ?string $deliveryId = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->deliveryId = $deliveryId;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->deliveryId = $deliveryId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * <p>Update action for <code>setDeliveryAddress</code></p>
-     *
      *
      * @return null|string
      */
@@ -110,24 +108,29 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
+     *
+     * @return null|Address
      */
-    public function getDeliveryId()
+    public function getPreviousValue()
     {
-        if (is_null($this->deliveryId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_DELIVERY_ID);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->deliveryId = (string) $data;
+
+            $this->previousValue = AddressModel::of($data);
         }
 
-        return $this->deliveryId;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|Address
      */
@@ -147,22 +150,23 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
-     * @return null|Address
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getDeliveryId()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = AddressModel::of($data);
+            $this->deliveryId = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->deliveryId;
     }
 
 
@@ -175,11 +179,11 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * @param ?string $deliveryId
+     * @param ?Address $previousValue
      */
-    public function setDeliveryId(?string $deliveryId): void
+    public function setPreviousValue(?Address $previousValue): void
     {
-        $this->deliveryId = $deliveryId;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -191,11 +195,11 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * @param ?Address $previousValue
+     * @param ?string $deliveryId
      */
-    public function setPreviousValue(?Address $previousValue): void
+    public function setDeliveryId(?string $deliveryId): void
     {
-        $this->previousValue = $previousValue;
+        $this->deliveryId = $deliveryId;
     }
 
 

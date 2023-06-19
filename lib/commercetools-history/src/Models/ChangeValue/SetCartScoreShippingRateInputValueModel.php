@@ -65,6 +65,8 @@ final class SetCartScoreShippingRateInputValueModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Abstract value for categorizing a Cart.</p>
+     *
      *
      * @return null|int
      */

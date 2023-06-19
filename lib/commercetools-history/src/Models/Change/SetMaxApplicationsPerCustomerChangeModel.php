@@ -80,8 +80,6 @@ final class SetMaxApplicationsPerCustomerChangeModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>Shape of the action for <code>setMaxApplicationsPerCustomer</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetMaxApplicationsPerCustomerChangeModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|int
      */
@@ -118,6 +118,8 @@ final class SetMaxApplicationsPerCustomerChangeModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|int
      */

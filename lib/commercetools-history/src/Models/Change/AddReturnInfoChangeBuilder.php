@@ -35,8 +35,6 @@ final class AddReturnInfoChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>addReturnInfo</code></p>
-     *
 
      * @return null|string
      */
@@ -46,6 +44,8 @@ final class AddReturnInfoChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ReturnInfo
      */

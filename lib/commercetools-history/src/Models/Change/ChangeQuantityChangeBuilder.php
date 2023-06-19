@@ -32,13 +32,13 @@ final class ChangeQuantityChangeBuilder implements Builder
 
      * @var null|InventoryQuantityValue|InventoryQuantityValueBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|InventoryQuantityValue|InventoryQuantityValueBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
 
@@ -50,15 +50,8 @@ final class ChangeQuantityChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|InventoryQuantityValue
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof InventoryQuantityValueBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|InventoryQuantityValue
      */
@@ -68,23 +61,23 @@ final class ChangeQuantityChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|InventoryQuantityValue
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof InventoryQuantityValueBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?InventoryQuantityValue $nextValue
-     * @return $this
-     */
-    public function withNextValue(?InventoryQuantityValue $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -101,10 +94,10 @@ final class ChangeQuantityChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?InventoryQuantityValue $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?InventoryQuantityValueBuilder $nextValue)
+    public function withNextValue(?InventoryQuantityValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -122,12 +115,23 @@ final class ChangeQuantityChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?InventoryQuantityValueBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): ChangeQuantityChange
     {
         return new ChangeQuantityChangeModel(
             $this->change,
-            $this->nextValue instanceof InventoryQuantityValueBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof InventoryQuantityValueBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof InventoryQuantityValueBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof InventoryQuantityValueBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

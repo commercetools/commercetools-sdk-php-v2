@@ -15,8 +15,8 @@ use Commercetools\History\Models\Common\PaymentInfo;
 interface RemovePaymentChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -25,24 +25,26 @@ interface RemovePaymentChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>addPayment</code> &amp; <code>removePayment</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|PaymentInfo
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|PaymentInfo
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|PaymentInfo
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface RemovePaymentChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?PaymentInfo $nextValue
-     */
-    public function setNextValue(?PaymentInfo $nextValue): void;
-
-    /**
      * @param ?PaymentInfo $previousValue
      */
     public function setPreviousValue(?PaymentInfo $previousValue): void;
+
+    /**
+     * @param ?PaymentInfo $nextValue
+     */
+    public function setNextValue(?PaymentInfo $nextValue): void;
 }

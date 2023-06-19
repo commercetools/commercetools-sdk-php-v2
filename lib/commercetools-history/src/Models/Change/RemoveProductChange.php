@@ -24,14 +24,14 @@ interface RemoveProductChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for when a product is unassigned from a product selection</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Reference
      */

@@ -15,8 +15,8 @@ use Commercetools\History\Models\Common\CustomLineItem;
 interface RemoveCustomLineItemChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -25,24 +25,26 @@ interface RemoveCustomLineItemChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for adding and removing custom line items</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|CustomLineItem
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CustomLineItem
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|CustomLineItem
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface RemoveCustomLineItemChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?CustomLineItem $nextValue
-     */
-    public function setNextValue(?CustomLineItem $nextValue): void;
-
-    /**
      * @param ?CustomLineItem $previousValue
      */
     public function setPreviousValue(?CustomLineItem $previousValue): void;
+
+    /**
+     * @param ?CustomLineItem $nextValue
+     */
+    public function setNextValue(?CustomLineItem $nextValue): void;
 }

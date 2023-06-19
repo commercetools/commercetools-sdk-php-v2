@@ -15,9 +15,9 @@ use Commercetools\History\Models\Common\LocalizedString;
 interface SetInputTipChange extends Change
 {
 
-    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
 
     /**
 
@@ -26,15 +26,29 @@ interface SetInputTipChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setInputTip</code> on product types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>The name of the updated attribute.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|string
@@ -42,26 +56,14 @@ interface SetInputTipChange extends Change
     public function getAttributeName();
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getNextValue();
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getPreviousValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $attributeName
+     * @param ?LocalizedString $previousValue
      */
-    public function setAttributeName(?string $attributeName): void;
+    public function setPreviousValue(?LocalizedString $previousValue): void;
 
     /**
      * @param ?LocalizedString $nextValue
@@ -69,7 +71,7 @@ interface SetInputTipChange extends Change
     public function setNextValue(?LocalizedString $nextValue): void;
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?string $attributeName
      */
-    public function setPreviousValue(?LocalizedString $previousValue): void;
+    public function setAttributeName(?string $attributeName): void;
 }

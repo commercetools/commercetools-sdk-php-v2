@@ -30,9 +30,9 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|TaxRate|TaxRateBuilder
      */
-    private $taxMode;
+    private $previousValue;
 
     /**
 
@@ -42,13 +42,11 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
 
     /**
 
-     * @var null|TaxRate|TaxRateBuilder
+     * @var ?string
      */
-    private $previousValue;
+    private $taxMode;
 
     /**
-     * <p>Update action for <code>setShippingMethodTaxRate</code></p>
-     *
 
      * @return null|string
      */
@@ -58,16 +56,18 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|TaxRate
      */
-    public function getTaxMode()
+    public function getPreviousValue()
     {
-        return $this->taxMode;
+        return $this->previousValue instanceof TaxRateBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|TaxRate
@@ -78,14 +78,14 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
     }
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p><code>&quot;External&quot;</code></p>
      *
 
-     * @return null|TaxRate
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getTaxMode()
     {
-        return $this->previousValue instanceof TaxRateBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->taxMode;
     }
 
     /**
@@ -100,12 +100,12 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $taxMode
+     * @param ?TaxRate $previousValue
      * @return $this
      */
-    public function withTaxMode(?string $taxMode)
+    public function withPreviousValue(?TaxRate $previousValue)
     {
-        $this->taxMode = $taxMode;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -122,10 +122,21 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
     }
 
     /**
-     * @param ?TaxRate $previousValue
+     * @param ?string $taxMode
      * @return $this
      */
-    public function withPreviousValue(?TaxRate $previousValue)
+    public function withTaxMode(?string $taxMode)
+    {
+        $this->taxMode = $taxMode;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?TaxRateBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -143,24 +154,13 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withPreviousValue() instead
-     * @return $this
-     */
-    public function withPreviousValueBuilder(?TaxRateBuilder $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
     public function build(): SetShippingMethodTaxRateChange
     {
         return new SetShippingMethodTaxRateChangeModel(
             $this->change,
-            $this->taxMode,
+            $this->previousValue instanceof TaxRateBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof TaxRateBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof TaxRateBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->taxMode
         );
     }
 

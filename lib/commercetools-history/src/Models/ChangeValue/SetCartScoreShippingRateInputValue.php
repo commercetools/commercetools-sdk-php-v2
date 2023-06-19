@@ -24,6 +24,8 @@ interface SetCartScoreShippingRateInputValue extends JsonObject
     public function getType();
 
     /**
+     * <p>Abstract value for categorizing a Cart.</p>
+     *
 
      * @return null|int
      */

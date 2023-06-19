@@ -39,8 +39,6 @@ final class SetLocaleChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>setLocale</code> on reviews</p>
-     *
 
      * @return null|string
      */
@@ -50,7 +48,7 @@ final class SetLocaleChangeBuilder implements Builder
     }
 
     /**
-     * <p>A locale of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>.</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|string
@@ -61,7 +59,7 @@ final class SetLocaleChangeBuilder implements Builder
     }
 
     /**
-     * <p>A locale of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>.</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|string
