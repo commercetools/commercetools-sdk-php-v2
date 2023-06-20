@@ -13,4 +13,18 @@ use Commercetools\Base\JsonObject;
 
 interface StandalonePriceDeletedMessagePayload extends MessagePayload
 {
+    public const FIELD_SKU = 'sku';
+
+    /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to which the deleted Standalone Price was associated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSku();
+
+    /**
+     * @param ?string $sku
+     */
+    public function setSku(?string $sku): void;
 }
