@@ -45,7 +45,8 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
 
     /**
      * <p>Minimum quantity this Price tier is valid for.</p>
-     * <p>The minimum quantity is always greater than or equal to 2. The base Price is interpreted as valid for a minimum quantity equal to 1.</p>
+     * <p>The minimum quantity is always greater than or equal to 2. The base Price is interpreted as valid for a minimum quantity equal to 1.
+     * A <a href="ctp:api:type:Price">Price</a> or <a href="ctp:api:type:StandalonePrice">StandalonePrice</a> cannot contain more than one tier with the same <code>minimumQuantity</code>.</p>
      *
      *
      * @return null|int

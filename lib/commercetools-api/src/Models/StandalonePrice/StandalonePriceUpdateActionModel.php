@@ -31,13 +31,16 @@ final class StandalonePriceUpdateActionModel extends JsonObjectModel implements 
      *
      */
     private static $discriminatorClasses = [
+       'addPriceTier' => StandalonePriceAddPriceTierActionModel::class,
        'applyStagedChanges' => StandalonePriceApplyStagedChangesActionModel::class,
        'changeActive' => StandalonePriceChangeActiveActionModel::class,
        'changeValue' => StandalonePriceChangeValueActionModel::class,
+       'removePriceTier' => StandalonePriceRemovePriceTierActionModel::class,
        'setCustomField' => StandalonePriceSetCustomFieldActionModel::class,
        'setCustomType' => StandalonePriceSetCustomTypeActionModel::class,
        'setDiscountedPrice' => StandalonePriceSetDiscountedPriceActionModel::class,
        'setKey' => StandalonePriceSetKeyActionModel::class,
+       'setPriceTier' => StandalonePriceSetPriceTiersActionModel::class,
        'setValidFrom' => StandalonePriceSetValidFromActionModel::class,
        'setValidFromAndUntil' => StandalonePriceSetValidFromAndUntilActionModel::class,
        'setValidUntil' => StandalonePriceSetValidUntilActionModel::class,

@@ -18,7 +18,9 @@ interface PriceTierDraft extends JsonObject
 
     /**
      * <p>Minimum quantity this Price tier is valid for.</p>
-     * <p>The minimum quantity is always greater than or equal to 2. The base Price is interpreted as valid for a minimum quantity equal to 1.</p>
+     * <p>The minimum quantity is always greater than or equal to 2. The base Price is interpreted as valid for a minimum quantity equal to 1.
+     * A <a href="ctp:api:type:Price">Price</a> or <a href="ctp:api:type:StandalonePrice">StandalonePrice</a> cannot contain more than one tier with the same <code>minimumQuantity</code>.
+     * In the case one of the constraint is not met an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> is returned.</p>
      *
 
      * @return null|int
