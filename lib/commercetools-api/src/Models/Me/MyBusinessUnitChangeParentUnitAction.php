@@ -17,7 +17,7 @@ interface MyBusinessUnitChangeParentUnitAction extends MyBusinessUnitUpdateActio
     public const FIELD_PARENT_UNIT = 'parentUnit';
 
     /**
-     * <p>New parent unit of the <a href="ctp:api:type:BusinessUnit">Business Unit</a>.</p>
+     * <p>New parent unit of the <a href="ctp:api:type:BusinessUnit">Business Unit</a>. The new parent unit must have the same top-level unit as the old parent unit.</p>
      *
 
      * @return null|BusinessUnitResourceIdentifier
