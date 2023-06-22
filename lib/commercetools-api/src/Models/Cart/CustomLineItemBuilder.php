@@ -95,6 +95,12 @@ final class CustomLineItemBuilder implements Builder
 
     /**
 
+     * @var ?MethodTaxRateCollection
+     */
+    private $perMethodTaxRate;
+
+    /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
@@ -231,6 +237,18 @@ final class CustomLineItemBuilder implements Builder
     public function getTaxRate()
     {
         return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
+    }
+
+    /**
+     * <p>Tax Rate per Shipping Method for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> it is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.
+     * For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|MethodTaxRateCollection
+     */
+    public function getPerMethodTaxRate()
+    {
+        return $this->perMethodTaxRate;
     }
 
     /**
@@ -388,6 +406,17 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?MethodTaxRateCollection $perMethodTaxRate
+     * @return $this
+     */
+    public function withPerMethodTaxRate(?MethodTaxRateCollection $perMethodTaxRate)
+    {
+        $this->perMethodTaxRate = $perMethodTaxRate;
+
+        return $this;
+    }
+
+    /**
      * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
      * @return $this
      */
@@ -532,6 +561,7 @@ final class CustomLineItemBuilder implements Builder
             $this->state,
             $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
+            $this->perMethodTaxRate,
             $this->discountedPricePerQuantity,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
