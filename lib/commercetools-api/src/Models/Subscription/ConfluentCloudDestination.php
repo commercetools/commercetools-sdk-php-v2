@@ -45,7 +45,7 @@ interface ConfluentCloudDestination extends Destination
     public function getApiSecret();
 
     /**
-     * <p>The Kafka <code>acks</code> value. Can be <code>&quot;0&quot;</code>, <code>&quot;1&quot;</code>, or <code>&quot;all&quot;</code>.</p>
+     * <p>The Kafka <code>acks</code> value.</p>
      *
 
      * @return null|string
