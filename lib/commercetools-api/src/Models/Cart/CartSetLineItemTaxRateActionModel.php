@@ -34,6 +34,12 @@ final class CartSetLineItemTaxRateActionModel extends JsonObjectModel implements
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -50,11 +56,13 @@ final class CartSetLineItemTaxRateActionModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
         ?string $shippingKey = null,
         ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->externalTaxRate = $externalTaxRate;
         $this->shippingKey = $shippingKey;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
@@ -79,7 +87,7 @@ final class CartSetLineItemTaxRateActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -96,6 +104,26 @@ final class CartSetLineItemTaxRateActionModel extends JsonObjectModel implements
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
     }
 
     /**
@@ -148,6 +176,14 @@ final class CartSetLineItemTaxRateActionModel extends JsonObjectModel implements
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

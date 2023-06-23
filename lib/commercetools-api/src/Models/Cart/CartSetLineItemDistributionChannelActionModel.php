@@ -36,6 +36,12 @@ final class CartSetLineItemDistributionChannelActionModel extends JsonObjectMode
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -46,10 +52,12 @@ final class CartSetLineItemDistributionChannelActionModel extends JsonObjectMode
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?ChannelResourceIdentifier $distributionChannel = null,
         ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->distributionChannel = $distributionChannel;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -73,7 +81,7 @@ final class CartSetLineItemDistributionChannelActionModel extends JsonObjectMode
     }
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -90,6 +98,26 @@ final class CartSetLineItemDistributionChannelActionModel extends JsonObjectMode
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
     }
 
     /**
@@ -124,6 +152,14 @@ final class CartSetLineItemDistributionChannelActionModel extends JsonObjectMode
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**
