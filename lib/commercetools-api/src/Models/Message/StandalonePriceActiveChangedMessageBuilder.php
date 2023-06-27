@@ -211,7 +211,7 @@ final class StandalonePriceActiveChangedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Value of the <code>active</code> field of the StandalonePrice after the <a href="ctp:api:types:StandalonePriceChangeActiveAction">Change Active</a> update action.</p>
+     * <p>Value of the <code>active</code> field of the StandalonePrice after the <a href="ctp:api:type:StandalonePriceChangeActiveAction">Change Active</a> update action.</p>
      *
 
      * @return null|bool
@@ -222,7 +222,7 @@ final class StandalonePriceActiveChangedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Value of the <code>active</code> field of the StandalonePrice before the <a href="ctp:api:types:StandalonePriceChangeActiveAction">Change Active</a> update action.</p>
+     * <p>Value of the <code>active</code> field of the StandalonePrice before the <a href="ctp:api:type:StandalonePriceChangeActiveAction">Change Active</a> update action.</p>
      *
 
      * @return null|bool

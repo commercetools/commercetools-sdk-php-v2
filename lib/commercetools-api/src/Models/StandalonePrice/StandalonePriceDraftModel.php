@@ -370,8 +370,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     }
 
     /**
-     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
-     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     * <p>Set to <code>false</code>, if the StandalonePrice should not be considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
      *
      *
      * @return null|bool
