@@ -14,6 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\Common\ProductVariantSelection;
+use Commercetools\History\Models\Common\ProductVariantSelectionBuilder;
 use Commercetools\History\Models\Common\Reference;
 use Commercetools\History\Models\Common\ReferenceBuilder;
 
@@ -36,6 +38,12 @@ final class AddProductChangeBuilder implements Builder
 
     /**
 
+     * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
+     */
+    private $variantSelection;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -52,6 +60,17 @@ final class AddProductChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue instanceof ReferenceBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:ProductVariant">Product Variants</a> included in the <a href="ctp:api:type:ProductSelection">Product Selection</a>.</p>
+     *
+
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection()
+    {
+        return $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection;
     }
 
     /**
@@ -77,6 +96,17 @@ final class AddProductChangeBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantSelection $variantSelection
+     * @return $this
+     */
+    public function withVariantSelection(?ProductVariantSelection $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withNextValue() instead
      * @return $this
      */
@@ -87,11 +117,23 @@ final class AddProductChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withVariantSelection() instead
+     * @return $this
+     */
+    public function withVariantSelectionBuilder(?ProductVariantSelectionBuilder $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
     public function build(): AddProductChange
     {
         return new AddProductChangeModel(
             $this->change,
-            $this->nextValue instanceof ReferenceBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof ReferenceBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection
         );
     }
 

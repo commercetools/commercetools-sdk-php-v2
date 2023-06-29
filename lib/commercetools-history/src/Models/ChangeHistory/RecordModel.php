@@ -15,8 +15,8 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\History\Models\Common\KeyReferenceCollection;
-use Commercetools\History\Models\Common\Reference;
-use Commercetools\History\Models\Common\ReferenceModel;
+use Commercetools\History\Models\Common\ResourceIdentifier;
+use Commercetools\History\Models\Common\ResourceIdentifierModel;
 use Commercetools\History\Models\Label\Label;
 use Commercetools\History\Models\Label\LabelModel;
 
@@ -77,7 +77,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      *
-     * @var ?Reference
+     * @var ?ResourceIdentifier
      */
     protected $resource;
 
@@ -106,7 +106,7 @@ final class RecordModel extends JsonObjectModel implements Record
         ?Label $label = null,
         ?Label $previousLabel = null,
         ?ChangeCollection $changes = null,
-        ?Reference $resource = null,
+        ?ResourceIdentifier $resource = null,
         ?KeyReferenceCollection $stores = null,
         ?bool $withoutChanges = null
     ) {
@@ -291,10 +291,10 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p>Reference to the changed resource.</p>
+     * <p>ResourceIdentifier of the changed resource.</p>
      *
      *
-     * @return null|Reference
+     * @return null|ResourceIdentifier
      */
     public function getResource()
     {
@@ -305,7 +305,7 @@ final class RecordModel extends JsonObjectModel implements Record
                 return null;
             }
 
-            $this->resource = ReferenceModel::of($data);
+            $this->resource = ResourceIdentifierModel::of($data);
         }
 
         return $this->resource;
@@ -418,9 +418,9 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * @param ?Reference $resource
+     * @param ?ResourceIdentifier $resource
      */
-    public function setResource(?Reference $resource): void
+    public function setResource(?ResourceIdentifier $resource): void
     {
         $this->resource = $resource;
     }

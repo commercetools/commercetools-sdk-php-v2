@@ -12,7 +12,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\History\Models\Common\KeyReferenceCollection;
-use Commercetools\History\Models\Common\Reference;
+use Commercetools\History\Models\Common\ResourceIdentifier;
 use Commercetools\History\Models\Label\Label;
 
 interface Record extends JsonObject
@@ -98,10 +98,10 @@ interface Record extends JsonObject
     public function getChanges();
 
     /**
-     * <p>Reference to the changed resource.</p>
+     * <p>ResourceIdentifier of the changed resource.</p>
      *
 
-     * @return null|Reference
+     * @return null|ResourceIdentifier
      */
     public function getResource();
 
@@ -163,9 +163,9 @@ interface Record extends JsonObject
     public function setChanges(?ChangeCollection $changes): void;
 
     /**
-     * @param ?Reference $resource
+     * @param ?ResourceIdentifier $resource
      */
-    public function setResource(?Reference $resource): void;
+    public function setResource(?ResourceIdentifier $resource): void;
 
     /**
      * @param ?KeyReferenceCollection $stores

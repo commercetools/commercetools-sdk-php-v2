@@ -16,8 +16,8 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\History\Models\Common\KeyReferenceCollection;
-use Commercetools\History\Models\Common\Reference;
-use Commercetools\History\Models\Common\ReferenceBuilder;
+use Commercetools\History\Models\Common\ResourceIdentifier;
+use Commercetools\History\Models\Common\ResourceIdentifierBuilder;
 use Commercetools\History\Models\Label\Label;
 use Commercetools\History\Models\Label\LabelBuilder;
 
@@ -76,7 +76,7 @@ final class RecordBuilder implements Builder
 
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var null|ResourceIdentifier|ResourceIdentifierBuilder
      */
     private $resource;
 
@@ -184,14 +184,14 @@ final class RecordBuilder implements Builder
     }
 
     /**
-     * <p>Reference to the changed resource.</p>
+     * <p>ResourceIdentifier of the changed resource.</p>
      *
 
-     * @return null|Reference
+     * @return null|ResourceIdentifier
      */
     public function getResource()
     {
-        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
+        return $this->resource instanceof ResourceIdentifierBuilder ? $this->resource->build() : $this->resource;
     }
 
     /**
@@ -306,10 +306,10 @@ final class RecordBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $resource
+     * @param ?ResourceIdentifier $resource
      * @return $this
      */
-    public function withResource(?Reference $resource)
+    public function withResource(?ResourceIdentifier $resource)
     {
         $this->resource = $resource;
 
@@ -375,7 +375,7 @@ final class RecordBuilder implements Builder
      * @deprecated use withResource() instead
      * @return $this
      */
-    public function withResourceBuilder(?ReferenceBuilder $resource)
+    public function withResourceBuilder(?ResourceIdentifierBuilder $resource)
     {
         $this->resource = $resource;
 
@@ -393,7 +393,7 @@ final class RecordBuilder implements Builder
             $this->label instanceof LabelBuilder ? $this->label->build() : $this->label,
             $this->previousLabel instanceof LabelBuilder ? $this->previousLabel->build() : $this->previousLabel,
             $this->changes,
-            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
+            $this->resource instanceof ResourceIdentifierBuilder ? $this->resource->build() : $this->resource,
             $this->stores,
             $this->withoutChanges
         );
