@@ -25,15 +25,13 @@ interface RemoveTaxRateChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>removeTaxRate</code> on tax categories</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|TaxRate
@@ -41,7 +39,7 @@ interface RemoveTaxRateChange extends Change
     public function getPreviousValue();
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|TaxRate

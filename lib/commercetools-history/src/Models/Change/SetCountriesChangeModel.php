@@ -81,8 +81,6 @@ final class SetCountriesChangeModel extends JsonObjectModel implements SetCountr
     }
 
     /**
-     * <p>Update action for <code>setCountries</code>.</p>
-     *
      *
      * @return null|string
      */
@@ -101,7 +99,7 @@ final class SetCountriesChangeModel extends JsonObjectModel implements SetCountr
     }
 
     /**
-     * <p>Countries defined for the Store prior to the update action.</p>
+     * <p>Value before the change.</p>
      *
      *
      * @return null|StoreCountryCollection
@@ -121,7 +119,7 @@ final class SetCountriesChangeModel extends JsonObjectModel implements SetCountr
     }
 
     /**
-     * <p>Countries defined for the Store after the update action.</p>
+     * <p>Value after the change.</p>
      *
      *
      * @return null|StoreCountryCollection

@@ -80,8 +80,6 @@ final class ChangeKeyChangeModel extends JsonObjectModel implements ChangeKeyCha
     }
 
     /**
-     * <p>Shape of the action for <code>changeKey</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeKeyChangeModel extends JsonObjectModel implements ChangeKeyCha
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class ChangeKeyChangeModel extends JsonObjectModel implements ChangeKeyCha
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

@@ -37,12 +37,6 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
 
     /**
      *
-     * @var ?TextLineItemValue
-     */
-    protected $textLineItem;
-
-    /**
-     *
      * @var ?int
      */
     protected $previousValue;
@@ -53,21 +47,27 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?TextLineItemValue
+     */
+    protected $textLineItem;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?TextLineItemValue $textLineItem = null,
         ?int $previousValue = null,
         ?int $nextValue = null,
+        ?TextLineItemValue $textLineItem = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->textLineItem = $textLineItem;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->textLineItem = $textLineItem;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -108,25 +108,8 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|TextLineItemValue
-     */
-    public function getTextLineItem()
-    {
-        if (is_null($this->textLineItem)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TEXT_LINE_ITEM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->textLineItem = TextLineItemValueModel::of($data);
-        }
-
-        return $this->textLineItem;
-    }
-
-    /**
      *
      * @return null|int
      */
@@ -145,6 +128,8 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|int
      */
@@ -162,6 +147,27 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
         return $this->nextValue;
     }
 
+    /**
+     * <p>Holds information about the updated Text Line Item.</p>
+     *
+     *
+     * @return null|TextLineItemValue
+     */
+    public function getTextLineItem()
+    {
+        if (is_null($this->textLineItem)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->textLineItem = TextLineItemValueModel::of($data);
+        }
+
+        return $this->textLineItem;
+    }
+
 
     /**
      * @param ?string $change
@@ -169,14 +175,6 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?TextLineItemValue $textLineItem
-     */
-    public function setTextLineItem(?TextLineItemValue $textLineItem): void
-    {
-        $this->textLineItem = $textLineItem;
     }
 
     /**
@@ -193,6 +191,14 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
     public function setNextValue(?int $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?TextLineItemValue $textLineItem
+     */
+    public function setTextLineItem(?TextLineItemValue $textLineItem): void
+    {
+        $this->textLineItem = $textLineItem;
     }
 
 

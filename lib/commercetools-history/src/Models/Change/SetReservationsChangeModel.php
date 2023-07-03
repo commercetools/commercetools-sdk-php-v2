@@ -38,13 +38,13 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
      *
      * @var ?ReservationCollection
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?ReservationCollection
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -52,13 +52,13 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
      */
     public function __construct(
         ?string $change = null,
-        ?ReservationCollection $nextValue = null,
         ?ReservationCollection $previousValue = null,
+        ?ReservationCollection $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -81,8 +81,6 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
     }
 
     /**
-     * <p>Update action for <code>setReservations</code> on inventories</p>
-     *
      *
      * @return null|string
      */
@@ -101,24 +99,8 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|ReservationCollection
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->nextValue = ReservationCollection::fromArray($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|ReservationCollection
      */
@@ -136,6 +118,26 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|ReservationCollection
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = ReservationCollection::fromArray($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -146,19 +148,19 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
     }
 
     /**
-     * @param ?ReservationCollection $nextValue
-     */
-    public function setNextValue(?ReservationCollection $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?ReservationCollection $previousValue
      */
     public function setPreviousValue(?ReservationCollection $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?ReservationCollection $nextValue
+     */
+    public function setNextValue(?ReservationCollection $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

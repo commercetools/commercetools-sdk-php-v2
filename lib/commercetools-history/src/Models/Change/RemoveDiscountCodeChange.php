@@ -24,14 +24,14 @@ interface RemoveDiscountCodeChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>removeDiscountCode</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|DiscountCodeInfo
      */

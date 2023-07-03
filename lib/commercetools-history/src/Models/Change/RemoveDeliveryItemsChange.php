@@ -24,14 +24,14 @@ interface RemoveDeliveryItemsChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>removeDelivery</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Delivery
      */

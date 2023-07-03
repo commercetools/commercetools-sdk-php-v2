@@ -37,9 +37,9 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
 
     /**
      *
-     * @var ?string
+     * @var ?ItemShippingDetails
      */
-    protected $lineItemId;
+    protected $previousValue;
 
     /**
      *
@@ -49,9 +49,9 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
 
     /**
      *
-     * @var ?ItemShippingDetails
+     * @var ?string
      */
-    protected $previousValue;
+    protected $lineItemId;
 
 
     /**
@@ -59,15 +59,15 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
      */
     public function __construct(
         ?string $change = null,
-        ?string $lineItemId = null,
-        ?ItemShippingDetails $nextValue = null,
         ?ItemShippingDetails $previousValue = null,
+        ?ItemShippingDetails $nextValue = null,
+        ?string $lineItemId = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->lineItemId = $lineItemId;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->lineItemId = $lineItemId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Update action for <code>setLineItemShippingDetails</code></p>
-     *
      *
      * @return null|string
      */
@@ -110,24 +108,29 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
+     *
+     * @return null|ItemShippingDetails
      */
-    public function getLineItemId()
+    public function getPreviousValue()
     {
-        if (is_null($this->lineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->lineItemId = (string) $data;
+
+            $this->previousValue = ItemShippingDetailsModel::of($data);
         }
 
-        return $this->lineItemId;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ItemShippingDetails
      */
@@ -147,22 +150,23 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
      *
-     * @return null|ItemShippingDetails
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getLineItemId()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = ItemShippingDetailsModel::of($data);
+            $this->lineItemId = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->lineItemId;
     }
 
 
@@ -175,11 +179,11 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     }
 
     /**
-     * @param ?string $lineItemId
+     * @param ?ItemShippingDetails $previousValue
      */
-    public function setLineItemId(?string $lineItemId): void
+    public function setPreviousValue(?ItemShippingDetails $previousValue): void
     {
-        $this->lineItemId = $lineItemId;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -191,11 +195,11 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     }
 
     /**
-     * @param ?ItemShippingDetails $previousValue
+     * @param ?string $lineItemId
      */
-    public function setPreviousValue(?ItemShippingDetails $previousValue): void
+    public function setLineItemId(?string $lineItemId): void
     {
-        $this->previousValue = $previousValue;
+        $this->lineItemId = $lineItemId;
     }
 
 

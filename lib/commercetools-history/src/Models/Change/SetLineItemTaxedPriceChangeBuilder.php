@@ -32,6 +32,18 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
 
     /**
 
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
+     */
+    private $previousValue;
+
+    /**
+
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
+     */
+    private $nextValue;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $lineItem;
@@ -44,20 +56,6 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
-     */
-    private $nextValue;
-
-    /**
-
-     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>setLineItemTaxedPrice</code></p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -66,33 +64,8 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getLineItem()
-    {
-        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getLineItemId()
-    {
-        return $this->lineItemId;
-    }
-
-    /**
-
-     * @return null|TaxedItemPrice
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof TaxedItemPriceBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|TaxedItemPrice
      */
@@ -102,12 +75,67 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|TaxedItemPrice
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof TaxedItemPriceBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        return $this->lineItemId;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TaxedItemPrice $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?TaxedItemPrice $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TaxedItemPrice $nextValue
+     * @return $this
+     */
+    public function withNextValue(?TaxedItemPrice $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -135,34 +163,12 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?TaxedItemPrice $nextValue
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withNextValue(?TaxedItemPrice $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TaxedItemPrice $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?TaxedItemPrice $previousValue)
+    public function withPreviousValueBuilder(?TaxedItemPriceBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withLineItem() instead
-     * @return $this
-     */
-    public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
-    {
-        $this->lineItem = $lineItem;
 
         return $this;
     }
@@ -179,12 +185,12 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withLineItem() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?TaxedItemPriceBuilder $previousValue)
+    public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
     {
-        $this->previousValue = $previousValue;
+        $this->lineItem = $lineItem;
 
         return $this;
     }
@@ -193,10 +199,10 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
     {
         return new SetLineItemTaxedPriceChangeModel(
             $this->change,
-            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
-            $this->lineItemId,
+            $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof TaxedItemPriceBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->lineItemId
         );
     }
 

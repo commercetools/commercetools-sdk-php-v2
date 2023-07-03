@@ -39,8 +39,6 @@ final class SetAuthenticationModeChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>setAuthenticationMode</code></p>
-     *
 
      * @return null|string
      */
@@ -50,6 +48,8 @@ final class SetAuthenticationModeChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
@@ -59,6 +59,8 @@ final class SetAuthenticationModeChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|string
      */

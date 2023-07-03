@@ -80,8 +80,6 @@ final class SetRestockableInDaysChangeModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>Shape of the action for <code>setRestockableInDays</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetRestockableInDaysChangeModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|int
      */
@@ -118,6 +118,8 @@ final class SetRestockableInDaysChangeModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|int
      */

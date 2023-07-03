@@ -16,8 +16,8 @@ use Commercetools\History\Models\ChangeValue\SetCartScoreShippingRateInputValue;
 interface SetShippingRateInputChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -26,24 +26,26 @@ interface SetShippingRateInputChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setShippingRateInput</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|mixed
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|mixed
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -51,12 +53,12 @@ interface SetShippingRateInputChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?JsonObject $nextValue
-     */
-    public function setNextValue(?JsonObject $nextValue): void;
-
-    /**
      * @param ?JsonObject $previousValue
      */
     public function setPreviousValue(?JsonObject $previousValue): void;
+
+    /**
+     * @param ?JsonObject $nextValue
+     */
+    public function setNextValue(?JsonObject $nextValue): void;
 }

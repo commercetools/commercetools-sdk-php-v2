@@ -30,6 +30,18 @@ final class SetLineItemProductKeyChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $previousValue;
+
+    /**
+
+     * @var ?string
+     */
+    private $nextValue;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $lineItem;
@@ -48,20 +60,6 @@ final class SetLineItemProductKeyChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $previousValue;
-
-    /**
-
-     * @var ?string
-     */
-    private $nextValue;
-
-    /**
-     * <p>Update action for <code>setLineItemProductKey</code></p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -70,33 +68,8 @@ final class SetLineItemProductKeyChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getLineItem()
-    {
-        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getLineItemId()
-    {
-        return $this->lineItemId;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getVariant()
-    {
-        return $this->variant;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
@@ -106,6 +79,8 @@ final class SetLineItemProductKeyChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|string
      */
@@ -115,12 +90,67 @@ final class SetLineItemProductKeyChangeBuilder implements Builder
     }
 
     /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>sku</code> or <code>key</code> of the updated <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?string $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $nextValue
+     * @return $this
+     */
+    public function withNextValue(?string $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -159,28 +189,6 @@ final class SetLineItemProductKeyChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?string $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $nextValue
-     * @return $this
-     */
-    public function withNextValue(?string $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withLineItem() instead
      * @return $this
      */
@@ -195,11 +203,11 @@ final class SetLineItemProductKeyChangeBuilder implements Builder
     {
         return new SetLineItemProductKeyChangeModel(
             $this->change,
+            $this->previousValue,
+            $this->nextValue,
             $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
             $this->lineItemId,
-            $this->variant,
-            $this->previousValue,
-            $this->nextValue
+            $this->variant
         );
     }
 

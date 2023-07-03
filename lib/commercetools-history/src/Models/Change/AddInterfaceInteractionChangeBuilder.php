@@ -35,8 +35,6 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>addInterfaceInteraction</code> on payments</p>
-     *
 
      * @return null|string
      */
@@ -46,7 +44,7 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
     }
 
     /**
-     * <p>Only available if <code>expand</code> is set to true</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|CustomFieldExpandedValue

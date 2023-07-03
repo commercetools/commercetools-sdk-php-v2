@@ -17,7 +17,7 @@ interface StandalonePriceActiveChangedMessagePayload extends MessagePayload
     public const FIELD_OLD_ACTIVE = 'oldActive';
 
     /**
-     * <p>Value of the <code>active</code> field of the StandalonePrice after the <a href="ctp:api:types:StandalonePriceChangeActiveAction">Change Active</a> update action.</p>
+     * <p>Value of the <code>active</code> field of the StandalonePrice after the <a href="ctp:api:type:StandalonePriceChangeActiveAction">Change Active</a> update action.</p>
      *
 
      * @return null|bool
@@ -25,7 +25,7 @@ interface StandalonePriceActiveChangedMessagePayload extends MessagePayload
     public function getActive();
 
     /**
-     * <p>Value of the <code>active</code> field of the StandalonePrice before the <a href="ctp:api:types:StandalonePriceChangeActiveAction">Change Active</a> update action.</p>
+     * <p>Value of the <code>active</code> field of the StandalonePrice before the <a href="ctp:api:type:StandalonePriceChangeActiveAction">Change Active</a> update action.</p>
      *
 
      * @return null|bool

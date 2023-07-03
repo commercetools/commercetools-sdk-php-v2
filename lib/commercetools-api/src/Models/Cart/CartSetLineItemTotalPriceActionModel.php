@@ -34,6 +34,12 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?ExternalLineItemTotalPrice
      */
     protected $externalTotalPrice;
@@ -44,10 +50,12 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
         ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->externalTotalPrice = $externalTotalPrice;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -71,7 +79,7 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -88,6 +96,26 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
     }
 
     /**
@@ -119,6 +147,14 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

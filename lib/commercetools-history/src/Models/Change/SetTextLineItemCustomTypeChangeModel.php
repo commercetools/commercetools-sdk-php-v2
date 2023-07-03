@@ -39,9 +39,9 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
 
     /**
      *
-     * @var ?TextLineItemValue
+     * @var ?CustomFields
      */
-    protected $textLineItem;
+    protected $previousValue;
 
     /**
      *
@@ -51,9 +51,9 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
 
     /**
      *
-     * @var ?CustomFields
+     * @var ?TextLineItemValue
      */
-    protected $previousValue;
+    protected $textLineItem;
 
 
     /**
@@ -61,15 +61,15 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $change = null,
-        ?TextLineItemValue $textLineItem = null,
-        ?CustomFields $nextValue = null,
         ?CustomFields $previousValue = null,
+        ?CustomFields $nextValue = null,
+        ?TextLineItemValue $textLineItem = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->textLineItem = $textLineItem;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->textLineItem = $textLineItem;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -92,8 +92,6 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Update action for <code>setTextLineItemCustomType</code></p>
-     *
      *
      * @return null|string
      */
@@ -112,25 +110,29 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|TextLineItemValue
+     *
+     * @return null|CustomFields
      */
-    public function getTextLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->textLineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TEXT_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->textLineItem = TextLineItemValueModel::of($data);
+            $this->previousValue = CustomFieldsModel::of($data);
         }
 
-        return $this->textLineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|CustomFields
      */
@@ -150,22 +152,24 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Holds information about the updated Text Line Item.</p>
      *
-     * @return null|CustomFields
+     *
+     * @return null|TextLineItemValue
      */
-    public function getPreviousValue()
+    public function getTextLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->textLineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = CustomFieldsModel::of($data);
+            $this->textLineItem = TextLineItemValueModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->textLineItem;
     }
 
 
@@ -178,11 +182,11 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?TextLineItemValue $textLineItem
+     * @param ?CustomFields $previousValue
      */
-    public function setTextLineItem(?TextLineItemValue $textLineItem): void
+    public function setPreviousValue(?CustomFields $previousValue): void
     {
-        $this->textLineItem = $textLineItem;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -194,11 +198,11 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?CustomFields $previousValue
+     * @param ?TextLineItemValue $textLineItem
      */
-    public function setPreviousValue(?CustomFields $previousValue): void
+    public function setTextLineItem(?TextLineItemValue $textLineItem): void
     {
-        $this->previousValue = $previousValue;
+        $this->textLineItem = $textLineItem;
     }
 
 

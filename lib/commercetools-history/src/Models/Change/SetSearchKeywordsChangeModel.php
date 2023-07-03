@@ -37,12 +37,6 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
 
     /**
      *
-     * @var ?string
-     */
-    protected $catalogData;
-
-    /**
-     *
      * @var ?SearchKeywords
      */
     protected $previousValue;
@@ -53,21 +47,27 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $catalogData;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?string $catalogData = null,
         ?SearchKeywords $previousValue = null,
         ?SearchKeywords $nextValue = null,
+        ?string $catalogData = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->catalogData = $catalogData;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->catalogData = $catalogData;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
-     * <p>Update action for <code>setSearchKeywords</code></p>
-     *
      *
      * @return null|string
      */
@@ -110,24 +108,8 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
-     */
-    public function getCatalogData()
-    {
-        if (is_null($this->catalogData)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CATALOG_DATA);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->catalogData = (string) $data;
-        }
-
-        return $this->catalogData;
-    }
-
-    /**
      *
      * @return null|SearchKeywords
      */
@@ -147,6 +129,8 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|SearchKeywords
      */
@@ -165,6 +149,29 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
         return $this->nextValue;
     }
 
+    /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+     *
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        if (is_null($this->catalogData)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CATALOG_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->catalogData = (string) $data;
+        }
+
+        return $this->catalogData;
+    }
+
 
     /**
      * @param ?string $change
@@ -172,14 +179,6 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?string $catalogData
-     */
-    public function setCatalogData(?string $catalogData): void
-    {
-        $this->catalogData = $catalogData;
     }
 
     /**
@@ -196,6 +195,14 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     public function setNextValue(?SearchKeywords $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?string $catalogData
+     */
+    public function setCatalogData(?string $catalogData): void
+    {
+        $this->catalogData = $catalogData;
     }
 
 

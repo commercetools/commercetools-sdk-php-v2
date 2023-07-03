@@ -100,6 +100,8 @@ final class ChangeAmountPlannedChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|Money
      */
@@ -119,6 +121,8 @@ final class ChangeAmountPlannedChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|Money
      */

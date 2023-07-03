@@ -40,8 +40,6 @@ final class SetProductSelectionsChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>setProductSelections</code></p>
-     *
 
      * @return null|string
      */
@@ -51,6 +49,8 @@ final class SetProductSelectionsChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
@@ -60,6 +60,8 @@ final class SetProductSelectionsChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */

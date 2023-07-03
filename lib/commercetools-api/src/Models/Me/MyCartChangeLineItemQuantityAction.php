@@ -16,17 +16,26 @@ use Commercetools\Base\JsonObject;
 interface MyCartChangeLineItemQuantityAction extends MyCartUpdateAction
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
      * <p>New value to set.</p>
@@ -38,8 +47,7 @@ interface MyCartChangeLineItemQuantityAction extends MyCartUpdateAction
     public function getQuantity();
 
     /**
-     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when changing the quantity of a Line Item with the <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
-     * <p>The LineItem price is updated as described in LineItem Price selection.</p>
+     * <p>Deprecated. Will be ignored.</p>
      *
 
      * @return null|Money
@@ -47,7 +55,7 @@ interface MyCartChangeLineItemQuantityAction extends MyCartUpdateAction
     public function getExternalPrice();
 
     /**
-     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> to the given value when changing the quantity of a Line Item with the <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     * <p>Deprecated. Will be ignored.</p>
      *
 
      * @return null|ExternalLineItemTotalPrice
@@ -58,6 +66,11 @@ interface MyCartChangeLineItemQuantityAction extends MyCartUpdateAction
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?int $quantity

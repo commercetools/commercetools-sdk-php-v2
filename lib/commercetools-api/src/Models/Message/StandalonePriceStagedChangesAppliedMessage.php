@@ -17,7 +17,7 @@ interface StandalonePriceStagedChangesAppliedMessage extends Message
     public const FIELD_STAGED_CHANGES = 'stagedChanges';
 
     /**
-     * <p>Applied changes of the <a href="/../api/projects/standalone-prices">StandalonePrice</a> after the <a href="ctp:api:types:StandalonePriceApplyStagedChangesAction">Apply Staged Changes</a> update action.</p>
+     * <p>Applied changes of the <a href="/../api/projects/standalone-prices">StandalonePrice</a> after the <a href="ctp:api:type:StandalonePriceApplyStagedChangesAction">Apply Staged Changes</a> update action.</p>
      *
 
      * @return null|StagedStandalonePrice

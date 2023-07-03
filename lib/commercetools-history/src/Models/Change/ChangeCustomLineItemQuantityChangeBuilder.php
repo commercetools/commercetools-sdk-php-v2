@@ -30,6 +30,18 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
 
     /**
 
+     * @var ?int
+     */
+    private $previousValue;
+
+    /**
+
+     * @var ?int
+     */
+    private $nextValue;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $customLineItem;
@@ -42,20 +54,6 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
 
     /**
 
-     * @var ?int
-     */
-    private $nextValue;
-
-    /**
-
-     * @var ?int
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>changeCustomLineItemQuantity</code></p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -64,33 +62,8 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem()
-    {
-        return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getCustomLineItemId()
-    {
-        return $this->customLineItemId;
-    }
-
-    /**
-
-     * @return null|int
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|int
      */
@@ -100,12 +73,67 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|int
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the CustomLineItem.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem()
+    {
+        return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        return $this->customLineItemId;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?int $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $nextValue
+     * @return $this
+     */
+    public function withNextValue(?int $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -133,28 +161,6 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
-     * @param ?int $nextValue
-     * @return $this
-     */
-    public function withNextValue(?int $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?int $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withCustomLineItem() instead
      * @return $this
      */
@@ -169,10 +175,10 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     {
         return new ChangeCustomLineItemQuantityChangeModel(
             $this->change,
-            $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
-            $this->customLineItemId,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
+            $this->customLineItemId
         );
     }
 

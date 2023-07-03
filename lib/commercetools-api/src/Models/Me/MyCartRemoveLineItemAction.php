@@ -17,13 +17,14 @@ use Commercetools\Base\JsonObject;
 interface MyCartRemoveLineItemAction extends MyCartUpdateAction
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
     public const FIELD_SHIPPING_DETAILS_TO_REMOVE = 'shippingDetailsToRemove';
 
     /**
-     * <p><code>id</code> of the Line Item to remove.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -31,8 +32,16 @@ interface MyCartRemoveLineItemAction extends MyCartUpdateAction
     public function getLineItemId();
 
     /**
-     * <p>New value to set.</p>
-     * <p>If <code>0</code>, the Line Item is removed from the Cart.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
+
+    /**
+     * <p>Amount to subtract from the LineItem's <code>quantity</code>.
+     * If absent, the LineItem is removed from the Cart.</p>
      *
 
      * @return null|int
@@ -67,6 +76,11 @@ interface MyCartRemoveLineItemAction extends MyCartUpdateAction
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?int $quantity

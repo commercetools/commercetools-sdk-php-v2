@@ -37,6 +37,18 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
 
     /**
      *
+     * @var ?LocalizedString
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?LocalizedString
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?string
      */
     protected $fieldName;
@@ -53,37 +65,25 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
      */
     protected $valueKey;
 
-    /**
-     *
-     * @var ?LocalizedString
-     */
-    protected $previousValue;
-
-    /**
-     *
-     * @var ?LocalizedString
-     */
-    protected $nextValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?LocalizedString $previousValue = null,
+        ?LocalizedString $nextValue = null,
         ?string $fieldName = null,
         ?string $attributeName = null,
         ?string $valueKey = null,
-        ?LocalizedString $previousValue = null,
-        ?LocalizedString $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->fieldName = $fieldName;
         $this->attributeName = $attributeName;
         $this->valueKey = $valueKey;
-        $this->previousValue = $previousValue;
-        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -106,8 +106,6 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>Update action for <code>changeLocalizedEnumValueLabel</code> on types</p>
-     *
      *
      * @return null|string
      */
@@ -126,66 +124,8 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>The name of the field definition updated.</p>
+     * <p>Value before the change.</p>
      *
-     *
-     * @return null|string
-     */
-    public function getFieldName()
-    {
-        if (is_null($this->fieldName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->fieldName = (string) $data;
-        }
-
-        return $this->fieldName;
-    }
-
-    /**
-     * <p>The name of the attribute updated.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getAttributeName()
-    {
-        if (is_null($this->attributeName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->attributeName = (string) $data;
-        }
-
-        return $this->attributeName;
-    }
-
-    /**
-     * <p>Key of the values that was updated</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getValueKey()
-    {
-        if (is_null($this->valueKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_VALUE_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->valueKey = (string) $data;
-        }
-
-        return $this->valueKey;
-    }
-
-    /**
      *
      * @return null|LocalizedString
      */
@@ -205,6 +145,8 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -223,6 +165,66 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
         return $this->nextValue;
     }
 
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>; only present on changes to Types.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getFieldName()
+    {
+        if (is_null($this->fieldName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fieldName = (string) $data;
+        }
+
+        return $this->fieldName;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>; only present on changes to Product Types.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
+    }
+
+    /**
+     * <p>Key of the updated values.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getValueKey()
+    {
+        if (is_null($this->valueKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VALUE_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->valueKey = (string) $data;
+        }
+
+        return $this->valueKey;
+    }
+
 
     /**
      * @param ?string $change
@@ -230,6 +232,22 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?LocalizedString $previousValue
+     */
+    public function setPreviousValue(?LocalizedString $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?LocalizedString $nextValue
+     */
+    public function setNextValue(?LocalizedString $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -254,22 +272,6 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     public function setValueKey(?string $valueKey): void
     {
         $this->valueKey = $valueKey;
-    }
-
-    /**
-     * @param ?LocalizedString $previousValue
-     */
-    public function setPreviousValue(?LocalizedString $previousValue): void
-    {
-        $this->previousValue = $previousValue;
-    }
-
-    /**
-     * @param ?LocalizedString $nextValue
-     */
-    public function setNextValue(?LocalizedString $nextValue): void
-    {
-        $this->nextValue = $nextValue;
     }
 
 

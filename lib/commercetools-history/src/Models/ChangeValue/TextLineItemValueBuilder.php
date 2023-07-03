@@ -35,6 +35,8 @@ final class TextLineItemValueBuilder implements Builder
     private $name;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a>.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class TextLineItemValueBuilder implements Builder
     }
 
     /**
+     * <p>Name of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */

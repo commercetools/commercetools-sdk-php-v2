@@ -16,11 +16,11 @@ use Commercetools\History\Models\Common\TaxRate;
 interface SetCustomLineItemTaxAmountChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_TAX_MODE = 'taxMode';
-    public const FIELD_NEXT_VALUE = 'nextValue';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
 
@@ -29,41 +29,13 @@ interface SetCustomLineItemTaxAmountChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setCustomLineItemTaxAmount</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem();
-
-    /**
-
-     * @return null|string
-     */
-    public function getCustomLineItemId();
-
-    /**
-
-     * @return null|string
-     */
-    public function getTaxMode();
-
-    /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
-     *
-
-     * @return null|TaxRate
-     */
-    public function getNextValue();
-
-    /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|TaxRate
@@ -71,9 +43,51 @@ interface SetCustomLineItemTaxAmountChange extends Change
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|TaxRate
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem();
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemId();
+
+    /**
+     * <p><code>&quot;ExternalAmount&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxMode();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?TaxRate $previousValue
+     */
+    public function setPreviousValue(?TaxRate $previousValue): void;
+
+    /**
+     * @param ?TaxRate $nextValue
+     */
+    public function setNextValue(?TaxRate $nextValue): void;
 
     /**
      * @param ?LocalizedString $customLineItem
@@ -89,14 +103,4 @@ interface SetCustomLineItemTaxAmountChange extends Change
      * @param ?string $taxMode
      */
     public function setTaxMode(?string $taxMode): void;
-
-    /**
-     * @param ?TaxRate $nextValue
-     */
-    public function setNextValue(?TaxRate $nextValue): void;
-
-    /**
-     * @param ?TaxRate $previousValue
-     */
-    public function setPreviousValue(?TaxRate $previousValue): void;
 }

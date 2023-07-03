@@ -38,12 +38,6 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
 
     /**
      *
-     * @var ?Reference
-     */
-    protected $category;
-
-    /**
-     *
      * @var ?ReferenceCollection
      */
     protected $previousValue;
@@ -54,21 +48,27 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?Reference
+     */
+    protected $category;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?Reference $category = null,
         ?ReferenceCollection $previousValue = null,
         ?ReferenceCollection $nextValue = null,
+        ?Reference $category = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->category = $category;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->category = $category;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -91,8 +91,6 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     }
 
     /**
-     * <p>Update action for <code>addToCategory</code></p>
-     *
      *
      * @return null|string
      */
@@ -111,25 +109,8 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|Reference
-     */
-    public function getCategory()
-    {
-        if (is_null($this->category)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CATEGORY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->category = ReferenceModel::of($data);
-        }
-
-        return $this->category;
-    }
-
-    /**
      *
      * @return null|ReferenceCollection
      */
@@ -148,6 +129,8 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */
@@ -165,6 +148,27 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
         return $this->nextValue;
     }
 
+    /**
+     * <p>Category to which the Product was added.</p>
+     *
+     *
+     * @return null|Reference
+     */
+    public function getCategory()
+    {
+        if (is_null($this->category)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->category = ReferenceModel::of($data);
+        }
+
+        return $this->category;
+    }
+
 
     /**
      * @param ?string $change
@@ -172,14 +176,6 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?Reference $category
-     */
-    public function setCategory(?Reference $category): void
-    {
-        $this->category = $category;
     }
 
     /**
@@ -196,6 +192,14 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     public function setNextValue(?ReferenceCollection $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?Reference $category
+     */
+    public function setCategory(?Reference $category): void
+    {
+        $this->category = $category;
     }
 
 

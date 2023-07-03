@@ -32,9 +32,9 @@ final class ChangeTextLineItemNameChangeBuilder implements Builder
 
     /**
 
-     * @var null|TextLineItemValue|TextLineItemValueBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
-    private $textLineItem;
+    private $previousValue;
 
     /**
 
@@ -44,13 +44,11 @@ final class ChangeTextLineItemNameChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
+     * @var null|TextLineItemValue|TextLineItemValueBuilder
      */
-    private $previousValue;
+    private $textLineItem;
 
     /**
-     * <p>Update action for <code>changeTextLineItemName</code></p>
-     *
 
      * @return null|string
      */
@@ -60,24 +58,8 @@ final class ChangeTextLineItemNameChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|TextLineItemValue
-     */
-    public function getTextLineItem()
-    {
-        return $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -87,34 +69,34 @@ final class ChangeTextLineItemNameChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Holds information about the updated Text Line Item.</p>
+     *
+
+     * @return null|TextLineItemValue
+     */
+    public function getTextLineItem()
+    {
+        return $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TextLineItemValue $textLineItem
-     * @return $this
-     */
-    public function withTextLineItem(?TextLineItemValue $textLineItem)
-    {
-        $this->textLineItem = $textLineItem;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $nextValue
-     * @return $this
-     */
-    public function withNextValue(?LocalizedString $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -131,12 +113,34 @@ final class ChangeTextLineItemNameChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withTextLineItem() instead
+     * @param ?LocalizedString $nextValue
      * @return $this
      */
-    public function withTextLineItemBuilder(?TextLineItemValueBuilder $textLineItem)
+    public function withNextValue(?LocalizedString $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TextLineItemValue $textLineItem
+     * @return $this
+     */
+    public function withTextLineItem(?TextLineItemValue $textLineItem)
     {
         $this->textLineItem = $textLineItem;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -153,12 +157,12 @@ final class ChangeTextLineItemNameChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withTextLineItem() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
+    public function withTextLineItemBuilder(?TextLineItemValueBuilder $textLineItem)
     {
-        $this->previousValue = $previousValue;
+        $this->textLineItem = $textLineItem;
 
         return $this;
     }
@@ -167,9 +171,9 @@ final class ChangeTextLineItemNameChangeBuilder implements Builder
     {
         return new ChangeTextLineItemNameChangeModel(
             $this->change,
-            $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem,
+            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem
         );
     }
 

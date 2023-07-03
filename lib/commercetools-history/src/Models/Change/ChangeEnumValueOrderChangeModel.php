@@ -36,9 +36,9 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
 
     /**
      *
-     * @var ?string
+     * @var ?EnumValueCollection
      */
-    protected $fieldName;
+    protected $previousValue;
 
     /**
      *
@@ -48,9 +48,9 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
 
     /**
      *
-     * @var ?EnumValueCollection
+     * @var ?string
      */
-    protected $previousValue;
+    protected $fieldName;
 
 
     /**
@@ -58,15 +58,15 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
      */
     public function __construct(
         ?string $change = null,
-        ?string $fieldName = null,
-        ?EnumValueCollection $nextValue = null,
         ?EnumValueCollection $previousValue = null,
+        ?EnumValueCollection $nextValue = null,
+        ?string $fieldName = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->fieldName = $fieldName;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->fieldName = $fieldName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -89,8 +89,6 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     }
 
     /**
-     * <p>Update action for <code>changeEnumValueOrder</code> on types</p>
-     *
      *
      * @return null|string
      */
@@ -109,26 +107,28 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     }
 
     /**
-     * <p>The name of the field/attribute definition updated.</p>
+     * <p>Value before the change.</p>
      *
      *
-     * @return null|string
+     * @return null|EnumValueCollection
      */
-    public function getFieldName()
+    public function getPreviousValue()
     {
-        if (is_null($this->fieldName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_FIELD_NAME);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->fieldName = (string) $data;
+            $this->previousValue = EnumValueCollection::fromArray($data);
         }
 
-        return $this->fieldName;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|EnumValueCollection
      */
@@ -147,21 +147,23 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
      *
-     * @return null|EnumValueCollection
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getFieldName()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->fieldName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = EnumValueCollection::fromArray($data);
+            $this->fieldName = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->fieldName;
     }
 
 
@@ -174,11 +176,11 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     }
 
     /**
-     * @param ?string $fieldName
+     * @param ?EnumValueCollection $previousValue
      */
-    public function setFieldName(?string $fieldName): void
+    public function setPreviousValue(?EnumValueCollection $previousValue): void
     {
-        $this->fieldName = $fieldName;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -190,11 +192,11 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     }
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?string $fieldName
      */
-    public function setPreviousValue(?EnumValueCollection $previousValue): void
+    public function setFieldName(?string $fieldName): void
     {
-        $this->previousValue = $previousValue;
+        $this->fieldName = $fieldName;
     }
 
 

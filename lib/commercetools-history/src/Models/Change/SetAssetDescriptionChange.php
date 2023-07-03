@@ -16,13 +16,11 @@ use Commercetools\History\Models\Common\LocalizedString;
 interface SetAssetDescriptionChange extends Change
 {
 
-    public const FIELD_ASSET = 'asset';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ASSET = 'asset';
 
     /**
-     * <p>Update action for <code>setAssetDescription</code></p>
-     *
 
      * @return null|string
      */
@@ -35,22 +33,28 @@ interface SetAssetDescriptionChange extends Change
     public function getType();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|AssetChangeValue
+     * @return null|LocalizedString
      */
-    public function getAsset();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getNextValue();
 
     /**
+     * <p>Information about the updated Asset.</p>
+     *
 
-     * @return null|LocalizedString
+     * @return null|AssetChangeValue
      */
-    public function getPreviousValue();
+    public function getAsset();
 
     /**
      * @param ?string $change
@@ -58,9 +62,9 @@ interface SetAssetDescriptionChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?AssetChangeValue $asset
+     * @param ?LocalizedString $previousValue
      */
-    public function setAsset(?AssetChangeValue $asset): void;
+    public function setPreviousValue(?LocalizedString $previousValue): void;
 
     /**
      * @param ?LocalizedString $nextValue
@@ -68,7 +72,7 @@ interface SetAssetDescriptionChange extends Change
     public function setNextValue(?LocalizedString $nextValue): void;
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?AssetChangeValue $asset
      */
-    public function setPreviousValue(?LocalizedString $previousValue): void;
+    public function setAsset(?AssetChangeValue $asset): void;
 }

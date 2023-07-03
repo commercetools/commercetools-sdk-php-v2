@@ -74,8 +74,6 @@ final class AddDiscountCodeChangeModel extends JsonObjectModel implements AddDis
     }
 
     /**
-     * <p>Update action for <code>addDiscountCode</code></p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class AddDiscountCodeChangeModel extends JsonObjectModel implements AddDis
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|DiscountCodeInfo
      */

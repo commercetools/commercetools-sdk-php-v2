@@ -15,9 +15,9 @@ use Commercetools\History\Models\ChangeValue\ShoppingListLineItemValue;
 interface SetLineItemDeactivatedAtChange extends Change
 {
 
-    public const FIELD_LINE_ITEM = 'lineItem';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_LINE_ITEM = 'lineItem';
 
     /**
 
@@ -26,40 +26,39 @@ interface SetLineItemDeactivatedAtChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setLineItemDeactivatedAt</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|ShoppingListLineItemValue
-     */
-    public function getLineItem();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|string
      */
     public function getNextValue();
 
     /**
+     * <p>Holds information about the updated Shopping List Line Item.</p>
+     *
+
+     * @return null|ShoppingListLineItemValue
+     */
+    public function getLineItem();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
-
-    /**
-     * @param ?ShoppingListLineItemValue $lineItem
-     */
-    public function setLineItem(?ShoppingListLineItemValue $lineItem): void;
 
     /**
      * @param ?string $previousValue
@@ -70,4 +69,9 @@ interface SetLineItemDeactivatedAtChange extends Change
      * @param ?string $nextValue
      */
     public function setNextValue(?string $nextValue): void;
+
+    /**
+     * @param ?ShoppingListLineItemValue $lineItem
+     */
+    public function setLineItem(?ShoppingListLineItemValue $lineItem): void;
 }

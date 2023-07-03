@@ -30,6 +30,7 @@ interface CustomLineItem extends JsonObject
     public const FIELD_STATE = 'state';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_PER_METHOD_TAX_RATE = 'perMethodTaxRate';
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
@@ -122,6 +123,15 @@ interface CustomLineItem extends JsonObject
     public function getTaxRate();
 
     /**
+     * <p>Tax Rate per Shipping Method for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> it is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.
+     * For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|MethodTaxRateCollection
+     */
+    public function getPerMethodTaxRate();
+
+    /**
      * <p>Discounted price of a single quantity of the Custom Line Item.</p>
      *
 
@@ -202,6 +212,11 @@ interface CustomLineItem extends JsonObject
      * @param ?TaxRate $taxRate
      */
     public function setTaxRate(?TaxRate $taxRate): void;
+
+    /**
+     * @param ?MethodTaxRateCollection $perMethodTaxRate
+     */
+    public function setPerMethodTaxRate(?MethodTaxRateCollection $perMethodTaxRate): void;
 
     /**
      * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity

@@ -35,15 +35,15 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
 
     /**
      *
-     * @var ?string
-     */
-    protected $path;
-
-    /**
-     *
      * @var ?mixed
      */
     protected $nextValue;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $path;
 
 
     /**
@@ -51,13 +51,13 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
      */
     public function __construct(
         ?string $change = null,
-        ?string $path = null,
          $nextValue = null,
+        ?string $path = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->path = $path;
         $this->nextValue = $nextValue;
+        $this->path = $path;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -80,8 +80,6 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
     }
 
     /**
-     * <p>Update action for <code>addProperty</code> on custom objects</p>
-     *
      *
      * @return null|string
      */
@@ -100,7 +98,27 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
     }
 
     /**
-     * <p>Value path to the property that was added</p>
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|mixed
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = $data;
+        }
+
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Path to the new property that was added.</p>
      *
      *
      * @return null|string
@@ -119,24 +137,6 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
         return $this->path;
     }
 
-    /**
-     *
-     * @return null|mixed
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->nextValue = $data;
-        }
-
-        return $this->nextValue;
-    }
-
 
     /**
      * @param ?string $change
@@ -147,19 +147,19 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
     }
 
     /**
-     * @param ?string $path
-     */
-    public function setPath(?string $path): void
-    {
-        $this->path = $path;
-    }
-
-    /**
      * @param mixed $nextValue
      */
     public function setNextValue( $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?string $path
+     */
+    public function setPath(?string $path): void
+    {
+        $this->path = $path;
     }
 
 

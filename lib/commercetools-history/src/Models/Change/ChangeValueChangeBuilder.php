@@ -32,17 +32,15 @@ final class ChangeValueChangeBuilder implements Builder
 
      * @var null|ChangeValueChangeValue|ChangeValueChangeValueBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|ChangeValueChangeValue|ChangeValueChangeValueBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>changeValue</code> on cart discounts and product discounts</p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class ChangeValueChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|ChangeValueChangeValue
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof ChangeValueChangeValueBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ChangeValueChangeValue
      */
@@ -70,23 +61,23 @@ final class ChangeValueChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ChangeValueChangeValue
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof ChangeValueChangeValueBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ChangeValueChangeValue $nextValue
-     * @return $this
-     */
-    public function withNextValue(?ChangeValueChangeValue $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class ChangeValueChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?ChangeValueChangeValue $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?ChangeValueChangeValueBuilder $nextValue)
+    public function withNextValue(?ChangeValueChangeValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class ChangeValueChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?ChangeValueChangeValueBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): ChangeValueChange
     {
         return new ChangeValueChangeModel(
             $this->change,
-            $this->nextValue instanceof ChangeValueChangeValueBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof ChangeValueChangeValueBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof ChangeValueChangeValueBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof ChangeValueChangeValueBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

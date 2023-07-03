@@ -31,9 +31,9 @@ final class SetParcelItemsChangeBuilder implements Builder
 
     /**
 
-     * @var null|ParcelChangeValue|ParcelChangeValueBuilder
+     * @var ?DeliveryItemCollection
      */
-    private $parcel;
+    private $previousValue;
 
     /**
 
@@ -43,13 +43,11 @@ final class SetParcelItemsChangeBuilder implements Builder
 
     /**
 
-     * @var ?DeliveryItemCollection
+     * @var null|ParcelChangeValue|ParcelChangeValueBuilder
      */
-    private $previousValue;
+    private $parcel;
 
     /**
-     * <p>Update action for <code>setParcelItems</code></p>
-     *
 
      * @return null|string
      */
@@ -59,15 +57,19 @@ final class SetParcelItemsChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|ParcelChangeValue
+     * @return null|DeliveryItemCollection
      */
-    public function getParcel()
+    public function getPreviousValue()
     {
-        return $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
@@ -77,12 +79,14 @@ final class SetParcelItemsChangeBuilder implements Builder
     }
 
     /**
+     * <p>Information about the updated Parcel.</p>
+     *
 
-     * @return null|DeliveryItemCollection
+     * @return null|ParcelChangeValue
      */
-    public function getPreviousValue()
+    public function getParcel()
     {
-        return $this->previousValue;
+        return $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel;
     }
 
     /**
@@ -97,12 +101,12 @@ final class SetParcelItemsChangeBuilder implements Builder
     }
 
     /**
-     * @param ?ParcelChangeValue $parcel
+     * @param ?DeliveryItemCollection $previousValue
      * @return $this
      */
-    public function withParcel(?ParcelChangeValue $parcel)
+    public function withPreviousValue(?DeliveryItemCollection $previousValue)
     {
-        $this->parcel = $parcel;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -119,12 +123,12 @@ final class SetParcelItemsChangeBuilder implements Builder
     }
 
     /**
-     * @param ?DeliveryItemCollection $previousValue
+     * @param ?ParcelChangeValue $parcel
      * @return $this
      */
-    public function withPreviousValue(?DeliveryItemCollection $previousValue)
+    public function withParcel(?ParcelChangeValue $parcel)
     {
-        $this->previousValue = $previousValue;
+        $this->parcel = $parcel;
 
         return $this;
     }
@@ -144,9 +148,9 @@ final class SetParcelItemsChangeBuilder implements Builder
     {
         return new SetParcelItemsChangeModel(
             $this->change,
-            $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel
         );
     }
 

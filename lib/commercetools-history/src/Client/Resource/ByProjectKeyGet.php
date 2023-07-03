@@ -221,6 +221,15 @@ class ByProjectKeyGet extends ApiRequest
 
     /**
      * 
+     * @psalm-param scalar|scalar[] $resourceKey
+     */
+    public function withResourceKey($resourceKey): ByProjectKeyGet
+    {
+        return $this->withQueryParam('resourceKey', $resourceKey);
+    }
+
+    /**
+     * 
      * @psalm-param scalar|scalar[] $source
      */
     public function withSource($source): ByProjectKeyGet

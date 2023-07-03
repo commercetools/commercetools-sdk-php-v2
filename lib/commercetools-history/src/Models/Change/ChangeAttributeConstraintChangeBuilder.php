@@ -30,12 +30,6 @@ final class ChangeAttributeConstraintChangeBuilder implements Builder
 
      * @var ?string
      */
-    private $attributeName;
-
-    /**
-
-     * @var ?string
-     */
     private $previousValue;
 
     /**
@@ -43,6 +37,12 @@ final class ChangeAttributeConstraintChangeBuilder implements Builder
      * @var ?string
      */
     private $nextValue;
+
+    /**
+
+     * @var ?string
+     */
+    private $attributeName;
 
     /**
 
@@ -54,7 +54,29 @@ final class ChangeAttributeConstraintChangeBuilder implements Builder
     }
 
     /**
-     * <p>name of the updated attribute</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPreviousValue()
+    {
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|string
@@ -65,41 +87,12 @@ final class ChangeAttributeConstraintChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $attributeName
-     * @return $this
-     */
-    public function withAttributeName(?string $attributeName)
-    {
-        $this->attributeName = $attributeName;
 
         return $this;
     }
@@ -126,14 +119,25 @@ final class ChangeAttributeConstraintChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $attributeName
+     * @return $this
+     */
+    public function withAttributeName(?string $attributeName)
+    {
+        $this->attributeName = $attributeName;
+
+        return $this;
+    }
+
 
     public function build(): ChangeAttributeConstraintChange
     {
         return new ChangeAttributeConstraintChangeModel(
             $this->change,
-            $this->attributeName,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->attributeName
         );
     }
 

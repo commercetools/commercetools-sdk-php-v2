@@ -32,17 +32,15 @@ final class AddDeliveryChangeBuilder implements Builder
 
      * @var null|DeliveryChangeValue|DeliveryChangeValueBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|DeliveryChangeValue|DeliveryChangeValueBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>addDelivery</code></p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class AddDeliveryChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|DeliveryChangeValue
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof DeliveryChangeValueBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|DeliveryChangeValue
      */
@@ -70,23 +61,23 @@ final class AddDeliveryChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|DeliveryChangeValue
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof DeliveryChangeValueBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?DeliveryChangeValue $nextValue
-     * @return $this
-     */
-    public function withNextValue(?DeliveryChangeValue $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class AddDeliveryChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?DeliveryChangeValue $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?DeliveryChangeValueBuilder $nextValue)
+    public function withNextValue(?DeliveryChangeValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class AddDeliveryChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?DeliveryChangeValueBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): AddDeliveryChange
     {
         return new AddDeliveryChangeModel(
             $this->change,
-            $this->nextValue instanceof DeliveryChangeValueBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof DeliveryChangeValueBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof DeliveryChangeValueBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof DeliveryChangeValueBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

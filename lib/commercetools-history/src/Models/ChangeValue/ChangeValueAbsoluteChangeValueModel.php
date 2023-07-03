@@ -65,6 +65,8 @@ final class ChangeValueAbsoluteChangeValueModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Money values in different currencies.</p>
+     *
      *
      * @return null|MoneyCollection
      */

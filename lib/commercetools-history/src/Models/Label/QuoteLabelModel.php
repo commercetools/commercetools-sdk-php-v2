@@ -90,6 +90,8 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
     }
 
     /**
+     * <p>User-defined unique identifier of the Quote.</p>
+     *
      *
      * @return null|string
      */
@@ -108,6 +110,8 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
     }
 
     /**
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
+     *
      *
      * @return null|Reference
      */
@@ -127,6 +131,8 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
     }
 
     /**
+     * <p>Staged Quote related to the Quote.</p>
+     *
      *
      * @return null|Reference
      */
@@ -146,6 +152,8 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
     }
 
     /**
+     * <p>Quote Request related to the Quote.</p>
+     *
      *
      * @return null|Reference
      */

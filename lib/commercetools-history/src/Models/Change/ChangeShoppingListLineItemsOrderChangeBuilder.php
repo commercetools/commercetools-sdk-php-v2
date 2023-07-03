@@ -49,6 +49,8 @@ final class ChangeShoppingListLineItemsOrderChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ShoppingListLineItemValueCollection
      */
@@ -58,6 +60,8 @@ final class ChangeShoppingListLineItemsOrderChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ShoppingListLineItemValueCollection
      */

@@ -14,9 +14,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 interface ChangeAttributeConstraintChange extends Change
 {
 
-    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
 
     /**
 
@@ -31,7 +31,23 @@ interface ChangeAttributeConstraintChange extends Change
     public function getChange();
 
     /**
-     * <p>name of the updated attribute</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|string
@@ -39,26 +55,9 @@ interface ChangeAttributeConstraintChange extends Change
     public function getAttributeName();
 
     /**
-
-     * @return null|string
-     */
-    public function getPreviousValue();
-
-    /**
-
-     * @return null|string
-     */
-    public function getNextValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
-
-    /**
-     * @param ?string $attributeName
-     */
-    public function setAttributeName(?string $attributeName): void;
 
     /**
      * @param ?string $previousValue
@@ -69,4 +68,9 @@ interface ChangeAttributeConstraintChange extends Change
      * @param ?string $nextValue
      */
     public function setNextValue(?string $nextValue): void;
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void;
 }

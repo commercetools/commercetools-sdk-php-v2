@@ -32,9 +32,9 @@ final class SetAssetDescriptionChangeBuilder implements Builder
 
     /**
 
-     * @var null|AssetChangeValue|AssetChangeValueBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
-    private $asset;
+    private $previousValue;
 
     /**
 
@@ -44,13 +44,11 @@ final class SetAssetDescriptionChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
+     * @var null|AssetChangeValue|AssetChangeValueBuilder
      */
-    private $previousValue;
+    private $asset;
 
     /**
-     * <p>Update action for <code>setAssetDescription</code></p>
-     *
 
      * @return null|string
      */
@@ -60,24 +58,8 @@ final class SetAssetDescriptionChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|AssetChangeValue
-     */
-    public function getAsset()
-    {
-        return $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -87,34 +69,34 @@ final class SetAssetDescriptionChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Information about the updated Asset.</p>
+     *
+
+     * @return null|AssetChangeValue
+     */
+    public function getAsset()
+    {
+        return $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?AssetChangeValue $asset
-     * @return $this
-     */
-    public function withAsset(?AssetChangeValue $asset)
-    {
-        $this->asset = $asset;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $nextValue
-     * @return $this
-     */
-    public function withNextValue(?LocalizedString $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -131,12 +113,34 @@ final class SetAssetDescriptionChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withAsset() instead
+     * @param ?LocalizedString $nextValue
      * @return $this
      */
-    public function withAssetBuilder(?AssetChangeValueBuilder $asset)
+    public function withNextValue(?LocalizedString $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?AssetChangeValue $asset
+     * @return $this
+     */
+    public function withAsset(?AssetChangeValue $asset)
     {
         $this->asset = $asset;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -153,12 +157,12 @@ final class SetAssetDescriptionChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withAsset() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
+    public function withAssetBuilder(?AssetChangeValueBuilder $asset)
     {
-        $this->previousValue = $previousValue;
+        $this->asset = $asset;
 
         return $this;
     }
@@ -167,9 +171,9 @@ final class SetAssetDescriptionChangeBuilder implements Builder
     {
         return new SetAssetDescriptionChangeModel(
             $this->change,
-            $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset,
+            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->asset instanceof AssetChangeValueBuilder ? $this->asset->build() : $this->asset
         );
     }
 

@@ -59,8 +59,8 @@ final class ModifiedByBuilder implements Builder
     private $isPlatformClient;
 
     /**
-     * <p><a href="/general-concepts#identifier">ID</a> of the Merchant Center user who made the change.
-     * Present only if the change was made in the Merchant Center.</p>
+     * <p><a href="/general-concepts#identifier">ID</a> of the Merchant Center user who made the change.</p>
+     * <p>Present only if the change was made in the Merchant Center.</p>
      *
 
      * @return null|string
@@ -71,8 +71,11 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p>Indicates whether the change was made by a user or the API client with or without an
-     * <a href="/client-logging#external-user-ids">External user ID</a>.</p>
+     * <p>Indicates who performed the change.</p>
+     * <ul>
+     * <li>If the change was made by a user, the value is <code>&quot;user&quot;</code>.</li>
+     * <li>If the change was made by an API Client with or without an <a href="/client-logging#external-user-ids">external user ID</a>, the value is <code>&quot;external-user&quot;</code>.</li>
+     * </ul>
      *
 
      * @return null|string
@@ -83,10 +86,8 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to the
-     * <a href="/projects/customers#customer">Customer</a> who made the change. Present only if
-     * the change was made using a token from the <a href="/authorization#password-flow">Password
-     * Flow</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Customer">Customer</a> who made the change.</p>
+     * <p>Present only if the change was made using a token from the <a href="/authorization#password-flow">password flow</a>.</p>
      *
 
      * @return null|Reference
@@ -97,8 +98,7 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p>Present only if the change was made using a token from an <a href="/authorization#tokens-for-anonymous-sessions">Anonymous
-     * Session</a>.</p>
+     * <p>Present only if the change was made using a token from an <a href="/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
      *
 
      * @return null|string
@@ -109,9 +109,8 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p><a href="/general-concepts#identifier">ID</a> of the <a href="/projects/api-clients#apiclient">API
-     * Client</a> that made the change. Present only if
-     * the change was made using an API Client.</p>
+     * <p><a href="/general-concepts#identifier">ID</a> of the <a href="ctp:api:type:ApiClient">API Client</a> that made the change.</p>
+     * <p>Present only if the change was made using an API Client.</p>
      *
 
      * @return null|string
@@ -122,7 +121,7 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if the change was made via Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
+     * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
      *
 
      * @return null|bool

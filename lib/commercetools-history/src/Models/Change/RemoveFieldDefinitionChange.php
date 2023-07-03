@@ -24,14 +24,14 @@ interface RemoveFieldDefinitionChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>removeFieldDefinition</code> on payments</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|FieldDefinition
      */

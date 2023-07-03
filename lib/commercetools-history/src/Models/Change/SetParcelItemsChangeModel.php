@@ -38,9 +38,9 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
 
     /**
      *
-     * @var ?ParcelChangeValue
+     * @var ?DeliveryItemCollection
      */
-    protected $parcel;
+    protected $previousValue;
 
     /**
      *
@@ -50,9 +50,9 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
 
     /**
      *
-     * @var ?DeliveryItemCollection
+     * @var ?ParcelChangeValue
      */
-    protected $previousValue;
+    protected $parcel;
 
 
     /**
@@ -60,15 +60,15 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
      */
     public function __construct(
         ?string $change = null,
-        ?ParcelChangeValue $parcel = null,
-        ?DeliveryItemCollection $nextValue = null,
         ?DeliveryItemCollection $previousValue = null,
+        ?DeliveryItemCollection $nextValue = null,
+        ?ParcelChangeValue $parcel = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->parcel = $parcel;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->parcel = $parcel;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -91,8 +91,6 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
     }
 
     /**
-     * <p>Update action for <code>setParcelItems</code></p>
-     *
      *
      * @return null|string
      */
@@ -111,25 +109,28 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|ParcelChangeValue
+     *
+     * @return null|DeliveryItemCollection
      */
-    public function getParcel()
+    public function getPreviousValue()
     {
-        if (is_null($this->parcel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PARCEL);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->parcel = ParcelChangeValueModel::of($data);
+            $this->previousValue = DeliveryItemCollection::fromArray($data);
         }
 
-        return $this->parcel;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */
@@ -148,21 +149,24 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
     }
 
     /**
+     * <p>Information about the updated Parcel.</p>
      *
-     * @return null|DeliveryItemCollection
+     *
+     * @return null|ParcelChangeValue
      */
-    public function getPreviousValue()
+    public function getParcel()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->parcel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PARCEL);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = DeliveryItemCollection::fromArray($data);
+
+            $this->parcel = ParcelChangeValueModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->parcel;
     }
 
 
@@ -175,11 +179,11 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
     }
 
     /**
-     * @param ?ParcelChangeValue $parcel
+     * @param ?DeliveryItemCollection $previousValue
      */
-    public function setParcel(?ParcelChangeValue $parcel): void
+    public function setPreviousValue(?DeliveryItemCollection $previousValue): void
     {
-        $this->parcel = $parcel;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -191,11 +195,11 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
     }
 
     /**
-     * @param ?DeliveryItemCollection $previousValue
+     * @param ?ParcelChangeValue $parcel
      */
-    public function setPreviousValue(?DeliveryItemCollection $previousValue): void
+    public function setParcel(?ParcelChangeValue $parcel): void
     {
-        $this->previousValue = $previousValue;
+        $this->parcel = $parcel;
     }
 
 

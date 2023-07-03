@@ -39,13 +39,13 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
      *
      * @var ?ChangeValueChangeValue
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?ChangeValueChangeValue
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
      */
     public function __construct(
         ?string $change = null,
-        ?ChangeValueChangeValue $nextValue = null,
         ?ChangeValueChangeValue $previousValue = null,
+        ?ChangeValueChangeValue $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
     }
 
     /**
-     * <p>Update action for <code>changeValue</code> on cart discounts and product discounts</p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|ChangeValueChangeValue
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = ChangeValueChangeValueModel::resolveDiscriminatorClass($data);
-            $this->nextValue = $className::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|ChangeValueChangeValue
      */
@@ -139,6 +120,27 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|ChangeValueChangeValue
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ChangeValueChangeValueModel::resolveDiscriminatorClass($data);
+            $this->nextValue = $className::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
     }
 
     /**
-     * @param ?ChangeValueChangeValue $nextValue
-     */
-    public function setNextValue(?ChangeValueChangeValue $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?ChangeValueChangeValue $previousValue
      */
     public function setPreviousValue(?ChangeValueChangeValue $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?ChangeValueChangeValue $nextValue
+     */
+    public function setNextValue(?ChangeValueChangeValue $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

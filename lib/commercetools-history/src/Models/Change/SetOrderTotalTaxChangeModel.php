@@ -37,9 +37,9 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
 
     /**
      *
-     * @var ?string
+     * @var ?Money
      */
-    protected $taxMode;
+    protected $previousValue;
 
     /**
      *
@@ -49,9 +49,9 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
 
     /**
      *
-     * @var ?Money
+     * @var ?string
      */
-    protected $previousValue;
+    protected $taxMode;
 
 
     /**
@@ -59,15 +59,15 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
      */
     public function __construct(
         ?string $change = null,
-        ?string $taxMode = null,
-        ?Money $nextValue = null,
         ?Money $previousValue = null,
+        ?Money $nextValue = null,
+        ?string $taxMode = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->taxMode = $taxMode;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->taxMode = $taxMode;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     }
 
     /**
-     * <p>Update action for <code>setOrderTotalTax</code></p>
-     *
      *
      * @return null|string
      */
@@ -110,24 +108,29 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
+     *
+     * @return null|Money
      */
-    public function getTaxMode()
+    public function getPreviousValue()
     {
-        if (is_null($this->taxMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TAX_MODE);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->taxMode = (string) $data;
+
+            $this->previousValue = MoneyModel::of($data);
         }
 
-        return $this->taxMode;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|Money
      */
@@ -147,22 +150,23 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     }
 
     /**
+     * <p><code>&quot;ExternalAmount&quot;</code></p>
      *
-     * @return null|Money
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getTaxMode()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->taxMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_MODE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = MoneyModel::of($data);
+            $this->taxMode = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->taxMode;
     }
 
 
@@ -175,11 +179,11 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     }
 
     /**
-     * @param ?string $taxMode
+     * @param ?Money $previousValue
      */
-    public function setTaxMode(?string $taxMode): void
+    public function setPreviousValue(?Money $previousValue): void
     {
-        $this->taxMode = $taxMode;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -191,11 +195,11 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     }
 
     /**
-     * @param ?Money $previousValue
+     * @param ?string $taxMode
      */
-    public function setPreviousValue(?Money $previousValue): void
+    public function setTaxMode(?string $taxMode): void
     {
-        $this->previousValue = $previousValue;
+        $this->taxMode = $taxMode;
     }
 
 

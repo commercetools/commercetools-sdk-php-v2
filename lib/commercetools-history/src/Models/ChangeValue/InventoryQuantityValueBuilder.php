@@ -33,6 +33,8 @@ final class InventoryQuantityValueBuilder implements Builder
     private $availableQuantity;
 
     /**
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
+     *
 
      * @return null|int
      */
@@ -42,6 +44,8 @@ final class InventoryQuantityValueBuilder implements Builder
     }
 
     /**
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
+     *
 
      * @return null|int
      */

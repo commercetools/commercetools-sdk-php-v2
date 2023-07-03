@@ -14,10 +14,10 @@ use Commercetools\Base\DateTimeImmutableCollection;
 interface ChangeEnumValueLabelChange extends Change
 {
 
-    public const FIELD_FIELD_NAME = 'fieldName';
-    public const FIELD_VALUE_KEY = 'valueKey';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_FIELD_NAME = 'fieldName';
+    public const FIELD_VALUE_KEY = 'valueKey';
 
     /**
 
@@ -26,15 +26,29 @@ interface ChangeEnumValueLabelChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeEnumValueLabel</code> on types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>The name of the field definition updated.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
      *
 
      * @return null|string
@@ -42,7 +56,7 @@ interface ChangeEnumValueLabelChange extends Change
     public function getFieldName();
 
     /**
-     * <p>Key of the values that was updated</p>
+     * <p>Key of the updated values.</p>
      *
 
      * @return null|string
@@ -50,31 +64,9 @@ interface ChangeEnumValueLabelChange extends Change
     public function getValueKey();
 
     /**
-
-     * @return null|string
-     */
-    public function getPreviousValue();
-
-    /**
-
-     * @return null|string
-     */
-    public function getNextValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
-
-    /**
-     * @param ?string $fieldName
-     */
-    public function setFieldName(?string $fieldName): void;
-
-    /**
-     * @param ?string $valueKey
-     */
-    public function setValueKey(?string $valueKey): void;
 
     /**
      * @param ?string $previousValue
@@ -85,4 +77,14 @@ interface ChangeEnumValueLabelChange extends Change
      * @param ?string $nextValue
      */
     public function setNextValue(?string $nextValue): void;
+
+    /**
+     * @param ?string $fieldName
+     */
+    public function setFieldName(?string $fieldName): void;
+
+    /**
+     * @param ?string $valueKey
+     */
+    public function setValueKey(?string $valueKey): void;
 }

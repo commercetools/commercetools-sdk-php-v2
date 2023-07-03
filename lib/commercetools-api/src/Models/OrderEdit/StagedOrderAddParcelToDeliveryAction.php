@@ -19,6 +19,7 @@ interface StagedOrderAddParcelToDeliveryAction extends StagedOrderUpdateAction
 {
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_DELIVERY_KEY = 'deliveryKey';
+    public const FIELD_PARCEL_KEY = 'parcelKey';
     public const FIELD_MEASUREMENTS = 'measurements';
     public const FIELD_TRACKING_DATA = 'trackingData';
     public const FIELD_ITEMS = 'items';
@@ -38,6 +39,12 @@ interface StagedOrderAddParcelToDeliveryAction extends StagedOrderUpdateAction
      * @return null|string
      */
     public function getDeliveryKey();
+
+    /**
+
+     * @return null|string
+     */
+    public function getParcelKey();
 
     /**
 
@@ -66,6 +73,11 @@ interface StagedOrderAddParcelToDeliveryAction extends StagedOrderUpdateAction
      * @param ?string $deliveryKey
      */
     public function setDeliveryKey(?string $deliveryKey): void;
+
+    /**
+     * @param ?string $parcelKey
+     */
+    public function setParcelKey(?string $parcelKey): void;
 
     /**
      * @param ?ParcelMeasurements $measurements

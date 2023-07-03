@@ -80,8 +80,6 @@ final class SetOrderNumberChangeModel extends JsonObjectModel implements SetOrde
     }
 
     /**
-     * <p>Shape of the action for <code>setOrderNumber</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetOrderNumberChangeModel extends JsonObjectModel implements SetOrde
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetOrderNumberChangeModel extends JsonObjectModel implements SetOrde
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

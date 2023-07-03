@@ -15,8 +15,8 @@ use Commercetools\History\Models\Common\CustomFields;
 interface SetCustomTypeChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -25,24 +25,26 @@ interface SetCustomTypeChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for setting a custom type</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|CustomFields
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CustomFields
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface SetCustomTypeChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?CustomFields $nextValue
-     */
-    public function setNextValue(?CustomFields $nextValue): void;
-
-    /**
      * @param ?CustomFields $previousValue
      */
     public function setPreviousValue(?CustomFields $previousValue): void;
+
+    /**
+     * @param ?CustomFields $nextValue
+     */
+    public function setNextValue(?CustomFields $nextValue): void;
 }

@@ -44,6 +44,8 @@ final class AddTextLineItemChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|TextLineItem
      */

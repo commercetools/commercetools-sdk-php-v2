@@ -15,8 +15,8 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\History\Models\Common\KeyReferenceCollection;
-use Commercetools\History\Models\Common\Reference;
-use Commercetools\History\Models\Common\ReferenceModel;
+use Commercetools\History\Models\Common\ResourceIdentifier;
+use Commercetools\History\Models\Common\ResourceIdentifierModel;
 use Commercetools\History\Models\Label\Label;
 use Commercetools\History\Models\Label\LabelModel;
 
@@ -77,7 +77,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      *
-     * @var ?Reference
+     * @var ?ResourceIdentifier
      */
     protected $resource;
 
@@ -106,7 +106,7 @@ final class RecordModel extends JsonObjectModel implements Record
         ?Label $label = null,
         ?Label $previousLabel = null,
         ?ChangeCollection $changes = null,
-        ?Reference $resource = null,
+        ?ResourceIdentifier $resource = null,
         ?KeyReferenceCollection $stores = null,
         ?bool $withoutChanges = null
     ) {
@@ -126,6 +126,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      * <p>Version of the resource after the change.</p>
+     * <p>For more information on how the version is incremented, see <a href="/../api/general-concepts#optimistic-concurrency-control">Optimistic Concurrency Control</a>.</p>
      *
      *
      * @return null|int
@@ -165,7 +166,8 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p>Type of the change (creation, update or deletion).</p>
+     * <p>Indicates the type of change.
+     * For creation, update, or deletion, the value is <code>&quot;ResourceCreated&quot;</code>, <code>&quot;ResourceUpdated&quot;</code>, or <code>&quot;ResourceDeleted&quot;</code> respectively.</p>
      *
      *
      * @return null|string
@@ -185,7 +187,7 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p>Information about the user or the API client who performed the change.</p>
+     * <p>Information about the user or API Client who performed the change.</p>
      *
      *
      * @return null|ModifiedBy
@@ -206,7 +208,7 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p>Date and time when the change was made.</p>
+     * <p>Date and time (UTC) when the change was made.</p>
      *
      *
      * @return null|string
@@ -268,8 +270,8 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.
-     * The value is not identical to the actual array of update actions sent and is not limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
+     * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.</p>
+     * <p>The value is not identical to the actual array of update actions sent and is not limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
      *
      *
      * @return null|ChangeCollection
@@ -289,10 +291,10 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p>Reference to the changed resource.</p>
+     * <p>ResourceIdentifier of the changed resource.</p>
      *
      *
-     * @return null|Reference
+     * @return null|ResourceIdentifier
      */
     public function getResource()
     {
@@ -303,14 +305,14 @@ final class RecordModel extends JsonObjectModel implements Record
                 return null;
             }
 
-            $this->resource = ReferenceModel::of($data);
+            $this->resource = ResourceIdentifierModel::of($data);
         }
 
         return $this->resource;
     }
 
     /**
-     * <p>References to the <a href="ctp:api:type:Store">Stores</a> attached to the <a href="ctp:history:type:Change">Change</a>.</p>
+     * <p>References to the <a href="ctp:api:type:Store">Stores</a> associated with the <a href="ctp:history:type:Change">Change</a>.</p>
      *
      *
      * @return null|KeyReferenceCollection
@@ -330,8 +332,8 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p><code>true</code> if no change was detected.
-     * The version number of the resource can be increased even without any change in the resource.</p>
+     * <p><code>true</code> if no change was detected.</p>
+     * <p>The version number of the resource can be increased even without any change in the resource.</p>
      *
      *
      * @return null|bool
@@ -416,9 +418,9 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * @param ?Reference $resource
+     * @param ?ResourceIdentifier $resource
      */
-    public function setResource(?Reference $resource): void
+    public function setResource(?ResourceIdentifier $resource): void
     {
         $this->resource = $resource;
     }

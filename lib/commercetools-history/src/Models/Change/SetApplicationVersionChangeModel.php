@@ -80,8 +80,6 @@ final class SetApplicationVersionChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Internal Update action for <code>setApplicationVersion</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetApplicationVersionChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|int
      */
@@ -118,6 +118,8 @@ final class SetApplicationVersionChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|int
      */

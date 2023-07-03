@@ -25,18 +25,24 @@ interface CustomerLabel extends Label
     public function getType();
 
     /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
 
      * @return null|string
      */
     public function getFirstName();
 
     /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
 
      * @return null|string
      */
     public function getLastName();
 
     /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
 
      * @return null|string
      */

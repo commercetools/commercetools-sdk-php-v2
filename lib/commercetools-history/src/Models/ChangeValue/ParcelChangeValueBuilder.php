@@ -33,6 +33,8 @@ final class ParcelChangeValueBuilder implements Builder
     private $createdAt;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class ParcelChangeValueBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Parcel was created.</p>
+     *
 
      * @return null|string
      */

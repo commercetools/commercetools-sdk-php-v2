@@ -31,10 +31,8 @@ final class ProductVariantSelectionModel extends JsonObjectModel implements Prod
      *
      */
     private static $discriminatorClasses = [
-       'exclusion' => ProductVariantSelectionExclusionModel::class,
        'includeAllExcept' => ProductVariantSelectionIncludeAllExceptModel::class,
        'includeOnly' => ProductVariantSelectionIncludeOnlyModel::class,
-       'inclusion' => ProductVariantSelectionInclusionModel::class,
     ];
 
     /**

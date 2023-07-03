@@ -30,19 +30,17 @@ final class AddEnumValueChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $fieldName;
-
-    /**
-
      * @var null|EnumValue|EnumValueBuilder
      */
     private $nextValue;
 
     /**
-     * <p>Update action for <code>addEnumValue</code> on types</p>
-     *
+
+     * @var ?string
+     */
+    private $fieldName;
+
+    /**
 
      * @return null|string
      */
@@ -52,7 +50,18 @@ final class AddEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field/attribute definition updated.</p>
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|EnumValue
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
      *
 
      * @return null|string
@@ -60,15 +69,6 @@ final class AddEnumValueChangeBuilder implements Builder
     public function getFieldName()
     {
         return $this->fieldName;
-    }
-
-    /**
-
-     * @return null|EnumValue
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -83,23 +83,23 @@ final class AddEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $fieldName
-     * @return $this
-     */
-    public function withFieldName(?string $fieldName)
-    {
-        $this->fieldName = $fieldName;
-
-        return $this;
-    }
-
-    /**
      * @param ?EnumValue $nextValue
      * @return $this
      */
     public function withNextValue(?EnumValue $nextValue)
     {
         $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $fieldName
+     * @return $this
+     */
+    public function withFieldName(?string $fieldName)
+    {
+        $this->fieldName = $fieldName;
 
         return $this;
     }
@@ -119,8 +119,8 @@ final class AddEnumValueChangeBuilder implements Builder
     {
         return new AddEnumValueChangeModel(
             $this->change,
-            $this->fieldName,
-            $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->fieldName
         );
     }
 

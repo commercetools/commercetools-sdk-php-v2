@@ -16,9 +16,9 @@ use Commercetools\History\Models\Common\CustomFields;
 interface SetShoppingListLineItemCustomTypeChange extends Change
 {
 
-    public const FIELD_LINE_ITEM = 'lineItem';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_LINE_ITEM = 'lineItem';
 
     /**
 
@@ -27,30 +27,34 @@ interface SetShoppingListLineItemCustomTypeChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setLineItemCustomType</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|ShoppingListLineItemValue
+     * @return null|CustomFields
      */
-    public function getLineItem();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|CustomFields
      */
     public function getNextValue();
 
     /**
+     * <p>Holds information about the updated Shopping List Line Item.</p>
+     *
 
-     * @return null|CustomFields
+     * @return null|ShoppingListLineItemValue
      */
-    public function getPreviousValue();
+    public function getLineItem();
 
     /**
      * @param ?string $change
@@ -58,9 +62,9 @@ interface SetShoppingListLineItemCustomTypeChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?ShoppingListLineItemValue $lineItem
+     * @param ?CustomFields $previousValue
      */
-    public function setLineItem(?ShoppingListLineItemValue $lineItem): void;
+    public function setPreviousValue(?CustomFields $previousValue): void;
 
     /**
      * @param ?CustomFields $nextValue
@@ -68,7 +72,7 @@ interface SetShoppingListLineItemCustomTypeChange extends Change
     public function setNextValue(?CustomFields $nextValue): void;
 
     /**
-     * @param ?CustomFields $previousValue
+     * @param ?ShoppingListLineItemValue $lineItem
      */
-    public function setPreviousValue(?CustomFields $previousValue): void;
+    public function setLineItem(?ShoppingListLineItemValue $lineItem): void;
 }

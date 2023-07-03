@@ -80,8 +80,6 @@ final class SetLanguagesChangeModel extends JsonObjectModel implements SetLangua
     }
 
     /**
-     * <p>Update action for <code>setLanguages</code> on stores</p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetLanguagesChangeModel extends JsonObjectModel implements SetLangua
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|array
      */
@@ -118,6 +118,8 @@ final class SetLanguagesChangeModel extends JsonObjectModel implements SetLangua
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|array
      */

@@ -55,6 +55,8 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -73,6 +75,8 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
     }
 
     /**
+     * <p>Identifier used by the interface that manages the Transaction (usually the PSP).</p>
+     *
      *
      * @return null|string
      */
@@ -91,6 +95,8 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
     }
 
     /**
+     * <p>Date and time (UTC) the Transaction took place.</p>
+     *
      *
      * @return null|string
      */

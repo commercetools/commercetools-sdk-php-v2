@@ -39,9 +39,9 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
 
     /**
      *
-     * @var ?ShoppingListLineItemValue
+     * @var ?CustomFields
      */
-    protected $lineItem;
+    protected $previousValue;
 
     /**
      *
@@ -51,9 +51,9 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
 
     /**
      *
-     * @var ?CustomFields
+     * @var ?ShoppingListLineItemValue
      */
-    protected $previousValue;
+    protected $lineItem;
 
 
     /**
@@ -61,15 +61,15 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
      */
     public function __construct(
         ?string $change = null,
-        ?ShoppingListLineItemValue $lineItem = null,
-        ?CustomFields $nextValue = null,
         ?CustomFields $previousValue = null,
+        ?CustomFields $nextValue = null,
+        ?ShoppingListLineItemValue $lineItem = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->lineItem = $lineItem;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->lineItem = $lineItem;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -92,8 +92,6 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
-     * <p>Update action for <code>setLineItemCustomType</code></p>
-     *
      *
      * @return null|string
      */
@@ -112,25 +110,29 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|ShoppingListLineItemValue
+     *
+     * @return null|CustomFields
      */
-    public function getLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->lineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->lineItem = ShoppingListLineItemValueModel::of($data);
+            $this->previousValue = CustomFieldsModel::of($data);
         }
 
-        return $this->lineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|CustomFields
      */
@@ -150,22 +152,24 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
+     * <p>Holds information about the updated Shopping List Line Item.</p>
      *
-     * @return null|CustomFields
+     *
+     * @return null|ShoppingListLineItemValue
      */
-    public function getPreviousValue()
+    public function getLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->lineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = CustomFieldsModel::of($data);
+            $this->lineItem = ShoppingListLineItemValueModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->lineItem;
     }
 
 
@@ -178,11 +182,11 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
-     * @param ?ShoppingListLineItemValue $lineItem
+     * @param ?CustomFields $previousValue
      */
-    public function setLineItem(?ShoppingListLineItemValue $lineItem): void
+    public function setPreviousValue(?CustomFields $previousValue): void
     {
-        $this->lineItem = $lineItem;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -194,11 +198,11 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
-     * @param ?CustomFields $previousValue
+     * @param ?ShoppingListLineItemValue $lineItem
      */
-    public function setPreviousValue(?CustomFields $previousValue): void
+    public function setLineItem(?ShoppingListLineItemValue $lineItem): void
     {
-        $this->previousValue = $previousValue;
+        $this->lineItem = $lineItem;
     }
 
 

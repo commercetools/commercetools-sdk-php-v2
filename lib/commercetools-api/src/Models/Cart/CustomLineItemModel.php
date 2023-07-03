@@ -94,6 +94,12 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
 
     /**
      *
+     * @var ?MethodTaxRateCollection
+     */
+    protected $perMethodTaxRate;
+
+    /**
+     *
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
@@ -131,6 +137,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         ?ItemStateCollection $state = null,
         ?TaxCategoryReference $taxCategory = null,
         ?TaxRate $taxRate = null,
+        ?MethodTaxRateCollection $perMethodTaxRate = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?CustomFields $custom = null,
         ?ItemShippingDetails $shippingDetails = null,
@@ -146,6 +153,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         $this->state = $state;
         $this->taxCategory = $taxCategory;
         $this->taxRate = $taxRate;
+        $this->perMethodTaxRate = $perMethodTaxRate;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
@@ -365,6 +373,27 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+     * <p>Tax Rate per Shipping Method for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> it is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.
+     * For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+     *
+     * @return null|MethodTaxRateCollection
+     */
+    public function getPerMethodTaxRate()
+    {
+        if (is_null($this->perMethodTaxRate)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PER_METHOD_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->perMethodTaxRate = MethodTaxRateCollection::fromArray($data);
+        }
+
+        return $this->perMethodTaxRate;
+    }
+
+    /**
      * <p>Discounted price of a single quantity of the Custom Line Item.</p>
      *
      *
@@ -525,6 +554,14 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
+    }
+
+    /**
+     * @param ?MethodTaxRateCollection $perMethodTaxRate
+     */
+    public function setPerMethodTaxRate(?MethodTaxRateCollection $perMethodTaxRate): void
+    {
+        $this->perMethodTaxRate = $perMethodTaxRate;
     }
 
     /**

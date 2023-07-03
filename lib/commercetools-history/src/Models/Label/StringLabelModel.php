@@ -64,6 +64,8 @@ final class StringLabelModel extends JsonObjectModel implements StringLabel
     }
 
     /**
+     * <p>Changed value.</p>
+     *
      *
      * @return null|string
      */

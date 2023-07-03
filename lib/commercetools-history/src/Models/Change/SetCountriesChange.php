@@ -25,15 +25,13 @@ interface SetCountriesChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setCountries</code>.</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>Countries defined for the Store prior to the update action.</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|StoreCountryCollection
@@ -41,7 +39,7 @@ interface SetCountriesChange extends Change
     public function getPreviousValue();
 
     /**
-     * <p>Countries defined for the Store after the update action.</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|StoreCountryCollection

@@ -29,6 +29,18 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
 
     /**
 
+     * @var ?LocalizedEnumValueCollection
+     */
+    private $previousValue;
+
+    /**
+
+     * @var ?LocalizedEnumValueCollection
+     */
+    private $nextValue;
+
+    /**
+
      * @var ?string
      */
     private $fieldName;
@@ -41,20 +53,6 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
 
     /**
 
-     * @var ?LocalizedEnumValueCollection
-     */
-    private $nextValue;
-
-    /**
-
-     * @var ?LocalizedEnumValueCollection
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>changeLocalizedEnumValueOrder</code> on types and product types</p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -63,7 +61,29 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field definition updated.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|LocalizedEnumValueCollection
+     */
+    public function getPreviousValue()
+    {
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedEnumValueCollection
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>; only present on changes to Types.</p>
      *
 
      * @return null|string
@@ -74,7 +94,7 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>; only present on changes to Product Types.</p>
      *
 
      * @return null|string
@@ -85,30 +105,34 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedEnumValueCollection
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
-
-     * @return null|LocalizedEnumValueCollection
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedEnumValueCollection $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?LocalizedEnumValueCollection $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedEnumValueCollection $nextValue
+     * @return $this
+     */
+    public function withNextValue(?LocalizedEnumValueCollection $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -135,37 +159,15 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?LocalizedEnumValueCollection $nextValue
-     * @return $this
-     */
-    public function withNextValue(?LocalizedEnumValueCollection $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedEnumValueCollection $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?LocalizedEnumValueCollection $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
 
     public function build(): ChangeLocalizedEnumValueOrderChange
     {
         return new ChangeLocalizedEnumValueOrderChangeModel(
             $this->change,
-            $this->fieldName,
-            $this->attributeName,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->fieldName,
+            $this->attributeName
         );
     }
 

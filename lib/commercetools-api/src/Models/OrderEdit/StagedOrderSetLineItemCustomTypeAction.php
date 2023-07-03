@@ -17,14 +17,25 @@ use Commercetools\Base\JsonObject;
 interface StagedOrderSetLineItemCustomTypeAction extends StagedOrderUpdateAction
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the LineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
@@ -47,6 +58,11 @@ interface StagedOrderSetLineItemCustomTypeAction extends StagedOrderUpdateAction
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?TypeResourceIdentifier $type

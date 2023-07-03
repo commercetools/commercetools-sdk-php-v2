@@ -37,6 +37,12 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
      *
      * @var ?string
      */
+    protected $key;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $productId;
 
     /**
@@ -116,6 +122,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?string $productId = null,
         ?int $variantId = null,
         ?string $sku = null,
@@ -131,6 +138,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
+        $this->key = $key;
         $this->productId = $productId;
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -163,6 +171,26 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         }
 
         return $this->action;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -446,6 +474,14 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         return $this->custom;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?string $productId

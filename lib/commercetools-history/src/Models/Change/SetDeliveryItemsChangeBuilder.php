@@ -29,9 +29,9 @@ final class SetDeliveryItemsChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var ?DeliveryItemCollection
      */
-    private $deliveryId;
+    private $previousValue;
 
     /**
 
@@ -41,13 +41,11 @@ final class SetDeliveryItemsChangeBuilder implements Builder
 
     /**
 
-     * @var ?DeliveryItemCollection
+     * @var ?string
      */
-    private $previousValue;
+    private $deliveryId;
 
     /**
-     * <p>Update action for <code>setDeliveryItems</code></p>
-     *
 
      * @return null|string
      */
@@ -57,15 +55,19 @@ final class SetDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|DeliveryItemCollection
      */
-    public function getDeliveryId()
+    public function getPreviousValue()
     {
-        return $this->deliveryId;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
@@ -75,12 +77,14 @@ final class SetDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
-     * @return null|DeliveryItemCollection
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getDeliveryId()
     {
-        return $this->previousValue;
+        return $this->deliveryId;
     }
 
     /**
@@ -95,12 +99,12 @@ final class SetDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $deliveryId
+     * @param ?DeliveryItemCollection $previousValue
      * @return $this
      */
-    public function withDeliveryId(?string $deliveryId)
+    public function withPreviousValue(?DeliveryItemCollection $previousValue)
     {
-        $this->deliveryId = $deliveryId;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -117,12 +121,12 @@ final class SetDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
-     * @param ?DeliveryItemCollection $previousValue
+     * @param ?string $deliveryId
      * @return $this
      */
-    public function withPreviousValue(?DeliveryItemCollection $previousValue)
+    public function withDeliveryId(?string $deliveryId)
     {
-        $this->previousValue = $previousValue;
+        $this->deliveryId = $deliveryId;
 
         return $this;
     }
@@ -132,9 +136,9 @@ final class SetDeliveryItemsChangeBuilder implements Builder
     {
         return new SetDeliveryItemsChangeModel(
             $this->change,
-            $this->deliveryId,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->deliveryId
         );
     }
 

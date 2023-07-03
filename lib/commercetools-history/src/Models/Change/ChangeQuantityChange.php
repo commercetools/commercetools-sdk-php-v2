@@ -15,8 +15,8 @@ use Commercetools\History\Models\ChangeValue\InventoryQuantityValue;
 interface ChangeQuantityChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -31,16 +31,20 @@ interface ChangeQuantityChange extends Change
     public function getType();
 
     /**
-
-     * @return null|InventoryQuantityValue
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|InventoryQuantityValue
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|InventoryQuantityValue
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -48,12 +52,12 @@ interface ChangeQuantityChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?InventoryQuantityValue $nextValue
-     */
-    public function setNextValue(?InventoryQuantityValue $nextValue): void;
-
-    /**
      * @param ?InventoryQuantityValue $previousValue
      */
     public function setPreviousValue(?InventoryQuantityValue $previousValue): void;
+
+    /**
+     * @param ?InventoryQuantityValue $nextValue
+     */
+    public function setNextValue(?InventoryQuantityValue $nextValue): void;
 }

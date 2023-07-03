@@ -15,10 +15,10 @@ use Commercetools\History\Models\Common\CategoryOrderHints;
 interface SetCategoryOrderHintChange extends Change
 {
 
-    public const FIELD_CATALOG_DATA = 'catalogData';
-    public const FIELD_CATEGORY_ID = 'categoryId';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_CATALOG_DATA = 'catalogData';
+    public const FIELD_CATEGORY_ID = 'categoryId';
 
     /**
 
@@ -27,51 +27,50 @@ interface SetCategoryOrderHintChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setCategoryOrderHint</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getCatalogData();
-
-    /**
-
-     * @return null|string
-     */
-    public function getCategoryId();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CategoryOrderHints
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|CategoryOrderHints
      */
     public function getNextValue();
 
     /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData();
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:Category">Category</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCategoryId();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
-
-    /**
-     * @param ?string $catalogData
-     */
-    public function setCatalogData(?string $catalogData): void;
-
-    /**
-     * @param ?string $categoryId
-     */
-    public function setCategoryId(?string $categoryId): void;
 
     /**
      * @param ?CategoryOrderHints $previousValue
@@ -82,4 +81,14 @@ interface SetCategoryOrderHintChange extends Change
      * @param ?CategoryOrderHints $nextValue
      */
     public function setNextValue(?CategoryOrderHints $nextValue): void;
+
+    /**
+     * @param ?string $catalogData
+     */
+    public function setCatalogData(?string $catalogData): void;
+
+    /**
+     * @param ?string $categoryId
+     */
+    public function setCategoryId(?string $categoryId): void;
 }

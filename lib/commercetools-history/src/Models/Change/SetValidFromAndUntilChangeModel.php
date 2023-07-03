@@ -100,7 +100,7 @@ final class SetValidFromAndUntilChangeModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
+     * <p>Value before the change.</p>
      *
      *
      * @return null|ValidFromAndUntilValue
@@ -121,7 +121,7 @@ final class SetValidFromAndUntilChangeModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
+     * <p>Value after the change.</p>
      *
      *
      * @return null|ValidFromAndUntilValue

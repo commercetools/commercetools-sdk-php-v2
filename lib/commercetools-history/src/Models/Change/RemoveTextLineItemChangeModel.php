@@ -100,6 +100,8 @@ final class RemoveTextLineItemChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|TextLineItem
      */
@@ -119,6 +121,8 @@ final class RemoveTextLineItemChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|TextLineItem
      */

@@ -18,12 +18,16 @@ interface InventoryQuantityValue extends JsonObject
     public const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
 
     /**
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
+     *
 
      * @return null|int
      */
     public function getQuantityOnStock();
 
     /**
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
+     *
 
      * @return null|int
      */

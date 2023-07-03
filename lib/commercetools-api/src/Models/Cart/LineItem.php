@@ -24,6 +24,7 @@ use DateTimeImmutable;
 interface LineItem extends JsonObject
 {
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_PRODUCT_KEY = 'productKey';
     public const FIELD_NAME = 'name';
@@ -50,12 +51,20 @@ interface LineItem extends JsonObject
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
     /**
-     * <p>Unique identifier of the Line Item.</p>
+     * <p>Unique identifier of the LineItem.</p>
      *
 
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
@@ -268,6 +277,11 @@ interface LineItem extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $productId

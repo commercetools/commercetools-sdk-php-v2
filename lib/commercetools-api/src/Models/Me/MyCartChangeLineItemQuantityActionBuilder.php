@@ -32,6 +32,12 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -49,7 +55,7 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     private $externalTotalPrice;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -57,6 +63,17 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -72,8 +89,7 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when changing the quantity of a Line Item with the <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
-     * <p>The LineItem price is updated as described in LineItem Price selection.</p>
+     * <p>Deprecated. Will be ignored.</p>
      *
 
      * @return null|Money
@@ -84,7 +100,7 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> to the given value when changing the quantity of a Line Item with the <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     * <p>Deprecated. Will be ignored.</p>
      *
 
      * @return null|ExternalLineItemTotalPrice
@@ -101,6 +117,17 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
 
         return $this;
     }
@@ -164,6 +191,7 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     {
         return new MyCartChangeLineItemQuantityActionModel(
             $this->lineItemId,
+            $this->lineItemKey,
             $this->quantity,
             $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
             $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice

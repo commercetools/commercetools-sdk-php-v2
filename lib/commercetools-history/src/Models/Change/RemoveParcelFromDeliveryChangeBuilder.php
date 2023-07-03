@@ -30,19 +30,17 @@ final class RemoveParcelFromDeliveryChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $deliveryId;
-
-    /**
-
      * @var null|Parcel|ParcelBuilder
      */
     private $previousValue;
 
     /**
-     * <p>Update action for <code>removeParcelFromDelivery</code></p>
-     *
+
+     * @var ?string
+     */
+    private $deliveryId;
+
+    /**
 
      * @return null|string
      */
@@ -52,21 +50,25 @@ final class RemoveParcelFromDeliveryChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getDeliveryId()
-    {
-        return $this->deliveryId;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Parcel
      */
     public function getPreviousValue()
     {
         return $this->previousValue instanceof ParcelBuilder ? $this->previousValue->build() : $this->previousValue;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Delivery">Delivery</a> from which the Parcel was removed.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        return $this->deliveryId;
     }
 
     /**
@@ -81,23 +83,23 @@ final class RemoveParcelFromDeliveryChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $deliveryId
-     * @return $this
-     */
-    public function withDeliveryId(?string $deliveryId)
-    {
-        $this->deliveryId = $deliveryId;
-
-        return $this;
-    }
-
-    /**
      * @param ?Parcel $previousValue
      * @return $this
      */
     public function withPreviousValue(?Parcel $previousValue)
     {
         $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $deliveryId
+     * @return $this
+     */
+    public function withDeliveryId(?string $deliveryId)
+    {
+        $this->deliveryId = $deliveryId;
 
         return $this;
     }
@@ -117,8 +119,8 @@ final class RemoveParcelFromDeliveryChangeBuilder implements Builder
     {
         return new RemoveParcelFromDeliveryChangeModel(
             $this->change,
-            $this->deliveryId,
-            $this->previousValue instanceof ParcelBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof ParcelBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->deliveryId
         );
     }
 

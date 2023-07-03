@@ -37,9 +37,9 @@ final class ChangeTransactionInteractionIdChangeModel extends JsonObjectModel im
 
     /**
      *
-     * @var ?TransactionChangeValue
+     * @var ?string
      */
-    protected $transaction;
+    protected $previousValue;
 
     /**
      *
@@ -49,9 +49,9 @@ final class ChangeTransactionInteractionIdChangeModel extends JsonObjectModel im
 
     /**
      *
-     * @var ?string
+     * @var ?TransactionChangeValue
      */
-    protected $previousValue;
+    protected $transaction;
 
 
     /**
@@ -59,15 +59,15 @@ final class ChangeTransactionInteractionIdChangeModel extends JsonObjectModel im
      */
     public function __construct(
         ?string $change = null,
-        ?TransactionChangeValue $transaction = null,
-        ?string $nextValue = null,
         ?string $previousValue = null,
+        ?string $nextValue = null,
+        ?TransactionChangeValue $transaction = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->transaction = $transaction;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->transaction = $transaction;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class ChangeTransactionInteractionIdChangeModel extends JsonObjectModel im
     }
 
     /**
-     * <p>Update action for <code>changeTransactionInteractionId</code> on payments</p>
-     *
      *
      * @return null|string
      */
@@ -110,25 +108,28 @@ final class ChangeTransactionInteractionIdChangeModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|TransactionChangeValue
+     *
+     * @return null|string
      */
-    public function getTransaction()
+    public function getPreviousValue()
     {
-        if (is_null($this->transaction)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TRANSACTION);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->transaction = TransactionChangeValueModel::of($data);
+            $this->previousValue = (string) $data;
         }
 
-        return $this->transaction;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -147,21 +148,24 @@ final class ChangeTransactionInteractionIdChangeModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Holds information about the updated Transaction.</p>
      *
-     * @return null|string
+     *
+     * @return null|TransactionChangeValue
      */
-    public function getPreviousValue()
+    public function getTransaction()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->transaction)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TRANSACTION);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = (string) $data;
+
+            $this->transaction = TransactionChangeValueModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->transaction;
     }
 
 
@@ -174,11 +178,11 @@ final class ChangeTransactionInteractionIdChangeModel extends JsonObjectModel im
     }
 
     /**
-     * @param ?TransactionChangeValue $transaction
+     * @param ?string $previousValue
      */
-    public function setTransaction(?TransactionChangeValue $transaction): void
+    public function setPreviousValue(?string $previousValue): void
     {
-        $this->transaction = $transaction;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -190,11 +194,11 @@ final class ChangeTransactionInteractionIdChangeModel extends JsonObjectModel im
     }
 
     /**
-     * @param ?string $previousValue
+     * @param ?TransactionChangeValue $transaction
      */
-    public function setPreviousValue(?string $previousValue): void
+    public function setTransaction(?TransactionChangeValue $transaction): void
     {
-        $this->previousValue = $previousValue;
+        $this->transaction = $transaction;
     }
 
 

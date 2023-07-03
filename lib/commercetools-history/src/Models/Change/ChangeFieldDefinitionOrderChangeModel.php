@@ -81,8 +81,6 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Update action for <code>changeFieldDefinitionOrder</code> on types</p>
-     *
      *
      * @return null|string
      */
@@ -101,6 +99,8 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|FieldDefinitionOrderValueCollection
      */
@@ -119,6 +119,8 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|FieldDefinitionOrderValueCollection
      */

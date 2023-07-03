@@ -39,8 +39,6 @@ final class SetPurchaseOrderNumberChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>setPurchaseOrderNumber</code>.</p>
-     *
 
      * @return null|string
      */
@@ -50,7 +48,7 @@ final class SetPurchaseOrderNumberChangeBuilder implements Builder
     }
 
     /**
-     * <p>Purchase Order number prior to the update action.</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|string
@@ -61,7 +59,7 @@ final class SetPurchaseOrderNumberChangeBuilder implements Builder
     }
 
     /**
-     * <p>Purchase Order number after the update action.</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|string

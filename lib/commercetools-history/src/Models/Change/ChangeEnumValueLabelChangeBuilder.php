@@ -30,6 +30,18 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
 
      * @var ?string
      */
+    private $previousValue;
+
+    /**
+
+     * @var ?string
+     */
+    private $nextValue;
+
+    /**
+
+     * @var ?string
+     */
     private $fieldName;
 
     /**
@@ -40,20 +52,6 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $previousValue;
-
-    /**
-
-     * @var ?string
-     */
-    private $nextValue;
-
-    /**
-     * <p>Update action for <code>changeEnumValueLabel</code> on types</p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -62,7 +60,29 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field definition updated.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPreviousValue()
+    {
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
      *
 
      * @return null|string
@@ -73,7 +93,7 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
-     * <p>Key of the values that was updated</p>
+     * <p>Key of the updated values.</p>
      *
 
      * @return null|string
@@ -84,52 +104,12 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $fieldName
-     * @return $this
-     */
-    public function withFieldName(?string $fieldName)
-    {
-        $this->fieldName = $fieldName;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $valueKey
-     * @return $this
-     */
-    public function withValueKey(?string $valueKey)
-    {
-        $this->valueKey = $valueKey;
 
         return $this;
     }
@@ -156,15 +136,37 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $fieldName
+     * @return $this
+     */
+    public function withFieldName(?string $fieldName)
+    {
+        $this->fieldName = $fieldName;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $valueKey
+     * @return $this
+     */
+    public function withValueKey(?string $valueKey)
+    {
+        $this->valueKey = $valueKey;
+
+        return $this;
+    }
+
 
     public function build(): ChangeEnumValueLabelChange
     {
         return new ChangeEnumValueLabelChangeModel(
             $this->change,
-            $this->fieldName,
-            $this->valueKey,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->fieldName,
+            $this->valueKey
         );
     }
 

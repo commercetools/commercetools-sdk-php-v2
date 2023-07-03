@@ -15,12 +15,10 @@ use Commercetools\History\Models\Common\Address;
 interface ChangeAddressChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
-     * <p>Update action <code>changeAddress</code> action.</p>
-     *
 
      * @return null|string
      */
@@ -33,16 +31,20 @@ interface ChangeAddressChange extends Change
     public function getType();
 
     /**
-
-     * @return null|Address
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Address
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Address
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface ChangeAddressChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?Address $nextValue
-     */
-    public function setNextValue(?Address $nextValue): void;
-
-    /**
      * @param ?Address $previousValue
      */
     public function setPreviousValue(?Address $previousValue): void;
+
+    /**
+     * @param ?Address $nextValue
+     */
+    public function setNextValue(?Address $nextValue): void;
 }

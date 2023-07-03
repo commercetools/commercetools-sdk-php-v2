@@ -19,18 +19,24 @@ interface TransactionChangeValue extends JsonObject
     public const FIELD_TIMESTAMP = 'timestamp';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Identifier used by the interface that manages the Transaction (usually the PSP).</p>
+     *
 
      * @return null|string
      */
     public function getInteractionId();
 
     /**
+     * <p>Date and time (UTC) the Transaction took place.</p>
+     *
 
      * @return null|string
      */

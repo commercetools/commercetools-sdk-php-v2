@@ -32,17 +32,15 @@ final class ChangeTargetChangeBuilder implements Builder
 
      * @var null|ChangeTargetChangeValue|ChangeTargetChangeValueBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|ChangeTargetChangeValue|ChangeTargetChangeValueBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>changeTarget</code> on cart discounts</p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class ChangeTargetChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|ChangeTargetChangeValue
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof ChangeTargetChangeValueBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ChangeTargetChangeValue
      */
@@ -70,23 +61,23 @@ final class ChangeTargetChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ChangeTargetChangeValue
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof ChangeTargetChangeValueBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ChangeTargetChangeValue $nextValue
-     * @return $this
-     */
-    public function withNextValue(?ChangeTargetChangeValue $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class ChangeTargetChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?ChangeTargetChangeValue $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?ChangeTargetChangeValueBuilder $nextValue)
+    public function withNextValue(?ChangeTargetChangeValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class ChangeTargetChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?ChangeTargetChangeValueBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): ChangeTargetChange
     {
         return new ChangeTargetChangeModel(
             $this->change,
-            $this->nextValue instanceof ChangeTargetChangeValueBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof ChangeTargetChangeValueBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof ChangeTargetChangeValueBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof ChangeTargetChangeValueBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

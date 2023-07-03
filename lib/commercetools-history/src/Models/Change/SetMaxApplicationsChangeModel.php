@@ -80,8 +80,6 @@ final class SetMaxApplicationsChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * <p>Shape of the action for <code>setMaxApplications</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetMaxApplicationsChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|int
      */
@@ -118,6 +118,8 @@ final class SetMaxApplicationsChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|int
      */

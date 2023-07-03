@@ -33,6 +33,8 @@ final class ShippingMethodChangeValueBuilder implements Builder
     private $name;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class ShippingMethodChangeValueBuilder implements Builder
     }
 
     /**
+     * <p>Name of the ShippingMethod.</p>
+     *
 
      * @return null|string
      */

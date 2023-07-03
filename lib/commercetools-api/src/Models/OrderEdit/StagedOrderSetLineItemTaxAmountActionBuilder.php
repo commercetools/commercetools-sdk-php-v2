@@ -32,6 +32,12 @@ final class StagedOrderSetLineItemTaxAmountActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var null|ExternalTaxAmountDraft|ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
@@ -43,12 +49,25 @@ final class StagedOrderSetLineItemTaxAmountActionBuilder implements Builder
     private $shippingKey;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -91,6 +110,17 @@ final class StagedOrderSetLineItemTaxAmountActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?ExternalTaxAmountDraft $externalTaxAmount
      * @return $this
      */
@@ -127,6 +157,7 @@ final class StagedOrderSetLineItemTaxAmountActionBuilder implements Builder
     {
         return new StagedOrderSetLineItemTaxAmountActionModel(
             $this->lineItemId,
+            $this->lineItemKey,
             $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount,
             $this->shippingKey
         );

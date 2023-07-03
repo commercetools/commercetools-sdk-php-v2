@@ -47,6 +47,8 @@ final class InventoryQuantityValueModel extends JsonObjectModel implements Inven
     }
 
     /**
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
+     *
      *
      * @return null|int
      */
@@ -65,6 +67,8 @@ final class InventoryQuantityValueModel extends JsonObjectModel implements Inven
     }
 
     /**
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
+     *
      *
      * @return null|int
      */

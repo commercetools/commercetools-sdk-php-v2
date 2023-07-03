@@ -80,8 +80,6 @@ final class ChangeInitialChangeModel extends JsonObjectModel implements ChangeIn
     }
 
     /**
-     * <p>Shape of the action for <code>changeInitial</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeInitialChangeModel extends JsonObjectModel implements ChangeIn
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|bool
      */
@@ -118,6 +118,8 @@ final class ChangeInitialChangeModel extends JsonObjectModel implements ChangeIn
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|bool
      */

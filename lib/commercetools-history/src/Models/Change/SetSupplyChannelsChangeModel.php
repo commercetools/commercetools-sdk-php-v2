@@ -81,8 +81,6 @@ final class SetSupplyChannelsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
-     * <p>Shape of the action for <code>setSupplyChannels</code></p>
-     *
      *
      * @return null|string
      */
@@ -101,6 +99,8 @@ final class SetSupplyChannelsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */
@@ -119,6 +119,8 @@ final class SetSupplyChannelsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */

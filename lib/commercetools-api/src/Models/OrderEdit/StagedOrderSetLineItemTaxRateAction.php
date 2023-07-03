@@ -16,14 +16,25 @@ use Commercetools\Base\JsonObject;
 interface StagedOrderSetLineItemTaxRateAction extends StagedOrderUpdateAction
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
     public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
      * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
@@ -46,6 +57,11 @@ interface StagedOrderSetLineItemTaxRateAction extends StagedOrderUpdateAction
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?ExternalTaxRateDraft $externalTaxRate

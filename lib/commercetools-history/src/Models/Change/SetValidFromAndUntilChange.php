@@ -31,7 +31,7 @@ interface SetValidFromAndUntilChange extends Change
     public function getChange();
 
     /**
-     * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|ValidFromAndUntilValue
@@ -39,7 +39,7 @@ interface SetValidFromAndUntilChange extends Change
     public function getPreviousValue();
 
     /**
-     * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|ValidFromAndUntilValue

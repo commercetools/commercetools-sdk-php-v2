@@ -15,13 +15,11 @@ use Commercetools\History\Models\Common\Address;
 interface RemoveShippingAddressIdChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_ADDRESS = 'address';
 
     /**
-     * <p>Update action for <code>removeShippingAddressId</code> action on customers.</p>
-     *
 
      * @return null|string
      */
@@ -34,18 +32,24 @@ interface RemoveShippingAddressIdChange extends Change
     public function getType();
 
     /**
-
-     * @return null|array
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|array
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|array
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Address removed from <code>shippingAddressesIds</code>.</p>
+     *
 
      * @return null|Address
      */
@@ -57,14 +61,14 @@ interface RemoveShippingAddressIdChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?array $nextValue
-     */
-    public function setNextValue(?array $nextValue): void;
-
-    /**
      * @param ?array $previousValue
      */
     public function setPreviousValue(?array $previousValue): void;
+
+    /**
+     * @param ?array $nextValue
+     */
+    public function setNextValue(?array $nextValue): void;
 
     /**
      * @param ?Address $address

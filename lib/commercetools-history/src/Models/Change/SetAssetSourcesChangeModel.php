@@ -38,9 +38,9 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
 
     /**
      *
-     * @var ?AssetChangeValue
+     * @var ?AssetSourceCollection
      */
-    protected $asset;
+    protected $previousValue;
 
     /**
      *
@@ -50,9 +50,9 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
 
     /**
      *
-     * @var ?AssetSourceCollection
+     * @var ?AssetChangeValue
      */
-    protected $previousValue;
+    protected $asset;
 
 
     /**
@@ -60,15 +60,15 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
      */
     public function __construct(
         ?string $change = null,
-        ?AssetChangeValue $asset = null,
-        ?AssetSourceCollection $nextValue = null,
         ?AssetSourceCollection $previousValue = null,
+        ?AssetSourceCollection $nextValue = null,
+        ?AssetChangeValue $asset = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->asset = $asset;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->asset = $asset;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -91,8 +91,6 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
-     * <p>Update action for <code>setAssetSources</code></p>
-     *
      *
      * @return null|string
      */
@@ -111,25 +109,28 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|AssetChangeValue
+     *
+     * @return null|AssetSourceCollection
      */
-    public function getAsset()
+    public function getPreviousValue()
     {
-        if (is_null($this->asset)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ASSET);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->asset = AssetChangeValueModel::of($data);
+            $this->previousValue = AssetSourceCollection::fromArray($data);
         }
 
-        return $this->asset;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|AssetSourceCollection
      */
@@ -148,21 +149,24 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
+     * <p>Information about the updated Asset.</p>
      *
-     * @return null|AssetSourceCollection
+     *
+     * @return null|AssetChangeValue
      */
-    public function getPreviousValue()
+    public function getAsset()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->asset)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ASSET);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = AssetSourceCollection::fromArray($data);
+
+            $this->asset = AssetChangeValueModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->asset;
     }
 
 
@@ -175,11 +179,11 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
-     * @param ?AssetChangeValue $asset
+     * @param ?AssetSourceCollection $previousValue
      */
-    public function setAsset(?AssetChangeValue $asset): void
+    public function setPreviousValue(?AssetSourceCollection $previousValue): void
     {
-        $this->asset = $asset;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -191,11 +195,11 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
-     * @param ?AssetSourceCollection $previousValue
+     * @param ?AssetChangeValue $asset
      */
-    public function setPreviousValue(?AssetSourceCollection $previousValue): void
+    public function setAsset(?AssetChangeValue $asset): void
     {
-        $this->previousValue = $previousValue;
+        $this->asset = $asset;
     }
 
 

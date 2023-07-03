@@ -50,7 +50,7 @@ final class SetValidFromAndUntilChangeBuilder implements Builder
     }
 
     /**
-     * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|ValidFromAndUntilValue
@@ -61,7 +61,7 @@ final class SetValidFromAndUntilChangeBuilder implements Builder
     }
 
     /**
-     * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|ValidFromAndUntilValue

@@ -32,6 +32,7 @@ final class LabelModel extends JsonObjectModel implements Label
      * 
      */
     private static $discriminatorClasses = [
+       'BusinessUnitLabel' => BusinessUnitLabelModel::class,
        'CustomObjectLabel' => CustomObjectLabelModel::class,
        'CustomerLabel' => CustomerLabelModel::class,
        'LocalizedLabel' => LocalizedLabelModel::class,

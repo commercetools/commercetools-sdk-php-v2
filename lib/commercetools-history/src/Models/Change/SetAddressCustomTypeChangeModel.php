@@ -1,0 +1,210 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\History\Models\Change;
+
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+use Commercetools\History\Models\Common\Address;
+use Commercetools\History\Models\Common\AddressModel;
+use Commercetools\History\Models\Common\CustomFields;
+use Commercetools\History\Models\Common\CustomFieldsModel;
+
+/**
+ * @internal
+ */
+final class SetAddressCustomTypeChangeModel extends JsonObjectModel implements SetAddressCustomTypeChange
+{
+
+    public const DISCRIMINATOR_VALUE = 'SetAddressCustomTypeChange';
+    /**
+     *
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $change;
+
+    /**
+     *
+     * @var ?Address
+     */
+    protected $address;
+
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $nextValue;
+
+
+    /**
+     * @psalm-suppress MissingParamType
+     */
+    public function __construct(
+        ?string $change = null,
+        ?Address $address = null,
+        ?CustomFields $previousValue = null,
+        ?CustomFields $nextValue = null,
+        ?string $type = null
+    ) {
+        $this->change = $change;
+        $this->address = $address;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     *
+     * @return null|string
+     */
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
+
+    /**
+     *
+     * @return null|string
+     */
+    public function getChange()
+    {
+        if (is_null($this->change)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CHANGE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->change = (string) $data;
+        }
+
+        return $this->change;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Address">Address</a> which was extended.</p>
+     *
+     *
+     * @return null|Address
+     */
+    public function getAddress()
+    {
+        if (is_null($this->address)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ADDRESS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->address = AddressModel::of($data);
+        }
+
+        return $this->address;
+    }
+
+    /**
+     * <p>Value before the change.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getPreviousValue()
+    {
+        if (is_null($this->previousValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->previousValue = CustomFieldsModel::of($data);
+        }
+
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = CustomFieldsModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
+
+    /**
+     * @param ?string $change
+     */
+    public function setChange(?string $change): void
+    {
+        $this->change = $change;
+    }
+
+    /**
+     * @param ?Address $address
+     */
+    public function setAddress(?Address $address): void
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @param ?CustomFields $previousValue
+     */
+    public function setPreviousValue(?CustomFields $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?CustomFields $nextValue
+     */
+    public function setNextValue(?CustomFields $nextValue): void
+    {
+        $this->nextValue = $nextValue;
+    }
+
+
+
+}

@@ -28,12 +28,18 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implemen
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?ItemShippingTargetCollection
      */
     private $targetsDelta;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -41,6 +47,17 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implemen
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -66,6 +83,17 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implemen
     }
 
     /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?ItemShippingTargetCollection $targetsDelta
      * @return $this
      */
@@ -81,6 +109,7 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implemen
     {
         return new CartApplyDeltaToLineItemShippingDetailsTargetsActionModel(
             $this->lineItemId,
+            $this->lineItemKey,
             $this->targetsDelta
         );
     }

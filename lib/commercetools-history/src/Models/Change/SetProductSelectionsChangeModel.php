@@ -81,8 +81,6 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>Update action for <code>setProductSelections</code></p>
-     *
      *
      * @return null|string
      */
@@ -101,6 +99,8 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|ProductSelectionSettingCollection
      */
@@ -119,6 +119,8 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ProductSelectionSettingCollection
      */

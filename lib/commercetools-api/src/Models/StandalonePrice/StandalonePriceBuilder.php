@@ -341,7 +341,7 @@ final class StandalonePriceBuilder implements Builder
     }
 
     /**
-     * <p>Staged changes of the StandalonePrice. Only present if the StandalonePrice has staged changes.</p>
+     * <p>Staged changes of the StandalonePrice. Only present if the StandalonePrice has some changes staged.</p>
      *
 
      * @return null|StagedStandalonePrice

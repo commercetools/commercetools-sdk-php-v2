@@ -18,12 +18,16 @@ interface ParcelChangeValue extends JsonObject
     public const FIELD_CREATED_AT = 'createdAt';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Date and time (UTC) the Parcel was created.</p>
+     *
 
      * @return null|string
      */

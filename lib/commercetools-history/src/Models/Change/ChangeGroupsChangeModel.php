@@ -80,8 +80,6 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
     }
 
     /**
-     * <p>Update action for <code>changeGroups</code> on stores</p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|array
      */
@@ -118,6 +118,8 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|array
      */

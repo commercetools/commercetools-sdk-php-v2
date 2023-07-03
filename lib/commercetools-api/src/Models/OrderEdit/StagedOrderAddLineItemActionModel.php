@@ -43,6 +43,12 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -118,6 +124,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?CustomFieldsDraft $custom = null,
         ?ChannelResourceIdentifier $distributionChannel = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
@@ -132,6 +139,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         ?ItemShippingDetailsDraft $shippingDetails = null,
         ?string $action = null
     ) {
+        $this->key = $key;
         $this->custom = $custom;
         $this->distributionChannel = $distributionChannel;
         $this->externalTaxRate = $externalTaxRate;
@@ -163,6 +171,26 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         }
 
         return $this->action;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -404,6 +432,14 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         return $this->shippingDetails;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?CustomFieldsDraft $custom

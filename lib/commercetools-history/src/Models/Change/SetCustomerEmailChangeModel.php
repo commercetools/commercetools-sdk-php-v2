@@ -80,8 +80,6 @@ final class SetCustomerEmailChangeModel extends JsonObjectModel implements SetCu
     }
 
     /**
-     * <p>Shape of the action for <code>setCustomerEmail</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetCustomerEmailChangeModel extends JsonObjectModel implements SetCu
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetCustomerEmailChangeModel extends JsonObjectModel implements SetCu
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

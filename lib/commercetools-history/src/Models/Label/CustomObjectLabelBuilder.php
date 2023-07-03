@@ -33,6 +33,8 @@ final class CustomObjectLabelBuilder implements Builder
     private $container;
 
     /**
+     * <p>User-defined unique identifier of the CustomObject within the defined <code>container</code>.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class CustomObjectLabelBuilder implements Builder
     }
 
     /**
+     * <p>Namespace to group Custom Objects.</p>
+     *
 
      * @return null|string
      */

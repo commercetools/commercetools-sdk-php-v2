@@ -37,15 +37,15 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
 
     /**
      *
-     * @var ?string
-     */
-    protected $deliveryId;
-
-    /**
-     *
      * @var ?Parcel
      */
     protected $nextValue;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $deliveryId;
 
 
     /**
@@ -53,13 +53,13 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
      */
     public function __construct(
         ?string $change = null,
-        ?string $deliveryId = null,
         ?Parcel $nextValue = null,
+        ?string $deliveryId = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->deliveryId = $deliveryId;
         $this->nextValue = $nextValue;
+        $this->deliveryId = $deliveryId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
     }
 
     /**
-     * <p>Update action for <code>addParcelToDelivery</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,24 +100,8 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getDeliveryId()
-    {
-        if (is_null($this->deliveryId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_DELIVERY_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->deliveryId = (string) $data;
-        }
-
-        return $this->deliveryId;
-    }
-
-    /**
      *
      * @return null|Parcel
      */
@@ -138,6 +120,26 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
         return $this->nextValue;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Delivery">Delivery</a> to which the Parcel was added.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
+    }
+
 
     /**
      * @param ?string $change
@@ -148,19 +150,19 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
     }
 
     /**
-     * @param ?string $deliveryId
-     */
-    public function setDeliveryId(?string $deliveryId): void
-    {
-        $this->deliveryId = $deliveryId;
-    }
-
-    /**
      * @param ?Parcel $nextValue
      */
     public function setNextValue(?Parcel $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void
+    {
+        $this->deliveryId = $deliveryId;
     }
 
 

@@ -33,6 +33,8 @@ final class TaxedPriceBuilder implements Builder
     private $totalGross;
 
     /**
+     * <p>Total net price of the Order.</p>
+     *
 
      * @return null|Money
      */
@@ -42,6 +44,8 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
+     * <p>Total gross price of the Order.</p>
+     *
 
      * @return null|Money
      */

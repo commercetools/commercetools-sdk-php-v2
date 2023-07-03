@@ -47,6 +47,8 @@ final class QuoteLabelBuilder implements Builder
     private $quoteRequest;
 
     /**
+     * <p>User-defined unique identifier of the Quote.</p>
+     *
 
      * @return null|string
      */
@@ -56,6 +58,8 @@ final class QuoteLabelBuilder implements Builder
     }
 
     /**
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
+     *
 
      * @return null|Reference
      */
@@ -65,6 +69,8 @@ final class QuoteLabelBuilder implements Builder
     }
 
     /**
+     * <p>Staged Quote related to the Quote.</p>
+     *
 
      * @return null|Reference
      */
@@ -74,6 +80,8 @@ final class QuoteLabelBuilder implements Builder
     }
 
     /**
+     * <p>Quote Request related to the Quote.</p>
+     *
 
      * @return null|Reference
      */

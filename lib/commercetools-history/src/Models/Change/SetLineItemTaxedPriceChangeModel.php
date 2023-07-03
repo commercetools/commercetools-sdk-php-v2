@@ -39,6 +39,18 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
 
     /**
      *
+     * @var ?TaxedItemPrice
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?TaxedItemPrice
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
@@ -49,35 +61,23 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
      */
     protected $lineItemId;
 
-    /**
-     *
-     * @var ?TaxedItemPrice
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?TaxedItemPrice
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?TaxedItemPrice $previousValue = null,
+        ?TaxedItemPrice $nextValue = null,
         ?LocalizedString $lineItem = null,
         ?string $lineItemId = null,
-        ?TaxedItemPrice $nextValue = null,
-        ?TaxedItemPrice $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->lineItem = $lineItem;
         $this->lineItemId = $lineItemId;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -100,8 +100,6 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Update action for <code>setLineItemTaxedPrice</code></p>
-     *
      *
      * @return null|string
      */
@@ -120,43 +118,29 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|TaxedItemPrice
      */
-    public function getLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->lineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->lineItem = LocalizedStringModel::of($data);
+            $this->previousValue = TaxedItemPriceModel::of($data);
         }
 
-        return $this->lineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getLineItemId()
-    {
-        if (is_null($this->lineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItemId = (string) $data;
-        }
-
-        return $this->lineItemId;
-    }
-
-    /**
      *
      * @return null|TaxedItemPrice
      */
@@ -176,22 +160,44 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
      *
-     * @return null|TaxedItemPrice
+     *
+     * @return null|LocalizedString
      */
-    public function getPreviousValue()
+    public function getLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->lineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = TaxedItemPriceModel::of($data);
+            $this->lineItem = LocalizedStringModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->lineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
     }
 
 
@@ -201,6 +207,22 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?TaxedItemPrice $previousValue
+     */
+    public function setPreviousValue(?TaxedItemPrice $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?TaxedItemPrice $nextValue
+     */
+    public function setNextValue(?TaxedItemPrice $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -217,22 +239,6 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
-    }
-
-    /**
-     * @param ?TaxedItemPrice $nextValue
-     */
-    public function setNextValue(?TaxedItemPrice $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param ?TaxedItemPrice $previousValue
-     */
-    public function setPreviousValue(?TaxedItemPrice $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

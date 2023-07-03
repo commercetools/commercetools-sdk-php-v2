@@ -15,8 +15,8 @@ use Commercetools\History\Models\Common\Money;
 interface SetOrderTotalPriceChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -25,24 +25,26 @@ interface SetOrderTotalPriceChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setOrderTotalPrice</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|Money
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Money
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Money
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface SetOrderTotalPriceChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?Money $nextValue
-     */
-    public function setNextValue(?Money $nextValue): void;
-
-    /**
      * @param ?Money $previousValue
      */
     public function setPreviousValue(?Money $previousValue): void;
+
+    /**
+     * @param ?Money $nextValue
+     */
+    public function setNextValue(?Money $nextValue): void;
 }

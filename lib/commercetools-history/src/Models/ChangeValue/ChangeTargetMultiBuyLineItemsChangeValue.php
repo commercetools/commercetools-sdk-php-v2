@@ -27,13 +27,15 @@ interface ChangeTargetMultiBuyLineItemsChangeValue extends ChangeTargetChangeVal
     public function getType();
 
     /**
+     * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>.</p>
+     *
 
      * @return null|string
      */
     public function getPredicate();
 
     /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
+     * <p>Quantity of Line Items that triggered the application of the discount.</p>
      *
 
      * @return null|int
@@ -41,7 +43,7 @@ interface ChangeTargetMultiBuyLineItemsChangeValue extends ChangeTargetChangeVal
     public function getTriggerQuantity();
 
     /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>
+     * <p>Quantity of Line Items discounted per application of this discount.</p>
      *
 
      * @return null|int
@@ -49,7 +51,7 @@ interface ChangeTargetMultiBuyLineItemsChangeValue extends ChangeTargetChangeVal
     public function getDiscountedQuantity();
 
     /**
-     * <p>Maximum number of applications of this discount.</p>
+     * <p>Maximum number of times the discount is applicable.</p>
      *
 
      * @return null|int
@@ -57,6 +59,8 @@ interface ChangeTargetMultiBuyLineItemsChangeValue extends ChangeTargetChangeVal
     public function getMaxOccurrence();
 
     /**
+     * <p>SelectionMode based on which particular Line Items were discounted.</p>
+     *
 
      * @return null|string
      */

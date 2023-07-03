@@ -32,13 +32,13 @@ final class AddShippingAddressIdChangeBuilder implements Builder
 
      * @var ?array
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var ?array
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
 
@@ -47,8 +47,6 @@ final class AddShippingAddressIdChangeBuilder implements Builder
     private $address;
 
     /**
-     * <p>Update action for <code>addShippingAddressId</code> action on customers.</p>
-     *
 
      * @return null|string
      */
@@ -58,15 +56,8 @@ final class AddShippingAddressIdChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|array
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|array
      */
@@ -76,6 +67,19 @@ final class AddShippingAddressIdChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|array
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Address added to <code>shippingAddressIds</code>.</p>
+     *
 
      * @return null|Address
      */
@@ -96,23 +100,23 @@ final class AddShippingAddressIdChangeBuilder implements Builder
     }
 
     /**
-     * @param ?array $nextValue
-     * @return $this
-     */
-    public function withNextValue(?array $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
      * @param ?array $previousValue
      * @return $this
      */
     public function withPreviousValue(?array $previousValue)
     {
         $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?array $nextValue
+     * @return $this
+     */
+    public function withNextValue(?array $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -143,8 +147,8 @@ final class AddShippingAddressIdChangeBuilder implements Builder
     {
         return new AddShippingAddressIdChangeModel(
             $this->change,
-            $this->nextValue,
             $this->previousValue,
+            $this->nextValue,
             $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
         );
     }

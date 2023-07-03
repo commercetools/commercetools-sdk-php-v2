@@ -39,13 +39,13 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
      *
      * @var ?ChangeTargetChangeValue
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?ChangeTargetChangeValue
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
      */
     public function __construct(
         ?string $change = null,
-        ?ChangeTargetChangeValue $nextValue = null,
         ?ChangeTargetChangeValue $previousValue = null,
+        ?ChangeTargetChangeValue $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
     }
 
     /**
-     * <p>Update action for <code>changeTarget</code> on cart discounts</p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|ChangeTargetChangeValue
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = ChangeTargetChangeValueModel::resolveDiscriminatorClass($data);
-            $this->nextValue = $className::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|ChangeTargetChangeValue
      */
@@ -139,6 +120,27 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|ChangeTargetChangeValue
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ChangeTargetChangeValueModel::resolveDiscriminatorClass($data);
+            $this->nextValue = $className::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
     }
 
     /**
-     * @param ?ChangeTargetChangeValue $nextValue
-     */
-    public function setNextValue(?ChangeTargetChangeValue $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?ChangeTargetChangeValue $previousValue
      */
     public function setPreviousValue(?ChangeTargetChangeValue $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?ChangeTargetChangeValue $nextValue
+     */
+    public function setNextValue(?ChangeTargetChangeValue $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

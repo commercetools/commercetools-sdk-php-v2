@@ -30,9 +30,9 @@ final class SetInputTipChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
-    private $attributeName;
+    private $previousValue;
 
     /**
 
@@ -42,13 +42,11 @@ final class SetInputTipChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
+     * @var ?string
      */
-    private $previousValue;
+    private $attributeName;
 
     /**
-     * <p>Update action for <code>setInputTip</code> on product types</p>
-     *
 
      * @return null|string
      */
@@ -58,17 +56,19 @@ final class SetInputTipChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the updated attribute.</p>
+     * <p>Value before the change.</p>
      *
 
-     * @return null|string
+     * @return null|LocalizedString
      */
-    public function getAttributeName()
+    public function getPreviousValue()
     {
-        return $this->attributeName;
+        return $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -78,12 +78,14 @@ final class SetInputTipChangeBuilder implements Builder
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
 
-     * @return null|LocalizedString
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getAttributeName()
     {
-        return $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->attributeName;
     }
 
     /**
@@ -98,12 +100,12 @@ final class SetInputTipChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $attributeName
+     * @param ?LocalizedString $previousValue
      * @return $this
      */
-    public function withAttributeName(?string $attributeName)
+    public function withPreviousValue(?LocalizedString $previousValue)
     {
-        $this->attributeName = $attributeName;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -120,10 +122,21 @@ final class SetInputTipChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?string $attributeName
      * @return $this
      */
-    public function withPreviousValue(?LocalizedString $previousValue)
+    public function withAttributeName(?string $attributeName)
+    {
+        $this->attributeName = $attributeName;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -141,24 +154,13 @@ final class SetInputTipChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withPreviousValue() instead
-     * @return $this
-     */
-    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
     public function build(): SetInputTipChange
     {
         return new SetInputTipChangeModel(
             $this->change,
-            $this->attributeName,
+            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->attributeName
         );
     }
 

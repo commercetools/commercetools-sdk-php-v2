@@ -80,8 +80,6 @@ final class SetProductCountChangeModel extends JsonObjectModel implements SetPro
     }
 
     /**
-     * <p>Update action for <code>setProductCount</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetProductCountChangeModel extends JsonObjectModel implements SetPro
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|int
      */
@@ -118,6 +118,8 @@ final class SetProductCountChangeModel extends JsonObjectModel implements SetPro
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|int
      */

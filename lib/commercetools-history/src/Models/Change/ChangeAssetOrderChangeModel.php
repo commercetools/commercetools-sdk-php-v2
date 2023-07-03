@@ -99,6 +99,8 @@ final class ChangeAssetOrderChangeModel extends JsonObjectModel implements Chang
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|LocalizedStringCollection
      */
@@ -117,6 +119,8 @@ final class ChangeAssetOrderChangeModel extends JsonObjectModel implements Chang
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedStringCollection
      */

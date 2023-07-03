@@ -32,9 +32,9 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
 
     /**
 
-     * @var null|ShoppingListLineItemValue|ShoppingListLineItemValueBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
-    private $lineItem;
+    private $previousValue;
 
     /**
 
@@ -44,13 +44,11 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
 
     /**
 
-     * @var null|CustomFields|CustomFieldsBuilder
+     * @var null|ShoppingListLineItemValue|ShoppingListLineItemValueBuilder
      */
-    private $previousValue;
+    private $lineItem;
 
     /**
-     * <p>Update action for <code>setLineItemCustomType</code></p>
-     *
 
      * @return null|string
      */
@@ -60,24 +58,8 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|ShoppingListLineItemValue
-     */
-    public function getLineItem()
-    {
-        return $this->lineItem instanceof ShoppingListLineItemValueBuilder ? $this->lineItem->build() : $this->lineItem;
-    }
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -87,34 +69,34 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Holds information about the updated Shopping List Line Item.</p>
+     *
+
+     * @return null|ShoppingListLineItemValue
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof ShoppingListLineItemValueBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ShoppingListLineItemValue $lineItem
-     * @return $this
-     */
-    public function withLineItem(?ShoppingListLineItemValue $lineItem)
-    {
-        $this->lineItem = $lineItem;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomFields $nextValue
-     * @return $this
-     */
-    public function withNextValue(?CustomFields $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -131,12 +113,34 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withLineItem() instead
+     * @param ?CustomFields $nextValue
      * @return $this
      */
-    public function withLineItemBuilder(?ShoppingListLineItemValueBuilder $lineItem)
+    public function withNextValue(?CustomFields $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShoppingListLineItemValue $lineItem
+     * @return $this
+     */
+    public function withLineItem(?ShoppingListLineItemValue $lineItem)
     {
         $this->lineItem = $lineItem;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?CustomFieldsBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -153,12 +157,12 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withLineItem() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?CustomFieldsBuilder $previousValue)
+    public function withLineItemBuilder(?ShoppingListLineItemValueBuilder $lineItem)
     {
-        $this->previousValue = $previousValue;
+        $this->lineItem = $lineItem;
 
         return $this;
     }
@@ -167,9 +171,9 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
     {
         return new SetShoppingListLineItemCustomTypeChangeModel(
             $this->change,
-            $this->lineItem instanceof ShoppingListLineItemValueBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->lineItem instanceof ShoppingListLineItemValueBuilder ? $this->lineItem->build() : $this->lineItem
         );
     }
 

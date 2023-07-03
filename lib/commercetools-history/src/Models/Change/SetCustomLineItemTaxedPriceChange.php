@@ -16,10 +16,10 @@ use Commercetools\History\Models\Common\Money;
 interface SetCustomLineItemTaxedPriceChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    public const FIELD_NEXT_VALUE = 'nextValue';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
 
@@ -28,41 +28,57 @@ interface SetCustomLineItemTaxedPriceChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setCustomLineItemTaxedPrice</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem();
-
-    /**
-
-     * @return null|string
-     */
-    public function getCustomLineItemId();
-
-    /**
-
-     * @return null|Money
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Money
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Money
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem();
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemId();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?Money $previousValue
+     */
+    public function setPreviousValue(?Money $previousValue): void;
+
+    /**
+     * @param ?Money $nextValue
+     */
+    public function setNextValue(?Money $nextValue): void;
 
     /**
      * @param ?LocalizedString $customLineItem
@@ -73,14 +89,4 @@ interface SetCustomLineItemTaxedPriceChange extends Change
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
-
-    /**
-     * @param ?Money $nextValue
-     */
-    public function setNextValue(?Money $nextValue): void;
-
-    /**
-     * @param ?Money $previousValue
-     */
-    public function setPreviousValue(?Money $previousValue): void;
 }

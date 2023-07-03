@@ -41,8 +41,6 @@ final class SetCustomerChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Shape of the action for <code>setCustomer</code></p>
-     *
 
      * @return null|string
      */
@@ -52,6 +50,8 @@ final class SetCustomerChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Reference
      */
@@ -61,6 +61,8 @@ final class SetCustomerChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Reference
      */

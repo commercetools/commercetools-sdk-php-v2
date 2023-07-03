@@ -37,12 +37,6 @@ final class SetProductVariantKeyChangeModel extends JsonObjectModel implements S
      *
      * @var ?string
      */
-    protected $catalogData;
-
-    /**
-     *
-     * @var ?string
-     */
     protected $previousValue;
 
     /**
@@ -51,21 +45,27 @@ final class SetProductVariantKeyChangeModel extends JsonObjectModel implements S
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $catalogData;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?string $catalogData = null,
         ?string $previousValue = null,
         ?string $nextValue = null,
+        ?string $catalogData = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->catalogData = $catalogData;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->catalogData = $catalogData;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -88,8 +88,6 @@ final class SetProductVariantKeyChangeModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>Update action for <code>setProductVariantKey</code></p>
-     *
      *
      * @return null|string
      */
@@ -108,24 +106,8 @@ final class SetProductVariantKeyChangeModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
-     */
-    public function getCatalogData()
-    {
-        if (is_null($this->catalogData)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CATALOG_DATA);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->catalogData = (string) $data;
-        }
-
-        return $this->catalogData;
-    }
-
-    /**
      *
      * @return null|string
      */
@@ -144,6 +126,8 @@ final class SetProductVariantKeyChangeModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */
@@ -161,6 +145,29 @@ final class SetProductVariantKeyChangeModel extends JsonObjectModel implements S
         return $this->nextValue;
     }
 
+    /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+     *
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        if (is_null($this->catalogData)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CATALOG_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->catalogData = (string) $data;
+        }
+
+        return $this->catalogData;
+    }
+
 
     /**
      * @param ?string $change
@@ -168,14 +175,6 @@ final class SetProductVariantKeyChangeModel extends JsonObjectModel implements S
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?string $catalogData
-     */
-    public function setCatalogData(?string $catalogData): void
-    {
-        $this->catalogData = $catalogData;
     }
 
     /**
@@ -192,6 +191,14 @@ final class SetProductVariantKeyChangeModel extends JsonObjectModel implements S
     public function setNextValue(?string $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?string $catalogData
+     */
+    public function setCatalogData(?string $catalogData): void
+    {
+        $this->catalogData = $catalogData;
     }
 
 

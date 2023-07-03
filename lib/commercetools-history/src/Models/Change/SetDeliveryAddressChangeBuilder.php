@@ -30,9 +30,9 @@ final class SetDeliveryAddressChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|Address|AddressBuilder
      */
-    private $deliveryId;
+    private $previousValue;
 
     /**
 
@@ -42,13 +42,11 @@ final class SetDeliveryAddressChangeBuilder implements Builder
 
     /**
 
-     * @var null|Address|AddressBuilder
+     * @var ?string
      */
-    private $previousValue;
+    private $deliveryId;
 
     /**
-     * <p>Update action for <code>setDeliveryAddress</code></p>
-     *
 
      * @return null|string
      */
@@ -58,15 +56,19 @@ final class SetDeliveryAddressChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|Address
      */
-    public function getDeliveryId()
+    public function getPreviousValue()
     {
-        return $this->deliveryId;
+        return $this->previousValue instanceof AddressBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Address
      */
@@ -76,12 +78,14 @@ final class SetDeliveryAddressChangeBuilder implements Builder
     }
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
-     * @return null|Address
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getDeliveryId()
     {
-        return $this->previousValue instanceof AddressBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->deliveryId;
     }
 
     /**
@@ -96,12 +100,12 @@ final class SetDeliveryAddressChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $deliveryId
+     * @param ?Address $previousValue
      * @return $this
      */
-    public function withDeliveryId(?string $deliveryId)
+    public function withPreviousValue(?Address $previousValue)
     {
-        $this->deliveryId = $deliveryId;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -118,10 +122,21 @@ final class SetDeliveryAddressChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Address $previousValue
+     * @param ?string $deliveryId
      * @return $this
      */
-    public function withPreviousValue(?Address $previousValue)
+    public function withDeliveryId(?string $deliveryId)
+    {
+        $this->deliveryId = $deliveryId;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?AddressBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -139,24 +154,13 @@ final class SetDeliveryAddressChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withPreviousValue() instead
-     * @return $this
-     */
-    public function withPreviousValueBuilder(?AddressBuilder $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
     public function build(): SetDeliveryAddressChange
     {
         return new SetDeliveryAddressChangeModel(
             $this->change,
-            $this->deliveryId,
+            $this->previousValue instanceof AddressBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof AddressBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof AddressBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->deliveryId
         );
     }
 

@@ -16,13 +16,24 @@ use Commercetools\Base\JsonObject;
 interface StagedOrderSetLineItemTotalPriceAction extends StagedOrderUpdateAction
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
 
@@ -34,6 +45,11 @@ interface StagedOrderSetLineItemTotalPriceAction extends StagedOrderUpdateAction
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?ExternalLineItemTotalPrice $externalTotalPrice

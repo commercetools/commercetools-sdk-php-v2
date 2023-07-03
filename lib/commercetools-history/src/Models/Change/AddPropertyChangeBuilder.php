@@ -28,19 +28,17 @@ final class AddPropertyChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $path;
-
-    /**
-
      * @var null|mixed|mixed
      */
     private $nextValue;
 
     /**
-     * <p>Update action for <code>addProperty</code> on custom objects</p>
-     *
+
+     * @var ?string
+     */
+    private $path;
+
+    /**
 
      * @return null|string
      */
@@ -50,7 +48,18 @@ final class AddPropertyChangeBuilder implements Builder
     }
 
     /**
-     * <p>Value path to the property that was added</p>
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Path to the new property that was added.</p>
      *
 
      * @return null|string
@@ -61,32 +70,12 @@ final class AddPropertyChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|mixed
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $path
-     * @return $this
-     */
-    public function withPath(?string $path)
-    {
-        $this->path = $path;
 
         return $this;
     }
@@ -102,13 +91,24 @@ final class AddPropertyChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $path
+     * @return $this
+     */
+    public function withPath(?string $path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
 
     public function build(): AddPropertyChange
     {
         return new AddPropertyChangeModel(
             $this->change,
-            $this->path,
-            $this->nextValue
+            $this->nextValue,
+            $this->path
         );
     }
 

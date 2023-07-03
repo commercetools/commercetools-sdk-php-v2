@@ -15,11 +15,11 @@ use Commercetools\History\Models\Common\LocalizedString;
 interface SetCustomLineItemCustomFieldChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_NAME = 'name';
     public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    public const FIELD_NEXT_VALUE = 'nextValue';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
 
@@ -28,47 +28,65 @@ interface SetCustomLineItemCustomFieldChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setCustomLineItemCustomField</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getName();
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem();
-
-    /**
-
-     * @return null|string
-     */
-    public function getCustomLineItemId();
-
-    /**
-
-     * @return null|mixed
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|mixed
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getName();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem();
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemId();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param mixed $previousValue
+     */
+    public function setPreviousValue( $previousValue): void;
+
+    /**
+     * @param mixed $nextValue
+     */
+    public function setNextValue( $nextValue): void;
 
     /**
      * @param ?string $name
@@ -84,14 +102,4 @@ interface SetCustomLineItemCustomFieldChange extends Change
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
-
-    /**
-     * @param mixed $nextValue
-     */
-    public function setNextValue( $nextValue): void;
-
-    /**
-     * @param mixed $previousValue
-     */
-    public function setPreviousValue( $previousValue): void;
 }

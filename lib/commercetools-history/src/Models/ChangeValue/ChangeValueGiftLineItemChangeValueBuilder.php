@@ -47,6 +47,8 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     private $distributionChannel;
 
     /**
+     * <p>Reference to a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
 
      * @return null|Reference
      */
@@ -56,6 +58,8 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|int
      */
@@ -65,6 +69,8 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     }
 
     /**
+     * <p>Channel with <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>InventorySupply</code>.</p>
+     *
 
      * @return null|Reference
      */
@@ -74,6 +80,8 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     }
 
     /**
+     * <p>Channel with <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>ProductDistribution</code>.</p>
+     *
 
      * @return null|Reference
      */

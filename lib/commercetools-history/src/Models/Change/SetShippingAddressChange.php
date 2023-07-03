@@ -15,8 +15,8 @@ use Commercetools\History\Models\Common\Address;
 interface SetShippingAddressChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -25,24 +25,26 @@ interface SetShippingAddressChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setShippingAddress</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|Address
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Address
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Address
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface SetShippingAddressChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?Address $nextValue
-     */
-    public function setNextValue(?Address $nextValue): void;
-
-    /**
      * @param ?Address $previousValue
      */
     public function setPreviousValue(?Address $previousValue): void;
+
+    /**
+     * @param ?Address $nextValue
+     */
+    public function setNextValue(?Address $nextValue): void;
 }

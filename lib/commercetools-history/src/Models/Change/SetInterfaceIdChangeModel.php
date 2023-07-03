@@ -80,8 +80,6 @@ final class SetInterfaceIdChangeModel extends JsonObjectModel implements SetInte
     }
 
     /**
-     * <p>Shape of the action for <code>setInterfaceId</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetInterfaceIdChangeModel extends JsonObjectModel implements SetInte
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetInterfaceIdChangeModel extends JsonObjectModel implements SetInte
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

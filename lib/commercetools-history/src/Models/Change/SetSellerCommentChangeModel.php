@@ -80,8 +80,6 @@ final class SetSellerCommentChangeModel extends JsonObjectModel implements SetSe
     }
 
     /**
-     * <p>Shape of the action for <code>setSellerComment</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetSellerCommentChangeModel extends JsonObjectModel implements SetSe
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetSellerCommentChangeModel extends JsonObjectModel implements SetSe
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

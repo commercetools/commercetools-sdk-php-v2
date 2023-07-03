@@ -30,19 +30,17 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $deliveryId;
-
-    /**
-
      * @var null|Parcel|ParcelBuilder
      */
     private $nextValue;
 
     /**
-     * <p>Update action for <code>addParcelToDelivery</code></p>
-     *
+
+     * @var ?string
+     */
+    private $deliveryId;
+
+    /**
 
      * @return null|string
      */
@@ -52,21 +50,25 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getDeliveryId()
-    {
-        return $this->deliveryId;
-    }
-
-    /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Parcel
      */
     public function getNextValue()
     {
         return $this->nextValue instanceof ParcelBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Delivery">Delivery</a> to which the Parcel was added.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        return $this->deliveryId;
     }
 
     /**
@@ -81,23 +83,23 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $deliveryId
-     * @return $this
-     */
-    public function withDeliveryId(?string $deliveryId)
-    {
-        $this->deliveryId = $deliveryId;
-
-        return $this;
-    }
-
-    /**
      * @param ?Parcel $nextValue
      * @return $this
      */
     public function withNextValue(?Parcel $nextValue)
     {
         $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $deliveryId
+     * @return $this
+     */
+    public function withDeliveryId(?string $deliveryId)
+    {
+        $this->deliveryId = $deliveryId;
 
         return $this;
     }
@@ -117,8 +119,8 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
     {
         return new AddParcelToDeliveryChangeModel(
             $this->change,
-            $this->deliveryId,
-            $this->nextValue instanceof ParcelBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof ParcelBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->deliveryId
         );
     }
 

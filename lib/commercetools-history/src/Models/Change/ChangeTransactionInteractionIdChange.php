@@ -15,9 +15,9 @@ use Commercetools\History\Models\ChangeValue\TransactionChangeValue;
 interface ChangeTransactionInteractionIdChange extends Change
 {
 
-    public const FIELD_TRANSACTION = 'transaction';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_TRANSACTION = 'transaction';
 
     /**
 
@@ -26,30 +26,34 @@ interface ChangeTransactionInteractionIdChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeTransactionInteractionId</code> on payments</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
-     * @return null|TransactionChangeValue
+     * @return null|string
      */
-    public function getTransaction();
+    public function getPreviousValue();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
     public function getNextValue();
 
     /**
+     * <p>Holds information about the updated Transaction.</p>
+     *
 
-     * @return null|string
+     * @return null|TransactionChangeValue
      */
-    public function getPreviousValue();
+    public function getTransaction();
 
     /**
      * @param ?string $change
@@ -57,9 +61,9 @@ interface ChangeTransactionInteractionIdChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?TransactionChangeValue $transaction
+     * @param ?string $previousValue
      */
-    public function setTransaction(?TransactionChangeValue $transaction): void;
+    public function setPreviousValue(?string $previousValue): void;
 
     /**
      * @param ?string $nextValue
@@ -67,7 +71,7 @@ interface ChangeTransactionInteractionIdChange extends Change
     public function setNextValue(?string $nextValue): void;
 
     /**
-     * @param ?string $previousValue
+     * @param ?TransactionChangeValue $transaction
      */
-    public function setPreviousValue(?string $previousValue): void;
+    public function setTransaction(?TransactionChangeValue $transaction): void;
 }

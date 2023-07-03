@@ -35,6 +35,8 @@ final class QuoteRequestLabelBuilder implements Builder
     private $customer;
 
     /**
+     * <p>User-defined unique identifier of the Quote Request.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class QuoteRequestLabelBuilder implements Builder
     }
 
     /**
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who raised the Quote Request.</p>
+     *
 
      * @return null|Reference
      */

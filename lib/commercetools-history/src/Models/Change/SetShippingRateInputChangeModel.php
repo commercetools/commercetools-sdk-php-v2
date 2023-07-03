@@ -41,13 +41,13 @@ final class SetShippingRateInputChangeModel extends JsonObjectModel implements S
      *
      * @var ?mixed
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?mixed
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -55,13 +55,13 @@ final class SetShippingRateInputChangeModel extends JsonObjectModel implements S
      */
     public function __construct(
         ?string $change = null,
-        ?JsonObject $nextValue = null,
         ?JsonObject $previousValue = null,
+        ?JsonObject $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -84,8 +84,6 @@ final class SetShippingRateInputChangeModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>Update action for <code>setShippingRateInput</code></p>
-     *
      *
      * @return null|string
      */
@@ -104,24 +102,8 @@ final class SetShippingRateInputChangeModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return ?mixed
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var ?mixed $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->nextValue = $data;
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return ?mixed
      */
@@ -140,34 +122,28 @@ final class SetShippingRateInputChangeModel extends JsonObjectModel implements S
     }
 
     /**
-     * @return null|SetCartClassificationShippingRateInputValue
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return ?mixed
      */
-    public function getNextValueAsSetCartClassificationShippingRateInputValue()
+    public function getNextValue()
     {
-        /** @psalm-var stdClass|array<string, mixed>|null $data */
-        $data = $this->raw(self::FIELD_NEXT_VALUE);
-        if (is_null($data)) {
-            return null;
+        if (is_null($this->nextValue)) {
+            /** @psalm-var ?mixed $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = $data;
         }
 
-        return SetCartClassificationShippingRateInputValueModel::of($data);
+        return $this->nextValue;
     }
 
     /**
-     * @return null|SetCartScoreShippingRateInputValue
-     */
-    public function getNextValueAsSetCartScoreShippingRateInputValue()
-    {
-        /** @psalm-var stdClass|array<string, mixed>|null $data */
-        $data = $this->raw(self::FIELD_NEXT_VALUE);
-        if (is_null($data)) {
-            return null;
-        }
-
-        return SetCartScoreShippingRateInputValueModel::of($data);
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
      * @return null|SetCartClassificationShippingRateInputValue
      */
     public function getPreviousValueAsSetCartClassificationShippingRateInputValue()
@@ -182,12 +158,46 @@ final class SetShippingRateInputChangeModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      * @return null|SetCartScoreShippingRateInputValue
      */
     public function getPreviousValueAsSetCartScoreShippingRateInputValue()
     {
         /** @psalm-var stdClass|array<string, mixed>|null $data */
         $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return SetCartScoreShippingRateInputValueModel::of($data);
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+     * @return null|SetCartClassificationShippingRateInputValue
+     */
+    public function getNextValueAsSetCartClassificationShippingRateInputValue()
+    {
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_NEXT_VALUE);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return SetCartClassificationShippingRateInputValueModel::of($data);
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+     * @return null|SetCartScoreShippingRateInputValue
+     */
+    public function getNextValueAsSetCartScoreShippingRateInputValue()
+    {
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_NEXT_VALUE);
         if (is_null($data)) {
             return null;
         }
@@ -204,19 +214,19 @@ final class SetShippingRateInputChangeModel extends JsonObjectModel implements S
     }
 
     /**
-     * @param ?JsonObject $nextValue
-     */
-    public function setNextValue(?JsonObject $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?JsonObject $previousValue
      */
     public function setPreviousValue(?JsonObject $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?JsonObject $nextValue
+     */
+    public function setNextValue(?JsonObject $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

@@ -29,6 +29,18 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
 
     /**
 
+     * @var ?ItemStateCollection
+     */
+    private $previousValue;
+
+    /**
+
+     * @var ?ItemStateCollection
+     */
+    private $nextValue;
+
+    /**
+
      * @var ?string
      */
     private $lineItemId;
@@ -41,20 +53,6 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
 
     /**
 
-     * @var ?ItemStateCollection
-     */
-    private $nextValue;
-
-    /**
-
-     * @var ?ItemStateCollection
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>transitionCustomLineItemState</code></p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -63,33 +61,8 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getLineItemId()
-    {
-        return $this->lineItemId;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getStateId()
-    {
-        return $this->stateId;
-    }
-
-    /**
-
-     * @return null|ItemStateCollection
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ItemStateCollection
      */
@@ -99,12 +72,67 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ItemStateCollection
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:State">State</a> involved in the transition.</p>
+     *
+
+     * @return null|string
+     */
+    public function getStateId()
+    {
+        return $this->stateId;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ItemStateCollection $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?ItemStateCollection $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ItemStateCollection $nextValue
+     * @return $this
+     */
+    public function withNextValue(?ItemStateCollection $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -131,37 +159,15 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?ItemStateCollection $nextValue
-     * @return $this
-     */
-    public function withNextValue(?ItemStateCollection $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ItemStateCollection $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?ItemStateCollection $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
 
     public function build(): TransitionCustomLineItemStateChange
     {
         return new TransitionCustomLineItemStateChangeModel(
             $this->change,
-            $this->lineItemId,
-            $this->stateId,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->lineItemId,
+            $this->stateId
         );
     }
 

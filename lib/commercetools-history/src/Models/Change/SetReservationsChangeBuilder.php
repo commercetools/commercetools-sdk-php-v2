@@ -31,17 +31,15 @@ final class SetReservationsChangeBuilder implements Builder
 
      * @var ?ReservationCollection
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var ?ReservationCollection
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>setReservations</code> on inventories</p>
-     *
 
      * @return null|string
      */
@@ -51,15 +49,8 @@ final class SetReservationsChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|ReservationCollection
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ReservationCollection
      */
@@ -69,23 +60,23 @@ final class SetReservationsChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ReservationCollection
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ReservationCollection $nextValue
-     * @return $this
-     */
-    public function withNextValue(?ReservationCollection $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -101,13 +92,24 @@ final class SetReservationsChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?ReservationCollection $nextValue
+     * @return $this
+     */
+    public function withNextValue(?ReservationCollection $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
 
     public function build(): SetReservationsChange
     {
         return new SetReservationsChangeModel(
             $this->change,
-            $this->nextValue,
-            $this->previousValue
+            $this->previousValue,
+            $this->nextValue
         );
     }
 

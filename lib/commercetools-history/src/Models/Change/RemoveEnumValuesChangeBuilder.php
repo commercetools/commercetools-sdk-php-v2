@@ -30,19 +30,17 @@ final class RemoveEnumValuesChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $attributeName;
-
-    /**
-
      * @var null|EnumValue|EnumValueBuilder
      */
     private $previousValue;
 
     /**
-     * <p>Update action for <code>removeEnumValues</code> on product types</p>
-     *
+
+     * @var ?string
+     */
+    private $attributeName;
+
+    /**
 
      * @return null|string
      */
@@ -52,7 +50,18 @@ final class RemoveEnumValuesChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|EnumValue
+     */
+    public function getPreviousValue()
+    {
+        return $this->previousValue instanceof EnumValueBuilder ? $this->previousValue->build() : $this->previousValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|string
@@ -60,15 +69,6 @@ final class RemoveEnumValuesChangeBuilder implements Builder
     public function getAttributeName()
     {
         return $this->attributeName;
-    }
-
-    /**
-
-     * @return null|EnumValue
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue instanceof EnumValueBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
@@ -83,23 +83,23 @@ final class RemoveEnumValuesChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $attributeName
-     * @return $this
-     */
-    public function withAttributeName(?string $attributeName)
-    {
-        $this->attributeName = $attributeName;
-
-        return $this;
-    }
-
-    /**
      * @param ?EnumValue $previousValue
      * @return $this
      */
     public function withPreviousValue(?EnumValue $previousValue)
     {
         $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $attributeName
+     * @return $this
+     */
+    public function withAttributeName(?string $attributeName)
+    {
+        $this->attributeName = $attributeName;
 
         return $this;
     }
@@ -119,8 +119,8 @@ final class RemoveEnumValuesChangeBuilder implements Builder
     {
         return new RemoveEnumValuesChangeModel(
             $this->change,
-            $this->attributeName,
-            $this->previousValue instanceof EnumValueBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof EnumValueBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->attributeName
         );
     }
 

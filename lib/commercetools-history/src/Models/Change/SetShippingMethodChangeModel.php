@@ -39,13 +39,13 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
      *
      * @var ?ShippingMethodChangeValue
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?ShippingMethodChangeValue
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
      */
     public function __construct(
         ?string $change = null,
-        ?ShippingMethodChangeValue $nextValue = null,
         ?ShippingMethodChangeValue $previousValue = null,
+        ?ShippingMethodChangeValue $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
-     * <p>Update action for <code>setShippingMethod</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|ShippingMethodChangeValue
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = ShippingMethodChangeValueModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|ShippingMethodChangeValue
      */
@@ -139,6 +120,27 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|ShippingMethodChangeValue
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = ShippingMethodChangeValueModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
-     * @param ?ShippingMethodChangeValue $nextValue
-     */
-    public function setNextValue(?ShippingMethodChangeValue $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?ShippingMethodChangeValue $previousValue
      */
     public function setPreviousValue(?ShippingMethodChangeValue $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?ShippingMethodChangeValue $nextValue
+     */
+    public function setNextValue(?ShippingMethodChangeValue $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

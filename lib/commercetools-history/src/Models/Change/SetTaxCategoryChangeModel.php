@@ -82,8 +82,6 @@ final class SetTaxCategoryChangeModel extends JsonObjectModel implements SetTaxC
     }
 
     /**
-     * <p>Shape of the action for <code>setTaxCategory</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,6 +100,8 @@ final class SetTaxCategoryChangeModel extends JsonObjectModel implements SetTaxC
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|Reference
      */
@@ -121,6 +121,8 @@ final class SetTaxCategoryChangeModel extends JsonObjectModel implements SetTaxC
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|Reference
      */

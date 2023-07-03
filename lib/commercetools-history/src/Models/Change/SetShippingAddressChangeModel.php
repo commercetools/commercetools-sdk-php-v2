@@ -39,13 +39,13 @@ final class SetShippingAddressChangeModel extends JsonObjectModel implements Set
      *
      * @var ?Address
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?Address
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class SetShippingAddressChangeModel extends JsonObjectModel implements Set
      */
     public function __construct(
         ?string $change = null,
-        ?Address $nextValue = null,
         ?Address $previousValue = null,
+        ?Address $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class SetShippingAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * <p>Update action for <code>setShippingAddress</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class SetShippingAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|Address
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = AddressModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|Address
      */
@@ -139,6 +120,27 @@ final class SetShippingAddressChangeModel extends JsonObjectModel implements Set
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|Address
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = AddressModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class SetShippingAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * @param ?Address $nextValue
-     */
-    public function setNextValue(?Address $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?Address $previousValue
      */
     public function setPreviousValue(?Address $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?Address $nextValue
+     */
+    public function setNextValue(?Address $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

@@ -30,12 +30,6 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
 
     /**
 
-     * @var null|TextLineItemValue|TextLineItemValueBuilder
-     */
-    private $textLineItem;
-
-    /**
-
      * @var ?int
      */
     private $previousValue;
@@ -48,6 +42,12 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
 
     /**
 
+     * @var null|TextLineItemValue|TextLineItemValueBuilder
+     */
+    private $textLineItem;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -56,15 +56,8 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|TextLineItemValue
-     */
-    public function getTextLineItem()
-    {
-        return $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|int
      */
@@ -74,6 +67,8 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|int
      */
@@ -83,23 +78,23 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+     * <p>Holds information about the updated Text Line Item.</p>
+     *
+
+     * @return null|TextLineItemValue
+     */
+    public function getTextLineItem()
+    {
+        return $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TextLineItemValue $textLineItem
-     * @return $this
-     */
-    public function withTextLineItem(?TextLineItemValue $textLineItem)
-    {
-        $this->textLineItem = $textLineItem;
 
         return $this;
     }
@@ -127,6 +122,17 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+     * @param ?TextLineItemValue $textLineItem
+     * @return $this
+     */
+    public function withTextLineItem(?TextLineItemValue $textLineItem)
+    {
+        $this->textLineItem = $textLineItem;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withTextLineItem() instead
      * @return $this
      */
@@ -141,9 +147,9 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
     {
         return new ChangeTextLineItemQuantityChangeModel(
             $this->change,
-            $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem
         );
     }
 

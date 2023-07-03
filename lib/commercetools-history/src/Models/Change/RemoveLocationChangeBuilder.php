@@ -41,8 +41,6 @@ final class RemoveLocationChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>removeLocation</code> on zones</p>
-     *
 
      * @return null|string
      */
@@ -52,7 +50,7 @@ final class RemoveLocationChangeBuilder implements Builder
     }
 
     /**
-     * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|Location
@@ -63,7 +61,7 @@ final class RemoveLocationChangeBuilder implements Builder
     }
 
     /**
-     * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|Location

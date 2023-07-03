@@ -36,6 +36,12 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -64,6 +70,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?int $quantity = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
@@ -71,6 +78,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
         ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->quantity = $quantity;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
@@ -97,7 +105,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     }
 
     /**
-     * <p><code>id</code> of the Line Item to remove.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -117,8 +125,28 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     }
 
     /**
-     * <p>New value to set.
-     * If absent or <code>0</code>, the Line Item is removed from the Cart.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
+    }
+
+    /**
+     * <p>Amount to subtract from the LineItem's <code>quantity</code>.
+     * If absent, the LineItem is removed from the Cart.</p>
      *
      *
      * @return null|int
@@ -207,6 +235,14 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

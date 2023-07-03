@@ -30,9 +30,9 @@ final class ChangeTransactionInteractionIdChangeBuilder implements Builder
 
     /**
 
-     * @var null|TransactionChangeValue|TransactionChangeValueBuilder
+     * @var ?string
      */
-    private $transaction;
+    private $previousValue;
 
     /**
 
@@ -42,13 +42,11 @@ final class ChangeTransactionInteractionIdChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|TransactionChangeValue|TransactionChangeValueBuilder
      */
-    private $previousValue;
+    private $transaction;
 
     /**
-     * <p>Update action for <code>changeTransactionInteractionId</code> on payments</p>
-     *
 
      * @return null|string
      */
@@ -58,15 +56,19 @@ final class ChangeTransactionInteractionIdChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
-     * @return null|TransactionChangeValue
+     * @return null|string
      */
-    public function getTransaction()
+    public function getPreviousValue()
     {
-        return $this->transaction instanceof TransactionChangeValueBuilder ? $this->transaction->build() : $this->transaction;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
@@ -76,12 +78,14 @@ final class ChangeTransactionInteractionIdChangeBuilder implements Builder
     }
 
     /**
+     * <p>Holds information about the updated Transaction.</p>
+     *
 
-     * @return null|string
+     * @return null|TransactionChangeValue
      */
-    public function getPreviousValue()
+    public function getTransaction()
     {
-        return $this->previousValue;
+        return $this->transaction instanceof TransactionChangeValueBuilder ? $this->transaction->build() : $this->transaction;
     }
 
     /**
@@ -96,12 +100,12 @@ final class ChangeTransactionInteractionIdChangeBuilder implements Builder
     }
 
     /**
-     * @param ?TransactionChangeValue $transaction
+     * @param ?string $previousValue
      * @return $this
      */
-    public function withTransaction(?TransactionChangeValue $transaction)
+    public function withPreviousValue(?string $previousValue)
     {
-        $this->transaction = $transaction;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -118,12 +122,12 @@ final class ChangeTransactionInteractionIdChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $previousValue
+     * @param ?TransactionChangeValue $transaction
      * @return $this
      */
-    public function withPreviousValue(?string $previousValue)
+    public function withTransaction(?TransactionChangeValue $transaction)
     {
-        $this->previousValue = $previousValue;
+        $this->transaction = $transaction;
 
         return $this;
     }
@@ -143,9 +147,9 @@ final class ChangeTransactionInteractionIdChangeBuilder implements Builder
     {
         return new ChangeTransactionInteractionIdChangeModel(
             $this->change,
-            $this->transaction instanceof TransactionChangeValueBuilder ? $this->transaction->build() : $this->transaction,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->transaction instanceof TransactionChangeValueBuilder ? $this->transaction->build() : $this->transaction
         );
     }
 

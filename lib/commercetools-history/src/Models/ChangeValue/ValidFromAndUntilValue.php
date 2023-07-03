@@ -18,12 +18,16 @@ interface ValidFromAndUntilValue extends JsonObject
     public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
+     * <p>Date and time (UTC) from when the Discount is effective.</p>
+     *
 
      * @return null|string
      */
     public function getValidFrom();
 
     /**
+     * <p>Date and time (UTC) until when the Discount is effective.</p>
+     *
 
      * @return null|string
      */

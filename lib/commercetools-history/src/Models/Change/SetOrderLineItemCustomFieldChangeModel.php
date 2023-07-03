@@ -37,6 +37,18 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
 
     /**
      *
+     * @var ?mixed
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?mixed
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?string
      */
     protected $customTypeId;
@@ -49,27 +61,15 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
 
     /**
      *
-     * @var ?string
-     */
-    protected $variant;
-
-    /**
-     *
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
      *
-     * @var ?mixed
+     * @var ?string
      */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?mixed
-     */
-    protected $previousValue;
+    protected $variant;
 
 
     /**
@@ -77,21 +77,21 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
      */
     public function __construct(
         ?string $change = null,
+         $previousValue = null,
+         $nextValue = null,
         ?string $customTypeId = null,
         ?string $name = null,
-        ?string $variant = null,
         ?LocalizedString $lineItem = null,
-         $nextValue = null,
-         $previousValue = null,
+        ?string $variant = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->customTypeId = $customTypeId;
         $this->name = $name;
-        $this->variant = $variant;
         $this->lineItem = $lineItem;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
+        $this->variant = $variant;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -114,8 +114,6 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Update action for <code>setLineItemCustomField</code></p>
-     *
      *
      * @return null|string
      */
@@ -134,6 +132,48 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
+     *
+     * @return null|mixed
+     */
+    public function getPreviousValue()
+    {
+        if (is_null($this->previousValue)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->previousValue = $data;
+        }
+
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|mixed
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = $data;
+        }
+
+        return $this->nextValue;
+    }
+
+    /**
+     * <p><code>id</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -152,6 +192,8 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -170,24 +212,8 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
      *
-     * @return null|string
-     */
-    public function getVariant()
-    {
-        if (is_null($this->variant)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_VARIANT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variant = (string) $data;
-        }
-
-        return $this->variant;
-    }
-
-    /**
      *
      * @return null|LocalizedString
      */
@@ -207,39 +233,23 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
-     * @return null|mixed
+     *
+     * @return null|string
      */
-    public function getNextValue()
+    public function getVariant()
     {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue = $data;
+            $this->variant = (string) $data;
         }
 
-        return $this->nextValue;
-    }
-
-    /**
-     *
-     * @return null|mixed
-     */
-    public function getPreviousValue()
-    {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->previousValue = $data;
-        }
-
-        return $this->previousValue;
+        return $this->variant;
     }
 
 
@@ -249,6 +259,22 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param mixed $previousValue
+     */
+    public function setPreviousValue( $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param mixed $nextValue
+     */
+    public function setNextValue( $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -268,14 +294,6 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * @param ?string $variant
-     */
-    public function setVariant(?string $variant): void
-    {
-        $this->variant = $variant;
-    }
-
-    /**
      * @param ?LocalizedString $lineItem
      */
     public function setLineItem(?LocalizedString $lineItem): void
@@ -284,19 +302,11 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * @param mixed $nextValue
+     * @param ?string $variant
      */
-    public function setNextValue( $nextValue): void
+    public function setVariant(?string $variant): void
     {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param mixed $previousValue
-     */
-    public function setPreviousValue( $previousValue): void
-    {
-        $this->previousValue = $previousValue;
+        $this->variant = $variant;
     }
 
 

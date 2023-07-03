@@ -39,13 +39,13 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
      *
      * @var ?DeliveryChangeValue
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?DeliveryChangeValue
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
      */
     public function __construct(
         ?string $change = null,
-        ?DeliveryChangeValue $nextValue = null,
         ?DeliveryChangeValue $previousValue = null,
+        ?DeliveryChangeValue $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
     }
 
     /**
-     * <p>Update action for <code>addDelivery</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|DeliveryChangeValue
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = DeliveryChangeValueModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|DeliveryChangeValue
      */
@@ -139,6 +120,27 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|DeliveryChangeValue
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = DeliveryChangeValueModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
     }
 
     /**
-     * @param ?DeliveryChangeValue $nextValue
-     */
-    public function setNextValue(?DeliveryChangeValue $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?DeliveryChangeValue $previousValue
      */
     public function setPreviousValue(?DeliveryChangeValue $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?DeliveryChangeValue $nextValue
+     */
+    public function setNextValue(?DeliveryChangeValue $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

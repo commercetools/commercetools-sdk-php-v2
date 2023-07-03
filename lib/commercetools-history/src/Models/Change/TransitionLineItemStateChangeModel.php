@@ -36,6 +36,18 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
 
     /**
      *
+     * @var ?ItemStateCollection
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?ItemStateCollection
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?string
      */
     protected $lineItemId;
@@ -46,35 +58,23 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
      */
     protected $stateId;
 
-    /**
-     *
-     * @var ?ItemStateCollection
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?ItemStateCollection
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?ItemStateCollection $previousValue = null,
+        ?ItemStateCollection $nextValue = null,
         ?string $lineItemId = null,
         ?string $stateId = null,
-        ?ItemStateCollection $nextValue = null,
-        ?ItemStateCollection $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->lineItemId = $lineItemId;
         $this->stateId = $stateId;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -97,8 +97,6 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Update action for <code>transitionLineItemState</code></p>
-     *
      *
      * @return null|string
      */
@@ -117,42 +115,28 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
+     *
+     * @return null|ItemStateCollection
      */
-    public function getLineItemId()
+    public function getPreviousValue()
     {
-        if (is_null($this->lineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->lineItemId = (string) $data;
+            $this->previousValue = ItemStateCollection::fromArray($data);
         }
 
-        return $this->lineItemId;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getStateId()
-    {
-        if (is_null($this->stateId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_STATE_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->stateId = (string) $data;
-        }
-
-        return $this->stateId;
-    }
-
-    /**
      *
      * @return null|ItemStateCollection
      */
@@ -171,21 +155,43 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
      *
-     * @return null|ItemStateCollection
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getLineItemId()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = ItemStateCollection::fromArray($data);
+            $this->lineItemId = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:State">State</a> involved in the transition.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getStateId()
+    {
+        if (is_null($this->stateId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_STATE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stateId = (string) $data;
+        }
+
+        return $this->stateId;
     }
 
 
@@ -195,6 +201,22 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?ItemStateCollection $previousValue
+     */
+    public function setPreviousValue(?ItemStateCollection $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?ItemStateCollection $nextValue
+     */
+    public function setNextValue(?ItemStateCollection $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -211,22 +233,6 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     public function setStateId(?string $stateId): void
     {
         $this->stateId = $stateId;
-    }
-
-    /**
-     * @param ?ItemStateCollection $nextValue
-     */
-    public function setNextValue(?ItemStateCollection $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param ?ItemStateCollection $previousValue
-     */
-    public function setPreviousValue(?ItemStateCollection $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

@@ -30,13 +30,13 @@ final class ChangeQuoteRequestStateChangeBuilder implements Builder
 
      * @var ?string
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var ?string
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
 
@@ -48,15 +48,8 @@ final class ChangeQuoteRequestStateChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
@@ -66,23 +59,23 @@ final class ChangeQuoteRequestStateChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $nextValue
-     * @return $this
-     */
-    public function withNextValue(?string $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -98,13 +91,24 @@ final class ChangeQuoteRequestStateChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $nextValue
+     * @return $this
+     */
+    public function withNextValue(?string $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
 
     public function build(): ChangeQuoteRequestStateChange
     {
         return new ChangeQuoteRequestStateChangeModel(
             $this->change,
-            $this->nextValue,
-            $this->previousValue
+            $this->previousValue,
+            $this->nextValue
         );
     }
 

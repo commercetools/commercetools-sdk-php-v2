@@ -50,6 +50,8 @@ final class SetCartClassificationShippingRateInputValueBuilder implements Builde
     }
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
 
      * @return null|string
      */
@@ -59,6 +61,8 @@ final class SetCartClassificationShippingRateInputValueBuilder implements Builde
     }
 
     /**
+     * <p>Descriptive localized label of the value.</p>
+     *
 
      * @return null|LocalizedString
      */

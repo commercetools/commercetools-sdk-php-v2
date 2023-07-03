@@ -39,8 +39,6 @@ final class ChangeAttributeOrderByNameChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>changeAttributeOrderByName</code> on product types</p>
-     *
 
      * @return null|string
      */
@@ -50,6 +48,8 @@ final class ChangeAttributeOrderByNameChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|array
      */
@@ -59,6 +59,8 @@ final class ChangeAttributeOrderByNameChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|array
      */

@@ -15,12 +15,10 @@ use Commercetools\History\Models\Common\Asset;
 interface AddAssetChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
-     * <p>Update action for <code>addAsset</code></p>
-     *
 
      * @return null|string
      */
@@ -33,16 +31,20 @@ interface AddAssetChange extends Change
     public function getType();
 
     /**
-
-     * @return null|Asset
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Asset
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Asset
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface AddAssetChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?Asset $nextValue
-     */
-    public function setNextValue(?Asset $nextValue): void;
-
-    /**
      * @param ?Asset $previousValue
      */
     public function setPreviousValue(?Asset $previousValue): void;
+
+    /**
+     * @param ?Asset $nextValue
+     */
+    public function setNextValue(?Asset $nextValue): void;
 }

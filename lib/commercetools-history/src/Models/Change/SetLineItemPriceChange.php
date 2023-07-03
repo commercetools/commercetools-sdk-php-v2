@@ -16,9 +16,9 @@ use Commercetools\History\Models\Common\Price;
 interface SetLineItemPriceChange extends Change
 {
 
-    public const FIELD_LINE_ITEM = 'lineItem';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_LINE_ITEM = 'lineItem';
 
     /**
 
@@ -27,30 +27,34 @@ interface SetLineItemPriceChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setLineItemPrice</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|LocalizedString
+     * @return null|Price
      */
-    public function getLineItem();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Price
      */
     public function getNextValue();
 
     /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
+     *
 
-     * @return null|Price
+     * @return null|LocalizedString
      */
-    public function getPreviousValue();
+    public function getLineItem();
 
     /**
      * @param ?string $change
@@ -58,9 +62,9 @@ interface SetLineItemPriceChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?LocalizedString $lineItem
+     * @param ?Price $previousValue
      */
-    public function setLineItem(?LocalizedString $lineItem): void;
+    public function setPreviousValue(?Price $previousValue): void;
 
     /**
      * @param ?Price $nextValue
@@ -68,7 +72,7 @@ interface SetLineItemPriceChange extends Change
     public function setNextValue(?Price $nextValue): void;
 
     /**
-     * @param ?Price $previousValue
+     * @param ?LocalizedString $lineItem
      */
-    public function setPreviousValue(?Price $previousValue): void;
+    public function setLineItem(?LocalizedString $lineItem): void;
 }

@@ -15,13 +15,11 @@ use Commercetools\History\Models\ChangeValue\AssetChangeValue;
 interface SetAssetTagsChange extends Change
 {
 
-    public const FIELD_ASSET = 'asset';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ASSET = 'asset';
 
     /**
-     * <p>Update action for <code>setAssetTags</code></p>
-     *
 
      * @return null|string
      */
@@ -34,22 +32,28 @@ interface SetAssetTagsChange extends Change
     public function getType();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|AssetChangeValue
+     * @return null|array
      */
-    public function getAsset();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|array
      */
     public function getNextValue();
 
     /**
+     * <p>Information about the updated Asset.</p>
+     *
 
-     * @return null|array
+     * @return null|AssetChangeValue
      */
-    public function getPreviousValue();
+    public function getAsset();
 
     /**
      * @param ?string $change
@@ -57,9 +61,9 @@ interface SetAssetTagsChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?AssetChangeValue $asset
+     * @param ?array $previousValue
      */
-    public function setAsset(?AssetChangeValue $asset): void;
+    public function setPreviousValue(?array $previousValue): void;
 
     /**
      * @param ?array $nextValue
@@ -67,7 +71,7 @@ interface SetAssetTagsChange extends Change
     public function setNextValue(?array $nextValue): void;
 
     /**
-     * @param ?array $previousValue
+     * @param ?AssetChangeValue $asset
      */
-    public function setPreviousValue(?array $previousValue): void;
+    public function setAsset(?AssetChangeValue $asset): void;
 }

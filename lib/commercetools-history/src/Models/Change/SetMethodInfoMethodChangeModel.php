@@ -80,8 +80,6 @@ final class SetMethodInfoMethodChangeModel extends JsonObjectModel implements Se
     }
 
     /**
-     * <p>Shape of the action for <code>setMethodInfoMethod</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetMethodInfoMethodChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetMethodInfoMethodChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

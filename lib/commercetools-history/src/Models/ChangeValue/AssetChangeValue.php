@@ -19,12 +19,16 @@ interface AssetChangeValue extends JsonObject
     public const FIELD_NAME = 'name';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Asset">Asset</a>.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Name of the Asset.</p>
+     *
 
      * @return null|LocalizedString
      */

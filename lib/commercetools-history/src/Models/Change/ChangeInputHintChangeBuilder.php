@@ -30,13 +30,7 @@ final class ChangeInputHintChangeBuilder implements Builder
 
      * @var ?string
      */
-    private $fieldName;
-
-    /**
-
-     * @var ?string
-     */
-    private $attributeName;
+    private $previousValue;
 
     /**
 
@@ -48,11 +42,15 @@ final class ChangeInputHintChangeBuilder implements Builder
 
      * @var ?string
      */
-    private $previousValue;
+    private $fieldName;
 
     /**
-     * <p>Update action for <code>changeInputHint</code> on product types and types</p>
-     *
+
+     * @var ?string
+     */
+    private $attributeName;
+
+    /**
 
      * @return null|string
      */
@@ -62,7 +60,29 @@ final class ChangeInputHintChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field definition updated.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPreviousValue()
+    {
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|string
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>; only present on changes to Types.</p>
      *
 
      * @return null|string
@@ -73,7 +93,7 @@ final class ChangeInputHintChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>; only present on changes to Product Types.</p>
      *
 
      * @return null|string
@@ -84,30 +104,34 @@ final class ChangeInputHintChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue;
-    }
-
-    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?string $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $nextValue
+     * @return $this
+     */
+    public function withNextValue(?string $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -134,37 +158,15 @@ final class ChangeInputHintChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?string $nextValue
-     * @return $this
-     */
-    public function withNextValue(?string $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?string $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
 
     public function build(): ChangeInputHintChange
     {
         return new ChangeInputHintChangeModel(
             $this->change,
-            $this->fieldName,
-            $this->attributeName,
+            $this->previousValue,
             $this->nextValue,
-            $this->previousValue
+            $this->fieldName,
+            $this->attributeName
         );
     }
 

@@ -80,8 +80,6 @@ final class SetLastNameChangeModel extends JsonObjectModel implements SetLastNam
     }
 
     /**
-     * <p>Shape of the action for <code>setLastName</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetLastNameChangeModel extends JsonObjectModel implements SetLastNam
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetLastNameChangeModel extends JsonObjectModel implements SetLastNam
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

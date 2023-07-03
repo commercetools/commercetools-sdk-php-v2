@@ -23,6 +23,8 @@ interface ChangeValueRelativeChangeValue extends ChangeValueChangeValue
     public function getType();
 
     /**
+     * <p>Fraction (per ten thousand) the price is reduced by. For example, 1000 results in a 10% price reduction.</p>
+     *
 
      * @return null|int
      */

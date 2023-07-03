@@ -15,13 +15,11 @@ use Commercetools\History\Models\ChangeValue\AssetChangeValue;
 interface SetAssetKeyChange extends Change
 {
 
-    public const FIELD_ASSET = 'asset';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ASSET = 'asset';
 
     /**
-     * <p>Update action for <code>setAssetKey</code></p>
-     *
 
      * @return null|string
      */
@@ -34,22 +32,28 @@ interface SetAssetKeyChange extends Change
     public function getType();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|AssetChangeValue
+     * @return null|string
      */
-    public function getAsset();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|string
      */
     public function getNextValue();
 
     /**
+     * <p>Information about the updated Asset.</p>
+     *
 
-     * @return null|string
+     * @return null|AssetChangeValue
      */
-    public function getPreviousValue();
+    public function getAsset();
 
     /**
      * @param ?string $change
@@ -57,9 +61,9 @@ interface SetAssetKeyChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?AssetChangeValue $asset
+     * @param ?string $previousValue
      */
-    public function setAsset(?AssetChangeValue $asset): void;
+    public function setPreviousValue(?string $previousValue): void;
 
     /**
      * @param ?string $nextValue
@@ -67,7 +71,7 @@ interface SetAssetKeyChange extends Change
     public function setNextValue(?string $nextValue): void;
 
     /**
-     * @param ?string $previousValue
+     * @param ?AssetChangeValue $asset
      */
-    public function setPreviousValue(?string $previousValue): void;
+    public function setAsset(?AssetChangeValue $asset): void;
 }

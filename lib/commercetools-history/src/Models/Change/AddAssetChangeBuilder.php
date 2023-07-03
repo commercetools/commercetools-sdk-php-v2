@@ -32,17 +32,15 @@ final class AddAssetChangeBuilder implements Builder
 
      * @var null|Asset|AssetBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|Asset|AssetBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>addAsset</code></p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class AddAssetChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|Asset
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof AssetBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Asset
      */
@@ -70,23 +61,23 @@ final class AddAssetChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Asset
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof AssetBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Asset $nextValue
-     * @return $this
-     */
-    public function withNextValue(?Asset $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class AddAssetChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?Asset $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?AssetBuilder $nextValue)
+    public function withNextValue(?Asset $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class AddAssetChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?AssetBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): AddAssetChange
     {
         return new AddAssetChangeModel(
             $this->change,
-            $this->nextValue instanceof AssetBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof AssetBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof AssetBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof AssetBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

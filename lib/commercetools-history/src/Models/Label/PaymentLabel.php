@@ -25,12 +25,16 @@ interface PaymentLabel extends Label
     public function getType();
 
     /**
+     * <p>User-defined unique identifier of the Payment.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Money value the Payment intends to receive from the Customer.</p>
+     *
 
      * @return null|Money
      */

@@ -30,6 +30,18 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
 
     /**
 
+     * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
+     */
+    private $previousValue;
+
+    /**
+
+     * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
+     */
+    private $nextValue;
+
+    /**
+
      * @var ?string
      */
     private $catalogData;
@@ -42,20 +54,6 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
 
     /**
 
-     * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
-     */
-    private $previousValue;
-
-    /**
-
-     * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
-     */
-    private $nextValue;
-
-    /**
-     * <p>Update action for <code>setCategoryOrderHint</code></p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -64,24 +62,8 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getCatalogData()
-    {
-        return $this->catalogData;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getCategoryId()
-    {
-        return $this->categoryId;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CategoryOrderHints
      */
@@ -91,6 +73,8 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|CategoryOrderHints
      */
@@ -100,34 +84,37 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        return $this->catalogData;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:Category">Category</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCategoryId()
+    {
+        return $this->categoryId;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $catalogData
-     * @return $this
-     */
-    public function withCatalogData(?string $catalogData)
-    {
-        $this->catalogData = $catalogData;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $categoryId
-     * @return $this
-     */
-    public function withCategoryId(?string $categoryId)
-    {
-        $this->categoryId = $categoryId;
 
         return $this;
     }
@@ -150,6 +137,28 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     public function withNextValue(?CategoryOrderHints $nextValue)
     {
         $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $catalogData
+     * @return $this
+     */
+    public function withCatalogData(?string $catalogData)
+    {
+        $this->catalogData = $catalogData;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $categoryId
+     * @return $this
+     */
+    public function withCategoryId(?string $categoryId)
+    {
+        $this->categoryId = $categoryId;
 
         return $this;
     }
@@ -180,10 +189,10 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     {
         return new SetCategoryOrderHintChangeModel(
             $this->change,
-            $this->catalogData,
-            $this->categoryId,
             $this->previousValue instanceof CategoryOrderHintsBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof CategoryOrderHintsBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof CategoryOrderHintsBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->catalogData,
+            $this->categoryId
         );
     }
 

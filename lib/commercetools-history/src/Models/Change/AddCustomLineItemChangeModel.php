@@ -39,13 +39,13 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
      *
      * @var ?CustomLineItem
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?CustomLineItem
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
      */
     public function __construct(
         ?string $change = null,
-        ?CustomLineItem $nextValue = null,
         ?CustomLineItem $previousValue = null,
+        ?CustomLineItem $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
     }
 
     /**
-     * <p>Update action for adding and removing custom line items</p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|CustomLineItem
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = CustomLineItemModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|CustomLineItem
      */
@@ -139,6 +120,27 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|CustomLineItem
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = CustomLineItemModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
     }
 
     /**
-     * @param ?CustomLineItem $nextValue
-     */
-    public function setNextValue(?CustomLineItem $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?CustomLineItem $previousValue
      */
     public function setPreviousValue(?CustomLineItem $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?CustomLineItem $nextValue
+     */
+    public function setNextValue(?CustomLineItem $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

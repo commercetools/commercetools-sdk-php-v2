@@ -18,12 +18,16 @@ interface TaxedPrice extends JsonObject
     public const FIELD_TOTAL_GROSS = 'totalGross';
 
     /**
+     * <p>Total net price of the Order.</p>
+     *
 
      * @return null|Money
      */
     public function getTotalNet();
 
     /**
+     * <p>Total gross price of the Order.</p>
+     *
 
      * @return null|Money
      */

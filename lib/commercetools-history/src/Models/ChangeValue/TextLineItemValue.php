@@ -19,12 +19,16 @@ interface TextLineItemValue extends JsonObject
     public const FIELD_NAME = 'name';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a>.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Name of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */

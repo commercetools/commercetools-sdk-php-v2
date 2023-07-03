@@ -37,15 +37,15 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
 
     /**
      *
-     * @var ?string
-     */
-    protected $fieldName;
-
-    /**
-     *
      * @var ?EnumValue
      */
     protected $nextValue;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $fieldName;
 
 
     /**
@@ -53,13 +53,13 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
      */
     public function __construct(
         ?string $change = null,
-        ?string $fieldName = null,
         ?EnumValue $nextValue = null,
+        ?string $fieldName = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->fieldName = $fieldName;
         $this->nextValue = $nextValue;
+        $this->fieldName = $fieldName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
     }
 
     /**
-     * <p>Update action for <code>addEnumValue</code> on types</p>
-     *
      *
      * @return null|string
      */
@@ -102,26 +100,8 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
     }
 
     /**
-     * <p>The name of the field/attribute definition updated.</p>
+     * <p>Value after the change.</p>
      *
-     *
-     * @return null|string
-     */
-    public function getFieldName()
-    {
-        if (is_null($this->fieldName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->fieldName = (string) $data;
-        }
-
-        return $this->fieldName;
-    }
-
-    /**
      *
      * @return null|EnumValue
      */
@@ -140,6 +120,26 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
         return $this->nextValue;
     }
 
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getFieldName()
+    {
+        if (is_null($this->fieldName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fieldName = (string) $data;
+        }
+
+        return $this->fieldName;
+    }
+
 
     /**
      * @param ?string $change
@@ -150,19 +150,19 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
     }
 
     /**
-     * @param ?string $fieldName
-     */
-    public function setFieldName(?string $fieldName): void
-    {
-        $this->fieldName = $fieldName;
-    }
-
-    /**
      * @param ?EnumValue $nextValue
      */
     public function setNextValue(?EnumValue $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?string $fieldName
+     */
+    public function setFieldName(?string $fieldName): void
+    {
+        $this->fieldName = $fieldName;
     }
 
 

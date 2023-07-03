@@ -26,13 +26,21 @@ final class StandalonePriceDeletedMessagePayloadModel extends JsonObjectModel im
      */
     protected $type;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $sku;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $sku = null,
         ?string $type = null
     ) {
+        $this->sku = $sku;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -52,5 +60,34 @@ final class StandalonePriceDeletedMessagePayloadModel extends JsonObjectModel im
         }
 
         return $this->type;
+    }
+
+    /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to which the deleted Standalone Price was associated.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+
+    /**
+     * @param ?string $sku
+     */
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
     }
 }

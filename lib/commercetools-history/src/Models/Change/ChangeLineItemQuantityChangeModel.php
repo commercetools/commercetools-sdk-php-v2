@@ -37,6 +37,18 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
 
     /**
      *
+     * @var ?int
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?int
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
@@ -47,35 +59,23 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
      */
     protected $lineItemId;
 
-    /**
-     *
-     * @var ?int
-     */
-    protected $nextValue;
-
-    /**
-     *
-     * @var ?int
-     */
-    protected $previousValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?int $previousValue = null,
+        ?int $nextValue = null,
         ?LocalizedString $lineItem = null,
         ?string $lineItemId = null,
-        ?int $nextValue = null,
-        ?int $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->lineItem = $lineItem;
         $this->lineItemId = $lineItemId;
-        $this->nextValue = $nextValue;
-        $this->previousValue = $previousValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -98,8 +98,6 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Update action for <code>changeLineItemQuantity</code></p>
-     *
      *
      * @return null|string
      */
@@ -118,44 +116,27 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|int
      */
-    public function getLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->lineItem)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->lineItem = LocalizedStringModel::of($data);
+            $this->previousValue = (int) $data;
         }
 
-        return $this->lineItem;
+        return $this->previousValue;
     }
 
     /**
-     *
-     * @return null|string
-     */
-    public function getLineItemId()
-    {
-        if (is_null($this->lineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItemId = (string) $data;
-        }
-
-        return $this->lineItemId;
-    }
-
-    /**
-     * <p>The amount of a LineItem in the cart. Must be a positive integer.</p>
+     * <p>Value after the change</p>
      *
      *
      * @return null|int
@@ -175,23 +156,44 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The amount of a LineItem in the cart. Must be a positive integer.</p>
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
      *
      *
-     * @return null|int
+     * @return null|LocalizedString
      */
-    public function getPreviousValue()
+    public function getLineItem()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->lineItem)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = (int) $data;
+
+            $this->lineItem = LocalizedStringModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->lineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
     }
 
 
@@ -201,6 +203,22 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?int $previousValue
+     */
+    public function setPreviousValue(?int $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?int $nextValue
+     */
+    public function setNextValue(?int $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -217,22 +235,6 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
-    }
-
-    /**
-     * @param ?int $nextValue
-     */
-    public function setNextValue(?int $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
-     * @param ?int $previousValue
-     */
-    public function setPreviousValue(?int $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
 

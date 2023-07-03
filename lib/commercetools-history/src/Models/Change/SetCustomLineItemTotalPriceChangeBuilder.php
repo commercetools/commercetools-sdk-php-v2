@@ -32,6 +32,18 @@ final class SetCustomLineItemTotalPriceChangeBuilder implements Builder
 
     /**
 
+     * @var null|Money|MoneyBuilder
+     */
+    private $previousValue;
+
+    /**
+
+     * @var null|Money|MoneyBuilder
+     */
+    private $nextValue;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $customLineItem;
@@ -44,20 +56,6 @@ final class SetCustomLineItemTotalPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
-     */
-    private $nextValue;
-
-    /**
-
-     * @var null|Money|MoneyBuilder
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>setCustomLineItemTotalPrice</code></p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -66,33 +64,8 @@ final class SetCustomLineItemTotalPriceChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem()
-    {
-        return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getCustomLineItemId()
-    {
-        return $this->customLineItemId;
-    }
-
-    /**
-
-     * @return null|Money
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Money
      */
@@ -102,12 +75,67 @@ final class SetCustomLineItemTotalPriceChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Money
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem()
+    {
+        return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        return $this->customLineItemId;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param ?Money $previousValue
+     * @return $this
+     */
+    public function withPreviousValue(?Money $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?Money $nextValue
+     * @return $this
+     */
+    public function withNextValue(?Money $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -135,34 +163,12 @@ final class SetCustomLineItemTotalPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Money $nextValue
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withNextValue(?Money $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Money $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?Money $previousValue)
+    public function withPreviousValueBuilder(?MoneyBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withCustomLineItem() instead
-     * @return $this
-     */
-    public function withCustomLineItemBuilder(?LocalizedStringBuilder $customLineItem)
-    {
-        $this->customLineItem = $customLineItem;
 
         return $this;
     }
@@ -179,12 +185,12 @@ final class SetCustomLineItemTotalPriceChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPreviousValue() instead
+     * @deprecated use withCustomLineItem() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?MoneyBuilder $previousValue)
+    public function withCustomLineItemBuilder(?LocalizedStringBuilder $customLineItem)
     {
-        $this->previousValue = $previousValue;
+        $this->customLineItem = $customLineItem;
 
         return $this;
     }
@@ -193,10 +199,10 @@ final class SetCustomLineItemTotalPriceChangeBuilder implements Builder
     {
         return new SetCustomLineItemTotalPriceChangeModel(
             $this->change,
-            $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
-            $this->customLineItemId,
+            $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
+            $this->customLineItemId
         );
     }
 

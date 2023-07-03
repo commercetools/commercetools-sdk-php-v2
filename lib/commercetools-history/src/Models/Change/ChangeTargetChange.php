@@ -15,12 +15,10 @@ use Commercetools\History\Models\ChangeValue\ChangeTargetChangeValue;
 interface ChangeTargetChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
-     * <p>Update action for <code>changeTarget</code> on cart discounts</p>
-     *
 
      * @return null|string
      */
@@ -33,16 +31,20 @@ interface ChangeTargetChange extends Change
     public function getType();
 
     /**
-
-     * @return null|ChangeTargetChangeValue
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ChangeTargetChangeValue
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ChangeTargetChangeValue
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface ChangeTargetChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?ChangeTargetChangeValue $nextValue
-     */
-    public function setNextValue(?ChangeTargetChangeValue $nextValue): void;
-
-    /**
      * @param ?ChangeTargetChangeValue $previousValue
      */
     public function setPreviousValue(?ChangeTargetChangeValue $previousValue): void;
+
+    /**
+     * @param ?ChangeTargetChangeValue $nextValue
+     */
+    public function setNextValue(?ChangeTargetChangeValue $nextValue): void;
 }

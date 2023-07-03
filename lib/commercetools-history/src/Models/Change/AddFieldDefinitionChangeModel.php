@@ -74,8 +74,6 @@ final class AddFieldDefinitionChangeModel extends JsonObjectModel implements Add
     }
 
     /**
-     * <p>Update action for <code>addFieldDefinition</code> on payments</p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class AddFieldDefinitionChangeModel extends JsonObjectModel implements Add
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|FieldDefinition
      */

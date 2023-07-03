@@ -37,9 +37,9 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
 
     /**
      *
-     * @var ?string
+     * @var ?TaxRate
      */
-    protected $taxMode;
+    protected $previousValue;
 
     /**
      *
@@ -49,9 +49,9 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
 
     /**
      *
-     * @var ?TaxRate
+     * @var ?string
      */
-    protected $previousValue;
+    protected $taxMode;
 
 
     /**
@@ -59,15 +59,15 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
      */
     public function __construct(
         ?string $change = null,
-        ?string $taxMode = null,
-        ?TaxRate $nextValue = null,
         ?TaxRate $previousValue = null,
+        ?TaxRate $nextValue = null,
+        ?string $taxMode = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->taxMode = $taxMode;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->taxMode = $taxMode;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Update action for <code>setShippingMethodTaxRate</code></p>
-     *
      *
      * @return null|string
      */
@@ -110,25 +108,28 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
+     *
+     * @return null|TaxRate
      */
-    public function getTaxMode()
+    public function getPreviousValue()
     {
-        if (is_null($this->taxMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TAX_MODE);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->taxMode = (string) $data;
+
+            $this->previousValue = TaxRateModel::of($data);
         }
 
-        return $this->taxMode;
+        return $this->previousValue;
     }
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Value after the change.</p>
      *
      *
      * @return null|TaxRate
@@ -149,24 +150,23 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p><code>&quot;External&quot;</code></p>
      *
      *
-     * @return null|TaxRate
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getTaxMode()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->taxMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_MODE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = TaxRateModel::of($data);
+            $this->taxMode = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->taxMode;
     }
 
 
@@ -179,11 +179,11 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
-     * @param ?string $taxMode
+     * @param ?TaxRate $previousValue
      */
-    public function setTaxMode(?string $taxMode): void
+    public function setPreviousValue(?TaxRate $previousValue): void
     {
-        $this->taxMode = $taxMode;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -195,11 +195,11 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
-     * @param ?TaxRate $previousValue
+     * @param ?string $taxMode
      */
-    public function setPreviousValue(?TaxRate $previousValue): void
+    public function setTaxMode(?string $taxMode): void
     {
-        $this->previousValue = $previousValue;
+        $this->taxMode = $taxMode;
     }
 
 

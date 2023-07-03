@@ -37,6 +37,12 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
 
     /**
      *
+     * @var ?Price
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?string
      */
     protected $catalogData;
@@ -47,27 +53,21 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
      */
     protected $priceId;
 
-    /**
-     *
-     * @var ?Price
-     */
-    protected $nextValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?Price $nextValue = null,
         ?string $catalogData = null,
         ?string $priceId = null,
-        ?Price $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->nextValue = $nextValue;
         $this->catalogData = $catalogData;
         $this->priceId = $priceId;
-        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
-     * <p>Update action for adding prices</p>
-     *
      *
      * @return null|string
      */
@@ -110,42 +108,8 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getCatalogData()
-    {
-        if (is_null($this->catalogData)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CATALOG_DATA);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->catalogData = (string) $data;
-        }
-
-        return $this->catalogData;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getPriceId()
-    {
-        if (is_null($this->priceId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PRICE_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->priceId = (string) $data;
-        }
-
-        return $this->priceId;
-    }
-
-    /**
      *
      * @return null|Price
      */
@@ -164,6 +128,49 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
         return $this->nextValue;
     }
 
+    /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+     *
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        if (is_null($this->catalogData)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CATALOG_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->catalogData = (string) $data;
+        }
+
+        return $this->catalogData;
+    }
+
+    /**
+     * <p><code>id</code> of the Embedded <a href="ctp:api:type:Price">Price</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        if (is_null($this->priceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceId = (string) $data;
+        }
+
+        return $this->priceId;
+    }
+
 
     /**
      * @param ?string $change
@@ -171,6 +178,14 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?Price $nextValue
+     */
+    public function setNextValue(?Price $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -187,14 +202,6 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     public function setPriceId(?string $priceId): void
     {
         $this->priceId = $priceId;
-    }
-
-    /**
-     * @param ?Price $nextValue
-     */
-    public function setNextValue(?Price $nextValue): void
-    {
-        $this->nextValue = $nextValue;
     }
 
 

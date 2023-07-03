@@ -15,12 +15,10 @@ use Commercetools\History\Models\Common\GeoLocation;
 interface SetGeoLocationChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
-     * <p>Update action for <code>setGeoLocation</code></p>
-     *
 
      * @return null|string
      */
@@ -33,16 +31,20 @@ interface SetGeoLocationChange extends Change
     public function getType();
 
     /**
-
-     * @return null|GeoLocation
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|GeoLocation
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|GeoLocation
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface SetGeoLocationChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?GeoLocation $nextValue
-     */
-    public function setNextValue(?GeoLocation $nextValue): void;
-
-    /**
      * @param ?GeoLocation $previousValue
      */
     public function setPreviousValue(?GeoLocation $previousValue): void;
+
+    /**
+     * @param ?GeoLocation $nextValue
+     */
+    public function setNextValue(?GeoLocation $nextValue): void;
 }

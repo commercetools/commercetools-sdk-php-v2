@@ -74,8 +74,6 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Update action for <code>addInterfaceInteraction</code> on payments</p>
-     *
      *
      * @return null|string
      */
@@ -94,7 +92,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Only available if <code>expand</code> is set to true</p>
+     * <p>Value after the change.</p>
      *
      *
      * @return null|CustomFieldExpandedValue

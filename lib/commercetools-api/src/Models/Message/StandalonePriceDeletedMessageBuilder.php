@@ -88,6 +88,12 @@ final class StandalonePriceDeletedMessageBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
+
+     * @var ?string
+     */
+    private $sku;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -196,6 +202,17 @@ final class StandalonePriceDeletedMessageBuilder implements Builder
     public function getResourceUserProvidedIdentifiers()
     {
         return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to which the deleted Standalone Price was associated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
     }
 
     /**
@@ -309,6 +326,17 @@ final class StandalonePriceDeletedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -364,7 +392,8 @@ final class StandalonePriceDeletedMessageBuilder implements Builder
             $this->sequenceNumber,
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
-            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers
+            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
+            $this->sku
         );
     }
 

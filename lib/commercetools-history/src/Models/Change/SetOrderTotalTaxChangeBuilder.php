@@ -30,9 +30,9 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|Money|MoneyBuilder
      */
-    private $taxMode;
+    private $previousValue;
 
     /**
 
@@ -42,13 +42,11 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var ?string
      */
-    private $previousValue;
+    private $taxMode;
 
     /**
-     * <p>Update action for <code>setOrderTotalTax</code></p>
-     *
 
      * @return null|string
      */
@@ -58,15 +56,19 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|Money
      */
-    public function getTaxMode()
+    public function getPreviousValue()
     {
-        return $this->taxMode;
+        return $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Money
      */
@@ -76,12 +78,14 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
     }
 
     /**
+     * <p><code>&quot;ExternalAmount&quot;</code></p>
+     *
 
-     * @return null|Money
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getTaxMode()
     {
-        return $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->taxMode;
     }
 
     /**
@@ -96,12 +100,12 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $taxMode
+     * @param ?Money $previousValue
      * @return $this
      */
-    public function withTaxMode(?string $taxMode)
+    public function withPreviousValue(?Money $previousValue)
     {
-        $this->taxMode = $taxMode;
+        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -118,10 +122,21 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Money $previousValue
+     * @param ?string $taxMode
      * @return $this
      */
-    public function withPreviousValue(?Money $previousValue)
+    public function withTaxMode(?string $taxMode)
+    {
+        $this->taxMode = $taxMode;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?MoneyBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -139,24 +154,13 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withPreviousValue() instead
-     * @return $this
-     */
-    public function withPreviousValueBuilder(?MoneyBuilder $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
     public function build(): SetOrderTotalTaxChange
     {
         return new SetOrderTotalTaxChangeModel(
             $this->change,
-            $this->taxMode,
+            $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->taxMode
         );
     }
 

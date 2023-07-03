@@ -15,9 +15,9 @@ use Commercetools\History\Models\ChangeValue\EnumValueCollection;
 interface ChangeEnumValueOrderChange extends Change
 {
 
-    public const FIELD_FIELD_NAME = 'fieldName';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_FIELD_NAME = 'fieldName';
 
     /**
 
@@ -26,15 +26,29 @@ interface ChangeEnumValueOrderChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeEnumValueOrder</code> on types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>The name of the field/attribute definition updated.</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|EnumValueCollection
+     */
+    public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|EnumValueCollection
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>.</p>
      *
 
      * @return null|string
@@ -42,26 +56,14 @@ interface ChangeEnumValueOrderChange extends Change
     public function getFieldName();
 
     /**
-
-     * @return null|EnumValueCollection
-     */
-    public function getNextValue();
-
-    /**
-
-     * @return null|EnumValueCollection
-     */
-    public function getPreviousValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $fieldName
+     * @param ?EnumValueCollection $previousValue
      */
-    public function setFieldName(?string $fieldName): void;
+    public function setPreviousValue(?EnumValueCollection $previousValue): void;
 
     /**
      * @param ?EnumValueCollection $nextValue
@@ -69,7 +71,7 @@ interface ChangeEnumValueOrderChange extends Change
     public function setNextValue(?EnumValueCollection $nextValue): void;
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?string $fieldName
      */
-    public function setPreviousValue(?EnumValueCollection $previousValue): void;
+    public function setFieldName(?string $fieldName): void;
 }

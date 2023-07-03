@@ -80,8 +80,6 @@ final class ChangeCartPredicateChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
-     * <p>Shape of the action for <code>changeCartPredicate</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeCartPredicateChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class ChangeCartPredicateChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

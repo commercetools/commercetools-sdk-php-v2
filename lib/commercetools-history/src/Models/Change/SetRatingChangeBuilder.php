@@ -39,8 +39,6 @@ final class SetRatingChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Shape of the action for <code>setRating</code></p>
-     *
 
      * @return null|string
      */
@@ -50,6 +48,8 @@ final class SetRatingChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|int
      */
@@ -59,6 +59,8 @@ final class SetRatingChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|int
      */

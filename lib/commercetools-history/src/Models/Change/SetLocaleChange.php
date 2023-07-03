@@ -24,15 +24,13 @@ interface SetLocaleChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setLocale</code> on reviews</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>A locale of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>.</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|string
@@ -40,7 +38,7 @@ interface SetLocaleChange extends Change
     public function getPreviousValue();
 
     /**
-     * <p>A locale of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>.</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|string

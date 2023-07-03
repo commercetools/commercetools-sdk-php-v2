@@ -15,12 +15,10 @@ use Commercetools\History\Models\Common\ReservationCollection;
 interface SetReservationsChange extends Change
 {
 
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
-     * <p>Update action for <code>setReservations</code> on inventories</p>
-     *
 
      * @return null|string
      */
@@ -33,16 +31,20 @@ interface SetReservationsChange extends Change
     public function getType();
 
     /**
-
-     * @return null|ReservationCollection
-     */
-    public function getNextValue();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ReservationCollection
      */
     public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|ReservationCollection
+     */
+    public function getNextValue();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface SetReservationsChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?ReservationCollection $nextValue
-     */
-    public function setNextValue(?ReservationCollection $nextValue): void;
-
-    /**
      * @param ?ReservationCollection $previousValue
      */
     public function setPreviousValue(?ReservationCollection $previousValue): void;
+
+    /**
+     * @param ?ReservationCollection $nextValue
+     */
+    public function setNextValue(?ReservationCollection $nextValue): void;
 }

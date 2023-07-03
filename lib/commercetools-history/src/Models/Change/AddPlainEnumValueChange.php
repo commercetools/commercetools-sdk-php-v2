@@ -15,8 +15,8 @@ use Commercetools\History\Models\ChangeValue\EnumValue;
 interface AddPlainEnumValueChange extends Change
 {
 
-    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
 
     /**
 
@@ -25,15 +25,21 @@ interface AddPlainEnumValueChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>addPlainEnumValue</code> on product types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|EnumValue
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|string
@@ -41,23 +47,17 @@ interface AddPlainEnumValueChange extends Change
     public function getAttributeName();
 
     /**
-
-     * @return null|EnumValue
-     */
-    public function getNextValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $attributeName
-     */
-    public function setAttributeName(?string $attributeName): void;
-
-    /**
      * @param ?EnumValue $nextValue
      */
     public function setNextValue(?EnumValue $nextValue): void;
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void;
 }

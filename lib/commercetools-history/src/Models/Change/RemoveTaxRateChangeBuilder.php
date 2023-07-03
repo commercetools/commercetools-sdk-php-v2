@@ -41,8 +41,6 @@ final class RemoveTaxRateChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>removeTaxRate</code> on tax categories</p>
-     *
 
      * @return null|string
      */
@@ -52,7 +50,7 @@ final class RemoveTaxRateChangeBuilder implements Builder
     }
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|TaxRate
@@ -63,7 +61,7 @@ final class RemoveTaxRateChangeBuilder implements Builder
     }
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|TaxRate

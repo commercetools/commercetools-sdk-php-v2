@@ -74,6 +74,8 @@ final class ProductLabelModel extends JsonObjectModel implements ProductLabel
     }
 
     /**
+     * <p>User-defined identifier used in a deep-link URL for the Product.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -93,6 +95,8 @@ final class ProductLabelModel extends JsonObjectModel implements ProductLabel
     }
 
     /**
+     * <p>Name of the Product.</p>
+     *
      *
      * @return null|LocalizedString
      */

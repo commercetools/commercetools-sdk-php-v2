@@ -37,12 +37,6 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
 
     /**
      *
-     * @var ?ShoppingListLineItemValue
-     */
-    protected $lineItem;
-
-    /**
-     *
      * @var ?int
      */
     protected $previousValue;
@@ -53,21 +47,27 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?ShoppingListLineItemValue
+     */
+    protected $lineItem;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?ShoppingListLineItemValue $lineItem = null,
         ?int $previousValue = null,
         ?int $nextValue = null,
+        ?ShoppingListLineItemValue $lineItem = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->lineItem = $lineItem;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->lineItem = $lineItem;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -108,25 +108,8 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|ShoppingListLineItemValue
-     */
-    public function getLineItem()
-    {
-        if (is_null($this->lineItem)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LINE_ITEM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->lineItem = ShoppingListLineItemValueModel::of($data);
-        }
-
-        return $this->lineItem;
-    }
-
-    /**
      *
      * @return null|int
      */
@@ -145,6 +128,8 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|int
      */
@@ -162,6 +147,27 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
         return $this->nextValue;
     }
 
+    /**
+     * <p>Holds information about the updated Shopping List Line Item.</p>
+     *
+     *
+     * @return null|ShoppingListLineItemValue
+     */
+    public function getLineItem()
+    {
+        if (is_null($this->lineItem)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lineItem = ShoppingListLineItemValueModel::of($data);
+        }
+
+        return $this->lineItem;
+    }
+
 
     /**
      * @param ?string $change
@@ -169,14 +175,6 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?ShoppingListLineItemValue $lineItem
-     */
-    public function setLineItem(?ShoppingListLineItemValue $lineItem): void
-    {
-        $this->lineItem = $lineItem;
     }
 
     /**
@@ -193,6 +191,14 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     public function setNextValue(?int $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?ShoppingListLineItemValue $lineItem
+     */
+    public function setLineItem(?ShoppingListLineItemValue $lineItem): void
+    {
+        $this->lineItem = $lineItem;
     }
 
 

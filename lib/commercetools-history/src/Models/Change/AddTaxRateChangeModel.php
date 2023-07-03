@@ -74,8 +74,6 @@ final class AddTaxRateChangeModel extends JsonObjectModel implements AddTaxRateC
     }
 
     /**
-     * <p>Update action for <code>addTaxRate</code> on tax categories</p>
-     *
      *
      * @return null|string
      */
@@ -94,7 +92,7 @@ final class AddTaxRateChangeModel extends JsonObjectModel implements AddTaxRateC
     }
 
     /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Value after the change.</p>
      *
      *
      * @return null|TaxRate

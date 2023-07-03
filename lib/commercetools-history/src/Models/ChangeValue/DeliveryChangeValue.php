@@ -22,18 +22,24 @@ interface DeliveryChangeValue extends JsonObject
     public const FIELD_PARCELS = 'parcels';
 
     /**
+     * <p>Line Items or Custom Line Items shipped in the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+     * <p>Address to which the parcels are delivered.</p>
+     *
 
      * @return null|Address
      */
     public function getAddress();
 
     /**
+     * <p>Parcels included in the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|ParcelCollection
      */

@@ -39,13 +39,13 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
      *
      * @var ?ReviewRatingStatistics
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?ReviewRatingStatistics
      */
-    protected $previousValue;
+    protected $nextValue;
 
 
     /**
@@ -53,13 +53,13 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
      */
     public function __construct(
         ?string $change = null,
-        ?ReviewRatingStatistics $nextValue = null,
         ?ReviewRatingStatistics $previousValue = null,
+        ?ReviewRatingStatistics $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Update action for <code>changeReviewRatingStatistics</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,25 +100,8 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|ReviewRatingStatistics
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = ReviewRatingStatisticsModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|ReviewRatingStatistics
      */
@@ -139,6 +120,27 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
         return $this->previousValue;
     }
 
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|ReviewRatingStatistics
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = ReviewRatingStatisticsModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
 
     /**
      * @param ?string $change
@@ -149,19 +151,19 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
     }
 
     /**
-     * @param ?ReviewRatingStatistics $nextValue
-     */
-    public function setNextValue(?ReviewRatingStatistics $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?ReviewRatingStatistics $previousValue
      */
     public function setPreviousValue(?ReviewRatingStatistics $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?ReviewRatingStatistics $nextValue
+     */
+    public function setNextValue(?ReviewRatingStatistics $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
 

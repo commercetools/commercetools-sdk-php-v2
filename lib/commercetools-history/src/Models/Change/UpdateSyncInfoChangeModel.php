@@ -37,15 +37,15 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
 
     /**
      *
-     * @var ?string
-     */
-    protected $channelId;
-
-    /**
-     *
      * @var ?SyncInfo
      */
     protected $nextValue;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $channelId;
 
 
     /**
@@ -53,13 +53,13 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
      */
     public function __construct(
         ?string $change = null,
-        ?string $channelId = null,
         ?SyncInfo $nextValue = null,
+        ?string $channelId = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->channelId = $channelId;
         $this->nextValue = $nextValue;
+        $this->channelId = $channelId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
     }
 
     /**
-     * <p>Update action for <code>updateSyncInfo</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,24 +100,8 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
     }
 
     /**
+     * <p>Value after the change.</p>
      *
-     * @return null|string
-     */
-    public function getChannelId()
-    {
-        if (is_null($this->channelId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CHANNEL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->channelId = (string) $data;
-        }
-
-        return $this->channelId;
-    }
-
-    /**
      *
      * @return null|SyncInfo
      */
@@ -138,6 +120,26 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
         return $this->nextValue;
     }
 
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getChannelId()
+    {
+        if (is_null($this->channelId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CHANNEL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->channelId = (string) $data;
+        }
+
+        return $this->channelId;
+    }
+
 
     /**
      * @param ?string $change
@@ -148,19 +150,19 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
     }
 
     /**
-     * @param ?string $channelId
-     */
-    public function setChannelId(?string $channelId): void
-    {
-        $this->channelId = $channelId;
-    }
-
-    /**
      * @param ?SyncInfo $nextValue
      */
     public function setNextValue(?SyncInfo $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?string $channelId
+     */
+    public function setChannelId(?string $channelId): void
+    {
+        $this->channelId = $channelId;
     }
 
 

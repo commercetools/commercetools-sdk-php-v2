@@ -24,6 +24,8 @@ interface ChangeValueAbsoluteChangeValue extends ChangeValueChangeValue
     public function getType();
 
     /**
+     * <p>Money values in different currencies.</p>
+     *
 
      * @return null|MoneyCollection
      */

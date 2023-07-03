@@ -16,11 +16,11 @@ use Commercetools\History\Models\Common\TaxRate;
 interface SetLineItemTaxRateChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_LINE_ITEM = 'lineItem';
     public const FIELD_VARIANT = 'variant';
     public const FIELD_TAX_MODE = 'taxMode';
-    public const FIELD_NEXT_VALUE = 'nextValue';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
 
@@ -29,41 +29,13 @@ interface SetLineItemTaxRateChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setLineItemTaxRate</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getLineItem();
-
-    /**
-
-     * @return null|string
-     */
-    public function getVariant();
-
-    /**
-
-     * @return null|string
-     */
-    public function getTaxMode();
-
-    /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
-     *
-
-     * @return null|TaxRate
-     */
-    public function getNextValue();
-
-    /**
-     * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|TaxRate
@@ -71,9 +43,51 @@ interface SetLineItemTaxRateChange extends Change
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|TaxRate
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem();
+
+    /**
+     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant();
+
+    /**
+     * <p><code>&quot;External&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxMode();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?TaxRate $previousValue
+     */
+    public function setPreviousValue(?TaxRate $previousValue): void;
+
+    /**
+     * @param ?TaxRate $nextValue
+     */
+    public function setNextValue(?TaxRate $nextValue): void;
 
     /**
      * @param ?LocalizedString $lineItem
@@ -89,14 +103,4 @@ interface SetLineItemTaxRateChange extends Change
      * @param ?string $taxMode
      */
     public function setTaxMode(?string $taxMode): void;
-
-    /**
-     * @param ?TaxRate $nextValue
-     */
-    public function setNextValue(?TaxRate $nextValue): void;
-
-    /**
-     * @param ?TaxRate $previousValue
-     */
-    public function setPreviousValue(?TaxRate $previousValue): void;
 }

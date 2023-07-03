@@ -32,17 +32,15 @@ final class RemoveCustomLineItemChangeBuilder implements Builder
 
      * @var null|CustomLineItem|CustomLineItemBuilder
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|CustomLineItem|CustomLineItemBuilder
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for adding and removing custom line items</p>
-     *
 
      * @return null|string
      */
@@ -52,15 +50,8 @@ final class RemoveCustomLineItemChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|CustomLineItem
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof CustomLineItemBuilder ? $this->nextValue->build() : $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|CustomLineItem
      */
@@ -70,23 +61,23 @@ final class RemoveCustomLineItemChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|CustomLineItem
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof CustomLineItemBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomLineItem $nextValue
-     * @return $this
-     */
-    public function withNextValue(?CustomLineItem $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -103,10 +94,10 @@ final class RemoveCustomLineItemChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withNextValue() instead
+     * @param ?CustomLineItem $nextValue
      * @return $this
      */
-    public function withNextValueBuilder(?CustomLineItemBuilder $nextValue)
+    public function withNextValue(?CustomLineItem $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -124,12 +115,23 @@ final class RemoveCustomLineItemChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?CustomLineItemBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): RemoveCustomLineItemChange
     {
         return new RemoveCustomLineItemChangeModel(
             $this->change,
-            $this->nextValue instanceof CustomLineItemBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->previousValue instanceof CustomLineItemBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof CustomLineItemBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof CustomLineItemBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

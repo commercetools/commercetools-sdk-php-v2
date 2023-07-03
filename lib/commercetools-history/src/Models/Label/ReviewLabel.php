@@ -24,12 +24,16 @@ interface ReviewLabel extends Label
     public function getType();
 
     /**
+     * <p>User-defined unique identifier of the Review.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Title of the Review.</p>
+     *
 
      * @return null|string
      */

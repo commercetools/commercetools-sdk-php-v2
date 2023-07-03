@@ -15,6 +15,7 @@ interface OrderAddParcelToDeliveryAction extends OrderUpdateAction
 {
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_DELIVERY_KEY = 'deliveryKey';
+    public const FIELD_PARCEL_KEY = 'parcelKey';
     public const FIELD_MEASUREMENTS = 'measurements';
     public const FIELD_TRACKING_DATA = 'trackingData';
     public const FIELD_ITEMS = 'items';
@@ -34,6 +35,12 @@ interface OrderAddParcelToDeliveryAction extends OrderUpdateAction
      * @return null|string
      */
     public function getDeliveryKey();
+
+    /**
+
+     * @return null|string
+     */
+    public function getParcelKey();
 
     /**
 
@@ -62,6 +69,11 @@ interface OrderAddParcelToDeliveryAction extends OrderUpdateAction
      * @param ?string $deliveryKey
      */
     public function setDeliveryKey(?string $deliveryKey): void;
+
+    /**
+     * @param ?string $parcelKey
+     */
+    public function setParcelKey(?string $parcelKey): void;
 
     /**
      * @param ?ParcelMeasurements $measurements

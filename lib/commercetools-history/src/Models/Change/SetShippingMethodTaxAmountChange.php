@@ -15,9 +15,9 @@ use Commercetools\History\Models\ChangeValue\ShippingMethodTaxAmountChangeValue;
 interface SetShippingMethodTaxAmountChange extends Change
 {
 
-    public const FIELD_TAX_MODE = 'taxMode';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_TAX_MODE = 'taxMode';
 
     /**
 
@@ -26,30 +26,34 @@ interface SetShippingMethodTaxAmountChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setShippingMethodTaxAmount</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|ShippingMethodTaxAmountChangeValue
      */
-    public function getTaxMode();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getNextValue();
 
     /**
+     * <p><code>&quot;ExternalAmount&quot;</code></p>
+     *
 
-     * @return null|ShippingMethodTaxAmountChangeValue
+     * @return null|string
      */
-    public function getPreviousValue();
+    public function getTaxMode();
 
     /**
      * @param ?string $change
@@ -57,9 +61,9 @@ interface SetShippingMethodTaxAmountChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $taxMode
+     * @param ?ShippingMethodTaxAmountChangeValue $previousValue
      */
-    public function setTaxMode(?string $taxMode): void;
+    public function setPreviousValue(?ShippingMethodTaxAmountChangeValue $previousValue): void;
 
     /**
      * @param ?ShippingMethodTaxAmountChangeValue $nextValue
@@ -67,7 +71,7 @@ interface SetShippingMethodTaxAmountChange extends Change
     public function setNextValue(?ShippingMethodTaxAmountChangeValue $nextValue): void;
 
     /**
-     * @param ?ShippingMethodTaxAmountChangeValue $previousValue
+     * @param ?string $taxMode
      */
-    public function setPreviousValue(?ShippingMethodTaxAmountChangeValue $previousValue): void;
+    public function setTaxMode(?string $taxMode): void;
 }

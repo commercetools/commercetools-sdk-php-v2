@@ -10,7 +10,7 @@ $root = new HistoryRequestBuilder();
 
 ## `withProjectKeyValue("projectKey")->get()`
 
-null
+The `view_audit_log:{projectKey}` scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.
 
 ### Example
 ```php
@@ -23,7 +23,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->withResourceTypeValue("resourceType")->get()`
 
-null
+The `view_audit_log:{projectKey}` scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.
 
 ### Example
 ```php
@@ -37,7 +37,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->withResourceTypeValue("resourceType")->withIDValue("ID")->get()`
 
-null
+The `view_audit_log:{projectKey}` scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.
 
 ### Example
 ```php

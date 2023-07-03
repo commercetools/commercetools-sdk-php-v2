@@ -37,6 +37,12 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
 
     /**
      *
+     * @var ?LocalizedEnumValue
+     */
+    protected $nextValue;
+
+    /**
+     *
      * @var ?string
      */
     protected $fieldName;
@@ -47,27 +53,21 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
      */
     protected $attributeName;
 
-    /**
-     *
-     * @var ?LocalizedEnumValue
-     */
-    protected $nextValue;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
+        ?LocalizedEnumValue $nextValue = null,
         ?string $fieldName = null,
         ?string $attributeName = null,
-        ?LocalizedEnumValue $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
+        $this->nextValue = $nextValue;
         $this->fieldName = $fieldName;
         $this->attributeName = $attributeName;
-        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -90,8 +90,6 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Update action for <code>addLocalizedEnumValue</code> on types</p>
-     *
      *
      * @return null|string
      */
@@ -110,7 +108,28 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The name of the field definition updated.</p>
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|LocalizedEnumValue
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->nextValue = LocalizedEnumValueModel::of($data);
+        }
+
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>; only present on changes to Types.</p>
      *
      *
      * @return null|string
@@ -130,7 +149,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>; only present on changes to Product Types.</p>
      *
      *
      * @return null|string
@@ -149,25 +168,6 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
         return $this->attributeName;
     }
 
-    /**
-     *
-     * @return null|LocalizedEnumValue
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = LocalizedEnumValueModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
 
     /**
      * @param ?string $change
@@ -175,6 +175,14 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?LocalizedEnumValue $nextValue
+     */
+    public function setNextValue(?LocalizedEnumValue $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**
@@ -191,14 +199,6 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
-    }
-
-    /**
-     * @param ?LocalizedEnumValue $nextValue
-     */
-    public function setNextValue(?LocalizedEnumValue $nextValue): void
-    {
-        $this->nextValue = $nextValue;
     }
 
 

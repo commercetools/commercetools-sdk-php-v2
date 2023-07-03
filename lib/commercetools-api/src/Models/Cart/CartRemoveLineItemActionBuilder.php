@@ -30,6 +30,12 @@ final class CartRemoveLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -53,7 +59,7 @@ final class CartRemoveLineItemActionBuilder implements Builder
     private $shippingDetailsToRemove;
 
     /**
-     * <p><code>id</code> of the Line Item to remove.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -64,8 +70,19 @@ final class CartRemoveLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>New value to set.
-     * If absent or <code>0</code>, the Line Item is removed from the Cart.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
+    }
+
+    /**
+     * <p>Amount to subtract from the LineItem's <code>quantity</code>.
+     * If absent, the LineItem is removed from the Cart.</p>
      *
 
      * @return null|int
@@ -115,6 +132,17 @@ final class CartRemoveLineItemActionBuilder implements Builder
     public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
 
         return $this;
     }
@@ -200,6 +228,7 @@ final class CartRemoveLineItemActionBuilder implements Builder
     {
         return new CartRemoveLineItemActionModel(
             $this->lineItemId,
+            $this->lineItemKey,
             $this->quantity,
             $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
             $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,

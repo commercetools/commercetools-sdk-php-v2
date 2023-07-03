@@ -37,12 +37,6 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
      *
      * @var ?string
      */
-    protected $attributeName;
-
-    /**
-     *
-     * @var ?string
-     */
     protected $previousValue;
 
     /**
@@ -51,21 +45,27 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $attributeName;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?string $attributeName = null,
         ?string $previousValue = null,
         ?string $nextValue = null,
+        ?string $attributeName = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->attributeName = $attributeName;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->attributeName = $attributeName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -106,26 +106,8 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>name of the updated attribute</p>
+     * <p>Value before the change.</p>
      *
-     *
-     * @return null|string
-     */
-    public function getAttributeName()
-    {
-        if (is_null($this->attributeName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->attributeName = (string) $data;
-        }
-
-        return $this->attributeName;
-    }
-
-    /**
      *
      * @return null|string
      */
@@ -144,6 +126,8 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */
@@ -161,6 +145,26 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
         return $this->nextValue;
     }
 
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
+    }
+
 
     /**
      * @param ?string $change
@@ -168,14 +172,6 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?string $attributeName
-     */
-    public function setAttributeName(?string $attributeName): void
-    {
-        $this->attributeName = $attributeName;
     }
 
     /**
@@ -192,6 +188,14 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
     public function setNextValue(?string $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void
+    {
+        $this->attributeName = $attributeName;
     }
 
 

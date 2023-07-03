@@ -15,10 +15,10 @@ use Commercetools\History\Models\Common\LocalizedString;
 interface ChangeLabelChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_FIELD_NAME = 'fieldName';
     public const FIELD_ATTRIBUTE_NAME = 'attributeName';
-    public const FIELD_NEXT_VALUE = 'nextValue';
-    public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
 
@@ -27,15 +27,29 @@ interface ChangeLabelChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>changeLabel</code> on product types and types</p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-     * <p>The name of the field definition to update (types).</p>
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getPreviousValue();
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getNextValue();
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:FieldDefinition">FieldDefinition</a>; only present on changes to Types).</p>
      *
 
      * @return null|string
@@ -43,7 +57,7 @@ interface ChangeLabelChange extends Change
     public function getFieldName();
 
     /**
-     * <p>The name of the attribute definition to update (product-type).</p>
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>; only present on changes to Product Types.</p>
      *
 
      * @return null|string
@@ -51,21 +65,19 @@ interface ChangeLabelChange extends Change
     public function getAttributeName();
 
     /**
-
-     * @return null|LocalizedString
-     */
-    public function getNextValue();
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getPreviousValue();
-
-    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?LocalizedString $previousValue
+     */
+    public function setPreviousValue(?LocalizedString $previousValue): void;
+
+    /**
+     * @param ?LocalizedString $nextValue
+     */
+    public function setNextValue(?LocalizedString $nextValue): void;
 
     /**
      * @param ?string $fieldName
@@ -76,14 +88,4 @@ interface ChangeLabelChange extends Change
      * @param ?string $attributeName
      */
     public function setAttributeName(?string $attributeName): void;
-
-    /**
-     * @param ?LocalizedString $nextValue
-     */
-    public function setNextValue(?LocalizedString $nextValue): void;
-
-    /**
-     * @param ?LocalizedString $previousValue
-     */
-    public function setPreviousValue(?LocalizedString $previousValue): void;
 }

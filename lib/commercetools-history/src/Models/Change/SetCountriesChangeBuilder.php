@@ -40,8 +40,6 @@ final class SetCountriesChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>setCountries</code>.</p>
-     *
 
      * @return null|string
      */
@@ -51,7 +49,7 @@ final class SetCountriesChangeBuilder implements Builder
     }
 
     /**
-     * <p>Countries defined for the Store prior to the update action.</p>
+     * <p>Value before the change.</p>
      *
 
      * @return null|StoreCountryCollection
@@ -62,7 +60,7 @@ final class SetCountriesChangeBuilder implements Builder
     }
 
     /**
-     * <p>Countries defined for the Store after the update action.</p>
+     * <p>Value after the change.</p>
      *
 
      * @return null|StoreCountryCollection

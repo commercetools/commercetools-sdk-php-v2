@@ -80,8 +80,6 @@ final class SetDescriptionChangeModel extends JsonObjectModel implements SetDesc
     }
 
     /**
-     * <p>Shape of the action for <code>setDescription</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetDescriptionChangeModel extends JsonObjectModel implements SetDesc
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetDescriptionChangeModel extends JsonObjectModel implements SetDesc
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

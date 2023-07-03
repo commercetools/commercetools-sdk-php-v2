@@ -93,6 +93,12 @@ final class StandalonePriceDeletedMessageModel extends JsonObjectModel implement
      */
     protected $resourceUserProvidedIdentifiers;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $sku;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -108,6 +114,7 @@ final class StandalonePriceDeletedMessageModel extends JsonObjectModel implement
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?string $sku = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -120,6 +127,7 @@ final class StandalonePriceDeletedMessageModel extends JsonObjectModel implement
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->sku = $sku;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -356,6 +364,26 @@ final class StandalonePriceDeletedMessageModel extends JsonObjectModel implement
         return $this->resourceUserProvidedIdentifiers;
     }
 
+    /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to which the deleted Standalone Price was associated.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
 
     /**
      * @param ?string $id
@@ -435,6 +463,14 @@ final class StandalonePriceDeletedMessageModel extends JsonObjectModel implement
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @param ?string $sku
+     */
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
     }
 
 

@@ -15,9 +15,9 @@ use Commercetools\History\Models\Common\ItemShippingDetails;
 interface SetCustomLineItemShippingDetailsChange extends Change
 {
 
-    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
 
     /**
 
@@ -26,30 +26,34 @@ interface SetCustomLineItemShippingDetailsChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setCustomLineItemShippingDetails</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|string
+     * @return null|ItemShippingDetails
      */
-    public function getCustomLineItemId();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ItemShippingDetails
      */
     public function getNextValue();
 
     /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
 
-     * @return null|ItemShippingDetails
+     * @return null|string
      */
-    public function getPreviousValue();
+    public function getCustomLineItemId();
 
     /**
      * @param ?string $change
@@ -57,9 +61,9 @@ interface SetCustomLineItemShippingDetailsChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $customLineItemId
+     * @param ?ItemShippingDetails $previousValue
      */
-    public function setCustomLineItemId(?string $customLineItemId): void;
+    public function setPreviousValue(?ItemShippingDetails $previousValue): void;
 
     /**
      * @param ?ItemShippingDetails $nextValue
@@ -67,7 +71,7 @@ interface SetCustomLineItemShippingDetailsChange extends Change
     public function setNextValue(?ItemShippingDetails $nextValue): void;
 
     /**
-     * @param ?ItemShippingDetails $previousValue
+     * @param ?string $customLineItemId
      */
-    public function setPreviousValue(?ItemShippingDetails $previousValue): void;
+    public function setCustomLineItemId(?string $customLineItemId): void;
 }

@@ -15,9 +15,9 @@ use Commercetools\History\Models\ChangeValue\TextLineItemValue;
 interface ChangeTextLineItemQuantityChange extends Change
 {
 
-    public const FIELD_TEXT_LINE_ITEM = 'textLineItem';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_TEXT_LINE_ITEM = 'textLineItem';
 
     /**
 
@@ -32,32 +32,33 @@ interface ChangeTextLineItemQuantityChange extends Change
     public function getChange();
 
     /**
-
-     * @return null|TextLineItemValue
-     */
-    public function getTextLineItem();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|int
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|int
      */
     public function getNextValue();
 
     /**
+     * <p>Holds information about the updated Text Line Item.</p>
+     *
+
+     * @return null|TextLineItemValue
+     */
+    public function getTextLineItem();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
-
-    /**
-     * @param ?TextLineItemValue $textLineItem
-     */
-    public function setTextLineItem(?TextLineItemValue $textLineItem): void;
 
     /**
      * @param ?int $previousValue
@@ -68,4 +69,9 @@ interface ChangeTextLineItemQuantityChange extends Change
      * @param ?int $nextValue
      */
     public function setNextValue(?int $nextValue): void;
+
+    /**
+     * @param ?TextLineItemValue $textLineItem
+     */
+    public function setTextLineItem(?TextLineItemValue $textLineItem): void;
 }

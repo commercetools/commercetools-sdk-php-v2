@@ -30,6 +30,18 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
 
     /**
 
+     * @var null|mixed|mixed
+     */
+    private $previousValue;
+
+    /**
+
+     * @var null|mixed|mixed
+     */
+    private $nextValue;
+
+    /**
+
      * @var ?string
      */
     private $name;
@@ -48,20 +60,6 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
 
     /**
 
-     * @var null|mixed|mixed
-     */
-    private $nextValue;
-
-    /**
-
-     * @var null|mixed|mixed
-     */
-    private $previousValue;
-
-    /**
-     * <p>Update action for <code>setCustomLineItemCustomField</code></p>
-     *
-
      * @return null|string
      */
     public function getChange()
@@ -70,42 +68,8 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem()
-    {
-        return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getCustomLineItemId()
-    {
-        return $this->customLineItemId;
-    }
-
-    /**
-
-     * @return null|mixed
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|mixed
      */
@@ -115,12 +79,78 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem()
+    {
+        return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        return $this->customLineItemId;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $previousValue
+     * @return $this
+     */
+    public function withPreviousValue( $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $nextValue
+     * @return $this
+     */
+    public function withNextValue( $nextValue)
+    {
+        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -159,28 +189,6 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
-     * @param mixed $nextValue
-     * @return $this
-     */
-    public function withNextValue( $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $previousValue
-     * @return $this
-     */
-    public function withPreviousValue( $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withCustomLineItem() instead
      * @return $this
      */
@@ -195,11 +203,11 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     {
         return new SetCustomLineItemCustomFieldChangeModel(
             $this->change,
+            $this->previousValue,
+            $this->nextValue,
             $this->name,
             $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
-            $this->customLineItemId,
-            $this->nextValue,
-            $this->previousValue
+            $this->customLineItemId
         );
     }
 

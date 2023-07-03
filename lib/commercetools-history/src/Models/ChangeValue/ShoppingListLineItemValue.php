@@ -20,18 +20,24 @@ interface ShoppingListLineItemValue extends JsonObject
     public const FIELD_VARIANT_ID = 'variantId';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a>.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Name of the corresponding Product the Product Variant belongs to.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the ShoppingListLineItem refers to.</p>
+     *
 
      * @return null|int
      */

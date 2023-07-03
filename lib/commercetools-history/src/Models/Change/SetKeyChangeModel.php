@@ -80,8 +80,6 @@ final class SetKeyChangeModel extends JsonObjectModel implements SetKeyChange
     }
 
     /**
-     * <p>Shape of the action for <code>setKey</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetKeyChangeModel extends JsonObjectModel implements SetKeyChange
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetKeyChangeModel extends JsonObjectModel implements SetKeyChange
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

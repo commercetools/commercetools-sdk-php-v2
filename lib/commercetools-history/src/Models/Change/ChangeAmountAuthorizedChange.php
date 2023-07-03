@@ -25,20 +25,22 @@ interface ChangeAmountAuthorizedChange extends Change
     public function getType();
 
     /**
-     * <p>Internal Update action for <code>changeAmountAuthorized</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Money
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|Money
      */

@@ -31,12 +31,6 @@ final class AddToCategoryChangeBuilder implements Builder
 
     /**
 
-     * @var null|Reference|ReferenceBuilder
-     */
-    private $category;
-
-    /**
-
      * @var ?ReferenceCollection
      */
     private $previousValue;
@@ -48,8 +42,12 @@ final class AddToCategoryChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>addToCategory</code></p>
-     *
+
+     * @var null|Reference|ReferenceBuilder
+     */
+    private $category;
+
+    /**
 
      * @return null|string
      */
@@ -59,15 +57,8 @@ final class AddToCategoryChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|Reference
-     */
-    public function getCategory()
-    {
-        return $this->category instanceof ReferenceBuilder ? $this->category->build() : $this->category;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|ReferenceCollection
      */
@@ -77,6 +68,8 @@ final class AddToCategoryChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|ReferenceCollection
      */
@@ -86,23 +79,23 @@ final class AddToCategoryChangeBuilder implements Builder
     }
 
     /**
+     * <p>Category to which the Product was added.</p>
+     *
+
+     * @return null|Reference
+     */
+    public function getCategory()
+    {
+        return $this->category instanceof ReferenceBuilder ? $this->category->build() : $this->category;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Reference $category
-     * @return $this
-     */
-    public function withCategory(?Reference $category)
-    {
-        $this->category = $category;
 
         return $this;
     }
@@ -130,6 +123,17 @@ final class AddToCategoryChangeBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $category
+     * @return $this
+     */
+    public function withCategory(?Reference $category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCategory() instead
      * @return $this
      */
@@ -144,9 +148,9 @@ final class AddToCategoryChangeBuilder implements Builder
     {
         return new AddToCategoryChangeModel(
             $this->change,
-            $this->category instanceof ReferenceBuilder ? $this->category->build() : $this->category,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->category instanceof ReferenceBuilder ? $this->category->build() : $this->category
         );
     }
 

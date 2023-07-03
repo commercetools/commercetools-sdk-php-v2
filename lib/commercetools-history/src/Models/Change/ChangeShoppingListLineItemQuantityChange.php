@@ -15,9 +15,9 @@ use Commercetools\History\Models\ChangeValue\ShoppingListLineItemValue;
 interface ChangeShoppingListLineItemQuantityChange extends Change
 {
 
-    public const FIELD_LINE_ITEM = 'lineItem';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_LINE_ITEM = 'lineItem';
 
     /**
 
@@ -32,32 +32,33 @@ interface ChangeShoppingListLineItemQuantityChange extends Change
     public function getChange();
 
     /**
-
-     * @return null|ShoppingListLineItemValue
-     */
-    public function getLineItem();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|int
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|int
      */
     public function getNextValue();
 
     /**
+     * <p>Holds information about the updated Shopping List Line Item.</p>
+     *
+
+     * @return null|ShoppingListLineItemValue
+     */
+    public function getLineItem();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
-
-    /**
-     * @param ?ShoppingListLineItemValue $lineItem
-     */
-    public function setLineItem(?ShoppingListLineItemValue $lineItem): void;
 
     /**
      * @param ?int $previousValue
@@ -68,4 +69,9 @@ interface ChangeShoppingListLineItemQuantityChange extends Change
      * @param ?int $nextValue
      */
     public function setNextValue(?int $nextValue): void;
+
+    /**
+     * @param ?ShoppingListLineItemValue $lineItem
+     */
+    public function setLineItem(?ShoppingListLineItemValue $lineItem): void;
 }

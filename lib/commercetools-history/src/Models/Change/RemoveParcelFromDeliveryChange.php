@@ -15,8 +15,8 @@ use Commercetools\History\Models\Common\Parcel;
 interface RemoveParcelFromDeliveryChange extends Change
 {
 
-    public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_DELIVERY_ID = 'deliveryId';
 
     /**
 
@@ -25,24 +25,26 @@ interface RemoveParcelFromDeliveryChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>removeParcelFromDelivery</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
-
-     * @return null|string
-     */
-    public function getDeliveryId();
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|Parcel
      */
     public function getPreviousValue();
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Delivery">Delivery</a> from which the Parcel was removed.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDeliveryId();
 
     /**
      * @param ?string $change
@@ -50,12 +52,12 @@ interface RemoveParcelFromDeliveryChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $deliveryId
-     */
-    public function setDeliveryId(?string $deliveryId): void;
-
-    /**
      * @param ?Parcel $previousValue
      */
     public function setPreviousValue(?Parcel $previousValue): void;
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void;
 }

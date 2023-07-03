@@ -74,8 +74,6 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
     }
 
     /**
-     * <p>Update action for when a product is unassigned from a product selection</p>
-     *
      *
      * @return null|string
      */
@@ -94,6 +92,8 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|Reference
      */

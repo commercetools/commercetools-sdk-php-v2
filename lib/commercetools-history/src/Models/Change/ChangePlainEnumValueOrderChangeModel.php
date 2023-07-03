@@ -36,9 +36,9 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
 
     /**
      *
-     * @var ?string
+     * @var ?EnumValueCollection
      */
-    protected $attributeName;
+    protected $previousValue;
 
     /**
      *
@@ -48,9 +48,9 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
 
     /**
      *
-     * @var ?EnumValueCollection
+     * @var ?string
      */
-    protected $previousValue;
+    protected $attributeName;
 
 
     /**
@@ -58,15 +58,15 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $change = null,
-        ?string $attributeName = null,
-        ?EnumValueCollection $nextValue = null,
         ?EnumValueCollection $previousValue = null,
+        ?EnumValueCollection $nextValue = null,
+        ?string $attributeName = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->attributeName = $attributeName;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->attributeName = $attributeName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -89,8 +89,6 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Update action for <code>changePlainEnumValueOrder</code> on product types</p>
-     *
      *
      * @return null|string
      */
@@ -109,26 +107,28 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Value before the change.</p>
      *
      *
-     * @return null|string
+     * @return null|EnumValueCollection
      */
-    public function getAttributeName()
+    public function getPreviousValue()
     {
-        if (is_null($this->attributeName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->attributeName = (string) $data;
+            $this->previousValue = EnumValueCollection::fromArray($data);
         }
 
-        return $this->attributeName;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|EnumValueCollection
      */
@@ -147,21 +147,23 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
-     * @return null|EnumValueCollection
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getAttributeName()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = EnumValueCollection::fromArray($data);
+            $this->attributeName = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->attributeName;
     }
 
 
@@ -174,11 +176,11 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?string $attributeName
+     * @param ?EnumValueCollection $previousValue
      */
-    public function setAttributeName(?string $attributeName): void
+    public function setPreviousValue(?EnumValueCollection $previousValue): void
     {
-        $this->attributeName = $attributeName;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -190,11 +192,11 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?string $attributeName
      */
-    public function setPreviousValue(?EnumValueCollection $previousValue): void
+    public function setAttributeName(?string $attributeName): void
     {
-        $this->previousValue = $previousValue;
+        $this->attributeName = $attributeName;
     }
 
 

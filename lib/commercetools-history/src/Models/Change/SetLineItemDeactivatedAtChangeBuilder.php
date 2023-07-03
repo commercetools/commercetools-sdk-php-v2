@@ -30,12 +30,6 @@ final class SetLineItemDeactivatedAtChangeBuilder implements Builder
 
     /**
 
-     * @var null|ShoppingListLineItemValue|ShoppingListLineItemValueBuilder
-     */
-    private $lineItem;
-
-    /**
-
      * @var ?string
      */
     private $previousValue;
@@ -47,8 +41,12 @@ final class SetLineItemDeactivatedAtChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>setLineItemDeactivatedAt</code></p>
-     *
+
+     * @var null|ShoppingListLineItemValue|ShoppingListLineItemValueBuilder
+     */
+    private $lineItem;
+
+    /**
 
      * @return null|string
      */
@@ -58,15 +56,8 @@ final class SetLineItemDeactivatedAtChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|ShoppingListLineItemValue
-     */
-    public function getLineItem()
-    {
-        return $this->lineItem instanceof ShoppingListLineItemValueBuilder ? $this->lineItem->build() : $this->lineItem;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
@@ -76,6 +67,8 @@ final class SetLineItemDeactivatedAtChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|string
      */
@@ -85,23 +78,23 @@ final class SetLineItemDeactivatedAtChangeBuilder implements Builder
     }
 
     /**
+     * <p>Holds information about the updated Shopping List Line Item.</p>
+     *
+
+     * @return null|ShoppingListLineItemValue
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof ShoppingListLineItemValueBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ShoppingListLineItemValue $lineItem
-     * @return $this
-     */
-    public function withLineItem(?ShoppingListLineItemValue $lineItem)
-    {
-        $this->lineItem = $lineItem;
 
         return $this;
     }
@@ -129,6 +122,17 @@ final class SetLineItemDeactivatedAtChangeBuilder implements Builder
     }
 
     /**
+     * @param ?ShoppingListLineItemValue $lineItem
+     * @return $this
+     */
+    public function withLineItem(?ShoppingListLineItemValue $lineItem)
+    {
+        $this->lineItem = $lineItem;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLineItem() instead
      * @return $this
      */
@@ -143,9 +147,9 @@ final class SetLineItemDeactivatedAtChangeBuilder implements Builder
     {
         return new SetLineItemDeactivatedAtChangeModel(
             $this->change,
-            $this->lineItem instanceof ShoppingListLineItemValueBuilder ? $this->lineItem->build() : $this->lineItem,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->lineItem instanceof ShoppingListLineItemValueBuilder ? $this->lineItem->build() : $this->lineItem
         );
     }
 

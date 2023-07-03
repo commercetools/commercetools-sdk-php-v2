@@ -30,17 +30,15 @@ final class SetValueChangeBuilder implements Builder
 
      * @var null|mixed|mixed
      */
-    private $nextValue;
+    private $previousValue;
 
     /**
 
      * @var null|mixed|mixed
      */
-    private $previousValue;
+    private $nextValue;
 
     /**
-     * <p>Update action for <code>setValue</code> on custom objects</p>
-     *
 
      * @return null|string
      */
@@ -50,15 +48,8 @@ final class SetValueChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|mixed
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|mixed
      */
@@ -68,23 +59,23 @@ final class SetValueChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $nextValue
-     * @return $this
-     */
-    public function withNextValue( $nextValue)
-    {
-        $this->nextValue = $nextValue;
 
         return $this;
     }
@@ -100,13 +91,24 @@ final class SetValueChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param mixed $nextValue
+     * @return $this
+     */
+    public function withNextValue( $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
 
     public function build(): SetValueChange
     {
         return new SetValueChangeModel(
             $this->change,
-            $this->nextValue,
-            $this->previousValue
+            $this->previousValue,
+            $this->nextValue
         );
     }
 

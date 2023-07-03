@@ -30,19 +30,17 @@ final class AddPlainEnumValueChangeBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $attributeName;
-
-    /**
-
      * @var null|EnumValue|EnumValueBuilder
      */
     private $nextValue;
 
     /**
-     * <p>Update action for <code>addPlainEnumValue</code> on product types</p>
-     *
+
+     * @var ?string
+     */
+    private $attributeName;
+
+    /**
 
      * @return null|string
      */
@@ -52,7 +50,18 @@ final class AddPlainEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|EnumValue
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|string
@@ -60,15 +69,6 @@ final class AddPlainEnumValueChangeBuilder implements Builder
     public function getAttributeName()
     {
         return $this->attributeName;
-    }
-
-    /**
-
-     * @return null|EnumValue
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -83,23 +83,23 @@ final class AddPlainEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * @param ?string $attributeName
-     * @return $this
-     */
-    public function withAttributeName(?string $attributeName)
-    {
-        $this->attributeName = $attributeName;
-
-        return $this;
-    }
-
-    /**
      * @param ?EnumValue $nextValue
      * @return $this
      */
     public function withNextValue(?EnumValue $nextValue)
     {
         $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $attributeName
+     * @return $this
+     */
+    public function withAttributeName(?string $attributeName)
+    {
+        $this->attributeName = $attributeName;
 
         return $this;
     }
@@ -119,8 +119,8 @@ final class AddPlainEnumValueChangeBuilder implements Builder
     {
         return new AddPlainEnumValueChangeModel(
             $this->change,
-            $this->attributeName,
-            $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->attributeName
         );
     }
 

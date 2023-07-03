@@ -40,8 +40,6 @@ final class ChangeFieldDefinitionOrderChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>changeFieldDefinitionOrder</code> on types</p>
-     *
 
      * @return null|string
      */
@@ -51,6 +49,8 @@ final class ChangeFieldDefinitionOrderChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|FieldDefinitionOrderValueCollection
      */
@@ -60,6 +60,8 @@ final class ChangeFieldDefinitionOrderChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|FieldDefinitionOrderValueCollection
      */

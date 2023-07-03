@@ -80,8 +80,6 @@ final class ChangeRequiresDiscountCodeChangeModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Shape of the action for <code>changeRequiresDiscountCode</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class ChangeRequiresDiscountCodeChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|bool
      */
@@ -118,6 +118,8 @@ final class ChangeRequiresDiscountCodeChangeModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|bool
      */

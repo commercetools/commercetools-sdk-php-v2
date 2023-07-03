@@ -24,20 +24,22 @@ interface SetCartPredicateChange extends Change
     public function getType();
 
     /**
-     * <p>Shape of the action for <code>setCartPredicate</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|string
      */

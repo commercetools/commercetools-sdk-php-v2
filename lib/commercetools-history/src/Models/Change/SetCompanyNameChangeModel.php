@@ -80,8 +80,6 @@ final class SetCompanyNameChangeModel extends JsonObjectModel implements SetComp
     }
 
     /**
-     * <p>Shape of the action for <code>setCompanyName</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetCompanyNameChangeModel extends JsonObjectModel implements SetComp
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetCompanyNameChangeModel extends JsonObjectModel implements SetComp
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

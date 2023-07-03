@@ -16,9 +16,9 @@ use Commercetools\History\Models\Common\CustomFields;
 interface SetTextLineItemCustomTypeChange extends Change
 {
 
-    public const FIELD_TEXT_LINE_ITEM = 'textLineItem';
-    public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_TEXT_LINE_ITEM = 'textLineItem';
 
     /**
 
@@ -27,30 +27,34 @@ interface SetTextLineItemCustomTypeChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setTextLineItemCustomType</code></p>
-     *
 
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
 
-     * @return null|TextLineItemValue
+     * @return null|CustomFields
      */
-    public function getTextLineItem();
+    public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|CustomFields
      */
     public function getNextValue();
 
     /**
+     * <p>Holds information about the updated Text Line Item.</p>
+     *
 
-     * @return null|CustomFields
+     * @return null|TextLineItemValue
      */
-    public function getPreviousValue();
+    public function getTextLineItem();
 
     /**
      * @param ?string $change
@@ -58,9 +62,9 @@ interface SetTextLineItemCustomTypeChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?TextLineItemValue $textLineItem
+     * @param ?CustomFields $previousValue
      */
-    public function setTextLineItem(?TextLineItemValue $textLineItem): void;
+    public function setPreviousValue(?CustomFields $previousValue): void;
 
     /**
      * @param ?CustomFields $nextValue
@@ -68,7 +72,7 @@ interface SetTextLineItemCustomTypeChange extends Change
     public function setNextValue(?CustomFields $nextValue): void;
 
     /**
-     * @param ?CustomFields $previousValue
+     * @param ?TextLineItemValue $textLineItem
      */
-    public function setPreviousValue(?CustomFields $previousValue): void;
+    public function setTextLineItem(?TextLineItemValue $textLineItem): void;
 }

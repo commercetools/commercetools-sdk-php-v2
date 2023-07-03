@@ -37,15 +37,15 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
 
     /**
      *
-     * @var ?string
-     */
-    protected $deliveryId;
-
-    /**
-     *
      * @var ?Parcel
      */
     protected $previousValue;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $deliveryId;
 
 
     /**
@@ -53,13 +53,13 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
      */
     public function __construct(
         ?string $change = null,
-        ?string $deliveryId = null,
         ?Parcel $previousValue = null,
+        ?string $deliveryId = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->deliveryId = $deliveryId;
         $this->previousValue = $previousValue;
+        $this->deliveryId = $deliveryId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Update action for <code>removeParcelFromDelivery</code></p>
-     *
      *
      * @return null|string
      */
@@ -102,24 +100,8 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|string
-     */
-    public function getDeliveryId()
-    {
-        if (is_null($this->deliveryId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_DELIVERY_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->deliveryId = (string) $data;
-        }
-
-        return $this->deliveryId;
-    }
-
-    /**
      *
      * @return null|Parcel
      */
@@ -138,6 +120,26 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
         return $this->previousValue;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Delivery">Delivery</a> from which the Parcel was removed.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
+    }
+
 
     /**
      * @param ?string $change
@@ -148,19 +150,19 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
     }
 
     /**
-     * @param ?string $deliveryId
-     */
-    public function setDeliveryId(?string $deliveryId): void
-    {
-        $this->deliveryId = $deliveryId;
-    }
-
-    /**
      * @param ?Parcel $previousValue
      */
     public function setPreviousValue(?Parcel $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void
+    {
+        $this->deliveryId = $deliveryId;
     }
 
 

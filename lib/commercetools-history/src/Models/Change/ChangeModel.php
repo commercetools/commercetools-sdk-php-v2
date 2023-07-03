@@ -40,6 +40,7 @@ final class ChangeModel extends JsonObjectModel implements Change
     private static $discriminatorClasses = [
        'AddAddressChange' => AddAddressChangeModel::class,
        'AddAssetChange' => AddAssetChangeModel::class,
+       'AddAssociateChange' => AddAssociateChangeModel::class,
        'AddAttributeDefinitionChange' => AddAttributeDefinitionChangeModel::class,
        'AddBillingAddressIdChange' => AddBillingAddressIdChangeModel::class,
        'AddChannelRolesChange' => AddChannelRolesChangeModel::class,
@@ -59,6 +60,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'AddPlainEnumValueChange' => AddPlainEnumValueChangeModel::class,
        'AddPriceChange' => AddPriceChangeModel::class,
        'AddProductChange' => AddProductChangeModel::class,
+       'AddProductSelectionChange' => AddProductSelectionChangeModel::class,
        'AddPropertyChange' => AddPropertyChangeModel::class,
        'AddReturnInfoChange' => AddReturnInfoChangeModel::class,
        'AddShippingAddressIdChange' => AddShippingAddressIdChangeModel::class,
@@ -74,6 +76,8 @@ final class ChangeModel extends JsonObjectModel implements Change
        'ChangeAmountPlannedChange' => ChangeAmountPlannedChangeModel::class,
        'ChangeAssetNameChange' => ChangeAssetNameChangeModel::class,
        'ChangeAssetOrderChange' => ChangeAssetOrderChangeModel::class,
+       'ChangeAssociateChange' => ChangeAssociateChangeModel::class,
+       'ChangeAssociateModeChange' => ChangeAssociateModeChangeModel::class,
        'ChangeAttributeConstraintChange' => ChangeAttributeConstraintChangeModel::class,
        'ChangeAttributeOrderByNameChange' => ChangeAttributeOrderByNameChangeModel::class,
        'ChangeCartDiscountsChange' => ChangeCartDiscountsChangeModel::class,
@@ -101,11 +105,13 @@ final class ChangeModel extends JsonObjectModel implements Change
        'ChangeOrderHintChange' => ChangeOrderHintChangeModel::class,
        'ChangeOrderStateChange' => ChangeOrderStateChangeModel::class,
        'ChangeParentChange' => ChangeParentChangeModel::class,
+       'ChangeParentUnitChange' => ChangeParentUnitChangeModel::class,
        'ChangePaymentStateChange' => ChangePaymentStateChangeModel::class,
        'ChangePlainEnumValueLabelChange' => ChangePlainEnumValueLabelChangeModel::class,
        'ChangePlainEnumValueOrderChange' => ChangePlainEnumValueOrderChangeModel::class,
        'ChangePredicateChange' => ChangePredicateChangeModel::class,
        'ChangePriceChange' => ChangePriceChangeModel::class,
+       'ChangeProductSelectionActiveChange' => ChangeProductSelectionActiveChangeModel::class,
        'ChangeQuantityChange' => ChangeQuantityChangeModel::class,
        'ChangeQuoteRequestStateChange' => ChangeQuoteRequestStateChangeModel::class,
        'ChangeQuoteStateChange' => ChangeQuoteStateChangeModel::class,
@@ -119,6 +125,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'ChangeStackingModeChange' => ChangeStackingModeChangeModel::class,
        'ChangeStagedQuoteStateChange' => ChangeStagedQuoteStateChangeModel::class,
        'ChangeStateTypeChange' => ChangeStateTypeChangeModel::class,
+       'ChangeStatusChange' => ChangeStatusChangeModel::class,
        'ChangeTargetChange' => ChangeTargetChangeModel::class,
        'ChangeTaxCalculationModeChange' => ChangeTaxCalculationModeChangeModel::class,
        'ChangeTaxModeChange' => ChangeTaxModeChangeModel::class,
@@ -134,6 +141,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'PublishChange' => PublishChangeModel::class,
        'RemoveAddressChange' => RemoveAddressChangeModel::class,
        'RemoveAssetChange' => RemoveAssetChangeModel::class,
+       'RemoveAssociateChange' => RemoveAssociateChangeModel::class,
        'RemoveAttributeDefinitionChange' => RemoveAttributeDefinitionChangeModel::class,
        'RemoveBillingAddressIdChange' => RemoveBillingAddressIdChangeModel::class,
        'RemoveChannelRolesChange' => RemoveChannelRolesChangeModel::class,
@@ -152,6 +160,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'RemovePaymentChange' => RemovePaymentChangeModel::class,
        'RemovePriceChange' => RemovePriceChangeModel::class,
        'RemoveProductChange' => RemoveProductChangeModel::class,
+       'RemoveProductSelectionChange' => RemoveProductSelectionChangeModel::class,
        'RemovePropertyChange' => RemovePropertyChangeModel::class,
        'RemoveShippingAddressIdChange' => RemoveShippingAddressIdChangeModel::class,
        'RemoveShoppingListLineItemChange' => RemoveShoppingListLineItemChangeModel::class,
@@ -159,7 +168,10 @@ final class ChangeModel extends JsonObjectModel implements Change
        'RemoveTaxRateChange' => RemoveTaxRateChangeModel::class,
        'RemoveTextLineItemChange' => RemoveTextLineItemChangeModel::class,
        'RemoveVariantChange' => RemoveVariantChangeModel::class,
+       'RequestQuoteRenegotiationChange' => RequestQuoteRenegotiationChangeModel::class,
        'SetAddressChange' => SetAddressChangeModel::class,
+       'SetAddressCustomFieldChange' => SetAddressCustomFieldChangeModel::class,
+       'SetAddressCustomTypeChange' => SetAddressCustomTypeChangeModel::class,
        'SetAnonymousIdChange' => SetAnonymousIdChangeModel::class,
        'SetApplicationVersionChange' => SetApplicationVersionChangeModel::class,
        'SetAssetCustomFieldChange' => SetAssetCustomFieldChangeModel::class,
@@ -176,6 +188,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'SetCategoryOrderHintChange' => SetCategoryOrderHintChangeModel::class,
        'SetChannelRolesChange' => SetChannelRolesChangeModel::class,
        'SetCompanyNameChange' => SetCompanyNameChangeModel::class,
+       'SetContactEmailChange' => SetContactEmailChangeModel::class,
        'SetCountriesChange' => SetCountriesChangeModel::class,
        'SetCountryChange' => SetCountryChangeModel::class,
        'SetCustomFieldChange' => SetCustomFieldChangeModel::class,
@@ -280,6 +293,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'SetStatusInterfaceCodeChange' => SetStatusInterfaceCodeChangeModel::class,
        'SetStatusInterfaceTextChange' => SetStatusInterfaceTextChangeModel::class,
        'SetStoreChange' => SetStoreChangeModel::class,
+       'SetStoreModeChange' => SetStoreModeChangeModel::class,
        'SetStoresChange' => SetStoresChangeModel::class,
        'SetSupplyChannelChange' => SetSupplyChannelChangeModel::class,
        'SetSupplyChannelsChange' => SetSupplyChannelsChangeModel::class,
@@ -297,6 +311,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'SetValidUntilChange' => SetValidUntilChangeModel::class,
        'SetValueChange' => SetValueChangeModel::class,
        'SetVariantAvailabilityChange' => SetVariantAvailabilityChangeModel::class,
+       'SetVariantSelectionChange' => SetVariantSelectionChangeModel::class,
        'SetVatIdChange' => SetVatIdChangeModel::class,
        'TransitionCustomLineItemStateChange' => TransitionCustomLineItemStateChangeModel::class,
        'TransitionLineItemStateChange' => TransitionLineItemStateChangeModel::class,
@@ -320,6 +335,8 @@ final class ChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+     * <p>Unique discriminator value to reliably deserialize the data type.</p>
+     *
      *
      * @return null|string
      */
@@ -338,6 +355,10 @@ final class ChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+     * <p><a href="#type-of-change">Type of change</a> on a resource that is similar to the update action it relates to, where possible.
+     * It is not a unique identifier for the data structure, for example, the <code>setDescription</code> change can occur with a localized and non-localized representation.</p>
+     * <p><a href="ctp:history:type:Record">Records</a> can be filtered by this value using the <code>changes</code> query parameter.</p>
+     *
      *
      * @return null|string
      */

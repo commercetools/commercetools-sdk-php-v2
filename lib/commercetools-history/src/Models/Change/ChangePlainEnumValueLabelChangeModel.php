@@ -37,18 +37,6 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
      *
      * @var ?string
      */
-    protected $attributeName;
-
-    /**
-     *
-     * @var ?string
-     */
-    protected $valueKey;
-
-    /**
-     *
-     * @var ?string
-     */
     protected $previousValue;
 
     /**
@@ -57,23 +45,35 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $attributeName;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $valueKey;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?string $attributeName = null,
-        ?string $valueKey = null,
         ?string $previousValue = null,
         ?string $nextValue = null,
+        ?string $attributeName = null,
+        ?string $valueKey = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->attributeName = $attributeName;
-        $this->valueKey = $valueKey;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->attributeName = $attributeName;
+        $this->valueKey = $valueKey;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -96,8 +96,6 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Update action for <code>changePlainEnumValueLabel</code> on types</p>
-     *
      *
      * @return null|string
      */
@@ -116,7 +114,47 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Value before the change.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPreviousValue()
+    {
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->previousValue = (string) $data;
+        }
+
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = (string) $data;
+        }
+
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
      *
      * @return null|string
@@ -136,7 +174,7 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Key of the values that was updated</p>
+     * <p>Key of the updated values.</p>
      *
      *
      * @return null|string
@@ -155,42 +193,6 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
         return $this->valueKey;
     }
 
-    /**
-     *
-     * @return null|string
-     */
-    public function getPreviousValue()
-    {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->previousValue = (string) $data;
-        }
-
-        return $this->previousValue;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->nextValue = (string) $data;
-        }
-
-        return $this->nextValue;
-    }
-
 
     /**
      * @param ?string $change
@@ -198,22 +200,6 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?string $attributeName
-     */
-    public function setAttributeName(?string $attributeName): void
-    {
-        $this->attributeName = $attributeName;
-    }
-
-    /**
-     * @param ?string $valueKey
-     */
-    public function setValueKey(?string $valueKey): void
-    {
-        $this->valueKey = $valueKey;
     }
 
     /**
@@ -230,6 +216,22 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
     public function setNextValue(?string $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void
+    {
+        $this->attributeName = $attributeName;
+    }
+
+    /**
+     * @param ?string $valueKey
+     */
+    public function setValueKey(?string $valueKey): void
+    {
+        $this->valueKey = $valueKey;
     }
 
 

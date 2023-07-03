@@ -59,6 +59,8 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Line Items or Custom Line Items shipped in the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */
@@ -77,6 +79,8 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Address to which the parcels are delivered.</p>
+     *
      *
      * @return null|Address
      */
@@ -96,6 +100,8 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Parcels included in the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
      *
      * @return null|ParcelCollection
      */

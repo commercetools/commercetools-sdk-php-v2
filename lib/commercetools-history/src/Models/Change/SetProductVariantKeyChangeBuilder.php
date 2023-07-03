@@ -30,12 +30,6 @@ final class SetProductVariantKeyChangeBuilder implements Builder
 
      * @var ?string
      */
-    private $catalogData;
-
-    /**
-
-     * @var ?string
-     */
     private $previousValue;
 
     /**
@@ -45,8 +39,12 @@ final class SetProductVariantKeyChangeBuilder implements Builder
     private $nextValue;
 
     /**
-     * <p>Update action for <code>setProductVariantKey</code></p>
-     *
+
+     * @var ?string
+     */
+    private $catalogData;
+
+    /**
 
      * @return null|string
      */
@@ -56,15 +54,8 @@ final class SetProductVariantKeyChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getCatalogData()
-    {
-        return $this->catalogData;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|string
      */
@@ -74,6 +65,8 @@ final class SetProductVariantKeyChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|string
      */
@@ -83,23 +76,26 @@ final class SetProductVariantKeyChangeBuilder implements Builder
     }
 
     /**
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        return $this->catalogData;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $catalogData
-     * @return $this
-     */
-    public function withCatalogData(?string $catalogData)
-    {
-        $this->catalogData = $catalogData;
 
         return $this;
     }
@@ -126,14 +122,25 @@ final class SetProductVariantKeyChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $catalogData
+     * @return $this
+     */
+    public function withCatalogData(?string $catalogData)
+    {
+        $this->catalogData = $catalogData;
+
+        return $this;
+    }
+
 
     public function build(): SetProductVariantKeyChange
     {
         return new SetProductVariantKeyChangeModel(
             $this->change,
-            $this->catalogData,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->catalogData
         );
     }
 

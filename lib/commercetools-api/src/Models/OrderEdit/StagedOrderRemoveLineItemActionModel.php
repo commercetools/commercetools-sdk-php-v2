@@ -42,6 +42,12 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -70,6 +76,7 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?int $quantity = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
@@ -77,6 +84,7 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
         ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->quantity = $quantity;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
@@ -103,6 +111,8 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +128,26 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
     }
 
     /**
@@ -206,6 +236,14 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

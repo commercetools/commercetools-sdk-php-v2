@@ -39,13 +39,13 @@ final class RemoveBillingAddressIdChangeModel extends JsonObjectModel implements
      *
      * @var ?array
      */
-    protected $nextValue;
+    protected $previousValue;
 
     /**
      *
      * @var ?array
      */
-    protected $previousValue;
+    protected $nextValue;
 
     /**
      *
@@ -59,14 +59,14 @@ final class RemoveBillingAddressIdChangeModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $change = null,
-        ?array $nextValue = null,
         ?array $previousValue = null,
+        ?array $nextValue = null,
         ?Address $address = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
         $this->address = $address;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -90,8 +90,6 @@ final class RemoveBillingAddressIdChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Update action for <code>removeBillingAddressId</code> action on customers.</p>
-     *
      *
      * @return null|string
      */
@@ -110,24 +108,8 @@ final class RemoveBillingAddressIdChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|array
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var ?list<mixed> $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->nextValue = $data;
-        }
-
-        return $this->nextValue;
-    }
-
-    /**
      *
      * @return null|array
      */
@@ -146,6 +128,28 @@ final class RemoveBillingAddressIdChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|array
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = $data;
+        }
+
+        return $this->nextValue;
+    }
+
+    /**
+     * <p>Address removed from <code>billingAddressesIds</code>.</p>
+     *
      *
      * @return null|Address
      */
@@ -174,19 +178,19 @@ final class RemoveBillingAddressIdChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?array $nextValue
-     */
-    public function setNextValue(?array $nextValue): void
-    {
-        $this->nextValue = $nextValue;
-    }
-
-    /**
      * @param ?array $previousValue
      */
     public function setPreviousValue(?array $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?array $nextValue
+     */
+    public function setNextValue(?array $nextValue): void
+    {
+        $this->nextValue = $nextValue;
     }
 
     /**

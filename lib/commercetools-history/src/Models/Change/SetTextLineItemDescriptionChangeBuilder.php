@@ -32,12 +32,6 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
 
     /**
 
-     * @var null|TextLineItemValue|TextLineItemValueBuilder
-     */
-    private $textLineItem;
-
-    /**
-
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $previousValue;
@@ -50,6 +44,12 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
 
     /**
 
+     * @var null|TextLineItemValue|TextLineItemValueBuilder
+     */
+    private $textLineItem;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -58,15 +58,8 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
-
-     * @return null|TextLineItemValue
-     */
-    public function getTextLineItem()
-    {
-        return $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem;
-    }
-
-    /**
+     * <p>Value before the change.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -76,6 +69,8 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -85,23 +80,23 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
+     * <p>Holds information about the updated Text Line Item.</p>
+     *
+
+     * @return null|TextLineItemValue
+     */
+    public function getTextLineItem()
+    {
+        return $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
     public function withChange(?string $change)
     {
         $this->change = $change;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TextLineItemValue $textLineItem
-     * @return $this
-     */
-    public function withTextLineItem(?TextLineItemValue $textLineItem)
-    {
-        $this->textLineItem = $textLineItem;
 
         return $this;
     }
@@ -129,10 +124,10 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
-     * @deprecated use withTextLineItem() instead
+     * @param ?TextLineItemValue $textLineItem
      * @return $this
      */
-    public function withTextLineItemBuilder(?TextLineItemValueBuilder $textLineItem)
+    public function withTextLineItem(?TextLineItemValue $textLineItem)
     {
         $this->textLineItem = $textLineItem;
 
@@ -161,13 +156,24 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withTextLineItem() instead
+     * @return $this
+     */
+    public function withTextLineItemBuilder(?TextLineItemValueBuilder $textLineItem)
+    {
+        $this->textLineItem = $textLineItem;
+
+        return $this;
+    }
+
     public function build(): SetTextLineItemDescriptionChange
     {
         return new SetTextLineItemDescriptionChangeModel(
             $this->change,
-            $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem,
             $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->textLineItem instanceof TextLineItemValueBuilder ? $this->textLineItem->build() : $this->textLineItem
         );
     }
 

@@ -35,9 +35,9 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
 
     /**
      *
-     * @var ?string
+     * @var ?mixed
      */
-    protected $path;
+    protected $previousValue;
 
     /**
      *
@@ -47,9 +47,9 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
 
     /**
      *
-     * @var ?mixed
+     * @var ?string
      */
-    protected $previousValue;
+    protected $path;
 
 
     /**
@@ -57,15 +57,15 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
      */
     public function __construct(
         ?string $change = null,
-        ?string $path = null,
-         $nextValue = null,
          $previousValue = null,
+         $nextValue = null,
+        ?string $path = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->path = $path;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->path = $path;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -88,8 +88,6 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
     }
 
     /**
-     * <p>Update action for <code>setProperty</code> on custom objects</p>
-     *
      *
      * @return null|string
      */
@@ -108,26 +106,28 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
     }
 
     /**
-     * <p>Value path to the property that was changed</p>
+     * <p>Value before the change.</p>
      *
      *
-     * @return null|string
+     * @return null|mixed
      */
-    public function getPath()
+    public function getPreviousValue()
     {
-        if (is_null($this->path)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PATH);
+        if (is_null($this->previousValue)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->path = (string) $data;
+            $this->previousValue = $data;
         }
 
-        return $this->path;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|mixed
      */
@@ -146,21 +146,23 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
     }
 
     /**
+     * <p>Path to the property that was updated.</p>
      *
-     * @return null|mixed
+     *
+     * @return null|string
      */
-    public function getPreviousValue()
+    public function getPath()
     {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+        if (is_null($this->path)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PATH);
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = $data;
+            $this->path = (string) $data;
         }
 
-        return $this->previousValue;
+        return $this->path;
     }
 
 
@@ -173,11 +175,11 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
     }
 
     /**
-     * @param ?string $path
+     * @param mixed $previousValue
      */
-    public function setPath(?string $path): void
+    public function setPreviousValue( $previousValue): void
     {
-        $this->path = $path;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -189,11 +191,11 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
     }
 
     /**
-     * @param mixed $previousValue
+     * @param ?string $path
      */
-    public function setPreviousValue( $previousValue): void
+    public function setPath(?string $path): void
     {
-        $this->previousValue = $previousValue;
+        $this->path = $path;
     }
 
 

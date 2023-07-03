@@ -72,6 +72,8 @@ final class CustomObjectLabelModel extends JsonObjectModel implements CustomObje
     }
 
     /**
+     * <p>User-defined unique identifier of the CustomObject within the defined <code>container</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -90,6 +92,8 @@ final class CustomObjectLabelModel extends JsonObjectModel implements CustomObje
     }
 
     /**
+     * <p>Namespace to group Custom Objects.</p>
+     *
      *
      * @return null|string
      */

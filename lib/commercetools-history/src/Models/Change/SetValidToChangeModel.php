@@ -80,8 +80,6 @@ final class SetValidToChangeModel extends JsonObjectModel implements SetValidToC
     }
 
     /**
-     * <p>Shape of the action for <code>setValidTo</code></p>
-     *
      *
      * @return null|string
      */
@@ -100,6 +98,8 @@ final class SetValidToChangeModel extends JsonObjectModel implements SetValidToC
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +118,8 @@ final class SetValidToChangeModel extends JsonObjectModel implements SetValidToC
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|string
      */

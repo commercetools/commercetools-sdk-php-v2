@@ -37,15 +37,15 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
 
     /**
      *
-     * @var ?string
-     */
-    protected $attributeName;
-
-    /**
-     *
      * @var ?LocalizedEnumValue
      */
     protected $previousValue;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $attributeName;
 
 
     /**
@@ -53,13 +53,13 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $change = null,
-        ?string $attributeName = null,
         ?LocalizedEnumValue $previousValue = null,
+        ?string $attributeName = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->attributeName = $attributeName;
         $this->previousValue = $previousValue;
+        $this->attributeName = $attributeName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,8 +82,6 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Update action for <code>removeEnumValues</code> on product types</p>
-     *
      *
      * @return null|string
      */
@@ -102,26 +100,8 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The name of the attribute updated.</p>
+     * <p>Value before the change.</p>
      *
-     *
-     * @return null|string
-     */
-    public function getAttributeName()
-    {
-        if (is_null($this->attributeName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->attributeName = (string) $data;
-        }
-
-        return $this->attributeName;
-    }
-
-    /**
      *
      * @return null|LocalizedEnumValue
      */
@@ -140,6 +120,26 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
         return $this->previousValue;
     }
 
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
+    }
+
 
     /**
      * @param ?string $change
@@ -150,19 +150,19 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?string $attributeName
-     */
-    public function setAttributeName(?string $attributeName): void
-    {
-        $this->attributeName = $attributeName;
-    }
-
-    /**
      * @param ?LocalizedEnumValue $previousValue
      */
     public function setPreviousValue(?LocalizedEnumValue $previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void
+    {
+        $this->attributeName = $attributeName;
     }
 
 

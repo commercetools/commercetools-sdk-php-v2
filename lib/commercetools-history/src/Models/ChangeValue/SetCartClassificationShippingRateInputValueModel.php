@@ -75,6 +75,8 @@ final class SetCartClassificationShippingRateInputValueModel extends JsonObjectM
     }
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -93,6 +95,8 @@ final class SetCartClassificationShippingRateInputValueModel extends JsonObjectM
     }
 
     /**
+     * <p>Descriptive localized label of the value.</p>
+     *
      *
      * @return null|LocalizedString
      */

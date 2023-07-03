@@ -81,8 +81,6 @@ final class SetDistributionChannelsChangeModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Shape of the action for <code>setDistributionChannels</code></p>
-     *
      *
      * @return null|string
      */
@@ -101,6 +99,8 @@ final class SetDistributionChannelsChangeModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value before the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */
@@ -119,6 +119,8 @@ final class SetDistributionChannelsChangeModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|ReferenceCollection
      */

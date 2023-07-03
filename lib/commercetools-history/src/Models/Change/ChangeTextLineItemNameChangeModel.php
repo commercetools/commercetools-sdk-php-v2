@@ -39,9 +39,9 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
 
     /**
      *
-     * @var ?TextLineItemValue
+     * @var ?LocalizedString
      */
-    protected $textLineItem;
+    protected $previousValue;
 
     /**
      *
@@ -51,9 +51,9 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
 
     /**
      *
-     * @var ?LocalizedString
+     * @var ?TextLineItemValue
      */
-    protected $previousValue;
+    protected $textLineItem;
 
 
     /**
@@ -61,15 +61,15 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $change = null,
-        ?TextLineItemValue $textLineItem = null,
-        ?LocalizedString $nextValue = null,
         ?LocalizedString $previousValue = null,
+        ?LocalizedString $nextValue = null,
+        ?TextLineItemValue $textLineItem = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->textLineItem = $textLineItem;
-        $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->textLineItem = $textLineItem;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -92,8 +92,6 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Update action for <code>changeTextLineItemName</code></p>
-     *
      *
      * @return null|string
      */
@@ -112,25 +110,29 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value before the change.</p>
      *
-     * @return null|TextLineItemValue
+     *
+     * @return null|LocalizedString
      */
-    public function getTextLineItem()
+    public function getPreviousValue()
     {
-        if (is_null($this->textLineItem)) {
+        if (is_null($this->previousValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TEXT_LINE_ITEM);
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->textLineItem = TextLineItemValueModel::of($data);
+            $this->previousValue = LocalizedStringModel::of($data);
         }
 
-        return $this->textLineItem;
+        return $this->previousValue;
     }
 
     /**
+     * <p>Value after the change.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -150,22 +152,24 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Holds information about the updated Text Line Item.</p>
      *
-     * @return null|LocalizedString
+     *
+     * @return null|TextLineItemValue
      */
-    public function getPreviousValue()
+    public function getTextLineItem()
     {
-        if (is_null($this->previousValue)) {
+        if (is_null($this->textLineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->previousValue = LocalizedStringModel::of($data);
+            $this->textLineItem = TextLineItemValueModel::of($data);
         }
 
-        return $this->previousValue;
+        return $this->textLineItem;
     }
 
 
@@ -178,11 +182,11 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?TextLineItemValue $textLineItem
+     * @param ?LocalizedString $previousValue
      */
-    public function setTextLineItem(?TextLineItemValue $textLineItem): void
+    public function setPreviousValue(?LocalizedString $previousValue): void
     {
-        $this->textLineItem = $textLineItem;
+        $this->previousValue = $previousValue;
     }
 
     /**
@@ -194,11 +198,11 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?TextLineItemValue $textLineItem
      */
-    public function setPreviousValue(?LocalizedString $previousValue): void
+    public function setTextLineItem(?TextLineItemValue $textLineItem): void
     {
-        $this->previousValue = $previousValue;
+        $this->textLineItem = $textLineItem;
     }
 
 
