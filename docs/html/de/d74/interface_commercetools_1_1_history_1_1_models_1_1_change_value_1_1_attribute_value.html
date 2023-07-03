@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.5.0</span>
+   &#160;<span id="projectnumber">9.6.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -138,6 +138,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Name of the Attribute set.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/de9/class_commercetools_1_1_history_1_1_models_1_1_change_value_1_1_attribute_value_model.html#a1b3e58a16a8cf65746c6748085b1fc87">Commercetools\History\Models\ChangeValue\AttributeValueModel</a>.</p>
@@ -158,6 +159,21 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Value set for the Attribute determined by the <a href="../../ctp:api:type:AttributeType">AttributeType</a>:</p>
+<ul>
+<li>
+For <a href="../../ctp:api:type:AttributeEnumType">Enum Type</a> and <a href="../../ctp:api:type:AttributeLocalizedEnumType">Localized Enum Type</a>, <code>value</code> is the <code>key</code> of the <a href="../../ctp:api:type:AttributePlainEnumValue">Plain Enum Value</a> or <a href="../../ctp:api:type:AttributeLocalizedEnumValue">Localized Enum Value</a> objects, or the complete objects. </li>
+<li>
+For <a href="../../ctp:api:type:AttributeLocalizableTextType">Localizable Text Type</a>, <code>value</code> is the <a href="../../ctp:api:type:LocalizedString">LocalizedString</a> object. </li>
+<li>
+For <a href="../../ctp:api:type:AttributeMoneyType">Money Type</a> Attributes, <code>value</code> is the <a href="../../ctp:api:type:Money">Money</a> object. </li>
+<li>
+For <a href="../../ctp:api:type:AttributeSetType">Set Type</a> Attributes, <code>value</code> is the entire <code>set</code> object. </li>
+<li>
+For <a href="../../ctp:api:type:AttributeNestedType">Nested Type</a> Attributes, <code>value</code> is the list of values of all Attributes of the nested Product. </li>
+<li>
+For <a href="../../ctp:api:type:AttributeReferenceType">Reference Type</a> Attributes, <code>value</code> is the <a href="../../ctp:api:type:Reference">Reference</a> object. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|mixed </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/de9/class_commercetools_1_1_history_1_1_models_1_1_change_value_1_1_attribute_value_model.html#a5c22d4ca2105619e21637c09b65ce63e">Commercetools\History\Models\ChangeValue\AttributeValueModel</a>.</p>

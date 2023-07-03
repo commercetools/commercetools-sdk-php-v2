@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.5.0</span>
+   &#160;<span id="projectnumber">9.6.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -84,6 +84,9 @@ $(function() {
 </li>
 <li>$accountId
 : <a class="el" href="d3/dc8/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_event_bridge_destination_model.html#aed4da5f0e3e03e5750abb41cdb4f55f3">Commercetools\Api\Models\Subscription\EventBridgeDestinationModel</a>
+</li>
+<li>$acks
+: <a class="el" href="dd/da0/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_confluent_cloud_destination_model.html#adc380bfbb3d0b601bc38203c2f5d9d88">Commercetools\Api\Models\Subscription\ConfluentCloudDestinationModel</a>
 </li>
 <li>$action
 : <a class="el" href="d6/d00/class_commercetools_1_1_api_1_1_models_1_1_associate_role_1_1_associate_role_add_permission_action_model.html#aa9bb1afaadf7d5803d0e77787cfedf58">Commercetools\Api\Models\AssociateRole\AssociateRoleAddPermissionActionModel</a>
@@ -359,7 +362,6 @@ $(function() {
 , <a class="el" href="d4/d80/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_custom_field_action_model.html#a67468f3eebc9c2c78c12f54c22144234">Commercetools\Api\Models\Me\MyCartSetCustomFieldActionModel</a>
 , <a class="el" href="d4/d4a/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_custom_type_action_model.html#a316133e372e18464e9131e53eabc9c68">Commercetools\Api\Models\Me\MyCartSetCustomTypeActionModel</a>
 , <a class="el" href="d8/d33/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_delete_days_after_last_modification_action_model.html#aeedec4e2185e91a9f57b0aa4b103efd1">Commercetools\Api\Models\Me\MyCartSetDeleteDaysAfterLastModificationActionModel</a>
-, <a class="el" href="d2/dab/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_direct_discounts_action_model.html#a0805307253b0149de81de67553643850">Commercetools\Api\Models\Me\MyCartSetDirectDiscountsActionModel</a>
 , <a class="el" href="db/d22/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_custom_field_action_model.html#ad3b04889fca66b7e1abc8dd7b612c2c1">Commercetools\Api\Models\Me\MyCartSetLineItemCustomFieldActionModel</a>
 , <a class="el" href="d4/d3e/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_custom_type_action_model.html#ad90b536bda34f6eeca541d1b01e15ee5">Commercetools\Api\Models\Me\MyCartSetLineItemCustomTypeActionModel</a>
 , <a class="el" href="d7/d5e/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_distribution_channel_action_model.html#a727bd9ad60fc56d600d397c06a1b198a">Commercetools\Api\Models\Me\MyCartSetLineItemDistributionChannelActionModel</a>
@@ -775,13 +777,19 @@ $(function() {
 , <a class="el" href="dc/da9/class_commercetools_1_1_api_1_1_models_1_1_staged_quote_1_1_staged_quote_set_valid_to_action_model.html#ab4b6321b38f23fbec4b8b1713f1f6bc8">Commercetools\Api\Models\StagedQuote\StagedQuoteSetValidToActionModel</a>
 , <a class="el" href="d9/d05/class_commercetools_1_1_api_1_1_models_1_1_staged_quote_1_1_staged_quote_transition_state_action_model.html#a3be5da308377b107ecf023dd8da71f75">Commercetools\Api\Models\StagedQuote\StagedQuoteTransitionStateActionModel</a>
 , <a class="el" href="df/d5a/class_commercetools_1_1_api_1_1_models_1_1_staged_quote_1_1_staged_quote_update_action_model.html#a8ec4f761c949fab8ff922742648c0914">Commercetools\Api\Models\StagedQuote\StagedQuoteUpdateActionModel</a>
+, <a class="el" href="d3/d1b/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_add_price_tier_action_model.html#a158ac504b040a0edac344c3e47e428f1">Commercetools\Api\Models\StandalonePrice\StandalonePriceAddPriceTierActionModel</a>
 , <a class="el" href="d5/d67/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_apply_staged_changes_action_model.html#a2d1f836c1ca7a7f14895a521bb6cc3d9">Commercetools\Api\Models\StandalonePrice\StandalonePriceApplyStagedChangesActionModel</a>
 , <a class="el" href="dc/d4a/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_change_active_action_model.html#a00f2955be558f1b430ad241cfabe55fe">Commercetools\Api\Models\StandalonePrice\StandalonePriceChangeActiveActionModel</a>
 , <a class="el" href="d7/d3b/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_change_value_action_model.html#a3188048c7cb54a4d682e9bb02fc9a6ad">Commercetools\Api\Models\StandalonePrice\StandalonePriceChangeValueActionModel</a>
+, <a class="el" href="d5/d72/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_remove_price_tier_action_model.html#affd9923c9b3b4a833b971c0ed901ca31">Commercetools\Api\Models\StandalonePrice\StandalonePriceRemovePriceTierActionModel</a>
 , <a class="el" href="d4/dc3/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_custom_field_action_model.html#aa6667292c66d88ecac9b029d27d5f392">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetCustomFieldActionModel</a>
 , <a class="el" href="d1/d77/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_custom_type_action_model.html#a5df2e27ac7fcad7cc0bc47d6e740acf7">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetCustomTypeActionModel</a>
 , <a class="el" href="da/d84/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_discounted_price_action_model.html#adc51e09516f1f69e64b78fea6bc47338">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetDiscountedPriceActionModel</a>
 , <a class="el" href="d8/d0b/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_key_action_model.html#a516167820e5436d1a278af06bddff62a">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetKeyActionModel</a>
+, <a class="el" href="d9/da9/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_price_tiers_action_model.html#a354bb6966350af08f0b1268916704ec2">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetPriceTiersActionModel</a>
+, <a class="el" href="dd/d7b/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_valid_from_action_model.html#a994b6dacd338d6336043b16eea703153">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetValidFromActionModel</a>
+, <a class="el" href="df/d84/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_valid_from_and_until_action_model.html#ababdb94ea58102efd8c4622350bd0737">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetValidFromAndUntilActionModel</a>
+, <a class="el" href="d0/d84/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_valid_until_action_model.html#a6ca8d6610c61ba0e638472b116cf3094">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetValidUntilActionModel</a>
 , <a class="el" href="dc/d4d/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_update_action_model.html#aa8b466ea1ad504dad5977e2ebda3804e">Commercetools\Api\Models\StandalonePrice\StandalonePriceUpdateActionModel</a>
 , <a class="el" href="de/d1d/class_commercetools_1_1_api_1_1_models_1_1_state_1_1_state_add_roles_action_model.html#a043d24f6394e0156af75a23c76739be9">Commercetools\Api\Models\State\StateAddRolesActionModel</a>
 , <a class="el" href="d2/d6f/class_commercetools_1_1_api_1_1_models_1_1_state_1_1_state_change_initial_action_model.html#a9e7163e2c8464fb672d48e9db0705d18">Commercetools\Api\Models\State\StateChangeInitialActionModel</a>
@@ -1049,6 +1057,8 @@ $(function() {
 , <a class="el" href="dd/d8d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_shipping_address_id_change_model.html#a9716b941282d353301fd7d60cc0df4de">Commercetools\History\Models\Change\AddShippingAddressIdChangeModel</a>
 , <a class="el" href="d1/dce/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_billing_address_id_change_model.html#a9e064a2289e71b6fbe008fc4a6e753af">Commercetools\History\Models\Change\RemoveBillingAddressIdChangeModel</a>
 , <a class="el" href="d7/d6e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_shipping_address_id_change_model.html#ae78c074dac63b3acabcc003a5ca4d672">Commercetools\History\Models\Change\RemoveShippingAddressIdChangeModel</a>
+, <a class="el" href="d1/d10/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_field_change_model.html#a1c98fee5ed1160f2b3a17ed77f2ffe76">Commercetools\History\Models\Change\SetAddressCustomFieldChangeModel</a>
+, <a class="el" href="dd/dc4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_type_change_model.html#ac7e6dd45fc8daf03f1e6fb93f7860e38">Commercetools\History\Models\Change\SetAddressCustomTypeChangeModel</a>
 , <a class="el" href="d0/d5d/class_commercetools_1_1_history_1_1_models_1_1_change_value_1_1_delivery_change_value_model.html#a0c0e2d16001811f16b68ee250d6a67a0">Commercetools\History\Models\ChangeValue\DeliveryChangeValueModel</a>
 , <a class="el" href="d1/da7/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_delivery_model.html#a0f2df92a774657efc267e12ea5750b64">Commercetools\History\Models\Common\DeliveryModel</a>
 , <a class="el" href="dc/db6/class_commercetools_1_1_import_1_1_models_1_1_order_patches_1_1_delivery_address_draft_model.html#af1e068f29fde4a3f027aee5e402784dd">Commercetools\Import\Models\OrderPatches\DeliveryAddressDraftModel</a>
@@ -1249,6 +1259,12 @@ $(function() {
 , <a class="el" href="df/dcd/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_address_model.html#ad34727dbd16827658617d50b75e30311">Commercetools\Import\Models\Common\AddressModel</a>
 , <a class="el" href="d7/d76/class_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_address_model.html#a977fe8ef02e66d5fc6158cb5214fd902">Commercetools\Import\Models\Customers\CustomerAddressModel</a>
 </li>
+<li>$apiKey
+: <a class="el" href="dd/da0/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_confluent_cloud_destination_model.html#a48c9cba83137ba3ee5a5c08718883acd">Commercetools\Api\Models\Subscription\ConfluentCloudDestinationModel</a>
+</li>
+<li>$apiSecret
+: <a class="el" href="dd/da0/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_confluent_cloud_destination_model.html#a659d3c6dc2303335e557216666ba059b">Commercetools\Api\Models\Subscription\ConfluentCloudDestinationModel</a>
+</li>
 <li>$applicationVersion
 : <a class="el" href="d2/d7e/class_commercetools_1_1_api_1_1_models_1_1_discount_code_1_1_discount_code_model.html#af0c1fec240d410f133c05171a7f27586">Commercetools\Api\Models\DiscountCode\DiscountCodeModel</a>
 </li>
@@ -1354,12 +1370,14 @@ $(function() {
 , <a class="el" href="de/d80/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_associate_role_created_message_model.html#a8a9dbde36f44b24033e251d7f37cf9d7">Commercetools\Api\Models\Message\AssociateRoleCreatedMessageModel</a>
 , <a class="el" href="d3/d87/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_associate_role_created_message_payload_model.html#ad0b5705e7c2e7e9c1a9e930c8f749b1c">Commercetools\Api\Models\Message\AssociateRoleCreatedMessagePayloadModel</a>
 , <a class="el" href="dd/d42/class_commercetools_1_1_api_1_1_models_1_1_project_1_1_project_set_business_unit_associate_role_on_creation_action_model.html#a978dddf1fec72349657ff99abe9eb361">Commercetools\Api\Models\Project\ProjectSetBusinessUnitAssociateRoleOnCreationActionModel</a>
+, <a class="el" href="df/df7/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_associate_role_assignment_model.html#abea9319c895a1fa5967817a9fd9dc747">Commercetools\History\Models\Common\AssociateRoleAssignmentModel</a>
 </li>
 <li>$associateRoleAssignments
 : <a class="el" href="d1/dc0/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_associate_draft_model.html#a15bf644a63862cf2890cc501d471f308">Commercetools\Api\Models\BusinessUnit\AssociateDraftModel</a>
 , <a class="el" href="d9/def/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_associate_model.html#ae25db4767184bc67d4103b48c209d67e">Commercetools\Api\Models\BusinessUnit\AssociateModel</a>
 , <a class="el" href="dd/dab/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_inherited_associate_model.html#a3f0332324500ed6e1dcdff50a10c081d">Commercetools\Api\Models\BusinessUnit\InheritedAssociateModel</a>
 , <a class="el" href="d7/d00/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_business_unit_associate_draft_model.html#afebd6e3a9ea6ca234a294cb645d54c98">Commercetools\Api\Models\Me\MyBusinessUnitAssociateDraftModel</a>
+, <a class="el" href="d3/d6a/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_associate_model.html#a22ddd03aec7ff6bcbae303fb793ba504">Commercetools\History\Models\Common\AssociateModel</a>
 </li>
 <li>$associates
 : <a class="el" href="d5/d6a/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_business_unit_draft_model.html#ab4ec3020dfc2c25806f7efc2c173d422">Commercetools\Api\Models\BusinessUnit\BusinessUnitDraftModel</a>
@@ -1516,6 +1534,9 @@ $(function() {
 , <a class="el" href="dc/da4/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_search_query_expression_value_model.html#a645ab4bcac22ce00c2d0048d83fdc6f1">Commercetools\Api\Models\Order\OrderSearchQueryExpressionValueModel</a>
 , <a class="el" href="da/d41/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_search_string_value_model.html#a838dca0de9a46cd263586cea3404ea1c">Commercetools\Api\Models\Order\OrderSearchStringValueModel</a>
 </li>
+<li>$bootstrapServer
+: <a class="el" href="dd/da0/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_confluent_cloud_destination_model.html#a3ab4c72b5566ad74358ca8d85615b2bb">Commercetools\Api\Models\Subscription\ConfluentCloudDestinationModel</a>
+</li>
 <li>$building
 : <a class="el" href="dc/dce/class_commercetools_1_1_api_1_1_models_1_1_common_1_1_address_draft_model.html#a10e6e8f6a1a3a5bb9ec686ccce1e1d27">Commercetools\Api\Models\Common\AddressDraftModel</a>
 , <a class="el" href="df/d9a/class_commercetools_1_1_api_1_1_models_1_1_common_1_1_address_model.html#a13c66d57776e0b1ab3b4b8077f22f9ca">Commercetools\Api\Models\Common\AddressModel</a>
@@ -1557,6 +1578,7 @@ $(function() {
 <li>$buyerComment
 : <a class="el" href="dc/d47/class_commercetools_1_1_api_1_1_models_1_1_quote_1_1_quote_model.html#ac0d6195618fd232b58f8777071142bc9">Commercetools\Api\Models\Quote\QuoteModel</a>
 , <a class="el" href="d0/da8/class_commercetools_1_1_api_1_1_models_1_1_quote_1_1_quote_request_quote_renegotiation_action_model.html#adf850b2143dd47085405b6708f801c04">Commercetools\Api\Models\Quote\QuoteRequestQuoteRenegotiationActionModel</a>
+, <a class="el" href="d2/d70/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_request_quote_renegotiation_change_model.html#a8b48b56e0cae1b9bb041c0078efed2a0">Commercetools\History\Models\Change\RequestQuoteRenegotiationChangeModel</a>
 </li>
 <li>$carrier
 : <a class="el" href="d1/d32/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_tracking_data_model.html#af72d6abb09c1e43eb57c59445e4e7abe">Commercetools\Api\Models\Order\TrackingDataModel</a>
@@ -1674,6 +1696,7 @@ $(function() {
 <li>$change
 : <a class="el" href="da/df3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_address_change_model.html#a45c2da1ddae3ff04d57c30594428a931">Commercetools\History\Models\Change\AddAddressChangeModel</a>
 , <a class="el" href="de/df5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_asset_change_model.html#ad3149fba6a7c51d4c0497f5c10be2257">Commercetools\History\Models\Change\AddAssetChangeModel</a>
+, <a class="el" href="dc/de4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_associate_change_model.html#aeb3f51b48cb520f44b73618a3dfcf428">Commercetools\History\Models\Change\AddAssociateChangeModel</a>
 , <a class="el" href="da/d1f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_attribute_definition_change_model.html#a13174684cc180c848faed89d5ef93820">Commercetools\History\Models\Change\AddAttributeDefinitionChangeModel</a>
 , <a class="el" href="db/d6d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_billing_address_id_change_model.html#a651e4892a5a227e9d138598f8da18e05">Commercetools\History\Models\Change\AddBillingAddressIdChangeModel</a>
 , <a class="el" href="dc/d15/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_channel_roles_change_model.html#aa41c1da89b332f0c477910fc74e3fbea">Commercetools\History\Models\Change\AddChannelRolesChangeModel</a>
@@ -1693,6 +1716,7 @@ $(function() {
 , <a class="el" href="db/d11/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_plain_enum_value_change_model.html#aa8e33afb035f14df5739d7d4c3cace75">Commercetools\History\Models\Change\AddPlainEnumValueChangeModel</a>
 , <a class="el" href="d1/d67/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_price_change_model.html#ab1f89c8bca3ca9d4997fae707fead3c2">Commercetools\History\Models\Change\AddPriceChangeModel</a>
 , <a class="el" href="d0/dc3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_product_change_model.html#a2cbff822bbe5845461b0f6a5af9ce284">Commercetools\History\Models\Change\AddProductChangeModel</a>
+, <a class="el" href="d3/d1b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_product_selection_change_model.html#a3e29a1fbe981983df59f39e81b7a7360">Commercetools\History\Models\Change\AddProductSelectionChangeModel</a>
 , <a class="el" href="d9/d02/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_property_change_model.html#ab92c679797885b0b6b7270443dffaa5e">Commercetools\History\Models\Change\AddPropertyChangeModel</a>
 , <a class="el" href="dc/da1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_return_info_change_model.html#a61a080106f67c8a989729768935830d0">Commercetools\History\Models\Change\AddReturnInfoChangeModel</a>
 , <a class="el" href="dd/d8d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_shipping_address_id_change_model.html#a42673348a31fd43b8cd98d6220d1b552">Commercetools\History\Models\Change\AddShippingAddressIdChangeModel</a>
@@ -1708,6 +1732,8 @@ $(function() {
 , <a class="el" href="dc/d53/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_amount_planned_change_model.html#acc6329337627aa7457fc037dc9b50027">Commercetools\History\Models\Change\ChangeAmountPlannedChangeModel</a>
 , <a class="el" href="de/dc6/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_asset_name_change_model.html#a19ea3e6c4f4cf5c30fcf1c7c54016780">Commercetools\History\Models\Change\ChangeAssetNameChangeModel</a>
 , <a class="el" href="d7/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_asset_order_change_model.html#a4f8820835758fd3e9d2b1fb00f977d41">Commercetools\History\Models\Change\ChangeAssetOrderChangeModel</a>
+, <a class="el" href="d0/d32/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_associate_change_model.html#ac0824b8aed4071fc61039b1bd15ca1e0">Commercetools\History\Models\Change\ChangeAssociateChangeModel</a>
+, <a class="el" href="dd/de6/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_associate_mode_change_model.html#a0f8ae54414eaf01b2b30e55a4872c495">Commercetools\History\Models\Change\ChangeAssociateModeChangeModel</a>
 , <a class="el" href="d8/d6a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_attribute_constraint_change_model.html#ab88fde8967461c0ab561971448dc5aa4">Commercetools\History\Models\Change\ChangeAttributeConstraintChangeModel</a>
 , <a class="el" href="d0/dae/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_attribute_order_by_name_change_model.html#ac7ac333c9977fb049a2bf5ae8612cad4">Commercetools\History\Models\Change\ChangeAttributeOrderByNameChangeModel</a>
 , <a class="el" href="de/db5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_cart_discounts_change_model.html#a1c0f75c258a3c39cbfa8ef1d030c96b1">Commercetools\History\Models\Change\ChangeCartDiscountsChangeModel</a>
@@ -1736,11 +1762,13 @@ $(function() {
 , <a class="el" href="db/d97/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_order_hint_change_model.html#a2fd5cb22a04255ae9fe57ed42438792f">Commercetools\History\Models\Change\ChangeOrderHintChangeModel</a>
 , <a class="el" href="dc/dbd/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_order_state_change_model.html#a6d16d72bc07e3a45b415da56aa9b45ff">Commercetools\History\Models\Change\ChangeOrderStateChangeModel</a>
 , <a class="el" href="d1/d88/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_parent_change_model.html#a44700c0c78ae4514f5fb58314f9439ec">Commercetools\History\Models\Change\ChangeParentChangeModel</a>
+, <a class="el" href="d2/d77/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_parent_unit_change_model.html#a338fa4de4450085603c3f65d4860a2ed">Commercetools\History\Models\Change\ChangeParentUnitChangeModel</a>
 , <a class="el" href="df/d69/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_payment_state_change_model.html#a862e8f9f734c1661c0553238ca923fee">Commercetools\History\Models\Change\ChangePaymentStateChangeModel</a>
 , <a class="el" href="d1/d5d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_plain_enum_value_label_change_model.html#ac95461c02ad2cc33318efbbdbfffa0b5">Commercetools\History\Models\Change\ChangePlainEnumValueLabelChangeModel</a>
 , <a class="el" href="d5/db9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_plain_enum_value_order_change_model.html#a3b0a7fa6876810998cdacfdb4f5c2c07">Commercetools\History\Models\Change\ChangePlainEnumValueOrderChangeModel</a>
 , <a class="el" href="de/d70/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_predicate_change_model.html#a6c49e367b2124b9002e06a12c84acdca">Commercetools\History\Models\Change\ChangePredicateChangeModel</a>
 , <a class="el" href="dd/de1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_price_change_model.html#a64dcbffa3186f7031c19e7ed7820f844">Commercetools\History\Models\Change\ChangePriceChangeModel</a>
+, <a class="el" href="db/d51/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_product_selection_active_change_model.html#acca989c056a5099a5c02429c8bf029be">Commercetools\History\Models\Change\ChangeProductSelectionActiveChangeModel</a>
 , <a class="el" href="d5/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quantity_change_model.html#a735bd4f5b67caccbc0263120f683c5d1">Commercetools\History\Models\Change\ChangeQuantityChangeModel</a>
 , <a class="el" href="db/d49/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quote_request_state_change_model.html#a635e940594893b00e5711cbd7773a1e8">Commercetools\History\Models\Change\ChangeQuoteRequestStateChangeModel</a>
 , <a class="el" href="dc/d5d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quote_state_change_model.html#aa86f39ecd27573aaccead20678c92d05">Commercetools\History\Models\Change\ChangeQuoteStateChangeModel</a>
@@ -1754,6 +1782,7 @@ $(function() {
 , <a class="el" href="d9/dab/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_stacking_mode_change_model.html#ae9bd5bea6ed82ad12a20eacb4242c0f8">Commercetools\History\Models\Change\ChangeStackingModeChangeModel</a>
 , <a class="el" href="d9/d9b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_staged_quote_state_change_model.html#ac9f359b7d4e0b5b39ef922a0c928b8f7">Commercetools\History\Models\Change\ChangeStagedQuoteStateChangeModel</a>
 , <a class="el" href="d1/dcc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_state_type_change_model.html#a56c129ee5b54101cf3a7461bad9d0721">Commercetools\History\Models\Change\ChangeStateTypeChangeModel</a>
+, <a class="el" href="d4/da7/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_status_change_model.html#a61c3a44879c2462d33a04135c7c15221">Commercetools\History\Models\Change\ChangeStatusChangeModel</a>
 , <a class="el" href="db/dd9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_target_change_model.html#a97f5727bea98f1bd76767f6c2729b437">Commercetools\History\Models\Change\ChangeTargetChangeModel</a>
 , <a class="el" href="d1/d7f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_tax_calculation_mode_change_model.html#a49e555071d768940fd496409a5f3a64d">Commercetools\History\Models\Change\ChangeTaxCalculationModeChangeModel</a>
 , <a class="el" href="dd/d4a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_tax_mode_change_model.html#ad6ccf65d9ce8829e09b6f7fe936366de">Commercetools\History\Models\Change\ChangeTaxModeChangeModel</a>
@@ -1769,6 +1798,7 @@ $(function() {
 , <a class="el" href="dd/d8c/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_publish_change_model.html#abeb5f378324ea54e2b217b55ee099a4b">Commercetools\History\Models\Change\PublishChangeModel</a>
 , <a class="el" href="d9/d98/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_address_change_model.html#a6d357f98678798688125c42b0e323604">Commercetools\History\Models\Change\RemoveAddressChangeModel</a>
 , <a class="el" href="d3/d19/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_asset_change_model.html#aba4d46bc32362fb3fc8ba660385aba54">Commercetools\History\Models\Change\RemoveAssetChangeModel</a>
+, <a class="el" href="da/d47/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_associate_change_model.html#ad8ba79452f8c5093d2f1794ff6dc38d9">Commercetools\History\Models\Change\RemoveAssociateChangeModel</a>
 , <a class="el" href="d7/d04/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_attribute_definition_change_model.html#a802879b06e40517747956f1893c80cb9">Commercetools\History\Models\Change\RemoveAttributeDefinitionChangeModel</a>
 , <a class="el" href="d1/dce/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_billing_address_id_change_model.html#a9eadba2afb6f15bd3240e8ceb9227008">Commercetools\History\Models\Change\RemoveBillingAddressIdChangeModel</a>
 , <a class="el" href="d3/d23/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_channel_roles_change_model.html#a08518d30ed399717755b55a900c669fc">Commercetools\History\Models\Change\RemoveChannelRolesChangeModel</a>
@@ -1787,6 +1817,7 @@ $(function() {
 , <a class="el" href="dd/d51/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_payment_change_model.html#a2d7d95fbf6ac69b1a0aa8437a582db9e">Commercetools\History\Models\Change\RemovePaymentChangeModel</a>
 , <a class="el" href="de/d1d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_price_change_model.html#a33769f907296a3d8376276c55159b066">Commercetools\History\Models\Change\RemovePriceChangeModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_product_change_model.html#a3cc10839b07e286bdfe8407f78ba8f19">Commercetools\History\Models\Change\RemoveProductChangeModel</a>
+, <a class="el" href="d1/ded/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_product_selection_change_model.html#abe76fe933868fa5c5f51b0e1d2af3433">Commercetools\History\Models\Change\RemoveProductSelectionChangeModel</a>
 , <a class="el" href="d7/d74/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_property_change_model.html#a69d7ac34850273b1ee506caf92addaa3">Commercetools\History\Models\Change\RemovePropertyChangeModel</a>
 , <a class="el" href="d7/d6e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_shipping_address_id_change_model.html#a2e7d50cb18ac2b92e058e3e5732a6f6a">Commercetools\History\Models\Change\RemoveShippingAddressIdChangeModel</a>
 , <a class="el" href="dc/dbc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_shopping_list_line_item_change_model.html#a8904d330f2fea231e4f02e2b8d5b69a2">Commercetools\History\Models\Change\RemoveShoppingListLineItemChangeModel</a>
@@ -1794,7 +1825,10 @@ $(function() {
 , <a class="el" href="d3/d95/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_tax_rate_change_model.html#a24466969670c289366a121327d4fe5f7">Commercetools\History\Models\Change\RemoveTaxRateChangeModel</a>
 , <a class="el" href="d0/d12/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_text_line_item_change_model.html#a6e1883af9c19961026f3e9c780e0ceb9">Commercetools\History\Models\Change\RemoveTextLineItemChangeModel</a>
 , <a class="el" href="d6/d46/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_variant_change_model.html#ae155189dbb8a7482583b3c3bce0ea3eb">Commercetools\History\Models\Change\RemoveVariantChangeModel</a>
+, <a class="el" href="d2/d70/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_request_quote_renegotiation_change_model.html#a5f79b34853480f2bbf04a1d42a30b8bc">Commercetools\History\Models\Change\RequestQuoteRenegotiationChangeModel</a>
 , <a class="el" href="d4/d3b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_change_model.html#a9a8f6ebe1449e22be415cbf93eab0e2c">Commercetools\History\Models\Change\SetAddressChangeModel</a>
+, <a class="el" href="d1/d10/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_field_change_model.html#a8b2e0af0ffb13e10b8a23cb6cecf9809">Commercetools\History\Models\Change\SetAddressCustomFieldChangeModel</a>
+, <a class="el" href="dd/dc4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_type_change_model.html#a408879bd352ae8aedc90e706e430e552">Commercetools\History\Models\Change\SetAddressCustomTypeChangeModel</a>
 , <a class="el" href="d8/dd4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_anonymous_id_change_model.html#a1f2c41abd3c2a2c3a8674c2f489f5693">Commercetools\History\Models\Change\SetAnonymousIdChangeModel</a>
 , <a class="el" href="d9/de3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_application_version_change_model.html#a41d385475b73b58c2360ff074a03c3d9">Commercetools\History\Models\Change\SetApplicationVersionChangeModel</a>
 , <a class="el" href="dd/d2a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_asset_custom_field_change_model.html#afb60bdc300d0671b36cbf02d702b687d">Commercetools\History\Models\Change\SetAssetCustomFieldChangeModel</a>
@@ -1811,6 +1845,7 @@ $(function() {
 , <a class="el" href="d5/df8/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_category_order_hint_change_model.html#aee1c49122ee0a1c59c1d4ee9bece46bb">Commercetools\History\Models\Change\SetCategoryOrderHintChangeModel</a>
 , <a class="el" href="d5/de4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_channel_roles_change_model.html#a41dda42770f0b1912a2fcf61e3d33a0a">Commercetools\History\Models\Change\SetChannelRolesChangeModel</a>
 , <a class="el" href="d9/d29/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_company_name_change_model.html#a84c1fa8c3ce2ea6e26febbf25dbe788c">Commercetools\History\Models\Change\SetCompanyNameChangeModel</a>
+, <a class="el" href="d2/d04/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_contact_email_change_model.html#ab70c3255824ca7c2ad2c7aeadb239ef2">Commercetools\History\Models\Change\SetContactEmailChangeModel</a>
 , <a class="el" href="d4/dbd/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_countries_change_model.html#a566e5b08822895e73341fac875ffc856">Commercetools\History\Models\Change\SetCountriesChangeModel</a>
 , <a class="el" href="d2/db9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_country_change_model.html#afd7bb1afc285ba29b7e1ae195b8e5a61">Commercetools\History\Models\Change\SetCountryChangeModel</a>
 , <a class="el" href="dc/d9a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_customer_change_model.html#ac6b2982501a4a285f9fc8aea35805d17">Commercetools\History\Models\Change\SetCustomerChangeModel</a>
@@ -1915,6 +1950,7 @@ $(function() {
 , <a class="el" href="d5/dbc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_status_interface_code_change_model.html#a52661eec42bf361fb054d8a74e9a6bb1">Commercetools\History\Models\Change\SetStatusInterfaceCodeChangeModel</a>
 , <a class="el" href="da/d17/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_status_interface_text_change_model.html#a4ae8dfb82ba64c0ec5cbc8d939068c4c">Commercetools\History\Models\Change\SetStatusInterfaceTextChangeModel</a>
 , <a class="el" href="da/df1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_store_change_model.html#a9ee277a4f182a686e8341cf19399b6d3">Commercetools\History\Models\Change\SetStoreChangeModel</a>
+, <a class="el" href="de/d63/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_store_mode_change_model.html#aee20fa40914b66c97a59e9a0298b061f">Commercetools\History\Models\Change\SetStoreModeChangeModel</a>
 , <a class="el" href="d3/df2/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_stores_change_model.html#a51fc23853b8c219ba527897ecca30ba6">Commercetools\History\Models\Change\SetStoresChangeModel</a>
 , <a class="el" href="dc/d4e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_supply_channel_change_model.html#ac151b7e73b963e2698587b84d8a4b65c">Commercetools\History\Models\Change\SetSupplyChannelChangeModel</a>
 , <a class="el" href="d8/d98/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_supply_channels_change_model.html#aa715bb30f0c42e2ff33afc337c68258a">Commercetools\History\Models\Change\SetSupplyChannelsChangeModel</a>
@@ -1932,6 +1968,7 @@ $(function() {
 , <a class="el" href="d8/d80/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_valid_until_change_model.html#aceea65510e145c5304700d3628df11bb">Commercetools\History\Models\Change\SetValidUntilChangeModel</a>
 , <a class="el" href="de/db5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_value_change_model.html#ae47c3c640859bde9d96bb90ed8f6a200">Commercetools\History\Models\Change\SetValueChangeModel</a>
 , <a class="el" href="db/d8b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_variant_availability_change_model.html#a60248cc207c8921f106ad121d148790b">Commercetools\History\Models\Change\SetVariantAvailabilityChangeModel</a>
+, <a class="el" href="d5/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_variant_selection_change_model.html#a140f960ff4bc1c35d039b88f770ce4be">Commercetools\History\Models\Change\SetVariantSelectionChangeModel</a>
 , <a class="el" href="dc/dde/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_vat_id_change_model.html#accea4502539b417fa4eca7937868f5d5">Commercetools\History\Models\Change\SetVatIdChangeModel</a>
 , <a class="el" href="dd/da5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_custom_line_item_state_change_model.html#afcb9687dc4b9e1af07fa5d9fe7a2935b">Commercetools\History\Models\Change\TransitionCustomLineItemStateChangeModel</a>
 , <a class="el" href="de/d2f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_line_item_state_change_model.html#a3cf7839f81bd027e73a9b4d8482d29d0">Commercetools\History\Models\Change\TransitionLineItemStateChangeModel</a>
@@ -2618,6 +2655,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#a2ea0d1c414c6aae5dacab0f25a93bb38">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#ad83d0249cee08d31a05b73418f678a3d">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#a227181f3e887444b78072719e33f7b19">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#a7d075ea36c08adc5890c1cb4502eba14">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#a08b158d74e928d067c9fa53b08e2db66">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a75480c947fd03610c03ed9379a1dcf5f">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a9b78c7873e297dbb2826243702ceacca">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a0ab970cbff685071874f3b8583d16ba3">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#a923b9cae9350961782b45123777ca4d9">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#a09dffea727ca7e439a04a30f7302ba06">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#a7d5e6815b6089b8db6a6ee2e71a51104">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#ac89d5dc5684688a2203e9531dea31e26">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>
@@ -2837,6 +2880,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#ab4154015efbfba8527b87c7c33594d1b">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#a0d4a453180897daf96ca101a26ea8835">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#a657ee85749f08f925420ffbb1deca0bc">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#a1d56b06c29abb73bd6921ea6f5d5af24">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#a2dde820f8f620586949ca2f88b927d1b">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#ace3c541d4f88d8f146594baf907f9215">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a159c3b8b80177b757e524a3ab1fe06f6">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a4ed412bc05af0410e41eaac38c76fa07">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#af6692cda7ef5ec24706c86db99893775">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#a4762321340b567e782bf9014f0293862">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#a650144b20cb61cd03d6932373eaeb722">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#ae2624f86312dd0aefdf1afa76372d0a0">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>
@@ -3079,6 +3128,7 @@ $(function() {
 , <a class="el" href="d7/d0e/class_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_set_customer_action_model.html#a56beb6761c28d0623e7d7d1730c0cc66">Commercetools\Api\Models\ShoppingList\ShoppingListSetCustomerActionModel</a>
 , <a class="el" href="da/d0e/class_commercetools_1_1_api_1_1_models_1_1_staged_quote_1_1_staged_quote_model.html#abad7a514d05d6af314f1ada3f72ffccc">Commercetools\Api\Models\StagedQuote\StagedQuoteModel</a>
 , <a class="el" href="d6/d46/class_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by_model.html#abf0c2b9dc9746a25ef4bdefd25f9e7f1">Commercetools\History\Models\ChangeHistory\ModifiedByModel</a>
+, <a class="el" href="d3/d6a/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_associate_model.html#a165d9508f3b8306ae5f70865da27eecd">Commercetools\History\Models\Common\AssociateModel</a>
 , <a class="el" href="dc/d11/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_quote_label_model.html#a52a963816324acdae5a3b7c2dcb6f5a8">Commercetools\History\Models\Label\QuoteLabelModel</a>
 , <a class="el" href="dd/d85/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_quote_request_label_model.html#af419b7fc26f2e6f896591540196ebc9f">Commercetools\History\Models\Label\QuoteRequestLabelModel</a>
 , <a class="el" href="df/d20/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_staged_quote_label_model.html#a222bac128416035a410601477f70287d">Commercetools\History\Models\Label\StagedQuoteLabelModel</a>
@@ -3237,7 +3287,8 @@ $(function() {
 , <a class="el" href="da/d41/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_search_string_value_model.html#a06d88aeac47f176abcb38554c1c8a147">Commercetools\Api\Models\Order\OrderSearchStringValueModel</a>
 </li>
 <li>$customTypeId
-: <a class="el" href="dd/d2a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_asset_custom_field_change_model.html#ae80b8c848cf0aa7219eee368530b34c0">Commercetools\History\Models\Change\SetAssetCustomFieldChangeModel</a>
+: <a class="el" href="d1/d10/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_field_change_model.html#abc1900b752010d523a69fb490995d54c">Commercetools\History\Models\Change\SetAddressCustomFieldChangeModel</a>
+, <a class="el" href="dd/d2a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_asset_custom_field_change_model.html#ae80b8c848cf0aa7219eee368530b34c0">Commercetools\History\Models\Change\SetAssetCustomFieldChangeModel</a>
 , <a class="el" href="db/dc4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_custom_field_change_model.html#adc8ba4118831e07b62325964bb65b02d">Commercetools\History\Models\Change\SetCustomFieldChangeModel</a>
 , <a class="el" href="da/d2c/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_order_line_item_custom_field_change_model.html#ac2eee5c6e761c669601cda339e9cb465">Commercetools\History\Models\Change\SetOrderLineItemCustomFieldChangeModel</a>
 , <a class="el" href="d8/ddb/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_shopping_list_line_item_custom_field_change_model.html#a174df6641097f8bf375a78c345374aa1">Commercetools\History\Models\Change\SetShoppingListLineItemCustomFieldChangeModel</a>
@@ -3586,7 +3637,6 @@ $(function() {
 </li>
 <li>$discounts
 : <a class="el" href="dc/d54/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_direct_discounts_action_model.html#a7156ffb0b411adea28c8b536d13eaed9">Commercetools\Api\Models\Cart\CartSetDirectDiscountsActionModel</a>
-, <a class="el" href="d2/dab/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_direct_discounts_action_model.html#ad977557385985e30be3bf5af2d8a4599">Commercetools\Api\Models\Me\MyCartSetDirectDiscountsActionModel</a>
 </li>
 <li>$distributionChannel
 : <a class="el" href="de/d8f/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_add_line_item_action_model.html#abd5d786f7a181756c3332a16ba153740">Commercetools\Api\Models\Cart\CartAddLineItemActionModel</a>
@@ -4361,6 +4411,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#a7c88951672e3c4cf7c5c05b9e1b8f4f6">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#a963824bbc4c742a122f18a4732d16435">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#a156d57134ffb754f9054e829583154da">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#ad269c75ea8d57cdc053e1ac14fcc9722">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#a24ae291c0a1173eca641b26b5485570c">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a3a9281789a278bf7f3cad8ccbe4cdff1">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a7f691414e970f9ffeb40aab1b2adaca9">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a21e16b525ce9bcb20ac612b5de36ccbe">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#a24fd8e72f0e449a804a69af23b1c2f53">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#a16b1a810eee78a4e956bcd3b458968ed">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#a2910bb718b2eae2edeaa46d688bacf24">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#ad1dfb533c169676c2efe790458ed8c8f">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>
@@ -4464,6 +4520,7 @@ $(function() {
 , <a class="el" href="db/d5c/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_parcel_model.html#ae7a8c5ae7d4de4cfb83991d034b991b3">Commercetools\History\Models\Common\ParcelModel</a>
 , <a class="el" href="d1/df3/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_price_model.html#a3c4222874c8f58b25f7adf48593a1f2a">Commercetools\History\Models\Common\PriceModel</a>
 , <a class="el" href="d8/d98/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_reference_model.html#aa1aa5ba3e9a6f690bac86af5df0974e4">Commercetools\History\Models\Common\ReferenceModel</a>
+, <a class="el" href="d3/dc2/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_resource_identifier_model.html#a4d484e33b4f67df4a3c8a12235d788f6">Commercetools\History\Models\Common\ResourceIdentifierModel</a>
 , <a class="el" href="d3/ddb/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_return_item_model.html#a432ef10616a474cf472875dd0c9f79f4">Commercetools\History\Models\Common\ReturnItemModel</a>
 , <a class="el" href="d3/db5/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_tax_rate_model.html#ae8985197ad790d93df3731bc020e3415">Commercetools\History\Models\Common\TaxRateModel</a>
 , <a class="el" href="df/d39/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_text_line_item_model.html#ae701585f9a301e331a1bc9744b4a3d02">Commercetools\History\Models\Common\TextLineItemModel</a>
@@ -4532,6 +4589,7 @@ $(function() {
 <li>$inheritance
 : <a class="el" href="da/dc8/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_associate_role_assignment_draft_model.html#a960ce8d064dabb9d9954a15ef329e945">Commercetools\Api\Models\BusinessUnit\AssociateRoleAssignmentDraftModel</a>
 , <a class="el" href="dc/db3/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_associate_role_assignment_model.html#ab3990a74c81757bdc44497db387b1b0a">Commercetools\Api\Models\BusinessUnit\AssociateRoleAssignmentModel</a>
+, <a class="el" href="df/df7/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_associate_role_assignment_model.html#a09f3c0fd156b5134fb2658020fb28133">Commercetools\History\Models\Common\AssociateRoleAssignmentModel</a>
 </li>
 <li>$inheritedAssociates
 : <a class="el" href="dd/dde/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_business_unit_model.html#aca68a1694e3d69ea111be5fb9df184f0">Commercetools\Api\Models\BusinessUnit\BusinessUnitModel</a>
@@ -4760,6 +4818,7 @@ $(function() {
 , <a class="el" href="de/d1a/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_company_model.html#aa780b910f8219daad0638b93d730acd5">Commercetools\Api\Models\BusinessUnit\CompanyModel</a>
 , <a class="el" href="d9/d16/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_division_draft_model.html#a1154c6e527fba7c36353d25dd5eb5cbf">Commercetools\Api\Models\BusinessUnit\DivisionDraftModel</a>
 , <a class="el" href="d1/dcb/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_division_model.html#a1c653578deadcad1272fbf1b10f4aea9">Commercetools\Api\Models\BusinessUnit\DivisionModel</a>
+, <a class="el" href="de/d8f/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_add_line_item_action_model.html#a7e14fa2282a76483a3d5ab4d5534e929">Commercetools\Api\Models\Cart\CartAddLineItemActionModel</a>
 , <a class="el" href="dc/d1c/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_draft_model.html#a884a8c017971f68a874ad97b2e105842">Commercetools\Api\Models\Cart\CartDraftModel</a>
 , <a class="el" href="d2/dfa/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_model.html#abcbfe687851bbbbf16f54c276466a031">Commercetools\Api\Models\Cart\CartModel</a>
 , <a class="el" href="d2/db7/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_resource_identifier_model.html#aa9e408301142f2882bedb4414f00b848">Commercetools\Api\Models\Cart\CartResourceIdentifierModel</a>
@@ -4767,6 +4826,8 @@ $(function() {
 , <a class="el" href="d2/dc6/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_classification_shipping_rate_input_draft_model.html#ab296b96d65677e0dc7a963532c1f7c1e">Commercetools\Api\Models\Cart\ClassificationShippingRateInputDraftModel</a>
 , <a class="el" href="d9/dab/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_classification_shipping_rate_input_model.html#aebae587634377da5a94c62405d31e74f">Commercetools\Api\Models\Cart\ClassificationShippingRateInputModel</a>
 , <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_shipping_draft_model.html#a498829546169bab63a0de0260fa52d82">Commercetools\Api\Models\Cart\CustomShippingDraftModel</a>
+, <a class="el" href="d5/dbd/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_line_item_draft_model.html#a8451394b8895c76ebe5b2d6219a53303">Commercetools\Api\Models\Cart\LineItemDraftModel</a>
+, <a class="el" href="d1/d1c/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_line_item_model.html#acd650778f549d43f2bc64ee35ce90b64">Commercetools\Api\Models\Cart\LineItemModel</a>
 , <a class="el" href="df/d92/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_replica_cart_draft_model.html#ad75dd77f775247a32e95ca9598ad93b4">Commercetools\Api\Models\Cart\ReplicaCartDraftModel</a>
 , <a class="el" href="d9/d2d/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping_draft_model.html#a98b785be1950d8e0e78d0dc4f4b36c40">Commercetools\Api\Models\Cart\ShippingDraftModel</a>
 , <a class="el" href="d2/d04/class_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_draft_model.html#aad3067f695a795ed823c9942538b5bef">Commercetools\Api\Models\CartDiscount\CartDiscountDraftModel</a>
@@ -4814,8 +4875,10 @@ $(function() {
 , <a class="el" href="d5/d39/class_commercetools_1_1_api_1_1_models_1_1_inventory_1_1_inventory_entry_resource_identifier_model.html#a9943f319fb2bee3041f6cbd0fcd19de3">Commercetools\Api\Models\Inventory\InventoryEntryResourceIdentifierModel</a>
 , <a class="el" href="d2/df4/class_commercetools_1_1_api_1_1_models_1_1_inventory_1_1_inventory_entry_set_key_action_model.html#a0eb541c997bcd89fd6c87764827c430f">Commercetools\Api\Models\Inventory\InventoryEntrySetKeyActionModel</a>
 , <a class="el" href="d7/d47/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_business_unit_draft_model.html#af8840a9e19a5350db952759a4f36fb71">Commercetools\Api\Models\Me\MyBusinessUnitDraftModel</a>
+, <a class="el" href="dd/dc0/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_add_line_item_action_model.html#a0bfd84f4858948821f9befb709f1b1ad">Commercetools\Api\Models\Me\MyCartAddLineItemActionModel</a>
 , <a class="el" href="d3/db4/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_company_draft_model.html#abc1234e880df095b12e89077144337be">Commercetools\Api\Models\Me\MyCompanyDraftModel</a>
 , <a class="el" href="d5/d29/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_division_draft_model.html#a38edfff049fc1e684f79b9e19609eae2">Commercetools\Api\Models\Me\MyDivisionDraftModel</a>
+, <a class="el" href="d3/d4d/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_line_item_draft_model.html#a932a0a07fc690e075e0c010c9ba90cd1">Commercetools\Api\Models\Me\MyLineItemDraftModel</a>
 , <a class="el" href="d2/dcb/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_container_and_key_model.html#a953db72f3ba114acaab03de4477b9d00">Commercetools\Api\Models\Message\ContainerAndKeyModel</a>
 , <a class="el" href="da/d15/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_price_key_set_message_model.html#aaada449dbb198bec411e00b99a95d0ec">Commercetools\Api\Models\Message\ProductPriceKeySetMessageModel</a>
 , <a class="el" href="db/df2/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_price_key_set_message_payload_model.html#ac01d2d83b15c7cd8ce8ec0222bc0210f">Commercetools\Api\Models\Message\ProductPriceKeySetMessagePayloadModel</a>
@@ -4825,10 +4888,13 @@ $(function() {
 , <a class="el" href="db/d1b/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft_model.html#ac8e266afcbbeff1272fb1d1a0fade10c">Commercetools\Api\Models\Order\DeliveryDraftModel</a>
 , <a class="el" href="d5/d27/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_model.html#a9287342b3942e352205c01ca32af3d9c">Commercetools\Api\Models\Order\DeliveryModel</a>
 , <a class="el" href="d7/d6d/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_resource_identifier_model.html#a7b9c73cb055a99f9ca901c5cb12409d7">Commercetools\Api\Models\Order\OrderResourceIdentifierModel</a>
+, <a class="el" href="dc/d81/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_parcel_draft_model.html#a56ceb05bef946f709a6b823ef8ba56af">Commercetools\Api\Models\Order\ParcelDraftModel</a>
+, <a class="el" href="d0/d25/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_parcel_model.html#a9ab587ce5bdeb4594d955729101e37d4">Commercetools\Api\Models\Order\ParcelModel</a>
 , <a class="el" href="df/d9b/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_order_edit_draft_model.html#aba15d29c22f0dfbc7f196e6ce517884d">Commercetools\Api\Models\OrderEdit\OrderEditDraftModel</a>
 , <a class="el" href="d7/dec/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_order_edit_model.html#a2a3b5112b5738098d046b6d3c7abeecb">Commercetools\Api\Models\OrderEdit\OrderEditModel</a>
 , <a class="el" href="db/d7d/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_order_edit_resource_identifier_model.html#ab558fd14b7d296fb3a3746289767b4bb">Commercetools\Api\Models\OrderEdit\OrderEditResourceIdentifierModel</a>
 , <a class="el" href="d0/d18/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_order_edit_set_key_action_model.html#a35413e562b5916a4ae1c0cd62c152e0d">Commercetools\Api\Models\OrderEdit\OrderEditSetKeyActionModel</a>
+, <a class="el" href="d8/d9f/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_add_line_item_action_model.html#a4b8bf644ff97f304aafefd8c6c3b7f8c">Commercetools\Api\Models\OrderEdit\StagedOrderAddLineItemActionModel</a>
 , <a class="el" href="d6/dce/class_commercetools_1_1_api_1_1_models_1_1_payment_1_1_payment_draft_model.html#a1a86951418260b6140907ba865786e90">Commercetools\Api\Models\Payment\PaymentDraftModel</a>
 , <a class="el" href="da/d8c/class_commercetools_1_1_api_1_1_models_1_1_payment_1_1_payment_model.html#a410cfd9a7392c05a90b483b5e9c14ffd">Commercetools\Api\Models\Payment\PaymentModel</a>
 , <a class="el" href="d8/d91/class_commercetools_1_1_api_1_1_models_1_1_payment_1_1_payment_resource_identifier_model.html#a42d2963b19098d8122e328d33d573c4f">Commercetools\Api\Models\Payment\PaymentResourceIdentifierModel</a>
@@ -4892,6 +4958,7 @@ $(function() {
 , <a class="el" href="dd/dc0/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_key_reference_model.html#a8fe0b9fb907b4bd35958e62cb22772e9">Commercetools\Api\Models\Store\StoreKeyReferenceModel</a>
 , <a class="el" href="d2/d29/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_model.html#a3b733d15b0e73c53aae2563df75f5c9b">Commercetools\Api\Models\Store\StoreModel</a>
 , <a class="el" href="dc/d0a/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_resource_identifier_model.html#afb6ad5c257d57744efc4a9c25bb02ffd">Commercetools\Api\Models\Store\StoreResourceIdentifierModel</a>
+, <a class="el" href="dd/da0/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_confluent_cloud_destination_model.html#ac9e94206e4995499a687dd4fed1cca6d">Commercetools\Api\Models\Subscription\ConfluentCloudDestinationModel</a>
 , <a class="el" href="d7/df9/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_subscription_draft_model.html#a6d613874e3c43d8f8aef21cc8f5889e7">Commercetools\Api\Models\Subscription\SubscriptionDraftModel</a>
 , <a class="el" href="d1/d28/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_subscription_model.html#a8dadb36f2e52f1bcea7af9804e79bc7d">Commercetools\Api\Models\Subscription\SubscriptionModel</a>
 , <a class="el" href="d9/d94/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_subscription_set_key_action_model.html#a6bb92abec0987da5a281f2e114ec60af">Commercetools\Api\Models\Subscription\SubscriptionSetKeyActionModel</a>
@@ -4918,7 +4985,9 @@ $(function() {
 , <a class="el" href="db/d07/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_asset_model.html#a79bf4b14dc586e5478fa381156163d8a">Commercetools\History\Models\Common\AssetModel</a>
 , <a class="el" href="d4/df3/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_asset_source_model.html#acdcb43c92dc8f698ff68b550cba64a75">Commercetools\History\Models\Common\AssetSourceModel</a>
 , <a class="el" href="df/dbb/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_key_reference_model.html#a44b07b658c9640ca6804e2d61c914736">Commercetools\History\Models\Common\KeyReferenceModel</a>
+, <a class="el" href="d3/dc2/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_resource_identifier_model.html#a784c24dee1a433bf76bbf8829787b6d3">Commercetools\History\Models\Common\ResourceIdentifierModel</a>
 , <a class="el" href="d7/d16/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_variant_model.html#a363df2b8a569b43fa15a687f52bce12d">Commercetools\History\Models\Common\VariantModel</a>
+, <a class="el" href="d2/d3c/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_business_unit_label_model.html#a7bfe6ed126922d8d58dd91c1045222cb">Commercetools\History\Models\Label\BusinessUnitLabelModel</a>
 , <a class="el" href="d7/de0/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_custom_object_label_model.html#aba174d267dda043e65fc35384434d24e">Commercetools\History\Models\Label\CustomObjectLabelModel</a>
 , <a class="el" href="dc/d29/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_payment_label_model.html#a8e0c03659dc23dd597647e011f601dd5">Commercetools\History\Models\Label\PaymentLabelModel</a>
 , <a class="el" href="dc/d11/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_quote_label_model.html#a11f341c684650bf68b883428ecaf24f2">Commercetools\History\Models\Label\QuoteLabelModel</a>
@@ -5207,6 +5276,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#afed099bc1edbc54151c22077d8dcdda9">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#a0ff21f6633802cbfce92af1e9f081514">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#afca6711e356a401b66d364cf3e563b31">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#ad0ea2d2a33d05f5c0b14498c5d3e0a34">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#a77e3b324c71735a8ec2faa47d96cffa0">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a713315af35356b61c8a7baa828766d61">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#acbdd99b245ad38eb7037ae1a19c95355">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a8b3f2a4edd8ce21990869e253815c73e">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#adcdd329641458b752d5ed1c7a172113e">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#a969a09e68d55b2ac4b4b881814ba8b5c">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#ae128a16f1eaec29b0535787592152271">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#a95648732255cfe86de0bb08be48d8113">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>
@@ -5418,6 +5493,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#a4d085dc528d68131fc252dfffffd0e73">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#af661eac151cdbc846c67f042b573311a">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#aae22303d64fec085c0614dfbcf3d6375">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#ad8a6733884bd06489ceff9bc7cda24a4">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#a41f1f7fb8d7bb4816743afa5d79965e7">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a4d48d48ada267f055cfb74a4eb9eb2f9">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a97f34521d151797db3a1475c3d232337">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a7e720ddd1523d079a359fbd6988a8b91">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#acd190a8686f93080e7c2702165547fb8">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#a17227723e6d6c9484d933bfd7158f47d">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#ae9dc9468006cf658cad247321d83cddb">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#a3ad540609ec79d1b89a28d5accd0f11a">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>
@@ -5613,6 +5694,43 @@ $(function() {
 , <a class="el" href="dd/da5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_custom_line_item_state_change_model.html#a943c9646503b7777771937ceef6b883f">Commercetools\History\Models\Change\TransitionCustomLineItemStateChangeModel</a>
 , <a class="el" href="de/d2f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_line_item_state_change_model.html#adec1ff8845aa54d1a9e4d060dd366d24">Commercetools\History\Models\Change\TransitionLineItemStateChangeModel</a>
 , <a class="el" href="d6/da1/class_commercetools_1_1_import_1_1_models_1_1_order_patches_1_1_return_item_draft_model.html#a5f9eeffb751642665bbe9776c792f5c7">Commercetools\Import\Models\OrderPatches\ReturnItemDraftModel</a>
+</li>
+<li>$lineItemKey
+: <a class="el" href="df/d55/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_apply_delta_to_line_item_shipping_details_targets_action_model.html#a036595055add9d9f4df69eb75322bbb0">Commercetools\Api\Models\Cart\CartApplyDeltaToLineItemShippingDetailsTargetsActionModel</a>
+, <a class="el" href="df/de1/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_change_line_item_quantity_action_model.html#a33febd04b3217ba28c05b91f35030f98">Commercetools\Api\Models\Cart\CartChangeLineItemQuantityActionModel</a>
+, <a class="el" href="dc/d50/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_remove_line_item_action_model.html#a1fd73f81b3836ec1f8e340ca1381b117">Commercetools\Api\Models\Cart\CartRemoveLineItemActionModel</a>
+, <a class="el" href="d0/dff/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_custom_field_action_model.html#a54881b8b07ef0b88d568fadf37bc9c58">Commercetools\Api\Models\Cart\CartSetLineItemCustomFieldActionModel</a>
+, <a class="el" href="d7/da9/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_custom_type_action_model.html#a2afad14bea6a127c110b9bffe58425d1">Commercetools\Api\Models\Cart\CartSetLineItemCustomTypeActionModel</a>
+, <a class="el" href="dd/db4/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_distribution_channel_action_model.html#ac42d21c1eea37ed997da0b12a5d2e40e">Commercetools\Api\Models\Cart\CartSetLineItemDistributionChannelActionModel</a>
+, <a class="el" href="df/da0/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_inventory_mode_action_model.html#abf84c83ca852f33954f2f71a2956ebf4">Commercetools\Api\Models\Cart\CartSetLineItemInventoryModeActionModel</a>
+, <a class="el" href="d6/d62/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_price_action_model.html#a90e9c0bf3acb075e944d63bc94395a4e">Commercetools\Api\Models\Cart\CartSetLineItemPriceActionModel</a>
+, <a class="el" href="d8/d14/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_shipping_details_action_model.html#aea421c991aef74ed7219dbf930940662">Commercetools\Api\Models\Cart\CartSetLineItemShippingDetailsActionModel</a>
+, <a class="el" href="d2/d56/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_supply_channel_action_model.html#a1416ff7b96ba40e7194b05e4f1fd222a">Commercetools\Api\Models\Cart\CartSetLineItemSupplyChannelActionModel</a>
+, <a class="el" href="dd/d12/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_tax_amount_action_model.html#a9def8b2a32b557ff616e6056fdf71912">Commercetools\Api\Models\Cart\CartSetLineItemTaxAmountActionModel</a>
+, <a class="el" href="dd/d99/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_tax_rate_action_model.html#a9dadb9443bafac6322914107f715454c">Commercetools\Api\Models\Cart\CartSetLineItemTaxRateActionModel</a>
+, <a class="el" href="d3/d24/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_set_line_item_total_price_action_model.html#a1c3af31e3efee2c2ffa8e422d8b84333">Commercetools\Api\Models\Cart\CartSetLineItemTotalPriceActionModel</a>
+, <a class="el" href="d1/d86/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_apply_delta_to_line_item_shipping_details_targets_action_model.html#a1a76bac4be1344d3720e84cae3ffdb40">Commercetools\Api\Models\Me\MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel</a>
+, <a class="el" href="dc/db7/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_change_line_item_quantity_action_model.html#addd7a5acfceb57134273d3508008dafb">Commercetools\Api\Models\Me\MyCartChangeLineItemQuantityActionModel</a>
+, <a class="el" href="d1/d9e/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_remove_line_item_action_model.html#af055d6ea2303755175368749c4dc32c5">Commercetools\Api\Models\Me\MyCartRemoveLineItemActionModel</a>
+, <a class="el" href="db/d22/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_custom_field_action_model.html#a75bdf36bb23cf80fd85f3a6d9a65430b">Commercetools\Api\Models\Me\MyCartSetLineItemCustomFieldActionModel</a>
+, <a class="el" href="d4/d3e/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_custom_type_action_model.html#a13b6de6834671f725ab47727c50a81ac">Commercetools\Api\Models\Me\MyCartSetLineItemCustomTypeActionModel</a>
+, <a class="el" href="d7/d5e/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_distribution_channel_action_model.html#a3ffddc64de36fc6471652a14bcbab26a">Commercetools\Api\Models\Me\MyCartSetLineItemDistributionChannelActionModel</a>
+, <a class="el" href="d5/da5/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_shipping_details_action_model.html#a082f66b19f772b6d2073c181cd5907e5">Commercetools\Api\Models\Me\MyCartSetLineItemShippingDetailsActionModel</a>
+, <a class="el" href="d0/d22/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_line_item_supply_channel_action_model.html#ab79f2c50384ff7e51ca36aebd051d109">Commercetools\Api\Models\Me\MyCartSetLineItemSupplyChannelActionModel</a>
+, <a class="el" href="dd/dea/class_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_shopping_list_change_line_item_quantity_action_model.html#aea51a679dc2c4312aebd9a330dde19d4">Commercetools\Api\Models\Me\MyShoppingListChangeLineItemQuantityActionModel</a>
+, <a class="el" href="dd/db0/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_line_item_custom_field_action_model.html#a54da841a60ec772792b6db37d455cf22">Commercetools\Api\Models\Order\OrderSetLineItemCustomFieldActionModel</a>
+, <a class="el" href="d3/df5/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_line_item_custom_type_action_model.html#a9e6d9a6fe9b0772814fdd852573f599f">Commercetools\Api\Models\Order\OrderSetLineItemCustomTypeActionModel</a>
+, <a class="el" href="de/da1/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_line_item_shipping_details_action_model.html#ac49ad6e8d6e47bbdff5bd9d598ee54cb">Commercetools\Api\Models\Order\OrderSetLineItemShippingDetailsActionModel</a>
+, <a class="el" href="db/d34/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_change_line_item_quantity_action_model.html#a8f4ce8ccb88c161fae2f9e964b9c1a39">Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityActionModel</a>
+, <a class="el" href="d8/d4e/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_remove_line_item_action_model.html#a56c1c5aaacba1582144ecc52e1777c79">Commercetools\Api\Models\OrderEdit\StagedOrderRemoveLineItemActionModel</a>
+, <a class="el" href="d6/d33/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_line_item_custom_field_action_model.html#a91d54eae24335d9fac1a06101ede51f9">Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldActionModel</a>
+, <a class="el" href="d3/d25/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_line_item_custom_type_action_model.html#a8a720083c8e76227b261dfeac6cc47a6">Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomTypeActionModel</a>
+, <a class="el" href="d6/d71/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_line_item_distribution_channel_action_model.html#aa1a02a598753e28d0ff2935b30dd4454">Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemDistributionChannelActionModel</a>
+, <a class="el" href="d1/d0a/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_line_item_price_action_model.html#a146300c1ea29e38dc172091188d236be">Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemPriceActionModel</a>
+, <a class="el" href="db/de0/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_line_item_shipping_details_action_model.html#abd41513be8e94a22eb366ebf436f7dcf">Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemShippingDetailsActionModel</a>
+, <a class="el" href="df/d24/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_line_item_tax_amount_action_model.html#ae77e2941589c0df20853434b00e7fe93">Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemTaxAmountActionModel</a>
+, <a class="el" href="d7/d61/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_line_item_tax_rate_action_model.html#a816abab8a5e7fa61d3cd999dad70f9fd">Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemTaxRateActionModel</a>
+, <a class="el" href="de/d85/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_line_item_total_price_action_model.html#a639fc37468b2f048643611e31bc6a635">Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemTotalPriceActionModel</a>
 </li>
 <li>$lineItemMode
 : <a class="el" href="d1/d1c/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_line_item_model.html#acd272577953301d952553aeea917914e">Commercetools\Api\Models\Cart\LineItemModel</a>
@@ -6189,6 +6307,7 @@ $(function() {
 , <a class="el" href="da/df3/class_commercetools_1_1_api_1_1_models_1_1_zone_1_1_zone_change_name_action_model.html#acb413616db090878adb72cf4b14a1430">Commercetools\Api\Models\Zone\ZoneChangeNameActionModel</a>
 , <a class="el" href="dc/dc3/class_commercetools_1_1_api_1_1_models_1_1_zone_1_1_zone_draft_model.html#a0a0fb8998c6aa4b347d8cee3ef5b3ec8">Commercetools\Api\Models\Zone\ZoneDraftModel</a>
 , <a class="el" href="de/d32/class_commercetools_1_1_api_1_1_models_1_1_zone_1_1_zone_model.html#ae1f9f8cce24224abad61c9d7d64d63b9">Commercetools\Api\Models\Zone\ZoneModel</a>
+, <a class="el" href="d1/d10/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_field_change_model.html#a39f94a0133b7b18b8cd7efa81f16ecb6">Commercetools\History\Models\Change\SetAddressCustomFieldChangeModel</a>
 , <a class="el" href="dd/d2a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_asset_custom_field_change_model.html#a1f75cae0916843ebe3a22e3b0679ab5e">Commercetools\History\Models\Change\SetAssetCustomFieldChangeModel</a>
 , <a class="el" href="db/dc4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_custom_field_change_model.html#ad1098129beb6c754e04dfc17adf75333">Commercetools\History\Models\Change\SetCustomFieldChangeModel</a>
 , <a class="el" href="d3/d83/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_custom_line_item_custom_field_change_model.html#a5bae859dbf5be76f464175da5f715906">Commercetools\History\Models\Change\SetCustomLineItemCustomFieldChangeModel</a>
@@ -6213,6 +6332,7 @@ $(function() {
 , <a class="el" href="d2/d56/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_sub_rate_model.html#a02dcb6c9186897ddb69fbc032427e7d9">Commercetools\History\Models\Common\SubRateModel</a>
 , <a class="el" href="d3/db5/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_tax_rate_model.html#adb65001c10431dbdebb9d9468e357a7a">Commercetools\History\Models\Common\TaxRateModel</a>
 , <a class="el" href="df/d39/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_text_line_item_model.html#ad7aa7a0eaf9c581fe81dd3cbd9d79b66">Commercetools\History\Models\Common\TextLineItemModel</a>
+, <a class="el" href="d2/d3c/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_business_unit_label_model.html#a286cf6b4b5f50e0fe3c6c9425ecbed72">Commercetools\History\Models\Label\BusinessUnitLabelModel</a>
 , <a class="el" href="df/d90/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_product_label_model.html#ab4f68688b97dc53bdb91794a9327c035">Commercetools\History\Models\Label\ProductLabelModel</a>
 , <a class="el" href="d9/d8e/class_commercetools_1_1_import_1_1_models_1_1_categories_1_1_category_import_model.html#afba859e9dc03fd18112e222d1a8c311f">Commercetools\Import\Models\Categories\CategoryImportModel</a>
 , <a class="el" href="d2/d13/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_asset_model.html#adf3f2ecf0ec5fcb7236cd372b6fddbaf">Commercetools\Import\Models\Common\AssetModel</a>
@@ -6363,6 +6483,7 @@ $(function() {
 <li>$nextValue
 : <a class="el" href="da/df3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_address_change_model.html#ad33e71881578ae8f8b1c2f4dca9dd1b5">Commercetools\History\Models\Change\AddAddressChangeModel</a>
 , <a class="el" href="de/df5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_asset_change_model.html#a8a61172484381b150b8931a32860af36">Commercetools\History\Models\Change\AddAssetChangeModel</a>
+, <a class="el" href="dc/de4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_associate_change_model.html#a77c659341e14c0a9e628910946418854">Commercetools\History\Models\Change\AddAssociateChangeModel</a>
 , <a class="el" href="da/d1f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_attribute_definition_change_model.html#a6edcd6c9afe4a79bcbbe570970619b02">Commercetools\History\Models\Change\AddAttributeDefinitionChangeModel</a>
 , <a class="el" href="db/d6d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_billing_address_id_change_model.html#acf6c0dfc80c2f93237af0a9ca105c551">Commercetools\History\Models\Change\AddBillingAddressIdChangeModel</a>
 , <a class="el" href="dc/d15/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_channel_roles_change_model.html#a151cedfc7f3b2116963578ec50099c8a">Commercetools\History\Models\Change\AddChannelRolesChangeModel</a>
@@ -6382,6 +6503,7 @@ $(function() {
 , <a class="el" href="db/d11/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_plain_enum_value_change_model.html#acd6e088bd09bd4f379db442bb27180b0">Commercetools\History\Models\Change\AddPlainEnumValueChangeModel</a>
 , <a class="el" href="d1/d67/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_price_change_model.html#a618bb555723bace2a83601eec6509515">Commercetools\History\Models\Change\AddPriceChangeModel</a>
 , <a class="el" href="d0/dc3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_product_change_model.html#ab00183e8406fc01f507f90c105d7df40">Commercetools\History\Models\Change\AddProductChangeModel</a>
+, <a class="el" href="d3/d1b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_product_selection_change_model.html#a2fd9a1abc7aacb083335a59ede5a1737">Commercetools\History\Models\Change\AddProductSelectionChangeModel</a>
 , <a class="el" href="d9/d02/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_property_change_model.html#aee4837dece65f3bb11c4d23d35c9ad38">Commercetools\History\Models\Change\AddPropertyChangeModel</a>
 , <a class="el" href="dc/da1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_return_info_change_model.html#af3be0944e1653a1df999332f1d13ae22">Commercetools\History\Models\Change\AddReturnInfoChangeModel</a>
 , <a class="el" href="dd/d8d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_shipping_address_id_change_model.html#a62104955f5f101c27731bd23c0975787">Commercetools\History\Models\Change\AddShippingAddressIdChangeModel</a>
@@ -6397,6 +6519,8 @@ $(function() {
 , <a class="el" href="dc/d53/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_amount_planned_change_model.html#a80dec6d737c9791138d3ff03a28a3e88">Commercetools\History\Models\Change\ChangeAmountPlannedChangeModel</a>
 , <a class="el" href="de/dc6/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_asset_name_change_model.html#a7feb76635270fb2efc219a855741be92">Commercetools\History\Models\Change\ChangeAssetNameChangeModel</a>
 , <a class="el" href="d7/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_asset_order_change_model.html#a4d3aa593bbd5aa937b0f34a910e99f61">Commercetools\History\Models\Change\ChangeAssetOrderChangeModel</a>
+, <a class="el" href="d0/d32/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_associate_change_model.html#aef89caf6154350aebceff61a2fa5df46">Commercetools\History\Models\Change\ChangeAssociateChangeModel</a>
+, <a class="el" href="dd/de6/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_associate_mode_change_model.html#adeb49ce5f2a11b858068320a2649d6c6">Commercetools\History\Models\Change\ChangeAssociateModeChangeModel</a>
 , <a class="el" href="d8/d6a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_attribute_constraint_change_model.html#af9036c255308cb2a6f51e05f846a2201">Commercetools\History\Models\Change\ChangeAttributeConstraintChangeModel</a>
 , <a class="el" href="d0/dae/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_attribute_order_by_name_change_model.html#afaab9161ef4b0413c6b1f69e24eb438a">Commercetools\History\Models\Change\ChangeAttributeOrderByNameChangeModel</a>
 , <a class="el" href="de/db5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_cart_discounts_change_model.html#ab22a41337fff6c650f7adddddfb39d00">Commercetools\History\Models\Change\ChangeCartDiscountsChangeModel</a>
@@ -6424,11 +6548,13 @@ $(function() {
 , <a class="el" href="db/d97/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_order_hint_change_model.html#a6fcb136af54bd907b10ab25197ca3fef">Commercetools\History\Models\Change\ChangeOrderHintChangeModel</a>
 , <a class="el" href="dc/dbd/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_order_state_change_model.html#ade1d82036e278441cd29c5732d03c84a">Commercetools\History\Models\Change\ChangeOrderStateChangeModel</a>
 , <a class="el" href="d1/d88/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_parent_change_model.html#a05c78f977fe4d641d644f9c8ad880c68">Commercetools\History\Models\Change\ChangeParentChangeModel</a>
+, <a class="el" href="d2/d77/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_parent_unit_change_model.html#a11f9c33fd403e17575d4a5be3aef8b6c">Commercetools\History\Models\Change\ChangeParentUnitChangeModel</a>
 , <a class="el" href="df/d69/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_payment_state_change_model.html#a3e4fa237f64cd3114deb5c78413edfad">Commercetools\History\Models\Change\ChangePaymentStateChangeModel</a>
 , <a class="el" href="d1/d5d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_plain_enum_value_label_change_model.html#aa7c5a004241188f2976c014317e459aa">Commercetools\History\Models\Change\ChangePlainEnumValueLabelChangeModel</a>
 , <a class="el" href="d5/db9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_plain_enum_value_order_change_model.html#a29fe96f58ce08477b938502b2f1dda94">Commercetools\History\Models\Change\ChangePlainEnumValueOrderChangeModel</a>
 , <a class="el" href="de/d70/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_predicate_change_model.html#a525ba4a5dd4cbeb1d40728c2d5903582">Commercetools\History\Models\Change\ChangePredicateChangeModel</a>
 , <a class="el" href="dd/de1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_price_change_model.html#a2bc77a082475f39c3ccc39819155937f">Commercetools\History\Models\Change\ChangePriceChangeModel</a>
+, <a class="el" href="db/d51/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_product_selection_active_change_model.html#abb54c50a0ab20ec3e523d70ef8c4df53">Commercetools\History\Models\Change\ChangeProductSelectionActiveChangeModel</a>
 , <a class="el" href="d5/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quantity_change_model.html#a229643f50948a91600ef70bddf00ec83">Commercetools\History\Models\Change\ChangeQuantityChangeModel</a>
 , <a class="el" href="db/d49/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quote_request_state_change_model.html#a768924039a8c8b529f3c8213f49fa478">Commercetools\History\Models\Change\ChangeQuoteRequestStateChangeModel</a>
 , <a class="el" href="dc/d5d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quote_state_change_model.html#a4d09a05cc4f14ac36571a80ddd1017d7">Commercetools\History\Models\Change\ChangeQuoteStateChangeModel</a>
@@ -6442,6 +6568,7 @@ $(function() {
 , <a class="el" href="d9/dab/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_stacking_mode_change_model.html#ad393b8c85181b5e53d1f46c00153ccc0">Commercetools\History\Models\Change\ChangeStackingModeChangeModel</a>
 , <a class="el" href="d9/d9b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_staged_quote_state_change_model.html#a16d583bb75623fe21755bafe023fa64e">Commercetools\History\Models\Change\ChangeStagedQuoteStateChangeModel</a>
 , <a class="el" href="d1/dcc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_state_type_change_model.html#ae5be7efedb5b4688bf3d9b06ee10c156">Commercetools\History\Models\Change\ChangeStateTypeChangeModel</a>
+, <a class="el" href="d4/da7/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_status_change_model.html#af3df4eb65bb8c20645190c19145fe911">Commercetools\History\Models\Change\ChangeStatusChangeModel</a>
 , <a class="el" href="db/dd9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_target_change_model.html#a8d83829f9a8bbf9af50fb1cd1c7bea2e">Commercetools\History\Models\Change\ChangeTargetChangeModel</a>
 , <a class="el" href="d1/d7f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_tax_calculation_mode_change_model.html#a07840e8c2dd515c0cd769eeebef19174">Commercetools\History\Models\Change\ChangeTaxCalculationModeChangeModel</a>
 , <a class="el" href="dd/d4a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_tax_mode_change_model.html#a976c2002410f150f530451b9103be883">Commercetools\History\Models\Change\ChangeTaxModeChangeModel</a>
@@ -6470,7 +6597,10 @@ $(function() {
 , <a class="el" href="d3/d95/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_tax_rate_change_model.html#adba352c9dafc18af24ef0acca47ddb4c">Commercetools\History\Models\Change\RemoveTaxRateChangeModel</a>
 , <a class="el" href="d0/d12/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_text_line_item_change_model.html#ae068ea046f78ec8551f6b9b8fbec73a1">Commercetools\History\Models\Change\RemoveTextLineItemChangeModel</a>
 , <a class="el" href="d6/d46/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_variant_change_model.html#a2512d02b23c13a6a3df7f74eee732931">Commercetools\History\Models\Change\RemoveVariantChangeModel</a>
+, <a class="el" href="d2/d70/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_request_quote_renegotiation_change_model.html#a39aab7c89873ab728a0c0b31a11db528">Commercetools\History\Models\Change\RequestQuoteRenegotiationChangeModel</a>
 , <a class="el" href="d4/d3b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_change_model.html#a400aec86b97715de3d7e1d25c4f00e8b">Commercetools\History\Models\Change\SetAddressChangeModel</a>
+, <a class="el" href="d1/d10/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_field_change_model.html#a59267cbeae3b83000bdca3cfa353947c">Commercetools\History\Models\Change\SetAddressCustomFieldChangeModel</a>
+, <a class="el" href="dd/dc4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_type_change_model.html#a87b71d1a449a36a1f2da77b1705a1c2f">Commercetools\History\Models\Change\SetAddressCustomTypeChangeModel</a>
 , <a class="el" href="d8/dd4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_anonymous_id_change_model.html#a0dd8dd901d0bb7a98d498cf6cf958213">Commercetools\History\Models\Change\SetAnonymousIdChangeModel</a>
 , <a class="el" href="d9/de3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_application_version_change_model.html#a4ad594727fb4de7cb2642205d1c1877b">Commercetools\History\Models\Change\SetApplicationVersionChangeModel</a>
 , <a class="el" href="dd/d2a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_asset_custom_field_change_model.html#a881a4dea3d0bcd2473e4318222497e0e">Commercetools\History\Models\Change\SetAssetCustomFieldChangeModel</a>
@@ -6487,6 +6617,7 @@ $(function() {
 , <a class="el" href="d5/df8/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_category_order_hint_change_model.html#ac480fdee30a5c714d8f7d3b4f80aa208">Commercetools\History\Models\Change\SetCategoryOrderHintChangeModel</a>
 , <a class="el" href="d5/de4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_channel_roles_change_model.html#a9149fd8a19f68d30f5e419a13eb78d57">Commercetools\History\Models\Change\SetChannelRolesChangeModel</a>
 , <a class="el" href="d9/d29/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_company_name_change_model.html#ad9f3a60ae886f63820fe879ce4691ead">Commercetools\History\Models\Change\SetCompanyNameChangeModel</a>
+, <a class="el" href="d2/d04/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_contact_email_change_model.html#aee71c48874a45fac4ebeaad573da7c83">Commercetools\History\Models\Change\SetContactEmailChangeModel</a>
 , <a class="el" href="d4/dbd/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_countries_change_model.html#adfeeb6e90df7bfec5d6e1268880b9266">Commercetools\History\Models\Change\SetCountriesChangeModel</a>
 , <a class="el" href="d2/db9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_country_change_model.html#af4e5dd7d2100c4f1a2bd8b0549ef460d">Commercetools\History\Models\Change\SetCountryChangeModel</a>
 , <a class="el" href="dc/d9a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_customer_change_model.html#ac9c38e6ee5cb88c03ccf2f00532de869">Commercetools\History\Models\Change\SetCustomerChangeModel</a>
@@ -6591,6 +6722,7 @@ $(function() {
 , <a class="el" href="d5/dbc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_status_interface_code_change_model.html#a96f86cbd969da7b9727bf4bc661b7a5f">Commercetools\History\Models\Change\SetStatusInterfaceCodeChangeModel</a>
 , <a class="el" href="da/d17/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_status_interface_text_change_model.html#abdec6a3b8e142b653c2409daa18f173d">Commercetools\History\Models\Change\SetStatusInterfaceTextChangeModel</a>
 , <a class="el" href="da/df1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_store_change_model.html#a858decc8190858462d7fc368c8ada1ff">Commercetools\History\Models\Change\SetStoreChangeModel</a>
+, <a class="el" href="de/d63/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_store_mode_change_model.html#a20006585098f6382821c4c4f240f717e">Commercetools\History\Models\Change\SetStoreModeChangeModel</a>
 , <a class="el" href="d3/df2/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_stores_change_model.html#a54aa62961d8ffbfc9f6d2192df0a1823">Commercetools\History\Models\Change\SetStoresChangeModel</a>
 , <a class="el" href="dc/d4e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_supply_channel_change_model.html#a260a9bfef8b6c03315a42a1774666944">Commercetools\History\Models\Change\SetSupplyChannelChangeModel</a>
 , <a class="el" href="d8/d98/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_supply_channels_change_model.html#a1505f0e99a4122f3c134053089732ad0">Commercetools\History\Models\Change\SetSupplyChannelsChangeModel</a>
@@ -6608,6 +6740,7 @@ $(function() {
 , <a class="el" href="d8/d80/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_valid_until_change_model.html#a135f77116505c89c89a2d4d0dcbf3986">Commercetools\History\Models\Change\SetValidUntilChangeModel</a>
 , <a class="el" href="de/db5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_value_change_model.html#a6e4822535ed7e86da4217dd602eacd8d">Commercetools\History\Models\Change\SetValueChangeModel</a>
 , <a class="el" href="db/d8b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_variant_availability_change_model.html#a9a9b0efc7fef02ef3d7a02cc441f7729">Commercetools\History\Models\Change\SetVariantAvailabilityChangeModel</a>
+, <a class="el" href="d5/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_variant_selection_change_model.html#a9e0d5d081571f65ae5c16f8d8e7d02b6">Commercetools\History\Models\Change\SetVariantSelectionChangeModel</a>
 , <a class="el" href="dc/dde/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_vat_id_change_model.html#ab76827fe1656be98d4b2ef7608dc21b0">Commercetools\History\Models\Change\SetVatIdChangeModel</a>
 , <a class="el" href="dd/da5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_custom_line_item_state_change_model.html#a5ff0f1b8895e383a874c5cc4aec3e91c">Commercetools\History\Models\Change\TransitionCustomLineItemStateChangeModel</a>
 , <a class="el" href="de/d2f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_line_item_state_change_model.html#a854bd4f657f54e54d31f8234408eba4d">Commercetools\History\Models\Change\TransitionLineItemStateChangeModel</a>
@@ -6969,6 +7102,22 @@ $(function() {
 , <a class="el" href="d8/d88/class_commercetools_1_1_import_1_1_models_1_1_order_patches_1_1_parcel_tracking_data_model.html#a1d063c22f2330d277f31bc879b0aebb4">Commercetools\Import\Models\OrderPatches\ParcelTrackingDataModel</a>
 , <a class="el" href="dc/d15/class_commercetools_1_1_import_1_1_models_1_1_order_patches_1_1_remove_parcel_from_delivery_draft_model.html#a9c7ecc3cf4cf64fcce78c981dec81060">Commercetools\Import\Models\OrderPatches\RemoveParcelFromDeliveryDraftModel</a>
 </li>
+<li>$parcelKey
+: <a class="el" href="db/d19/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_add_parcel_to_delivery_action_model.html#a2b38af771048aa96d808965688abe92b">Commercetools\Api\Models\Order\OrderAddParcelToDeliveryActionModel</a>
+, <a class="el" href="d1/d38/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_remove_parcel_from_delivery_action_model.html#a611975ae79a92c39e4a542f1ce419a76">Commercetools\Api\Models\Order\OrderRemoveParcelFromDeliveryActionModel</a>
+, <a class="el" href="df/ddd/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_parcel_custom_field_action_model.html#a90bbfb503113ebf498f77d0753babf59">Commercetools\Api\Models\Order\OrderSetParcelCustomFieldActionModel</a>
+, <a class="el" href="d8/d55/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_parcel_custom_type_action_model.html#a3f2f6a8d6c512e2d8ad71df7cf4b6eb5">Commercetools\Api\Models\Order\OrderSetParcelCustomTypeActionModel</a>
+, <a class="el" href="d8/ded/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_parcel_items_action_model.html#a3b538af8f2aa90b59dd56f39c6587767">Commercetools\Api\Models\Order\OrderSetParcelItemsActionModel</a>
+, <a class="el" href="d8/d18/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_parcel_measurements_action_model.html#a0e1dd0bfe16b82d972231ccf67b9fcda">Commercetools\Api\Models\Order\OrderSetParcelMeasurementsActionModel</a>
+, <a class="el" href="dc/d5d/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_parcel_tracking_data_action_model.html#ac21979127a57c50fcebec8136a4a4848">Commercetools\Api\Models\Order\OrderSetParcelTrackingDataActionModel</a>
+, <a class="el" href="de/d80/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_add_parcel_to_delivery_action_model.html#a8ce78aa40b4a5101e17062a25230931a">Commercetools\Api\Models\OrderEdit\StagedOrderAddParcelToDeliveryActionModel</a>
+, <a class="el" href="dd/d28/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_remove_parcel_from_delivery_action_model.html#ab58c5b0dbdcfb85118693b96b0cbc4d6">Commercetools\Api\Models\OrderEdit\StagedOrderRemoveParcelFromDeliveryActionModel</a>
+, <a class="el" href="de/d47/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_parcel_custom_field_action_model.html#a915d8e8146dd361c25107000d1337e77">Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelCustomFieldActionModel</a>
+, <a class="el" href="dd/dd2/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_parcel_custom_type_action_model.html#acb0a2c5f0cad8e8ef1aca9b2f360d0e0">Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelCustomTypeActionModel</a>
+, <a class="el" href="d8/d08/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_parcel_items_action_model.html#adb7f8cf55148b74f3303a50b3840b7a7">Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelItemsActionModel</a>
+, <a class="el" href="d5/ddb/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_parcel_measurements_action_model.html#a1914fa7a120520e5c456a7159eda1264">Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsActionModel</a>
+, <a class="el" href="d2/d62/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_parcel_tracking_data_action_model.html#ae7e7c00cb77f76224252cce245dd5d54">Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataActionModel</a>
+</li>
 <li>$parcels
 : <a class="el" href="db/d1b/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft_model.html#a6b171b1d5872a36e4a1a75f0000fbdd7">Commercetools\Api\Models\Order\DeliveryDraftModel</a>
 , <a class="el" href="d5/d27/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_model.html#ad1beb5a0325f1e741c7f62a75e8c19ea">Commercetools\Api\Models\Order\DeliveryModel</a>
@@ -7082,7 +7231,8 @@ $(function() {
 , <a class="el" href="da/d8c/class_commercetools_1_1_api_1_1_models_1_1_payment_1_1_payment_model.html#a482cebecb1f33ca834fdc710cc376048">Commercetools\Api\Models\Payment\PaymentModel</a>
 </li>
 <li>$perMethodTaxRate
-: <a class="el" href="d1/d1c/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_line_item_model.html#a01761a594c088c1f9b0ae34bba30a7fd">Commercetools\Api\Models\Cart\LineItemModel</a>
+: <a class="el" href="d5/d83/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_custom_line_item_model.html#aa563bf33915d189a33bca21f9e0ece87">Commercetools\Api\Models\Cart\CustomLineItemModel</a>
+, <a class="el" href="d1/d1c/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_line_item_model.html#a01761a594c088c1f9b0ae34bba30a7fd">Commercetools\Api\Models\Cart\LineItemModel</a>
 </li>
 <li>$permission
 : <a class="el" href="d6/d00/class_commercetools_1_1_api_1_1_models_1_1_associate_role_1_1_associate_role_add_permission_action_model.html#a1b1fbdb3485d102a2445840979a4b91c">Commercetools\Api\Models\AssociateRole\AssociateRoleAddPermissionActionModel</a>
@@ -7173,6 +7323,22 @@ $(function() {
 <li>$previousLabel
 : <a class="el" href="df/dd3/class_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_record_model.html#a1efbed30d8fce4685d597f83853eb50d">Commercetools\History\Models\ChangeHistory\RecordModel</a>
 </li>
+<li>$previousTiers
+: <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a3fffbe1d5089d01335ad8a50d249b72e">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d1/d46/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_payload_model.html#a6d2b1900a716af5d5bf41826ba58d7a3">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessagePayloadModel</a>
+</li>
+<li>$previousValidFrom
+: <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#adeef47d9905df0eeefe9248c65b1bf1f">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="d5/d16/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_payload_model.html#a46db757b665f07d103785f1a76a4c4a3">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessagePayloadModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#aca66a4219ea7752f9d4a8cf9892dcb16">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="de/d13/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_payload_model.html#ac8fd5809f5f349bc314efeb87579f12d">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessagePayloadModel</a>
+</li>
+<li>$previousValidUntil
+: <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#ad95efd8646dcb8371ece968b53b6c870">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="d5/d16/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_payload_model.html#a4d374e728685a2d1b20fd405036be3ed">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessagePayloadModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#af6b8e926fdccc12d9d078274cc37c4bb">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
+, <a class="el" href="dc/d6f/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_payload_model.html#a31c0055527658b354660848f31604e9c">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessagePayloadModel</a>
+</li>
 <li>$previousValue
 : <a class="el" href="da/df3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_address_change_model.html#accea3f3565ba3a5a928786118e17b455">Commercetools\History\Models\Change\AddAddressChangeModel</a>
 , <a class="el" href="de/df5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_asset_change_model.html#aa52f2616a5d084fcac356e582cc05112">Commercetools\History\Models\Change\AddAssetChangeModel</a>
@@ -7185,6 +7351,7 @@ $(function() {
 , <a class="el" href="d6/d45/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_location_change_model.html#aa5508cd6aa9c426183291e9961eba9bc">Commercetools\History\Models\Change\AddLocationChangeModel</a>
 , <a class="el" href="da/d35/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_order_line_item_change_model.html#a30996a9035ea508c6d2acf2aecd66f2f">Commercetools\History\Models\Change\AddOrderLineItemChangeModel</a>
 , <a class="el" href="d5/d90/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_payment_change_model.html#a30b285205bd5557a567f95e3444c23cb">Commercetools\History\Models\Change\AddPaymentChangeModel</a>
+, <a class="el" href="d3/d1b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_product_selection_change_model.html#a3d6b0dd0f0702d700d824e0bce72b55c">Commercetools\History\Models\Change\AddProductSelectionChangeModel</a>
 , <a class="el" href="dd/d8d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_shipping_address_id_change_model.html#aa8a6209c85fb0404d124753b9d4300fb">Commercetools\History\Models\Change\AddShippingAddressIdChangeModel</a>
 , <a class="el" href="d5/da6/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_shopping_list_line_item_change_model.html#a193cf317a76959c1caf76be07bdce5be">Commercetools\History\Models\Change\AddShoppingListLineItemChangeModel</a>
 , <a class="el" href="d4/d93/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_state_roles_change_model.html#af1399f1642c6f0a78ba613ab1d66f98b">Commercetools\History\Models\Change\AddStateRolesChangeModel</a>
@@ -7195,6 +7362,8 @@ $(function() {
 , <a class="el" href="dc/d53/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_amount_planned_change_model.html#a73e99e13e2287412598cd7eb656854d4">Commercetools\History\Models\Change\ChangeAmountPlannedChangeModel</a>
 , <a class="el" href="de/dc6/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_asset_name_change_model.html#a1962113d1e07c2b7f6b62ccf5999d7e2">Commercetools\History\Models\Change\ChangeAssetNameChangeModel</a>
 , <a class="el" href="d7/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_asset_order_change_model.html#a432f687b6bc24d8910060982be927721">Commercetools\History\Models\Change\ChangeAssetOrderChangeModel</a>
+, <a class="el" href="d0/d32/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_associate_change_model.html#a1e57eccacfe08da5911945eb3c6452cb">Commercetools\History\Models\Change\ChangeAssociateChangeModel</a>
+, <a class="el" href="dd/de6/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_associate_mode_change_model.html#ae20b899f795ab24c23b9ca927749f1f4">Commercetools\History\Models\Change\ChangeAssociateModeChangeModel</a>
 , <a class="el" href="d8/d6a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_attribute_constraint_change_model.html#af1e4e8b9005674b42bf60c765da10065">Commercetools\History\Models\Change\ChangeAttributeConstraintChangeModel</a>
 , <a class="el" href="d0/dae/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_attribute_order_by_name_change_model.html#a673cf177fc5e3ba314f428da2a5e247a">Commercetools\History\Models\Change\ChangeAttributeOrderByNameChangeModel</a>
 , <a class="el" href="de/db5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_cart_discounts_change_model.html#a423ffb09f2fe3ce0964bdc8650dee3e1">Commercetools\History\Models\Change\ChangeCartDiscountsChangeModel</a>
@@ -7222,11 +7391,13 @@ $(function() {
 , <a class="el" href="db/d97/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_order_hint_change_model.html#ae354b8ef991de0df60e6522741428214">Commercetools\History\Models\Change\ChangeOrderHintChangeModel</a>
 , <a class="el" href="dc/dbd/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_order_state_change_model.html#aa64eaa08897faca166c9fa3407dd2433">Commercetools\History\Models\Change\ChangeOrderStateChangeModel</a>
 , <a class="el" href="d1/d88/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_parent_change_model.html#a66c89ed3c71f630ee7affeb0f36bcb80">Commercetools\History\Models\Change\ChangeParentChangeModel</a>
+, <a class="el" href="d2/d77/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_parent_unit_change_model.html#ae2861e5ba7c17dd2ce5c35276fb0c4d1">Commercetools\History\Models\Change\ChangeParentUnitChangeModel</a>
 , <a class="el" href="df/d69/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_payment_state_change_model.html#a22b56cda17d39a277518bf778238d2f8">Commercetools\History\Models\Change\ChangePaymentStateChangeModel</a>
 , <a class="el" href="d1/d5d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_plain_enum_value_label_change_model.html#a89cf2ddeca18e6e052c60aee003b1510">Commercetools\History\Models\Change\ChangePlainEnumValueLabelChangeModel</a>
 , <a class="el" href="d5/db9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_plain_enum_value_order_change_model.html#ae2ee865667868c5b22be43a312e4239b">Commercetools\History\Models\Change\ChangePlainEnumValueOrderChangeModel</a>
 , <a class="el" href="de/d70/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_predicate_change_model.html#a64da5cbcc4ea5d1e1ecc70adac1a82c3">Commercetools\History\Models\Change\ChangePredicateChangeModel</a>
 , <a class="el" href="dd/de1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_price_change_model.html#aa33ae1d277cbced7cd3bf7e0fe9882dd">Commercetools\History\Models\Change\ChangePriceChangeModel</a>
+, <a class="el" href="db/d51/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_product_selection_active_change_model.html#afbe193cfe79b6390ce092c2c33c52ddb">Commercetools\History\Models\Change\ChangeProductSelectionActiveChangeModel</a>
 , <a class="el" href="d5/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quantity_change_model.html#a1355ac8ff780fc6595c96fdd7072f6f1">Commercetools\History\Models\Change\ChangeQuantityChangeModel</a>
 , <a class="el" href="db/d49/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quote_request_state_change_model.html#a0737136202b0d342ceefcdf74b137b9a">Commercetools\History\Models\Change\ChangeQuoteRequestStateChangeModel</a>
 , <a class="el" href="dc/d5d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quote_state_change_model.html#a6ac0472895573421dc983f1f8ef0ed4f">Commercetools\History\Models\Change\ChangeQuoteStateChangeModel</a>
@@ -7240,6 +7411,7 @@ $(function() {
 , <a class="el" href="d9/dab/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_stacking_mode_change_model.html#a77c92116bcf53fca19e88221229fb637">Commercetools\History\Models\Change\ChangeStackingModeChangeModel</a>
 , <a class="el" href="d9/d9b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_staged_quote_state_change_model.html#af084c84ad346f442cfcef1a0290da8f4">Commercetools\History\Models\Change\ChangeStagedQuoteStateChangeModel</a>
 , <a class="el" href="d1/dcc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_state_type_change_model.html#aff5b51ccd3eabd35097572e3d7c52958">Commercetools\History\Models\Change\ChangeStateTypeChangeModel</a>
+, <a class="el" href="d4/da7/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_status_change_model.html#a7fd5aba81e02eb53b0a19aa8308445fa">Commercetools\History\Models\Change\ChangeStatusChangeModel</a>
 , <a class="el" href="db/dd9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_target_change_model.html#a294ceead20e64cf84275fe47712349ab">Commercetools\History\Models\Change\ChangeTargetChangeModel</a>
 , <a class="el" href="d1/d7f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_tax_calculation_mode_change_model.html#a91a04d9acfce825ff8b58a2164169e51">Commercetools\History\Models\Change\ChangeTaxCalculationModeChangeModel</a>
 , <a class="el" href="dd/d4a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_tax_mode_change_model.html#a17b7a5c786870923108cfdf341058003">Commercetools\History\Models\Change\ChangeTaxModeChangeModel</a>
@@ -7254,6 +7426,7 @@ $(function() {
 , <a class="el" href="d2/da4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_move_image_to_position_change_model.html#aa59765db517c0836121bd9ae0f4dd57c">Commercetools\History\Models\Change\MoveImageToPositionChangeModel</a>
 , <a class="el" href="d9/d98/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_address_change_model.html#aa8f7cf9f13f25341d9db445f453a09e7">Commercetools\History\Models\Change\RemoveAddressChangeModel</a>
 , <a class="el" href="d3/d19/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_asset_change_model.html#ae469d3cb9168c352e5a4ffd76eca9765">Commercetools\History\Models\Change\RemoveAssetChangeModel</a>
+, <a class="el" href="da/d47/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_associate_change_model.html#ac18f16e86db7bf5c02fbd9f3835b364a">Commercetools\History\Models\Change\RemoveAssociateChangeModel</a>
 , <a class="el" href="d7/d04/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_attribute_definition_change_model.html#a9e037796c9532bf955b59b5630a5e433">Commercetools\History\Models\Change\RemoveAttributeDefinitionChangeModel</a>
 , <a class="el" href="d1/dce/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_billing_address_id_change_model.html#aeff992a76bf25ce2463994d7945bfb6c">Commercetools\History\Models\Change\RemoveBillingAddressIdChangeModel</a>
 , <a class="el" href="d3/d23/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_channel_roles_change_model.html#a2dd837dfad49090feb1be248e512be36">Commercetools\History\Models\Change\RemoveChannelRolesChangeModel</a>
@@ -7272,6 +7445,7 @@ $(function() {
 , <a class="el" href="dd/d51/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_payment_change_model.html#af57c78cc147e7d6f053bc1ae133747a5">Commercetools\History\Models\Change\RemovePaymentChangeModel</a>
 , <a class="el" href="de/d1d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_price_change_model.html#a06b8b739f0c1b415564383dc13aac5d9">Commercetools\History\Models\Change\RemovePriceChangeModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_product_change_model.html#a88b97d0d92ef14994722f0a6b5102cd5">Commercetools\History\Models\Change\RemoveProductChangeModel</a>
+, <a class="el" href="d1/ded/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_product_selection_change_model.html#ad13f4af12d86973e82d617fd2c30ac75">Commercetools\History\Models\Change\RemoveProductSelectionChangeModel</a>
 , <a class="el" href="d7/d74/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_property_change_model.html#a793395d28d12105acf0253964743d278">Commercetools\History\Models\Change\RemovePropertyChangeModel</a>
 , <a class="el" href="d7/d6e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_shipping_address_id_change_model.html#ab86c68054d9961e3c7aec5259b78a9eb">Commercetools\History\Models\Change\RemoveShippingAddressIdChangeModel</a>
 , <a class="el" href="dc/dbc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_shopping_list_line_item_change_model.html#ac0853c704aa162c5b2a5cf5c654bd30a">Commercetools\History\Models\Change\RemoveShoppingListLineItemChangeModel</a>
@@ -7279,7 +7453,10 @@ $(function() {
 , <a class="el" href="d3/d95/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_tax_rate_change_model.html#a70d1ca13b2cc1124b1c386b201146c09">Commercetools\History\Models\Change\RemoveTaxRateChangeModel</a>
 , <a class="el" href="d0/d12/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_text_line_item_change_model.html#a8bdc720e4e06c70e07d0956ea5b07cab">Commercetools\History\Models\Change\RemoveTextLineItemChangeModel</a>
 , <a class="el" href="d6/d46/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_variant_change_model.html#a26b6527ece95edf27618a1e93cb40c8f">Commercetools\History\Models\Change\RemoveVariantChangeModel</a>
+, <a class="el" href="d2/d70/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_request_quote_renegotiation_change_model.html#a8420480ff30d5424b42df5b98baa8037">Commercetools\History\Models\Change\RequestQuoteRenegotiationChangeModel</a>
 , <a class="el" href="d4/d3b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_change_model.html#ace0cc471bbf56f45bf314b2d678d917b">Commercetools\History\Models\Change\SetAddressChangeModel</a>
+, <a class="el" href="d1/d10/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_field_change_model.html#a88af25fd87c67c3976d671edee4c2442">Commercetools\History\Models\Change\SetAddressCustomFieldChangeModel</a>
+, <a class="el" href="dd/dc4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_type_change_model.html#a1ffaf2ebd7384ecf41fe1bc66361e32e">Commercetools\History\Models\Change\SetAddressCustomTypeChangeModel</a>
 , <a class="el" href="d8/dd4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_anonymous_id_change_model.html#a0b576a4999c4b7a9188b291addae1f53">Commercetools\History\Models\Change\SetAnonymousIdChangeModel</a>
 , <a class="el" href="d9/de3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_application_version_change_model.html#a2d85d88567123063247a3dac5d04e827">Commercetools\History\Models\Change\SetApplicationVersionChangeModel</a>
 , <a class="el" href="dd/d2a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_asset_custom_field_change_model.html#acfea25687b34cb7c7fec5eb099ec3027">Commercetools\History\Models\Change\SetAssetCustomFieldChangeModel</a>
@@ -7296,6 +7473,7 @@ $(function() {
 , <a class="el" href="d5/df8/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_category_order_hint_change_model.html#ad623621bce5615504d86ee072cccf85a">Commercetools\History\Models\Change\SetCategoryOrderHintChangeModel</a>
 , <a class="el" href="d5/de4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_channel_roles_change_model.html#a3f00942552e90aad607720fc62e033b2">Commercetools\History\Models\Change\SetChannelRolesChangeModel</a>
 , <a class="el" href="d9/d29/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_company_name_change_model.html#aa5948f0e2bdff0b3430d5227723dff5b">Commercetools\History\Models\Change\SetCompanyNameChangeModel</a>
+, <a class="el" href="d2/d04/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_contact_email_change_model.html#a8562287f7e7b4551a9249a9394c939a9">Commercetools\History\Models\Change\SetContactEmailChangeModel</a>
 , <a class="el" href="d4/dbd/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_countries_change_model.html#aaa8d9164ec131a6269a5cb3bb25395d7">Commercetools\History\Models\Change\SetCountriesChangeModel</a>
 , <a class="el" href="d2/db9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_country_change_model.html#ad259f07b82acd910f9f37124a965d568">Commercetools\History\Models\Change\SetCountryChangeModel</a>
 , <a class="el" href="dc/d9a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_customer_change_model.html#a057b353b06142a7b571936c8e82d6daa">Commercetools\History\Models\Change\SetCustomerChangeModel</a>
@@ -7400,6 +7578,7 @@ $(function() {
 , <a class="el" href="d5/dbc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_status_interface_code_change_model.html#a17e5076e89bac11f08d57a9134628f87">Commercetools\History\Models\Change\SetStatusInterfaceCodeChangeModel</a>
 , <a class="el" href="da/d17/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_status_interface_text_change_model.html#a01f075bc91c7f9ac15ac210bf06bae54">Commercetools\History\Models\Change\SetStatusInterfaceTextChangeModel</a>
 , <a class="el" href="da/df1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_store_change_model.html#acd673f7147360088cbcca695898739db">Commercetools\History\Models\Change\SetStoreChangeModel</a>
+, <a class="el" href="de/d63/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_store_mode_change_model.html#ab27bcaac88da6067596765106e181f3c">Commercetools\History\Models\Change\SetStoreModeChangeModel</a>
 , <a class="el" href="d3/df2/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_stores_change_model.html#ac808f998ecd6e6d4fdba20652308f437">Commercetools\History\Models\Change\SetStoresChangeModel</a>
 , <a class="el" href="dc/d4e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_supply_channel_change_model.html#a5b6dd31dbc9322bb76d03d66a1b9a2c1">Commercetools\History\Models\Change\SetSupplyChannelChangeModel</a>
 , <a class="el" href="d8/d98/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_supply_channels_change_model.html#a87aab13a678dbe741a6f79ee1422dd31">Commercetools\History\Models\Change\SetSupplyChannelsChangeModel</a>
@@ -7417,6 +7596,7 @@ $(function() {
 , <a class="el" href="d8/d80/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_valid_until_change_model.html#a0308c302450852e1a55a188b942b8530">Commercetools\History\Models\Change\SetValidUntilChangeModel</a>
 , <a class="el" href="de/db5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_value_change_model.html#aadaf68bf66666b069562033a641e4f40">Commercetools\History\Models\Change\SetValueChangeModel</a>
 , <a class="el" href="db/d8b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_variant_availability_change_model.html#aa66fb74c9e52b057356d85dcf2ed4538">Commercetools\History\Models\Change\SetVariantAvailabilityChangeModel</a>
+, <a class="el" href="d5/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_variant_selection_change_model.html#a1419650acfc298d234c49fd8e79fed9f">Commercetools\History\Models\Change\SetVariantSelectionChangeModel</a>
 , <a class="el" href="dc/dde/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_vat_id_change_model.html#afadaf36092eda8eb5087d8bcabaa5eea">Commercetools\History\Models\Change\SetVatIdChangeModel</a>
 , <a class="el" href="dd/da5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_custom_line_item_state_change_model.html#a815ec9388fefe8ce172dba14212efc8b">Commercetools\History\Models\Change\TransitionCustomLineItemStateChangeModel</a>
 , <a class="el" href="de/d2f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_line_item_state_change_model.html#afd9659e1e2d12ad3d2863cf6743b4dd7">Commercetools\History\Models\Change\TransitionLineItemStateChangeModel</a>
@@ -7528,6 +7708,7 @@ $(function() {
 , <a class="el" href="da/d4a/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_selection_remove_product_action_model.html#a681fdc4cc0eb8bb80429b3e84207043a">Commercetools\Api\Models\ProductSelection\ProductSelectionRemoveProductActionModel</a>
 , <a class="el" href="db/d7f/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_selection_set_variant_exclusion_action_model.html#a0a7cdce525b7b0819d870887872c1bd5">Commercetools\Api\Models\ProductSelection\ProductSelectionSetVariantExclusionActionModel</a>
 , <a class="el" href="d6/d87/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_selection_set_variant_selection_action_model.html#ae467751a0fc2f974fb4b3aa8286ba8cd">Commercetools\Api\Models\ProductSelection\ProductSelectionSetVariantSelectionActionModel</a>
+, <a class="el" href="d5/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_variant_selection_change_model.html#a136a37a73ebdd6571f674093803a6af9">Commercetools\History\Models\Change\SetVariantSelectionChangeModel</a>
 , <a class="el" href="de/d45/class_commercetools_1_1_history_1_1_models_1_1_change_value_1_1_change_value_gift_line_item_change_value_model.html#ab7e6c8d8f5af0ce70338daeb5b793330">Commercetools\History\Models\ChangeValue\ChangeValueGiftLineItemChangeValueModel</a>
 , <a class="el" href="d4/d2a/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft_model.html#ad7495a53a536d00913063eb9cdf9ffeb">Commercetools\Import\Models\Orders\LineItemImportDraftModel</a>
 , <a class="el" href="d8/d36/class_commercetools_1_1_import_1_1_models_1_1_prices_1_1_price_import_model.html#afba4d4bb5c3e07dc81c4a4e1cfb2d9d9">Commercetools\Import\Models\Prices\PriceImportModel</a>
@@ -7590,6 +7771,7 @@ $(function() {
 , <a class="el" href="de/d8c/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_add_product_selection_action_model.html#a3d23305f9670675a1f0e319652d5fdc7">Commercetools\Api\Models\Store\StoreAddProductSelectionActionModel</a>
 , <a class="el" href="d6/d97/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_change_product_selection_action_model.html#a50d95c35420a3fad8d94b73872db7858">Commercetools\Api\Models\Store\StoreChangeProductSelectionActionModel</a>
 , <a class="el" href="d9/dc7/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_remove_product_selection_action_model.html#ad7d853f33b0c735d5cf25078404c03db">Commercetools\Api\Models\Store\StoreRemoveProductSelectionActionModel</a>
+, <a class="el" href="db/d51/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_product_selection_active_change_model.html#a1f50eb44c738de9c238c5f29e7bb3d49">Commercetools\History\Models\Change\ChangeProductSelectionActiveChangeModel</a>
 , <a class="el" href="de/dfc/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_product_selection_setting_model.html#aa3918a40ff422291d2cda11a1dc3a4bc">Commercetools\History\Models\Common\ProductSelectionSettingModel</a>
 </li>
 <li>$productSelections
@@ -7917,6 +8099,10 @@ $(function() {
 : <a class="el" href="dd/d3e/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_supply_channels_changed_message_model.html#a7887a3c9d1d955f920ffb950c05db8a5">Commercetools\Api\Models\Message\StoreSupplyChannelsChangedMessageModel</a>
 , <a class="el" href="d8/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_supply_channels_changed_message_payload_model.html#a1f17978cbb614617ae085967e6960f31">Commercetools\Api\Models\Message\StoreSupplyChannelsChangedMessagePayloadModel</a>
 </li>
+<li>$removedTier
+: <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#ad709781e50067293a0b079acf74e6c70">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="d5/d39/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_payload_model.html#a2455ea74b7185eafa1d770a8d597eed1">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessagePayloadModel</a>
+</li>
 <li>$removeParcelFromDelivery
 : <a class="el" href="db/d88/class_commercetools_1_1_import_1_1_models_1_1_order_patches_1_1_order_field_model.html#a2d51a1396fbc1de8681f91f367adc88e">Commercetools\Import\Models\OrderPatches\OrderFieldModel</a>
 </li>
@@ -8089,6 +8275,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#a44ff7f6a140350916c76a616b8fd24a5">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#a0f9782aca22e212fcaada5f47e36e055">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#ab036ab5df8dc10b16a727598a34ac6bc">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#ad01ce08a53f753a91b3b5d9cc6bce869">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#a71c3ce1d4819ff9520c21a9d952fcb50">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a5f6e6dd555237411cedb57f870c13bb4">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#aa37ef53348f80dfcbc32098e6c5b27c3">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a810a18033e0fc328b540042bd837342c">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#a0076a99878364f80705e1a8a6e6e1428">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#a89d3f287a6d6b6ae8a758957e1b2f1cb">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#a4ca2cacfcf3fabb38abd75280e665b76">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#af917b1e7f8ca1ca7ae2c0962aeb86266">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>
@@ -8300,6 +8492,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#a3bbab0437a40e954686fef2edbcb8d7a">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#a80194b64b2bb11ba825f9b1a17789cde">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#a6b4ede22d31fb32c121909e1d2e2d414">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#a5bbf8358aeedc5aca35fec8cbd6a0170">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#a83166b909208aeab1a9c63c6335dd799">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a9fbc8708146f40e4993ab4a899b7907e">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a44910a823ea2238091d1072ba6bb0854">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a00e8a77e44df08f943d687867b1c6c4a">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#aabb69924cf48f968ff14239714a1e972">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#a3a63d8e973d13d2b3a1f72527fc582bf">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#a3821f72c95686b10a1eb071bca97b5fd">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#afcfc2aef645220fff6516f3bedb8c49c">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>
@@ -8470,6 +8668,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#afa7f2a36b6fd1cf28725a2739008d7d9">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#a36809fd31178aed6b1776ff32ba6c0ef">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#a4dbdfd552fef37c527dc0ae1b8f811bd">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#ab44052b845f37f7f524e4a5ef38d02ba">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#acf6da498fba64962bc800cbdc0668bc8">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a383d99ea85ef2ca5ec9554f799e6b627">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#acee6406fb59a4aeb7405bfbfba74f98e">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a39c47b6df9eb74a0b18170e28ae7fe10">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#ace3e3f71a305acc39ff1b57c5b139920">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#a678a865dbd0a2e7171f54246022141ef">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#a44a1effe197588eb424a3390d69b91d8">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#ac67ec57e4083931c7469040a127fb30e">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>
@@ -8834,6 +9038,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#ad3c1312d6844641b04b0173a70216c45">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#ac1160fd43bd1f1619c0b4a79b830843d">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#ae7e18db32f64a9a34c873a23ccabfe5c">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#af087a0fbdbe19e5d830638979e811401">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#ada4474e1d6330ac5e65d35d8b9fd4906">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a34d2cd4d38294a0b2a51b96ebb4c1969">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a9c221e86221bac1ee994c419d251cba0">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a98e048e7ca663983ffac0b47d2e5e885">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#a1e83c7bc15ca03a762c28707fdd74c07">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#aa652bd465aa8c89bb8eb53ed4b0b296e">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#aed2becf93844ee5d7959919a8e3be74f">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#a272c44ee4060b654de9564526608f7bc">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>
@@ -9111,6 +9321,8 @@ $(function() {
 , <a class="el" href="d2/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_price_discounts_set_updated_price_model.html#a0071a44eaa4b90c2870c61d6d2f5a398">Commercetools\Api\Models\Message\ProductPriceDiscountsSetUpdatedPriceModel</a>
 , <a class="el" href="dc/d96/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_price_external_discount_set_message_model.html#a2044c6aca4a7c2d29b73f0a1e4211cce">Commercetools\Api\Models\Message\ProductPriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="df/d2e/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_price_external_discount_set_message_payload_model.html#a27bfda6880ac71edc93399e34e5fcf82">Commercetools\Api\Models\Message\ProductPriceExternalDiscountSetMessagePayloadModel</a>
+, <a class="el" href="d1/d43/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_deleted_message_model.html#a2bf8566be5437e4bd52bbd450ee8d6e3">Commercetools\Api\Models\Message\StandalonePriceDeletedMessageModel</a>
+, <a class="el" href="dd/d72/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_deleted_message_payload_model.html#ab6bdd55bf34436f49c26329134e0463e">Commercetools\Api\Models\Message\StandalonePriceDeletedMessagePayloadModel</a>
 , <a class="el" href="db/deb/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_user_provided_identifiers_model.html#aecd102948d3d2694ce403522f93ad6e5">Commercetools\Api\Models\Message\UserProvidedIdentifiersModel</a>
 , <a class="el" href="d8/d8f/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft_model.html#a44f337169690fa21276b75eebd751912">Commercetools\Api\Models\Order\ProductVariantImportDraftModel</a>
 , <a class="el" href="d8/d9f/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_add_line_item_action_model.html#ab63d0ba378888f541fec09f7dbf32711">Commercetools\Api\Models\OrderEdit\StagedOrderAddLineItemActionModel</a>
@@ -9156,10 +9368,9 @@ $(function() {
 : <a class="el" href="d9/d08/class_commercetools_1_1_api_1_1_models_1_1_error_1_1_graph_q_l_out_of_stock_error_model.html#a9b0bf4edde0f3ae51d4724c03f39ea9c">Commercetools\Api\Models\Error\GraphQLOutOfStockErrorModel</a>
 , <a class="el" href="d2/dfc/class_commercetools_1_1_api_1_1_models_1_1_error_1_1_out_of_stock_error_model.html#a9d860db0438c53836b8930975f47d7f1">Commercetools\Api\Models\Error\OutOfStockErrorModel</a>
 , <a class="el" href="d3/d94/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_exclusion_model.html#af275f6e95f3437b1d7d7aea5e0424847">Commercetools\Api\Models\ProductSelection\ProductVariantExclusionModel</a>
-, <a class="el" href="d2/d73/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_selection_exclusion_model.html#a91bca5cd051c680effcda7e29abd9dc1">Commercetools\Api\Models\ProductSelection\ProductVariantSelectionExclusionModel</a>
 , <a class="el" href="d8/d94/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_selection_include_all_except_model.html#a0f59d3ae39ae57c8986abdea6848ea4e">Commercetools\Api\Models\ProductSelection\ProductVariantSelectionIncludeAllExceptModel</a>
 , <a class="el" href="db/d0b/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_selection_include_only_model.html#ad4d0448a8c7064c373cea4f6d724dc89">Commercetools\Api\Models\ProductSelection\ProductVariantSelectionIncludeOnlyModel</a>
-, <a class="el" href="d4/dce/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_selection_inclusion_model.html#ad568bbebe596f7a32e0473b1359e5aa3">Commercetools\Api\Models\ProductSelection\ProductVariantSelectionInclusionModel</a>
+, <a class="el" href="d8/dd6/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_product_variant_selection_model.html#ac305b2c8056aa9400b9bed66a164f3b5">Commercetools\History\Models\Common\ProductVariantSelectionModel</a>
 </li>
 <li>$slug
 : <a class="el" href="de/d12/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_add_custom_line_item_action_model.html#a794b279146fe927b203bbe15a4f05567">Commercetools\Api\Models\Cart\CartAddCustomLineItemActionModel</a>
@@ -9795,14 +10006,25 @@ $(function() {
 , <a class="el" href="d3/d8f/class_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_draft_model.html#a87a6d839e1ee3939a47ce1821b066a33">Commercetools\Api\Models\ShoppingList\ShoppingListDraftModel</a>
 , <a class="el" href="d1/d2a/class_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_model.html#a6b62368731d584bfa915f7c52b65d4c3">Commercetools\Api\Models\ShoppingList\ShoppingListModel</a>
 </li>
+<li>$tier
+: <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#a4c3774b4627c28bb0893a2ce30064fa6">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="de/d4a/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_payload_model.html#a3a95c00863b00b43fe74ebd73e88af71">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessagePayloadModel</a>
+, <a class="el" href="d3/d1b/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_add_price_tier_action_model.html#af3560a3aafc3852d6ac8c4e48d3e81f4">Commercetools\Api\Models\StandalonePrice\StandalonePriceAddPriceTierActionModel</a>
+</li>
+<li>$tierMinimumQuantity
+: <a class="el" href="d5/d72/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_remove_price_tier_action_model.html#a9e316d9fd405e4a30caae14d75485e38">Commercetools\Api\Models\StandalonePrice\StandalonePriceRemovePriceTierActionModel</a>
+</li>
 <li>$tiers
 : <a class="el" href="dd/de1/class_commercetools_1_1_api_1_1_models_1_1_common_1_1_price_draft_model.html#a03f71b28e12bd1035c8ccac6a22ff482">Commercetools\Api\Models\Common\PriceDraftModel</a>
 , <a class="el" href="dc/de2/class_commercetools_1_1_api_1_1_models_1_1_common_1_1_price_model.html#ae7d477aefb76540869cdf24d5e34f169">Commercetools\Api\Models\Common\PriceModel</a>
 , <a class="el" href="d3/d07/class_commercetools_1_1_api_1_1_models_1_1_common_1_1_query_price_model.html#aa99b42dbf2217efda7da5883cefe4a57">Commercetools\Api\Models\Common\QueryPriceModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#adb22b4a01f0ba7e4f83c557b2b71454f">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d1/d46/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_payload_model.html#a9df58db4a89362098a146c569ab65352">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessagePayloadModel</a>
 , <a class="el" href="d0/d6c/class_commercetools_1_1_api_1_1_models_1_1_shipping_method_1_1_shipping_rate_draft_model.html#abba7867f50006b9c0015da9ce943c753">Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel</a>
 , <a class="el" href="d1/d22/class_commercetools_1_1_api_1_1_models_1_1_shipping_method_1_1_shipping_rate_model.html#a65eb87904c5c029052a58b9dc3317433">Commercetools\Api\Models\ShippingMethod\ShippingRateModel</a>
 , <a class="el" href="db/d24/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_model.html#a524fb4e06b800f85a833f9697ab082fe">Commercetools\Api\Models\StandalonePrice\StandalonePriceDraftModel</a>
 , <a class="el" href="da/d2a/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_model.html#a6a2d98c6616a2a208270b6e7f0595ad0">Commercetools\Api\Models\StandalonePrice\StandalonePriceModel</a>
+, <a class="el" href="d9/da9/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_price_tiers_action_model.html#a6394991a08819dddcb35c4caa11a1a2d">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetPriceTiersActionModel</a>
 , <a class="el" href="db/d7c/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_shipping_rate_model.html#aae56ab34658d3b6b3660d9f6112c60fb">Commercetools\History\Models\Common\ShippingRateModel</a>
 , <a class="el" href="d4/d7c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_cart_classification_tier_model.html#ab13351ce0b63b8882d21bca809148245">Commercetools\Import\Models\Orders\CartClassificationTierModel</a>
 , <a class="el" href="d6/d30/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_price_model.html#aa4bf2450a5c8b1a8f917c5faa6968452">Commercetools\Import\Models\Orders\LineItemPriceModel</a>
@@ -9859,7 +10081,8 @@ $(function() {
 , <a class="el" href="d6/d04/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_my_customer_reset_password_model.html#ad15d56ea388e07164c66349dca3b7377">Commercetools\Api\Models\Customer\MyCustomerResetPasswordModel</a>
 </li>
 <li>$topic
-: <a class="el" href="d3/d98/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination_model.html#ad130981b10695eb5cf1b8258c0cd1572">Commercetools\Api\Models\Subscription\GoogleCloudPubSubDestinationModel</a>
+: <a class="el" href="dd/da0/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_confluent_cloud_destination_model.html#a9b28fda809e32e38a6a820a2b4348eb7">Commercetools\Api\Models\Subscription\ConfluentCloudDestinationModel</a>
+, <a class="el" href="d3/d98/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination_model.html#ad130981b10695eb5cf1b8258c0cd1572">Commercetools\Api\Models\Subscription\GoogleCloudPubSubDestinationModel</a>
 </li>
 <li>$topicArn
 : <a class="el" href="de/ddb/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_sns_destination_model.html#a86b86ce826760a6415c7ac1a01d575db">Commercetools\Api\Models\Subscription\SnsDestinationModel</a>
@@ -10432,6 +10655,18 @@ $(function() {
 , <a class="el" href="d0/d52/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_payload_model.html#abe3a6e5d53e0f5dcc2d56b2469bf5ca2">Commercetools\Api\Models\Message\StandalonePriceKeySetMessagePayloadModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#af0c88c27a25618e05e727e3e8dae2f8e">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
 , <a class="el" href="d6/d15/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_payload_model.html#a92c916194af863d1f1e9eb6d9948c5ff">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessagePayloadModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#adaaede9a17407c9be5aef0a8f0537790">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="de/d4a/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_payload_model.html#ad22effa1d4b40657ec642cc01e0e51a9">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessagePayloadModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#a3e4fbf951619b5cda8e5a1b3dcbdcc09">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="d5/d39/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_payload_model.html#a9829f57c4c08583c4438e048089d11d4">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessagePayloadModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a8b38ecaf307f656c2d6411336d21f443">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d1/d46/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_payload_model.html#ad6970565f5ad116be779abe8dc841539">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessagePayloadModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a10d80aeab8aefa58fe36b2f90ff6516e">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="d5/d16/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_payload_model.html#ad09120306e826816520e5d832e8ba503">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessagePayloadModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a0a93f4dd480f33d7d07f27891588562e">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="de/d13/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_payload_model.html#a48fb294822627707cee376183124307a">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessagePayloadModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#ac9d03673ce2bf7ab571902c7c3928fdd">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
+, <a class="el" href="dc/d6f/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_payload_model.html#a5111708abca669dbe52764a06ce2290d">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessagePayloadModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#a64ec872422c6b69ad3ee1a3d2689de1f">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="db/dd7/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_payload_model.html#adc4b594c636e9619a7f43cf072508612">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessagePayloadModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#ad5461a7cbd8b7793ab5d869f8c6eeac1">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
@@ -10507,10 +10742,8 @@ $(function() {
 , <a class="el" href="df/d27/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_selection_model.html#acec6e2b4d59172752e897842610be2c6">Commercetools\Api\Models\ProductSelection\ProductSelectionModel</a>
 , <a class="el" href="dd/da4/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_selection_set_custom_type_action_model.html#a9050429e9e68ecaa14b81159e34f9f07">Commercetools\Api\Models\ProductSelection\ProductSelectionSetCustomTypeActionModel</a>
 , <a class="el" href="dc/d25/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_selection_type_model.html#a554f835c6023af019ed96558ab289b3c">Commercetools\Api\Models\ProductSelection\ProductSelectionTypeModel</a>
-, <a class="el" href="d2/d73/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_selection_exclusion_model.html#afc28e059e9f0f8442780cba22c0466b2">Commercetools\Api\Models\ProductSelection\ProductVariantSelectionExclusionModel</a>
 , <a class="el" href="d8/d94/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_selection_include_all_except_model.html#a870776cd1432fa510f16e17b57b602ca">Commercetools\Api\Models\ProductSelection\ProductVariantSelectionIncludeAllExceptModel</a>
 , <a class="el" href="db/d0b/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_selection_include_only_model.html#a3070d0f8c9c48ad287db05c6d5a539cf">Commercetools\Api\Models\ProductSelection\ProductVariantSelectionIncludeOnlyModel</a>
-, <a class="el" href="d4/dce/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_selection_inclusion_model.html#aaa0e4403b2ec734859ab95c1d4846114">Commercetools\Api\Models\ProductSelection\ProductVariantSelectionInclusionModel</a>
 , <a class="el" href="d3/d73/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_variant_selection_model.html#a357eca5684cf7ad19ea6a83750f965ca">Commercetools\Api\Models\ProductSelection\ProductVariantSelectionModel</a>
 , <a class="el" href="d3/d5f/class_commercetools_1_1_api_1_1_models_1_1_product_type_1_1_attribute_definition_draft_model.html#a3eb6b35d4f28873325351d1786f2010f">Commercetools\Api\Models\ProductType\AttributeDefinitionDraftModel</a>
 , <a class="el" href="d5/dcc/class_commercetools_1_1_api_1_1_models_1_1_product_type_1_1_attribute_definition_model.html#a2c50230f9230df65ecf3df293b83cab5">Commercetools\Api\Models\ProductType\AttributeDefinitionModel</a>
@@ -10539,6 +10772,7 @@ $(function() {
 , <a class="el" href="d6/d7e/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_azure_service_bus_destination_model.html#a6943f28d518f5b6e4d58203f1a319336">Commercetools\Api\Models\Subscription\AzureServiceBusDestinationModel</a>
 , <a class="el" href="dd/d1c/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_cloud_events_format_model.html#a70ada9834b5026031f90c88de3f4505e">Commercetools\Api\Models\Subscription\CloudEventsFormatModel</a>
 , <a class="el" href="de/d58/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_cloud_events_payload_model.html#a7e21147f61675da45923ab8303367173">Commercetools\Api\Models\Subscription\CloudEventsPayloadModel</a>
+, <a class="el" href="dd/da0/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_confluent_cloud_destination_model.html#af08e8dd5e2dbe9504cfb02cd3210c12a">Commercetools\Api\Models\Subscription\ConfluentCloudDestinationModel</a>
 , <a class="el" href="da/dbe/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_delivery_format_model.html#a0dae8b166b529c9c041c9fb9769449ed">Commercetools\Api\Models\Subscription\DeliveryFormatModel</a>
 , <a class="el" href="db/d2c/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_destination_model.html#afa32099e507ad2dec9b4b9be24bad52a">Commercetools\Api\Models\Subscription\DestinationModel</a>
 , <a class="el" href="d3/dc8/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_event_bridge_destination_model.html#ae19b306d029364b89aa6ef696f4bcdfc">Commercetools\Api\Models\Subscription\EventBridgeDestinationModel</a>
@@ -10551,6 +10785,7 @@ $(function() {
 , <a class="el" href="d5/dc3/class_commercetools_1_1_api_1_1_models_1_1_type_1_1_field_definition_model.html#ac384794037e2e02b368989e14084ca72">Commercetools\Api\Models\Type\FieldDefinitionModel</a>
 , <a class="el" href="da/df3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_address_change_model.html#a3952827a97541098b9071534a9833874">Commercetools\History\Models\Change\AddAddressChangeModel</a>
 , <a class="el" href="de/df5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_asset_change_model.html#a60edda798f186242fbcee611714b7a85">Commercetools\History\Models\Change\AddAssetChangeModel</a>
+, <a class="el" href="dc/de4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_associate_change_model.html#afb1cb12814190d88d008b7130772d074">Commercetools\History\Models\Change\AddAssociateChangeModel</a>
 , <a class="el" href="da/d1f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_attribute_definition_change_model.html#ae51210e43243432cf55506f7fcbad3d7">Commercetools\History\Models\Change\AddAttributeDefinitionChangeModel</a>
 , <a class="el" href="db/d6d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_billing_address_id_change_model.html#a0e3c00e42f34266aec22b7ba92860bdd">Commercetools\History\Models\Change\AddBillingAddressIdChangeModel</a>
 , <a class="el" href="dc/d15/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_channel_roles_change_model.html#a541ecd10d143dc9cb543100d7d5a3c69">Commercetools\History\Models\Change\AddChannelRolesChangeModel</a>
@@ -10570,6 +10805,7 @@ $(function() {
 , <a class="el" href="db/d11/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_plain_enum_value_change_model.html#af2a07a8cd66df644e938995734ff6e50">Commercetools\History\Models\Change\AddPlainEnumValueChangeModel</a>
 , <a class="el" href="d1/d67/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_price_change_model.html#af8825a1664f08ba8594f16c11ff2f818">Commercetools\History\Models\Change\AddPriceChangeModel</a>
 , <a class="el" href="d0/dc3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_product_change_model.html#a1f4d6ac62db725dd5c879c4a856c2bed">Commercetools\History\Models\Change\AddProductChangeModel</a>
+, <a class="el" href="d3/d1b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_product_selection_change_model.html#a8f574c2e9d38ca64b449c54cb356262f">Commercetools\History\Models\Change\AddProductSelectionChangeModel</a>
 , <a class="el" href="d9/d02/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_property_change_model.html#a714cf250f791ad118cd8cd91d5c97e7f">Commercetools\History\Models\Change\AddPropertyChangeModel</a>
 , <a class="el" href="dc/da1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_return_info_change_model.html#a716609a364f1460cdf754be324420817">Commercetools\History\Models\Change\AddReturnInfoChangeModel</a>
 , <a class="el" href="dd/d8d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_shipping_address_id_change_model.html#aacebf035a30b25bd003c0d3f9928bd39">Commercetools\History\Models\Change\AddShippingAddressIdChangeModel</a>
@@ -10585,6 +10821,8 @@ $(function() {
 , <a class="el" href="dc/d53/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_amount_planned_change_model.html#a69bbf8161fb29c2cb05a0ee630cd0102">Commercetools\History\Models\Change\ChangeAmountPlannedChangeModel</a>
 , <a class="el" href="de/dc6/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_asset_name_change_model.html#a13c3f83477b5721ca6745c33a24bbb58">Commercetools\History\Models\Change\ChangeAssetNameChangeModel</a>
 , <a class="el" href="d7/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_asset_order_change_model.html#aae1ea3b71760ee5df34d21f1201c9a49">Commercetools\History\Models\Change\ChangeAssetOrderChangeModel</a>
+, <a class="el" href="d0/d32/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_associate_change_model.html#a059121d51c651f901a88ba893ee37bb4">Commercetools\History\Models\Change\ChangeAssociateChangeModel</a>
+, <a class="el" href="dd/de6/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_associate_mode_change_model.html#aca0a372dc88506f5bd1cfda5cc5c72ca">Commercetools\History\Models\Change\ChangeAssociateModeChangeModel</a>
 , <a class="el" href="d8/d6a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_attribute_constraint_change_model.html#a2ea1adee4c7cee7862e0d01b82080772">Commercetools\History\Models\Change\ChangeAttributeConstraintChangeModel</a>
 , <a class="el" href="d0/dae/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_attribute_order_by_name_change_model.html#a3f39959038e1ff74c44b61a41ebcf92d">Commercetools\History\Models\Change\ChangeAttributeOrderByNameChangeModel</a>
 , <a class="el" href="de/db5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_cart_discounts_change_model.html#a23abb1ae4e047e92ccb805ac571f9f63">Commercetools\History\Models\Change\ChangeCartDiscountsChangeModel</a>
@@ -10613,11 +10851,13 @@ $(function() {
 , <a class="el" href="db/d97/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_order_hint_change_model.html#ad21147c97f0a3a9f7ed45e30eb5f6c94">Commercetools\History\Models\Change\ChangeOrderHintChangeModel</a>
 , <a class="el" href="dc/dbd/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_order_state_change_model.html#a6ac3d1d37fc17cebcd33ddaeb887e310">Commercetools\History\Models\Change\ChangeOrderStateChangeModel</a>
 , <a class="el" href="d1/d88/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_parent_change_model.html#a96e04c45c349164e6ffef23c134e3553">Commercetools\History\Models\Change\ChangeParentChangeModel</a>
+, <a class="el" href="d2/d77/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_parent_unit_change_model.html#a401c7a675e3cb7a6bc2a737226f6e500">Commercetools\History\Models\Change\ChangeParentUnitChangeModel</a>
 , <a class="el" href="df/d69/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_payment_state_change_model.html#a732615f7d292c239cac02b7335987fef">Commercetools\History\Models\Change\ChangePaymentStateChangeModel</a>
 , <a class="el" href="d1/d5d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_plain_enum_value_label_change_model.html#abe594ca6ad297da8fa5e184911486674">Commercetools\History\Models\Change\ChangePlainEnumValueLabelChangeModel</a>
 , <a class="el" href="d5/db9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_plain_enum_value_order_change_model.html#a7798007f85f2d2a7b4dd2c95e83cba89">Commercetools\History\Models\Change\ChangePlainEnumValueOrderChangeModel</a>
 , <a class="el" href="de/d70/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_predicate_change_model.html#ae87fa25f6efcee5ac603b77240000495">Commercetools\History\Models\Change\ChangePredicateChangeModel</a>
 , <a class="el" href="dd/de1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_price_change_model.html#a4203c4841607f656a175e762977524d2">Commercetools\History\Models\Change\ChangePriceChangeModel</a>
+, <a class="el" href="db/d51/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_product_selection_active_change_model.html#a4125ab0e3ae7be5dbdfb643ad6a8063e">Commercetools\History\Models\Change\ChangeProductSelectionActiveChangeModel</a>
 , <a class="el" href="d5/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quantity_change_model.html#abb372cd2743eb917cefa89a1cf9d3dd2">Commercetools\History\Models\Change\ChangeQuantityChangeModel</a>
 , <a class="el" href="db/d49/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quote_request_state_change_model.html#a2e24f01d1c7b0d6ca8bef32e753e83e0">Commercetools\History\Models\Change\ChangeQuoteRequestStateChangeModel</a>
 , <a class="el" href="dc/d5d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_quote_state_change_model.html#a362f0eab4a749ee020831b11978f1878">Commercetools\History\Models\Change\ChangeQuoteStateChangeModel</a>
@@ -10631,6 +10871,7 @@ $(function() {
 , <a class="el" href="d9/dab/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_stacking_mode_change_model.html#a4f0aa8ec4ac92937c4f9d267eb6fa0bc">Commercetools\History\Models\Change\ChangeStackingModeChangeModel</a>
 , <a class="el" href="d9/d9b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_staged_quote_state_change_model.html#a970e887fe2da1c4d679526ce116ac2d9">Commercetools\History\Models\Change\ChangeStagedQuoteStateChangeModel</a>
 , <a class="el" href="d1/dcc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_state_type_change_model.html#a8222930993a55f7997f6718419f39433">Commercetools\History\Models\Change\ChangeStateTypeChangeModel</a>
+, <a class="el" href="d4/da7/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_status_change_model.html#a0c92665f186e1de8be0f851bf66f34e1">Commercetools\History\Models\Change\ChangeStatusChangeModel</a>
 , <a class="el" href="db/dd9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_target_change_model.html#a3babd4900578fdfe45f16789877b8c6a">Commercetools\History\Models\Change\ChangeTargetChangeModel</a>
 , <a class="el" href="d1/d7f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_tax_calculation_mode_change_model.html#a5b7090705a70679b1981a6b751933976">Commercetools\History\Models\Change\ChangeTaxCalculationModeChangeModel</a>
 , <a class="el" href="dd/d4a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_tax_mode_change_model.html#a68c09f1a94cfefe86ac7ea71a251b5ed">Commercetools\History\Models\Change\ChangeTaxModeChangeModel</a>
@@ -10646,6 +10887,7 @@ $(function() {
 , <a class="el" href="dd/d8c/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_publish_change_model.html#afa9a54d8d068bceb750a4a79e8bd7747">Commercetools\History\Models\Change\PublishChangeModel</a>
 , <a class="el" href="d9/d98/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_address_change_model.html#a14b28e3b56e7c25c01335110d659485c">Commercetools\History\Models\Change\RemoveAddressChangeModel</a>
 , <a class="el" href="d3/d19/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_asset_change_model.html#ad0dd4216fd7fea2d38df3063ff12f583">Commercetools\History\Models\Change\RemoveAssetChangeModel</a>
+, <a class="el" href="da/d47/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_associate_change_model.html#a9a90d407f09cf159557c887a08d238a9">Commercetools\History\Models\Change\RemoveAssociateChangeModel</a>
 , <a class="el" href="d7/d04/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_attribute_definition_change_model.html#a5f351845d92e985bac43493b5d1acd1f">Commercetools\History\Models\Change\RemoveAttributeDefinitionChangeModel</a>
 , <a class="el" href="d1/dce/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_billing_address_id_change_model.html#af0aa612c6ba3215cc2fc0b03cd5837b0">Commercetools\History\Models\Change\RemoveBillingAddressIdChangeModel</a>
 , <a class="el" href="d3/d23/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_channel_roles_change_model.html#a0de408c8247a4cb5975f736bbe85e343">Commercetools\History\Models\Change\RemoveChannelRolesChangeModel</a>
@@ -10664,6 +10906,7 @@ $(function() {
 , <a class="el" href="dd/d51/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_payment_change_model.html#a5d057670c3dfc71bac23ea1b93279e7e">Commercetools\History\Models\Change\RemovePaymentChangeModel</a>
 , <a class="el" href="de/d1d/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_price_change_model.html#a1de3b674e00af4b57f4a1d2d99464a8c">Commercetools\History\Models\Change\RemovePriceChangeModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_product_change_model.html#ad91bb5e63652f87190782233d0f285ef">Commercetools\History\Models\Change\RemoveProductChangeModel</a>
+, <a class="el" href="d1/ded/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_product_selection_change_model.html#a51c42626b6d36338e5c5897951283ccf">Commercetools\History\Models\Change\RemoveProductSelectionChangeModel</a>
 , <a class="el" href="d7/d74/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_property_change_model.html#aae0bb9e9802b3fa6752d8b62a716fa93">Commercetools\History\Models\Change\RemovePropertyChangeModel</a>
 , <a class="el" href="d7/d6e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_shipping_address_id_change_model.html#abd11b466c62780331ea111d2de6eab1b">Commercetools\History\Models\Change\RemoveShippingAddressIdChangeModel</a>
 , <a class="el" href="dc/dbc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_shopping_list_line_item_change_model.html#a14e1a9fa89212290a65372a67dfcacb3">Commercetools\History\Models\Change\RemoveShoppingListLineItemChangeModel</a>
@@ -10671,7 +10914,10 @@ $(function() {
 , <a class="el" href="d3/d95/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_tax_rate_change_model.html#a0467be9cb206cd14b2bb8ab2fb093a08">Commercetools\History\Models\Change\RemoveTaxRateChangeModel</a>
 , <a class="el" href="d0/d12/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_text_line_item_change_model.html#abcf6534a5220649b9dce32baa5eaa7fb">Commercetools\History\Models\Change\RemoveTextLineItemChangeModel</a>
 , <a class="el" href="d6/d46/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_remove_variant_change_model.html#a7e30f36e2552dbb592dee6dd04bf8f06">Commercetools\History\Models\Change\RemoveVariantChangeModel</a>
+, <a class="el" href="d2/d70/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_request_quote_renegotiation_change_model.html#a00a96984bd054debe1f5f520ba77cafb">Commercetools\History\Models\Change\RequestQuoteRenegotiationChangeModel</a>
 , <a class="el" href="d4/d3b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_change_model.html#a9c31820c2a1303402057c627c29654f8">Commercetools\History\Models\Change\SetAddressChangeModel</a>
+, <a class="el" href="d1/d10/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_field_change_model.html#a0a40b8b4945e2215aff646485e78249e">Commercetools\History\Models\Change\SetAddressCustomFieldChangeModel</a>
+, <a class="el" href="dd/dc4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_address_custom_type_change_model.html#a361c67c9eef405735e10afc07c0dc0e3">Commercetools\History\Models\Change\SetAddressCustomTypeChangeModel</a>
 , <a class="el" href="d8/dd4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_anonymous_id_change_model.html#a0d1bb307010b8c75e8380c94b68c4357">Commercetools\History\Models\Change\SetAnonymousIdChangeModel</a>
 , <a class="el" href="d9/de3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_application_version_change_model.html#ab5ba7406b1675591fc50f25218ca1b27">Commercetools\History\Models\Change\SetApplicationVersionChangeModel</a>
 , <a class="el" href="dd/d2a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_asset_custom_field_change_model.html#af36f26769108971430613b1fdf53a5c0">Commercetools\History\Models\Change\SetAssetCustomFieldChangeModel</a>
@@ -10688,6 +10934,7 @@ $(function() {
 , <a class="el" href="d5/df8/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_category_order_hint_change_model.html#ac762c06b7b310fac3018dcd10cbb1bb2">Commercetools\History\Models\Change\SetCategoryOrderHintChangeModel</a>
 , <a class="el" href="d5/de4/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_channel_roles_change_model.html#ab44f62966db50ebc9b28353fcb4a72c7">Commercetools\History\Models\Change\SetChannelRolesChangeModel</a>
 , <a class="el" href="d9/d29/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_company_name_change_model.html#a5764c70cf6d024f211e0b0755a054e31">Commercetools\History\Models\Change\SetCompanyNameChangeModel</a>
+, <a class="el" href="d2/d04/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_contact_email_change_model.html#a04ecba9da8c46861895027ec0395f2cd">Commercetools\History\Models\Change\SetContactEmailChangeModel</a>
 , <a class="el" href="d4/dbd/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_countries_change_model.html#a1cf4acc50955dbe1a87ef5f2e9ebbd07">Commercetools\History\Models\Change\SetCountriesChangeModel</a>
 , <a class="el" href="d2/db9/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_country_change_model.html#aad697c15881b88e6aa95a43e652e3045">Commercetools\History\Models\Change\SetCountryChangeModel</a>
 , <a class="el" href="dc/d9a/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_customer_change_model.html#a771f593d980c8922b794df8af299a3dc">Commercetools\History\Models\Change\SetCustomerChangeModel</a>
@@ -10792,6 +11039,7 @@ $(function() {
 , <a class="el" href="d5/dbc/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_status_interface_code_change_model.html#a75f08545fea3a7b07617200dba0e9a06">Commercetools\History\Models\Change\SetStatusInterfaceCodeChangeModel</a>
 , <a class="el" href="da/d17/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_status_interface_text_change_model.html#a382a053cdb2d88e13ff733964ac65f4f">Commercetools\History\Models\Change\SetStatusInterfaceTextChangeModel</a>
 , <a class="el" href="da/df1/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_store_change_model.html#aac748556d3ec02cfcd5b0d40a0f13255">Commercetools\History\Models\Change\SetStoreChangeModel</a>
+, <a class="el" href="de/d63/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_store_mode_change_model.html#a05c53d5ca00ef9badc706fb7ff4322f3">Commercetools\History\Models\Change\SetStoreModeChangeModel</a>
 , <a class="el" href="d3/df2/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_stores_change_model.html#aae4bb73ca999f766e20667601da358bd">Commercetools\History\Models\Change\SetStoresChangeModel</a>
 , <a class="el" href="dc/d4e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_supply_channel_change_model.html#a7da377d0634c8c67c17774c591f9d4c0">Commercetools\History\Models\Change\SetSupplyChannelChangeModel</a>
 , <a class="el" href="d8/d98/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_supply_channels_change_model.html#aadd3ea8e86fcf7020e3ddc049102d653">Commercetools\History\Models\Change\SetSupplyChannelsChangeModel</a>
@@ -10809,6 +11057,7 @@ $(function() {
 , <a class="el" href="d8/d80/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_valid_until_change_model.html#ae05c381101edd2e581bdb88865693668">Commercetools\History\Models\Change\SetValidUntilChangeModel</a>
 , <a class="el" href="de/db5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_value_change_model.html#a1461785eefa690bd89a1c88a7bcabd9c">Commercetools\History\Models\Change\SetValueChangeModel</a>
 , <a class="el" href="db/d8b/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_variant_availability_change_model.html#a6f7824ef963300250df1feb4cbdbac9b">Commercetools\History\Models\Change\SetVariantAvailabilityChangeModel</a>
+, <a class="el" href="d5/d9e/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_variant_selection_change_model.html#a58e956cd1d874baadc775bd79f06148e">Commercetools\History\Models\Change\SetVariantSelectionChangeModel</a>
 , <a class="el" href="dc/dde/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_set_vat_id_change_model.html#a8a880e5f9c6e9d2e140843d50b445500">Commercetools\History\Models\Change\SetVatIdChangeModel</a>
 , <a class="el" href="dd/da5/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_custom_line_item_state_change_model.html#abf4f580511f4992500e46d1a3160d0bb">Commercetools\History\Models\Change\TransitionCustomLineItemStateChangeModel</a>
 , <a class="el" href="de/d2f/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_transition_line_item_state_change_model.html#acd7ba3909c09eddfc11cf810e896e417">Commercetools\History\Models\Change\TransitionLineItemStateChangeModel</a>
@@ -10837,10 +11086,12 @@ $(function() {
 , <a class="el" href="df/ddf/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_field_definition_model.html#a3486b31b08c6831a4873d733f406512b">Commercetools\History\Models\Common\FieldDefinitionModel</a>
 , <a class="el" href="d1/dfc/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_geo_location_model.html#a37e0134fc452dee86e7994def97a0374">Commercetools\History\Models\Common\GeoLocationModel</a>
 , <a class="el" href="d8/df0/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_money_model.html#a31015cf34cc616f2e689c97c10c8bdb7">Commercetools\History\Models\Common\MoneyModel</a>
+, <a class="el" href="d8/dd6/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_product_variant_selection_model.html#a745214fc124be951e1fd68e091a299ac">Commercetools\History\Models\Common\ProductVariantSelectionModel</a>
 , <a class="el" href="d3/ddb/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_return_item_model.html#a8cce33c13330d734e40c93af40da8d45">Commercetools\History\Models\Common\ReturnItemModel</a>
 , <a class="el" href="df/d5c/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_shipping_rate_price_tier_model.html#a30d35bcfa34c11c547f2134d25bb236e">Commercetools\History\Models\Common\ShippingRatePriceTierModel</a>
 , <a class="el" href="d4/d1d/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_suggest_tokenizer_model.html#a4e9a418fc3e8d0904c721e5b632f4f2b">Commercetools\History\Models\Common\SuggestTokenizerModel</a>
 , <a class="el" href="df/df3/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_transaction_model.html#a12bbed302a89bfac35de916ed7ce6783">Commercetools\History\Models\Common\TransactionModel</a>
+, <a class="el" href="d2/d3c/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_business_unit_label_model.html#af2004a6f5bc62d2c563eb20080af4138">Commercetools\History\Models\Label\BusinessUnitLabelModel</a>
 , <a class="el" href="d4/dc4/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_customer_label_model.html#a6601a90e3e5db911cc70bc0bf8aa2ef5">Commercetools\History\Models\Label\CustomerLabelModel</a>
 , <a class="el" href="d7/de0/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_custom_object_label_model.html#ae117fa223079649c0b7290bf03844e66">Commercetools\History\Models\Label\CustomObjectLabelModel</a>
 , <a class="el" href="db/de9/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_label_model.html#a0239870edced051af7e49dc12777965b">Commercetools\History\Models\Label\LabelModel</a>
@@ -11001,6 +11252,7 @@ $(function() {
 , <a class="el" href="df/da2/class_commercetools_1_1_api_1_1_models_1_1_zone_1_1_zone_resource_identifier_model.html#a32dd1f7fd64e256b2f9ac92751f5dd31">Commercetools\Api\Models\Zone\ZoneResourceIdentifierModel</a>
 , <a class="el" href="df/dbb/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_key_reference_model.html#a59cb1809720fd91604bac2fb928d2b74">Commercetools\History\Models\Common\KeyReferenceModel</a>
 , <a class="el" href="d8/d98/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_reference_model.html#acfcaf29f0ad51967decd05427534c191">Commercetools\History\Models\Common\ReferenceModel</a>
+, <a class="el" href="d3/dc2/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_resource_identifier_model.html#a4b4616db9706e7110c88927f94e55f39">Commercetools\History\Models\Common\ResourceIdentifierModel</a>
 , <a class="el" href="d5/d88/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_cart_discount_key_reference_model.html#a09d1a9623982e51d1e9937fa2c84af6e">Commercetools\Import\Models\Common\CartDiscountKeyReferenceModel</a>
 , <a class="el" href="d3/d05/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_cart_key_reference_model.html#a3735ed48fc97959ff7657a251eaa55ff">Commercetools\Import\Models\Common\CartKeyReferenceModel</a>
 , <a class="el" href="d7/db4/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_category_key_reference_model.html#af6f93e35db42c69424c1563b9c4d8529">Commercetools\Import\Models\Common\CategoryKeyReferenceModel</a>
@@ -11113,12 +11365,18 @@ $(function() {
 , <a class="el" href="d2/d37/class_commercetools_1_1_api_1_1_models_1_1_error_1_1_graph_q_l_duplicate_standalone_price_scope_error_model.html#ab4371aa94953e2d51a497acb6d8afbfa">Commercetools\Api\Models\Error\GraphQLDuplicateStandalonePriceScopeErrorModel</a>
 , <a class="el" href="d4/de3/class_commercetools_1_1_api_1_1_models_1_1_error_1_1_graph_q_l_overlapping_standalone_price_validity_error_model.html#a127a221921f153f875efe952b79f1001">Commercetools\Api\Models\Error\GraphQLOverlappingStandalonePriceValidityErrorModel</a>
 , <a class="el" href="d5/d7b/class_commercetools_1_1_api_1_1_models_1_1_error_1_1_overlapping_standalone_price_validity_error_model.html#ae32d6e9c3c72e4062ef5553c73f2601e">Commercetools\Api\Models\Error\OverlappingStandalonePriceValidityErrorModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a4c80dd1a473c9929fa6529a0e4b78c01">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="d5/d16/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_payload_model.html#a824cbbb2395442f9b35e39895c41414d">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessagePayloadModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#aafcb4833dfd7dc920682c0e13b615c60">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="de/d13/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_payload_model.html#a5c57dabf0187d4a186b5b5344a508e81">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessagePayloadModel</a>
 , <a class="el" href="d3/d48/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft_model.html#af7a18dae3a0a8e0bd4b3d4c1d00d3c43">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraftModel</a>
 , <a class="el" href="dd/df7/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_model.html#a5912fa3fa5fb328b811b3355b002f904">Commercetools\Api\Models\ProductDiscount\ProductDiscountModel</a>
 , <a class="el" href="d5/d93/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_set_valid_from_action_model.html#ae7ff7eb193de4532016d15b1aeba6226">Commercetools\Api\Models\ProductDiscount\ProductDiscountSetValidFromActionModel</a>
 , <a class="el" href="d5/d72/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_set_valid_from_and_until_action_model.html#a695731988cc4524a4fdbe5179507ecad">Commercetools\Api\Models\ProductDiscount\ProductDiscountSetValidFromAndUntilActionModel</a>
 , <a class="el" href="db/d24/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_model.html#a5a2f971c0236b5b12606df45a9c07000">Commercetools\Api\Models\StandalonePrice\StandalonePriceDraftModel</a>
 , <a class="el" href="da/d2a/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_model.html#a553de0b51465aa22687da2af143f984a">Commercetools\Api\Models\StandalonePrice\StandalonePriceModel</a>
+, <a class="el" href="dd/d7b/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_valid_from_action_model.html#aa852c9617c194b04539310b4569b3872">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetValidFromActionModel</a>
+, <a class="el" href="df/d84/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_valid_from_and_until_action_model.html#a404bd4faebdbd520184e276a60a5168c">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetValidFromAndUntilActionModel</a>
 , <a class="el" href="d5/d7c/class_commercetools_1_1_history_1_1_models_1_1_change_value_1_1_valid_from_and_until_value_model.html#aa4f4814b16375354ee010b2d8aad83fc">Commercetools\History\Models\ChangeValue\ValidFromAndUntilValueModel</a>
 , <a class="el" href="d6/d30/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_price_model.html#a087209937e904764acba25d053a8917e">Commercetools\Import\Models\Orders\LineItemPriceModel</a>
 , <a class="el" href="d8/d36/class_commercetools_1_1_import_1_1_models_1_1_prices_1_1_price_import_model.html#a8ac719f682a2cb75423eaca4c227d1fd">Commercetools\Import\Models\Prices\PriceImportModel</a>
@@ -11155,12 +11413,18 @@ $(function() {
 , <a class="el" href="d2/d37/class_commercetools_1_1_api_1_1_models_1_1_error_1_1_graph_q_l_duplicate_standalone_price_scope_error_model.html#a575a44ab04dc59439e778f59b581a8b4">Commercetools\Api\Models\Error\GraphQLDuplicateStandalonePriceScopeErrorModel</a>
 , <a class="el" href="d4/de3/class_commercetools_1_1_api_1_1_models_1_1_error_1_1_graph_q_l_overlapping_standalone_price_validity_error_model.html#a13602d536fff848dc38c50f5d44db9ab">Commercetools\Api\Models\Error\GraphQLOverlappingStandalonePriceValidityErrorModel</a>
 , <a class="el" href="d5/d7b/class_commercetools_1_1_api_1_1_models_1_1_error_1_1_overlapping_standalone_price_validity_error_model.html#a5ef13ca893330eac7947a8fe2cbe0f76">Commercetools\Api\Models\Error\OverlappingStandalonePriceValidityErrorModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a48ae4a1ffeb9201e8014be92a042e731">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="d5/d16/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_payload_model.html#aa8c0fe272a025253622fbf4fa5d48533">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessagePayloadModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#ab7ac65b7060026bdf54b40307e4ce96c">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
+, <a class="el" href="dc/d6f/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_payload_model.html#aad86cccdcf7f9fc1f00f426d34051875">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessagePayloadModel</a>
 , <a class="el" href="d3/d48/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft_model.html#af778da88ec43bc83dfdc7eed385655b4">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraftModel</a>
 , <a class="el" href="dd/df7/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_model.html#a396ebb2c6f933bbda65ea8a2fe3e6b23">Commercetools\Api\Models\ProductDiscount\ProductDiscountModel</a>
 , <a class="el" href="d5/d72/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_set_valid_from_and_until_action_model.html#ad2c2d725adc3a368e8e908a4e586198e">Commercetools\Api\Models\ProductDiscount\ProductDiscountSetValidFromAndUntilActionModel</a>
 , <a class="el" href="d8/d1b/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_set_valid_until_action_model.html#af6c9f169f32944cb25685de913626bb0">Commercetools\Api\Models\ProductDiscount\ProductDiscountSetValidUntilActionModel</a>
 , <a class="el" href="db/d24/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_model.html#ab10dbc769eec7fe5719d26a42d243f25">Commercetools\Api\Models\StandalonePrice\StandalonePriceDraftModel</a>
 , <a class="el" href="da/d2a/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_model.html#abbf5e311e9dd20c5b64da01cc17d9b8f">Commercetools\Api\Models\StandalonePrice\StandalonePriceModel</a>
+, <a class="el" href="df/d84/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_valid_from_and_until_action_model.html#a02edcaff52eeabad27f608647fb63362">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetValidFromAndUntilActionModel</a>
+, <a class="el" href="d0/d84/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_set_valid_until_action_model.html#a3e2beb24cc14330aa56032db15ae64b2">Commercetools\Api\Models\StandalonePrice\StandalonePriceSetValidUntilActionModel</a>
 , <a class="el" href="d5/d7c/class_commercetools_1_1_history_1_1_models_1_1_change_value_1_1_valid_from_and_until_value_model.html#a723bae2e712011c6af5ee0ccac98541e">Commercetools\History\Models\ChangeValue\ValidFromAndUntilValueModel</a>
 , <a class="el" href="d6/d30/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_price_model.html#a6e84beba3c9d37c1504f673c57b77f50">Commercetools\Import\Models\Orders\LineItemPriceModel</a>
 , <a class="el" href="d8/d36/class_commercetools_1_1_import_1_1_models_1_1_prices_1_1_price_import_model.html#ae214487e9e9fbc6c679627f5f2e7a225">Commercetools\Import\Models\Prices\PriceImportModel</a>
@@ -11469,6 +11733,7 @@ $(function() {
 , <a class="el" href="d4/d97/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_selection_add_product_action_model.html#a151e626941c0ee59616f3c383e52baf3">Commercetools\Api\Models\ProductSelection\ProductSelectionAddProductActionModel</a>
 , <a class="el" href="d5/dc4/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_selection_assignment_model.html#a35b52779f71da758d3088e775310d0df">Commercetools\Api\Models\ProductSelection\ProductSelectionAssignmentModel</a>
 , <a class="el" href="d6/d87/class_commercetools_1_1_api_1_1_models_1_1_product_selection_1_1_product_selection_set_variant_selection_action_model.html#abee29e57ff81d8bdcaccff28c0ec09e8">Commercetools\Api\Models\ProductSelection\ProductSelectionSetVariantSelectionActionModel</a>
+, <a class="el" href="d0/dc3/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_add_product_change_model.html#a2fbf77d92eacedf58552f7183458e7e9">Commercetools\History\Models\Change\AddProductChangeModel</a>
 </li>
 <li>$variantValues
 : <a class="el" href="dc/d95/class_commercetools_1_1_api_1_1_models_1_1_error_1_1_duplicate_variant_values_error_model.html#aa299596190459ceeda8fdf23ecd09c74">Commercetools\Api\Models\Error\DuplicateVariantValuesErrorModel</a>
@@ -11684,6 +11949,12 @@ $(function() {
 , <a class="el" href="d8/d70/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_external_discount_set_message_model.html#a14bc3c8cfff390490ff7c2858bd47534">Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageModel</a>
 , <a class="el" href="d7/d23/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_key_set_message_model.html#a355f5650fa724054d0fcfac925747803">Commercetools\Api\Models\Message\StandalonePriceKeySetMessageModel</a>
 , <a class="el" href="dc/d19/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_staged_changes_applied_message_model.html#a8d8b6efe84a6f81d2e75c5e554af1705">Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageModel</a>
+, <a class="el" href="d5/db1/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_added_message_model.html#a36e45816fe46a2945e1699b24a9df4e2">Commercetools\Api\Models\Message\StandalonePriceTierAddedMessageModel</a>
+, <a class="el" href="d0/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tier_removed_message_model.html#ac9547ef03c7432643581b6c45d72e13a">Commercetools\Api\Models\Message\StandalonePriceTierRemovedMessageModel</a>
+, <a class="el" href="db/dc0/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_tiers_set_message_model.html#a5de4581d19679fd6dafb8604f70c48df">Commercetools\Api\Models\Message\StandalonePriceTiersSetMessageModel</a>
+, <a class="el" href="d6/d93/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_and_until_set_message_model.html#a7669b1e936c593d4a19224f526292de5">Commercetools\Api\Models\Message\StandalonePriceValidFromAndUntilSetMessageModel</a>
+, <a class="el" href="da/df6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_from_set_message_model.html#a5cf987f606c51459fa2844d8f5c36941">Commercetools\Api\Models\Message\StandalonePriceValidFromSetMessageModel</a>
+, <a class="el" href="d7/db5/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_valid_until_set_message_model.html#acf08cdcdb202e57d1330fedb83b8489b">Commercetools\Api\Models\Message\StandalonePriceValidUntilSetMessageModel</a>
 , <a class="el" href="de/dd4/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_standalone_price_value_changed_message_model.html#add376d9b8167959d2d15aac38a72593b">Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageModel</a>
 , <a class="el" href="df/ddf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_countries_changed_message_model.html#ac02bea3362f214df24830f448815cd1b">Commercetools\Api\Models\Message\StoreCountriesChangedMessageModel</a>
 , <a class="el" href="d7/d11/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_store_created_message_model.html#a655867b0f147f7a4df5b212010db2b6c">Commercetools\Api\Models\Message\StoreCreatedMessageModel</a>

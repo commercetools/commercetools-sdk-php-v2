@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.5.0</span>
+   &#160;<span id="projectnumber">9.6.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -248,7 +248,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Present only if the change was made using a token from an <a href="../..//authorization#tokens-for-anonymous-sessions">Anonymous Session</a>.</p>
+<p>Present only if the change was made using a token from an <a href="../..//authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -272,13 +272,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../..//general-concepts#identifier">ID</a> of the <a href="../..//projects/api-clients#apiclient">API Client</a> that made the change. Present only if the change was made using an API <a class="el" href="../../dd/d5b/namespace_commercetools_1_1_history_1_1_client.html">Client</a>.</p>
+<p><a href="../..//general-concepts#identifier">ID</a> of the <a href="../../ctp:api:type:ApiClient">API Client</a> that made the change.</p>
+<p>Present only if the change was made using an API <a class="el" href="../../dd/d5b/namespace_commercetools_1_1_history_1_1_client.html">Client</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#a0c4434bfa177501ae02bc78906849b16">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00178">178</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00177">177</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
@@ -296,13 +297,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../..//types#reference">Reference</a> to the <a href="../..//projects/customers#customer">Customer</a> who made the change. Present only if the change was made using a token from the <a href="../..//authorization#password-flow">Password Flow</a>.</p>
+<p><a href="../../ctp:api:type:Reference">Reference</a> to the <a href="../../ctp:api:type:Customer">Customer</a> who made the change.</p>
+<p>Present only if the change was made using a token from the <a href="../..//authorization#password-flow">password flow</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Reference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#a03c1f027890dc989b97fdacba974710e">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00134">134</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00135">135</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
@@ -320,7 +322,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../..//general-concepts#identifier">ID</a> of the Merchant Center user who made the change. Present only if the change was made in the Merchant Center.</p>
+<p><a href="../..//general-concepts#identifier">ID</a> of the Merchant Center user who made the change.</p>
+<p>Present only if the change was made in the Merchant Center.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -344,13 +347,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>true</code> if the change was made via Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
+<p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#a0bca189b3aee2d8a428d1649c5792470">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00198">198</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00197">197</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
@@ -368,13 +371,19 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Indicates whether the change was made by a user or the API client with or without an <a href="../..//client-logging#external-user-ids">External user ID</a>.</p>
+<p>Indicates who performed the change.</p>
+<ul>
+<li>
+If the change was made by a user, the value is <code>&quot;user&quot;</code>. </li>
+<li>
+If the change was made by an API <a class="el" href="../../dd/d5b/namespace_commercetools_1_1_history_1_1_client.html">Client</a> with or without an <a href="../..//client-logging#external-user-ids">external user ID</a>, the value is <code>&quot;external-user&quot;</code>. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#a815984ff8ada44edd79942f95eaac942">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00111">111</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00114">114</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
@@ -402,7 +411,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#ad8050a33d175ce6a0af3a4f4c5ceef80">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00240">240</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00239">239</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
@@ -430,7 +439,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#abeafbe2dd24aac284cc2b62baec201df">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00248">248</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00247">247</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
@@ -458,7 +467,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#ad7771199702b042628dd2c5886340fff">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00232">232</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00231">231</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
@@ -486,7 +495,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#aaeabfa4a89e79731f17539dfb778eb7f">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00216">216</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00215">215</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
@@ -514,7 +523,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#ac18551ced6b67ecbb5f950d0fe5c7e20">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00256">256</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00255">255</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
@@ -542,7 +551,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../df/d8b/interface_commercetools_1_1_history_1_1_models_1_1_change_history_1_1_modified_by.html#ad6e2787fcd8d3917030a2dd0ad2f8cd4">Commercetools\History\Models\ChangeHistory\ModifiedBy</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00224">224</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html#l00223">223</a> of file <a class="el" href="../../d7/df7/_modified_by_model_8php_source.html">ModifiedByModel.php</a>.</p>
 
 </div>
 </div>
