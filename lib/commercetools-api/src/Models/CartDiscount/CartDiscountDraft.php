@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -23,6 +24,7 @@ interface CartDiscountDraft extends JsonObject
     public const FIELD_CART_PREDICATE = 'cartPredicate';
     public const FIELD_TARGET = 'target';
     public const FIELD_SORT_ORDER = 'sortOrder';
+    public const FIELD_STORES = 'stores';
     public const FIELD_IS_ACTIVE = 'isActive';
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
@@ -90,7 +92,21 @@ interface CartDiscountDraft extends JsonObject
     public function getSortOrder();
 
     /**
-     * <p>Only active Discounts can be applied to the Cart.</p>
+     * <ul>
+     * <li>If defined, the Cart Discount applies on <a href="ctp:api:type:Cart">Carts</a> having a <a href="ctp:api:type:Store">Store</a> matching any Store defined for this field.</li>
+     * <li>If not defined, the Cart Discount applies on all Carts, irrespective of a Store.</li>
+     * </ul>
+     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts-stores">limit</a>, a <a href="ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
+     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
+     *
+
+     * @return null|StoreResourceIdentifierCollection
+     */
+    public function getStores();
+
+    /**
+     * <p>Only active Discounts can be applied to the Cart.
+     * If the <a href="/../api/limits#cart-discounts">limit</a> for active Cart Discounts is reached, a <a href="ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
      *
 
      * @return null|bool
@@ -171,6 +187,11 @@ interface CartDiscountDraft extends JsonObject
      * @param ?string $sortOrder
      */
     public function setSortOrder(?string $sortOrder): void;
+
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
+    public function setStores(?StoreResourceIdentifierCollection $stores): void;
 
     /**
      * @param ?bool $isActive

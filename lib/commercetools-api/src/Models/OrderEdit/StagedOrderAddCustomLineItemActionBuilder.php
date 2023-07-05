@@ -46,6 +46,12 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -100,6 +106,17 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -186,6 +203,17 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     public function withName(?LocalizedString $name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -316,6 +344,7 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
         return new StagedOrderAddCustomLineItemActionModel(
             $this->money instanceof MoneyBuilder ? $this->money->build() : $this->money,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->key,
             $this->quantity,
             $this->slug,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,

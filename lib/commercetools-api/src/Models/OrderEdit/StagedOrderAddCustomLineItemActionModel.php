@@ -52,6 +52,12 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -93,6 +99,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     public function __construct(
         ?Money $money = null,
         ?LocalizedString $name = null,
+        ?string $key = null,
         ?int $quantity = null,
         ?string $slug = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
@@ -103,6 +110,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     ) {
         $this->money = $money;
         $this->name = $name;
+        $this->key = $key;
         $this->quantity = $quantity;
         $this->slug = $slug;
         $this->taxCategory = $taxCategory;
@@ -170,6 +178,26 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         }
 
         return $this->name;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -310,6 +338,14 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

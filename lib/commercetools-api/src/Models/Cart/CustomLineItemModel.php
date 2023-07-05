@@ -40,6 +40,12 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -128,6 +134,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      */
     public function __construct(
         ?string $id = null,
+        ?string $key = null,
         ?LocalizedString $name = null,
         ?TypedMoney $money = null,
         ?TaxedItemPrice $taxedPrice = null,
@@ -144,6 +151,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         ?string $priceMode = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->name = $name;
         $this->money = $money;
         $this->taxedPrice = $taxedPrice;
@@ -178,6 +186,26 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         }
 
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -482,6 +510,14 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

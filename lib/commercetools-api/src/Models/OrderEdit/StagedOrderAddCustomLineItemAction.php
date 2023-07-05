@@ -21,6 +21,7 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
 {
     public const FIELD_MONEY = 'money';
     public const FIELD_NAME = 'name';
+    public const FIELD_KEY = 'key';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_SLUG = 'slug';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
@@ -43,6 +44,14 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
      * @return null|LocalizedString
      */
     public function getName();
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
 
@@ -101,6 +110,11 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?int $quantity

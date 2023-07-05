@@ -17,6 +17,7 @@ use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -111,6 +112,12 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
 
     /**
      *
+     * @var ?StoreKeyReferenceCollection
+     */
+    protected $stores;
+
+    /**
+     *
      * @var ?bool
      */
     protected $isActive;
@@ -169,6 +176,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         ?string $cartPredicate = null,
         ?CartDiscountTarget $target = null,
         ?string $sortOrder = null,
+        ?StoreKeyReferenceCollection $stores = null,
         ?bool $isActive = null,
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
@@ -190,6 +198,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         $this->cartPredicate = $cartPredicate;
         $this->target = $target;
         $this->sortOrder = $sortOrder;
+        $this->stores = $stores;
         $this->isActive = $isActive;
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
@@ -477,6 +486,29 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
+     * <ul>
+     * <li>If a value exists, the Cart Discount applies on <a href="ctp:api:type:Cart">Carts</a> having a <a href="ctp:api:type:Store">Store</a> matching any Store defined for this field.</li>
+     * <li>If empty, the Cart Discount applies on all <a href="ctp:api:type:Cart">Carts</a>, irrespective of a Store.</li>
+     * </ul>
+     *
+     *
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->stores;
+    }
+
+    /**
      * <p>Indicates if the CartDiscount is active and can be applied to the Cart.</p>
      *
      *
@@ -729,6 +761,14 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     public function setSortOrder(?string $sortOrder): void
     {
         $this->sortOrder = $sortOrder;
+    }
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
     /**

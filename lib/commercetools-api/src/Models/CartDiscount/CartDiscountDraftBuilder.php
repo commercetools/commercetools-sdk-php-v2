@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -66,6 +67,12 @@ final class CartDiscountDraftBuilder implements Builder
      * @var ?string
      */
     private $sortOrder;
+
+    /**
+
+     * @var ?StoreResourceIdentifierCollection
+     */
+    private $stores;
 
     /**
 
@@ -184,7 +191,24 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
-     * <p>Only active Discounts can be applied to the Cart.</p>
+     * <ul>
+     * <li>If defined, the Cart Discount applies on <a href="ctp:api:type:Cart">Carts</a> having a <a href="ctp:api:type:Store">Store</a> matching any Store defined for this field.</li>
+     * <li>If not defined, the Cart Discount applies on all Carts, irrespective of a Store.</li>
+     * </ul>
+     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts-stores">limit</a>, a <a href="ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
+     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
+     *
+
+     * @return null|StoreResourceIdentifierCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
+    }
+
+    /**
+     * <p>Only active Discounts can be applied to the Cart.
+     * If the <a href="/../api/limits#cart-discounts">limit</a> for active Cart Discounts is reached, a <a href="ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
      *
 
      * @return null|bool
@@ -327,6 +351,17 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     * @return $this
+     */
+    public function withStores(?StoreResourceIdentifierCollection $stores)
+    {
+        $this->stores = $stores;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $isActive
      * @return $this
      */
@@ -457,6 +492,7 @@ final class CartDiscountDraftBuilder implements Builder
             $this->cartPredicate,
             $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target,
             $this->sortOrder,
+            $this->stores,
             $this->isActive,
             $this->validFrom,
             $this->validUntil,
