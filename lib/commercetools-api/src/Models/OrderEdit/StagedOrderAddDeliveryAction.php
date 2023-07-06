@@ -19,6 +19,7 @@ use Commercetools\Base\JsonObject;
 interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
 {
     public const FIELD_DELIVERY_KEY = 'deliveryKey';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
     public const FIELD_ITEMS = 'items';
     public const FIELD_ADDRESS = 'address';
     public const FIELD_PARCELS = 'parcels';
@@ -31,6 +32,14 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
      * @return null|string
      */
     public function getDeliveryKey();
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
 
     /**
 
@@ -66,6 +75,11 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
      * @param ?string $deliveryKey
      */
     public function setDeliveryKey(?string $deliveryKey): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 
     /**
      * @param ?DeliveryItemCollection $items

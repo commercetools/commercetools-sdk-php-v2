@@ -36,6 +36,12 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
@@ -67,6 +73,17 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     public function getDeliveryKey()
     {
         return $this->deliveryKey;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -118,6 +135,17 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     public function withDeliveryKey(?string $deliveryKey)
     {
         $this->deliveryKey = $deliveryKey;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
 
         return $this;
     }
@@ -192,6 +220,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     {
         return new StagedOrderAddDeliveryActionModel(
             $this->deliveryKey,
+            $this->shippingKey,
             $this->items,
             $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,
             $this->parcels,
