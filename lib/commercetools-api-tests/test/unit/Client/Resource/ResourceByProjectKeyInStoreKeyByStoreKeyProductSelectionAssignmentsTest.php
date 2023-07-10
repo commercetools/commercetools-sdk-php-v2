@@ -138,6 +138,30 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsTest ex
                 'get',
                 'test_projectKey/in-store/key=test_storeKey/product-selection-assignments?expand=expand',
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productSelectionAssignments()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-selection-assignments?where=where',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet_withPredicateVar' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productSelectionAssignments()
+                        ->get()
+                        ->withPredicateVar('varName', 'var.varName');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-selection-assignments?var.varName=var.varName',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

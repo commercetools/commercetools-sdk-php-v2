@@ -543,7 +543,7 @@ final class StagedOrderBuilder implements Builder
 
     /**
      * <p>Holds all shipping-related information per Shipping Method.</p>
-     * <p>For <code>Multi</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>, it is updated automatically after the Shipping Methods are added.</p>
+     * <p>For <code>Multiple</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>, it is updated automatically after the Shipping Methods are added.</p>
      *
 
      * @return null|Address
@@ -574,7 +574,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|string
@@ -596,7 +596,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Holds all shipping-related information per Shipping Method for <code>Multi</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>.</p>
+     * <p>Holds all shipping-related information per Shipping Method for <code>Multiple</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>.</p>
      * <p>It is updated automatically after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
      *
 

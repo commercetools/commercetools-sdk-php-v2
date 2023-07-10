@@ -31,10 +31,11 @@ use Psr\Http\Message\ResponseInterface;
 
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Expandable<ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet>
+ * @template-implements Query<ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet>
  * @template-implements Errorable<ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet>
  * @template-implements Deprecatable200<ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet>
  */
-class ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet extends ApiRequest implements Expandable, Errorable, Deprecatable200
+class ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet extends ApiRequest implements Expandable, Query, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -178,5 +179,23 @@ class ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet extends Api
     public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet
     {
         return $this->withQueryParam('expand', $expand);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     * @psalm-param string $varName
+     * @psalm-param scalar|scalar[] $predicateVar
+     */
+    public function withPredicateVar(string $varName, $predicateVar): ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet
+    {
+        return $this->withQueryParam(sprintf('var.%s', $varName), $predicateVar);
     }
 }

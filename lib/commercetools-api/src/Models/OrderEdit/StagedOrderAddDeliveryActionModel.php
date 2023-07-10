@@ -131,7 +131,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>,required for <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|string
