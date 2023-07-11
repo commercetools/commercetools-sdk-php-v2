@@ -76,7 +76,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Total gross amount of the Order (totalNet + taxes).</p>
      *
      *
      * @return null|Money
@@ -97,6 +97,8 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      *
      * @return null|TaxPortionDraftCollection
      */

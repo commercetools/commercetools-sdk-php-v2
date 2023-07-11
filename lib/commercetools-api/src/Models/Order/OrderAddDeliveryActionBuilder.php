@@ -32,15 +32,15 @@ final class OrderAddDeliveryActionBuilder implements Builder
 
     /**
 
-     * @var ?DeliveryItemCollection
-     */
-    private $items;
-
-    /**
-
      * @var ?string
      */
     private $shippingKey;
+
+    /**
+
+     * @var ?DeliveryItemCollection
+     */
+    private $items;
 
     /**
 
@@ -61,7 +61,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-defined unique identifier of a Delivery.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
      * @return null|string
@@ -69,15 +69,6 @@ final class OrderAddDeliveryActionBuilder implements Builder
     public function getDeliveryKey()
     {
         return $this->deliveryKey;
-    }
-
-    /**
-
-     * @return null|DeliveryItemCollection
-     */
-    public function getItems()
-    {
-        return $this->items;
     }
 
     /**
@@ -92,9 +83,18 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
-     * <p>Polymorphic base type that represents a postal address and contact details.
-     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
-     * only differ in the data type for the optional <code>custom</code> field.</p>
+     * <p>Line Items or Custom Line Items to be included in the Delivery.</p>
+     *
+
+     * @return null|DeliveryItemCollection
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    /**
+     * <p>Address the <code>parcels</code> should be delivered to.</p>
      *
 
      * @return null|BaseAddress
@@ -105,6 +105,9 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * <p>Parcels of the Delivery.</p>
+     * <p>If provided, this update action produces the <a href="ctp:api:type:ParcelAddedToDeliveryMessage">Parcel Added To Delivery</a> Message.</p>
+     *
 
      * @return null|ParcelDraftCollection
      */
@@ -114,7 +117,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields for the Delivery.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -136,23 +139,23 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
-     * @param ?DeliveryItemCollection $items
-     * @return $this
-     */
-    public function withItems(?DeliveryItemCollection $items)
-    {
-        $this->items = $items;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $shippingKey
      * @return $this
      */
     public function withShippingKey(?string $shippingKey)
     {
         $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DeliveryItemCollection $items
+     * @return $this
+     */
+    public function withItems(?DeliveryItemCollection $items)
+    {
+        $this->items = $items;
 
         return $this;
     }
@@ -216,8 +219,8 @@ final class OrderAddDeliveryActionBuilder implements Builder
     {
         return new OrderAddDeliveryActionModel(
             $this->deliveryKey,
-            $this->items,
             $this->shippingKey,
+            $this->items,
             $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,
             $this->parcels,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom

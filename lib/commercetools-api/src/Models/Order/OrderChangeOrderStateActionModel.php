@@ -63,6 +63,8 @@ final class OrderChangeOrderStateActionModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>New status of the Order.</p>
+     *
      *
      * @return null|string
      */

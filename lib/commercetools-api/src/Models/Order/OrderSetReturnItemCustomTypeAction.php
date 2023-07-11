@@ -20,14 +20,16 @@ interface OrderSetReturnItemCustomTypeAction extends OrderUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getReturnItemId();
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the ReturnItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the ReturnItem.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Return Item with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Return Item.</p>
      *
 
      * @return null|TypeResourceIdentifier
@@ -35,7 +37,7 @@ interface OrderSetReturnItemCustomTypeAction extends OrderUpdateAction
     public function getType();
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the ReturnItem.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Return Item.</p>
      *
 
      * @return null|FieldContainer

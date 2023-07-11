@@ -17,6 +17,8 @@ interface StagedOrderChangeShipmentStateAction extends StagedOrderUpdateAction
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**
+     * <p>New shipment status of the Order.</p>
+     *
 
      * @return null|string
      */

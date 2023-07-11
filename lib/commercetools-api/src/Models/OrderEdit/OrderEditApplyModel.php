@@ -44,6 +44,8 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     }
 
     /**
+     * <p>Current <code>version</code> of the OrderEdit to be applied.</p>
+     *
      *
      * @return null|int
      */
@@ -62,6 +64,8 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     }
 
     /**
+     * <p>Current <code>version</code> of the <a href="ctp:api:type:Order">Order</a> to which the OrderEdit is applied.</p>
+     *
      *
      * @return null|int
      */

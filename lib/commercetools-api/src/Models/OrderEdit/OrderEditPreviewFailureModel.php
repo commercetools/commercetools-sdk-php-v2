@@ -64,6 +64,8 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     }
 
     /**
+     * <p>Errors returned.</p>
+     *
      *
      * @return null|ErrorObjectCollection
      */

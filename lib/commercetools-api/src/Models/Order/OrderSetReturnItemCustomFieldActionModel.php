@@ -79,6 +79,8 @@ final class OrderSetReturnItemCustomFieldActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     *
      *
      * @return null|string
      */

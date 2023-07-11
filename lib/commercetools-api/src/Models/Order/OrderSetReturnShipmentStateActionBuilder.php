@@ -33,6 +33,8 @@ final class OrderSetReturnShipmentStateActionBuilder implements Builder
     private $shipmentState;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class OrderSetReturnShipmentStateActionBuilder implements Builder
     }
 
     /**
+     * <p>New shipment state of the <a href="ctp:api:type:ReturnItem">ReturnItem</a>.</p>
+     *
 
      * @return null|string
      */

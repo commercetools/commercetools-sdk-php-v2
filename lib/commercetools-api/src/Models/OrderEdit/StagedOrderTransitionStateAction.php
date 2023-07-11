@@ -19,7 +19,8 @@ interface StagedOrderTransitionStateAction extends StagedOrderUpdateAction
     public const FIELD_FORCE = 'force';
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p>Value to set.
+     * If there is no State yet, the new State must be an initial State.</p>
      *
 
      * @return null|StateResourceIdentifier
@@ -27,6 +28,8 @@ interface StagedOrderTransitionStateAction extends StagedOrderUpdateAction
     public function getState();
 
     /**
+     * <p>Set to <code>true</code> to turn off validation.</p>
+     *
 
      * @return null|bool
      */

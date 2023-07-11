@@ -317,8 +317,8 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p><code>key</code> of the <a href="ctp:api:type:Product">Product</a>.</p>
      * <p>This field is only present on:</p>
      * <ul>
-     * <li>Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item was created or updated on the Cart.</li>
-     * <li><a href="ctp:api:type:Order">Orders</a> when the <code>key</code> is available on the specific Product at the time the Order was created from the Cart.</li>
+     * <li>Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the LineItem was created or updated on the Cart.</li>
+     * <li>Line Items in an <a href="ctp:api:type:Order">Order</a> when the <code>key</code> is available on the specific Product at the time the Order was created from the Cart.</li>
      * </ul>
      * <p>Present on resources created or updated after 3 December 2021.</p>
      *
@@ -448,7 +448,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>Number of Line Items of the given Product Variant present in the Cart.</p>
+     * <p>Number of Line Items of the given Product Variant present in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
      *
      * @return null|int
@@ -551,7 +551,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>State of the Line Item in the Cart.</p>
+     * <p>State of the Line Item in the <a href="ctp:api:type:Cart">Cart</a> or the <a href="ctp:api:type:Order">Order</a>.</p>
      *
      *
      * @return null|ItemStateCollection

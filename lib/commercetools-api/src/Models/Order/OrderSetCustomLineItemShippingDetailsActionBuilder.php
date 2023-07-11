@@ -35,6 +35,8 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     private $shippingDetails;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -44,7 +46,8 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     }
 
     /**
-     * <p>For order creation and updates, the sum of the <code>targets</code> must match the quantity of the Line Items or Custom Line Items.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
 
      * @return null|ItemShippingDetailsDraft

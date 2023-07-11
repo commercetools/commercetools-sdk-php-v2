@@ -65,6 +65,11 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     * <p>If the Cart is bound to a <code>store</code>, the provided value must be included in the <a href="ctp:api:type:Store">Store</a>'s <code>countries</code>.
+     * Otherwise a <a href="ctp:api:type:CountryNotConfiguredInStoreError">CountryNotConfiguredInStore</a> error is returned.</p>
+     *
      *
      * @return null|string
      */

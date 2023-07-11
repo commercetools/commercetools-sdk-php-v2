@@ -35,6 +35,8 @@ final class StagedOrderSetReturnPaymentStateActionBuilder implements Builder
     private $paymentState;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class StagedOrderSetReturnPaymentStateActionBuilder implements Builder
     }
 
     /**
+     * <p>New Payment status of the <a href="ctp:api:type:ReturnItem">ReturnItem</a>.</p>
+     *
 
      * @return null|string
      */

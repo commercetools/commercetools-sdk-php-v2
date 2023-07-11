@@ -60,6 +60,8 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
+     * <p>Height of the Parcel.</p>
+     *
      *
      * @return null|int
      */
@@ -78,6 +80,8 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
+     * <p>Length of the Parcel.</p>
+     *
      *
      * @return null|int
      */
@@ -96,6 +100,8 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
+     * <p>Width of the Parcel.</p>
+     *
      *
      * @return null|int
      */
@@ -114,6 +120,8 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
+     * <p>Weight of the Parcel.</p>
+     *
      *
      * @return null|int
      */

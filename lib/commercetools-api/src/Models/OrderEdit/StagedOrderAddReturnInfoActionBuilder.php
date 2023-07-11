@@ -43,6 +43,8 @@ final class StagedOrderAddReturnInfoActionBuilder implements Builder
     private $returnDate;
 
     /**
+     * <p>Value to set.</p>
+     *
 
      * @return null|string
      */
@@ -52,6 +54,9 @@ final class StagedOrderAddReturnInfoActionBuilder implements Builder
     }
 
     /**
+     * <p>Items to be returned.
+     * Must not be empty.</p>
+     *
 
      * @return null|ReturnItemDraftCollection
      */
@@ -61,6 +66,9 @@ final class StagedOrderAddReturnInfoActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set.
+     * If not set, it defaults to the current date and time.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

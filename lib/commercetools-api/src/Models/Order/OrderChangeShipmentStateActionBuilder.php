@@ -27,6 +27,8 @@ final class OrderChangeShipmentStateActionBuilder implements Builder
     private $shipmentState;
 
     /**
+     * <p>New shipment status of the Order.</p>
+     *
 
      * @return null|string
      */

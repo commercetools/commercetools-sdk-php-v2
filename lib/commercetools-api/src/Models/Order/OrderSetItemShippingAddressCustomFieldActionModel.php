@@ -79,6 +79,8 @@ final class OrderSetItemShippingAddressCustomFieldActionModel extends JsonObject
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> in <code>itemShippingAddresses</code>.</p>
+     *
      *
      * @return null|string
      */

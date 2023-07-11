@@ -17,12 +17,16 @@ interface OrderSetReturnShipmentStateAction extends OrderUpdateAction
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getReturnItemId();
 
     /**
+     * <p>New shipment state of the <a href="ctp:api:type:ReturnItem">ReturnItem</a>.</p>
+     *
 
      * @return null|string
      */

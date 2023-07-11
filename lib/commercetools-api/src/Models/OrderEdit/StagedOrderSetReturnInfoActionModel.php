@@ -66,6 +66,9 @@ final class StagedOrderSetReturnInfoActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|ReturnInfoDraftCollection
      */

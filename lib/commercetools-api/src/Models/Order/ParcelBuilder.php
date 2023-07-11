@@ -88,6 +88,8 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Parcel was created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -97,6 +99,8 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
@@ -106,6 +110,8 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * <p>Shipment tracking information of the Parcel.</p>
+     *
 
      * @return null|TrackingData
      */
@@ -115,7 +121,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
-     * <p>The delivery items contained in this parcel.</p>
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
      *
 
      * @return null|DeliveryItemCollection
@@ -126,7 +132,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of this parcel.</p>
+     * <p>Custom Fields of the Parcel.</p>
      *
 
      * @return null|CustomFields

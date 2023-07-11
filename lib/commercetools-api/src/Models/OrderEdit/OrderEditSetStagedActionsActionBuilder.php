@@ -28,7 +28,7 @@ final class OrderEditSetStagedActionsActionBuilder implements Builder
     private $stagedActions;
 
     /**
-     * <p>The actions to edit the <code>resource</code>.</p>
+     * <p>Value to replace the <code>stagedActions</code> of the Order Edit.</p>
      *
 
      * @return null|StagedOrderUpdateActionCollection

@@ -27,6 +27,9 @@ final class OrderSetReturnInfoActionBuilder implements Builder
     private $items;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|ReturnInfoDraftCollection
      */

@@ -310,7 +310,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>If not given the <code>Open</code> state will be assigned by default.</p>
+     * <p>Current status of the Order.</p>
      *
 
      * @return null|string
@@ -332,6 +332,8 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Shipment status of the Order.</p>
+     *
 
      * @return null|string
      */
@@ -361,6 +363,8 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Payment information associated with the Order.</p>
+     *
 
      * @return null|PaymentInfo
      */

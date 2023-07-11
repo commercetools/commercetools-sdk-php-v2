@@ -17,7 +17,7 @@ interface StagedOrderChangeTaxModeAction extends StagedOrderUpdateAction
     public const FIELD_TAX_MODE = 'taxMode';
 
     /**
-     * <p>Indicates how taxes are set on the Cart.</p>
+     * <p>The new TaxMode.</p>
      *
 
      * @return null|string

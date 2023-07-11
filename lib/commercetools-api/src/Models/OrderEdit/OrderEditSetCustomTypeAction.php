@@ -19,8 +19,8 @@ interface OrderEditSetCustomTypeAction extends OrderEditUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the OrderEdit with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the OrderEdit.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Order Edit with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Order Edit.</p>
      *
 
      * @return null|TypeResourceIdentifier
@@ -28,7 +28,7 @@ interface OrderEditSetCustomTypeAction extends OrderEditUpdateAction
     public function getType();
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the OrderEdit.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Order Edit.</p>
      *
 
      * @return null|FieldContainer

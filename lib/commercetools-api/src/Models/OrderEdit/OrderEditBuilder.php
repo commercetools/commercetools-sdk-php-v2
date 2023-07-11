@@ -58,18 +58,6 @@ final class OrderEditBuilder implements Builder
 
     /**
 
-     * @var null|LastModifiedBy|LastModifiedByBuilder
-     */
-    private $lastModifiedBy;
-
-    /**
-
-     * @var null|CreatedBy|CreatedByBuilder
-     */
-    private $createdBy;
-
-    /**
-
      * @var ?string
      */
     private $key;
@@ -88,12 +76,6 @@ final class OrderEditBuilder implements Builder
 
     /**
 
-     * @var null|CustomFields|CustomFieldsBuilder
-     */
-    private $custom;
-
-    /**
-
      * @var null|OrderEditResult|OrderEditResultBuilder
      */
     private $result;
@@ -105,7 +87,25 @@ final class OrderEditBuilder implements Builder
     private $comment;
 
     /**
-     * <p>Unique identifier of the OrderEdit.</p>
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+
+     * @var null|LastModifiedBy|LastModifiedByBuilder
+     */
+    private $lastModifiedBy;
+
+    /**
+
+     * @var null|CreatedBy|CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * <p>Unique identifier of the Order Edit.</p>
      *
 
      * @return null|string
@@ -116,7 +116,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the OrderEdit.</p>
+     * <p>Current version of the Order Edit.</p>
      *
 
      * @return null|int
@@ -127,6 +127,8 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Order Edit was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -136,12 +138,81 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Order Edit was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
     {
         return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Order Edit.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Order updated with this edit.</p>
+     *
+
+     * @return null|OrderReference
+     */
+    public function getResource()
+    {
+        return $this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource;
+    }
+
+    /**
+     * <p>Update actions applied to the Order referenced by <code>resource</code>.</p>
+     *
+
+     * @return null|StagedOrderUpdateActionCollection
+     */
+    public function getStagedActions()
+    {
+        return $this->stagedActions;
+    }
+
+    /**
+     * <p>For applied edits, it's a summary of the changes on the Order.
+     * For unapplied edits, it's a preview of the changes.</p>
+     *
+
+     * @return null|OrderEditResult
+     */
+    public function getResult()
+    {
+        return $this->result instanceof OrderEditResultBuilder ? $this->result->build() : $this->result;
+    }
+
+    /**
+     * <p>User-defined information regarding the Order Edit.</p>
+     *
+
+     * @return null|string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * <p>Custom Fields of the Order Edit.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -164,72 +235,6 @@ final class OrderEditBuilder implements Builder
     public function getCreatedBy()
     {
         return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
-     * <p>User-defined unique identifier of the OrderEdit.</p>
-     *
-
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-     * <p>The order to be updated with this edit.</p>
-     *
-
-     * @return null|OrderReference
-     */
-    public function getResource()
-    {
-        return $this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource;
-    }
-
-    /**
-     * <p>The actions to apply to the Order.
-     * Cannot be updated after the edit has been applied.</p>
-     *
-
-     * @return null|StagedOrderUpdateActionCollection
-     */
-    public function getStagedActions()
-    {
-        return $this->stagedActions;
-    }
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * <p>Contains a preview of the changes in case of unapplied edit.
-     * For applied edits, it contains the summary of the changes.</p>
-     *
-
-     * @return null|OrderEditResult
-     */
-    public function getResult()
-    {
-        return $this->result instanceof OrderEditResultBuilder ? $this->result->build() : $this->result;
-    }
-
-    /**
-     * <p>This field can be used to add textual information regarding the edit.</p>
-     *
-
-     * @return null|string
-     */
-    public function getComment()
-    {
-        return $this->comment;
     }
 
     /**
@@ -277,28 +282,6 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * @param ?LastModifiedBy $lastModifiedBy
-     * @return $this
-     */
-    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
-    {
-        $this->lastModifiedBy = $lastModifiedBy;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CreatedBy $createdBy
-     * @return $this
-     */
-    public function withCreatedBy(?CreatedBy $createdBy)
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $key
      * @return $this
      */
@@ -332,17 +315,6 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFields $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @param ?OrderEditResult $result
      * @return $this
      */
@@ -360,6 +332,72 @@ final class OrderEditBuilder implements Builder
     public function withComment(?string $comment)
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     * @return $this
+     */
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CreatedBy $createdBy
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withResource() instead
+     * @return $this
+     */
+    public function withResourceBuilder(?OrderReferenceBuilder $resource)
+    {
+        $this->resource = $resource;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withResult() instead
+     * @return $this
+     */
+    public function withResultBuilder(?OrderEditResultBuilder $result)
+    {
+        $this->result = $result;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -386,39 +424,6 @@ final class OrderEditBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withResource() instead
-     * @return $this
-     */
-    public function withResourceBuilder(?OrderReferenceBuilder $resource)
-    {
-        $this->resource = $resource;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withResult() instead
-     * @return $this
-     */
-    public function withResultBuilder(?OrderEditResultBuilder $result)
-    {
-        $this->result = $result;
-
-        return $this;
-    }
-
     public function build(): OrderEdit
     {
         return new OrderEditModel(
@@ -426,14 +431,14 @@ final class OrderEditBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
-            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
             $this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->stagedActions,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->result instanceof OrderEditResultBuilder ? $this->result->build() : $this->result,
-            $this->comment
+            $this->comment,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy
         );
     }
 

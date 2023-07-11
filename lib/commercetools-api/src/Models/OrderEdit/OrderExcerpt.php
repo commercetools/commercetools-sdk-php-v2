@@ -20,18 +20,24 @@ interface OrderExcerpt extends JsonObject
     public const FIELD_VERSION = 'version';
 
     /**
+     * <p>Total price of the Order.</p>
+     *
 
      * @return null|TypedMoney
      */
     public function getTotalPrice();
 
     /**
+     * <p>Taxed price of the Order.</p>
+     *
 
      * @return null|TaxedPrice
      */
     public function getTaxedPrice();
 
     /**
+     * <p>Current version of the Order.</p>
+     *
 
      * @return null|int
      */

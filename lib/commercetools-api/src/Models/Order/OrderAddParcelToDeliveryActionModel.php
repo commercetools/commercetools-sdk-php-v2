@@ -103,7 +103,8 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
      *
      * @return null|string
@@ -123,7 +124,8 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
      *
      * @return null|string
@@ -143,6 +145,8 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -161,6 +165,8 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      *
      * @return null|ParcelMeasurements
      */
@@ -180,6 +186,8 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      *
      * @return null|TrackingData
      */
@@ -199,6 +207,8 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */

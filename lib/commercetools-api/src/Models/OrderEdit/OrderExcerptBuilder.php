@@ -43,6 +43,8 @@ final class OrderExcerptBuilder implements Builder
     private $version;
 
     /**
+     * <p>Total price of the Order.</p>
+     *
 
      * @return null|TypedMoney
      */
@@ -52,6 +54,8 @@ final class OrderExcerptBuilder implements Builder
     }
 
     /**
+     * <p>Taxed price of the Order.</p>
+     *
 
      * @return null|TaxedPrice
      */
@@ -61,6 +65,8 @@ final class OrderExcerptBuilder implements Builder
     }
 
     /**
+     * <p>Current version of the Order.</p>
+     *
 
      * @return null|int
      */

@@ -17,12 +17,16 @@ interface OrderImportLineItemStateAction extends OrderUpdateAction
     public const FIELD_STATE = 'state';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+     * <p>New status of the Line Items.</p>
+     *
 
      * @return null|ItemStateCollection
      */

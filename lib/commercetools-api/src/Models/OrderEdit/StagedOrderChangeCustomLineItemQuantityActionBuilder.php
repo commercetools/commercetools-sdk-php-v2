@@ -35,6 +35,8 @@ final class StagedOrderChangeCustomLineItemQuantityActionBuilder implements Buil
     private $quantity;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,9 @@ final class StagedOrderChangeCustomLineItemQuantityActionBuilder implements Buil
     }
 
     /**
+     * <p>New value to set.
+     * If <code>0</code>, the Custom Line Item is removed from the Order.</p>
+     *
 
      * @return null|int
      */

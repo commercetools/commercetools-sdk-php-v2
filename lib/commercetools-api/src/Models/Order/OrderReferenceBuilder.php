@@ -35,7 +35,7 @@ final class OrderReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Unique ID of the referenced resource.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|string
@@ -46,6 +46,8 @@ final class OrderReferenceBuilder implements Builder
     }
 
     /**
+     * <p>Contains the representation of the expanded Order. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Orders.</p>
+     *
 
      * @return null|Order
      */

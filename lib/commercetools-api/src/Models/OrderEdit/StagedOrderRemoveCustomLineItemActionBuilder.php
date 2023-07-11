@@ -29,6 +29,8 @@ final class StagedOrderRemoveCustomLineItemActionBuilder implements Builder
     private $customLineItemId;
 
     /**
+     * <p><code>id</code> of the Custom Line Item to remove.</p>
+     *
 
      * @return null|string
      */

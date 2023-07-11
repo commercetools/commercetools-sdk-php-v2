@@ -43,6 +43,8 @@ final class OrderSetCustomLineItemCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -52,8 +54,8 @@ final class OrderSetCustomLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the CustomLineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the CustomLineItem.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Custom Line Item with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Custom Line Item.</p>
      *
 
      * @return null|TypeResourceIdentifier
@@ -64,7 +66,7 @@ final class OrderSetCustomLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the CustomLineItem.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Custom Line Item.</p>
      *
 
      * @return null|FieldContainer

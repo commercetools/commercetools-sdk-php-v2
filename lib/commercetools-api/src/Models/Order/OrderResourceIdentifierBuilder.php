@@ -35,7 +35,7 @@ final class OrderResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|string
@@ -46,7 +46,7 @@ final class OrderResourceIdentifierBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|string

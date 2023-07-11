@@ -28,6 +28,8 @@ final class OrderEditPreviewFailureBuilder implements Builder
     private $errors;
 
     /**
+     * <p>Errors returned.</p>
+     *
 
      * @return null|ErrorObjectCollection
      */

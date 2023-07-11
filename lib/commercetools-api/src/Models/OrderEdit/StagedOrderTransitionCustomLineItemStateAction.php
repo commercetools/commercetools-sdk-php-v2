@@ -23,19 +23,23 @@ interface StagedOrderTransitionCustomLineItemStateAction extends StagedOrderUpda
     public const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+     * <p>Number of Custom Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Custom Line Item should transition from.</p>
      *
 
      * @return null|StateResourceIdentifier
@@ -43,7 +47,7 @@ interface StagedOrderTransitionCustomLineItemStateAction extends StagedOrderUpda
     public function getFromState();
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Custom Line Item should transition to.</p>
      *
 
      * @return null|StateResourceIdentifier
@@ -51,6 +55,8 @@ interface StagedOrderTransitionCustomLineItemStateAction extends StagedOrderUpda
     public function getToState();
 
     /**
+     * <p>Date and time (UTC) to perform the <a href="ctp:api:type:State">State</a> transition.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

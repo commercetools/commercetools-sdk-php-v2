@@ -67,7 +67,7 @@ final class StagedOrderRemovePaymentActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     * <p>Payment to remove from the <a href="ctp:api:type:PaymentInfo">PaymentInfo</a>.</p>
      *
      *
      * @return null|PaymentResourceIdentifier

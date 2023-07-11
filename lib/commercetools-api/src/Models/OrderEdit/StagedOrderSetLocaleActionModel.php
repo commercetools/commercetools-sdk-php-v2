@@ -65,6 +65,10 @@ final class StagedOrderSetLocaleActionModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Value to set.
+     * Must be one of the <a href="ctp:api:type:Project">Project</a>'s languages.
+     * If empty, any existing value is removed.</p>
+     *
      *
      * @return null|string
      */

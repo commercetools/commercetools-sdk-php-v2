@@ -65,6 +65,8 @@ final class OrderEditAddStagedActionActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Order update action to append to the <code>stagedActions</code> array.</p>
+     *
      *
      * @return null|StagedOrderUpdateAction
      */

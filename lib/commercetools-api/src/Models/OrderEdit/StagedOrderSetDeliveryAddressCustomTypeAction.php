@@ -22,7 +22,8 @@ interface StagedOrderSetDeliveryAddressCustomTypeAction extends StagedOrderUpdat
     public const FIELD_FIELDS = 'fields';
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
 
      * @return null|string
@@ -30,7 +31,8 @@ interface StagedOrderSetDeliveryAddressCustomTypeAction extends StagedOrderUpdat
     public function getDeliveryId();
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
 
      * @return null|string
@@ -38,8 +40,8 @@ interface StagedOrderSetDeliveryAddressCustomTypeAction extends StagedOrderUpdat
     public function getDeliveryKey();
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> in a Delivery with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the <code>address</code> in a Delivery.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <a href="ctp:api:type:Delivery">Delivery</a> <code>address</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the <a href="ctp:api:type:Delivery">Delivery</a> <code>address</code>.</p>
      *
 
      * @return null|TypeResourceIdentifier
@@ -47,7 +49,7 @@ interface StagedOrderSetDeliveryAddressCustomTypeAction extends StagedOrderUpdat
     public function getType();
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>address</code> in a Delivery.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <a href="ctp:api:type:Delivery">Delivery</a> <code>address</code>.</p>
      *
 
      * @return null|FieldContainer

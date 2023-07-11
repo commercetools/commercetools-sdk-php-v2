@@ -98,6 +98,8 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -116,6 +118,8 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Number of Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
+     *
      *
      * @return null|int
      */
@@ -134,7 +138,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Line Item should transition from.</p>
      *
      *
      * @return null|StateResourceIdentifier
@@ -155,7 +159,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Line Item should transition to.</p>
      *
      *
      * @return null|StateResourceIdentifier
@@ -176,6 +180,8 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Date and time (UTC) to perform the <a href="ctp:api:type:State">State</a> transition.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

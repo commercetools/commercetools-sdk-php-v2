@@ -56,6 +56,8 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     }
 
     /**
+     * <p>Total price of the Order.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -75,6 +77,8 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     }
 
     /**
+     * <p>Taxed price of the Order.</p>
+     *
      *
      * @return null|TaxedPrice
      */
@@ -94,6 +98,8 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     }
 
     /**
+     * <p>Current version of the Order.</p>
+     *
      *
      * @return null|int
      */

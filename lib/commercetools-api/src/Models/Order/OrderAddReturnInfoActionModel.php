@@ -80,6 +80,8 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      *
      * @return null|string
      */
@@ -98,6 +100,9 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     }
 
     /**
+     * <p>Items to be returned.
+     * Must not be empty.</p>
+     *
      *
      * @return null|ReturnItemDraftCollection
      */
@@ -116,6 +121,9 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     }
 
     /**
+     * <p>Value to set.
+     * If not set, it defaults to the current date and time.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

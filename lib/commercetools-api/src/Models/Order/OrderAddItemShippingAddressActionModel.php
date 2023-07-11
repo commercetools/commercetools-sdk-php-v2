@@ -65,9 +65,8 @@ final class OrderAddItemShippingAddressActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Polymorphic base type that represents a postal address and contact details.
-     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
-     * only differ in the data type for the optional <code>custom</code> field.</p>
+     * <p>Address to append to <code>itemShippingAddresses</code>.
+     * The new Address must have a <code>key</code> that is unique across this Order.</p>
      *
      *
      * @return null|BaseAddress

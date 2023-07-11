@@ -71,6 +71,8 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>New status of the Line Items.</p>
+     *
      *
      * @return null|ItemStateCollection
      */

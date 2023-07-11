@@ -17,6 +17,8 @@ interface OrderEditPreviewFailure extends OrderEditResult
     public const FIELD_ERRORS = 'errors';
 
     /**
+     * <p>Errors returned.</p>
+     *
 
      * @return null|ErrorObjectCollection
      */

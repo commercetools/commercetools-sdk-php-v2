@@ -13,6 +13,7 @@ use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceBuilder;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceBuilder;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
+use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
 use Commercetools\Api\Models\Cart\ShippingCollection;
@@ -87,27 +88,15 @@ final class StagedOrderBuilder implements Builder
 
     /**
 
-     * @var null|LastModifiedBy|LastModifiedByBuilder
+     * @var ?string
      */
-    private $lastModifiedBy;
-
-    /**
-
-     * @var null|CreatedBy|CreatedByBuilder
-     */
-    private $createdBy;
-
-    /**
-
-     * @var ?DateTimeImmutable
-     */
-    private $completedAt;
+    private $orderNumber;
 
     /**
 
      * @var ?string
      */
-    private $orderNumber;
+    private $purchaseOrderNumber;
 
     /**
 
@@ -120,6 +109,12 @@ final class StagedOrderBuilder implements Builder
      * @var ?string
      */
     private $customerEmail;
+
+    /**
+
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
+     */
+    private $customerGroup;
 
     /**
 
@@ -171,15 +166,39 @@ final class StagedOrderBuilder implements Builder
 
     /**
 
-     * @var null|Address|AddressBuilder
+     * @var ?string
      */
-    private $shippingAddress;
+    private $taxMode;
+
+    /**
+
+     * @var ?string
+     */
+    private $taxRoundingMode;
+
+    /**
+
+     * @var ?string
+     */
+    private $taxCalculationMode;
+
+    /**
+
+     * @var ?string
+     */
+    private $inventoryMode;
 
     /**
 
      * @var null|Address|AddressBuilder
      */
     private $billingAddress;
+
+    /**
+
+     * @var null|Address|AddressBuilder
+     */
+    private $shippingAddress;
 
     /**
 
@@ -195,6 +214,18 @@ final class StagedOrderBuilder implements Builder
 
     /**
 
+     * @var null|ShippingInfo|ShippingInfoBuilder
+     */
+    private $shippingInfo;
+
+    /**
+
+     * @var null|ShippingRateInput|ShippingRateInputBuilder
+     */
+    private $shippingRateInput;
+
+    /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $shippingCustomFields;
@@ -207,21 +238,33 @@ final class StagedOrderBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var ?AddressCollection
      */
-    private $taxMode;
+    private $itemShippingAddresses;
 
     /**
 
-     * @var ?string
+     * @var ?DiscountCodeInfoCollection
      */
-    private $taxRoundingMode;
+    private $discountCodes;
 
     /**
 
-     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
+     * @var ?DirectDiscountCollection
      */
-    private $customerGroup;
+    private $directDiscounts;
+
+    /**
+
+     * @var ?CartDiscountReferenceCollection
+     */
+    private $refusedGifts;
+
+    /**
+
+     * @var null|PaymentInfo|PaymentInfoBuilder
+     */
+    private $paymentInfo;
 
     /**
 
@@ -233,61 +276,13 @@ final class StagedOrderBuilder implements Builder
 
      * @var ?string
      */
-    private $orderState;
-
-    /**
-
-     * @var null|StateReference|StateReferenceBuilder
-     */
-    private $state;
+    private $locale;
 
     /**
 
      * @var ?string
      */
-    private $shipmentState;
-
-    /**
-
-     * @var ?string
-     */
-    private $paymentState;
-
-    /**
-
-     * @var null|ShippingInfo|ShippingInfoBuilder
-     */
-    private $shippingInfo;
-
-    /**
-
-     * @var ?SyncInfoCollection
-     */
-    private $syncInfo;
-
-    /**
-
-     * @var ?ReturnInfoCollection
-     */
-    private $returnInfo;
-
-    /**
-
-     * @var ?string
-     */
-    private $purchaseOrderNumber;
-
-    /**
-
-     * @var ?DiscountCodeInfoCollection
-     */
-    private $discountCodes;
-
-    /**
-     * @deprecated
-     * @var ?int
-     */
-    private $lastMessageSequenceNumber;
+    private $origin;
 
     /**
 
@@ -303,57 +298,69 @@ final class StagedOrderBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $orderState;
+
+    /**
+
+     * @var ?string
+     */
+    private $shipmentState;
+
+    /**
+
+     * @var ?string
+     */
+    private $paymentState;
+
+    /**
+
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
+
+    /**
+
+     * @var ?SyncInfoCollection
+     */
+    private $syncInfo;
+
+    /**
+
+     * @var ?ReturnInfoCollection
+     */
+    private $returnInfo;
+
+    /**
+     * @deprecated
+     * @var ?int
+     */
+    private $lastMessageSequenceNumber;
+
+    /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
 
-     * @var null|PaymentInfo|PaymentInfoBuilder
+     * @var ?DateTimeImmutable
      */
-    private $paymentInfo;
+    private $completedAt;
 
     /**
 
-     * @var ?string
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
-    private $locale;
+    private $lastModifiedBy;
 
     /**
 
-     * @var ?string
+     * @var null|CreatedBy|CreatedByBuilder
      */
-    private $inventoryMode;
-
-    /**
-
-     * @var ?string
-     */
-    private $origin;
-
-    /**
-
-     * @var ?string
-     */
-    private $taxCalculationMode;
-
-    /**
-
-     * @var null|ShippingRateInput|ShippingRateInputBuilder
-     */
-    private $shippingRateInput;
-
-    /**
-
-     * @var ?AddressCollection
-     */
-    private $itemShippingAddresses;
-
-    /**
-
-     * @var ?CartDiscountReferenceCollection
-     */
-    private $refusedGifts;
+    private $createdBy;
 
     /**
      * <p>Unique identifier of the Order.</p>
@@ -367,7 +374,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the order.</p>
+     * <p>Current version of the Order.</p>
      *
 
      * @return null|int
@@ -378,6 +385,8 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Order was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -387,6 +396,8 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Order was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -396,43 +407,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
-    }
-
-    /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
-     * <p>This field will only be present if it was set for Order Import</p>
-     *
-
-     * @return null|DateTimeImmutable
-     */
-    public function getCompletedAt()
-    {
-        return $this->completedAt;
-    }
-
-    /**
-     * <p>String that uniquely identifies an order.
-     * It can be used to create more human-readable (in contrast to ID) identifier for the order.
-     * It should be unique across a project.
-     * Once it's set it cannot be changed.</p>
+     * <p>User-defined identifier of the Order that is unique across a Project.</p>
      *
 
      * @return null|string
@@ -443,6 +418,20 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier of a purchase Order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> and can be used with <a href="/quotes-overview">Quotes</a> to track the purchase Order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Customer">Customer</a> that the Order belongs to.</p>
+     *
 
      * @return null|string
      */
@@ -452,6 +441,8 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * <p>Email address of the Customer that the Order belongs to.</p>
+     *
 
      * @return null|string
      */
@@ -461,7 +452,19 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Order belongs to.
+     * Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+     *
+
+     * @return null|CustomerGroupReference
+     */
+    public function getCustomerGroup()
+    {
+        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:AnonymousSession">Anonymous session</a> associated with the Order.</p>
      *
 
      * @return null|string
@@ -472,7 +475,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>The Business Unit the Order belongs to.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Order belongs to.</p>
      *
 
      * @return null|BusinessUnitKeyReference
@@ -483,6 +486,8 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Store the Order belongs to.</p>
+     *
 
      * @return null|StoreKeyReference
      */
@@ -492,6 +497,8 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:LineItems">Line Items</a> that are part of the Order.</p>
+     *
 
      * @return null|LineItemCollection
      */
@@ -501,6 +508,8 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:CustomLineItems">Custom Line Items</a> that are part of the Order.</p>
+     *
 
      * @return null|CustomLineItemCollection
      */
@@ -510,6 +519,9 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.
+     * Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
+     *
 
      * @return null|TypedMoney
      */
@@ -519,7 +531,10 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>The taxes are calculated based on the shipping address.</p>
+     * <ul>
+     * <li>For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:OrderSetShippingAddressAction">shipping address is set</a>.</li>
+     * <li>For <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when the external Tax Rate for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
+     * </ul>
      *
 
      * @return null|TaxedPrice
@@ -530,8 +545,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Sum of <code>taxedPrice</code> of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.
-     * For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is set automatically only if <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a> or <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to the Cart.</p>
+     * <p>Sum of the <code>taxedPrice</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.</p>
      *
 
      * @return null|TaxedPrice
@@ -542,8 +556,63 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Holds all shipping-related information per Shipping Method.</p>
-     * <p>For <code>Multiple</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>, it is updated automatically after the Shipping Methods are added.</p>
+     * <p>Indicates how Tax Rates are set.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxMode()
+    {
+        return $this->taxMode;
+    }
+
+    /**
+     * <p>Indicates how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingMode()
+    {
+        return $this->taxRoundingMode;
+    }
+
+    /**
+     * <p>Indicates how taxes are calculated when calculating taxes for <code>taxedPrice</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxCalculationMode()
+    {
+        return $this->taxCalculationMode;
+    }
+
+    /**
+     * <p>Indicates how stock quantities are tracked for Line Items in the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
+    }
+
+    /**
+     * <p>Billing address associated with the Order.</p>
+     *
+
+     * @return null|Address
+     */
+    public function getBillingAddress()
+    {
+        return $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
+    }
+
+    /**
+     * <p>Shipping address associated with the Order.
+     * Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates and Tax Rates of Line Items.</p>
      *
 
      * @return null|Address
@@ -554,16 +623,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-
-     * @return null|Address
-     */
-    public function getBillingAddress()
-    {
-        return $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
-    }
-
-    /**
-     * <p>Indicates whether one or multiple Shipping Methods are added to the Cart.</p>
+     * <p>Indicates whether there can be one or multiple Shipping Methods.</p>
      *
 
      * @return null|string
@@ -585,114 +645,8 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of the Shipping Method for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     *
-
-     * @return null|CustomFields
-     */
-    public function getShippingCustomFields()
-    {
-        return $this->shippingCustomFields instanceof CustomFieldsBuilder ? $this->shippingCustomFields->build() : $this->shippingCustomFields;
-    }
-
-    /**
-     * <p>Holds all shipping-related information per Shipping Method for <code>Multiple</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>.</p>
-     * <p>It is updated automatically after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
-     *
-
-     * @return null|ShippingCollection
-     */
-    public function getShipping()
-    {
-        return $this->shipping;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getTaxMode()
-    {
-        return $this->taxMode;
-    }
-
-    /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>
-     *
-
-     * @return null|string
-     */
-    public function getTaxRoundingMode()
-    {
-        return $this->taxRoundingMode;
-    }
-
-    /**
-     * <p>Set when the customer is set and the customer is a member of a customer group.
-     * Used for product variant price selection.</p>
-     *
-
-     * @return null|CustomerGroupReference
-     */
-    public function getCustomerGroup()
-    {
-        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
-    }
-
-    /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
-     * Used for product variant price selection.</p>
-     *
-
-     * @return null|string
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * <p>One of the four predefined OrderStates.</p>
-     *
-
-     * @return null|string
-     */
-    public function getOrderState()
-    {
-        return $this->orderState;
-    }
-
-    /**
-     * <p>This reference can point to a state in a custom workflow.</p>
-     *
-
-     * @return null|StateReference
-     */
-    public function getState()
-    {
-        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getShipmentState()
-    {
-        return $this->shipmentState;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getPaymentState()
-    {
-        return $this->paymentState;
-    }
-
-    /**
-     * <p>Set if the ShippingMethod is set.</p>
+     * <p>Shipping-related information for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Automatically set when a <a href="ctp:api:type:StagedOrderSetShippingMethodAction">Shipping Method is set</a>.</p>
      *
 
      * @return null|ShippingInfo
@@ -700,135 +654,6 @@ final class StagedOrderBuilder implements Builder
     public function getShippingInfo()
     {
         return $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo;
-    }
-
-    /**
-
-     * @return null|SyncInfoCollection
-     */
-    public function getSyncInfo()
-    {
-        return $this->syncInfo;
-    }
-
-    /**
-
-     * @return null|ReturnInfoCollection
-     */
-    public function getReturnInfo()
-    {
-        return $this->returnInfo;
-    }
-
-    /**
-     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
-     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
-     *
-
-     * @return null|string
-     */
-    public function getPurchaseOrderNumber()
-    {
-        return $this->purchaseOrderNumber;
-    }
-
-    /**
-
-     * @return null|DiscountCodeInfoCollection
-     */
-    public function getDiscountCodes()
-    {
-        return $this->discountCodes;
-    }
-
-    /**
-     * <p>Internal-only field.</p>
-     *
-     * @deprecated
-     * @return null|int
-     */
-    public function getLastMessageSequenceNumber()
-    {
-        return $this->lastMessageSequenceNumber;
-    }
-
-    /**
-     * <p>Set when this order was created from a cart.
-     * The cart will have the state <code>Ordered</code>.</p>
-     *
-
-     * @return null|CartReference
-     */
-    public function getCart()
-    {
-        return $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart;
-    }
-
-    /**
-     * <p>Set when this order was created from a quote.</p>
-     *
-
-     * @return null|QuoteReference
-     */
-    public function getQuote()
-    {
-        return $this->quote instanceof QuoteReferenceBuilder ? $this->quote->build() : $this->quote;
-    }
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-
-     * @return null|PaymentInfo
-     */
-    public function getPaymentInfo()
-    {
-        return $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getLocale()
-    {
-        return $this->locale;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getInventoryMode()
-    {
-        return $this->inventoryMode;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getOrigin()
-    {
-        return $this->origin;
-    }
-
-    /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>
-     *
-
-     * @return null|string
-     */
-    public function getTaxCalculationMode()
-    {
-        return $this->taxCalculationMode;
     }
 
     /**
@@ -849,7 +674,31 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Contains addresses for orders with multiple shipping addresses.</p>
+     * <p>Custom Fields of the Shipping Method for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getShippingCustomFields()
+    {
+        return $this->shippingCustomFields instanceof CustomFieldsBuilder ? $this->shippingCustomFields->build() : $this->shippingCustomFields;
+    }
+
+    /**
+     * <p>Shipping-related information for <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Updated automatically each time a new <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+
+     * @return null|ShippingCollection
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
+    }
+
+    /**
+     * <p>Additional shipping addresses of the Order as specified by <a href="ctp:api:type:LineItem">LineItems</a> using the <code>shippingDetails</code> field.
+     * Eligible Shipping Methods or applicable Tax Rates are determined by the address in <code>shippingAddress</code>, and not <code>itemShippingAddresses</code>.</p>
      *
 
      * @return null|AddressCollection
@@ -860,7 +709,31 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>
+     * <p>Discount Codes added to the Order.
+     * An Order that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
+     *
+
+     * @return null|DiscountCodeInfoCollection
+     */
+    public function getDiscountCodes()
+    {
+        return $this->discountCodes;
+    }
+
+    /**
+     * <p>Direct Discounts added to the Order.
+     * An Order that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
+     *
+
+     * @return null|DirectDiscountCollection
+     */
+    public function getDirectDiscounts()
+    {
+        return $this->directDiscounts;
+    }
+
+    /**
+     * <p>Automatically set when a Line Item with <code>GiftLineItem</code> <a href="ctp:api:type:LineItemMode">LineItemMode</a> is <a href="ctp:api:type:StagedOrderRemoveLineItemAction">removed</a> from the Order.</p>
      *
 
      * @return null|CartDiscountReferenceCollection
@@ -868,6 +741,198 @@ final class StagedOrderBuilder implements Builder
     public function getRefusedGifts()
     {
         return $this->refusedGifts;
+    }
+
+    /**
+     * <p>Payment information related to the Order.</p>
+     *
+
+     * @return null|PaymentInfo
+     */
+    public function getPaymentInfo()
+    {
+        return $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo;
+    }
+
+    /**
+     * <p>Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * <p>Languages of the Order.
+     * Can only contain languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * <p>Indicates the origin of the Cart from which the Order was created.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOrigin()
+    {
+        return $this->origin;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Cart for an <a href="ctp:api:endpoint:/{projectKey}/orders:POST">Order created from Cart</a>.
+     * The referenced Cart will have the <code>Ordered</code> <a href="ctp:api:type:CartState">CartState</a>.</p>
+     *
+
+     * @return null|CartReference
+     */
+    public function getCart()
+    {
+        return $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Quote for an <a href="ctp:api:endpoint:/{projectKey}/orders/quotes:POST">Order created from Quote</a>.</p>
+     *
+
+     * @return null|QuoteReference
+     */
+    public function getQuote()
+    {
+        return $this->quote instanceof QuoteReferenceBuilder ? $this->quote->build() : $this->quote;
+    }
+
+    /**
+     * <p>Current status of the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOrderState()
+    {
+        return $this->orderState;
+    }
+
+    /**
+     * <p>Shipment status of the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShipmentState()
+    {
+        return $this->shipmentState;
+    }
+
+    /**
+     * <p>Payment status of the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPaymentState()
+    {
+        return $this->paymentState;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of the Order.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p>Contains synchronization activity information of the Order (like export or import).
+     * Can only be set with <a href="ctp:api:type:OrderUpdateSyncInfoAction">Update SyncInfo</a> update action.</p>
+     *
+
+     * @return null|SyncInfoCollection
+     */
+    public function getSyncInfo()
+    {
+        return $this->syncInfo;
+    }
+
+    /**
+     * <p>Contains information regarding the returns associated with the Order.</p>
+     *
+
+     * @return null|ReturnInfoCollection
+     */
+    public function getReturnInfo()
+    {
+        return $this->returnInfo;
+    }
+
+    /**
+     * <p>Internal-only field.</p>
+     *
+     * @deprecated
+     * @return null|int
+     */
+    public function getLastMessageSequenceNumber()
+    {
+        return $this->lastMessageSequenceNumber;
+    }
+
+    /**
+     * <p>Custom Fields of the Order.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>User-defined date and time (UTC) of the Order.
+     * Present only on an Order created using <a href="ctp:api:endpoint:/{projectKey}/orders/import:POST">Order Import</a>.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getCompletedAt()
+    {
+        return $this->completedAt;
+    }
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -915,45 +980,23 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * @param ?LastModifiedBy $lastModifiedBy
-     * @return $this
-     */
-    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
-    {
-        $this->lastModifiedBy = $lastModifiedBy;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CreatedBy $createdBy
-     * @return $this
-     */
-    public function withCreatedBy(?CreatedBy $createdBy)
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * @param ?DateTimeImmutable $completedAt
-     * @return $this
-     */
-    public function withCompletedAt(?DateTimeImmutable $completedAt)
-    {
-        $this->completedAt = $completedAt;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $orderNumber
      * @return $this
      */
     public function withOrderNumber(?string $orderNumber)
     {
         $this->orderNumber = $orderNumber;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
 
         return $this;
     }
@@ -976,6 +1019,17 @@ final class StagedOrderBuilder implements Builder
     public function withCustomerEmail(?string $customerEmail)
     {
         $this->customerEmail = $customerEmail;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     * @return $this
+     */
+    public function withCustomerGroup(?CustomerGroupReference $customerGroup)
+    {
+        $this->customerGroup = $customerGroup;
 
         return $this;
     }
@@ -1069,12 +1123,45 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * @param ?Address $shippingAddress
+     * @param ?string $taxMode
      * @return $this
      */
-    public function withShippingAddress(?Address $shippingAddress)
+    public function withTaxMode(?string $taxMode)
     {
-        $this->shippingAddress = $shippingAddress;
+        $this->taxMode = $taxMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $taxRoundingMode
+     * @return $this
+     */
+    public function withTaxRoundingMode(?string $taxRoundingMode)
+    {
+        $this->taxRoundingMode = $taxRoundingMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $taxCalculationMode
+     * @return $this
+     */
+    public function withTaxCalculationMode(?string $taxCalculationMode)
+    {
+        $this->taxCalculationMode = $taxCalculationMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     * @return $this
+     */
+    public function withInventoryMode(?string $inventoryMode)
+    {
+        $this->inventoryMode = $inventoryMode;
 
         return $this;
     }
@@ -1086,6 +1173,17 @@ final class StagedOrderBuilder implements Builder
     public function withBillingAddress(?Address $billingAddress)
     {
         $this->billingAddress = $billingAddress;
+
+        return $this;
+    }
+
+    /**
+     * @param ?Address $shippingAddress
+     * @return $this
+     */
+    public function withShippingAddress(?Address $shippingAddress)
+    {
+        $this->shippingAddress = $shippingAddress;
 
         return $this;
     }
@@ -1113,6 +1211,28 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingInfo $shippingInfo
+     * @return $this
+     */
+    public function withShippingInfo(?ShippingInfo $shippingInfo)
+    {
+        $this->shippingInfo = $shippingInfo;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShippingRateInput $shippingRateInput
+     * @return $this
+     */
+    public function withShippingRateInput(?ShippingRateInput $shippingRateInput)
+    {
+        $this->shippingRateInput = $shippingRateInput;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $shippingCustomFields
      * @return $this
      */
@@ -1135,133 +1255,12 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * @param ?string $taxMode
+     * @param ?AddressCollection $itemShippingAddresses
      * @return $this
      */
-    public function withTaxMode(?string $taxMode)
+    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
     {
-        $this->taxMode = $taxMode;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $taxRoundingMode
-     * @return $this
-     */
-    public function withTaxRoundingMode(?string $taxRoundingMode)
-    {
-        $this->taxRoundingMode = $taxRoundingMode;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomerGroupReference $customerGroup
-     * @return $this
-     */
-    public function withCustomerGroup(?CustomerGroupReference $customerGroup)
-    {
-        $this->customerGroup = $customerGroup;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $country
-     * @return $this
-     */
-    public function withCountry(?string $country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $orderState
-     * @return $this
-     */
-    public function withOrderState(?string $orderState)
-    {
-        $this->orderState = $orderState;
-
-        return $this;
-    }
-
-    /**
-     * @param ?StateReference $state
-     * @return $this
-     */
-    public function withState(?StateReference $state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $shipmentState
-     * @return $this
-     */
-    public function withShipmentState(?string $shipmentState)
-    {
-        $this->shipmentState = $shipmentState;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $paymentState
-     * @return $this
-     */
-    public function withPaymentState(?string $paymentState)
-    {
-        $this->paymentState = $paymentState;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ShippingInfo $shippingInfo
-     * @return $this
-     */
-    public function withShippingInfo(?ShippingInfo $shippingInfo)
-    {
-        $this->shippingInfo = $shippingInfo;
-
-        return $this;
-    }
-
-    /**
-     * @param ?SyncInfoCollection $syncInfo
-     * @return $this
-     */
-    public function withSyncInfo(?SyncInfoCollection $syncInfo)
-    {
-        $this->syncInfo = $syncInfo;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ReturnInfoCollection $returnInfo
-     * @return $this
-     */
-    public function withReturnInfo(?ReturnInfoCollection $returnInfo)
-    {
-        $this->returnInfo = $returnInfo;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $purchaseOrderNumber
-     * @return $this
-     */
-    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
-    {
-        $this->purchaseOrderNumber = $purchaseOrderNumber;
+        $this->itemShippingAddresses = $itemShippingAddresses;
 
         return $this;
     }
@@ -1278,12 +1277,67 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * @param ?int $lastMessageSequenceNumber
+     * @param ?DirectDiscountCollection $directDiscounts
      * @return $this
      */
-    public function withLastMessageSequenceNumber(?int $lastMessageSequenceNumber)
+    public function withDirectDiscounts(?DirectDiscountCollection $directDiscounts)
     {
-        $this->lastMessageSequenceNumber = $lastMessageSequenceNumber;
+        $this->directDiscounts = $directDiscounts;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CartDiscountReferenceCollection $refusedGifts
+     * @return $this
+     */
+    public function withRefusedGifts(?CartDiscountReferenceCollection $refusedGifts)
+    {
+        $this->refusedGifts = $refusedGifts;
+
+        return $this;
+    }
+
+    /**
+     * @param ?PaymentInfo $paymentInfo
+     * @return $this
+     */
+    public function withPaymentInfo(?PaymentInfo $paymentInfo)
+    {
+        $this->paymentInfo = $paymentInfo;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $country
+     * @return $this
+     */
+    public function withCountry(?string $country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $locale
+     * @return $this
+     */
+    public function withLocale(?string $locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $origin
+     * @return $this
+     */
+    public function withOrigin(?string $origin)
+    {
+        $this->origin = $origin;
 
         return $this;
     }
@@ -1311,6 +1365,83 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderState
+     * @return $this
+     */
+    public function withOrderState(?string $orderState)
+    {
+        $this->orderState = $orderState;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shipmentState
+     * @return $this
+     */
+    public function withShipmentState(?string $shipmentState)
+    {
+        $this->shipmentState = $shipmentState;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $paymentState
+     * @return $this
+     */
+    public function withPaymentState(?string $paymentState)
+    {
+        $this->paymentState = $paymentState;
+
+        return $this;
+    }
+
+    /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @param ?SyncInfoCollection $syncInfo
+     * @return $this
+     */
+    public function withSyncInfo(?SyncInfoCollection $syncInfo)
+    {
+        $this->syncInfo = $syncInfo;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ReturnInfoCollection $returnInfo
+     * @return $this
+     */
+    public function withReturnInfo(?ReturnInfoCollection $returnInfo)
+    {
+        $this->returnInfo = $returnInfo;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $lastMessageSequenceNumber
+     * @return $this
+     */
+    public function withLastMessageSequenceNumber(?int $lastMessageSequenceNumber)
+    {
+        $this->lastMessageSequenceNumber = $lastMessageSequenceNumber;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -1322,98 +1453,21 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * @param ?PaymentInfo $paymentInfo
+     * @param ?DateTimeImmutable $completedAt
      * @return $this
      */
-    public function withPaymentInfo(?PaymentInfo $paymentInfo)
+    public function withCompletedAt(?DateTimeImmutable $completedAt)
     {
-        $this->paymentInfo = $paymentInfo;
+        $this->completedAt = $completedAt;
 
         return $this;
     }
 
     /**
-     * @param ?string $locale
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
-    public function withLocale(?string $locale)
-    {
-        $this->locale = $locale;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $inventoryMode
-     * @return $this
-     */
-    public function withInventoryMode(?string $inventoryMode)
-    {
-        $this->inventoryMode = $inventoryMode;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $origin
-     * @return $this
-     */
-    public function withOrigin(?string $origin)
-    {
-        $this->origin = $origin;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $taxCalculationMode
-     * @return $this
-     */
-    public function withTaxCalculationMode(?string $taxCalculationMode)
-    {
-        $this->taxCalculationMode = $taxCalculationMode;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ShippingRateInput $shippingRateInput
-     * @return $this
-     */
-    public function withShippingRateInput(?ShippingRateInput $shippingRateInput)
-    {
-        $this->shippingRateInput = $shippingRateInput;
-
-        return $this;
-    }
-
-    /**
-     * @param ?AddressCollection $itemShippingAddresses
-     * @return $this
-     */
-    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
-    {
-        $this->itemShippingAddresses = $itemShippingAddresses;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CartDiscountReferenceCollection $refusedGifts
-     * @return $this
-     */
-    public function withRefusedGifts(?CartDiscountReferenceCollection $refusedGifts)
-    {
-        $this->refusedGifts = $refusedGifts;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withLastModifiedBy() instead
-     * @return $this
-     */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
 
@@ -1421,12 +1475,23 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * @deprecated use withCreatedBy() instead
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustomerGroup() instead
+     * @return $this
+     */
+    public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
+    {
+        $this->customerGroup = $customerGroup;
 
         return $this;
     }
@@ -1487,6 +1552,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBillingAddress() instead
+     * @return $this
+     */
+    public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
+    {
+        $this->billingAddress = $billingAddress;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withShippingAddress() instead
      * @return $this
      */
@@ -1498,12 +1574,23 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * @deprecated use withBillingAddress() instead
+     * @deprecated use withShippingInfo() instead
      * @return $this
      */
-    public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
+    public function withShippingInfoBuilder(?ShippingInfoBuilder $shippingInfo)
     {
-        $this->billingAddress = $billingAddress;
+        $this->shippingInfo = $shippingInfo;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withShippingRateInput() instead
+     * @return $this
+     */
+    public function withShippingRateInputBuilder(?ShippingRateInputBuilder $shippingRateInput)
+    {
+        $this->shippingRateInput = $shippingRateInput;
 
         return $this;
     }
@@ -1520,34 +1607,12 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * @deprecated use withCustomerGroup() instead
+     * @deprecated use withPaymentInfo() instead
      * @return $this
      */
-    public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
+    public function withPaymentInfoBuilder(?PaymentInfoBuilder $paymentInfo)
     {
-        $this->customerGroup = $customerGroup;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withState() instead
-     * @return $this
-     */
-    public function withStateBuilder(?StateReferenceBuilder $state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withShippingInfo() instead
-     * @return $this
-     */
-    public function withShippingInfoBuilder(?ShippingInfoBuilder $shippingInfo)
-    {
-        $this->shippingInfo = $shippingInfo;
+        $this->paymentInfo = $paymentInfo;
 
         return $this;
     }
@@ -1575,6 +1640,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustom() instead
      * @return $this
      */
@@ -1586,23 +1662,23 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPaymentInfo() instead
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
-    public function withPaymentInfoBuilder(?PaymentInfoBuilder $paymentInfo)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->paymentInfo = $paymentInfo;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
 
     /**
-     * @deprecated use withShippingRateInput() instead
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
-    public function withShippingRateInputBuilder(?ShippingRateInputBuilder $shippingRateInput)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
-        $this->shippingRateInput = $shippingRateInput;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -1614,12 +1690,11 @@ final class StagedOrderBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
-            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
-            $this->completedAt,
             $this->orderNumber,
+            $this->purchaseOrderNumber,
             $this->customerId,
             $this->customerEmail,
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->anonymousId,
             $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit,
             $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
@@ -1628,37 +1703,39 @@ final class StagedOrderBuilder implements Builder
             $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice,
-            $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
-            $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
-            $this->shippingMode,
-            $this->shippingKey,
-            $this->shippingCustomFields instanceof CustomFieldsBuilder ? $this->shippingCustomFields->build() : $this->shippingCustomFields,
-            $this->shipping,
             $this->taxMode,
             $this->taxRoundingMode,
-            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
-            $this->country,
-            $this->orderState,
-            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
-            $this->shipmentState,
-            $this->paymentState,
+            $this->taxCalculationMode,
+            $this->inventoryMode,
+            $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
+            $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
+            $this->shippingMode,
+            $this->shippingKey,
             $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo,
-            $this->syncInfo,
-            $this->returnInfo,
-            $this->purchaseOrderNumber,
+            $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
+            $this->shippingCustomFields instanceof CustomFieldsBuilder ? $this->shippingCustomFields->build() : $this->shippingCustomFields,
+            $this->shipping,
+            $this->itemShippingAddresses,
             $this->discountCodes,
-            $this->lastMessageSequenceNumber,
+            $this->directDiscounts,
+            $this->refusedGifts,
+            $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo,
+            $this->country,
+            $this->locale,
+            $this->origin,
             $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart,
             $this->quote instanceof QuoteReferenceBuilder ? $this->quote->build() : $this->quote,
+            $this->orderState,
+            $this->shipmentState,
+            $this->paymentState,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->syncInfo,
+            $this->returnInfo,
+            $this->lastMessageSequenceNumber,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
-            $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo,
-            $this->locale,
-            $this->inventoryMode,
-            $this->origin,
-            $this->taxCalculationMode,
-            $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
-            $this->itemShippingAddresses,
-            $this->refusedGifts
+            $this->completedAt,
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy
         );
     }
 

@@ -38,15 +38,15 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
 
     /**
      *
-     * @var ?DeliveryItemCollection
-     */
-    protected $items;
-
-    /**
-     *
      * @var ?string
      */
     protected $shippingKey;
+
+    /**
+     *
+     * @var ?DeliveryItemCollection
+     */
+    protected $items;
 
     /**
      *
@@ -72,16 +72,16 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
      */
     public function __construct(
         ?string $deliveryKey = null,
-        ?DeliveryItemCollection $items = null,
         ?string $shippingKey = null,
+        ?DeliveryItemCollection $items = null,
         ?BaseAddress $address = null,
         ?ParcelDraftCollection $parcels = null,
         ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
         $this->deliveryKey = $deliveryKey;
-        $this->items = $items;
         $this->shippingKey = $shippingKey;
+        $this->items = $items;
         $this->address = $address;
         $this->parcels = $parcels;
         $this->custom = $custom;
@@ -107,7 +107,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>User-defined unique identifier of a Delivery.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
      *
      * @return null|string
@@ -124,24 +124,6 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
         }
 
         return $this->deliveryKey;
-    }
-
-    /**
-     *
-     * @return null|DeliveryItemCollection
-     */
-    public function getItems()
-    {
-        if (is_null($this->items)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->items = DeliveryItemCollection::fromArray($data);
-        }
-
-        return $this->items;
     }
 
     /**
@@ -165,9 +147,27 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Polymorphic base type that represents a postal address and contact details.
-     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
-     * only differ in the data type for the optional <code>custom</code> field.</p>
+     * <p>Line Items or Custom Line Items to be included in the Delivery.</p>
+     *
+     *
+     * @return null|DeliveryItemCollection
+     */
+    public function getItems()
+    {
+        if (is_null($this->items)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->items = DeliveryItemCollection::fromArray($data);
+        }
+
+        return $this->items;
+    }
+
+    /**
+     * <p>Address the <code>parcels</code> should be delivered to.</p>
      *
      *
      * @return null|BaseAddress
@@ -188,6 +188,9 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
     /**
+     * <p>Parcels of the Delivery.</p>
+     * <p>If provided, this update action produces the <a href="ctp:api:type:ParcelAddedToDeliveryMessage">Parcel Added To Delivery</a> Message.</p>
+     *
      *
      * @return null|ParcelDraftCollection
      */
@@ -206,7 +209,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields for the Delivery.</p>
      *
      *
      * @return null|CustomFieldsDraft
@@ -236,19 +239,19 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
     /**
-     * @param ?DeliveryItemCollection $items
-     */
-    public function setItems(?DeliveryItemCollection $items): void
-    {
-        $this->items = $items;
-    }
-
-    /**
      * @param ?string $shippingKey
      */
     public function setShippingKey(?string $shippingKey): void
     {
         $this->shippingKey = $shippingKey;
+    }
+
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
+    public function setItems(?DeliveryItemCollection $items): void
+    {
+        $this->items = $items;
     }
 
     /**

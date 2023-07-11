@@ -27,6 +27,10 @@ final class OrderSetOrderNumberActionBuilder implements Builder
     private $orderNumber;
 
     /**
+     * <p>Value to set.
+     * Must be unique across a Project.
+     * Once set, the value cannot be changed.</p>
+     *
 
      * @return null|string
      */

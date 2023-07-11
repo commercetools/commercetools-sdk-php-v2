@@ -17,6 +17,8 @@ interface OrderEditAddStagedActionAction extends OrderEditUpdateAction
     public const FIELD_STAGED_ACTION = 'stagedAction';
 
     /**
+     * <p>Order update action to append to the <code>stagedActions</code> array.</p>
+     *
 
      * @return null|StagedOrderUpdateAction
      */

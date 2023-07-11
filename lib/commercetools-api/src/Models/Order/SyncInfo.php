@@ -20,7 +20,7 @@ interface SyncInfo extends JsonObject
     public const FIELD_SYNCED_AT = 'syncedAt';
 
     /**
-     * <p>Connection to a particular synchronization destination.</p>
+     * <p>Connection to a synchronization destination.</p>
      *
 
      * @return null|ChannelReference
@@ -28,7 +28,7 @@ interface SyncInfo extends JsonObject
     public function getChannel();
 
     /**
-     * <p>Can be used to reference an external order instance, file etc.</p>
+     * <p>Identifier of an external order instance, file, or other resource.</p>
      *
 
      * @return null|string
@@ -36,6 +36,8 @@ interface SyncInfo extends JsonObject
     public function getExternalId();
 
     /**
+     * <p>Date and time (UTC) the information was synced.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

@@ -19,13 +19,16 @@ interface StagedOrderSetCustomLineItemTaxRateAction extends StagedOrderUpdateAct
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
-     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+     * <p>Value to set.
+     * If empty, an existing value is removed.</p>
      *
 
      * @return null|ExternalTaxRateDraft

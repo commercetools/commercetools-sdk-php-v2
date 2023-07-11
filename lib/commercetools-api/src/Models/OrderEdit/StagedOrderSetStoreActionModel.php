@@ -1,0 +1,99 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\OrderEdit;
+
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
+/**
+ * @internal
+ */
+final class StagedOrderSetStoreActionModel extends JsonObjectModel implements StagedOrderSetStoreAction
+{
+    public const DISCRIMINATOR_VALUE = 'setStore';
+    /**
+     *
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     *
+     * @var ?StoreResourceIdentifier
+     */
+    protected $store;
+
+
+    /**
+     * @psalm-suppress MissingParamType
+     */
+    public function __construct(
+        ?StoreResourceIdentifier $store = null,
+        ?string $action = null
+    ) {
+        $this->store = $store;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     *
+     * @return null|string
+     */
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
+
+    /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     * <p>If <code>store</code> references the same Store the Order is currently assigned to or if you try to remove the value when no Store is currently assigned, a <code>400</code> error is returned.</p>
+     *
+     *
+     * @return null|StoreResourceIdentifier
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreResourceIdentifierModel::of($data);
+        }
+
+        return $this->store;
+    }
+
+
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
+    public function setStore(?StoreResourceIdentifier $store): void
+    {
+        $this->store = $store;
+    }
+}

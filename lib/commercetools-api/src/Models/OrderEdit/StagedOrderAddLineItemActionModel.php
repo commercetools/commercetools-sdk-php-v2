@@ -49,24 +49,6 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
 
     /**
      *
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     *
-     * @var ?ChannelResourceIdentifier
-     */
-    protected $distributionChannel;
-
-    /**
-     *
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-
-    /**
-     *
      * @var ?string
      */
     protected $productId;
@@ -99,6 +81,12 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
      *
      * @var ?ChannelResourceIdentifier
      */
+    protected $distributionChannel;
+
+    /**
+     *
+     * @var ?ChannelResourceIdentifier
+     */
     protected $supplyChannel;
 
     /**
@@ -115,9 +103,27 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
 
     /**
      *
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $inventoryMode;
+
+    /**
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
+    /**
+     *
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
 
 
     /**
@@ -125,33 +131,35 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $key = null,
-        ?CustomFieldsDraft $custom = null,
-        ?ChannelResourceIdentifier $distributionChannel = null,
-        ?ExternalTaxRateDraft $externalTaxRate = null,
         ?string $productId = null,
         ?int $variantId = null,
         ?string $sku = null,
         ?int $quantity = null,
         ?DateTimeImmutable $addedAt = null,
+        ?ChannelResourceIdentifier $distributionChannel = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?string $inventoryMode = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
         $this->key = $key;
-        $this->custom = $custom;
-        $this->distributionChannel = $distributionChannel;
-        $this->externalTaxRate = $externalTaxRate;
         $this->productId = $productId;
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->quantity = $quantity;
         $this->addedAt = $addedAt;
+        $this->distributionChannel = $distributionChannel;
         $this->supplyChannel = $supplyChannel;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
+        $this->externalTaxRate = $externalTaxRate;
+        $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
+        $this->custom = $custom;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -194,69 +202,9 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p><code>id</code> of the published <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
-     *
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
-     *
-     *
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getDistributionChannel()
-    {
-        if (is_null($this->distributionChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->distributionChannel = ChannelResourceIdentifierModel::of($data);
-        }
-
-        return $this->distributionChannel;
-    }
-
-    /**
-     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
-     *
-     *
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        if (is_null($this->externalTaxRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-        }
-
-        return $this->externalTaxRate;
-    }
-
-    /**
      *
      * @return null|string
      */
@@ -275,6 +223,10 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
+     * If not provided, the Master Variant is used.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
+     *
      *
      * @return null|int
      */
@@ -293,6 +245,9 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
+     *
      *
      * @return null|string
      */
@@ -311,6 +266,8 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Quantity of the Product Variant to add to the Cart.</p>
+     *
      *
      * @return null|int
      */
@@ -329,6 +286,10 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * If not set, it defaults to the current date and time.</p>
+     * <p>Optional for backwards compatibility reasons.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -351,7 +312,31 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Used to <a href="/../api/carts-orders-overview#line-item-price-selection">select</a> a Product Price.
+     * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.
+     * If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
+     *
+     *
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getDistributionChannel()
+    {
+        if (is_null($this->distributionChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->distributionChannel = ChannelResourceIdentifierModel::of($data);
+        }
+
+        return $this->distributionChannel;
+    }
+
+    /**
+     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      *
      * @return null|ChannelResourceIdentifier
@@ -372,7 +357,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> value, and the <code>priceMode</code> to <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
      *
      *
      * @return null|Money
@@ -393,6 +378,8 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> values, and the <code>priceMode</code> to <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     *
      *
      * @return null|ExternalLineItemTotalPrice
      */
@@ -412,7 +399,49 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>For order creation and updates, the sum of the <code>targets</code> must match the quantity of the Line Items or Custom Line Items.</p>
+     * <p>External Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+     *
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
+    {
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
+    }
+
+    /**
+     * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
+     * Set only if the inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
+    }
+
+    /**
+     * <p>Container for Line Item-specific addresses.</p>
      *
      *
      * @return null|ItemShippingDetailsDraft
@@ -432,6 +461,27 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         return $this->shippingDetails;
     }
 
+    /**
+     * <p>Custom Fields for the Line Item.</p>
+     *
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $key
@@ -439,30 +489,6 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     public function setKey(?string $key): void
     {
         $this->key = $key;
-    }
-
-    /**
-     * @param ?CustomFieldsDraft $custom
-     */
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    /**
-     * @param ?ChannelResourceIdentifier $distributionChannel
-     */
-    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
-    {
-        $this->distributionChannel = $distributionChannel;
-    }
-
-    /**
-     * @param ?ExternalTaxRateDraft $externalTaxRate
-     */
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
-    {
-        $this->externalTaxRate = $externalTaxRate;
     }
 
     /**
@@ -506,6 +532,14 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
+     */
+    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
+    {
+        $this->distributionChannel = $distributionChannel;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifier $supplyChannel
      */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
@@ -530,11 +564,35 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    {
+        $this->externalTaxRate = $externalTaxRate;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void
+    {
+        $this->inventoryMode = $inventoryMode;
+    }
+
+    /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 
 

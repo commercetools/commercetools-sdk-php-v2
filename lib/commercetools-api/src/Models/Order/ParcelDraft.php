@@ -29,19 +29,23 @@ interface ParcelDraft extends JsonObject
     public function getKey();
 
     /**
+     * <p>Information about the dimensions for the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();
 
     /**
+     * <p>Shipment tracking information for the Parcel.</p>
+     *
 
      * @return null|TrackingData
      */
     public function getTrackingData();
 
     /**
-     * <p>The delivery items contained in this parcel.</p>
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
      *
 
      * @return null|DeliveryItemCollection
@@ -49,7 +53,7 @@ interface ParcelDraft extends JsonObject
     public function getItems();
 
     /**
-     * <p>Custom Fields of this parcel.</p>
+     * <p>Custom Fields for the Parcel.</p>
      *
 
      * @return null|CustomFieldsDraft

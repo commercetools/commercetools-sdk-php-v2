@@ -17,7 +17,7 @@ interface DeliveryItem extends JsonObject
     public const FIELD_QUANTITY = 'quantity';
 
     /**
-     * <p>Unique identifier of the DeliveryItem.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> or <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> delivered.</p>
      *
 
      * @return null|string
@@ -25,6 +25,8 @@ interface DeliveryItem extends JsonObject
     public function getId();
 
     /**
+     * <p>Number of Line Items or Custom Line Items delivered.</p>
+     *
 
      * @return null|int
      */

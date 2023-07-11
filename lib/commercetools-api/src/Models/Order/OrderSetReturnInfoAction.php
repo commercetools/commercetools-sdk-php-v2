@@ -16,6 +16,9 @@ interface OrderSetReturnInfoAction extends OrderUpdateAction
     public const FIELD_ITEMS = 'items';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|ReturnInfoDraftCollection
      */

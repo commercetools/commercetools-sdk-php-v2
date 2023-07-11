@@ -19,6 +19,8 @@ interface StagedOrderSetReturnItemCustomFieldAction extends StagedOrderUpdateAct
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     *
 
      * @return null|string
      */

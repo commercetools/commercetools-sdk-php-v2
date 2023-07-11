@@ -87,7 +87,7 @@ final class OrderFromCartDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p>Unique identifier of the Cart from which you can create an Order.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Cart">Cart</a> used to create the Order.</p>
      *
      * @deprecated
      * @return null|string
@@ -98,7 +98,8 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>ResourceIdentifier of the Cart from which the Order is created.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Cart from which the Order is created.</p>
+     * <p>This field is required, but is marked as optional for backwards compatibility reasons.</p>
      *
 
      * @return null|CartResourceIdentifier
@@ -109,8 +110,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Expected version of the Cart from which the Order is created.
-     * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     * <p><code>version</code> of the <a href="ctp:api:type:Cart">Cart</a> from which the Order is created.</p>
      *
 
      * @return null|int
@@ -121,11 +121,8 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>String that uniquely identifies an order.
-     * It can be used to create more human-readable (in contrast to ID) identifier for the order.
-     * It should be unique across a project.
-     * Once it's set it cannot be changed.
-     * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
+     * <p>User-defined identifier for the Order that is unique across a Project.
+     * Once set, the value cannot be changed.</p>
      *
 
      * @return null|string
@@ -136,8 +133,8 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Identifier for a purchase order, usually in a B2B context.
-     * The Purchase Order Number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a> and can also be used with <a href="/quotes-overview">Quotes</a>.</p>
+     * <p>User-defined identifier for a purchase Order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> and can be used with <a href="/quotes-overview">Quotes</a> to track the purchase Order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
      *
 
      * @return null|string
@@ -148,7 +145,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Payment state for the Order.</p>
+     * <p>Payment status for the Order.</p>
      *
 
      * @return null|string
@@ -159,7 +156,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Shipment state for the Order.</p>
+     * <p>Shipment status for the Order.</p>
      *
 
      * @return null|string
@@ -170,7 +167,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Order will be created with <code>Open</code> status by default.</p>
+     * <p>Current status for the Order.</p>
      *
 
      * @return null|string
@@ -181,7 +178,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a> indicating the Order's state.</p>
+     * <p>State for the Order in a custom workflow.</p>
      *
 
      * @return null|StateResourceIdentifier
@@ -192,9 +189,12 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/projects/custom-fields">Custom Fields</a> for the Order. The Custom Field type must match the type of the Custom Fields in the referenced <a href="/../api/projects/carts#cart">Cart</a>.
-     * If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> and added to the Order.
-     * If empty, the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> are added to the Order automatically.</p>
+     * <p>Custom Fields for the Order.
+     * The Custom Fields' type must match the Custom Fields' type in the referenced <a href="ctp:api:type:Cart">Cart</a>.</p>
+     * <ul>
+     * <li>If empty, the Custom Fields on the referenced <a href="ctp:api:type:Cart">Cart</a> are added to the Order automatically.</li>
+     * <li>If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="ctp:api:type:Cart">Cart</a> and added to the Order.</li>
+     * </ul>
      *
 
      * @return null|CustomFieldsDraft

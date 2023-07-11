@@ -65,6 +65,8 @@ final class StagedOrderRemoveItemShippingAddressActionModel extends JsonObjectMo
     }
 
     /**
+     * <p><code>key</code> of the Address to remove from <code>itemShippingAddresses</code>.</p>
+     *
      *
      * @return null|string
      */

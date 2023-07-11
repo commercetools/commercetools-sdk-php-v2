@@ -244,7 +244,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->withProjectKey("test_projectKey")
                         ->me()
                         ->orders()
-                        ->quotes();
+                        ->orderQuote();
                 },
                 ResourceByProjectKeyMeOrdersQuotes::class,
                 ['projectKey' => 'test_projectKey'],

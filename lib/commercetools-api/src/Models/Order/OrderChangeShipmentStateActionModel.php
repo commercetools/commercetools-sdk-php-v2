@@ -63,6 +63,8 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>New shipment status of the Order.</p>
+     *
      *
      * @return null|string
      */

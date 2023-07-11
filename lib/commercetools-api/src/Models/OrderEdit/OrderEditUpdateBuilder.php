@@ -39,6 +39,9 @@ final class OrderEditUpdateBuilder implements Builder
     private $dryRun;
 
     /**
+     * <p>Expected version of the Order Edit on which the changes should be applied.
+     * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
+     *
 
      * @return null|int
      */
@@ -48,6 +51,8 @@ final class OrderEditUpdateBuilder implements Builder
     }
 
     /**
+     * <p>Update actions to be performed on the Order Edit.</p>
+     *
 
      * @return null|OrderEditUpdateActionCollection
      */
@@ -57,6 +62,8 @@ final class OrderEditUpdateBuilder implements Builder
     }
 
     /**
+     * <p>If set to <code>true</code>, the Order Edit is applied on the <a href="ctp:api:type:Order">Order</a> without persisting it.</p>
+     *
 
      * @return null|bool
      */

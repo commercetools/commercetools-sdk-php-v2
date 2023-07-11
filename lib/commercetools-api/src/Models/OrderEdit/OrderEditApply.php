@@ -17,12 +17,16 @@ interface OrderEditApply extends JsonObject
     public const FIELD_RESOURCE_VERSION = 'resourceVersion';
 
     /**
+     * <p>Current <code>version</code> of the OrderEdit to be applied.</p>
+     *
 
      * @return null|int
      */
     public function getEditVersion();
 
     /**
+     * <p>Current <code>version</code> of the <a href="ctp:api:type:Order">Order</a> to which the OrderEdit is applied.</p>
+     *
 
      * @return null|int
      */

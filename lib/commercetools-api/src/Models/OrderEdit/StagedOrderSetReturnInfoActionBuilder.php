@@ -30,6 +30,9 @@ final class StagedOrderSetReturnInfoActionBuilder implements Builder
     private $items;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
 
      * @return null|ReturnInfoDraftCollection
      */

@@ -27,7 +27,7 @@ interface ReturnItem extends JsonObject
     public const FIELD_CREATED_AT = 'createdAt';
 
     /**
-     * <p>Unique identifier of the ReturnItem.</p>
+     * <p>Unique identifier of the Return Item.</p>
      *
 
      * @return null|string
@@ -35,6 +35,8 @@ interface ReturnItem extends JsonObject
     public function getId();
 
     /**
+     * <p>Number of Line Items or Custom Line Items returned.</p>
+     *
 
      * @return null|int
      */
@@ -47,25 +49,35 @@ interface ReturnItem extends JsonObject
     public function getType();
 
     /**
+     * <p>User-defined description for the return.</p>
+     *
 
      * @return null|string
      */
     public function getComment();
 
     /**
+     * <p>Shipment status of the Return Item.</p>
+     *
 
      * @return null|string
      */
     public function getShipmentState();
 
     /**
+     * <p>Payment status of the Return Item:</p>
+     * <ul>
+     * <li><code>NonRefundable</code>, for items in the <code>Advised</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * <li><code>Initial</code>, for items in the <code>Returned</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * </ul>
+     *
 
      * @return null|string
      */
     public function getPaymentState();
 
     /**
-     * <p>Custom Fields of this return item.</p>
+     * <p>Custom Fields of the Return Item.</p>
      *
 
      * @return null|CustomFields
@@ -73,12 +85,16 @@ interface ReturnItem extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Date and time (UTC) the Return Item was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
+     * <p>Date and time (UTC) the Return Item was intitially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

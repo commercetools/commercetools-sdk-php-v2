@@ -83,7 +83,8 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
      *
      * @return null|string
@@ -103,7 +104,8 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
      *
      * @return null|string
@@ -123,9 +125,8 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>Polymorphic base type that represents a postal address and contact details.
-     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
-     * only differ in the data type for the optional <code>custom</code> field.</p>
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
      *
      *
      * @return null|BaseAddress

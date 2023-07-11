@@ -90,6 +90,8 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     }
 
     /**
+     * <p>Information about the dimensions for the Parcel.</p>
+     *
      *
      * @return null|ParcelMeasurements
      */
@@ -109,6 +111,8 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     }
 
     /**
+     * <p>Shipment tracking information for the Parcel.</p>
+     *
      *
      * @return null|TrackingData
      */
@@ -128,7 +132,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     }
 
     /**
-     * <p>The delivery items contained in this parcel.</p>
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
      *
      *
      * @return null|DeliveryItemCollection
@@ -148,7 +152,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     }
 
     /**
-     * <p>Custom Fields of this parcel.</p>
+     * <p>Custom Fields for the Parcel.</p>
      *
      *
      * @return null|CustomFieldsDraft

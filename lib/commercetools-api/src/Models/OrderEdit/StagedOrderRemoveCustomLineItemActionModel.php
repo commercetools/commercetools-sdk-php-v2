@@ -65,6 +65,8 @@ final class StagedOrderRemoveCustomLineItemActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p><code>id</code> of the Custom Line Item to remove.</p>
+     *
      *
      * @return null|string
      */

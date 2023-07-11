@@ -19,12 +19,16 @@ interface StagedOrderImportCustomLineItemStateAction extends StagedOrderUpdateAc
     public const FIELD_STATE = 'state';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+     * <p>New status of the Custom Line Items.</p>
+     *
 
      * @return null|ItemStateCollection
      */

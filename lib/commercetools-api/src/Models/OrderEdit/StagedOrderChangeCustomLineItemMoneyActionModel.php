@@ -75,6 +75,8 @@ final class StagedOrderChangeCustomLineItemMoneyActionModel extends JsonObjectMo
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -93,7 +95,9 @@ final class StagedOrderChangeCustomLineItemMoneyActionModel extends JsonObjectMo
     }
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Value to set.
+     * Must not be empty.
+     * Can be a negative amount.</p>
      *
      *
      * @return null|Money

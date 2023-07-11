@@ -75,6 +75,8 @@ final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectMod
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -93,7 +95,8 @@ final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+     * <p>Value to set.
+     * If empty, an existing value is removed.</p>
      *
      *
      * @return null|ExternalTaxRateDraft

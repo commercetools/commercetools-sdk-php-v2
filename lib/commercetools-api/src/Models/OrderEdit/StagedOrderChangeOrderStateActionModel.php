@@ -65,6 +65,8 @@ final class StagedOrderChangeOrderStateActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>New status of the Order.</p>
+     *
      *
      * @return null|string
      */

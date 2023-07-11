@@ -100,6 +100,8 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +120,8 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
+     * <p>Number of Custom Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
+     *
      *
      * @return null|int
      */
@@ -136,7 +140,7 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Custom Line Item should transition from.</p>
      *
      *
      * @return null|StateResourceIdentifier
@@ -157,7 +161,7 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Custom Line Item should transition to.</p>
      *
      *
      * @return null|StateResourceIdentifier
@@ -178,6 +182,8 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
+     * <p>Date and time (UTC) to perform the <a href="ctp:api:type:State">State</a> transition.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

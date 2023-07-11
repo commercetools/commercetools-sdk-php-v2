@@ -65,7 +65,8 @@ final class StagedOrderSetLineItemPriceActionBuilder implements Builder
     }
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Value to set.
+     * If <code>externalPrice</code> is not given and the <code>priceMode</code> is <code>ExternalPrice</code>, the external price is unset and the <code>priceMode</code> is set to <code>Platform</code>.</p>
      *
 
      * @return null|Money

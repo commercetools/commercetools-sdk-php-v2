@@ -29,6 +29,8 @@ final class OrderEditAddStagedActionActionBuilder implements Builder
     private $stagedAction;
 
     /**
+     * <p>Order update action to append to the <code>stagedActions</code> array.</p>
+     *
 
      * @return null|StagedOrderUpdateAction
      */

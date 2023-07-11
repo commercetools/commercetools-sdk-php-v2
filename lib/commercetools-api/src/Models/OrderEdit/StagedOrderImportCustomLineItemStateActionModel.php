@@ -74,6 +74,8 @@ final class StagedOrderImportCustomLineItemStateActionModel extends JsonObjectMo
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -92,6 +94,8 @@ final class StagedOrderImportCustomLineItemStateActionModel extends JsonObjectMo
     }
 
     /**
+     * <p>New status of the Custom Line Items.</p>
+     *
      *
      * @return null|ItemStateCollection
      */

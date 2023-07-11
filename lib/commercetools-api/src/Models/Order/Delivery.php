@@ -41,14 +41,15 @@ interface Delivery extends JsonObject
     public function getKey();
 
     /**
+     * <p>Date and time (UTC) the Delivery was created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
-     * <p>Items which are shipped in this delivery regardless their distribution over several parcels.
-     * Can also be specified individually for each Parcel.</p>
+     * <p>Line Items or Custom Line Items that are delivered.</p>
      *
 
      * @return null|DeliveryItemCollection
@@ -56,19 +57,23 @@ interface Delivery extends JsonObject
     public function getItems();
 
     /**
+     * <p>Information regarding the appearance, content, and shipment of a Parcel.</p>
+     *
 
      * @return null|ParcelCollection
      */
     public function getParcels();
 
     /**
+     * <p>Address to which Parcels are delivered.</p>
+     *
 
      * @return null|Address
      */
     public function getAddress();
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields of the Delivery.</p>
      *
 
      * @return null|CustomFields

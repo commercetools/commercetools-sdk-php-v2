@@ -18,12 +18,17 @@ interface StagedOrderChangeCustomLineItemQuantityAction extends StagedOrderUpdat
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+     * <p>New value to set.
+     * If <code>0</code>, the Custom Line Item is removed from the Order.</p>
+     *
 
      * @return null|int
      */

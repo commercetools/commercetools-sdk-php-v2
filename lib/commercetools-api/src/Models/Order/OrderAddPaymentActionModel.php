@@ -65,7 +65,8 @@ final class OrderAddPaymentActionModel extends JsonObjectModel implements OrderA
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     * <p>Payment to add to the <a href="ctp:api:type:PaymentInfo">PaymentInfo</a>.
+     * Must not be assigned to another Order or active Cart already.</p>
      *
      *
      * @return null|PaymentResourceIdentifier

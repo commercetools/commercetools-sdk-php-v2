@@ -72,7 +72,7 @@ final class ReturnItemBuilder implements Builder
     private $createdAt;
 
     /**
-     * <p>Unique identifier of the ReturnItem.</p>
+     * <p>Unique identifier of the Return Item.</p>
      *
 
      * @return null|string
@@ -83,6 +83,8 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Number of Line Items or Custom Line Items returned.</p>
+     *
 
      * @return null|int
      */
@@ -92,6 +94,8 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>User-defined description for the return.</p>
+     *
 
      * @return null|string
      */
@@ -101,6 +105,8 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Shipment status of the Return Item.</p>
+     *
 
      * @return null|string
      */
@@ -110,6 +116,12 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Payment status of the Return Item:</p>
+     * <ul>
+     * <li><code>NonRefundable</code>, for items in the <code>Advised</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * <li><code>Initial</code>, for items in the <code>Returned</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * </ul>
+     *
 
      * @return null|string
      */
@@ -119,7 +131,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of this return item.</p>
+     * <p>Custom Fields of the Return Item.</p>
      *
 
      * @return null|CustomFields
@@ -130,6 +142,8 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Return Item was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -139,6 +153,8 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Return Item was intitially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

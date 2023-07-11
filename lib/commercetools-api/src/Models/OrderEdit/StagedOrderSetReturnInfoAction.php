@@ -18,6 +18,9 @@ interface StagedOrderSetReturnInfoAction extends StagedOrderUpdateAction
     public const FIELD_ITEMS = 'items';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
 
      * @return null|ReturnInfoDraftCollection
      */

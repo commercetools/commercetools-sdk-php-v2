@@ -36,7 +36,8 @@ interface StagedOrderSetLineItemShippingDetailsAction extends StagedOrderUpdateA
     public function getLineItemKey();
 
     /**
-     * <p>For order creation and updates, the sum of the <code>targets</code> must match the quantity of the Line Items or Custom Line Items.</p>
+     * <p>Value to set.
+     * If empty, the existing value is removed.</p>
      *
 
      * @return null|ItemShippingDetailsDraft

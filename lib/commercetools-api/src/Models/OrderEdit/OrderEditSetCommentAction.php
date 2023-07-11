@@ -16,6 +16,9 @@ interface OrderEditSetCommentAction extends OrderEditUpdateAction
     public const FIELD_COMMENT = 'comment';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
 
      * @return null|string
      */

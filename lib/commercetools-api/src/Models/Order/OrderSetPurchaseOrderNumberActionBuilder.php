@@ -27,8 +27,8 @@ final class OrderSetPurchaseOrderNumberActionBuilder implements Builder
     private $purchaseOrderNumber;
 
     /**
-     * <p>Identifier for a purchase order, usually in a B2B context.
-     * The Purchase Order Number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a> and can also be used with <a href="/quotes-overview">Quotes</a>.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
 
      * @return null|string

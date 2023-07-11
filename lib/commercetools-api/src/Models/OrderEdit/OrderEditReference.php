@@ -17,7 +17,7 @@ interface OrderEditReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
-     * <p>Contains the representation of the expanded OrderEdit. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for OrderEdits.</p>
+     * <p>Contains the representation of the expanded Order Edit. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Order Edits.</p>
      *
 
      * @return null|OrderEdit

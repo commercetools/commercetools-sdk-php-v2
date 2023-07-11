@@ -65,6 +65,8 @@ final class StagedOrderAddDiscountCodeActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p><code>code</code> of a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     *
      *
      * @return null|string
      */

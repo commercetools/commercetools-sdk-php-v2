@@ -40,25 +40,31 @@ interface Parcel extends JsonObject
     public function getKey();
 
     /**
+     * <p>Date and time (UTC) the Parcel was created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();
 
     /**
+     * <p>Shipment tracking information of the Parcel.</p>
+     *
 
      * @return null|TrackingData
      */
     public function getTrackingData();
 
     /**
-     * <p>The delivery items contained in this parcel.</p>
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
      *
 
      * @return null|DeliveryItemCollection
@@ -66,7 +72,7 @@ interface Parcel extends JsonObject
     public function getItems();
 
     /**
-     * <p>Custom Fields of this parcel.</p>
+     * <p>Custom Fields of the Parcel.</p>
      *
 
      * @return null|CustomFields

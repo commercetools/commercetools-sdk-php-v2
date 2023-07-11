@@ -18,7 +18,7 @@ interface MyOrderFromQuoteDraft extends JsonObject
     public const FIELD_QUOTE_STATE_TO_ACCEPTED = 'quoteStateToAccepted';
 
     /**
-     * <p>Unique identifier of the Quote from which the Order is created.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Quote">Quote</a> from which the Order is created.</p>
      *
 
      * @return null|string
@@ -26,7 +26,7 @@ interface MyOrderFromQuoteDraft extends JsonObject
     public function getId();
 
     /**
-     * <p><code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which the Order is created.</p>
+     * <p>Current <code>version</code> of the <a href="ctp:api:type:Quote">Quote</a> from which the Order is created.</p>
      *
 
      * @return null|int
@@ -34,7 +34,7 @@ interface MyOrderFromQuoteDraft extends JsonObject
     public function getVersion();
 
     /**
-     * <p>Set to <code>true</code>, if the <code>quoteState</code> of the referenced <a href="ctp:api:type:quote">Quote</a> should be set to <code>Accepted</code>.</p>
+     * <p>Set to <code>true</code>, if the <code>quoteState</code> of the referenced <a href="ctp:api:type:Quote">Quote</a> should be set to <code>Accepted</code>.</p>
      *
 
      * @return null|bool

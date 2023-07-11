@@ -16,6 +16,9 @@ interface OrderSetCustomerEmailAction extends OrderUpdateAction
     public const FIELD_EMAIL = 'email';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|string
      */
