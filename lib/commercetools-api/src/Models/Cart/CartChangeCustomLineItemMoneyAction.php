@@ -15,15 +15,24 @@ use Commercetools\Base\JsonObject;
 interface CartChangeCustomLineItemMoneyAction extends CartUpdateAction
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_KEY = 'customLineItemKey';
     public const FIELD_MONEY = 'money';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getCustomLineItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey();
 
     /**
      * <p>Value to set. Must not be empty. Can be a negative amount.</p>
@@ -37,6 +46,11 @@ interface CartChangeCustomLineItemMoneyAction extends CartUpdateAction
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void;
 
     /**
      * @param ?Money $money

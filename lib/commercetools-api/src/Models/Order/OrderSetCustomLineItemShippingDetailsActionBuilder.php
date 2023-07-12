@@ -30,12 +30,18 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -43,6 +49,17 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -64,6 +81,17 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
 
         return $this;
     }
@@ -94,6 +122,7 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     {
         return new OrderSetCustomLineItemShippingDetailsActionModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
         );
     }

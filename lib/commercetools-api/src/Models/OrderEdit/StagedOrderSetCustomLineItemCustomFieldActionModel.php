@@ -38,6 +38,12 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
      *
      * @var ?string
      */
+    protected $customLineItemKey;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $name;
 
     /**
@@ -52,11 +58,13 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
      */
     public function __construct(
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?string $name = null,
         $value = null,
         ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->name = $name;
         $this->value = $value;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
@@ -81,7 +89,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     }
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -98,6 +106,26 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
         }
 
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
     }
 
     /**
@@ -149,6 +177,14 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
     }
 
     /**

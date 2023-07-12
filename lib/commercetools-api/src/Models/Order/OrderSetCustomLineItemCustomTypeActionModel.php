@@ -38,6 +38,12 @@ final class OrderSetCustomLineItemCustomTypeActionModel extends JsonObjectModel 
 
     /**
      *
+     * @var ?string
+     */
+    protected $customLineItemKey;
+
+    /**
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
@@ -54,11 +60,13 @@ final class OrderSetCustomLineItemCustomTypeActionModel extends JsonObjectModel 
      */
     public function __construct(
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?TypeResourceIdentifier $type = null,
         ?FieldContainer $fields = null,
         ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->type = $type;
         $this->fields = $fields;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
@@ -83,7 +91,7 @@ final class OrderSetCustomLineItemCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -100,6 +108,26 @@ final class OrderSetCustomLineItemCustomTypeActionModel extends JsonObjectModel 
         }
 
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
     }
 
     /**
@@ -152,6 +180,14 @@ final class OrderSetCustomLineItemCustomTypeActionModel extends JsonObjectModel 
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
     }
 
     /**

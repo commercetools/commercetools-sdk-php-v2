@@ -38,6 +38,12 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
 
     /**
      *
+     * @var ?string
+     */
+    protected $customLineItemKey;
+
+    /**
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -48,10 +54,12 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
      */
     public function __construct(
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
         ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->shippingDetails = $shippingDetails;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -75,7 +83,7 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
     }
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -92,6 +100,26 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
         }
 
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
     }
 
     /**
@@ -123,6 +151,14 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
     }
 
     /**

@@ -28,12 +28,18 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -41,6 +47,17 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -67,6 +84,17 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $quantity
      * @return $this
      */
@@ -82,6 +110,7 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
     {
         return new CartChangeCustomLineItemQuantityActionModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->quantity
         );
     }

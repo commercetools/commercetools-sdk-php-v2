@@ -32,12 +32,18 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var null|ExternalTaxAmountDraft|ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -45,6 +51,17 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -66,6 +83,17 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
 
         return $this;
     }
@@ -96,6 +124,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     {
         return new StagedOrderSetCustomLineItemTaxAmountActionModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount
         );
     }
