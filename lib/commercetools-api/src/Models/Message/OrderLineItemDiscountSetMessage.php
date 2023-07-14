@@ -18,6 +18,7 @@ use Commercetools\Base\JsonObject;
 interface OrderLineItemDiscountSetMessage extends OrderMessage
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
@@ -30,6 +31,14 @@ interface OrderLineItemDiscountSetMessage extends OrderMessage
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
      * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
@@ -67,6 +76,11 @@ interface OrderLineItemDiscountSetMessage extends OrderMessage
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity

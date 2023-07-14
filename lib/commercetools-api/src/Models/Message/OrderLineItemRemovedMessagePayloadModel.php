@@ -43,6 +43,12 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?int
      */
     protected $removedQuantity;
@@ -89,6 +95,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?int $removedQuantity = null,
         ?int $newQuantity = null,
         ?ItemStateCollection $newState = null,
@@ -99,6 +106,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
         ?string $type = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->removedQuantity = $removedQuantity;
         $this->newQuantity = $newQuantity;
         $this->newState = $newState;
@@ -145,6 +153,26 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
     }
 
     /**
@@ -298,6 +326,14 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

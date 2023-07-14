@@ -33,6 +33,12 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -56,7 +62,7 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     private $actualTransitionDate;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -64,6 +70,17 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -117,6 +134,17 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
 
         return $this;
     }
@@ -191,6 +219,7 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     {
         return new StagedOrderTransitionLineItemStateActionModel(
             $this->lineItemId,
+            $this->lineItemKey,
             $this->quantity,
             $this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState,
             $this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState,

@@ -37,6 +37,12 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $transitionDate;
@@ -65,6 +71,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?DateTimeImmutable $transitionDate = null,
         ?int $quantity = null,
         ?StateReference $fromState = null,
@@ -72,6 +79,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
         ?string $type = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->transitionDate = $transitionDate;
         $this->quantity = $quantity;
         $this->fromState = $fromState;
@@ -115,6 +123,26 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
     }
 
     /**
@@ -210,6 +238,14 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

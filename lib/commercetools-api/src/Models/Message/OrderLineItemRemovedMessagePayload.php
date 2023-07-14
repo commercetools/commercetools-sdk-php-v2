@@ -19,6 +19,7 @@ use Commercetools\Base\JsonObject;
 interface OrderLineItemRemovedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_REMOVED_QUANTITY = 'removedQuantity';
     public const FIELD_NEW_QUANTITY = 'newQuantity';
     public const FIELD_NEW_STATE = 'newState';
@@ -34,6 +35,14 @@ interface OrderLineItemRemovedMessagePayload extends OrderMessagePayload
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
      * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were removed during the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
@@ -95,6 +104,11 @@ interface OrderLineItemRemovedMessagePayload extends OrderMessagePayload
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?int $removedQuantity

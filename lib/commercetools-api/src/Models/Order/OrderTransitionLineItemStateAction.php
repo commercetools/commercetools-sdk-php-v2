@@ -16,18 +16,27 @@ use DateTimeImmutable;
 interface OrderTransitionLineItemStateAction extends OrderUpdateAction
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_FROM_STATE = 'fromState';
     public const FIELD_TO_STATE = 'toState';
     public const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
      * <p>Number of Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
@@ -65,6 +74,11 @@ interface OrderTransitionLineItemStateAction extends OrderUpdateAction
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?int $quantity

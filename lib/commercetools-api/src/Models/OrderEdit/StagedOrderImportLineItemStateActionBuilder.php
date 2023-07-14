@@ -31,12 +31,18 @@ final class StagedOrderImportLineItemStateActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -44,6 +50,17 @@ final class StagedOrderImportLineItemStateActionBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -69,6 +86,17 @@ final class StagedOrderImportLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?ItemStateCollection $state
      * @return $this
      */
@@ -84,6 +112,7 @@ final class StagedOrderImportLineItemStateActionBuilder implements Builder
     {
         return new StagedOrderImportLineItemStateActionModel(
             $this->lineItemId,
+            $this->lineItemKey,
             $this->state
         );
     }

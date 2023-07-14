@@ -103,6 +103,12 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $transitionDate;
@@ -141,6 +147,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?DateTimeImmutable $transitionDate = null,
         ?int $quantity = null,
         ?StateReference $fromState = null,
@@ -158,6 +165,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->transitionDate = $transitionDate;
         $this->quantity = $quantity;
         $this->fromState = $fromState;
@@ -419,6 +427,26 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
+    }
+
+    /**
      * <p>Date and time (UTC) when the transition of the <a href="ctp:api:type:LineItem">Line Item</a> <a href="ctp:api:type:State">State</a> was performed.</p>
      *
      *
@@ -591,6 +619,14 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

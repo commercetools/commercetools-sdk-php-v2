@@ -15,6 +15,7 @@ use Commercetools\Base\JsonObject;
 interface OrderLineItemDistributionChannelSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
@@ -24,6 +25,14 @@ interface OrderLineItemDistributionChannelSetMessagePayload extends OrderMessage
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
      * <p><a href="ctp:api:type:Channel">Distribution Channel</a> that was set.</p>
@@ -37,6 +46,11 @@ interface OrderLineItemDistributionChannelSetMessagePayload extends OrderMessage
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?ChannelReference $distributionChannel

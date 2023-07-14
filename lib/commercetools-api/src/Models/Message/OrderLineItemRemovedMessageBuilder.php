@@ -104,6 +104,12 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $removedQuantity;
@@ -264,6 +270,17 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -465,6 +482,17 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $removedQuantity
      * @return $this
      */
@@ -643,6 +671,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->lineItemId,
+            $this->lineItemKey,
             $this->removedQuantity,
             $this->newQuantity,
             $this->newState,

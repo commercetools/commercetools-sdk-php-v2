@@ -16,6 +16,7 @@ use DateTimeImmutable;
 interface LineItemStateTransitionMessagePayload extends OrderMessagePayload
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_TRANSITION_DATE = 'transitionDate';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_FROM_STATE = 'fromState';
@@ -28,6 +29,14 @@ interface LineItemStateTransitionMessagePayload extends OrderMessagePayload
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
      * <p>Date and time (UTC) when the transition of the <a href="ctp:api:type:LineItem">Line Item</a> <a href="ctp:api:type:State">State</a> was performed.</p>
@@ -65,6 +74,11 @@ interface LineItemStateTransitionMessagePayload extends OrderMessagePayload
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?DateTimeImmutable $transitionDate
