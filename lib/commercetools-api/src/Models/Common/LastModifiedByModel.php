@@ -45,6 +45,12 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
      */
     protected $anonymousId;
 
+    /**
+     *
+     * @var ?CustomerReference
+     */
+    protected $associate;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -53,16 +59,18 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
         ?string $clientId = null,
         ?string $externalUserId = null,
         ?CustomerReference $customer = null,
-        ?string $anonymousId = null
+        ?string $anonymousId = null,
+        ?CustomerReference $associate = null
     ) {
         $this->clientId = $clientId;
         $this->externalUserId = $externalUserId;
         $this->customer = $customer;
         $this->anonymousId = $anonymousId;
+        $this->associate = $associate;
     }
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">APIClient</a> which modified the resource.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">API Client</a> which modified the resource.</p>
      *
      *
      * @return null|string
@@ -142,6 +150,27 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
         return $this->anonymousId;
     }
 
+    /**
+     * <p>Indicates the <a href="ctp:api:type:Customer">Customer</a> who modified the resource in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only present when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
+     *
+     *
+     * @return null|CustomerReference
+     */
+    public function getAssociate()
+    {
+        if (is_null($this->associate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ASSOCIATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->associate = CustomerReferenceModel::of($data);
+        }
+
+        return $this->associate;
+    }
+
 
     /**
      * @param ?string $clientId
@@ -173,5 +202,13 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
+    }
+
+    /**
+     * @param ?CustomerReference $associate
+     */
+    public function setAssociate(?CustomerReference $associate): void
+    {
+        $this->associate = $associate;
     }
 }
