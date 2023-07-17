@@ -99,6 +99,7 @@ interface PriceDraftImport extends JsonObject
 
     /**
      * <p>User-defined unique identifier for the Embedded Price.</p>
+     * <p>This field is required from 31 July 2023.</p>
      *
 
      * @return null|string

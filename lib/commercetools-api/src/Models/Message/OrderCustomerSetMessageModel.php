@@ -393,7 +393,7 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
-     * <p><a href="ctp:api:type:Customer">Customer</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
+     * <p><a href="ctp:api:type:Customer">Customer</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer ID</a> update action.</p>
      *
      *
      * @return null|CustomerReference
@@ -414,7 +414,7 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
-     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer ID</a> update action.</p>
      *
      *
      * @return null|CustomerGroupReference
@@ -435,7 +435,7 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
-     * <p><a href="ctp:api:type:Customer">Customer</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
+     * <p><a href="ctp:api:type:Customer">Customer</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer ID</a> update action.</p>
      *
      *
      * @return null|CustomerReference
@@ -456,7 +456,7 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
-     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer ID</a> update action.</p>
      *
      *
      * @return null|CustomerGroupReference
