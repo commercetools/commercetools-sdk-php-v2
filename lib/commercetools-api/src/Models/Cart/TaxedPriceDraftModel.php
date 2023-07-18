@@ -54,7 +54,7 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     }
 
     /**
-     * <p>Total net price of the Line Item or Custom Line Item.</p>
+     * <p>Total net price of the Cart or Order.</p>
      *
      *
      * @return null|Money
@@ -75,7 +75,7 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     }
 
     /**
-     * <p>Total gross price of the Line Item or Custom Line Item.</p>
+     * <p>Total gross price of the Cart or Order.</p>
      *
      *
      * @return null|Money

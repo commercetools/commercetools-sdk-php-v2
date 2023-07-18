@@ -47,7 +47,7 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Discounted money value.</p>
      *
      *
      * @return null|Money
@@ -68,6 +68,8 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Discounts to be applied.</p>
+     *
      *
      * @return null|DiscountedLineItemPortionCollection
      */

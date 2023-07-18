@@ -85,6 +85,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     private $shippingMethodState;
 
     /**
+     * <p>Name of the Shipping Method.</p>
+     *
 
      * @return null|string
      */
@@ -94,6 +96,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>The base price for the Shipping Method.</p>
+     *
 
      * @return null|Money
      */
@@ -103,7 +107,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The shipping rate used to determine the price.</p>
+     * <p>Shipping rate information for the Order.</p>
      *
 
      * @return null|ShippingRateDraft
@@ -114,6 +118,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Include a Tax Rate for the Shipping Method.</p>
+     *
 
      * @return null|TaxRate
      */
@@ -123,6 +129,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Include a value to associate a Tax Category with the shipping information.</p>
+     *
 
      * @return null|TaxCategoryResourceIdentifier
      */
@@ -132,7 +140,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Not set if custom shipping method is used.</p>
+     * <p>Include a value to associate a Shipping Method with the Order.</p>
      *
 
      * @return null|ShippingMethodResourceIdentifier
@@ -143,7 +151,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
+     * <p>Information on how items are to be delivered to customers.</p>
      *
 
      * @return null|DeliveryDraftCollection
@@ -154,6 +162,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Discounted Price of the Shipping Method.</p>
+     *
 
      * @return null|DiscountedLineItemPriceDraft
      */
@@ -163,7 +173,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>
+     * <p>Indicates if the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> referenced is allowed for the Order or not.</p>
      *
 
      * @return null|string

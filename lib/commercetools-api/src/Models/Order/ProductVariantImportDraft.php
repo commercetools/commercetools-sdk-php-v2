@@ -23,9 +23,8 @@ interface ProductVariantImportDraft extends JsonObject
     public const FIELD_IMAGES = 'images';
 
     /**
-     * <p>The sequential ID of the variant within the product.
-     * The variant with provided ID should exist in some existing product, so you also need to specify the productId if this property is set,
-     * or alternatively you can just specify SKU of the product variant.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>. Required if you do not set a value for <code>sku</code>.
+     * If set, you must specify a <code>productId</code> in the <a href="ctp:api:type:LineItemImportDraft">LineItemImportDraft</a> also.</p>
      *
 
      * @return null|int
@@ -33,7 +32,7 @@ interface ProductVariantImportDraft extends JsonObject
     public function getId();
 
     /**
-     * <p>The SKU of the existing variant.</p>
+     * <p>The <code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>. Required if you do not set a value for <code>id</code>.</p>
      *
 
      * @return null|string
@@ -41,9 +40,9 @@ interface ProductVariantImportDraft extends JsonObject
     public function getSku();
 
     /**
-     * <p>The <a href="ctp:api:type:Price">Embedded Prices</a> of the variant.
-     * The prices should not contain two prices for the same price scope (same currency, country, customer group, channel, valid from and valid until).
-     * If this property is defined, then it will override the <code>prices</code> property from the original product variant, otherwise <code>prices</code> property from the original product variant would be copied in the resulting order.</p>
+     * <p>The <a href="ctp:api:type:Price">Prices</a> of the Product Variant if you want to override the <code>prices</code> property in the referenced <a href="ctp:api:type:ProductVariant">ProductVariant</a>.
+     * If not set, the <code>prices</code> from the referenced <a href="ctp:api:type:ProductVariant">ProductVariant</a> are used in the resulting Order.
+     * If set, each Price must have its unique price scope (same <code>value.currencyCode</code>, <code>country</code>, <code>customerGroup</code>, <code>channel</code>, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
 
      * @return null|PriceDraftCollection
@@ -51,8 +50,8 @@ interface ProductVariantImportDraft extends JsonObject
     public function getPrices();
 
     /**
-     * <p>If this property is defined, then it will override the <code>attributes</code> property from the original
-     * product variant, otherwise <code>attributes</code> property from the original product variant would be copied in the resulting order.</p>
+     * <p>The <a href="ctp:api:type:Attribute">Attributes</a> of the Product Variant if you want to override the <code>attributes</code> property in the referenced <a href="ctp:api:type:ProductVariant">ProductVariant</a>.
+     * If not set, the <code>attributes</code> from the referenced <a href="ctp:api:type:ProductVariant">ProductVariant</a> are copied to the resulting Order.</p>
      *
 
      * @return null|AttributeCollection
@@ -60,8 +59,8 @@ interface ProductVariantImportDraft extends JsonObject
     public function getAttributes();
 
     /**
-     * <p>If this property is defined, then it will override the <code>images</code> property from the original
-     * product variant, otherwise <code>images</code> property from the original product variant would be copied in the resulting order.</p>
+     * <p>The <a href="ctp:api:type:Image">Images</a> of the Product Variant if you want to override the <code>images</code> property in the referenced <a href="ctp:api:type:ProductVariant">ProductVariant</a>.
+     * If not set, the <code>images</code> from the referenced <a href="ctp:api:type:ProductVariant">ProductVariant</a> are copied to the resulting Order.</p>
      *
 
      * @return null|ImageCollection

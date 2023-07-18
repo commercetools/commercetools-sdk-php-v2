@@ -19,7 +19,7 @@ interface TaxedPriceDraft extends JsonObject
     public const FIELD_TAX_PORTIONS = 'taxPortions';
 
     /**
-     * <p>Total net price of the Line Item or Custom Line Item.</p>
+     * <p>Total net price of the Cart or Order.</p>
      *
 
      * @return null|Money
@@ -27,7 +27,7 @@ interface TaxedPriceDraft extends JsonObject
     public function getTotalNet();
 
     /**
-     * <p>Total gross price of the Line Item or Custom Line Item.</p>
+     * <p>Total gross price of the Cart or Order.</p>
      *
 
      * @return null|Money

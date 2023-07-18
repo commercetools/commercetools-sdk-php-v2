@@ -353,7 +353,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Determines how taxes are calculated when calculating taxes for <code>taxedPrice</code>.</p>
+     * <p>Determines how taxes are calculated for <code>taxedPrice</code>.</p>
      *
 
      * @return null|string

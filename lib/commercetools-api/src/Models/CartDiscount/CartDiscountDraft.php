@@ -57,8 +57,7 @@ interface CartDiscountDraft extends JsonObject
     public function getDescription();
 
     /**
-     * <p>Effect of the CartDiscount.
-     * For a <a href="ctp:api:type:CartDiscountTarget">target</a>, relative or absolute Discount values or a fixed item Price value can be specified. If no target is specified, a <a href="/../api/projects/cartDiscounts#gift-line-item">Gift Line Item</a> can be added to the Cart.</p>
+     * <p>Effect of the CartDiscount on the <code>target</code>.</p>
      *
 
      * @return null|CartDiscountValueDraft
@@ -74,7 +73,8 @@ interface CartDiscountDraft extends JsonObject
     public function getCartPredicate();
 
     /**
-     * <p>Must not be set when the <code>value</code> has type <code>giftLineItem</code>, otherwise a <a href="ctp:api:type:CartDiscountTarget">CartDiscountTarget</a> must be set.</p>
+     * <p>Segment of the Cart that will be discounted.</p>
+     * <p>Must not be set if the <code>value</code> is <code>giftLineItem</code>.</p>
      *
 
      * @return null|CartDiscountTarget

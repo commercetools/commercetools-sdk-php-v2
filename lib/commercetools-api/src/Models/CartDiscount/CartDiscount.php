@@ -112,7 +112,7 @@ interface CartDiscount extends BaseResource
     public function getDescription();
 
     /**
-     * <p>Effect of the CartDiscount.</p>
+     * <p>Effect of the CartDiscount on the <code>target</code>.</p>
      *
 
      * @return null|CartDiscountValue
@@ -128,7 +128,8 @@ interface CartDiscount extends BaseResource
     public function getCartPredicate();
 
     /**
-     * <p>Sets a <a href="ctp:api:type:CartDiscountTarget">CartDiscountTarget</a>. Empty if <code>value</code> has type <code>giftLineItem</code>.</p>
+     * <p>Segment of the Cart that is discounted.</p>
+     * <p>Empty, if the <code>value</code> is <code>giftLineItem</code>.</p>
      *
 
      * @return null|CartDiscountTarget

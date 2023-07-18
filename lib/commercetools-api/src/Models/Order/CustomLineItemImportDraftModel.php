@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Cart;
+namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
-use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
@@ -38,6 +39,12 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
 
     /**
      *
+     * @var ?string
+     */
+    protected $slug;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -47,18 +54,6 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
      * @var ?Money
      */
     protected $money;
-
-    /**
-     *
-     * @var ?string
-     */
-    protected $slug;
-
-    /**
-     *
-     * @var ?ItemStateCollection
-     */
-    protected $state;
 
     /**
      *
@@ -74,9 +69,9 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
 
     /**
      *
-     * @var ?CustomFieldsDraft
+     * @var ?string
      */
-    protected $custom;
+    protected $priceMode;
 
     /**
      *
@@ -86,9 +81,15 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
 
     /**
      *
-     * @var ?string
+     * @var ?ItemStateCollection
      */
-    protected $priceMode;
+    protected $state;
+
+    /**
+     *
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
 
 
     /**
@@ -96,29 +97,31 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
      */
     public function __construct(
         ?LocalizedString $name = null,
+        ?string $slug = null,
         ?int $quantity = null,
         ?Money $money = null,
-        ?string $slug = null,
-        ?ItemStateCollection $state = null,
         ?TaxRate $taxRate = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
-        ?CustomFieldsDraft $custom = null,
+        ?string $priceMode = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
-        ?string $priceMode = null
+        ?ItemStateCollection $state = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->name = $name;
+        $this->slug = $slug;
         $this->quantity = $quantity;
         $this->money = $money;
-        $this->slug = $slug;
-        $this->state = $state;
         $this->taxRate = $taxRate;
         $this->taxCategory = $taxCategory;
-        $this->custom = $custom;
-        $this->shippingDetails = $shippingDetails;
         $this->priceMode = $priceMode;
+        $this->shippingDetails = $shippingDetails;
+        $this->state = $state;
+        $this->custom = $custom;
     }
 
     /**
+     * <p>Name of the Custom Line Item.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -138,8 +141,27 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * <p>The amount of a CustomLineItem in the cart.
-     * Must be a positive integer.</p>
+     * <p>User-defined identifier used in a deep-link URL for the Custom Line Item. This value should match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSlug()
+    {
+        if (is_null($this->slug)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->slug = (string) $data;
+        }
+
+        return $this->slug;
+    }
+
+    /**
+     * <p>The number of items in the Custom Line Item. Can be a negative value.</p>
      *
      *
      * @return null|int
@@ -159,7 +181,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * <p>The cost to add to the cart. The amount can be negative.</p>
+     * <p>The cost of individual items in the Custom Line Item. The amount can be negative.</p>
      *
      *
      * @return null|Money
@@ -180,42 +202,8 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
+     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Order.</p>
      *
-     * @return null|string
-     */
-    public function getSlug()
-    {
-        if (is_null($this->slug)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SLUG);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->slug = (string) $data;
-        }
-
-        return $this->slug;
-    }
-
-    /**
-     *
-     * @return null|ItemStateCollection
-     */
-    public function getState()
-    {
-        if (is_null($this->state)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->state = ItemStateCollection::fromArray($data);
-        }
-
-        return $this->state;
-    }
-
-    /**
      *
      * @return null|TaxRate
      */
@@ -235,6 +223,8 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
+     * <p>Include a value to associate a Tax Category with the Custom Line Item.</p>
+     *
      *
      * @return null|TaxCategoryResourceIdentifier
      */
@@ -251,46 +241,6 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         }
 
         return $this->taxCategory;
-    }
-
-    /**
-     * <p>The custom fields.</p>
-     *
-     *
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     *
-     * @return null|ItemShippingDetailsDraft
-     */
-    public function getShippingDetails()
-    {
-        if (is_null($this->shippingDetails)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
-        }
-
-        return $this->shippingDetails;
     }
 
     /**
@@ -317,6 +267,68 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         return $this->priceMode;
     }
 
+    /**
+     * <p>Container for Custom Line Item-specific addresses.</p>
+     *
+     *
+     * @return null|ItemShippingDetailsDraft
+     */
+    public function getShippingDetails()
+    {
+        if (is_null($this->shippingDetails)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
+        }
+
+        return $this->shippingDetails;
+    }
+
+    /**
+     * <p>State of the Custom Line Items.</p>
+     *
+     *
+     * @return null|ItemStateCollection
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = ItemStateCollection::fromArray($data);
+        }
+
+        return $this->state;
+    }
+
+    /**
+     * <p>Custom Fields of the CustomLineItem.</p>
+     *
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?LocalizedString $name
@@ -324,6 +336,14 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?string $slug
+     */
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
     }
 
     /**
@@ -343,22 +363,6 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * @param ?string $slug
-     */
-    public function setSlug(?string $slug): void
-    {
-        $this->slug = $slug;
-    }
-
-    /**
-     * @param ?ItemStateCollection $state
-     */
-    public function setState(?ItemStateCollection $state): void
-    {
-        $this->state = $state;
-    }
-
-    /**
      * @param ?TaxRate $taxRate
      */
     public function setTaxRate(?TaxRate $taxRate): void
@@ -375,11 +379,11 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
+     * @param ?string $priceMode
      */
-    public function setCustom(?CustomFieldsDraft $custom): void
+    public function setPriceMode(?string $priceMode): void
     {
-        $this->custom = $custom;
+        $this->priceMode = $priceMode;
     }
 
     /**
@@ -391,10 +395,18 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * @param ?string $priceMode
+     * @param ?ItemStateCollection $state
      */
-    public function setPriceMode(?string $priceMode): void
+    public function setState(?ItemStateCollection $state): void
     {
-        $this->priceMode = $priceMode;
+        $this->state = $state;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

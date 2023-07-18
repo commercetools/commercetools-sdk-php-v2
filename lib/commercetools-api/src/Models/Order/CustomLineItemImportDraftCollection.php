@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Cart;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;

@@ -97,7 +97,7 @@ final class DirectDiscountModel extends JsonObjectModel implements DirectDiscoun
     }
 
     /**
-     * <p>Part of the Cart that is discounted.</p>
+     * <p>Segment of the Cart that is discounted.</p>
      * <p>Empty when the <code>value</code> is set to <code>giftLineItem</code>.</p>
      *
      *
