@@ -20,6 +20,7 @@
       },
       "masterVariant": {
         "id": 1,
+        "sku": "prod1-abc",
         "prices": [],
         "images": [],
         "attributes": [
@@ -33,7 +34,24 @@
           }
         ]
       },
-      "variants": [],
+      "variants": [
+        {
+          "id": 2,
+          "sku": "prod1-def",
+          "prices": [],
+          "images": [],
+          "attributes": [
+            {
+              "name": "text1",
+              "value": {
+                "it": "italian1",
+                "de": "german1",
+                "en": "englisch1"
+              }
+            }
+          ]
+        }
+      ],
       "searchKeywords": {},
       "hasStagedChanges": false,
       "published": true,
@@ -62,6 +80,7 @@
       "masterVariant": {
         "id": 1,
         "prices": [],
+        "sku": "prod2-abc",
         "images": [],
         "attributes": [
           {
@@ -70,7 +89,20 @@
           }
         ]
       },
-      "variants": [],
+      "variants": [
+        {
+          "id": 2,
+          "prices": [],
+          "sku": "prod2-def",
+          "images": [],
+          "attributes": [
+            {
+              "name": "aboolean",
+              "value": true
+            }
+          ]
+        }
+      ],
       "searchKeywords": {},
       "hasStagedChanges": true,
       "published": true,
