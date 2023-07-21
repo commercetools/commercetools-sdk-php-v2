@@ -16,6 +16,7 @@ use DateTimeImmutable;
 interface CustomLineItemStateTransitionMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_KEY = 'customLineItemKey';
     public const FIELD_TRANSITION_DATE = 'transitionDate';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_FROM_STATE = 'fromState';
@@ -28,6 +29,14 @@ interface CustomLineItemStateTransitionMessagePayload extends OrderMessagePayloa
      * @return null|string
      */
     public function getCustomLineItemId();
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey();
 
     /**
      * <p>Date and time (UTC) when the transition of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a> <a href="ctp:api:type:State">State</a> was performed.</p>
@@ -65,6 +74,11 @@ interface CustomLineItemStateTransitionMessagePayload extends OrderMessagePayloa
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void;
 
     /**
      * @param ?DateTimeImmutable $transitionDate

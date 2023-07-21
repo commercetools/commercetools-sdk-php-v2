@@ -30,6 +30,12 @@ final class OrderCustomLineItemRemovedMessagePayloadBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var null|CustomLineItem|CustomLineItemBuilder
      */
     private $customLineItem;
@@ -43,6 +49,17 @@ final class OrderCustomLineItemRemovedMessagePayloadBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -63,6 +80,17 @@ final class OrderCustomLineItemRemovedMessagePayloadBuilder implements Builder
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
 
         return $this;
     }
@@ -93,6 +121,7 @@ final class OrderCustomLineItemRemovedMessagePayloadBuilder implements Builder
     {
         return new OrderCustomLineItemRemovedMessagePayloadModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->customLineItem instanceof CustomLineItemBuilder ? $this->customLineItem->build() : $this->customLineItem
         );
     }

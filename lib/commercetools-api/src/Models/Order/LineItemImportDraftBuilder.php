@@ -40,6 +40,12 @@ final class LineItemImportDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|ProductVariantImportDraft|ProductVariantImportDraftBuilder
      */
     private $variant;
@@ -113,6 +119,17 @@ final class LineItemImportDraftBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -248,6 +265,17 @@ final class LineItemImportDraftBuilder implements Builder
     public function withName(?LocalizedString $name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -465,6 +493,7 @@ final class LineItemImportDraftBuilder implements Builder
     {
         return new LineItemImportDraftModel(
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->key,
             $this->variant instanceof ProductVariantImportDraftBuilder ? $this->variant->build() : $this->variant,
             $this->productId,
             $this->quantity,

@@ -39,6 +39,12 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?ProductVariantImportDraft
      */
     protected $variant;
@@ -109,6 +115,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      */
     public function __construct(
         ?LocalizedString $name = null,
+        ?string $key = null,
         ?ProductVariantImportDraft $variant = null,
         ?string $productId = null,
         ?int $quantity = null,
@@ -122,6 +129,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         ?CustomFieldsDraft $custom = null
     ) {
         $this->name = $name;
+        $this->key = $key;
         $this->variant = $variant;
         $this->productId = $productId;
         $this->quantity = $quantity;
@@ -154,6 +162,26 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         }
 
         return $this->name;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Line Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -395,6 +423,14 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

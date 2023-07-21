@@ -42,6 +42,12 @@ final class CustomLineItemImportDraftBuilder implements Builder
 
      * @var ?string
      */
+    private $key;
+
+    /**
+
+     * @var ?string
+     */
     private $slug;
 
     /**
@@ -101,6 +107,17 @@ final class CustomLineItemImportDraftBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -213,6 +230,17 @@ final class CustomLineItemImportDraftBuilder implements Builder
     public function withName(?LocalizedString $name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -386,6 +414,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     {
         return new CustomLineItemImportDraftModel(
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->key,
             $this->slug,
             $this->quantity,
             $this->money instanceof MoneyBuilder ? $this->money->build() : $this->money,

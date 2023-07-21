@@ -37,6 +37,12 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
 
     /**
      *
+     * @var ?string
+     */
+    protected $customLineItemKey;
+
+    /**
+     *
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
@@ -53,11 +59,13 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
      */
     public function __construct(
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?TaxedItemPrice $taxedPrice = null,
         ?string $type = null
     ) {
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->taxedPrice = $taxedPrice;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
@@ -99,6 +107,26 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
         }
 
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
     }
 
     /**
@@ -149,6 +177,14 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
     }
 
     /**

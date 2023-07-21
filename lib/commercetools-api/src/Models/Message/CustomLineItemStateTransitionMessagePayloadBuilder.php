@@ -31,6 +31,12 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $transitionDate;
@@ -62,6 +68,17 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -115,6 +132,17 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
 
         return $this;
     }
@@ -189,6 +217,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     {
         return new CustomLineItemStateTransitionMessagePayloadModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->transitionDate,
             $this->quantity,
             $this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState,

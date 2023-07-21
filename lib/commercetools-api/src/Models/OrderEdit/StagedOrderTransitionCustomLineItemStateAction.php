@@ -17,18 +17,27 @@ use DateTimeImmutable;
 interface StagedOrderTransitionCustomLineItemStateAction extends StagedOrderUpdateAction
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_KEY = 'customLineItemKey';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_FROM_STATE = 'fromState';
     public const FIELD_TO_STATE = 'toState';
     public const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getCustomLineItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey();
 
     /**
      * <p>Number of Custom Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
@@ -66,6 +75,11 @@ interface StagedOrderTransitionCustomLineItemStateAction extends StagedOrderUpda
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void;
 
     /**
      * @param ?int $quantity

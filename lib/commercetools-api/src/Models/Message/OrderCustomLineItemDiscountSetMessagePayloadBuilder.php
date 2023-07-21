@@ -31,6 +31,12 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
@@ -50,6 +56,17 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -81,6 +98,17 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
 
         return $this;
     }
@@ -122,6 +150,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     {
         return new OrderCustomLineItemDiscountSetMessagePayloadModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->discountedPricePerQuantity,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice
         );

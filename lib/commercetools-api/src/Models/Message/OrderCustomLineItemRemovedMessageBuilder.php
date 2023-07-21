@@ -97,6 +97,12 @@ final class OrderCustomLineItemRemovedMessageBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var null|CustomLineItem|CustomLineItemBuilder
      */
     private $customLineItem;
@@ -221,6 +227,17 @@ final class OrderCustomLineItemRemovedMessageBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -356,6 +373,17 @@ final class OrderCustomLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomLineItem $customLineItem
      * @return $this
      */
@@ -435,6 +463,7 @@ final class OrderCustomLineItemRemovedMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->customLineItem instanceof CustomLineItemBuilder ? $this->customLineItem->build() : $this->customLineItem
         );
     }

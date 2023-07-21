@@ -103,6 +103,12 @@ final class OrderCustomLineItemRemovedMessageModel extends JsonObjectModel imple
 
     /**
      *
+     * @var ?string
+     */
+    protected $customLineItemKey;
+
+    /**
+     *
      * @var ?CustomLineItem
      */
     protected $customLineItem;
@@ -123,6 +129,7 @@ final class OrderCustomLineItemRemovedMessageModel extends JsonObjectModel imple
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?CustomLineItem $customLineItem = null,
         ?string $type = null
     ) {
@@ -137,6 +144,7 @@ final class OrderCustomLineItemRemovedMessageModel extends JsonObjectModel imple
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->customLineItem = $customLineItem;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -395,6 +403,26 @@ final class OrderCustomLineItemRemovedMessageModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
+    }
+
+    /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
      *
      *
@@ -502,6 +530,14 @@ final class OrderCustomLineItemRemovedMessageModel extends JsonObjectModel imple
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
     }
 
     /**

@@ -20,6 +20,7 @@ use Commercetools\Base\JsonObject;
 interface CustomLineItemImportDraft extends JsonObject
 {
     public const FIELD_NAME = 'name';
+    public const FIELD_KEY = 'key';
     public const FIELD_SLUG = 'slug';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_MONEY = 'money';
@@ -37,6 +38,14 @@ interface CustomLineItemImportDraft extends JsonObject
      * @return null|LocalizedString
      */
     public function getName();
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>User-defined identifier used in a deep-link URL for the Custom Line Item. This value should match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
@@ -118,6 +127,11 @@ interface CustomLineItemImportDraft extends JsonObject
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $slug

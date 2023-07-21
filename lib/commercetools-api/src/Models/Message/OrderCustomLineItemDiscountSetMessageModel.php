@@ -104,6 +104,12 @@ final class OrderCustomLineItemDiscountSetMessageModel extends JsonObjectModel i
 
     /**
      *
+     * @var ?string
+     */
+    protected $customLineItemKey;
+
+    /**
+     *
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
@@ -130,6 +136,7 @@ final class OrderCustomLineItemDiscountSetMessageModel extends JsonObjectModel i
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?TaxedItemPrice $taxedPrice = null,
         ?string $type = null
@@ -145,6 +152,7 @@ final class OrderCustomLineItemDiscountSetMessageModel extends JsonObjectModel i
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->taxedPrice = $taxedPrice;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
@@ -404,6 +412,26 @@ final class OrderCustomLineItemDiscountSetMessageModel extends JsonObjectModel i
     }
 
     /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
+    }
+
+    /**
      * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
      *
      *
@@ -531,6 +559,14 @@ final class OrderCustomLineItemDiscountSetMessageModel extends JsonObjectModel i
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
     }
 
     /**

@@ -28,6 +28,12 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements B
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -47,6 +53,17 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements B
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -83,6 +100,17 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements B
     }
 
     /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $quantity
      * @return $this
      */
@@ -109,6 +137,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements B
     {
         return new OrderCustomLineItemQuantityChangedMessagePayloadModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->quantity,
             $this->oldQuantity
         );

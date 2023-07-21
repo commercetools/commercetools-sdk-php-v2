@@ -20,6 +20,7 @@ use Commercetools\Base\JsonObject;
 interface LineItemImportDraft extends JsonObject
 {
     public const FIELD_NAME = 'name';
+    public const FIELD_KEY = 'key';
     public const FIELD_VARIANT = 'variant';
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_QUANTITY = 'quantity';
@@ -39,6 +40,14 @@ interface LineItemImportDraft extends JsonObject
      * @return null|LocalizedString
      */
     public function getName();
+
+    /**
+     * <p>User-defined unique identifier of the Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>The Product Variant to use as a <a href="ctp:api:type:LineItem">Line Item</a>.</p>
@@ -137,6 +146,11 @@ interface LineItemImportDraft extends JsonObject
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?ProductVariantImportDraft $variant
