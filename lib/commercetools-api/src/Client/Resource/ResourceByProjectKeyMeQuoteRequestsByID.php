@@ -27,6 +27,16 @@ class ResourceByProjectKeyMeQuoteRequestsByID extends ApiResource
     }
 
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function get($body = null, array $headers = []): ByProjectKeyMeQuoteRequestsByIDGet
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyMeQuoteRequestsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?MyQuoteRequestUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
@@ -45,15 +55,5 @@ class ResourceByProjectKeyMeQuoteRequestsByID extends ApiResource
         $args = $this->getArgs();
 
         return new ByProjectKeyMeQuoteRequestsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
-    }
-    /**
-     * @psalm-param ?object|array|string $body
-     * @psalm-param array<string, scalar|scalar[]> $headers
-     */
-    public function get($body = null, array $headers = []): ByProjectKeyMeQuoteRequestsByIDGet
-    {
-        $args = $this->getArgs();
-
-        return new ByProjectKeyMeQuoteRequestsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }
