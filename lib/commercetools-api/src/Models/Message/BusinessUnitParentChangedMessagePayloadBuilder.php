@@ -18,9 +18,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<BusinessUnitParentUnitChangedMessagePayload>
+ * @implements Builder<BusinessUnitParentChangedMessagePayload>
  */
-final class BusinessUnitParentUnitChangedMessagePayloadBuilder implements Builder
+final class BusinessUnitParentChangedMessagePayloadBuilder implements Builder
 {
     /**
 
@@ -100,15 +100,15 @@ final class BusinessUnitParentUnitChangedMessagePayloadBuilder implements Builde
         return $this;
     }
 
-    public function build(): BusinessUnitParentUnitChangedMessagePayload
+    public function build(): BusinessUnitParentChangedMessagePayload
     {
-        return new BusinessUnitParentUnitChangedMessagePayloadModel(
+        return new BusinessUnitParentChangedMessagePayloadModel(
             $this->oldParentUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->oldParentUnit->build() : $this->oldParentUnit,
             $this->newParentUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->newParentUnit->build() : $this->newParentUnit
         );
     }
 
-    public static function of(): BusinessUnitParentUnitChangedMessagePayloadBuilder
+    public static function of(): BusinessUnitParentChangedMessagePayloadBuilder
     {
         return new self();
     }

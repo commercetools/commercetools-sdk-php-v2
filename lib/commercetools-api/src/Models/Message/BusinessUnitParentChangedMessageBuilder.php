@@ -25,9 +25,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<BusinessUnitParentUnitChangedMessage>
+ * @implements Builder<BusinessUnitParentChangedMessage>
  */
-final class BusinessUnitParentUnitChangedMessageBuilder implements Builder
+final class BusinessUnitParentChangedMessageBuilder implements Builder
 {
     /**
 
@@ -432,9 +432,9 @@ final class BusinessUnitParentUnitChangedMessageBuilder implements Builder
         return $this;
     }
 
-    public function build(): BusinessUnitParentUnitChangedMessage
+    public function build(): BusinessUnitParentChangedMessage
     {
-        return new BusinessUnitParentUnitChangedMessageModel(
+        return new BusinessUnitParentChangedMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -450,7 +450,7 @@ final class BusinessUnitParentUnitChangedMessageBuilder implements Builder
         );
     }
 
-    public static function of(): BusinessUnitParentUnitChangedMessageBuilder
+    public static function of(): BusinessUnitParentChangedMessageBuilder
     {
         return new self();
     }

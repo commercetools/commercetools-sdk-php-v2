@@ -12,7 +12,7 @@ use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface BusinessUnitParentUnitChangedMessage extends Message
+interface BusinessUnitParentChangedMessagePayload extends MessagePayload
 {
     public const FIELD_OLD_PARENT_UNIT = 'oldParentUnit';
     public const FIELD_NEW_PARENT_UNIT = 'newParentUnit';

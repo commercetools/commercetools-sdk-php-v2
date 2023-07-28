@@ -54,7 +54,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'BusinessUnitDefaultShippingAddressSet' => BusinessUnitDefaultShippingAddressSetMessagePayloadModel::class,
        'BusinessUnitDeleted' => BusinessUnitDeletedMessagePayloadModel::class,
        'BusinessUnitNameChanged' => BusinessUnitNameChangedMessagePayloadModel::class,
-       'BusinessUnitParentUnitChanged' => BusinessUnitParentUnitChangedMessagePayloadModel::class,
+       'BusinessUnitParentChanged' => BusinessUnitParentChangedMessagePayloadModel::class,
        'BusinessUnitShippingAddressAdded' => BusinessUnitShippingAddressAddedMessagePayloadModel::class,
        'BusinessUnitShippingAddressRemoved' => BusinessUnitShippingAddressRemovedMessagePayloadModel::class,
        'BusinessUnitStatusChanged' => BusinessUnitStatusChangedMessagePayloadModel::class,

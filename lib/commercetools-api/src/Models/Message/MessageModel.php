@@ -123,7 +123,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'BusinessUnitDefaultShippingAddressSet' => BusinessUnitDefaultShippingAddressSetMessageModel::class,
        'BusinessUnitDeleted' => BusinessUnitDeletedMessageModel::class,
        'BusinessUnitNameChanged' => BusinessUnitNameChangedMessageModel::class,
-       'BusinessUnitParentUnitChanged' => BusinessUnitParentUnitChangedMessageModel::class,
+       'BusinessUnitParentChanged' => BusinessUnitParentChangedMessageModel::class,
        'BusinessUnitShippingAddressAdded' => BusinessUnitShippingAddressAddedMessageModel::class,
        'BusinessUnitShippingAddressRemoved' => BusinessUnitShippingAddressRemovedMessageModel::class,
        'BusinessUnitStatusChanged' => BusinessUnitStatusChangedMessageModel::class,

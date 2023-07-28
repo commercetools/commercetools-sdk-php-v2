@@ -46,7 +46,7 @@ use Commercetools\Api\Models\Message\BusinessUnitDefaultBillingAddressSetMessage
 use Commercetools\Api\Models\Message\BusinessUnitDefaultShippingAddressSetMessage;
 use Commercetools\Api\Models\Message\BusinessUnitDeletedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitNameChangedMessage;
-use Commercetools\Api\Models\Message\BusinessUnitParentUnitChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitParentChangedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitShippingAddressAddedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitShippingAddressRemovedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitStatusChangedMessage;

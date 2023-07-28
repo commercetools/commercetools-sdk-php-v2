@@ -26,9 +26,9 @@ use stdClass;
 /**
  * @internal
  */
-final class BusinessUnitParentUnitChangedMessageModel extends JsonObjectModel implements BusinessUnitParentUnitChangedMessage
+final class BusinessUnitParentChangedMessageModel extends JsonObjectModel implements BusinessUnitParentChangedMessage
 {
-    public const DISCRIMINATOR_VALUE = 'BusinessUnitParentUnitChanged';
+    public const DISCRIMINATOR_VALUE = 'BusinessUnitParentChanged';
     /**
      *
      * @var ?string
