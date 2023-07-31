@@ -14,12 +14,21 @@ use Commercetools\Base\JsonObject;
 
 interface ReturnItemDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_COMMENT = 'comment';
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
     public const FIELD_CUSTOM = 'custom';
+
+    /**
+     * <p>User-defined unique identifier of the Return Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Number of Line Items or Custom Line Items to return.</p>
@@ -71,6 +80,11 @@ interface ReturnItemDraft extends JsonObject
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?int $quantity

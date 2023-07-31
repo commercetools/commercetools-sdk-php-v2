@@ -16,16 +16,25 @@ use Commercetools\Base\JsonObject;
 interface OrderSetReturnItemCustomTypeAction extends OrderUpdateAction
 {
     public const FIELD_RETURN_ITEM_ID = 'returnItemId';
+    public const FIELD_RETURN_ITEM_KEY = 'returnItemKey';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getReturnItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getReturnItemKey();
 
     /**
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Return Item with <a href="/../api/projects/custom-fields">Custom Fields</a>.
@@ -48,6 +57,11 @@ interface OrderSetReturnItemCustomTypeAction extends OrderUpdateAction
      * @param ?string $returnItemId
      */
     public function setReturnItemId(?string $returnItemId): void;
+
+    /**
+     * @param ?string $returnItemKey
+     */
+    public function setReturnItemKey(?string $returnItemKey): void;
 
     /**
      * @param ?TypeResourceIdentifier $type

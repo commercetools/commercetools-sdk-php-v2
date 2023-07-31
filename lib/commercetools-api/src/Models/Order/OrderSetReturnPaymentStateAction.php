@@ -14,15 +14,24 @@ use Commercetools\Base\JsonObject;
 interface OrderSetReturnPaymentStateAction extends OrderUpdateAction
 {
     public const FIELD_RETURN_ITEM_ID = 'returnItemId';
+    public const FIELD_RETURN_ITEM_KEY = 'returnItemKey';
     public const FIELD_PAYMENT_STATE = 'paymentState';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getReturnItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getReturnItemKey();
 
     /**
      * <p>New Payment status of the <a href="ctp:api:type:ReturnItem">ReturnItem</a>.</p>
@@ -36,6 +45,11 @@ interface OrderSetReturnPaymentStateAction extends OrderUpdateAction
      * @param ?string $returnItemId
      */
     public function setReturnItemId(?string $returnItemId): void;
+
+    /**
+     * @param ?string $returnItemKey
+     */
+    public function setReturnItemKey(?string $returnItemKey): void;
 
     /**
      * @param ?string $paymentState

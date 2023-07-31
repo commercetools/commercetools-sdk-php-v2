@@ -16,6 +16,14 @@ interface CustomLineItemReturnItem extends ReturnItem
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
 
     /**
+     * <p>User-defined unique identifier of the CustomLineItemReturnItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p><code>id</code> of the returned <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
      *
 
@@ -30,6 +38,11 @@ interface CustomLineItemReturnItem extends ReturnItem
      * @return null|int
      */
     public function getQuantity();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $customLineItemId

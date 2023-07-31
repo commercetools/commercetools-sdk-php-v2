@@ -30,6 +30,12 @@ final class OrderSetReturnItemCustomFieldActionBuilder implements Builder
 
      * @var ?string
      */
+    private $returnItemKey;
+
+    /**
+
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -39,7 +45,7 @@ final class OrderSetReturnItemCustomFieldActionBuilder implements Builder
     private $value;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -47,6 +53,17 @@ final class OrderSetReturnItemCustomFieldActionBuilder implements Builder
     public function getReturnItemId()
     {
         return $this->returnItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getReturnItemKey()
+    {
+        return $this->returnItemKey;
     }
 
     /**
@@ -85,6 +102,17 @@ final class OrderSetReturnItemCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $returnItemKey
+     * @return $this
+     */
+    public function withReturnItemKey(?string $returnItemKey)
+    {
+        $this->returnItemKey = $returnItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -111,6 +139,7 @@ final class OrderSetReturnItemCustomFieldActionBuilder implements Builder
     {
         return new OrderSetReturnItemCustomFieldActionModel(
             $this->returnItemId,
+            $this->returnItemKey,
             $this->name,
             $this->value
         );

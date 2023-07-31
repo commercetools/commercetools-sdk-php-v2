@@ -17,6 +17,7 @@ interface ReturnItem extends JsonObject
 {
     public const DISCRIMINATOR_FIELD = 'type';
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_TYPE = 'type';
     public const FIELD_COMMENT = 'comment';
@@ -33,6 +34,14 @@ interface ReturnItem extends JsonObject
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-defined unique identifier of the Return Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Number of Line Items or Custom Line Items returned.</p>
@@ -104,6 +113,11 @@ interface ReturnItem extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?int $quantity

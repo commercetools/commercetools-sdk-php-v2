@@ -24,6 +24,12 @@ final class ReturnItemDraftBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -57,6 +63,17 @@ final class ReturnItemDraftBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+     * <p>User-defined unique identifier of the Return Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p>Number of Line Items or Custom Line Items to return.</p>
@@ -125,6 +142,17 @@ final class ReturnItemDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -207,6 +235,7 @@ final class ReturnItemDraftBuilder implements Builder
     public function build(): ReturnItemDraft
     {
         return new ReturnItemDraftModel(
+            $this->key,
             $this->quantity,
             $this->lineItemId,
             $this->customLineItemId,

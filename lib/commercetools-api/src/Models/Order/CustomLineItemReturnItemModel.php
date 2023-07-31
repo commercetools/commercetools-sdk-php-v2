@@ -31,6 +31,12 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -89,6 +95,7 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
      */
     public function __construct(
         ?string $id = null,
+        ?string $key = null,
         ?int $quantity = null,
         ?string $comment = null,
         ?string $shipmentState = null,
@@ -100,6 +107,7 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
         ?string $type = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->quantity = $quantity;
         $this->comment = $comment;
         $this->shipmentState = $shipmentState;
@@ -129,6 +137,26 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
         }
 
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the CustomLineItemReturnItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -329,6 +357,14 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

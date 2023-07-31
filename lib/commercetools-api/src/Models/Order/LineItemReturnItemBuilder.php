@@ -31,6 +31,12 @@ final class LineItemReturnItemBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -86,6 +92,17 @@ final class LineItemReturnItemBuilder implements Builder
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItemReturnItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -187,6 +204,17 @@ final class LineItemReturnItemBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -294,6 +322,7 @@ final class LineItemReturnItemBuilder implements Builder
     {
         return new LineItemReturnItemModel(
             $this->id,
+            $this->key,
             $this->quantity,
             $this->comment,
             $this->shipmentState,

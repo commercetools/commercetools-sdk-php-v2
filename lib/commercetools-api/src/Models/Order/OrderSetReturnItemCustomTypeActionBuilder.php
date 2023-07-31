@@ -32,6 +32,12 @@ final class OrderSetReturnItemCustomTypeActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $returnItemKey;
+
+    /**
+
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -43,7 +49,7 @@ final class OrderSetReturnItemCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -51,6 +57,17 @@ final class OrderSetReturnItemCustomTypeActionBuilder implements Builder
     public function getReturnItemId()
     {
         return $this->returnItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getReturnItemKey()
+    {
+        return $this->returnItemKey;
     }
 
     /**
@@ -83,6 +100,17 @@ final class OrderSetReturnItemCustomTypeActionBuilder implements Builder
     public function withReturnItemId(?string $returnItemId)
     {
         $this->returnItemId = $returnItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $returnItemKey
+     * @return $this
+     */
+    public function withReturnItemKey(?string $returnItemKey)
+    {
+        $this->returnItemKey = $returnItemKey;
 
         return $this;
     }
@@ -135,6 +163,7 @@ final class OrderSetReturnItemCustomTypeActionBuilder implements Builder
     {
         return new OrderSetReturnItemCustomTypeActionModel(
             $this->returnItemId,
+            $this->returnItemKey,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );

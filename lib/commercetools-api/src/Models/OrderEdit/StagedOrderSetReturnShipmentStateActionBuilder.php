@@ -32,10 +32,16 @@ final class StagedOrderSetReturnShipmentStateActionBuilder implements Builder
 
      * @var ?string
      */
+    private $returnItemKey;
+
+    /**
+
+     * @var ?string
+     */
     private $shipmentState;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -43,6 +49,17 @@ final class StagedOrderSetReturnShipmentStateActionBuilder implements Builder
     public function getReturnItemId()
     {
         return $this->returnItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getReturnItemKey()
+    {
+        return $this->returnItemKey;
     }
 
     /**
@@ -68,6 +85,17 @@ final class StagedOrderSetReturnShipmentStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $returnItemKey
+     * @return $this
+     */
+    public function withReturnItemKey(?string $returnItemKey)
+    {
+        $this->returnItemKey = $returnItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $shipmentState
      * @return $this
      */
@@ -83,6 +111,7 @@ final class StagedOrderSetReturnShipmentStateActionBuilder implements Builder
     {
         return new StagedOrderSetReturnShipmentStateActionModel(
             $this->returnItemId,
+            $this->returnItemKey,
             $this->shipmentState
         );
     }

@@ -23,6 +23,12 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
 {
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -62,6 +68,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?int $quantity = null,
         ?string $lineItemId = null,
         ?string $customLineItemId = null,
@@ -69,12 +76,33 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
         ?string $shipmentState = null,
         ?CustomFieldsDraft $custom = null
     ) {
+        $this->key = $key;
         $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
         $this->customLineItemId = $customLineItemId;
         $this->comment = $comment;
         $this->shipmentState = $shipmentState;
         $this->custom = $custom;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Return Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -201,6 +229,14 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
         return $this->custom;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?int $quantity

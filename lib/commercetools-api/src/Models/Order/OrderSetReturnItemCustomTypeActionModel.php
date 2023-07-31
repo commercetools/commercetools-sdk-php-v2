@@ -38,6 +38,12 @@ final class OrderSetReturnItemCustomTypeActionModel extends JsonObjectModel impl
 
     /**
      *
+     * @var ?string
+     */
+    protected $returnItemKey;
+
+    /**
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
@@ -54,11 +60,13 @@ final class OrderSetReturnItemCustomTypeActionModel extends JsonObjectModel impl
      */
     public function __construct(
         ?string $returnItemId = null,
+        ?string $returnItemKey = null,
         ?TypeResourceIdentifier $type = null,
         ?FieldContainer $fields = null,
         ?string $action = null
     ) {
         $this->returnItemId = $returnItemId;
+        $this->returnItemKey = $returnItemKey;
         $this->type = $type;
         $this->fields = $fields;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
@@ -83,7 +91,7 @@ final class OrderSetReturnItemCustomTypeActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -100,6 +108,26 @@ final class OrderSetReturnItemCustomTypeActionModel extends JsonObjectModel impl
         }
 
         return $this->returnItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getReturnItemKey()
+    {
+        if (is_null($this->returnItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_RETURN_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->returnItemKey = (string) $data;
+        }
+
+        return $this->returnItemKey;
     }
 
     /**
@@ -152,6 +180,14 @@ final class OrderSetReturnItemCustomTypeActionModel extends JsonObjectModel impl
     public function setReturnItemId(?string $returnItemId): void
     {
         $this->returnItemId = $returnItemId;
+    }
+
+    /**
+     * @param ?string $returnItemKey
+     */
+    public function setReturnItemKey(?string $returnItemKey): void
+    {
+        $this->returnItemKey = $returnItemKey;
     }
 
     /**
