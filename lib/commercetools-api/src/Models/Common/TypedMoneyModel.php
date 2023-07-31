@@ -113,7 +113,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     }
 
     /**
-     * <p>MoneyType supports two different values, one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
+     * <p>Type of money used.</p>
      *
      *
      * @return null|string
@@ -133,10 +133,10 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     }
 
     /**
-     * <p>Number of digits after the decimal separator:</p>
+     * <p>Number of digits after the decimal separator.</p>
      * <ul>
-     * <li>Equal to the default number of fraction digits for a currency in <a href="ctp:api:type:CentPrecisionMoney">CentPrecisionMoney</a>.</li>
-     * <li>Greater than the default number of fraction digits for a currency in <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>.</li>
+     * <li>For <a href="ctp:api:type:CentPrecisionMoney">CentPrecisionMoney</a>, it is equal to the default number of fraction digits for a currency.</li>
+     * <li>For <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>, it is greater than the default number of fraction digits for a currency.</li>
      * </ul>
      *
      *

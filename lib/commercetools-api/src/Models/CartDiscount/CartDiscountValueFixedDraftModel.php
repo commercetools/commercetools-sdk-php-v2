@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\MoneyCollection;
+use Commercetools\Api\Models\Common\TypedMoneyDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -29,7 +29,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
 
     /**
      *
-     * @var ?MoneyCollection
+     * @var ?TypedMoneyDraftCollection
      */
     protected $money;
 
@@ -38,7 +38,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?MoneyCollection $money = null,
+        ?TypedMoneyDraftCollection $money = null,
         ?string $type = null
     ) {
         $this->money = $money;
@@ -64,11 +64,11 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Money values in different currencies.
+     * <p>Money values provided either in <a href="ctp:api:type:Money">cent precision</a> or <a href="ctp:api:type:HighPrecisionMoneyDraft">high precision</a> for different currencies.
      * A fixed Cart Discount will only match a price if this array contains a value with the same currency. If it contains 10€ and 15$, the matching € price will be discounted by 10€ and the matching $ price will be discounted to 15$.</p>
      *
      *
-     * @return null|MoneyCollection
+     * @return null|TypedMoneyDraftCollection
      */
     public function getMoney()
     {
@@ -78,7 +78,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->money = MoneyCollection::fromArray($data);
+            $this->money = TypedMoneyDraftCollection::fromArray($data);
         }
 
         return $this->money;
@@ -86,9 +86,9 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
 
 
     /**
-     * @param ?MoneyCollection $money
+     * @param ?TypedMoneyDraftCollection $money
      */
-    public function setMoney(?MoneyCollection $money): void
+    public function setMoney(?TypedMoneyDraftCollection $money): void
     {
         $this->money = $money;
     }

@@ -111,6 +111,8 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     }
 
     /**
+     * <p>Determines the type of money used.</p>
+     *
      *
      * @return null|string
      */

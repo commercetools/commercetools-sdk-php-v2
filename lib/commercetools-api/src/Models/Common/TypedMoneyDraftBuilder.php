@@ -39,11 +39,7 @@ final class TypedMoneyDraftBuilder implements Builder
     private $fractionDigits;
 
     /**
-     * <p>Amount in the smallest indivisible unit of a currency, such as:</p>
-     * <ul>
-     * <li>Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>).</li>
-     * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
-     * </ul>
+     * <p>Amount in the smallest indivisible unit of a currency.</p>
      *
 
      * @return null|int
@@ -65,7 +61,7 @@ final class TypedMoneyDraftBuilder implements Builder
     }
 
     /**
-     * <p>Must be equal to the default number of fraction digits for the specified currency.</p>
+     * <p>Number of fraction digits for a specified money.</p>
      *
 
      * @return null|int

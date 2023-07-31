@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\CentPrecisionMoneyCollection;
+use Commercetools\Api\Models\Common\TypedMoneyCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -29,7 +29,7 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
 
     /**
      *
-     * @var ?CentPrecisionMoneyCollection
+     * @var ?TypedMoneyCollection
      */
     protected $money;
 
@@ -38,7 +38,7 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CentPrecisionMoneyCollection $money = null,
+        ?TypedMoneyCollection $money = null,
         ?string $type = null
     ) {
         $this->money = $money;
@@ -64,10 +64,10 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
     }
 
     /**
-     * <p>Cent precision money values in different currencies.</p>
+     * <p>Money values in <a href="ctp:api:type:CentPrecisionMoney">cent precision</a> or <a href="ctp:api:type:HighPrecisionMoney">high precision</a> of different currencies.</p>
      *
      *
-     * @return null|CentPrecisionMoneyCollection
+     * @return null|TypedMoneyCollection
      */
     public function getMoney()
     {
@@ -77,7 +77,7 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
             if (is_null($data)) {
                 return null;
             }
-            $this->money = CentPrecisionMoneyCollection::fromArray($data);
+            $this->money = TypedMoneyCollection::fromArray($data);
         }
 
         return $this->money;
@@ -85,9 +85,9 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
 
 
     /**
-     * @param ?CentPrecisionMoneyCollection $money
+     * @param ?TypedMoneyCollection $money
      */
-    public function setMoney(?CentPrecisionMoneyCollection $money): void
+    public function setMoney(?TypedMoneyCollection $money): void
     {
         $this->money = $money;
     }

@@ -18,13 +18,15 @@ interface TypedMoneyDraft extends Money
     public const FIELD_FRACTION_DIGITS = 'fractionDigits';
 
     /**
+     * <p>Determines the type of money used.</p>
+     *
 
      * @return null|string
      */
     public function getType();
 
     /**
-     * <p>Must be equal to the default number of fraction digits for the specified currency.</p>
+     * <p>Number of fraction digits for a specified money.</p>
      *
 
      * @return null|int
@@ -32,7 +34,20 @@ interface TypedMoneyDraft extends Money
     public function getFractionDigits();
 
     /**
+     * <p>Amount in the smallest indivisible unit of a currency.</p>
+     *
+
+     * @return null|int
+     */
+    public function getCentAmount();
+
+    /**
      * @param ?int $fractionDigits
      */
     public function setFractionDigits(?int $fractionDigits): void;
+
+    /**
+     * @param ?int $centAmount
+     */
+    public function setCentAmount(?int $centAmount): void;
 }
