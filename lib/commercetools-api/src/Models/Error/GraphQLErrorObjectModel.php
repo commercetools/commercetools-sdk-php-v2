@@ -38,6 +38,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'AttributeNameDoesNotExist' => GraphQLAttributeNameDoesNotExistErrorModel::class,
        'BadGateway' => GraphQLBadGatewayErrorModel::class,
        'ConcurrentModification' => GraphQLConcurrentModificationErrorModel::class,
+       'ContentTooLarge' => GraphQLContentTooLargeErrorModel::class,
        'CountryNotConfiguredInStore' => GraphQLCountryNotConfiguredInStoreErrorModel::class,
        'DiscountCodeNonApplicable' => GraphQLDiscountCodeNonApplicableErrorModel::class,
        'DuplicateAttributeValue' => GraphQLDuplicateAttributeValueErrorModel::class,
