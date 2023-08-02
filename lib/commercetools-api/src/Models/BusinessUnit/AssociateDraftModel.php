@@ -28,7 +28,7 @@ final class AssociateDraftModel extends JsonObjectModel implements AssociateDraf
     protected $associateRoleAssignments;
 
     /**
-     * @deprecated
+     *
      * @var ?array
      */
     protected $roles;
@@ -76,7 +76,7 @@ final class AssociateDraftModel extends JsonObjectModel implements AssociateDraf
     /**
      * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
      *
-     * @deprecated
+     *
      * @return null|array
      */
     public function getRoles()

@@ -140,6 +140,14 @@
 
 
 <details>
+<summary>Deprecated Property(s)</summary>
+
+- property `Associate::roles` is removed
+- property `AssociateDraft::roles` is removed
+</details>
+
+
+<details>
 <summary>Changed Property(s)</summary>
 
 - :warning: changed property `money` of type `CartDiscountValueFixed` from type `CentPrecisionMoney[]` to `TypedMoney[]`
@@ -160,6 +168,13 @@
 
 - added query parameter `where` to method `get /{projectKey}/in-store/key={storeKey}/product-selection-assignments`
 - added query parameter `/^var[.][a-zA-Z0-9]+$/` to method `get /{projectKey}/in-store/key={storeKey}/product-selection-assignments`
+</details>
+
+
+<details>
+<summary>Deprecated Type(s)</summary>
+
+- type `AssociateRoleDeprecated` is removed
 </details>
 
 

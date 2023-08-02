@@ -29,7 +29,7 @@ interface AssociateDraft extends JsonObject
     /**
      * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
      *
-     * @deprecated
+
      * @return null|array
      */
     public function getRoles();

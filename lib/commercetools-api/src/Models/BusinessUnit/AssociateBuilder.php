@@ -29,7 +29,7 @@ final class AssociateBuilder implements Builder
     private $associateRoleAssignments;
 
     /**
-     * @deprecated
+
      * @var ?array
      */
     private $roles;
@@ -54,7 +54,7 @@ final class AssociateBuilder implements Builder
     /**
      * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
      *
-     * @deprecated
+
      * @return null|array
      */
     public function getRoles()

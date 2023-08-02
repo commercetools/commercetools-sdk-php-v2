@@ -28,7 +28,7 @@ final class AssociateModel extends JsonObjectModel implements Associate
     protected $associateRoleAssignments;
 
     /**
-     * @deprecated
+     *
      * @var ?array
      */
     protected $roles;
@@ -76,7 +76,7 @@ final class AssociateModel extends JsonObjectModel implements Associate
     /**
      * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
      *
-     * @deprecated
+     *
      * @return null|array
      */
     public function getRoles()
