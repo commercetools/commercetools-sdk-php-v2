@@ -18,6 +18,7 @@ interface StagedOrderSetCustomLineItemTaxRateAction extends StagedOrderUpdateAct
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_CUSTOM_LINE_ITEM_KEY = 'customLineItemKey';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
@@ -45,6 +46,15 @@ interface StagedOrderSetCustomLineItemTaxRateAction extends StagedOrderUpdateAct
     public function getExternalTaxRate();
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Custom Line Item.
+     * This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
@@ -58,4 +68,9 @@ interface StagedOrderSetCustomLineItemTaxRateAction extends StagedOrderUpdateAct
      * @param ?ExternalTaxRateDraft $externalTaxRate
      */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 }

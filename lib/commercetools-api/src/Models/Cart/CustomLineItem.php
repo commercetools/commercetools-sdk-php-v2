@@ -25,6 +25,7 @@ interface CustomLineItem extends JsonObject
     public const FIELD_NAME = 'name';
     public const FIELD_MONEY = 'money';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_TAXED_PRICE_PORTIONS = 'taxedPricePortions';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_SLUG = 'slug';
     public const FIELD_QUANTITY = 'quantity';
@@ -76,6 +77,14 @@ interface CustomLineItem extends JsonObject
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice();
+
+    /**
+     * <p>Taxed price of the Shipping Method that is automatically set after <code>perMethodTaxRate</code> is set.</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions();
 
     /**
      * <p>Total price of the Custom Line Item (<code>money</code> multiplied by <code>quantity</code>).
@@ -196,6 +205,11 @@ interface CustomLineItem extends JsonObject
      * @param ?TaxedItemPrice $taxedPrice
      */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
+
+    /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     */
+    public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void;
 
     /**
      * @param ?CentPrecisionMoney $totalPrice

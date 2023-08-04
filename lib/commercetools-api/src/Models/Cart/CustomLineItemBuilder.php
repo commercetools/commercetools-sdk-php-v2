@@ -65,6 +65,12 @@ final class CustomLineItemBuilder implements Builder
 
     /**
 
+     * @var ?MethodTaxedPriceCollection
+     */
+    private $taxedPricePortions;
+
+    /**
+
      * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $totalPrice;
@@ -182,6 +188,17 @@ final class CustomLineItemBuilder implements Builder
     public function getTaxedPrice()
     {
         return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
+    }
+
+    /**
+     * <p>Taxed price of the Shipping Method that is automatically set after <code>perMethodTaxRate</code> is set.</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        return $this->taxedPricePortions;
     }
 
     /**
@@ -363,6 +380,17 @@ final class CustomLineItemBuilder implements Builder
     public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     * @return $this
+     */
+    public function withTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions)
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
 
         return $this;
     }
@@ -584,6 +612,7 @@ final class CustomLineItemBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->money instanceof TypedMoneyBuilder ? $this->money->build() : $this->money,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->taxedPricePortions,
             $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->slug,
             $this->quantity,

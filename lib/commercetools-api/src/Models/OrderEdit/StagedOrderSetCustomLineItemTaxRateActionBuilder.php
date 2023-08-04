@@ -43,6 +43,12 @@ final class StagedOrderSetCustomLineItemTaxRateActionBuilder implements Builder
     private $externalTaxRate;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
 
@@ -74,6 +80,18 @@ final class StagedOrderSetCustomLineItemTaxRateActionBuilder implements Builder
     public function getExternalTaxRate()
     {
         return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Custom Line Item.
+     * This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -110,6 +128,17 @@ final class StagedOrderSetCustomLineItemTaxRateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withExternalTaxRate() instead
      * @return $this
      */
@@ -125,7 +154,8 @@ final class StagedOrderSetCustomLineItemTaxRateActionBuilder implements Builder
         return new StagedOrderSetCustomLineItemTaxRateActionModel(
             $this->customLineItemId,
             $this->customLineItemKey,
-            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
+            $this->shippingKey
         );
     }
 

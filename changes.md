@@ -14,6 +14,7 @@
 
 - added property `stores` to type `CartDiscount`
 - added property `stores` to type `CartDiscountDraft`
+- added property `taxedPricePortions` to type `CustomLineItem`
 - added property `customLineItemKey` to type `CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction`
 - added property `customLineItemKey` to type `CartChangeCustomLineItemMoneyAction`
 - added property `customLineItemKey` to type `CartChangeCustomLineItemPriceModeAction`
@@ -23,7 +24,9 @@
 - added property `customLineItemKey` to type `CartSetCustomLineItemCustomTypeAction`
 - added property `customLineItemKey` to type `CartSetCustomLineItemShippingDetailsAction`
 - added property `customLineItemKey` to type `CartSetCustomLineItemTaxAmountAction`
+- added property `shippingKey` to type `CartSetCustomLineItemTaxAmountAction`
 - added property `customLineItemKey` to type `CartSetCustomLineItemTaxRateAction`
+- added property `shippingKey` to type `CartSetCustomLineItemTaxRateAction`
 - added property `associate` to type `ClientLogging`
 - added property `associate` to type `CreatedBy`
 - added property `associate` to type `LastModifiedBy`
@@ -56,7 +59,9 @@
 - added property `customLineItemKey` to type `StagedOrderSetCustomLineItemCustomTypeAction`
 - added property `customLineItemKey` to type `StagedOrderSetCustomLineItemShippingDetailsAction`
 - added property `customLineItemKey` to type `StagedOrderSetCustomLineItemTaxAmountAction`
+- added property `shippingKey` to type `StagedOrderSetCustomLineItemTaxAmountAction`
 - added property `customLineItemKey` to type `StagedOrderSetCustomLineItemTaxRateAction`
+- added property `shippingKey` to type `StagedOrderSetCustomLineItemTaxRateAction`
 - added property `returnItemKey` to type `StagedOrderSetReturnItemCustomFieldAction`
 - added property `returnItemKey` to type `StagedOrderSetReturnItemCustomTypeAction`
 - added property `returnItemKey` to type `StagedOrderSetReturnPaymentStateAction`

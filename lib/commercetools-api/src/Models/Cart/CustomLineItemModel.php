@@ -64,6 +64,12 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
 
     /**
      *
+     * @var ?MethodTaxedPriceCollection
+     */
+    protected $taxedPricePortions;
+
+    /**
+     *
      * @var ?CentPrecisionMoney
      */
     protected $totalPrice;
@@ -138,6 +144,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         ?LocalizedString $name = null,
         ?TypedMoney $money = null,
         ?TaxedItemPrice $taxedPrice = null,
+        ?MethodTaxedPriceCollection $taxedPricePortions = null,
         ?CentPrecisionMoney $totalPrice = null,
         ?string $slug = null,
         ?int $quantity = null,
@@ -155,6 +162,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         $this->name = $name;
         $this->money = $money;
         $this->taxedPrice = $taxedPrice;
+        $this->taxedPricePortions = $taxedPricePortions;
         $this->totalPrice = $totalPrice;
         $this->slug = $slug;
         $this->quantity = $quantity;
@@ -269,6 +277,26 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         }
 
         return $this->taxedPrice;
+    }
+
+    /**
+     * <p>Taxed price of the Shipping Method that is automatically set after <code>perMethodTaxRate</code> is set.</p>
+     *
+     *
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        if (is_null($this->taxedPricePortions)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TAXED_PRICE_PORTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxedPricePortions = MethodTaxedPriceCollection::fromArray($data);
+        }
+
+        return $this->taxedPricePortions;
     }
 
     /**
@@ -542,6 +570,14 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
+    }
+
+    /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     */
+    public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
     }
 
     /**

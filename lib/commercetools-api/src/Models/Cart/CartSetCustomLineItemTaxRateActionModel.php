@@ -44,6 +44,12 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
      */
     protected $externalTaxRate;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -52,11 +58,13 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
         ?string $customLineItemId = null,
         ?string $customLineItemKey = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?string $shippingKey = null,
         ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->customLineItemKey = $customLineItemKey;
         $this->externalTaxRate = $externalTaxRate;
+        $this->shippingKey = $shippingKey;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -140,6 +148,27 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
         return $this->externalTaxRate;
     }
 
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Custom Line Item.
+     * This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
+    }
+
 
     /**
      * @param ?string $customLineItemId
@@ -163,5 +192,13 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 }
