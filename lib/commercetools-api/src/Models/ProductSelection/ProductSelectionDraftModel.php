@@ -42,7 +42,7 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     protected $custom;
 
     /**
-     * @deprecated
+     *
      * @var ?string
      */
     protected $type;
@@ -136,7 +136,7 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     /**
      * <p>Type of the Product Selection.</p>
      *
-     * @deprecated
+     *
      * @return null|string
      */
     public function getType()

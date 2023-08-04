@@ -48,7 +48,7 @@ interface ProductSelectionDraft extends JsonObject
     /**
      * <p>Type of the Product Selection.</p>
      *
-     * @deprecated
+
      * @return null|string
      */
     public function getType();

@@ -104,7 +104,7 @@ interface ProductSelection extends BaseResource
      * <p>Specifies in which way the Products are assigned to the ProductSelection.
      * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:ProductSelectionMode">including or excluding</a> them explicitly.</p>
      *
-     * @deprecated
+
      * @return null|string
      */
     public function getType();

@@ -43,7 +43,7 @@ final class ProductSelectionDraftBuilder implements Builder
     private $custom;
 
     /**
-     * @deprecated
+
      * @var ?string
      */
     private $type;
@@ -90,7 +90,7 @@ final class ProductSelectionDraftBuilder implements Builder
     /**
      * <p>Type of the Product Selection.</p>
      *
-     * @deprecated
+
      * @return null|string
      */
     public function getType()

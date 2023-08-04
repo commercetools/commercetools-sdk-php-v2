@@ -144,6 +144,11 @@
 
 - property `Associate::roles` is removed
 - property `AssociateDraft::roles` is removed
+- property `IndividualExclusionProductSelectionType::type` is removed
+- property `IndividualProductSelectionType::type` is removed
+- property `ProductSelection::type` is removed
+- property `ProductSelectionDraft::type` is removed
+- property `ProductSelectionType::type` is removed
 </details>
 
 
@@ -175,6 +180,9 @@
 <summary>Deprecated Type(s)</summary>
 
 - type `AssociateRoleDeprecated` is removed
+- type `IndividualExclusionProductSelectionType` is removed
+- type `IndividualProductSelectionType` is removed
+- type `ProductSelectionTypeEnum` is removed
 </details>
 
 
