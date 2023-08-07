@@ -1,11 +1,18 @@
 **Api changes**
 
 <details>
-<summary>Added Resource(s)</summary>
+<summary>Changed Property(s)</summary>
 
-- added resource `/{projectKey}/in-store/key={storeKey}/cart-discounts`
-- added resource `/{projectKey}/in-store/key={storeKey}/cart-discounts/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/cart-discounts/{ID}`
+- :warning: changed property `money` of type `CartDiscountValueFixed` from type `CentPrecisionMoney[]` to `TypedMoney[]`
+- :warning: changed property `money` of type `CartDiscountValueFixedDraft` from type `Money[]` to `TypedMoneyDraft[]`
+- :warning: changed property `country` of type `StagedOrder` from type `string` to `CountryCode`
+- :warning: changed property `locale` of type `StagedOrder` from type `string` to `Locale`
+- :warning: changed property `country` of type `StagedOrderSetCountryAction` from type `string` to `CountryCode`
+- :warning: changed property `locale` of type `StagedOrderSetLocaleAction` from type `string` to `Locale`
+- :warning: changed property `country` of type `Order` from type `string` to `CountryCode`
+- :warning: changed property `locale` of type `Order` from type `string` to `Locale`
+- :warning: changed property `country` of type `OrderImportDraft` from type `string` to `CountryCode`
+- :warning: changed property `locale` of type `OrderSetLocaleAction` from type `string` to `Locale`
 </details>
 
 
@@ -94,6 +101,11 @@
 <details>
 <summary>Required Property(s)</summary>
 
+- :warning: changed property `associateRoleAssignments` of type `AssociateDraft` to be required
+- :warning: changed property `paymentState` of type `StagedOrderChangePaymentStateAction` to be required
+- :warning: changed property `shipmentState` of type `StagedOrderChangeShipmentStateAction` to be required
+- :warning: changed property `paymentState` of type `OrderChangePaymentStateAction` to be required
+- :warning: changed property `shipmentState` of type `OrderChangeShipmentStateAction` to be required
 - changed property `roles` of type `Associate` to be optional
 - changed property `customLineItemId` of type `CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction` to be optional
 - changed property `customLineItemId` of type `CartChangeCustomLineItemMoneyAction` to be optional
@@ -137,11 +149,6 @@
 - changed property `customLineItemId` of type `OrderTransitionCustomLineItemStateAction` to be optional
 - changed property `lineItemId` of type `OrderTransitionLineItemStateAction` to be optional
 - changed property `comment` of type `QuoteRequestDraft` to be optional
-- :warning: changed property `associateRoleAssignments` of type `AssociateDraft` to be required
-- :warning: changed property `paymentState` of type `StagedOrderChangePaymentStateAction` to be required
-- :warning: changed property `shipmentState` of type `StagedOrderChangeShipmentStateAction` to be required
-- :warning: changed property `paymentState` of type `OrderChangePaymentStateAction` to be required
-- :warning: changed property `shipmentState` of type `OrderChangeShipmentStateAction` to be required
 </details>
 
 
@@ -159,47 +166,10 @@
 
 
 <details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `money` of type `CartDiscountValueFixed` from type `CentPrecisionMoney[]` to `TypedMoney[]`
-- :warning: changed property `money` of type `CartDiscountValueFixedDraft` from type `Money[]` to `TypedMoneyDraft[]`
-- :warning: changed property `country` of type `StagedOrder` from type `string` to `CountryCode`
-- :warning: changed property `locale` of type `StagedOrder` from type `string` to `Locale`
-- :warning: changed property `country` of type `StagedOrderSetCountryAction` from type `string` to `CountryCode`
-- :warning: changed property `locale` of type `StagedOrderSetLocaleAction` from type `string` to `Locale`
-- :warning: changed property `country` of type `Order` from type `string` to `CountryCode`
-- :warning: changed property `locale` of type `Order` from type `string` to `Locale`
-- :warning: changed property `country` of type `OrderImportDraft` from type `string` to `CountryCode`
-- :warning: changed property `locale` of type `OrderSetLocaleAction` from type `string` to `Locale`
-</details>
-
-
-<details>
 <summary>Added QueryParameter(s)</summary>
 
 - added query parameter `where` to method `get /{projectKey}/in-store/key={storeKey}/product-selection-assignments`
 - added query parameter `/^var[.][a-zA-Z0-9]+$/` to method `get /{projectKey}/in-store/key={storeKey}/product-selection-assignments`
-</details>
-
-
-<details>
-<summary>Deprecated Type(s)</summary>
-
-- type `AssociateRoleDeprecated` is removed
-- type `IndividualExclusionProductSelectionType` is removed
-- type `IndividualProductSelectionType` is removed
-- type `ProductSelectionTypeEnum` is removed
-</details>
-
-
-<details>
-<summary>Removed Type(s)</summary>
-
-- :warning: removed type `CartSetDeliveryAddressCustomFieldAction`
-- :warning: removed type `CartSetDeliveryAddressCustomTypeAction`
-- :warning: removed type `BusinessUnitParentUnitChangedMessage`
-- :warning: removed type `BusinessUnitParentUnitChangedMessagePayload`
-- :warning: removed type `OrderResourceIdentifier`
 </details>
 
 
@@ -235,9 +205,23 @@
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Deprecated Type(s)</summary>
 
-- added enum `associate-role` to type `ChangeSubscriptionResourceTypeId`
+- type `AssociateRoleDeprecated` is removed
+- type `IndividualExclusionProductSelectionType` is removed
+- type `IndividualProductSelectionType` is removed
+- type `ProductSelectionTypeEnum` is removed
+</details>
+
+
+<details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `CartSetDeliveryAddressCustomFieldAction`
+- :warning: removed type `CartSetDeliveryAddressCustomTypeAction`
+- :warning: removed type `BusinessUnitParentUnitChangedMessage`
+- :warning: removed type `BusinessUnitParentUnitChangedMessagePayload`
+- :warning: removed type `OrderResourceIdentifier`
 </details>
 
 
@@ -254,13 +238,29 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->withId()->delete()`
 </details>
 
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added resource `/{projectKey}/in-store/key={storeKey}/cart-discounts/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/cart-discounts/{ID}`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `associate-role` to type `ChangeSubscriptionResourceTypeId`
+</details>
+
 **Import changes**
 
 <details>
 <summary>Required Property(s)</summary>
 
-- changed property `addresses` of type `CustomerImport` to be optional
 - :warning: changed property `key` of type `PriceDraftImport` to be required
+- changed property `addresses` of type `CustomerImport` to be optional
 </details>
 
 **History changes**
