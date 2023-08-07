@@ -94,6 +94,7 @@
 <details>
 <summary>Required Property(s)</summary>
 
+- changed property `roles` of type `Associate` to be optional
 - changed property `customLineItemId` of type `CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction` to be optional
 - changed property `customLineItemId` of type `CartChangeCustomLineItemMoneyAction` to be optional
 - changed property `customLineItemId` of type `CartChangeCustomLineItemPriceModeAction` to be optional
