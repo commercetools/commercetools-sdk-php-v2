@@ -92,18 +92,6 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyExtensionsByIDGet_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->extensions()
-                        ->withId('test_ID')
-                        ->get()
-                        ->withExpand('expand');
-                },
-                'get',
-                'test_projectKey/extensions/test_ID?expand=expand',
-            ],
             'ByProjectKeyExtensionsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -114,18 +102,6 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                 },
                 'get',
                 'test_projectKey/extensions/test_ID',
-            ],
-            'ByProjectKeyExtensionsByIDPost_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->extensions()
-                        ->withId('test_ID')
-                        ->post(null)
-                        ->withExpand('expand');
-                },
-                'post',
-                'test_projectKey/extensions/test_ID?expand=expand',
             ],
             'ByProjectKeyExtensionsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -149,18 +125,6 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                 },
                 'delete',
                 'test_projectKey/extensions/test_ID?version=version',
-            ],
-            'ByProjectKeyExtensionsByIDDelete_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->extensions()
-                        ->withId('test_ID')
-                        ->delete()
-                        ->withExpand('expand');
-                },
-                'delete',
-                'test_projectKey/extensions/test_ID?expand=expand',
             ],
             'ByProjectKeyExtensionsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

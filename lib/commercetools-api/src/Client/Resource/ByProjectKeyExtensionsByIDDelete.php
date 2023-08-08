@@ -32,11 +32,10 @@ use Psr\Http\Message\ResponseInterface;
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Versioned<ByProjectKeyExtensionsByIDDelete>
  * @template-implements Conflicting<ByProjectKeyExtensionsByIDDelete>
- * @template-implements Expandable<ByProjectKeyExtensionsByIDDelete>
  * @template-implements Errorable<ByProjectKeyExtensionsByIDDelete>
  * @template-implements Deprecatable200<ByProjectKeyExtensionsByIDDelete>
  */
-class ByProjectKeyExtensionsByIDDelete extends ApiRequest implements Versioned, Conflicting, Expandable, Errorable, Deprecatable200
+class ByProjectKeyExtensionsByIDDelete extends ApiRequest implements Versioned, Conflicting, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -157,14 +156,5 @@ class ByProjectKeyExtensionsByIDDelete extends ApiRequest implements Versioned, 
     public function withVersion($version): ByProjectKeyExtensionsByIDDelete
     {
         return $this->withQueryParam('version', $version);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $expand
-     */
-    public function withExpand($expand): ByProjectKeyExtensionsByIDDelete
-    {
-        return $this->withQueryParam('expand', $expand);
     }
 }

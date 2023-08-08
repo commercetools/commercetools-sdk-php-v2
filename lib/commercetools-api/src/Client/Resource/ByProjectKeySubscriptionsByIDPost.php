@@ -31,11 +31,10 @@ use Psr\Http\Message\ResponseInterface;
 
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Conflicting<ByProjectKeySubscriptionsByIDPost>
- * @template-implements Expandable<ByProjectKeySubscriptionsByIDPost>
  * @template-implements Deprecatable200<ByProjectKeySubscriptionsByIDPost>
  * @template-implements Errorable<ByProjectKeySubscriptionsByIDPost>
  */
-class ByProjectKeySubscriptionsByIDPost extends ApiRequest implements Conflicting, Expandable, Deprecatable200, Errorable
+class ByProjectKeySubscriptionsByIDPost extends ApiRequest implements Conflicting, Deprecatable200, Errorable
 {
     /**
      * @param ?object|array|string $body
@@ -147,14 +146,5 @@ class ByProjectKeySubscriptionsByIDPost extends ApiRequest implements Conflictin
                 throw $e;
             }
         );
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $expand
-     */
-    public function withExpand($expand): ByProjectKeySubscriptionsByIDPost
-    {
-        return $this->withQueryParam('expand', $expand);
     }
 }

@@ -30,14 +30,13 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
- * @template-implements Expandable<ByProjectKeySubscriptionsGet>
  * @template-implements Sortable<ByProjectKeySubscriptionsGet>
  * @template-implements Paging<ByProjectKeySubscriptionsGet>
  * @template-implements Query<ByProjectKeySubscriptionsGet>
  * @template-implements Errorable<ByProjectKeySubscriptionsGet>
  * @template-implements Deprecatable200<ByProjectKeySubscriptionsGet>
  */
-class ByProjectKeySubscriptionsGet extends ApiRequest implements Expandable, Sortable, Paging, Query, Errorable, Deprecatable200
+class ByProjectKeySubscriptionsGet extends ApiRequest implements Sortable, Paging, Query, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -145,15 +144,6 @@ class ByProjectKeySubscriptionsGet extends ApiRequest implements Expandable, Sor
                 throw $e;
             }
         );
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $expand
-     */
-    public function withExpand($expand): ByProjectKeySubscriptionsGet
-    {
-        return $this->withQueryParam('expand', $expand);
     }
 
     /**
