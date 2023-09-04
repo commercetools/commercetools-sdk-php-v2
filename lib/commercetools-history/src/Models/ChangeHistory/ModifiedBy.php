@@ -17,9 +17,10 @@ interface ModifiedBy extends JsonObject
 
     public const FIELD_ID = 'id';
     public const FIELD_TYPE = 'type';
-    public const FIELD_CUSTOMER = 'customer';
-    public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_CLIENT_ID = 'clientId';
+    public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_CUSTOMER = 'customer';
+    public const FIELD_ASSOCIATE = 'associate';
     public const FIELD_IS_PLATFORM_CLIENT = 'isPlatformClient';
 
     /**
@@ -36,6 +37,7 @@ interface ModifiedBy extends JsonObject
      * <ul>
      * <li>If the change was made by a user, the value is <code>&quot;user&quot;</code>.</li>
      * <li>If the change was made by an API Client with or without an <a href="/client-logging#external-user-ids">external user ID</a>, the value is <code>&quot;external-user&quot;</code>.</li>
+     * <li>If the change was made by an <a href="ctp:api:type:Associate">Associate</a>, the value is <code>&quot;associate&quot;</code>.</li>
      * </ul>
      *
 
@@ -44,13 +46,13 @@ interface ModifiedBy extends JsonObject
     public function getType();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Customer">Customer</a> who made the change.</p>
-     * <p>Present only if the change was made using a token from the <a href="/authorization#password-flow">password flow</a>.</p>
+     * <p><a href="/general-concepts#identifier">ID</a> of the <a href="ctp:api:type:ApiClient">API Client</a> that made the change.</p>
+     * <p>Present only if the change was made using an API Client.</p>
      *
 
-     * @return null|Reference
+     * @return null|string
      */
-    public function getCustomer();
+    public function getClientId();
 
     /**
      * <p>Present only if the change was made using a token from an <a href="/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
@@ -61,13 +63,21 @@ interface ModifiedBy extends JsonObject
     public function getAnonymousId();
 
     /**
-     * <p><a href="/general-concepts#identifier">ID</a> of the <a href="ctp:api:type:ApiClient">API Client</a> that made the change.</p>
-     * <p>Present only if the change was made using an API Client.</p>
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> who made the change.</p>
+     * <p>Present only if the change was made using a token from the <a href="/authorization#password-flow">password flow</a>.</p>
      *
 
-     * @return null|string
+     * @return null|Reference
      */
-    public function getClientId();
+    public function getCustomer();
+
+    /**
+     * <p>The <a href="ctp:api:type:Associate">Associate</a> who made the change in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Present only if the Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
+     *
+
+     * @return null|Reference
+     */
+    public function getAssociate();
 
     /**
      * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
@@ -88,9 +98,9 @@ interface ModifiedBy extends JsonObject
     public function setType(?string $type): void;
 
     /**
-     * @param ?Reference $customer
+     * @param ?string $clientId
      */
-    public function setCustomer(?Reference $customer): void;
+    public function setClientId(?string $clientId): void;
 
     /**
      * @param ?string $anonymousId
@@ -98,9 +108,14 @@ interface ModifiedBy extends JsonObject
     public function setAnonymousId(?string $anonymousId): void;
 
     /**
-     * @param ?string $clientId
+     * @param ?Reference $customer
      */
-    public function setClientId(?string $clientId): void;
+    public function setCustomer(?Reference $customer): void;
+
+    /**
+     * @param ?Reference $associate
+     */
+    public function setAssociate(?Reference $associate): void;
 
     /**
      * @param ?bool $isPlatformClient

@@ -22,6 +22,7 @@ interface ShoppingListLineItem extends JsonObject
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DEACTIVATED_AT = 'deactivatedAt';
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_PRODUCT_TYPE = 'productType';
@@ -62,6 +63,14 @@ interface ShoppingListLineItem extends JsonObject
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. It is unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Name of the Product.</p>
@@ -141,6 +150,11 @@ interface ShoppingListLineItem extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?LocalizedString $name

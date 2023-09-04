@@ -42,12 +42,6 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      *
      * @var ?string
      */
-    protected $externalId;
-
-    /**
-     *
-     * @var ?string
-     */
     protected $interfaceId;
 
     /**
@@ -55,30 +49,6 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      * @var ?Money
      */
     protected $amountPlanned;
-
-    /**
-     *
-     * @var ?Money
-     */
-    protected $amountAuthorized;
-
-    /**
-     *
-     * @var ?string
-     */
-    protected $authorizedUntil;
-
-    /**
-     *
-     * @var ?Money
-     */
-    protected $amountPaid;
-
-    /**
-     *
-     * @var ?Money
-     */
-    protected $amountRefunded;
 
     /**
      *
@@ -123,13 +93,8 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     public function __construct(
         ?CustomerResourceIdentifier $customer = null,
         ?string $anonymousId = null,
-        ?string $externalId = null,
         ?string $interfaceId = null,
         ?Money $amountPlanned = null,
-        ?Money $amountAuthorized = null,
-        ?string $authorizedUntil = null,
-        ?Money $amountPaid = null,
-        ?Money $amountRefunded = null,
         ?PaymentMethodInfo $paymentMethodInfo = null,
         ?PaymentStatusDraft $paymentStatus = null,
         ?TransactionDraftCollection $transactions = null,
@@ -139,13 +104,8 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     ) {
         $this->customer = $customer;
         $this->anonymousId = $anonymousId;
-        $this->externalId = $externalId;
         $this->interfaceId = $interfaceId;
         $this->amountPlanned = $amountPlanned;
-        $this->amountAuthorized = $amountAuthorized;
-        $this->authorizedUntil = $authorizedUntil;
-        $this->amountPaid = $amountPaid;
-        $this->amountRefunded = $amountRefunded;
         $this->paymentMethodInfo = $paymentMethodInfo;
         $this->paymentStatus = $paymentStatus;
         $this->transactions = $transactions;
@@ -196,26 +156,6 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
     /**
-     * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        if (is_null($this->externalId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->externalId = (string) $data;
-        }
-
-        return $this->externalId;
-    }
-
-    /**
      * <p>Identifier used by the payment service that processes the Payment (for example, a PSP).
      * The combination of <code>interfaceId</code> and the <code>paymentInterface</code> field on <a href="ctp:api:type:PaymentMethodInfo">PaymentMethodInfo</a> must be unique.
      * Once set, it cannot be changed.</p>
@@ -257,89 +197,6 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
         }
 
         return $this->amountPlanned;
-    }
-
-    /**
-     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-     *
-     * @return null|Money
-     */
-    public function getAmountAuthorized()
-    {
-        if (is_null($this->amountAuthorized)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_AMOUNT_AUTHORIZED);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->amountAuthorized = MoneyModel::of($data);
-        }
-
-        return $this->amountAuthorized;
-    }
-
-    /**
-     * <p>Deprecated because this field is of little practical value, as it is either not reliably known, or the authorization time is fixed for a PSP.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getAuthorizedUntil()
-    {
-        if (is_null($this->authorizedUntil)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_AUTHORIZED_UNTIL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->authorizedUntil = (string) $data;
-        }
-
-        return $this->authorizedUntil;
-    }
-
-    /**
-     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-     *
-     * @return null|Money
-     */
-    public function getAmountPaid()
-    {
-        if (is_null($this->amountPaid)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_AMOUNT_PAID);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->amountPaid = MoneyModel::of($data);
-        }
-
-        return $this->amountPaid;
-    }
-
-    /**
-     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-     *
-     * @return null|Money
-     */
-    public function getAmountRefunded()
-    {
-        if (is_null($this->amountRefunded)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_AMOUNT_REFUNDED);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->amountRefunded = MoneyModel::of($data);
-        }
-
-        return $this->amountRefunded;
     }
 
     /**
@@ -483,14 +340,6 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
     /**
-     * @param ?string $externalId
-     */
-    public function setExternalId(?string $externalId): void
-    {
-        $this->externalId = $externalId;
-    }
-
-    /**
      * @param ?string $interfaceId
      */
     public function setInterfaceId(?string $interfaceId): void
@@ -504,38 +353,6 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     public function setAmountPlanned(?Money $amountPlanned): void
     {
         $this->amountPlanned = $amountPlanned;
-    }
-
-    /**
-     * @param ?Money $amountAuthorized
-     */
-    public function setAmountAuthorized(?Money $amountAuthorized): void
-    {
-        $this->amountAuthorized = $amountAuthorized;
-    }
-
-    /**
-     * @param ?string $authorizedUntil
-     */
-    public function setAuthorizedUntil(?string $authorizedUntil): void
-    {
-        $this->authorizedUntil = $authorizedUntil;
-    }
-
-    /**
-     * @param ?Money $amountPaid
-     */
-    public function setAmountPaid(?Money $amountPaid): void
-    {
-        $this->amountPaid = $amountPaid;
-    }
-
-    /**
-     * @param ?Money $amountRefunded
-     */
-    public function setAmountRefunded(?Money $amountRefunded): void
-    {
-        $this->amountRefunded = $amountRefunded;
     }
 
     /**

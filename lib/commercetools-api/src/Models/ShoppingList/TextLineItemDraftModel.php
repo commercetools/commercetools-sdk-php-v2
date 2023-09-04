@@ -26,6 +26,12 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
 {
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
@@ -59,17 +65,39 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?DateTimeImmutable $addedAt = null,
         ?CustomFieldsDraft $custom = null,
         ?LocalizedString $description = null,
         ?LocalizedString $name = null,
         ?int $quantity = null
     ) {
+        $this->key = $key;
         $this->addedAt = $addedAt;
         $this->custom = $custom;
         $this->description = $description;
         $this->name = $name;
         $this->quantity = $quantity;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the TextLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -179,6 +207,14 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
         return $this->quantity;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?DateTimeImmutable $addedAt

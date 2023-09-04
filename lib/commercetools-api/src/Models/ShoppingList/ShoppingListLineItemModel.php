@@ -54,6 +54,12 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -103,6 +109,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         ?CustomFields $custom = null,
         ?DateTimeImmutable $deactivatedAt = null,
         ?string $id = null,
+        ?string $key = null,
         ?LocalizedString $name = null,
         ?string $productId = null,
         ?ProductTypeReference $productType = null,
@@ -115,6 +122,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         $this->custom = $custom;
         $this->deactivatedAt = $deactivatedAt;
         $this->id = $id;
+        $this->key = $key;
         $this->name = $name;
         $this->productId = $productId;
         $this->productType = $productType;
@@ -212,6 +220,26 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         }
 
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. It is unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -392,6 +420,14 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

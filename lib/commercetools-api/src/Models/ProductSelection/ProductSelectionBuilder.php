@@ -89,12 +89,6 @@ final class ProductSelectionBuilder implements Builder
 
      * @var ?string
      */
-    private $type;
-
-    /**
-
-     * @var ?string
-     */
     private $mode;
 
     /**
@@ -200,18 +194,6 @@ final class ProductSelectionBuilder implements Builder
     public function getProductCount()
     {
         return $this->productCount;
-    }
-
-    /**
-     * <p>Specifies in which way the Products are assigned to the ProductSelection.
-     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:ProductSelectionMode">including or excluding</a> them explicitly.</p>
-     *
-
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -337,17 +319,6 @@ final class ProductSelectionBuilder implements Builder
     }
 
     /**
-     * @param ?string $type
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $mode
      * @return $this
      */
@@ -425,7 +396,6 @@ final class ProductSelectionBuilder implements Builder
             $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->productCount,
-            $this->type,
             $this->mode,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );

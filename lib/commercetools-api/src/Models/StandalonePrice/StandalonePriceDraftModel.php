@@ -99,6 +99,12 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
 
     /**
      *
+     * @var ?StagedPriceDraft
+     */
+    protected $staged;
+
+    /**
+     *
      * @var ?bool
      */
     protected $active;
@@ -119,6 +125,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         ?PriceTierDraftCollection $tiers = null,
         ?DiscountedPriceDraft $discounted = null,
         ?CustomFieldsDraft $custom = null,
+        ?StagedPriceDraft $staged = null,
         ?bool $active = null
     ) {
         $this->key = $key;
@@ -132,6 +139,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         $this->tiers = $tiers;
         $this->discounted = $discounted;
         $this->custom = $custom;
+        $this->staged = $staged;
         $this->active = $active;
     }
 
@@ -370,6 +378,27 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     }
 
     /**
+     * <p>Staged changes for the StandalonePrice.</p>
+     *
+     *
+     * @return null|StagedPriceDraft
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->staged = StagedPriceDraftModel::of($data);
+        }
+
+        return $this->staged;
+    }
+
+    /**
      * <p>Set to <code>false</code>, if the StandalonePrice should not be considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
      *
      *
@@ -476,6 +505,14 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StagedPriceDraft $staged
+     */
+    public function setStaged(?StagedPriceDraft $staged): void
+    {
+        $this->staged = $staged;
     }
 
     /**

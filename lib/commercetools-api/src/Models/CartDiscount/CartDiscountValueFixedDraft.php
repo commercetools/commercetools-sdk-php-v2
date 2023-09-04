@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\TypedMoneyDraftCollection;
+use Commercetools\Api\Models\Common\MoneyCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -21,12 +21,12 @@ interface CartDiscountValueFixedDraft extends CartDiscountValueDraft
      * A fixed Cart Discount will only match a price if this array contains a value with the same currency. If it contains 10€ and 15$, the matching € price will be discounted by 10€ and the matching $ price will be discounted to 15$.</p>
      *
 
-     * @return null|TypedMoneyDraftCollection
+     * @return null|MoneyCollection
      */
     public function getMoney();
 
     /**
-     * @param ?TypedMoneyDraftCollection $money
+     * @param ?MoneyCollection $money
      */
-    public function setMoney(?TypedMoneyDraftCollection $money): void;
+    public function setMoney(?MoneyCollection $money): void;
 }

@@ -19,13 +19,8 @@ interface PaymentDraft extends JsonObject
 {
     public const FIELD_CUSTOMER = 'customer';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
-    public const FIELD_EXTERNAL_ID = 'externalId';
     public const FIELD_INTERFACE_ID = 'interfaceId';
     public const FIELD_AMOUNT_PLANNED = 'amountPlanned';
-    public const FIELD_AMOUNT_AUTHORIZED = 'amountAuthorized';
-    public const FIELD_AUTHORIZED_UNTIL = 'authorizedUntil';
-    public const FIELD_AMOUNT_PAID = 'amountPaid';
-    public const FIELD_AMOUNT_REFUNDED = 'amountRefunded';
     public const FIELD_PAYMENT_METHOD_INFO = 'paymentMethodInfo';
     public const FIELD_PAYMENT_STATUS = 'paymentStatus';
     public const FIELD_TRANSACTIONS = 'transactions';
@@ -50,14 +45,6 @@ interface PaymentDraft extends JsonObject
     public function getAnonymousId();
 
     /**
-     * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
-     *
-
-     * @return null|string
-     */
-    public function getExternalId();
-
-    /**
      * <p>Identifier used by the payment service that processes the Payment (for example, a PSP).
      * The combination of <code>interfaceId</code> and the <code>paymentInterface</code> field on <a href="ctp:api:type:PaymentMethodInfo">PaymentMethodInfo</a> must be unique.
      * Once set, it cannot be changed.</p>
@@ -75,38 +62,6 @@ interface PaymentDraft extends JsonObject
      * @return null|Money
      */
     public function getAmountPlanned();
-
-    /**
-     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-
-     * @return null|Money
-     */
-    public function getAmountAuthorized();
-
-    /**
-     * <p>Deprecated because this field is of little practical value, as it is either not reliably known, or the authorization time is fixed for a PSP.</p>
-     *
-
-     * @return null|string
-     */
-    public function getAuthorizedUntil();
-
-    /**
-     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-
-     * @return null|Money
-     */
-    public function getAmountPaid();
-
-    /**
-     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-
-     * @return null|Money
-     */
-    public function getAmountRefunded();
 
     /**
      * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
@@ -167,11 +122,6 @@ interface PaymentDraft extends JsonObject
     public function setAnonymousId(?string $anonymousId): void;
 
     /**
-     * @param ?string $externalId
-     */
-    public function setExternalId(?string $externalId): void;
-
-    /**
      * @param ?string $interfaceId
      */
     public function setInterfaceId(?string $interfaceId): void;
@@ -180,26 +130,6 @@ interface PaymentDraft extends JsonObject
      * @param ?Money $amountPlanned
      */
     public function setAmountPlanned(?Money $amountPlanned): void;
-
-    /**
-     * @param ?Money $amountAuthorized
-     */
-    public function setAmountAuthorized(?Money $amountAuthorized): void;
-
-    /**
-     * @param ?string $authorizedUntil
-     */
-    public function setAuthorizedUntil(?string $authorizedUntil): void;
-
-    /**
-     * @param ?Money $amountPaid
-     */
-    public function setAmountPaid(?Money $amountPaid): void;
-
-    /**
-     * @param ?Money $amountRefunded
-     */
-    public function setAmountRefunded(?Money $amountRefunded): void;
 
     /**
      * @param ?PaymentMethodInfo $paymentMethodInfo

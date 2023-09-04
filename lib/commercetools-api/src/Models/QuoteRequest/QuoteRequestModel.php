@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\QuoteRequest;
 
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
+use Commercetools\Api\Models\Cart\CartReference;
+use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
@@ -242,6 +244,12 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
 
     /**
      *
+     * @var ?CartReference
+     */
+    protected $cart;
+
+    /**
+     *
      * @var ?BusinessUnitKeyReference
      */
     protected $businessUnit;
@@ -282,6 +290,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         ?CustomFields $custom = null,
         ?StateReference $state = null,
         ?string $purchaseOrderNumber = null,
+        ?CartReference $cart = null,
         ?BusinessUnitKeyReference $businessUnit = null
     ) {
         $this->id = $id;
@@ -315,6 +324,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         $this->custom = $custom;
         $this->state = $state;
         $this->purchaseOrderNumber = $purchaseOrderNumber;
+        $this->cart = $cart;
         $this->businessUnit = $businessUnit;
     }
 
@@ -972,6 +982,27 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     }
 
     /**
+     * <p>The <a href="ctp:api:type:Cart">Cart</a> from which a Quote is requested.</p>
+     *
+     *
+     * @return null|CartReference
+     */
+    public function getCart()
+    {
+        if (is_null($this->cart)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CART);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->cart = CartReferenceModel::of($data);
+        }
+
+        return $this->cart;
+    }
+
+    /**
      * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request.</p>
      *
      *
@@ -1239,6 +1270,14 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void
     {
         $this->purchaseOrderNumber = $purchaseOrderNumber;
+    }
+
+    /**
+     * @param ?CartReference $cart
+     */
+    public function setCart(?CartReference $cart): void
+    {
+        $this->cart = $cart;
     }
 
     /**

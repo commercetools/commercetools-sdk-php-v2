@@ -30,12 +30,6 @@ final class AssociateBuilder implements Builder
 
     /**
 
-     * @var ?array
-     */
-    private $roles;
-
-    /**
-
      * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
@@ -49,17 +43,6 @@ final class AssociateBuilder implements Builder
     public function getAssociateRoleAssignments()
     {
         return $this->associateRoleAssignments;
-    }
-
-    /**
-     * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
-     *
-
-     * @return null|array
-     */
-    public function getRoles()
-    {
-        return $this->roles;
     }
 
     /**
@@ -80,17 +63,6 @@ final class AssociateBuilder implements Builder
     public function withAssociateRoleAssignments(?AssociateRoleAssignmentCollection $associateRoleAssignments)
     {
         $this->associateRoleAssignments = $associateRoleAssignments;
-
-        return $this;
-    }
-
-    /**
-     * @param ?array $roles
-     * @return $this
-     */
-    public function withRoles(?array $roles)
-    {
-        $this->roles = $roles;
 
         return $this;
     }
@@ -121,7 +93,6 @@ final class AssociateBuilder implements Builder
     {
         return new AssociateModel(
             $this->associateRoleAssignments,
-            $this->roles,
             $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer
         );
     }

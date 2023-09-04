@@ -15,12 +15,21 @@ use DateTimeImmutable;
 
 interface ShoppingListAddLineItemAction extends ShoppingListUpdateAction
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_SKU = 'sku';
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_CUSTOM = 'custom';
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
@@ -69,6 +78,11 @@ interface ShoppingListAddLineItemAction extends ShoppingListUpdateAction
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $sku

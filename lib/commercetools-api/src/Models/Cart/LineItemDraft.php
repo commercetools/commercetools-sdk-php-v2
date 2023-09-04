@@ -28,6 +28,7 @@ interface LineItemDraft extends JsonObject
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_PER_METHOD_EXTERNAL_TAX_RATE = 'perMethodExternalTaxRate';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
     public const FIELD_CUSTOM = 'custom';
@@ -120,12 +121,20 @@ interface LineItemDraft extends JsonObject
     public function getExternalTotalPrice();
 
     /**
-     * <p>External Tax Rate for the Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>Sets the external Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
 
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
+
+    /**
+     * <p>Sets the external Tax Rates for individual Shipping Methods, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|MethodExternalTaxRateDraftCollection
+     */
+    public function getPerMethodExternalTaxRate();
 
     /**
      * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
@@ -206,6 +215,11 @@ interface LineItemDraft extends JsonObject
      * @param ?ExternalTaxRateDraft $externalTaxRate
      */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
+
+    /**
+     * @param ?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate
+     */
+    public function setPerMethodExternalTaxRate(?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate): void;
 
     /**
      * @param ?string $inventoryMode

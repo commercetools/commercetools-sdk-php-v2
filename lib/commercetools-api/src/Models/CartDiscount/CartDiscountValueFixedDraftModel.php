@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\TypedMoneyDraftCollection;
+use Commercetools\Api\Models\Common\MoneyCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -29,7 +29,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
 
     /**
      *
-     * @var ?TypedMoneyDraftCollection
+     * @var ?MoneyCollection
      */
     protected $money;
 
@@ -38,7 +38,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TypedMoneyDraftCollection $money = null,
+        ?MoneyCollection $money = null,
         ?string $type = null
     ) {
         $this->money = $money;
@@ -68,7 +68,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
      * A fixed Cart Discount will only match a price if this array contains a value with the same currency. If it contains 10€ and 15$, the matching € price will be discounted by 10€ and the matching $ price will be discounted to 15$.</p>
      *
      *
-     * @return null|TypedMoneyDraftCollection
+     * @return null|MoneyCollection
      */
     public function getMoney()
     {
@@ -78,7 +78,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $this->money = TypedMoneyDraftCollection::fromArray($data);
+            $this->money = MoneyCollection::fromArray($data);
         }
 
         return $this->money;
@@ -86,9 +86,9 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
 
 
     /**
-     * @param ?TypedMoneyDraftCollection $money
+     * @param ?MoneyCollection $money
      */
-    public function setMoney(?TypedMoneyDraftCollection $money): void
+    public function setMoney(?MoneyCollection $money): void
     {
         $this->money = $money;
     }

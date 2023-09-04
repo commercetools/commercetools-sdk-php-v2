@@ -36,6 +36,7 @@ final class StandalonePriceUpdateActionModel extends JsonObjectModel implements 
        'changeActive' => StandalonePriceChangeActiveActionModel::class,
        'changeValue' => StandalonePriceChangeValueActionModel::class,
        'removePriceTier' => StandalonePriceRemovePriceTierActionModel::class,
+       'removeStagedChanges' => StandalonePriceRemoveStagedChangesActionModel::class,
        'setCustomField' => StandalonePriceSetCustomFieldActionModel::class,
        'setCustomType' => StandalonePriceSetCustomTypeActionModel::class,
        'setDiscountedPrice' => StandalonePriceSetDiscountedPriceActionModel::class,

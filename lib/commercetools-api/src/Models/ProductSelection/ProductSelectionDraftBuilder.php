@@ -46,12 +46,6 @@ final class ProductSelectionDraftBuilder implements Builder
 
      * @var ?string
      */
-    private $type;
-
-    /**
-
-     * @var ?string
-     */
     private $mode;
 
     /**
@@ -85,17 +79,6 @@ final class ProductSelectionDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * <p>Type of the Product Selection.</p>
-     *
-
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -143,17 +126,6 @@ final class ProductSelectionDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $type
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $mode
      * @return $this
      */
@@ -192,7 +164,6 @@ final class ProductSelectionDraftBuilder implements Builder
             $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->type,
             $this->mode
         );
     }

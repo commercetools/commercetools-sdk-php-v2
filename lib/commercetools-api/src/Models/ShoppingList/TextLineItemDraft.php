@@ -16,11 +16,20 @@ use DateTimeImmutable;
 
 interface TextLineItemDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_NAME = 'name';
     public const FIELD_QUANTITY = 'quantity';
+
+    /**
+     * <p>User-defined unique identifier of the TextLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Date and time the TextLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
@@ -61,6 +70,11 @@ interface TextLineItemDraft extends JsonObject
      * @return null|int
      */
     public function getQuantity();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?DateTimeImmutable $addedAt

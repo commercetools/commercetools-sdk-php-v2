@@ -36,6 +36,12 @@ final class MyShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMo
      *
      * @var ?string
      */
+    protected $lineItemKey;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $name;
 
     /**
@@ -50,11 +56,13 @@ final class MyShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMo
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?string $name = null,
         $value = null,
         ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->name = $name;
         $this->value = $value;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
@@ -79,7 +87,7 @@ final class MyShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMo
     }
 
     /**
-     * <p>Unique identifier of an existing <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> in the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     * <p>Unique identifier of an the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a>. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -96,6 +104,26 @@ final class MyShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMo
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
     }
 
     /**
@@ -147,6 +175,14 @@ final class MyShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMo
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

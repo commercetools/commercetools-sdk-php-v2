@@ -100,6 +100,12 @@ final class StandalonePriceDraftBuilder implements Builder
 
     /**
 
+     * @var null|StagedPriceDraft|StagedPriceDraftBuilder
+     */
+    private $staged;
+
+    /**
+
      * @var ?bool
      */
     private $active;
@@ -224,6 +230,17 @@ final class StandalonePriceDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Staged changes for the StandalonePrice.</p>
+     *
+
+     * @return null|StagedPriceDraft
+     */
+    public function getStaged()
+    {
+        return $this->staged instanceof StagedPriceDraftBuilder ? $this->staged->build() : $this->staged;
     }
 
     /**
@@ -359,6 +376,17 @@ final class StandalonePriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StagedPriceDraft $staged
+     * @return $this
+     */
+    public function withStaged(?StagedPriceDraft $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $active
      * @return $this
      */
@@ -424,6 +452,17 @@ final class StandalonePriceDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withStaged() instead
+     * @return $this
+     */
+    public function withStagedBuilder(?StagedPriceDraftBuilder $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
     public function build(): StandalonePriceDraft
     {
         return new StandalonePriceDraftModel(
@@ -438,6 +477,7 @@ final class StandalonePriceDraftBuilder implements Builder
             $this->tiers,
             $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->staged instanceof StagedPriceDraftBuilder ? $this->staged->build() : $this->staged,
             $this->active
         );
     }

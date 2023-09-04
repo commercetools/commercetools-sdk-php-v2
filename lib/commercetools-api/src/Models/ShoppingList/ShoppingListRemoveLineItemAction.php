@@ -14,15 +14,24 @@ use Commercetools\Base\JsonObject;
 interface ShoppingListRemoveLineItemAction extends ShoppingListUpdateAction
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM_KEY = 'lineItemKey';
     public const FIELD_QUANTITY = 'quantity';
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey();
 
     /**
      * <p>Amount to remove from the <code>quantity</code> of the ShoppingListLineItem. If not set, the ShoppingListLineItem is removed from the ShoppingList. If this value matches or exceeds the current <code>quantity</code> of the ShoppingListLineItem, the ShoppingListLineItem is removed from the ShoppingList.</p>
@@ -36,6 +45,11 @@ interface ShoppingListRemoveLineItemAction extends ShoppingListUpdateAction
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void;
 
     /**
      * @param ?int $quantity

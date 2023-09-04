@@ -18,7 +18,7 @@ interface MyShoppingListChangeLineItemQuantityAction extends MyShoppingListUpdat
     public const FIELD_QUANTITY = 'quantity';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     * <p><code>id</code> of the ShoppingListLineItem to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -26,7 +26,7 @@ interface MyShoppingListChangeLineItemQuantityAction extends MyShoppingListUpdat
     public function getLineItemId();
 
     /**
-     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     * <p><code>key</code> of the ShoppingListLineItem to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string

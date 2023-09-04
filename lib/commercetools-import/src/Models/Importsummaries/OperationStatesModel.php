@@ -55,6 +55,12 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
      */
     protected $rejected;
 
+    /**
+     *
+     * @var ?int
+     */
+    protected $canceled;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -65,7 +71,8 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         ?int $unresolved = null,
         ?int $waitForMasterVariant = null,
         ?int $imported = null,
-        ?int $rejected = null
+        ?int $rejected = null,
+        ?int $canceled = null
     ) {
         $this->processing = $processing;
         $this->validationFailed = $validationFailed;
@@ -73,6 +80,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         $this->waitForMasterVariant = $waitForMasterVariant;
         $this->imported = $imported;
         $this->rejected = $rejected;
+        $this->canceled = $canceled;
     }
 
     /**
@@ -195,6 +203,26 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         return $this->rejected;
     }
 
+    /**
+     * <p>The number of resources in the <code>canceled</code> state.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getCanceled()
+    {
+        if (is_null($this->canceled)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_CANCELED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->canceled = (int) $data;
+        }
+
+        return $this->canceled;
+    }
+
 
     /**
      * @param ?int $processing
@@ -242,5 +270,13 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     public function setRejected(?int $rejected): void
     {
         $this->rejected = $rejected;
+    }
+
+    /**
+     * @param ?int $canceled
+     */
+    public function setCanceled(?int $canceled): void
+    {
+        $this->canceled = $canceled;
     }
 }

@@ -32,6 +32,12 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
 
     /**
 
+     * @var ?string
+     */
+    private $textLineItemKey;
+
+    /**
+
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -43,7 +49,7 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     private $fields;
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -51,6 +57,17 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     public function getTextLineItemId()
     {
         return $this->textLineItemId;
+    }
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTextLineItemKey()
+    {
+        return $this->textLineItemKey;
     }
 
     /**
@@ -83,6 +100,17 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     public function withTextLineItemId(?string $textLineItemId)
     {
         $this->textLineItemId = $textLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $textLineItemKey
+     * @return $this
+     */
+    public function withTextLineItemKey(?string $textLineItemKey)
+    {
+        $this->textLineItemKey = $textLineItemKey;
 
         return $this;
     }
@@ -135,6 +163,7 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     {
         return new ShoppingListSetTextLineItemCustomTypeActionModel(
             $this->textLineItemId,
+            $this->textLineItemKey,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );

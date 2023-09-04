@@ -15,15 +15,24 @@ use Commercetools\Base\JsonObject;
 interface MyShoppingListSetTextLineItemDescriptionAction extends MyShoppingListUpdateAction
 {
     public const FIELD_TEXT_LINE_ITEM_ID = 'textLineItemId';
+    public const FIELD_TEXT_LINE_ITEM_KEY = 'textLineItemKey';
     public const FIELD_DESCRIPTION = 'description';
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getTextLineItemId();
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTextLineItemKey();
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
@@ -37,6 +46,11 @@ interface MyShoppingListSetTextLineItemDescriptionAction extends MyShoppingListU
      * @param ?string $textLineItemId
      */
     public function setTextLineItemId(?string $textLineItemId): void;
+
+    /**
+     * @param ?string $textLineItemKey
+     */
+    public function setTextLineItemKey(?string $textLineItemKey): void;
 
     /**
      * @param ?LocalizedString $description

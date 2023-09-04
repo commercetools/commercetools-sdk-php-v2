@@ -175,7 +175,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
-     * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
+     * <p>The representation to be sent to the server when creating a resource with Custom Fields.</p>
      *
      *
      * @return null|Custom

@@ -33,6 +33,12 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
@@ -64,6 +70,17 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>User-defined identifier of the TextLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -117,6 +134,17 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     public function withName(?LocalizedString $name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -202,6 +230,7 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     {
         return new MyShoppingListAddTextLineItemActionModel(
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->key,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->quantity,
             $this->addedAt,

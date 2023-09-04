@@ -48,18 +48,6 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
      */
     protected $quantity;
 
-    /**
-     *
-     * @var ?Money
-     */
-    protected $externalPrice;
-
-    /**
-     *
-     * @var ?ExternalLineItemTotalPrice
-     */
-    protected $externalTotalPrice;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -68,15 +56,11 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
         ?string $lineItemId = null,
         ?string $lineItemKey = null,
         ?int $quantity = null,
-        ?Money $externalPrice = null,
-        ?ExternalLineItemTotalPrice $externalTotalPrice = null,
         ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->lineItemKey = $lineItemKey;
         $this->quantity = $quantity;
-        $this->externalPrice = $externalPrice;
-        $this->externalTotalPrice = $externalTotalPrice;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -159,48 +143,6 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
         return $this->quantity;
     }
 
-    /**
-     * <p>Deprecated. Will be ignored.</p>
-     *
-     *
-     * @return null|Money
-     */
-    public function getExternalPrice()
-    {
-        if (is_null($this->externalPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalPrice = MoneyModel::of($data);
-        }
-
-        return $this->externalPrice;
-    }
-
-    /**
-     * <p>Deprecated. Will be ignored.</p>
-     *
-     *
-     * @return null|ExternalLineItemTotalPrice
-     */
-    public function getExternalTotalPrice()
-    {
-        if (is_null($this->externalTotalPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_TOTAL_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTotalPrice = ExternalLineItemTotalPriceModel::of($data);
-        }
-
-        return $this->externalTotalPrice;
-    }
-
 
     /**
      * @param ?string $lineItemId
@@ -224,21 +166,5 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
-    }
-
-    /**
-     * @param ?Money $externalPrice
-     */
-    public function setExternalPrice(?Money $externalPrice): void
-    {
-        $this->externalPrice = $externalPrice;
-    }
-
-    /**
-     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
-     */
-    public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
-    {
-        $this->externalTotalPrice = $externalTotalPrice;
     }
 }

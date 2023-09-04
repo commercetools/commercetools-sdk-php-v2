@@ -43,12 +43,6 @@ final class PaymentDraftBuilder implements Builder
 
      * @var ?string
      */
-    private $externalId;
-
-    /**
-
-     * @var ?string
-     */
     private $interfaceId;
 
     /**
@@ -56,30 +50,6 @@ final class PaymentDraftBuilder implements Builder
      * @var null|Money|MoneyBuilder
      */
     private $amountPlanned;
-
-    /**
-
-     * @var null|Money|MoneyBuilder
-     */
-    private $amountAuthorized;
-
-    /**
-
-     * @var ?string
-     */
-    private $authorizedUntil;
-
-    /**
-
-     * @var null|Money|MoneyBuilder
-     */
-    private $amountPaid;
-
-    /**
-
-     * @var null|Money|MoneyBuilder
-     */
-    private $amountRefunded;
 
     /**
 
@@ -140,17 +110,6 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
-     *
-
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
      * <p>Identifier used by the payment service that processes the Payment (for example, a PSP).
      * The combination of <code>interfaceId</code> and the <code>paymentInterface</code> field on <a href="ctp:api:type:PaymentMethodInfo">PaymentMethodInfo</a> must be unique.
      * Once set, it cannot be changed.</p>
@@ -173,50 +132,6 @@ final class PaymentDraftBuilder implements Builder
     public function getAmountPlanned()
     {
         return $this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
-    }
-
-    /**
-     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-
-     * @return null|Money
-     */
-    public function getAmountAuthorized()
-    {
-        return $this->amountAuthorized instanceof MoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized;
-    }
-
-    /**
-     * <p>Deprecated because this field is of little practical value, as it is either not reliably known, or the authorization time is fixed for a PSP.</p>
-     *
-
-     * @return null|string
-     */
-    public function getAuthorizedUntil()
-    {
-        return $this->authorizedUntil;
-    }
-
-    /**
-     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-
-     * @return null|Money
-     */
-    public function getAmountPaid()
-    {
-        return $this->amountPaid instanceof MoneyBuilder ? $this->amountPaid->build() : $this->amountPaid;
-    }
-
-    /**
-     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-
-     * @return null|Money
-     */
-    public function getAmountRefunded()
-    {
-        return $this->amountRefunded instanceof MoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded;
     }
 
     /**
@@ -308,17 +223,6 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $externalId
-     * @return $this
-     */
-    public function withExternalId(?string $externalId)
-    {
-        $this->externalId = $externalId;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $interfaceId
      * @return $this
      */
@@ -336,50 +240,6 @@ final class PaymentDraftBuilder implements Builder
     public function withAmountPlanned(?Money $amountPlanned)
     {
         $this->amountPlanned = $amountPlanned;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Money $amountAuthorized
-     * @return $this
-     */
-    public function withAmountAuthorized(?Money $amountAuthorized)
-    {
-        $this->amountAuthorized = $amountAuthorized;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $authorizedUntil
-     * @return $this
-     */
-    public function withAuthorizedUntil(?string $authorizedUntil)
-    {
-        $this->authorizedUntil = $authorizedUntil;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Money $amountPaid
-     * @return $this
-     */
-    public function withAmountPaid(?Money $amountPaid)
-    {
-        $this->amountPaid = $amountPaid;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Money $amountRefunded
-     * @return $this
-     */
-    public function withAmountRefunded(?Money $amountRefunded)
-    {
-        $this->amountRefunded = $amountRefunded;
 
         return $this;
     }
@@ -473,39 +333,6 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withAmountAuthorized() instead
-     * @return $this
-     */
-    public function withAmountAuthorizedBuilder(?MoneyBuilder $amountAuthorized)
-    {
-        $this->amountAuthorized = $amountAuthorized;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withAmountPaid() instead
-     * @return $this
-     */
-    public function withAmountPaidBuilder(?MoneyBuilder $amountPaid)
-    {
-        $this->amountPaid = $amountPaid;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withAmountRefunded() instead
-     * @return $this
-     */
-    public function withAmountRefundedBuilder(?MoneyBuilder $amountRefunded)
-    {
-        $this->amountRefunded = $amountRefunded;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withPaymentMethodInfo() instead
      * @return $this
      */
@@ -543,13 +370,8 @@ final class PaymentDraftBuilder implements Builder
         return new PaymentDraftModel(
             $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer,
             $this->anonymousId,
-            $this->externalId,
             $this->interfaceId,
             $this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
-            $this->amountAuthorized instanceof MoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized,
-            $this->authorizedUntil,
-            $this->amountPaid instanceof MoneyBuilder ? $this->amountPaid->build() : $this->amountPaid,
-            $this->amountRefunded instanceof MoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded,
             $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
             $this->paymentStatus instanceof PaymentStatusDraftBuilder ? $this->paymentStatus->build() : $this->paymentStatus,
             $this->transactions,

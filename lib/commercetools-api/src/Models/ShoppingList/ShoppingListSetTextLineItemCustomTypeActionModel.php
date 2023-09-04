@@ -38,6 +38,12 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
 
     /**
      *
+     * @var ?string
+     */
+    protected $textLineItemKey;
+
+    /**
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
@@ -54,11 +60,13 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
      */
     public function __construct(
         ?string $textLineItemId = null,
+        ?string $textLineItemKey = null,
         ?TypeResourceIdentifier $type = null,
         ?FieldContainer $fields = null,
         ?string $action = null
     ) {
         $this->textLineItemId = $textLineItemId;
+        $this->textLineItemKey = $textLineItemKey;
         $this->type = $type;
         $this->fields = $fields;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
@@ -83,7 +91,7 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
     }
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
      *
      * @return null|string
@@ -100,6 +108,26 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
         }
 
         return $this->textLineItemId;
+    }
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getTextLineItemKey()
+    {
+        if (is_null($this->textLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->textLineItemKey = (string) $data;
+        }
+
+        return $this->textLineItemKey;
     }
 
     /**
@@ -152,6 +180,14 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
     public function setTextLineItemId(?string $textLineItemId): void
     {
         $this->textLineItemId = $textLineItemId;
+    }
+
+    /**
+     * @param ?string $textLineItemKey
+     */
+    public function setTextLineItemKey(?string $textLineItemKey): void
+    {
+        $this->textLineItemKey = $textLineItemKey;
     }
 
     /**

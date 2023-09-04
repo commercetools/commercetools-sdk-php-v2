@@ -160,16 +160,6 @@ class ResourceByProjectKeyTest extends TestCase
                 'get',
                 'test_projectKey?userId=userId',
             ],
-            'ByProjectKeyGet_withType' => [
-                function (HistoryRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKeyValue('test_projectKey')
-                        ->get()
-                        ->withType('type');
-                },
-                'get',
-                'test_projectKey?type=type',
-            ],
             'ByProjectKeyGet_withClientId' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -179,6 +169,36 @@ class ResourceByProjectKeyTest extends TestCase
                 },
                 'get',
                 'test_projectKey?clientId=clientId',
+            ],
+            'ByProjectKeyGet_withCustomerId' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->get()
+                        ->withCustomerId('customerId');
+                },
+                'get',
+                'test_projectKey?customerId=customerId',
+            ],
+            'ByProjectKeyGet_withAssociateId' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->get()
+                        ->withAssociateId('associateId');
+                },
+                'get',
+                'test_projectKey?associateId=associateId',
+            ],
+            'ByProjectKeyGet_withType' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->get()
+                        ->withType('type');
+                },
+                'get',
+                'test_projectKey?type=type',
             ],
             'ByProjectKeyGet_withResourceId' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
@@ -229,16 +249,6 @@ class ResourceByProjectKeyTest extends TestCase
                 },
                 'get',
                 'test_projectKey?stores=stores',
-            ],
-            'ByProjectKeyGet_withCustomerId' => [
-                function (HistoryRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKeyValue('test_projectKey')
-                        ->get()
-                        ->withCustomerId('customerId');
-                },
-                'get',
-                'test_projectKey?customerId=customerId',
             ],
             'ByProjectKeyGet_withExcludePlatformInitiatedChanges' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {

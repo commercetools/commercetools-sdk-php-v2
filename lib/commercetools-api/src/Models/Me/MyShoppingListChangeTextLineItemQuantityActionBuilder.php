@@ -28,12 +28,18 @@ final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Bui
 
     /**
 
+     * @var ?string
+     */
+    private $textLineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -41,6 +47,17 @@ final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Bui
     public function getTextLineItemId()
     {
         return $this->textLineItemId;
+    }
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTextLineItemKey()
+    {
+        return $this->textLineItemKey;
     }
 
     /**
@@ -66,6 +83,17 @@ final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Bui
     }
 
     /**
+     * @param ?string $textLineItemKey
+     * @return $this
+     */
+    public function withTextLineItemKey(?string $textLineItemKey)
+    {
+        $this->textLineItemKey = $textLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $quantity
      * @return $this
      */
@@ -81,6 +109,7 @@ final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Bui
     {
         return new MyShoppingListChangeTextLineItemQuantityActionModel(
             $this->textLineItemId,
+            $this->textLineItemKey,
             $this->quantity
         );
     }

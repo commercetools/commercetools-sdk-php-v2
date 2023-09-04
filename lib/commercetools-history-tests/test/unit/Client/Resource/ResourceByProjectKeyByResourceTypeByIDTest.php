@@ -150,18 +150,6 @@ class ResourceByProjectKeyByResourceTypeByIDTest extends TestCase
                 'get',
                 'test_projectKey/test_resourceType/test_ID?userId=userId',
             ],
-            'ByProjectKeyByResourceTypeByIDGet_withType' => [
-                function (HistoryRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKeyValue('test_projectKey')
-                        ->withResourceTypeValue('test_resourceType')
-                        ->withIDValue('test_ID')
-                        ->get()
-                        ->withType('type');
-                },
-                'get',
-                'test_projectKey/test_resourceType/test_ID?type=type',
-            ],
             'ByProjectKeyByResourceTypeByIDGet_withClientId' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -173,6 +161,42 @@ class ResourceByProjectKeyByResourceTypeByIDTest extends TestCase
                 },
                 'get',
                 'test_projectKey/test_resourceType/test_ID?clientId=clientId',
+            ],
+            'ByProjectKeyByResourceTypeByIDGet_withCustomerId' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->withIDValue('test_ID')
+                        ->get()
+                        ->withCustomerId('customerId');
+                },
+                'get',
+                'test_projectKey/test_resourceType/test_ID?customerId=customerId',
+            ],
+            'ByProjectKeyByResourceTypeByIDGet_withAssociateId' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->withIDValue('test_ID')
+                        ->get()
+                        ->withAssociateId('associateId');
+                },
+                'get',
+                'test_projectKey/test_resourceType/test_ID?associateId=associateId',
+            ],
+            'ByProjectKeyByResourceTypeByIDGet_withType' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->withIDValue('test_ID')
+                        ->get()
+                        ->withType('type');
+                },
+                'get',
+                'test_projectKey/test_resourceType/test_ID?type=type',
             ],
             'ByProjectKeyByResourceTypeByIDGet_withSource' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
@@ -209,18 +233,6 @@ class ResourceByProjectKeyByResourceTypeByIDTest extends TestCase
                 },
                 'get',
                 'test_projectKey/test_resourceType/test_ID?stores=stores',
-            ],
-            'ByProjectKeyByResourceTypeByIDGet_withCustomerId' => [
-                function (HistoryRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKeyValue('test_projectKey')
-                        ->withResourceTypeValue('test_resourceType')
-                        ->withIDValue('test_ID')
-                        ->get()
-                        ->withCustomerId('customerId');
-                },
-                'get',
-                'test_projectKey/test_resourceType/test_ID?customerId=customerId',
             ],
             'ByProjectKeyByResourceTypeByIDGet_withExcludePlatformInitiatedChanges' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {

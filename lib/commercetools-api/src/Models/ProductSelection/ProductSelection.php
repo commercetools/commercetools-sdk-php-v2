@@ -24,7 +24,6 @@ interface ProductSelection extends BaseResource
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_PRODUCT_COUNT = 'productCount';
-    public const FIELD_TYPE = 'type';
     public const FIELD_MODE = 'mode';
     public const FIELD_CUSTOM = 'custom';
 
@@ -107,15 +106,6 @@ interface ProductSelection extends BaseResource
 
      * @return null|string
      */
-    public function getType();
-
-    /**
-     * <p>Specifies in which way the Products are assigned to the ProductSelection.
-     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:ProductSelectionMode">including or excluding</a> them explicitly.</p>
-     *
-
-     * @return null|string
-     */
     public function getMode();
 
     /**
@@ -170,11 +160,6 @@ interface ProductSelection extends BaseResource
      * @param ?int $productCount
      */
     public function setProductCount(?int $productCount): void;
-
-    /**
-     * @param ?string $type
-     */
-    public function setType(?string $type): void;
 
     /**
      * @param ?string $mode

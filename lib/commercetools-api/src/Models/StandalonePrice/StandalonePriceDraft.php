@@ -31,6 +31,7 @@ interface StandalonePriceDraft extends JsonObject
     public const FIELD_TIERS = 'tiers';
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STAGED = 'staged';
     public const FIELD_ACTIVE = 'active';
 
     /**
@@ -123,6 +124,14 @@ interface StandalonePriceDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Staged changes for the StandalonePrice.</p>
+     *
+
+     * @return null|StagedPriceDraft
+     */
+    public function getStaged();
+
+    /**
      * <p>Set to <code>false</code>, if the StandalonePrice should not be considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
      *
 
@@ -184,6 +193,11 @@ interface StandalonePriceDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?StagedPriceDraft $staged
+     */
+    public function setStaged(?StagedPriceDraft $staged): void;
 
     /**
      * @param ?bool $active

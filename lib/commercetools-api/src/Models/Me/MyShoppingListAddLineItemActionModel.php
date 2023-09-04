@@ -33,6 +33,12 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
      *
      * @var ?string
      */
+    protected $key;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $sku;
 
     /**
@@ -70,6 +76,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?string $sku = null,
         ?string $productId = null,
         ?int $variantId = null,
@@ -78,6 +85,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
         ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
+        $this->key = $key;
         $this->sku = $sku;
         $this->productId = $productId;
         $this->variantId = $variantId;
@@ -103,6 +111,26 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
         }
 
         return $this->action;
+    }
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -230,6 +258,14 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
         return $this->custom;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?string $sku

@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\PriceDraft;
-use Commercetools\Api\Models\Common\PriceDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -30,24 +29,6 @@ final class ProductRemovePriceActionBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $sku;
-
-    /**
-
-     * @var ?int
-     */
-    private $variantId;
-
-    /**
-
-     * @var null|PriceDraft|PriceDraftBuilder
-     */
-    private $price;
-
-    /**
-
      * @var ?bool
      */
     private $staged;
@@ -61,44 +42,6 @@ final class ProductRemovePriceActionBuilder implements Builder
     public function getPriceId()
     {
         return $this->priceId;
-    }
-
-    /**
-     * <p>The <code>sku</code> of the ProductVariant the provided Price should be removed from.
-     * Either 'variantId' or 'sku' is required&quot; when <code>priceId</code> is not provided.
-     * This field is now deprecated, use 'priceId' instead.</p>
-     *
-
-     * @return null|string
-     */
-    public function getSku()
-    {
-        return $this->sku;
-    }
-
-    /**
-     * <p>The <code>id</code> of the ProductVariant the provided Price should be removed from.
-     * Either 'variantId' or 'sku' is required&quot; when <code>priceId</code> is not provided.
-     * This field is now deprecated, use 'priceId' instead.</p>
-     *
-
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        return $this->variantId;
-    }
-
-    /**
-     * <p>The Price identical to the one to be removed from the ProductVariant.
-     * This field is now deprecated, use 'priceId' instead.</p>
-     *
-
-     * @return null|PriceDraft
-     */
-    public function getPrice()
-    {
-        return $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price;
     }
 
     /**
@@ -124,39 +67,6 @@ final class ProductRemovePriceActionBuilder implements Builder
     }
 
     /**
-     * @param ?string $sku
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $variantId
-     * @return $this
-     */
-    public function withVariantId(?int $variantId)
-    {
-        $this->variantId = $variantId;
-
-        return $this;
-    }
-
-    /**
-     * @param ?PriceDraft $price
-     * @return $this
-     */
-    public function withPrice(?PriceDraft $price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
      * @param ?bool $staged
      * @return $this
      */
@@ -167,24 +77,11 @@ final class ProductRemovePriceActionBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withPrice() instead
-     * @return $this
-     */
-    public function withPriceBuilder(?PriceDraftBuilder $price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
 
     public function build(): ProductRemovePriceAction
     {
         return new ProductRemovePriceActionModel(
             $this->priceId,
-            $this->sku,
-            $this->variantId,
-            $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price,
             $this->staged
         );
     }

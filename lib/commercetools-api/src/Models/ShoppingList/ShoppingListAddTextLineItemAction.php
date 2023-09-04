@@ -17,6 +17,7 @@ use DateTimeImmutable;
 interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
 {
     public const FIELD_NAME = 'name';
+    public const FIELD_KEY = 'key';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_ADDED_AT = 'addedAt';
@@ -29,6 +30,14 @@ interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
      * @return null|LocalizedString
      */
     public function getName();
+
+    /**
+     * <p>User-defined identifier of the TextLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Description of the TextLineItem.</p>
@@ -66,6 +75,11 @@ interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?LocalizedString $description
