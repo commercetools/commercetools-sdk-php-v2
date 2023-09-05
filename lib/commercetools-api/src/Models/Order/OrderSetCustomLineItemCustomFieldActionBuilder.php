@@ -30,6 +30,12 @@ final class OrderSetCustomLineItemCustomFieldActionBuilder implements Builder
 
      * @var ?string
      */
+    private $customLineItemKey;
+
+    /**
+
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -39,12 +45,25 @@ final class OrderSetCustomLineItemCustomFieldActionBuilder implements Builder
     private $value;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -83,6 +102,17 @@ final class OrderSetCustomLineItemCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -109,6 +139,7 @@ final class OrderSetCustomLineItemCustomFieldActionBuilder implements Builder
     {
         return new OrderSetCustomLineItemCustomFieldActionModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->name,
             $this->value
         );

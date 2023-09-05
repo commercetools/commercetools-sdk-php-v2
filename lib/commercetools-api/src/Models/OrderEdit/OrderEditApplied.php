@@ -19,18 +19,32 @@ interface OrderEditApplied extends OrderEditResult
     public const FIELD_EXCERPT_AFTER_EDIT = 'excerptAfterEdit';
 
     /**
+     * <p>This field is queryable.</p>
+     *
+
+     * @return null|string
+     */
+    public function getType();
+
+    /**
+     * <p>Date and time (UTC) the Order was edited.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getAppliedAt();
 
     /**
+     * <p>Prices of the Order before the edit.</p>
+     *
 
      * @return null|OrderExcerpt
      */
     public function getExcerptBeforeEdit();
 
     /**
+     * <p>Prices of the Order after the edit.</p>
+     *
 
      * @return null|OrderExcerpt
      */

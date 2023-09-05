@@ -34,6 +34,12 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -45,6 +51,8 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
     private $fields;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
@@ -54,8 +62,19 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
     }
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the CustomLineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the CustomLineItem.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
+    }
+
+    /**
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Custom Line Item with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Custom Line Item.</p>
      *
 
      * @return null|TypeResourceIdentifier
@@ -66,7 +85,7 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
     }
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the CustomLineItem.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Custom Line Item.</p>
      *
 
      * @return null|FieldContainer
@@ -83,6 +102,17 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
 
         return $this;
     }
@@ -135,6 +165,7 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
     {
         return new StagedOrderSetCustomLineItemCustomTypeActionModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );

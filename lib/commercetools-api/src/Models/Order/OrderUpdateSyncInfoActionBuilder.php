@@ -25,15 +25,15 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
 {
     /**
 
-     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
-     */
-    private $channel;
-
-    /**
-
      * @var ?string
      */
     private $externalId;
+
+    /**
+
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
+     */
+    private $channel;
 
     /**
 
@@ -42,7 +42,20 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     private $syncedAt;
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Set this to identify an external order instance, file, or other resource.</p>
+     *
+
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * <p>The synchronization destination to set. Must not be empty.
+     * The referenced Channel must have the <a href="ctp:api:type:ChannelRoleEnum">Channel Role</a> <code>OrderExport</code> or <code>OrderImport</code>.
+     * Otherwise this update action returns an <a href="ctp:api:type:InvalidInputError">InvalidInput</a> error.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -53,15 +66,8 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
+     * <p>If not set, it defaults to the current date and time.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -71,23 +77,23 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     }
 
     /**
-     * @param ?ChannelResourceIdentifier $channel
-     * @return $this
-     */
-    public function withChannel(?ChannelResourceIdentifier $channel)
-    {
-        $this->channel = $channel;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
     {
         $this->externalId = $externalId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ChannelResourceIdentifier $channel
+     * @return $this
+     */
+    public function withChannel(?ChannelResourceIdentifier $channel)
+    {
+        $this->channel = $channel;
 
         return $this;
     }
@@ -117,8 +123,8 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     public function build(): OrderUpdateSyncInfoAction
     {
         return new OrderUpdateSyncInfoActionModel(
-            $this->channel instanceof ChannelResourceIdentifierBuilder ? $this->channel->build() : $this->channel,
             $this->externalId,
+            $this->channel instanceof ChannelResourceIdentifierBuilder ? $this->channel->build() : $this->channel,
             $this->syncedAt
         );
     }

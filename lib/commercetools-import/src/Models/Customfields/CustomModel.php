@@ -67,7 +67,7 @@ final class CustomModel extends JsonObjectModel implements Custom
     }
 
     /**
-     * <p>The custom fields of this object.</p>
+     * <p>The Custom Fields of this object.</p>
      *
      *
      * @return null|FieldContainer

@@ -34,15 +34,15 @@ final class LineItemImportDraftBuilder implements Builder
 {
     /**
 
-     * @var ?string
-     */
-    private $productId;
-
-    /**
-
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
+
+    /**
+
+     * @var ?string
+     */
+    private $key;
 
     /**
 
@@ -52,9 +52,9 @@ final class LineItemImportDraftBuilder implements Builder
 
     /**
 
-     * @var null|PriceDraft|PriceDraftBuilder
+     * @var ?string
      */
-    private $price;
+    private $productId;
 
     /**
 
@@ -64,21 +64,9 @@ final class LineItemImportDraftBuilder implements Builder
 
     /**
 
-     * @var ?ItemStateCollection
+     * @var null|PriceDraft|PriceDraftBuilder
      */
-    private $state;
-
-    /**
-
-     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
-     */
-    private $supplyChannel;
-
-    /**
-
-     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
-     */
-    private $distributionChannel;
+    private $price;
 
     /**
 
@@ -88,9 +76,15 @@ final class LineItemImportDraftBuilder implements Builder
 
     /**
 
-     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
-    private $custom;
+    private $distributionChannel;
+
+    /**
+
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
+     */
+    private $supplyChannel;
 
     /**
 
@@ -105,19 +99,19 @@ final class LineItemImportDraftBuilder implements Builder
     private $shippingDetails;
 
     /**
-     * <p>ID of the existing product.
-     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>
-     *
 
-     * @return null|string
+     * @var ?ItemStateCollection
      */
-    public function getProductId()
-    {
-        return $this->productId;
-    }
+    private $state;
 
     /**
-     * <p>The product name.</p>
+
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>Name of the Line Item.</p>
      *
 
      * @return null|LocalizedString
@@ -128,6 +122,19 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>The Product Variant to use as a <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
 
      * @return null|ProductVariantImportDraft
      */
@@ -137,15 +144,20 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a> the Product Variant belongs to.</p>
+     * <p>If provided, you must also set <code>variant.id</code>.</p>
+     *
 
-     * @return null|PriceDraft
+     * @return null|string
      */
-    public function getPrice()
+    public function getProductId()
     {
-        return $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price;
+        return $this->productId;
     }
 
     /**
+     * <p>The number of Product Variants in the LineItem. Can be a negative value.</p>
+     *
 
      * @return null|int
      */
@@ -155,32 +167,30 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-
-     * @return null|ItemStateCollection
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
-     * <p>Connection to a particular supplier.
-     * By providing supply channel information, you can uniquely identify
-     * inventory entries that should be reserved.
-     * The provided channel should have the
-     * InventorySupply role.</p>
+     * <p>The Line Item price for <code>quantity</code> = <code>1</code>. The amount can be negative.</p>
      *
 
-     * @return null|ChannelResourceIdentifier
+     * @return null|PriceDraft
      */
-    public function getSupplyChannel()
+    public function getPrice()
     {
-        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
+        return $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price;
     }
 
     /**
-     * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>
+     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Order.</p>
+     *
+
+     * @return null|TaxRate
+     */
+    public function getTaxRate()
+    {
+        return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
+    }
+
+    /**
+     * <p>The Channel used to <a href="ctp:api:type:LineItemPriceSelection">select a Price</a>.
+     * This Channel must have the <code>ProductDistribution</code> role.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -191,28 +201,21 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-
-     * @return null|TaxRate
-     */
-    public function getTaxRate()
-    {
-        return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
-    }
-
-    /**
-     * <p>The custom fields.</p>
+     * <p>The Channel used to supply Line Items.
+     * By providing supply Channel information, you can uniquely identify <a href="ctp:api:type:InventoryEntry">Inventory entries</a> that should be reserved.
+     * This Channel must have the <code>InventorySupply</code> role.</p>
      *
 
-     * @return null|CustomFieldsDraft
+     * @return null|ChannelResourceIdentifier
      */
-    public function getCustom()
+    public function getSupplyChannel()
     {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
 
     /**
-     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
-     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>.</p>
+     * <p>Inventory mode specific to the LineItem, valid for the entire <code>quantity</code> of the LineItem.
+     * Set only if Inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>.</p>
      *
 
      * @return null|string
@@ -223,6 +226,8 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Container for Line Item-specific addresses.</p>
+     *
 
      * @return null|ItemShippingDetailsDraft
      */
@@ -232,14 +237,25 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $productId
-     * @return $this
-     */
-    public function withProductId(?string $productId)
-    {
-        $this->productId = $productId;
+     * <p>States of the Line Item.</p>
+     *
 
-        return $this;
+     * @return null|ItemStateCollection
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * <p>Custom Fields of the LineItem.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -249,6 +265,17 @@ final class LineItemImportDraftBuilder implements Builder
     public function withName(?LocalizedString $name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -265,12 +292,12 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?PriceDraft $price
+     * @param ?string $productId
      * @return $this
      */
-    public function withPrice(?PriceDraft $price)
+    public function withProductId(?string $productId)
     {
-        $this->price = $price;
+        $this->productId = $productId;
 
         return $this;
     }
@@ -287,34 +314,12 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?ItemStateCollection $state
+     * @param ?PriceDraft $price
      * @return $this
      */
-    public function withState(?ItemStateCollection $state)
+    public function withPrice(?PriceDraft $price)
     {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
-     * @return $this
-     */
-    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
-    {
-        $this->supplyChannel = $supplyChannel;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ChannelResourceIdentifier $distributionChannel
-     * @return $this
-     */
-    public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
-    {
-        $this->distributionChannel = $distributionChannel;
+        $this->price = $price;
 
         return $this;
     }
@@ -331,12 +336,23 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
+     * @param ?ChannelResourceIdentifier $distributionChannel
      * @return $this
      */
-    public function withCustom(?CustomFieldsDraft $custom)
+    public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
     {
-        $this->custom = $custom;
+        $this->distributionChannel = $distributionChannel;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     * @return $this
+     */
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -359,6 +375,28 @@ final class LineItemImportDraftBuilder implements Builder
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ItemStateCollection $state
+     * @return $this
+     */
+    public function withState(?ItemStateCollection $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -397,12 +435,12 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withSupplyChannel() instead
+     * @deprecated use withTaxRate() instead
      * @return $this
      */
-    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
+    public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
     {
-        $this->supplyChannel = $supplyChannel;
+        $this->taxRate = $taxRate;
 
         return $this;
     }
@@ -419,23 +457,12 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withTaxRate() instead
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
-    public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
-        $this->taxRate = $taxRate;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
-    {
-        $this->custom = $custom;
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -451,21 +478,33 @@ final class LineItemImportDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): LineItemImportDraft
     {
         return new LineItemImportDraftModel(
-            $this->productId,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->key,
             $this->variant instanceof ProductVariantImportDraftBuilder ? $this->variant->build() : $this->variant,
-            $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price,
+            $this->productId,
             $this->quantity,
-            $this->state,
-            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
-            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
+            $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->inventoryMode,
-            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->state,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

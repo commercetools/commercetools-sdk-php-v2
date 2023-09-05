@@ -155,17 +155,6 @@ class ResourceByProjectKeyByResourceTypeTest extends TestCase
                 'get',
                 'test_projectKey/test_resourceType?userId=userId',
             ],
-            'ByProjectKeyByResourceTypeGet_withType' => [
-                function (HistoryRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKeyValue('test_projectKey')
-                        ->withResourceTypeValue('test_resourceType')
-                        ->get()
-                        ->withType('type');
-                },
-                'get',
-                'test_projectKey/test_resourceType?type=type',
-            ],
             'ByProjectKeyByResourceTypeGet_withClientId' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -176,6 +165,39 @@ class ResourceByProjectKeyByResourceTypeTest extends TestCase
                 },
                 'get',
                 'test_projectKey/test_resourceType?clientId=clientId',
+            ],
+            'ByProjectKeyByResourceTypeGet_withCustomerId' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->get()
+                        ->withCustomerId('customerId');
+                },
+                'get',
+                'test_projectKey/test_resourceType?customerId=customerId',
+            ],
+            'ByProjectKeyByResourceTypeGet_withAssociateId' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->get()
+                        ->withAssociateId('associateId');
+                },
+                'get',
+                'test_projectKey/test_resourceType?associateId=associateId',
+            ],
+            'ByProjectKeyByResourceTypeGet_withType' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->get()
+                        ->withType('type');
+                },
+                'get',
+                'test_projectKey/test_resourceType?type=type',
             ],
             'ByProjectKeyByResourceTypeGet_withResourceKey' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
@@ -220,17 +242,6 @@ class ResourceByProjectKeyByResourceTypeTest extends TestCase
                 },
                 'get',
                 'test_projectKey/test_resourceType?stores=stores',
-            ],
-            'ByProjectKeyByResourceTypeGet_withCustomerId' => [
-                function (HistoryRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKeyValue('test_projectKey')
-                        ->withResourceTypeValue('test_resourceType')
-                        ->get()
-                        ->withCustomerId('customerId');
-                },
-                'get',
-                'test_projectKey/test_resourceType?customerId=customerId',
             ],
             'ByProjectKeyByResourceTypeGet_withExcludePlatformInitiatedChanges' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {

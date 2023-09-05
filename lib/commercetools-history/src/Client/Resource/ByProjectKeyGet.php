@@ -194,20 +194,38 @@ class ByProjectKeyGet extends ApiRequest
 
     /**
      * 
-     * @psalm-param scalar|scalar[] $type
-     */
-    public function withType($type): ByProjectKeyGet
-    {
-        return $this->withQueryParam('type', $type);
-    }
-
-    /**
-     * 
      * @psalm-param scalar|scalar[] $clientId
      */
     public function withClientId($clientId): ByProjectKeyGet
     {
         return $this->withQueryParam('clientId', $clientId);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $customerId
+     */
+    public function withCustomerId($customerId): ByProjectKeyGet
+    {
+        return $this->withQueryParam('customerId', $customerId);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $associateId
+     */
+    public function withAssociateId($associateId): ByProjectKeyGet
+    {
+        return $this->withQueryParam('associateId', $associateId);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $type
+     */
+    public function withType($type): ByProjectKeyGet
+    {
+        return $this->withQueryParam('type', $type);
     }
 
     /**
@@ -253,15 +271,6 @@ class ByProjectKeyGet extends ApiRequest
     public function withStores($stores): ByProjectKeyGet
     {
         return $this->withQueryParam('stores', $stores);
-    }
-
-    /**
-     * 
-     * @psalm-param scalar|scalar[] $customerId
-     */
-    public function withCustomerId($customerId): ByProjectKeyGet
-    {
-        return $this->withQueryParam('customerId', $customerId);
     }
 
     /**

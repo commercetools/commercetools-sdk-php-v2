@@ -30,8 +30,6 @@ use Commercetools\Api\Models\DiscountCode\DiscountCodeResourceIdentifier;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeResourceIdentifierModel;
 use Commercetools\Api\Models\Inventory\InventoryEntryResourceIdentifier;
 use Commercetools\Api\Models\Inventory\InventoryEntryResourceIdentifierModel;
-use Commercetools\Api\Models\Order\OrderResourceIdentifier;
-use Commercetools\Api\Models\Order\OrderResourceIdentifierModel;
 use Commercetools\Api\Models\OrderEdit\OrderEditResourceIdentifier;
 use Commercetools\Api\Models\OrderEdit\OrderEditResourceIdentifierModel;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
@@ -114,7 +112,6 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'customer-group' => CustomerGroupResourceIdentifierModel::class,
        'discount-code' => DiscountCodeResourceIdentifierModel::class,
        'inventory-entry' => InventoryEntryResourceIdentifierModel::class,
-       'order' => OrderResourceIdentifierModel::class,
        'order-edit' => OrderEditResourceIdentifierModel::class,
        'payment' => PaymentResourceIdentifierModel::class,
        'product' => ProductResourceIdentifierModel::class,

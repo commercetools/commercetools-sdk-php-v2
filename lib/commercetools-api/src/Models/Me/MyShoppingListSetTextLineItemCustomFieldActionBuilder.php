@@ -30,6 +30,12 @@ final class MyShoppingListSetTextLineItemCustomFieldActionBuilder implements Bui
 
      * @var ?string
      */
+    private $textLineItemKey;
+
+    /**
+
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -39,7 +45,7 @@ final class MyShoppingListSetTextLineItemCustomFieldActionBuilder implements Bui
     private $value;
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -47,6 +53,17 @@ final class MyShoppingListSetTextLineItemCustomFieldActionBuilder implements Bui
     public function getTextLineItemId()
     {
         return $this->textLineItemId;
+    }
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTextLineItemKey()
+    {
+        return $this->textLineItemKey;
     }
 
     /**
@@ -85,6 +102,17 @@ final class MyShoppingListSetTextLineItemCustomFieldActionBuilder implements Bui
     }
 
     /**
+     * @param ?string $textLineItemKey
+     * @return $this
+     */
+    public function withTextLineItemKey(?string $textLineItemKey)
+    {
+        $this->textLineItemKey = $textLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -111,6 +139,7 @@ final class MyShoppingListSetTextLineItemCustomFieldActionBuilder implements Bui
     {
         return new MyShoppingListSetTextLineItemCustomFieldActionModel(
             $this->textLineItemId,
+            $this->textLineItemKey,
             $this->name,
             $this->value
         );

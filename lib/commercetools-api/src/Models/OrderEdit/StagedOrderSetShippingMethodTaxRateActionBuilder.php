@@ -48,7 +48,8 @@ final class StagedOrderSetShippingMethodTaxRateActionBuilder implements Builder
     }
 
     /**
-     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
 
      * @return null|ExternalTaxRateDraft

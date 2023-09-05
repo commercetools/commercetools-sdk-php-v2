@@ -29,6 +29,8 @@ final class StagedOrderChangePaymentStateActionBuilder implements Builder
     private $paymentState;
 
     /**
+     * <p>New payment status of the Order.</p>
+     *
 
      * @return null|string
      */

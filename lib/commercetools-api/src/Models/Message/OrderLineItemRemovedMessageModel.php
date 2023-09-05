@@ -110,6 +110,12 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?int
      */
     protected $removedQuantity;
@@ -166,6 +172,7 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?int $removedQuantity = null,
         ?int $newQuantity = null,
         ?ItemStateCollection $newState = null,
@@ -186,6 +193,7 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->removedQuantity = $removedQuantity;
         $this->newQuantity = $newQuantity;
         $this->newState = $newState;
@@ -450,6 +458,26 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
+    }
+
+    /**
      * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were removed during the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
      *
      *
@@ -680,6 +708,14 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

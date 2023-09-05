@@ -24,13 +24,13 @@ class MapperFactory
     public static function stringMapper()
     {
         return
-           /** @psalm-param ?mixed $data */
-           function ($data): ?string {
-               if (is_null($data)) {
-                   return null;
-               }
-               return (string)$data;
-           };
+            /** @psalm-param ?mixed $data */
+            function ($data): ?string {
+                if (is_null($data)) {
+                    return null;
+                }
+                return (string)$data;
+            };
     }
 
     /**
@@ -39,13 +39,13 @@ class MapperFactory
     public static function numberMapper()
     {
         return
-           /** @psalm-param ?mixed $data */
-           function ($data): ?float {
-               if (is_null($data)) {
-                   return null;
-               }
-               return (float)$data;
-           };
+            /** @psalm-param ?mixed $data */
+            function ($data): ?float {
+                if (is_null($data)) {
+                    return null;
+                }
+                return (float)$data;
+            };
     }
 
     /**
@@ -54,13 +54,13 @@ class MapperFactory
     public static function integerMapper()
     {
         return
-           /** @psalm-param ?mixed $data */
-           function ($data): ?int {
-               if (is_null($data)) {
-                   return null;
-               }
-               return (int)$data;
-           };
+            /** @psalm-param ?mixed $data */
+            function ($data): ?int {
+                if (is_null($data)) {
+                    return null;
+                }
+                return (int)$data;
+            };
     }
 
     /**
@@ -69,16 +69,16 @@ class MapperFactory
     public static function dateTimeMapper(string $format = self::DATETIME_FORMAT)
     {
         return
-           /** @psalm-param ?string $data */
-           function ($data) use ($format): ?DateTimeImmutable {
-               if (is_null($data)) {
-                   return null;
-               }
-               $date = DateTimeImmutable::createFromFormat($format, $data);
-               if ($date === false) {
-                   return null;
-               }
-               return $date;
-           };
+            /** @psalm-param ?string $data */
+            function ($data) use ($format): ?DateTimeImmutable {
+                if (is_null($data)) {
+                    return null;
+                }
+                $date = DateTimeImmutable::createFromFormat($format, $data);
+                if ($date === false) {
+                    return null;
+                }
+                return $date;
+            };
     }
 }

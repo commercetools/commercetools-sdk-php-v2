@@ -15,7 +15,7 @@ use Commercetools\Base\JsonObject;
 interface OrderEditResourceIdentifier extends ResourceIdentifier
 {
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
 
      * @return null|string
@@ -23,7 +23,7 @@ interface OrderEditResourceIdentifier extends ResourceIdentifier
     public function getId();
 
     /**
-     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
 
      * @return null|string

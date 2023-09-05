@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Error\ErrorResponse;
+use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Api\Models\Order\Order;
 use Commercetools\Api\Models\Order\OrderModel;
 use Commercetools\Base\JsonObject;
@@ -28,9 +30,9 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
- *
+ * @template-implements Errorable<ByProjectKeyMeOrdersQuotesPost>
  */
-class ByProjectKeyMeOrdersQuotesPost extends ApiRequest
+class ByProjectKeyMeOrdersQuotesPost extends ApiRequest implements Errorable
 {
     /**
      * @param ?object|array|string $body
@@ -45,7 +47,7 @@ class ByProjectKeyMeOrdersQuotesPost extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return JsonObject|Order|T|null
+     * @return ErrorResponse|JsonObject|Order|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -56,6 +58,30 @@ class ByProjectKeyMeOrdersQuotesPost extends ApiRequest
             switch ($response->getStatusCode()) {
                 case '201':
                     $resultType = OrderModel::class;
+
+                    break;
+                case '400':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '401':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '403':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '500':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '502':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '503':
+                    $resultType = ErrorResponseModel::class;
 
                     break;
                 default:
@@ -72,7 +98,7 @@ class ByProjectKeyMeOrdersQuotesPost extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|T|JsonObject|Order
+     * @return null|T|ErrorResponse|JsonObject|Order
      */
     public function execute(array $options = [], string $resultType = null)
     {

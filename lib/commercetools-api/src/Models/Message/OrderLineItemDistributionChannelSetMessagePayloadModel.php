@@ -36,6 +36,12 @@ final class OrderLineItemDistributionChannelSetMessagePayloadModel extends JsonO
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?ChannelReference
      */
     protected $distributionChannel;
@@ -46,10 +52,12 @@ final class OrderLineItemDistributionChannelSetMessagePayloadModel extends JsonO
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?ChannelReference $distributionChannel = null,
         ?string $type = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->distributionChannel = $distributionChannel;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -93,6 +101,26 @@ final class OrderLineItemDistributionChannelSetMessagePayloadModel extends JsonO
     }
 
     /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
+    }
+
+    /**
      * <p><a href="ctp:api:type:Channel">Distribution Channel</a> that was set.</p>
      *
      *
@@ -120,6 +148,14 @@ final class OrderLineItemDistributionChannelSetMessagePayloadModel extends JsonO
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

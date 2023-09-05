@@ -39,7 +39,7 @@ final class MyShoppingListChangeLineItemQuantityActionBuilder implements Builder
     private $quantity;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     * <p><code>id</code> of the ShoppingListLineItem to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -50,7 +50,7 @@ final class MyShoppingListChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
-     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     * <p><code>key</code> of the ShoppingListLineItem to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string

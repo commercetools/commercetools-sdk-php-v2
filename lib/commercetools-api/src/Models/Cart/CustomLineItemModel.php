@@ -40,6 +40,12 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -55,6 +61,12 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
+
+    /**
+     *
+     * @var ?MethodTaxedPriceCollection
+     */
+    protected $taxedPricePortions;
 
     /**
      *
@@ -128,9 +140,11 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      */
     public function __construct(
         ?string $id = null,
+        ?string $key = null,
         ?LocalizedString $name = null,
         ?TypedMoney $money = null,
         ?TaxedItemPrice $taxedPrice = null,
+        ?MethodTaxedPriceCollection $taxedPricePortions = null,
         ?CentPrecisionMoney $totalPrice = null,
         ?string $slug = null,
         ?int $quantity = null,
@@ -144,9 +158,11 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         ?string $priceMode = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->name = $name;
         $this->money = $money;
         $this->taxedPrice = $taxedPrice;
+        $this->taxedPricePortions = $taxedPricePortions;
         $this->totalPrice = $totalPrice;
         $this->slug = $slug;
         $this->quantity = $quantity;
@@ -178,6 +194,26 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         }
 
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -244,6 +280,26 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+     * <p>Taxed price of the Shipping Method that is automatically set after <code>perMethodTaxRate</code> is set.</p>
+     *
+     *
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        if (is_null($this->taxedPricePortions)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TAXED_PRICE_PORTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxedPricePortions = MethodTaxedPriceCollection::fromArray($data);
+        }
+
+        return $this->taxedPricePortions;
+    }
+
+    /**
      * <p>Total price of the Custom Line Item (<code>money</code> multiplied by <code>quantity</code>).
      * If the Custom Line Item is discounted, the total price is <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>.</p>
      * <p>Includes taxes if the <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
@@ -288,7 +344,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * <p>Number of Custom Line Items in the Cart.</p>
+     * <p>Number of Custom Line Items in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
      *
      * @return null|int
@@ -308,7 +364,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * <p>State of the Custom Line Item in the Cart.</p>
+     * <p>State of the Custom Line Item in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
      *
      * @return null|ItemStateCollection
@@ -485,6 +541,14 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void
@@ -506,6 +570,14 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
+    }
+
+    /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     */
+    public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
     }
 
     /**

@@ -10,7 +10,6 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierBuilder;
-use Commercetools\Api\Models\Cart\CustomLineItemImportDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Cart\TaxedPriceDraftBuilder;
 use Commercetools\Api\Models\Common\BaseAddress;
@@ -49,6 +48,12 @@ final class OrderImportDraftBuilder implements Builder
 
      * @var ?string
      */
+    private $purchaseOrderNumber;
+
+    /**
+
+     * @var ?string
+     */
     private $customerId;
 
     /**
@@ -56,6 +61,24 @@ final class OrderImportDraftBuilder implements Builder
      * @var ?string
      */
     private $customerEmail;
+
+    /**
+
+     * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
+     */
+    private $customerGroup;
+
+    /**
+
+     * @var null|BusinessUnitResourceIdentifier|BusinessUnitResourceIdentifierBuilder
+     */
+    private $businessUnit;
+
+    /**
+
+     * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
+     */
+    private $store;
 
     /**
 
@@ -83,9 +106,21 @@ final class OrderImportDraftBuilder implements Builder
 
     /**
 
-     * @var null|BaseAddress|BaseAddressBuilder
+     * @var ?string
      */
-    private $shippingAddress;
+    private $taxRoundingMode;
+
+    /**
+
+     * @var ?string
+     */
+    private $taxCalculationMode;
+
+    /**
+
+     * @var ?string
+     */
+    private $inventoryMode;
 
     /**
 
@@ -95,15 +130,39 @@ final class OrderImportDraftBuilder implements Builder
 
     /**
 
-     * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
+     * @var null|BaseAddress|BaseAddressBuilder
      */
-    private $customerGroup;
+    private $shippingAddress;
+
+    /**
+
+     * @var ?BaseAddressCollection
+     */
+    private $itemShippingAddresses;
+
+    /**
+
+     * @var null|ShippingInfoImportDraft|ShippingInfoImportDraftBuilder
+     */
+    private $shippingInfo;
+
+    /**
+
+     * @var null|PaymentInfo|PaymentInfoBuilder
+     */
+    private $paymentInfo;
 
     /**
 
      * @var ?string
      */
-    private $country;
+    private $paymentState;
+
+    /**
+
+     * @var ?string
+     */
+    private $shipmentState;
 
     /**
 
@@ -121,25 +180,13 @@ final class OrderImportDraftBuilder implements Builder
 
      * @var ?string
      */
-    private $shipmentState;
+    private $country;
 
     /**
 
      * @var ?string
      */
-    private $paymentState;
-
-    /**
-
-     * @var null|ShippingInfoImportDraft|ShippingInfoImportDraftBuilder
-     */
-    private $shippingInfo;
-
-    /**
-
-     * @var null|PaymentInfo|PaymentInfoBuilder
-     */
-    private $paymentInfo;
+    private $origin;
 
     /**
 
@@ -154,45 +201,8 @@ final class OrderImportDraftBuilder implements Builder
     private $custom;
 
     /**
-
-     * @var ?string
-     */
-    private $inventoryMode;
-
-    /**
-
-     * @var ?string
-     */
-    private $taxRoundingMode;
-
-    /**
-
-     * @var ?BaseAddressCollection
-     */
-    private $itemShippingAddresses;
-
-    /**
-
-     * @var null|BusinessUnitResourceIdentifier|BusinessUnitResourceIdentifierBuilder
-     */
-    private $businessUnit;
-
-    /**
-
-     * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
-     */
-    private $store;
-
-    /**
-
-     * @var ?string
-     */
-    private $origin;
-
-    /**
-     * <p>String that unique identifies an order.
-     * It can be used to create more human-readable (in contrast to ID) identifier for the order.
-     * It should be unique within a project.</p>
+     * <p>User-defined identifier of the Order. Must be unique across a Project.
+     * Once set, the value cannot be changed.</p>
      *
 
      * @return null|string
@@ -203,7 +213,18 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>If given the customer with that ID must exist in the project.</p>
+     * <p>User-defined identifier for a purchase Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
+    }
+
+    /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:Customer">Customer</a> the Order belongs to.</p>
      *
 
      * @return null|string
@@ -214,7 +235,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The customer email can be used when no check against existing Customers is desired during order import.</p>
+     * <p>The Email address of the Customer the Order belongs to. Can be used instead of <code>customerId</code> when no check against existing <a href="ctp:api:type:Customer">Customers</a> is required.</p>
      *
 
      * @return null|string
@@ -225,69 +246,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>If not given <code>customLineItems</code> must not be empty.</p>
-     *
-
-     * @return null|LineItemImportDraftCollection
-     */
-    public function getLineItems()
-    {
-        return $this->lineItems;
-    }
-
-    /**
-     * <p>If not given <code>lineItems</code> must not be empty.</p>
-     *
-
-     * @return null|CustomLineItemImportDraftCollection
-     */
-    public function getCustomLineItems()
-    {
-        return $this->customLineItems;
-    }
-
-    /**
-
-     * @return null|Money
-     */
-    public function getTotalPrice()
-    {
-        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
-    }
-
-    /**
-     * <p>Order Import does not support calculation of taxes.
-     * When setting the draft the taxedPrice is to be provided.</p>
-     *
-
-     * @return null|TaxedPriceDraft
-     */
-    public function getTaxedPrice()
-    {
-        return $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
-    }
-
-    /**
-
-     * @return null|BaseAddress
-     */
-    public function getShippingAddress()
-    {
-        return $this->shippingAddress instanceof BaseAddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress;
-    }
-
-    /**
-
-     * @return null|BaseAddress
-     */
-    public function getBillingAddress()
-    {
-        return $this->billingAddress instanceof BaseAddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
-    }
-
-    /**
-     * <p>Set when the customer is set and the customer is a member of a customer group.
-     * Used for product variant price selection.</p>
+     * <p>The Customer Group of the Customer the Order belongs to.</p>
      *
 
      * @return null|CustomerGroupResourceIdentifier
@@ -298,132 +257,8 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
-     * Used for product variant price selection.</p>
-     *
-
-     * @return null|string
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * <p>If not given the <code>Open</code> state will be assigned by default.</p>
-     *
-
-     * @return null|string
-     */
-    public function getOrderState()
-    {
-        return $this->orderState;
-    }
-
-    /**
-     * <p>This reference can point to a state in a custom workflow.</p>
-     *
-
-     * @return null|StateReference
-     */
-    public function getState()
-    {
-        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getShipmentState()
-    {
-        return $this->shipmentState;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getPaymentState()
-    {
-        return $this->paymentState;
-    }
-
-    /**
-     * <p>Set if the ShippingMethod is set.</p>
-     *
-
-     * @return null|ShippingInfoImportDraft
-     */
-    public function getShippingInfo()
-    {
-        return $this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo;
-    }
-
-    /**
-
-     * @return null|PaymentInfo
-     */
-    public function getPaymentInfo()
-    {
-        return $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo;
-    }
-
-    /**
-
-     * @return null|DateTimeImmutable
-     */
-    public function getCompletedAt()
-    {
-        return $this->completedAt;
-    }
-
-    /**
-     * <p>The custom fields.</p>
-     *
-
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * <p>If not given the mode <code>None</code> will be assigned by default.</p>
-     *
-
-     * @return null|string
-     */
-    public function getInventoryMode()
-    {
-        return $this->inventoryMode;
-    }
-
-    /**
-     * <p>If not given the tax rounding mode <code>HalfEven</code> will be assigned by default.</p>
-     *
-
-     * @return null|string
-     */
-    public function getTaxRoundingMode()
-    {
-        return $this->taxRoundingMode;
-    }
-
-    /**
-     * <p>Contains addresses for orders with multiple shipping addresses.</p>
-     *
-
-     * @return null|BaseAddressCollection
-     */
-    public function getItemShippingAddresses()
-    {
-        return $this->itemShippingAddresses;
-    }
-
-    /**
-     * <p>The Business Unit the Cart belongs to.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Business Unit the Order should belong to.
+     * When the <code>customerId</code> of the Order is also set, the <a href="ctp:api:type:Customer">Customer</a> must be an <a href="ctp:api:type:Associate">Associate</a> of the Business Unit.</p>
      *
 
      * @return null|BusinessUnitResourceIdentifier
@@ -434,6 +269,11 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>The Store the Order belongs to.
+     * Used for <a href="#filtering">filtering</a>.</p>
+     * <p>If a <a href="ctp:api:type:LineItemImportDraft">LineItemImportDraft</a> or a <a href="ctp:api:type:CustomLineItemImportDraft">CustomLineItemImportDraft</a> specifies a <code>distributionChannel</code> or a <code>supplyChannel</code> that is not defined for the referenced Store, the Order Import gets rejected.
+     * The same applies when the provided <code>country</code> is not defined for the referenced Store.</p>
+     *
 
      * @return null|StoreResourceIdentifier
      */
@@ -443,7 +283,196 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The default origin is <code>Customer</code>.</p>
+     * <p><a href="ctp:api:type:LineItems">Line Items</a> to add to the Order.</p>
+     * <p>If not specified, <code>customLineItems</code> must not be empty.</p>
+     *
+
+     * @return null|LineItemImportDraftCollection
+     */
+    public function getLineItems()
+    {
+        return $this->lineItems;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:CustomLineItems">Custom Line Items</a> to add to the Cart.</p>
+     * <p>If not specified, <code>lineItems</code> must not be empty.</p>
+     *
+
+     * @return null|CustomLineItemImportDraftCollection
+     */
+    public function getCustomLineItems()
+    {
+        return $this->customLineItems;
+    }
+
+    /**
+     * <p>The total Price of the Order. The amount can be negative.</p>
+     *
+
+     * @return null|Money
+     */
+    public function getTotalPrice()
+    {
+        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+    }
+
+    /**
+     * <p>Include TaxedPrice information for the Order. If not included, and if you have Tax Rates set for Line Items and Custom Line Items, the Order total will not be recalculated.</p>
+     *
+
+     * @return null|TaxedPriceDraft
+     */
+    public function getTaxedPrice()
+    {
+        return $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
+    }
+
+    /**
+     * <p>Determines how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingMode()
+    {
+        return $this->taxRoundingMode;
+    }
+
+    /**
+     * <p>Determines how taxes are calculated for <code>taxedPrice</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxCalculationMode()
+    {
+        return $this->taxCalculationMode;
+    }
+
+    /**
+     * <p>Determines how stock quantities are tracked for Line Items in the Cart.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
+    }
+
+    /**
+     * <p>Billing address associated with the Order.</p>
+     *
+
+     * @return null|BaseAddress
+     */
+    public function getBillingAddress()
+    {
+        return $this->billingAddress instanceof BaseAddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
+    }
+
+    /**
+     * <p>Shipping address associated with the Order.</p>
+     *
+
+     * @return null|BaseAddress
+     */
+    public function getShippingAddress()
+    {
+        return $this->shippingAddress instanceof BaseAddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress;
+    }
+
+    /**
+     * <p>Addresses for Orders with multiple shipping addresses. Addresses must include a value for <code>key</code>.</p>
+     *
+
+     * @return null|BaseAddressCollection
+     */
+    public function getItemShippingAddresses()
+    {
+        return $this->itemShippingAddresses;
+    }
+
+    /**
+     * <p>Shipping-related information of the Order.</p>
+     *
+
+     * @return null|ShippingInfoImportDraft
+     */
+    public function getShippingInfo()
+    {
+        return $this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo;
+    }
+
+    /**
+     * <p>Payment information associated with the Order.</p>
+     *
+
+     * @return null|PaymentInfo
+     */
+    public function getPaymentInfo()
+    {
+        return $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo;
+    }
+
+    /**
+     * <p>Payment status of the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPaymentState()
+    {
+        return $this->paymentState;
+    }
+
+    /**
+     * <p>Shipment status of the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShipmentState()
+    {
+        return $this->shipmentState;
+    }
+
+    /**
+     * <p>Current status of the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOrderState()
+    {
+        return $this->orderState;
+    }
+
+    /**
+     * <p>State of the Order in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p>Include a value to associate a country with the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * <p>Indicates the origin of the Order.</p>
      *
 
      * @return null|string
@@ -454,12 +483,45 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>User-defined date and time for the Order. This value does not influence the <code>createdAt</code> or <code>lastModifiedAt</code> values of the Order created by the Order Import.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getCompletedAt()
+    {
+        return $this->completedAt;
+    }
+
+    /**
+     * <p>Custom Fields for the Order.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
      * @param ?string $orderNumber
      * @return $this
      */
     public function withOrderNumber(?string $orderNumber)
     {
         $this->orderNumber = $orderNumber;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
 
         return $this;
     }
@@ -482,6 +544,39 @@ final class OrderImportDraftBuilder implements Builder
     public function withCustomerEmail(?string $customerEmail)
     {
         $this->customerEmail = $customerEmail;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     * @return $this
+     */
+    public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
+    {
+        $this->customerGroup = $customerGroup;
+
+        return $this;
+    }
+
+    /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
+     * @param ?StoreResourceIdentifier $store
+     * @return $this
+     */
+    public function withStore(?StoreResourceIdentifier $store)
+    {
+        $this->store = $store;
 
         return $this;
     }
@@ -531,12 +626,34 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?BaseAddress $shippingAddress
+     * @param ?string $taxRoundingMode
      * @return $this
      */
-    public function withShippingAddress(?BaseAddress $shippingAddress)
+    public function withTaxRoundingMode(?string $taxRoundingMode)
     {
-        $this->shippingAddress = $shippingAddress;
+        $this->taxRoundingMode = $taxRoundingMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $taxCalculationMode
+     * @return $this
+     */
+    public function withTaxCalculationMode(?string $taxCalculationMode)
+    {
+        $this->taxCalculationMode = $taxCalculationMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     * @return $this
+     */
+    public function withInventoryMode(?string $inventoryMode)
+    {
+        $this->inventoryMode = $inventoryMode;
 
         return $this;
     }
@@ -553,67 +670,23 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     * @param ?BaseAddress $shippingAddress
      * @return $this
      */
-    public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
+    public function withShippingAddress(?BaseAddress $shippingAddress)
     {
-        $this->customerGroup = $customerGroup;
+        $this->shippingAddress = $shippingAddress;
 
         return $this;
     }
 
     /**
-     * @param ?string $country
+     * @param ?BaseAddressCollection $itemShippingAddresses
      * @return $this
      */
-    public function withCountry(?string $country)
+    public function withItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses)
     {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $orderState
-     * @return $this
-     */
-    public function withOrderState(?string $orderState)
-    {
-        $this->orderState = $orderState;
-
-        return $this;
-    }
-
-    /**
-     * @param ?StateReference $state
-     * @return $this
-     */
-    public function withState(?StateReference $state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $shipmentState
-     * @return $this
-     */
-    public function withShipmentState(?string $shipmentState)
-    {
-        $this->shipmentState = $shipmentState;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $paymentState
-     * @return $this
-     */
-    public function withPaymentState(?string $paymentState)
-    {
-        $this->paymentState = $paymentState;
+        $this->itemShippingAddresses = $itemShippingAddresses;
 
         return $this;
     }
@@ -641,6 +714,72 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $paymentState
+     * @return $this
+     */
+    public function withPaymentState(?string $paymentState)
+    {
+        $this->paymentState = $paymentState;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shipmentState
+     * @return $this
+     */
+    public function withShipmentState(?string $shipmentState)
+    {
+        $this->shipmentState = $shipmentState;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $orderState
+     * @return $this
+     */
+    public function withOrderState(?string $orderState)
+    {
+        $this->orderState = $orderState;
+
+        return $this;
+    }
+
+    /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $country
+     * @return $this
+     */
+    public function withCountry(?string $country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $origin
+     * @return $this
+     */
+    public function withOrigin(?string $origin)
+    {
+        $this->origin = $origin;
+
+        return $this;
+    }
+
+    /**
      * @param ?DateTimeImmutable $completedAt
      * @return $this
      */
@@ -663,43 +802,21 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $inventoryMode
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
-    public function withInventoryMode(?string $inventoryMode)
+    public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
     {
-        $this->inventoryMode = $inventoryMode;
+        $this->customerGroup = $customerGroup;
 
         return $this;
     }
 
     /**
-     * @param ?string $taxRoundingMode
+     * @deprecated use withBusinessUnit() instead
      * @return $this
      */
-    public function withTaxRoundingMode(?string $taxRoundingMode)
-    {
-        $this->taxRoundingMode = $taxRoundingMode;
-
-        return $this;
-    }
-
-    /**
-     * @param ?BaseAddressCollection $itemShippingAddresses
-     * @return $this
-     */
-    public function withItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses)
-    {
-        $this->itemShippingAddresses = $itemShippingAddresses;
-
-        return $this;
-    }
-
-    /**
-     * @param ?BusinessUnitResourceIdentifier $businessUnit
-     * @return $this
-     */
-    public function withBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit)
+    public function withBusinessUnitBuilder(?BusinessUnitResourceIdentifierBuilder $businessUnit)
     {
         $this->businessUnit = $businessUnit;
 
@@ -707,23 +824,12 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?StoreResourceIdentifier $store
+     * @deprecated use withStore() instead
      * @return $this
      */
-    public function withStore(?StoreResourceIdentifier $store)
+    public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)
     {
         $this->store = $store;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $origin
-     * @return $this
-     */
-    public function withOrigin(?string $origin)
-    {
-        $this->origin = $origin;
 
         return $this;
     }
@@ -751,17 +857,6 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withShippingAddress() instead
-     * @return $this
-     */
-    public function withShippingAddressBuilder(?BaseAddressBuilder $shippingAddress)
-    {
-        $this->shippingAddress = $shippingAddress;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withBillingAddress() instead
      * @return $this
      */
@@ -773,23 +868,12 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withCustomerGroup() instead
+     * @deprecated use withShippingAddress() instead
      * @return $this
      */
-    public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
+    public function withShippingAddressBuilder(?BaseAddressBuilder $shippingAddress)
     {
-        $this->customerGroup = $customerGroup;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withState() instead
-     * @return $this
-     */
-    public function withStateBuilder(?StateReferenceBuilder $state)
-    {
-        $this->state = $state;
+        $this->shippingAddress = $shippingAddress;
 
         return $this;
     }
@@ -817,6 +901,17 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustom() instead
      * @return $this
      */
@@ -827,56 +922,36 @@ final class OrderImportDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withBusinessUnit() instead
-     * @return $this
-     */
-    public function withBusinessUnitBuilder(?BusinessUnitResourceIdentifierBuilder $businessUnit)
-    {
-        $this->businessUnit = $businessUnit;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withStore() instead
-     * @return $this
-     */
-    public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)
-    {
-        $this->store = $store;
-
-        return $this;
-    }
-
     public function build(): OrderImportDraft
     {
         return new OrderImportDraftModel(
             $this->orderNumber,
+            $this->purchaseOrderNumber,
             $this->customerId,
             $this->customerEmail,
+            $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit,
+            $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store,
             $this->lineItems,
             $this->customLineItems,
             $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
-            $this->shippingAddress instanceof BaseAddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
+            $this->taxRoundingMode,
+            $this->taxCalculationMode,
+            $this->inventoryMode,
             $this->billingAddress instanceof BaseAddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
-            $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,
-            $this->country,
-            $this->orderState,
-            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
-            $this->shipmentState,
-            $this->paymentState,
+            $this->shippingAddress instanceof BaseAddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
+            $this->itemShippingAddresses,
             $this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo,
             $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo,
+            $this->paymentState,
+            $this->shipmentState,
+            $this->orderState,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->country,
+            $this->origin,
             $this->completedAt,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->inventoryMode,
-            $this->taxRoundingMode,
-            $this->itemShippingAddresses,
-            $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit,
-            $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store,
-            $this->origin
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

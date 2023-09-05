@@ -65,7 +65,7 @@ final class StagedOrderChangeTaxModeActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Indicates how taxes are set on the Cart.</p>
+     * <p>The new TaxMode.</p>
      *
      *
      * @return null|string

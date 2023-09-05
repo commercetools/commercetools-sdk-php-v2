@@ -19,30 +19,22 @@ use Commercetools\Base\JsonObject;
 
 interface LineItemImportDraft extends JsonObject
 {
-    public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_NAME = 'name';
+    public const FIELD_KEY = 'key';
     public const FIELD_VARIANT = 'variant';
-    public const FIELD_PRICE = 'price';
+    public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_QUANTITY = 'quantity';
-    public const FIELD_STATE = 'state';
-    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
-    public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
+    public const FIELD_PRICE = 'price';
     public const FIELD_TAX_RATE = 'taxRate';
-    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_STATE = 'state';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>ID of the existing product.
-     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>
-     *
-
-     * @return null|string
-     */
-    public function getProductId();
-
-    /**
-     * <p>The product name.</p>
+     * <p>Name of the Line Item.</p>
      *
 
      * @return null|LocalizedString
@@ -50,44 +42,57 @@ interface LineItemImportDraft extends JsonObject
     public function getName();
 
     /**
+     * <p>User-defined unique identifier of the Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * <p>The Product Variant to use as a <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
 
      * @return null|ProductVariantImportDraft
      */
     public function getVariant();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a> the Product Variant belongs to.</p>
+     * <p>If provided, you must also set <code>variant.id</code>.</p>
+     *
 
-     * @return null|PriceDraft
+     * @return null|string
      */
-    public function getPrice();
+    public function getProductId();
 
     /**
+     * <p>The number of Product Variants in the LineItem. Can be a negative value.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
-
-     * @return null|ItemStateCollection
-     */
-    public function getState();
-
-    /**
-     * <p>Connection to a particular supplier.
-     * By providing supply channel information, you can uniquely identify
-     * inventory entries that should be reserved.
-     * The provided channel should have the
-     * InventorySupply role.</p>
+     * <p>The Line Item price for <code>quantity</code> = <code>1</code>. The amount can be negative.</p>
      *
 
-     * @return null|ChannelResourceIdentifier
+     * @return null|PriceDraft
      */
-    public function getSupplyChannel();
+    public function getPrice();
 
     /**
-     * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>
+     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Order.</p>
+     *
+
+     * @return null|TaxRate
+     */
+    public function getTaxRate();
+
+    /**
+     * <p>The Channel used to <a href="ctp:api:type:LineItemPriceSelection">select a Price</a>.
+     * This Channel must have the <code>ProductDistribution</code> role.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -95,22 +100,18 @@ interface LineItemImportDraft extends JsonObject
     public function getDistributionChannel();
 
     /**
-
-     * @return null|TaxRate
-     */
-    public function getTaxRate();
-
-    /**
-     * <p>The custom fields.</p>
+     * <p>The Channel used to supply Line Items.
+     * By providing supply Channel information, you can uniquely identify <a href="ctp:api:type:InventoryEntry">Inventory entries</a> that should be reserved.
+     * This Channel must have the <code>InventorySupply</code> role.</p>
      *
 
-     * @return null|CustomFieldsDraft
+     * @return null|ChannelResourceIdentifier
      */
-    public function getCustom();
+    public function getSupplyChannel();
 
     /**
-     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
-     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>.</p>
+     * <p>Inventory mode specific to the LineItem, valid for the entire <code>quantity</code> of the LineItem.
+     * Set only if Inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>.</p>
      *
 
      * @return null|string
@@ -118,15 +119,28 @@ interface LineItemImportDraft extends JsonObject
     public function getInventoryMode();
 
     /**
+     * <p>Container for Line Item-specific addresses.</p>
+     *
 
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
 
     /**
-     * @param ?string $productId
+     * <p>States of the Line Item.</p>
+     *
+
+     * @return null|ItemStateCollection
      */
-    public function setProductId(?string $productId): void;
+    public function getState();
+
+    /**
+     * <p>Custom Fields of the LineItem.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
 
     /**
      * @param ?LocalizedString $name
@@ -134,14 +148,19 @@ interface LineItemImportDraft extends JsonObject
     public function setName(?LocalizedString $name): void;
 
     /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
+
+    /**
      * @param ?ProductVariantImportDraft $variant
      */
     public function setVariant(?ProductVariantImportDraft $variant): void;
 
     /**
-     * @param ?PriceDraft $price
+     * @param ?string $productId
      */
-    public function setPrice(?PriceDraft $price): void;
+    public function setProductId(?string $productId): void;
 
     /**
      * @param ?int $quantity
@@ -149,19 +168,9 @@ interface LineItemImportDraft extends JsonObject
     public function setQuantity(?int $quantity): void;
 
     /**
-     * @param ?ItemStateCollection $state
+     * @param ?PriceDraft $price
      */
-    public function setState(?ItemStateCollection $state): void;
-
-    /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
-     */
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
-
-    /**
-     * @param ?ChannelResourceIdentifier $distributionChannel
-     */
-    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
+    public function setPrice(?PriceDraft $price): void;
 
     /**
      * @param ?TaxRate $taxRate
@@ -169,9 +178,14 @@ interface LineItemImportDraft extends JsonObject
     public function setTaxRate(?TaxRate $taxRate): void;
 
     /**
-     * @param ?CustomFieldsDraft $custom
+     * @param ?ChannelResourceIdentifier $distributionChannel
      */
-    public function setCustom(?CustomFieldsDraft $custom): void;
+    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
+
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 
     /**
      * @param ?string $inventoryMode
@@ -182,4 +196,14 @@ interface LineItemImportDraft extends JsonObject
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?ItemStateCollection $state
+     */
+    public function setState(?ItemStateCollection $state): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

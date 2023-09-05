@@ -97,6 +97,12 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $transitionDate;
@@ -239,6 +245,17 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -407,6 +424,17 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?DateTimeImmutable $transitionDate
      * @return $this
      */
@@ -530,6 +558,7 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->transitionDate,
             $this->quantity,
             $this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState,

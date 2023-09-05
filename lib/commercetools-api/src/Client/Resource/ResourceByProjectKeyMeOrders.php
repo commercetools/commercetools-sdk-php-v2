@@ -39,7 +39,7 @@ class ResourceByProjectKeyMeOrders extends ApiResource
     }
     /**
      */
-    public function quotes(): ResourceByProjectKeyMeOrdersQuotes
+    public function orderQuote(): ResourceByProjectKeyMeOrdersQuotes
     {
         $args = $this->getArgs();
 

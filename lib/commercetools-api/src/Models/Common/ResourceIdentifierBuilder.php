@@ -30,8 +30,6 @@ use Commercetools\Api\Models\DiscountCode\DiscountCodeResourceIdentifier;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeResourceIdentifierBuilder;
 use Commercetools\Api\Models\Inventory\InventoryEntryResourceIdentifier;
 use Commercetools\Api\Models\Inventory\InventoryEntryResourceIdentifierBuilder;
-use Commercetools\Api\Models\Order\OrderResourceIdentifier;
-use Commercetools\Api\Models\Order\OrderResourceIdentifierBuilder;
 use Commercetools\Api\Models\OrderEdit\OrderEditResourceIdentifier;
 use Commercetools\Api\Models\OrderEdit\OrderEditResourceIdentifierBuilder;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;

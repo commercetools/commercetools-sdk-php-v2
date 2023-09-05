@@ -50,6 +50,12 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -69,6 +75,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
         ?CustomFields $custom = null,
         ?LocalizedString $description = null,
         ?string $id = null,
+        ?string $key = null,
         ?LocalizedString $name = null,
         ?int $quantity = null
     ) {
@@ -76,6 +83,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
         $this->custom = $custom;
         $this->description = $description;
         $this->id = $id;
+        $this->key = $key;
         $this->name = $name;
         $this->quantity = $quantity;
     }
@@ -167,6 +175,26 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * <p>User-defined identifier of the TextLineItem. It is unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
      * <p>Name of the TextLineItem.</p>
      *
      *
@@ -238,6 +266,14 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

@@ -28,12 +28,18 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionBuilder im
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var ?ItemShippingTargetCollection
      */
     private $targetsDelta;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -41,6 +47,17 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionBuilder im
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -66,6 +83,17 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionBuilder im
     }
 
     /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?ItemShippingTargetCollection $targetsDelta
      * @return $this
      */
@@ -81,6 +109,7 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionBuilder im
     {
         return new CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->targetsDelta
         );
     }

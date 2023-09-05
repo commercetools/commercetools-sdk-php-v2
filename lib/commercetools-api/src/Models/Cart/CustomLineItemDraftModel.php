@@ -35,6 +35,12 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -87,6 +93,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
      */
     public function __construct(
         ?LocalizedString $name = null,
+        ?string $key = null,
         ?int $quantity = null,
         ?Money $money = null,
         ?string $slug = null,
@@ -97,6 +104,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
         ?string $priceMode = null
     ) {
         $this->name = $name;
+        $this->key = $key;
         $this->quantity = $quantity;
         $this->money = $money;
         $this->slug = $slug;
@@ -126,6 +134,26 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
         }
 
         return $this->name;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -307,6 +335,14 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

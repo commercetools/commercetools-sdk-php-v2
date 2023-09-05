@@ -37,6 +37,12 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $removedQuantity;
@@ -86,6 +92,17 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -172,6 +189,17 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
 
         return $this;
     }
@@ -301,6 +329,7 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     {
         return new OrderLineItemRemovedMessagePayloadModel(
             $this->lineItemId,
+            $this->lineItemKey,
             $this->removedQuantity,
             $this->newQuantity,
             $this->newState,

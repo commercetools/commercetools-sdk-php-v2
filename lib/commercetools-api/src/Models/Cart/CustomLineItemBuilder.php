@@ -41,6 +41,12 @@ final class CustomLineItemBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -56,6 +62,12 @@ final class CustomLineItemBuilder implements Builder
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
+
+    /**
+
+     * @var ?MethodTaxedPriceCollection
+     */
+    private $taxedPricePortions;
 
     /**
 
@@ -135,6 +147,17 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
      * <p>Name of the Custom Line Item.</p>
      *
 
@@ -168,6 +191,17 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Taxed price of the Shipping Method that is automatically set after <code>perMethodTaxRate</code> is set.</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        return $this->taxedPricePortions;
+    }
+
+    /**
      * <p>Total price of the Custom Line Item (<code>money</code> multiplied by <code>quantity</code>).
      * If the Custom Line Item is discounted, the total price is <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>.</p>
      * <p>Includes taxes if the <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
@@ -193,7 +227,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Number of Custom Line Items in the Cart.</p>
+     * <p>Number of Custom Line Items in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|int
@@ -204,7 +238,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>State of the Custom Line Item in the Cart.</p>
+     * <p>State of the Custom Line Item in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|ItemStateCollection
@@ -307,6 +341,17 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * @param ?LocalizedString $name
      * @return $this
      */
@@ -335,6 +380,17 @@ final class CustomLineItemBuilder implements Builder
     public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     * @return $this
+     */
+    public function withTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions)
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
 
         return $this;
     }
@@ -552,9 +608,11 @@ final class CustomLineItemBuilder implements Builder
     {
         return new CustomLineItemModel(
             $this->id,
+            $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->money instanceof TypedMoneyBuilder ? $this->money->build() : $this->money,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->taxedPricePortions,
             $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->slug,
             $this->quantity,

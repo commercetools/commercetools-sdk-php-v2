@@ -33,6 +33,12 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -56,6 +62,8 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     private $actualTransitionDate;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
@@ -65,6 +73,19 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
+    }
+
+    /**
+     * <p>Number of Custom Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
+     *
 
      * @return null|int
      */
@@ -74,7 +95,7 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Custom Line Item should transition from.</p>
      *
 
      * @return null|StateResourceIdentifier
@@ -85,7 +106,7 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Custom Line Item should transition to.</p>
      *
 
      * @return null|StateResourceIdentifier
@@ -96,6 +117,8 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     }
 
     /**
+     * <p>Date and time (UTC) to perform the <a href="ctp:api:type:State">State</a> transition.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -111,6 +134,17 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
 
         return $this;
     }
@@ -185,6 +219,7 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     {
         return new StagedOrderTransitionCustomLineItemStateActionModel(
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->quantity,
             $this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState,
             $this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState,

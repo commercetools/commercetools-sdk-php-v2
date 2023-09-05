@@ -57,6 +57,12 @@ final class OperationStatesBuilder implements Builder
     private $rejected;
 
     /**
+
+     * @var ?int
+     */
+    private $canceled;
+
+    /**
      * <p>The number of resources in the <code>processing</code> state.</p>
      *
 
@@ -120,6 +126,17 @@ final class OperationStatesBuilder implements Builder
     public function getRejected()
     {
         return $this->rejected;
+    }
+
+    /**
+     * <p>The number of resources in the <code>canceled</code> state.</p>
+     *
+
+     * @return null|int
+     */
+    public function getCanceled()
+    {
+        return $this->canceled;
     }
 
     /**
@@ -188,6 +205,17 @@ final class OperationStatesBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?int $canceled
+     * @return $this
+     */
+    public function withCanceled(?int $canceled)
+    {
+        $this->canceled = $canceled;
+
+        return $this;
+    }
+
 
     public function build(): OperationStates
     {
@@ -197,7 +225,8 @@ final class OperationStatesBuilder implements Builder
             $this->unresolved,
             $this->waitForMasterVariant,
             $this->imported,
-            $this->rejected
+            $this->rejected,
+            $this->canceled
         );
     }
 

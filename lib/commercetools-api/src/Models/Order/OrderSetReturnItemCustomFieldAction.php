@@ -14,14 +14,25 @@ use Commercetools\Base\JsonObject;
 interface OrderSetReturnItemCustomFieldAction extends OrderUpdateAction
 {
     public const FIELD_RETURN_ITEM_ID = 'returnItemId';
+    public const FIELD_RETURN_ITEM_KEY = 'returnItemKey';
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
     public function getReturnItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getReturnItemKey();
 
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
@@ -45,6 +56,11 @@ interface OrderSetReturnItemCustomFieldAction extends OrderUpdateAction
      * @param ?string $returnItemId
      */
     public function setReturnItemId(?string $returnItemId): void;
+
+    /**
+     * @param ?string $returnItemKey
+     */
+    public function setReturnItemKey(?string $returnItemKey): void;
 
     /**
      * @param ?string $name

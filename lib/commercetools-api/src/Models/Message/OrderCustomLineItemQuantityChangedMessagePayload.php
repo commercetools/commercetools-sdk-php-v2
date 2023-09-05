@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 interface OrderCustomLineItemQuantityChangedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_KEY = 'customLineItemKey';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_OLD_QUANTITY = 'oldQuantity';
 
@@ -24,6 +25,14 @@ interface OrderCustomLineItemQuantityChangedMessagePayload extends OrderMessageP
      * @return null|string
      */
     public function getCustomLineItemId();
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey();
 
     /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
@@ -45,6 +54,11 @@ interface OrderCustomLineItemQuantityChangedMessagePayload extends OrderMessageP
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void;
 
     /**
      * @param ?int $quantity

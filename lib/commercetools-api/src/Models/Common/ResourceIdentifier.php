@@ -19,7 +19,6 @@ use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeResourceIdentifier;
 use Commercetools\Api\Models\Inventory\InventoryEntryResourceIdentifier;
-use Commercetools\Api\Models\Order\OrderResourceIdentifier;
 use Commercetools\Api\Models\OrderEdit\OrderEditResourceIdentifier;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
 use Commercetools\Api\Models\Product\ProductResourceIdentifier;

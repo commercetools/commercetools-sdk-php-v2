@@ -30,9 +30,17 @@ final class OrderSetReturnPaymentStateActionBuilder implements Builder
 
      * @var ?string
      */
+    private $returnItemKey;
+
+    /**
+
+     * @var ?string
+     */
     private $paymentState;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +50,19 @@ final class OrderSetReturnPaymentStateActionBuilder implements Builder
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getReturnItemKey()
+    {
+        return $this->returnItemKey;
+    }
+
+    /**
+     * <p>New Payment status of the <a href="ctp:api:type:ReturnItem">ReturnItem</a>.</p>
+     *
 
      * @return null|string
      */
@@ -62,6 +83,17 @@ final class OrderSetReturnPaymentStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $returnItemKey
+     * @return $this
+     */
+    public function withReturnItemKey(?string $returnItemKey)
+    {
+        $this->returnItemKey = $returnItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $paymentState
      * @return $this
      */
@@ -77,6 +109,7 @@ final class OrderSetReturnPaymentStateActionBuilder implements Builder
     {
         return new OrderSetReturnPaymentStateActionModel(
             $this->returnItemId,
+            $this->returnItemKey,
             $this->paymentState
         );
     }

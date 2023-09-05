@@ -17,6 +17,7 @@ use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -109,6 +110,12 @@ final class CartDiscountBuilder implements Builder
      * @var ?string
      */
     private $sortOrder;
+
+    /**
+
+     * @var ?StoreKeyReferenceCollection
+     */
+    private $stores;
 
     /**
 
@@ -252,7 +259,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Effect of the CartDiscount.</p>
+     * <p>Effect of the CartDiscount on the <code>target</code>.</p>
      *
 
      * @return null|CartDiscountValue
@@ -274,7 +281,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Sets a <a href="ctp:api:type:CartDiscountTarget">CartDiscountTarget</a>. Empty if <code>value</code> has type <code>giftLineItem</code>.</p>
+     * <p>Segment of the Cart that is discounted.</p>
+     * <p>Empty, if the <code>value</code> is <code>giftLineItem</code>.</p>
      *
 
      * @return null|CartDiscountTarget
@@ -296,6 +304,20 @@ final class CartDiscountBuilder implements Builder
     public function getSortOrder()
     {
         return $this->sortOrder;
+    }
+
+    /**
+     * <ul>
+     * <li>If a value exists, the Cart Discount applies on <a href="ctp:api:type:Cart">Carts</a> having a <a href="ctp:api:type:Store">Store</a> matching any Store defined for this field.</li>
+     * <li>If empty, the Cart Discount applies on all <a href="ctp:api:type:Cart">Carts</a>, irrespective of a Store.</li>
+     * </ul>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
     }
 
     /**
@@ -520,6 +542,17 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReferenceCollection $stores
+     * @return $this
+     */
+    public function withStores(?StoreKeyReferenceCollection $stores)
+    {
+        $this->stores = $stores;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $isActive
      * @return $this
      */
@@ -689,6 +722,7 @@ final class CartDiscountBuilder implements Builder
             $this->cartPredicate,
             $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target,
             $this->sortOrder,
+            $this->stores,
             $this->isActive,
             $this->validFrom,
             $this->validUntil,

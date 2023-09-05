@@ -65,7 +65,9 @@ final class OrderSetStoreActionModel extends JsonObjectModel implements OrderSet
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     * <p>If <code>store</code> references the same Store the Order is currently assigned to or if you try to remove the value when no Store is currently assigned, a <code>400</code> error is returned.</p>
      *
      *
      * @return null|StoreResourceIdentifier

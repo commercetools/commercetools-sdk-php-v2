@@ -102,17 +102,6 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeySubscriptionsGet_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->subscriptions()
-                        ->get()
-                        ->withExpand('expand');
-                },
-                'get',
-                'test_projectKey/subscriptions?expand=expand',
-            ],
             'ByProjectKeySubscriptionsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -188,17 +177,6 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 },
                 'get',
                 'test_projectKey/subscriptions',
-            ],
-            'ByProjectKeySubscriptionsPost_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->subscriptions()
-                        ->post(null)
-                        ->withExpand('expand');
-                },
-                'post',
-                'test_projectKey/subscriptions?expand=expand',
             ],
             'ByProjectKeySubscriptionsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

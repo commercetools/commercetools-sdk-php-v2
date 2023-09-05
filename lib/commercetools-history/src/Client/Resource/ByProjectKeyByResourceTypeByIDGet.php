@@ -185,20 +185,38 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
 
     /**
      * 
-     * @psalm-param scalar|scalar[] $type
-     */
-    public function withType($type): ByProjectKeyByResourceTypeByIDGet
-    {
-        return $this->withQueryParam('type', $type);
-    }
-
-    /**
-     * 
      * @psalm-param scalar|scalar[] $clientId
      */
     public function withClientId($clientId): ByProjectKeyByResourceTypeByIDGet
     {
         return $this->withQueryParam('clientId', $clientId);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $customerId
+     */
+    public function withCustomerId($customerId): ByProjectKeyByResourceTypeByIDGet
+    {
+        return $this->withQueryParam('customerId', $customerId);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $associateId
+     */
+    public function withAssociateId($associateId): ByProjectKeyByResourceTypeByIDGet
+    {
+        return $this->withQueryParam('associateId', $associateId);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $type
+     */
+    public function withType($type): ByProjectKeyByResourceTypeByIDGet
+    {
+        return $this->withQueryParam('type', $type);
     }
 
     /**
@@ -226,15 +244,6 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
     public function withStores($stores): ByProjectKeyByResourceTypeByIDGet
     {
         return $this->withQueryParam('stores', $stores);
-    }
-
-    /**
-     * 
-     * @psalm-param scalar|scalar[] $customerId
-     */
-    public function withCustomerId($customerId): ByProjectKeyByResourceTypeByIDGet
-    {
-        return $this->withQueryParam('customerId', $customerId);
     }
 
     /**

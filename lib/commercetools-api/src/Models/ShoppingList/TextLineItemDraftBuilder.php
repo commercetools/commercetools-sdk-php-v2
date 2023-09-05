@@ -27,6 +27,12 @@ final class TextLineItemDraftBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $addedAt;
@@ -54,6 +60,17 @@ final class TextLineItemDraftBuilder implements Builder
      * @var ?int
      */
     private $quantity;
+
+    /**
+     * <p>User-defined unique identifier of the TextLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p>Date and time the TextLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
@@ -108,6 +125,17 @@ final class TextLineItemDraftBuilder implements Builder
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -201,6 +229,7 @@ final class TextLineItemDraftBuilder implements Builder
     public function build(): TextLineItemDraft
     {
         return new TextLineItemDraftModel(
+            $this->key,
             $this->addedAt,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,

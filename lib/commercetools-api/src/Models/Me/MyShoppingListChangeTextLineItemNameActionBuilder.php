@@ -30,12 +30,18 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $textLineItemKey;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -43,6 +49,17 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
     public function getTextLineItemId()
     {
         return $this->textLineItemId;
+    }
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTextLineItemKey()
+    {
+        return $this->textLineItemKey;
     }
 
     /**
@@ -63,6 +80,17 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
     public function withTextLineItemId(?string $textLineItemId)
     {
         $this->textLineItemId = $textLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $textLineItemKey
+     * @return $this
+     */
+    public function withTextLineItemKey(?string $textLineItemKey)
+    {
+        $this->textLineItemKey = $textLineItemKey;
 
         return $this;
     }
@@ -93,6 +121,7 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
     {
         return new MyShoppingListChangeTextLineItemNameActionModel(
             $this->textLineItemId,
+            $this->textLineItemKey,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }

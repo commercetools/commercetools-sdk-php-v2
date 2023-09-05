@@ -19,12 +19,12 @@ class ProductProjectionsTest extends TestCase
         $productsJson = json_decode(file_get_contents(__DIR__ . "/products.json"));
         $products = ProductProjectionPagedQueryResponseModel::fromStdClass($productsJson)->getResults();
 
-//        /** @var ClientInterface $client */
-//        $builder = new ApiRequestBuilder($client);
-//        $productResponse = $builder->withProjectKey("")->productProjections()->get()->execute();
-//        $products = $productResponse->getResults();
+        //        /** @var ClientInterface $client */
+        //        $builder = new ApiRequestBuilder($client);
+        //        $productResponse = $builder->withProjectKey("")->productProjections()->get()->execute();
+        //        $products = $productResponse->getResults();
 
-//        /** @var ProductProjection $product */
+        //        /** @var ProductProjection $product */
         foreach ($products as $product) {
             foreach ($product->getMasterVariant()->getAttributes() as $attribute) {
                 /** @var AttributeAccessor $attrAccessor */

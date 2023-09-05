@@ -31,6 +31,7 @@ final class CartDiscountUpdateActionModel extends JsonObjectModel implements Car
      *
      */
     private static $discriminatorClasses = [
+       'addStore' => CartDiscountAddStoreActionModel::class,
        'changeCartPredicate' => CartDiscountChangeCartPredicateActionModel::class,
        'changeIsActive' => CartDiscountChangeIsActiveActionModel::class,
        'changeName' => CartDiscountChangeNameActionModel::class,
@@ -39,10 +40,12 @@ final class CartDiscountUpdateActionModel extends JsonObjectModel implements Car
        'changeStackingMode' => CartDiscountChangeStackingModeActionModel::class,
        'changeTarget' => CartDiscountChangeTargetActionModel::class,
        'changeValue' => CartDiscountChangeValueActionModel::class,
+       'removeStore' => CartDiscountRemoveStoreActionModel::class,
        'setCustomField' => CartDiscountSetCustomFieldActionModel::class,
        'setCustomType' => CartDiscountSetCustomTypeActionModel::class,
        'setDescription' => CartDiscountSetDescriptionActionModel::class,
        'setKey' => CartDiscountSetKeyActionModel::class,
+       'setStores' => CartDiscountSetStoresActionModel::class,
        'setValidFrom' => CartDiscountSetValidFromActionModel::class,
        'setValidFromAndUntil' => CartDiscountSetValidFromAndUntilActionModel::class,
        'setValidUntil' => CartDiscountSetValidUntilActionModel::class,

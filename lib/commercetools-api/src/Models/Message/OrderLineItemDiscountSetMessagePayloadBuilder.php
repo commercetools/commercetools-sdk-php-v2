@@ -34,6 +34,12 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
@@ -65,6 +71,17 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -101,7 +118,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|MethodTaxedPriceCollection
@@ -118,6 +135,17 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
 
         return $this;
     }
@@ -192,6 +220,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     {
         return new OrderLineItemDiscountSetMessagePayloadModel(
             $this->lineItemId,
+            $this->lineItemKey,
             $this->discountedPricePerQuantity,
             $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,

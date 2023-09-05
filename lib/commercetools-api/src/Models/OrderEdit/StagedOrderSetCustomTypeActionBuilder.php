@@ -39,8 +39,8 @@ final class StagedOrderSetCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the StagedOrder with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the StagedOrder.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Order Edit with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Order Edit.</p>
      *
 
      * @return null|TypeResourceIdentifier
@@ -51,7 +51,7 @@ final class StagedOrderSetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the StagedOrder.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Order Edit.</p>
      *
 
      * @return null|FieldContainer

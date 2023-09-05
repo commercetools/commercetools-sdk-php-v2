@@ -69,7 +69,7 @@ interface Asset extends JsonObject
     public function getCustom();
 
     /**
-     * <p>User-defined unique identifier of the Asset.</p>
+     * <p>User-defined identifier of the Asset. It is unique per <a href="ctp:api:type:Category">Category</a> or <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
 
      * @return null|string

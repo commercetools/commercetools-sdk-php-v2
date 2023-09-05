@@ -37,6 +37,8 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">References</a> to the Payments associated with the Order.</p>
+     *
      *
      * @return null|PaymentReferenceCollection
      */

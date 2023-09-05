@@ -36,9 +36,9 @@ final class ModifiedByBuilder implements Builder
 
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var ?string
      */
-    private $customer;
+    private $clientId;
 
     /**
 
@@ -48,9 +48,15 @@ final class ModifiedByBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|Reference|ReferenceBuilder
      */
-    private $clientId;
+    private $customer;
+
+    /**
+
+     * @var null|Reference|ReferenceBuilder
+     */
+    private $associate;
 
     /**
 
@@ -75,6 +81,7 @@ final class ModifiedByBuilder implements Builder
      * <ul>
      * <li>If the change was made by a user, the value is <code>&quot;user&quot;</code>.</li>
      * <li>If the change was made by an API Client with or without an <a href="/client-logging#external-user-ids">external user ID</a>, the value is <code>&quot;external-user&quot;</code>.</li>
+     * <li>If the change was made by an <a href="ctp:api:type:Associate">Associate</a>, the value is <code>&quot;associate&quot;</code>.</li>
      * </ul>
      *
 
@@ -86,15 +93,15 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Customer">Customer</a> who made the change.</p>
-     * <p>Present only if the change was made using a token from the <a href="/authorization#password-flow">password flow</a>.</p>
+     * <p><a href="/general-concepts#identifier">ID</a> of the <a href="ctp:api:type:ApiClient">API Client</a> that made the change.</p>
+     * <p>Present only if the change was made using an API Client.</p>
      *
 
-     * @return null|Reference
+     * @return null|string
      */
-    public function getCustomer()
+    public function getClientId()
     {
-        return $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer;
+        return $this->clientId;
     }
 
     /**
@@ -109,15 +116,26 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p><a href="/general-concepts#identifier">ID</a> of the <a href="ctp:api:type:ApiClient">API Client</a> that made the change.</p>
-     * <p>Present only if the change was made using an API Client.</p>
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> who made the change.</p>
+     * <p>Present only if the change was made using a token from the <a href="/authorization#password-flow">password flow</a>.</p>
      *
 
-     * @return null|string
+     * @return null|Reference
      */
-    public function getClientId()
+    public function getCustomer()
     {
-        return $this->clientId;
+        return $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:Associate">Associate</a> who made the change in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Present only if the Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
+     *
+
+     * @return null|Reference
+     */
+    public function getAssociate()
+    {
+        return $this->associate instanceof ReferenceBuilder ? $this->associate->build() : $this->associate;
     }
 
     /**
@@ -154,12 +172,12 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $customer
+     * @param ?string $clientId
      * @return $this
      */
-    public function withCustomer(?Reference $customer)
+    public function withClientId(?string $clientId)
     {
-        $this->customer = $customer;
+        $this->clientId = $clientId;
 
         return $this;
     }
@@ -176,12 +194,23 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * @param ?string $clientId
+     * @param ?Reference $customer
      * @return $this
      */
-    public function withClientId(?string $clientId)
+    public function withCustomer(?Reference $customer)
     {
-        $this->clientId = $clientId;
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * @param ?Reference $associate
+     * @return $this
+     */
+    public function withAssociate(?Reference $associate)
+    {
+        $this->associate = $associate;
 
         return $this;
     }
@@ -208,14 +237,26 @@ final class ModifiedByBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withAssociate() instead
+     * @return $this
+     */
+    public function withAssociateBuilder(?ReferenceBuilder $associate)
+    {
+        $this->associate = $associate;
+
+        return $this;
+    }
+
     public function build(): ModifiedBy
     {
         return new ModifiedByModel(
             $this->id,
             $this->type,
-            $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer,
-            $this->anonymousId,
             $this->clientId,
+            $this->anonymousId,
+            $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer,
+            $this->associate instanceof ReferenceBuilder ? $this->associate->build() : $this->associate,
             $this->isPlatformClient
         );
     }

@@ -27,7 +27,7 @@ interface AssetSource extends JsonObject
     public function getUri();
 
     /**
-     * <p>User-defined unique identifier of the AssetSource.</p>
+     * <p>User-defined identifier of the AssetSource. Must be unique per <a href="ctp:api:type:Asset">Asset</a>.</p>
      *
 
      * @return null|string

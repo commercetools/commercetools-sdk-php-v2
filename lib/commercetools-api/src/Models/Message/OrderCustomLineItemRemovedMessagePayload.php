@@ -15,6 +15,7 @@ use Commercetools\Base\JsonObject;
 interface OrderCustomLineItemRemovedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_KEY = 'customLineItemKey';
     public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
 
     /**
@@ -24,6 +25,14 @@ interface OrderCustomLineItemRemovedMessagePayload extends OrderMessagePayload
      * @return null|string
      */
     public function getCustomLineItemId();
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey();
 
     /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
@@ -37,6 +46,11 @@ interface OrderCustomLineItemRemovedMessagePayload extends OrderMessagePayload
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void;
 
     /**
      * @param ?CustomLineItem $customLineItem

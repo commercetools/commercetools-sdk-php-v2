@@ -65,7 +65,7 @@ final class StagedOrderChangeTaxCalculationModeActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>Determines in which <a href="/carts-orders-overview#tax-calculation-mode">Tax calculation mode</a> taxed prices are calculated.</p>
+     * <p>New value to set.</p>
      *
      *
      * @return null|string

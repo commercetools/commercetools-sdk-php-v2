@@ -17,7 +17,6 @@ use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -88,12 +87,6 @@ final class PaymentBuilder implements Builder
 
      * @var ?string
      */
-    private $externalId;
-
-    /**
-
-     * @var ?string
-     */
     private $interfaceId;
 
     /**
@@ -101,30 +94,6 @@ final class PaymentBuilder implements Builder
      * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $amountPlanned;
-
-    /**
-
-     * @var null|TypedMoney|TypedMoneyBuilder
-     */
-    private $amountAuthorized;
-
-    /**
-
-     * @var ?string
-     */
-    private $authorizedUntil;
-
-    /**
-
-     * @var null|TypedMoney|TypedMoneyBuilder
-     */
-    private $amountPaid;
-
-    /**
-
-     * @var null|TypedMoney|TypedMoneyBuilder
-     */
-    private $amountRefunded;
 
     /**
 
@@ -251,17 +220,6 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
-     *
-
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
      * <p>Identifier used by the payment service that processes the Payment (for example, a PSP).
      * The combination of <code>interfaceId</code> and the <code>paymentInterface</code> field on <a href="ctp:api:type:PaymentMethodInfo">PaymentMethodInfo</a> must be unique.</p>
      *
@@ -283,50 +241,6 @@ final class PaymentBuilder implements Builder
     public function getAmountPlanned()
     {
         return $this->amountPlanned instanceof CentPrecisionMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
-    }
-
-    /**
-     * <p>Deprecated because its value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-
-     * @return null|TypedMoney
-     */
-    public function getAmountAuthorized()
-    {
-        return $this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized;
-    }
-
-    /**
-     * <p>Deprecated because this field is of little practical value, as it is either not reliably known, or the authorization time is fixed for a PSP.</p>
-     *
-
-     * @return null|string
-     */
-    public function getAuthorizedUntil()
-    {
-        return $this->authorizedUntil;
-    }
-
-    /**
-     * <p>Deprecated because its value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-
-     * @return null|TypedMoney
-     */
-    public function getAmountPaid()
-    {
-        return $this->amountPaid instanceof TypedMoneyBuilder ? $this->amountPaid->build() : $this->amountPaid;
-    }
-
-    /**
-     * <p>Deprecated because its value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
-     *
-
-     * @return null|TypedMoney
-     */
-    public function getAmountRefunded()
-    {
-        return $this->amountRefunded instanceof TypedMoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded;
     }
 
     /**
@@ -484,17 +398,6 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * @param ?string $externalId
-     * @return $this
-     */
-    public function withExternalId(?string $externalId)
-    {
-        $this->externalId = $externalId;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $interfaceId
      * @return $this
      */
@@ -512,50 +415,6 @@ final class PaymentBuilder implements Builder
     public function withAmountPlanned(?CentPrecisionMoney $amountPlanned)
     {
         $this->amountPlanned = $amountPlanned;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TypedMoney $amountAuthorized
-     * @return $this
-     */
-    public function withAmountAuthorized(?TypedMoney $amountAuthorized)
-    {
-        $this->amountAuthorized = $amountAuthorized;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $authorizedUntil
-     * @return $this
-     */
-    public function withAuthorizedUntil(?string $authorizedUntil)
-    {
-        $this->authorizedUntil = $authorizedUntil;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TypedMoney $amountPaid
-     * @return $this
-     */
-    public function withAmountPaid(?TypedMoney $amountPaid)
-    {
-        $this->amountPaid = $amountPaid;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TypedMoney $amountRefunded
-     * @return $this
-     */
-    public function withAmountRefunded(?TypedMoney $amountRefunded)
-    {
-        $this->amountRefunded = $amountRefunded;
 
         return $this;
     }
@@ -671,39 +530,6 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * @deprecated use withAmountAuthorized() instead
-     * @return $this
-     */
-    public function withAmountAuthorizedBuilder(?TypedMoneyBuilder $amountAuthorized)
-    {
-        $this->amountAuthorized = $amountAuthorized;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withAmountPaid() instead
-     * @return $this
-     */
-    public function withAmountPaidBuilder(?TypedMoneyBuilder $amountPaid)
-    {
-        $this->amountPaid = $amountPaid;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withAmountRefunded() instead
-     * @return $this
-     */
-    public function withAmountRefundedBuilder(?TypedMoneyBuilder $amountRefunded)
-    {
-        $this->amountRefunded = $amountRefunded;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withPaymentMethodInfo() instead
      * @return $this
      */
@@ -747,13 +573,8 @@ final class PaymentBuilder implements Builder
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->anonymousId,
-            $this->externalId,
             $this->interfaceId,
             $this->amountPlanned instanceof CentPrecisionMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
-            $this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized,
-            $this->authorizedUntil,
-            $this->amountPaid instanceof TypedMoneyBuilder ? $this->amountPaid->build() : $this->amountPaid,
-            $this->amountRefunded instanceof TypedMoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded,
             $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
             $this->paymentStatus instanceof PaymentStatusBuilder ? $this->paymentStatus->build() : $this->paymentStatus,
             $this->transactions,

@@ -40,6 +40,12 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
@@ -68,6 +74,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?Money $totalPrice = null,
         ?TaxedItemPrice $taxedPrice = null,
@@ -75,6 +82,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
         ?string $type = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->totalPrice = $totalPrice;
         $this->taxedPrice = $taxedPrice;
@@ -118,6 +126,26 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
     }
 
     /**
@@ -183,7 +211,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|MethodTaxedPriceCollection
@@ -209,6 +237,14 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

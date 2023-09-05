@@ -27,6 +27,8 @@ final class OrderChangeOrderStateActionBuilder implements Builder
     private $orderState;
 
     /**
+     * <p>New status of the Order.</p>
+     *
 
      * @return null|string
      */

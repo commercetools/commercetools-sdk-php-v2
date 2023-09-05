@@ -48,7 +48,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     }
 
     /**
-     * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
+     * <p>Every <a href="/import-operation">Import Operation</a> is assigned one of the following states.</p>
      *
 
      * @return null|string
@@ -59,7 +59,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     }
 
     /**
-     * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
+     * <p>Every <a href="/import-operation">Import Operation</a> is assigned one of the following states.</p>
      *
 
      * @return null|string

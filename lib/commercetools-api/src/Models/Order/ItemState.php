@@ -18,12 +18,16 @@ interface ItemState extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
+     * <p>Number of Line Items or Custom Line Items in this State.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
+     * <p>State of the Line Items or Custom Line Items in a custom workflow.</p>
+     *
 
      * @return null|StateReference
      */

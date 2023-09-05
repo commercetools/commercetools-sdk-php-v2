@@ -62,7 +62,7 @@ final class OrderEditDraftBuilder implements Builder
     private $dryRun;
 
     /**
-     * <p>User-defined unique identifier for the OrderEdit.</p>
+     * <p>User-defined unique identifier for the Order Edit.</p>
      *
 
      * @return null|string
@@ -73,7 +73,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>The order to be updated with this edit.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Order updated with this edit.</p>
      *
 
      * @return null|OrderReference
@@ -84,7 +84,8 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>The actions to apply to <code>resource</code>.</p>
+     * <p>Update actions to apply to the Order referenced in <code>resource</code>.
+     * Cannot be updated if the <a href="ctp:api:endpoint:/{projectKey}/orders/edits/{id}/apply:POST">edit has been applied</a>.</p>
      *
 
      * @return null|StagedOrderUpdateActionCollection
@@ -95,7 +96,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields for the Order Edit.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -106,7 +107,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>This field can be used to add additional textual information regarding the edit.</p>
+     * <p>User-defined description regarding the Order Edit.</p>
      *
 
      * @return null|string
@@ -117,7 +118,9 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>When set to <code>true</code> the edit is applied on the Order without persisting it.</p>
+     * <p>Set to <code>true</code> if you want to <a href="ctp:api:type:OrderEditPreviewSuccess">peview</a> the edited Order first without persisting it (dry run).
+     * A dry run allows checking for potential <a href="ctp:api:type:OrderEditPreviewFailure">errors</a> when trying to apply the <code>stagedActions</code>.</p>
+     * <p>Order <a href="/../api/projects/api-extensions">API Extensions</a>, if any, are also called in dry runs.</p>
      *
 
      * @return null|bool

@@ -41,13 +41,16 @@ interface StagedOrderRemoveLineItemAction extends StagedOrderUpdateAction
     public function getLineItemKey();
 
     /**
+     * <p>New value to set.
+     * If absent or <code>0</code>, the Line Item is removed from the Cart.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when decreasing the quantity of a Line Item with the <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
      *
 
      * @return null|Money
@@ -55,13 +58,15 @@ interface StagedOrderRemoveLineItemAction extends StagedOrderUpdateAction
     public function getExternalPrice();
 
     /**
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> to the given value when decreasing the quantity of a Line Item with the <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     *
 
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice();
 
     /**
-     * <p>For order creation and updates, the sum of the <code>targets</code> must match the quantity of the Line Items or Custom Line Items.</p>
+     * <p>Container for Line Item-specific addresses to remove.</p>
      *
 
      * @return null|ItemShippingDetailsDraft

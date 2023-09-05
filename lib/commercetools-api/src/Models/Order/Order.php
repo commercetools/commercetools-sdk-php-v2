@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Order;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
+use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
 use Commercetools\Api\Models\Cart\ShippingCollection;
@@ -36,12 +37,11 @@ use DateTimeImmutable;
 
 interface Order extends BaseResource
 {
-    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    public const FIELD_CREATED_BY = 'createdBy';
-    public const FIELD_COMPLETED_AT = 'completedAt';
     public const FIELD_ORDER_NUMBER = 'orderNumber';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_CUSTOMER_ID = 'customerId';
     public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
@@ -50,37 +50,39 @@ interface Order extends BaseResource
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_TAXED_SHIPPING_PRICE = 'taxedShippingPrice';
-    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
-    public const FIELD_BILLING_ADDRESS = 'billingAddress';
-    public const FIELD_SHIPPING_MODE = 'shippingMode';
-    public const FIELD_SHIPPING_KEY = 'shippingKey';
-    public const FIELD_SHIPPING_CUSTOM_FIELDS = 'shippingCustomFields';
-    public const FIELD_SHIPPING = 'shipping';
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
-    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    public const FIELD_COUNTRY = 'country';
-    public const FIELD_ORDER_STATE = 'orderState';
-    public const FIELD_STATE = 'state';
-    public const FIELD_SHIPMENT_STATE = 'shipmentState';
-    public const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
+    public const FIELD_BILLING_ADDRESS = 'billingAddress';
+    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
+    public const FIELD_SHIPPING_MODE = 'shippingMode';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
     public const FIELD_SHIPPING_INFO = 'shippingInfo';
-    public const FIELD_SYNC_INFO = 'syncInfo';
-    public const FIELD_RETURN_INFO = 'returnInfo';
-    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
+    public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
+    public const FIELD_SHIPPING_CUSTOM_FIELDS = 'shippingCustomFields';
+    public const FIELD_SHIPPING = 'shipping';
+    public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
-    public const FIELD_LAST_MESSAGE_SEQUENCE_NUMBER = 'lastMessageSequenceNumber';
+    public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
+    public const FIELD_REFUSED_GIFTS = 'refusedGifts';
+    public const FIELD_PAYMENT_INFO = 'paymentInfo';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_ORIGIN = 'origin';
     public const FIELD_CART = 'cart';
     public const FIELD_QUOTE = 'quote';
+    public const FIELD_ORDER_STATE = 'orderState';
+    public const FIELD_SHIPMENT_STATE = 'shipmentState';
+    public const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_STATE = 'state';
+    public const FIELD_SYNC_INFO = 'syncInfo';
+    public const FIELD_RETURN_INFO = 'returnInfo';
+    public const FIELD_LAST_MESSAGE_SEQUENCE_NUMBER = 'lastMessageSequenceNumber';
     public const FIELD_CUSTOM = 'custom';
-    public const FIELD_PAYMENT_INFO = 'paymentInfo';
-    public const FIELD_LOCALE = 'locale';
-    public const FIELD_INVENTORY_MODE = 'inventoryMode';
-    public const FIELD_ORIGIN = 'origin';
-    public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
-    public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
-    public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
-    public const FIELD_REFUSED_GIFTS = 'refusedGifts';
+    public const FIELD_COMPLETED_AT = 'completedAt';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
 
     /**
      * <p>Unique identifier of the Order.</p>
@@ -91,7 +93,7 @@ interface Order extends BaseResource
     public function getId();
 
     /**
-     * <p>The current version of the order.</p>
+     * <p>Current version of the Order.</p>
      *
 
      * @return null|int
@@ -99,46 +101,7 @@ interface Order extends BaseResource
     public function getVersion();
 
     /**
-
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt();
-
-    /**
-
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt();
-
-    /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy();
-
-    /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy();
-
-    /**
-     * <p>This field will only be present if it was set for Order Import</p>
-     *
-
-     * @return null|DateTimeImmutable
-     */
-    public function getCompletedAt();
-
-    /**
-     * <p>String that uniquely identifies an order.
-     * It can be used to create more human-readable (in contrast to ID) identifier for the order.
-     * It should be unique across a project.
-     * Once it's set it cannot be changed.</p>
+     * <p>User-defined identifier of the Order that is unique across a Project.</p>
      *
 
      * @return null|string
@@ -146,205 +109,8 @@ interface Order extends BaseResource
     public function getOrderNumber();
 
     /**
-
-     * @return null|string
-     */
-    public function getCustomerId();
-
-    /**
-
-     * @return null|string
-     */
-    public function getCustomerEmail();
-
-    /**
-     * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
-     *
-
-     * @return null|string
-     */
-    public function getAnonymousId();
-
-    /**
-     * <p>The Business Unit the Order belongs to.</p>
-     *
-
-     * @return null|BusinessUnitKeyReference
-     */
-    public function getBusinessUnit();
-
-    /**
-
-     * @return null|StoreKeyReference
-     */
-    public function getStore();
-
-    /**
-
-     * @return null|LineItemCollection
-     */
-    public function getLineItems();
-
-    /**
-
-     * @return null|CustomLineItemCollection
-     */
-    public function getCustomLineItems();
-
-    /**
-
-     * @return null|TypedMoney
-     */
-    public function getTotalPrice();
-
-    /**
-     * <p>The taxes are calculated based on the shipping address.</p>
-     *
-
-     * @return null|TaxedPrice
-     */
-    public function getTaxedPrice();
-
-    /**
-     * <p>Sum of <code>taxedPrice</code> of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.
-     * For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is set automatically only if <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a> or <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to the Cart.</p>
-     *
-
-     * @return null|TaxedPrice
-     */
-    public function getTaxedShippingPrice();
-
-    /**
-     * <p>Holds all shipping-related information per Shipping Method.</p>
-     * <p>For <code>Multi</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>, it is updated automatically after the Shipping Methods are added.</p>
-     *
-
-     * @return null|Address
-     */
-    public function getShippingAddress();
-
-    /**
-
-     * @return null|Address
-     */
-    public function getBillingAddress();
-
-    /**
-     * <p>Indicates whether one or multiple Shipping Methods are added to the Cart.</p>
-     *
-
-     * @return null|string
-     */
-    public function getShippingMode();
-
-    /**
-     * <p>User-defined unique identifier of the Shipping Method with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     *
-
-     * @return null|string
-     */
-    public function getShippingKey();
-
-    /**
-     * <p>Custom Fields of the Shipping Method for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     *
-
-     * @return null|CustomFields
-     */
-    public function getShippingCustomFields();
-
-    /**
-     * <p>Holds all shipping-related information per Shipping Method for <code>Multi</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>.</p>
-     * <p>It is updated automatically after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
-     *
-
-     * @return null|ShippingCollection
-     */
-    public function getShipping();
-
-    /**
-
-     * @return null|string
-     */
-    public function getTaxMode();
-
-    /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>
-     *
-
-     * @return null|string
-     */
-    public function getTaxRoundingMode();
-
-    /**
-     * <p>Set when the customer is set and the customer is a member of a customer group.
-     * Used for product variant price selection.</p>
-     *
-
-     * @return null|CustomerGroupReference
-     */
-    public function getCustomerGroup();
-
-    /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
-     * Used for product variant price selection.</p>
-     *
-
-     * @return null|string
-     */
-    public function getCountry();
-
-    /**
-     * <p>One of the four predefined OrderStates.</p>
-     *
-
-     * @return null|string
-     */
-    public function getOrderState();
-
-    /**
-     * <p>This reference can point to a state in a custom workflow.</p>
-     *
-
-     * @return null|StateReference
-     */
-    public function getState();
-
-    /**
-
-     * @return null|string
-     */
-    public function getShipmentState();
-
-    /**
-
-     * @return null|string
-     */
-    public function getPaymentState();
-
-    /**
-     * <p>Set if the ShippingMethod is set.</p>
-     *
-
-     * @return null|ShippingInfo
-     */
-    public function getShippingInfo();
-
-    /**
-
-     * @return null|SyncInfoCollection
-     */
-    public function getSyncInfo();
-
-    /**
-
-     * @return null|ReturnInfoCollection
-     */
-    public function getReturnInfo();
-
-    /**
-     * <p>The Purchase Order Number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
-     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     * <p>User-defined identifier of a purchase Order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> and can be used with <a href="/quotes-overview">Quotes</a> to track the purchase Order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
      *
 
      * @return null|string
@@ -352,73 +118,171 @@ interface Order extends BaseResource
     public function getPurchaseOrderNumber();
 
     /**
-
-     * @return null|DiscountCodeInfoCollection
-     */
-    public function getDiscountCodes();
-
-    /**
-     * <p>Internal-only field.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Customer">Customer</a> that the Order belongs to.</p>
      *
-     * @deprecated
-     * @return null|int
-     */
-    public function getLastMessageSequenceNumber();
-
-    /**
-     * <p>Set when this order was created from a cart.
-     * The cart will have the state <code>Ordered</code>.</p>
-     *
-
-     * @return null|CartReference
-     */
-    public function getCart();
-
-    /**
-     * <p>Set when this order was created from a quote.</p>
-     *
-
-     * @return null|QuoteReference
-     */
-    public function getQuote();
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getCustom();
-
-    /**
-
-     * @return null|PaymentInfo
-     */
-    public function getPaymentInfo();
-
-    /**
 
      * @return null|string
      */
-    public function getLocale();
+    public function getCustomerId();
 
     /**
+     * <p>Email address of the Customer that the Order belongs to.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomerEmail();
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Order belongs to.
+     * Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+     *
+
+     * @return null|CustomerGroupReference
+     */
+    public function getCustomerGroup();
+
+    /**
+     * <p><a href="ctp:api:type:AnonymousSession">Anonymous session</a> associated with the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAnonymousId();
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Order belongs to.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit();
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Store the Order belongs to.</p>
+     *
+
+     * @return null|StoreKeyReference
+     */
+    public function getStore();
+
+    /**
+     * <p><a href="ctp:api:type:LineItems">Line Items</a> that are part of the Order.</p>
+     *
+
+     * @return null|LineItemCollection
+     */
+    public function getLineItems();
+
+    /**
+     * <p><a href="ctp:api:type:CustomLineItems">Custom Line Items</a> that are part of the Order.</p>
+     *
+
+     * @return null|CustomLineItemCollection
+     */
+    public function getCustomLineItems();
+
+    /**
+     * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.
+     * Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
+     *
+
+     * @return null|TypedMoney
+     */
+    public function getTotalPrice();
+
+    /**
+     * <ul>
+     * <li>For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:OrderSetShippingAddressAction">shipping address is set</a>.</li>
+     * <li>For <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when the external Tax Rate for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
+     * </ul>
+     *
+
+     * @return null|TaxedPrice
+     */
+    public function getTaxedPrice();
+
+    /**
+     * <p>Sum of the <code>taxedPrice</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.</p>
+     *
+
+     * @return null|TaxedPrice
+     */
+    public function getTaxedShippingPrice();
+
+    /**
+     * <p>Indicates how Tax Rates are set.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxMode();
+
+    /**
+     * <p>Indicates how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingMode();
+
+    /**
+     * <p>Indicates how taxes are calculated when calculating taxes for <code>taxedPrice</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxCalculationMode();
+
+    /**
+     * <p>Indicates how stock quantities are tracked for Line Items in the Order.</p>
+     *
 
      * @return null|string
      */
     public function getInventoryMode();
 
     /**
+     * <p>Billing address associated with the Order.</p>
+     *
 
-     * @return null|string
+     * @return null|Address
      */
-    public function getOrigin();
+    public function getBillingAddress();
 
     /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>
+     * <p>Shipping address associated with the Order.
+     * Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates and Tax Rates of Line Items.</p>
+     *
+
+     * @return null|Address
+     */
+    public function getShippingAddress();
+
+    /**
+     * <p>Indicates whether there can be one or multiple Shipping Methods.</p>
      *
 
      * @return null|string
      */
-    public function getTaxCalculationMode();
+    public function getShippingMode();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
+     * <p>Shipping-related information for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Automatically set when a <a href="ctp:api:type:StagedOrderSetShippingMethodAction">Shipping Method is set</a>.</p>
+     *
+
+     * @return null|ShippingInfo
+     */
+    public function getShippingInfo();
 
     /**
      * <p>Input used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.
@@ -435,7 +299,25 @@ interface Order extends BaseResource
     public function getShippingRateInput();
 
     /**
-     * <p>Contains addresses for orders with multiple shipping addresses.</p>
+     * <p>Custom Fields of the Shipping Method for <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getShippingCustomFields();
+
+    /**
+     * <p>Shipping-related information for <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Updated automatically each time a new <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+
+     * @return null|ShippingCollection
+     */
+    public function getShipping();
+
+    /**
+     * <p>Additional shipping addresses of the Order as specified by <a href="ctp:api:type:LineItem">LineItems</a> using the <code>shippingDetails</code> field.
+     * Eligible Shipping Methods or applicable Tax Rates are determined by the address in <code>shippingAddress</code>, and not <code>itemShippingAddresses</code>.</p>
      *
 
      * @return null|AddressCollection
@@ -443,12 +325,187 @@ interface Order extends BaseResource
     public function getItemShippingAddresses();
 
     /**
-     * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>
+     * <p>Discount Codes added to the Order.
+     * An Order that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
+     *
+
+     * @return null|DiscountCodeInfoCollection
+     */
+    public function getDiscountCodes();
+
+    /**
+     * <p>Direct Discounts added to the Order.
+     * An Order that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
+     *
+
+     * @return null|DirectDiscountCollection
+     */
+    public function getDirectDiscounts();
+
+    /**
+     * <p>Automatically set when a Line Item with <code>GiftLineItem</code> <a href="ctp:api:type:LineItemMode">LineItemMode</a> is <a href="ctp:api:type:StagedOrderRemoveLineItemAction">removed</a> from the Order.</p>
      *
 
      * @return null|CartDiscountReferenceCollection
      */
     public function getRefusedGifts();
+
+    /**
+     * <p>Payment information related to the Order.</p>
+     *
+
+     * @return null|PaymentInfo
+     */
+    public function getPaymentInfo();
+
+    /**
+     * <p>Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCountry();
+
+    /**
+     * <p>Languages of the Order.
+     * Can only contain languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLocale();
+
+    /**
+     * <p>Indicates the origin of the Cart from which the Order was created.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOrigin();
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Cart for an <a href="ctp:api:endpoint:/{projectKey}/orders:POST">Order created from Cart</a>.
+     * The referenced Cart will have the <code>Ordered</code> <a href="ctp:api:type:CartState">CartState</a>.</p>
+     *
+
+     * @return null|CartReference
+     */
+    public function getCart();
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Quote for an <a href="ctp:api:endpoint:/{projectKey}/orders/quotes:POST">Order created from Quote</a>.</p>
+     *
+
+     * @return null|QuoteReference
+     */
+    public function getQuote();
+
+    /**
+     * <p>Current status of the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOrderState();
+
+    /**
+     * <p>Shipment status of the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShipmentState();
+
+    /**
+     * <p>Payment status of the Order.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPaymentState();
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of the Order.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState();
+
+    /**
+     * <p>Contains synchronization activity information of the Order (like export or import).
+     * Can only be set with <a href="ctp:api:type:OrderUpdateSyncInfoAction">Update SyncInfo</a> update action.</p>
+     *
+
+     * @return null|SyncInfoCollection
+     */
+    public function getSyncInfo();
+
+    /**
+     * <p>Contains information regarding the returns associated with the Order.</p>
+     *
+
+     * @return null|ReturnInfoCollection
+     */
+    public function getReturnInfo();
+
+    /**
+     * <p>Internal-only field.</p>
+     *
+     * @deprecated
+     * @return null|int
+     */
+    public function getLastMessageSequenceNumber();
+
+    /**
+     * <p>Custom Fields of the Order.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
+     * <p>User-defined date and time (UTC) of the Order.
+     * Present only on an Order created using <a href="ctp:api:endpoint:/{projectKey}/orders/import:POST">Order Import</a>.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getCompletedAt();
+
+    /**
+     * <p>Date and time (UTC) the Order was initially created.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * <p>Date and time (UTC) the Order was last updated.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
 
     /**
      * @param ?string $id
@@ -461,34 +518,14 @@ interface Order extends BaseResource
     public function setVersion(?int $version): void;
 
     /**
-     * @param ?DateTimeImmutable $createdAt
-     */
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
-
-    /**
-     * @param ?DateTimeImmutable $lastModifiedAt
-     */
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
-
-    /**
-     * @param ?LastModifiedBy $lastModifiedBy
-     */
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
-
-    /**
-     * @param ?CreatedBy $createdBy
-     */
-    public function setCreatedBy(?CreatedBy $createdBy): void;
-
-    /**
-     * @param ?DateTimeImmutable $completedAt
-     */
-    public function setCompletedAt(?DateTimeImmutable $completedAt): void;
-
-    /**
      * @param ?string $orderNumber
      */
     public function setOrderNumber(?string $orderNumber): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 
     /**
      * @param ?string $customerId
@@ -499,6 +536,11 @@ interface Order extends BaseResource
      * @param ?string $customerEmail
      */
     public function setCustomerEmail(?string $customerEmail): void;
+
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
+    public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
 
     /**
      * @param ?string $anonymousId
@@ -541,14 +583,34 @@ interface Order extends BaseResource
     public function setTaxedShippingPrice(?TaxedPrice $taxedShippingPrice): void;
 
     /**
-     * @param ?Address $shippingAddress
+     * @param ?string $taxMode
      */
-    public function setShippingAddress(?Address $shippingAddress): void;
+    public function setTaxMode(?string $taxMode): void;
+
+    /**
+     * @param ?string $taxRoundingMode
+     */
+    public function setTaxRoundingMode(?string $taxRoundingMode): void;
+
+    /**
+     * @param ?string $taxCalculationMode
+     */
+    public function setTaxCalculationMode(?string $taxCalculationMode): void;
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void;
 
     /**
      * @param ?Address $billingAddress
      */
     public function setBillingAddress(?Address $billingAddress): void;
+
+    /**
+     * @param ?Address $shippingAddress
+     */
+    public function setShippingAddress(?Address $shippingAddress): void;
 
     /**
      * @param ?string $shippingMode
@@ -561,6 +623,16 @@ interface Order extends BaseResource
     public function setShippingKey(?string $shippingKey): void;
 
     /**
+     * @param ?ShippingInfo $shippingInfo
+     */
+    public function setShippingInfo(?ShippingInfo $shippingInfo): void;
+
+    /**
+     * @param ?ShippingRateInput $shippingRateInput
+     */
+    public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void;
+
+    /**
      * @param ?CustomFields $shippingCustomFields
      */
     public function setShippingCustomFields(?CustomFields $shippingCustomFields): void;
@@ -571,64 +643,9 @@ interface Order extends BaseResource
     public function setShipping(?ShippingCollection $shipping): void;
 
     /**
-     * @param ?string $taxMode
+     * @param ?AddressCollection $itemShippingAddresses
      */
-    public function setTaxMode(?string $taxMode): void;
-
-    /**
-     * @param ?string $taxRoundingMode
-     */
-    public function setTaxRoundingMode(?string $taxRoundingMode): void;
-
-    /**
-     * @param ?CustomerGroupReference $customerGroup
-     */
-    public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
-
-    /**
-     * @param ?string $country
-     */
-    public function setCountry(?string $country): void;
-
-    /**
-     * @param ?string $orderState
-     */
-    public function setOrderState(?string $orderState): void;
-
-    /**
-     * @param ?StateReference $state
-     */
-    public function setState(?StateReference $state): void;
-
-    /**
-     * @param ?string $shipmentState
-     */
-    public function setShipmentState(?string $shipmentState): void;
-
-    /**
-     * @param ?string $paymentState
-     */
-    public function setPaymentState(?string $paymentState): void;
-
-    /**
-     * @param ?ShippingInfo $shippingInfo
-     */
-    public function setShippingInfo(?ShippingInfo $shippingInfo): void;
-
-    /**
-     * @param ?SyncInfoCollection $syncInfo
-     */
-    public function setSyncInfo(?SyncInfoCollection $syncInfo): void;
-
-    /**
-     * @param ?ReturnInfoCollection $returnInfo
-     */
-    public function setReturnInfo(?ReturnInfoCollection $returnInfo): void;
-
-    /**
-     * @param ?string $purchaseOrderNumber
-     */
-    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
+    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 
     /**
      * @param ?DiscountCodeInfoCollection $discountCodes
@@ -636,9 +653,34 @@ interface Order extends BaseResource
     public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void;
 
     /**
-     * @param ?int $lastMessageSequenceNumber
+     * @param ?DirectDiscountCollection $directDiscounts
      */
-    public function setLastMessageSequenceNumber(?int $lastMessageSequenceNumber): void;
+    public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void;
+
+    /**
+     * @param ?CartDiscountReferenceCollection $refusedGifts
+     */
+    public function setRefusedGifts(?CartDiscountReferenceCollection $refusedGifts): void;
+
+    /**
+     * @param ?PaymentInfo $paymentInfo
+     */
+    public function setPaymentInfo(?PaymentInfo $paymentInfo): void;
+
+    /**
+     * @param ?string $country
+     */
+    public function setCountry(?string $country): void;
+
+    /**
+     * @param ?string $locale
+     */
+    public function setLocale(?string $locale): void;
+
+    /**
+     * @param ?string $origin
+     */
+    public function setOrigin(?string $origin): void;
 
     /**
      * @param ?CartReference $cart
@@ -651,47 +693,67 @@ interface Order extends BaseResource
     public function setQuote(?QuoteReference $quote): void;
 
     /**
+     * @param ?string $orderState
+     */
+    public function setOrderState(?string $orderState): void;
+
+    /**
+     * @param ?string $shipmentState
+     */
+    public function setShipmentState(?string $shipmentState): void;
+
+    /**
+     * @param ?string $paymentState
+     */
+    public function setPaymentState(?string $paymentState): void;
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void;
+
+    /**
+     * @param ?SyncInfoCollection $syncInfo
+     */
+    public function setSyncInfo(?SyncInfoCollection $syncInfo): void;
+
+    /**
+     * @param ?ReturnInfoCollection $returnInfo
+     */
+    public function setReturnInfo(?ReturnInfoCollection $returnInfo): void;
+
+    /**
+     * @param ?int $lastMessageSequenceNumber
+     */
+    public function setLastMessageSequenceNumber(?int $lastMessageSequenceNumber): void;
+
+    /**
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
 
     /**
-     * @param ?PaymentInfo $paymentInfo
+     * @param ?DateTimeImmutable $completedAt
      */
-    public function setPaymentInfo(?PaymentInfo $paymentInfo): void;
+    public function setCompletedAt(?DateTimeImmutable $completedAt): void;
 
     /**
-     * @param ?string $locale
+     * @param ?DateTimeImmutable $createdAt
      */
-    public function setLocale(?string $locale): void;
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
     /**
-     * @param ?string $inventoryMode
+     * @param ?DateTimeImmutable $lastModifiedAt
      */
-    public function setInventoryMode(?string $inventoryMode): void;
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
     /**
-     * @param ?string $origin
+     * @param ?LastModifiedBy $lastModifiedBy
      */
-    public function setOrigin(?string $origin): void;
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
     /**
-     * @param ?string $taxCalculationMode
+     * @param ?CreatedBy $createdBy
      */
-    public function setTaxCalculationMode(?string $taxCalculationMode): void;
-
-    /**
-     * @param ?ShippingRateInput $shippingRateInput
-     */
-    public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void;
-
-    /**
-     * @param ?AddressCollection $itemShippingAddresses
-     */
-    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
-
-    /**
-     * @param ?CartDiscountReferenceCollection $refusedGifts
-     */
-    public function setRefusedGifts(?CartDiscountReferenceCollection $refusedGifts): void;
+    public function setCreatedBy(?CreatedBy $createdBy): void;
 }

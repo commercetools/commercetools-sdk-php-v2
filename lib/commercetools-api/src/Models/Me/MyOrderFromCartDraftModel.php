@@ -44,7 +44,7 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     }
 
     /**
-     * <p>Unique identifier of the Cart that initiates an Order creation.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Cart">Cart</a> from which the Order is created.</p>
      *
      *
      * @return null|string
@@ -64,6 +64,8 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     }
 
     /**
+     * <p>Current <code>version</code> of the <a href="ctp:api:type:Cart">Cart</a> from which the Order is created.</p>
+     *
      *
      * @return null|int
      */

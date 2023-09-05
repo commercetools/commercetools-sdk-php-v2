@@ -75,8 +75,6 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
        'setCustomerGroup' => CartSetCustomerGroupActionModel::class,
        'setCustomerId' => CartSetCustomerIdActionModel::class,
        'setDeleteDaysAfterLastModification' => CartSetDeleteDaysAfterLastModificationActionModel::class,
-       'setDeliveryAddressCustomField' => CartSetDeliveryAddressCustomFieldActionModel::class,
-       'setDeliveryAddressCustomType' => CartSetDeliveryAddressCustomTypeActionModel::class,
        'setDirectDiscounts' => CartSetDirectDiscountsActionModel::class,
        'setItemShippingAddressCustomField' => CartSetItemShippingAddressCustomFieldActionModel::class,
        'setItemShippingAddressCustomType' => CartSetItemShippingAddressCustomTypeActionModel::class,

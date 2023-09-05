@@ -28,12 +28,24 @@ final class CartSetCustomLineItemTaxRateActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -41,6 +53,17 @@ final class CartSetCustomLineItemTaxRateActionBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -56,6 +79,18 @@ final class CartSetCustomLineItemTaxRateActionBuilder implements Builder
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Custom Line Item.
+     * This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
+    }
+
+    /**
      * @param ?string $customLineItemId
      * @return $this
      */
@@ -67,12 +102,34 @@ final class CartSetCustomLineItemTaxRateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
 
         return $this;
     }
@@ -92,7 +149,9 @@ final class CartSetCustomLineItemTaxRateActionBuilder implements Builder
     {
         return new CartSetCustomLineItemTaxRateActionModel(
             $this->customLineItemId,
-            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate
+            $this->customLineItemKey,
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
+            $this->shippingKey
         );
     }
 

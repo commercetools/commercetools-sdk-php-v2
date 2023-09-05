@@ -56,6 +56,7 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeAc
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDirectDiscountsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldAction;
@@ -89,6 +90,7 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodTaxAmountAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodTaxRateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingRateInputAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetStoreAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderTransitionCustomLineItemStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderTransitionLineItemStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderTransitionStateAction;

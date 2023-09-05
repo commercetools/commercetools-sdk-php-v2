@@ -32,11 +32,25 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var null|ExternalTaxAmountDraft|ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
@@ -46,12 +60,19 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     }
 
     /**
-     * <p>Cannot be used in <a href="ctp:api:type:LineItemDraft">LineItemDraft</a> or <a href="ctp:api:type:CustomLineItemDraft">CustomLineItemDraft</a>.</p>
-     * <p>Can only be set by these update actions:</p>
-     * <ul>
-     * <li><a href="ctp:api:type:CartSetLineItemTaxAmountAction">Set LineItem TaxAmount</a>, <a href="ctp:api:type:CartSetCustomLineItemTaxAmountAction">Set CustomLineItem TaxAmount</a>, or <a href="ctp:api:type:CartSetShippingMethodTaxAmountAction">Set ShippingMethod TaxAmount</a> on Carts</li>
-     * <li><a href="ctp:api:type:OrderEditSetLineItemTaxAmountAction">Set LineItem TaxAmount</a>, <a href="ctp:api:type:OrderEditSetCustomLineItemTaxAmountAction">Set CustomLineItem TaxAmount</a>, or <a href="ctp:api:type:OrderEditSetShippingMethodTaxAmountAction">Set ShippingMethod TaxAmount</a> on Order Edits</li>
-     * </ul>
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
+    }
+
+    /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
 
      * @return null|ExternalTaxAmountDraft
@@ -59,6 +80,18 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     public function getExternalTaxAmount()
     {
         return $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Custom Line Item.
+     * This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -73,12 +106,34 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     }
 
     /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?ExternalTaxAmountDraft $externalTaxAmount
      * @return $this
      */
     public function withExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount)
     {
         $this->externalTaxAmount = $externalTaxAmount;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
 
         return $this;
     }
@@ -98,7 +153,9 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     {
         return new StagedOrderSetCustomLineItemTaxAmountActionModel(
             $this->customLineItemId,
-            $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount
+            $this->customLineItemKey,
+            $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount,
+            $this->shippingKey
         );
     }
 

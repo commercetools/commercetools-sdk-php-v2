@@ -97,6 +97,12 @@ final class LineItemStateTransitionMessageBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $transitionDate;
@@ -239,6 +245,17 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -407,6 +424,17 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?DateTimeImmutable $transitionDate
      * @return $this
      */
@@ -530,6 +558,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->lineItemId,
+            $this->lineItemKey,
             $this->transitionDate,
             $this->quantity,
             $this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState,

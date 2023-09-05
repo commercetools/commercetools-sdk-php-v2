@@ -42,12 +42,6 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     protected $custom;
 
     /**
-     * @deprecated
-     * @var ?string
-     */
-    protected $type;
-
-    /**
      *
      * @var ?string
      */
@@ -61,13 +55,11 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
         ?string $key = null,
         ?LocalizedString $name = null,
         ?CustomFieldsDraft $custom = null,
-        ?string $type = null,
         ?string $mode = null
     ) {
         $this->key = $key;
         $this->name = $name;
         $this->custom = $custom;
-        $this->type = $type;
         $this->mode = $mode;
     }
 
@@ -134,26 +126,6 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     }
 
     /**
-     * <p>Type of the Product Selection.</p>
-     *
-     * @deprecated
-     * @return null|string
-     */
-    public function getType()
-    {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->type = (string) $data;
-        }
-
-        return $this->type;
-    }
-
-    /**
      * <p>Mode of the Product Selection.</p>
      *
      *
@@ -196,14 +168,6 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
-    }
-
-    /**
-     * @param ?string $type
-     */
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     /**

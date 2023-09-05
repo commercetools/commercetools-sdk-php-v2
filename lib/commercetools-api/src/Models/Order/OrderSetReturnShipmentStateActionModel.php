@@ -36,6 +36,12 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
      *
      * @var ?string
      */
+    protected $returnItemKey;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $shipmentState;
 
 
@@ -44,10 +50,12 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
      */
     public function __construct(
         ?string $returnItemId = null,
+        ?string $returnItemKey = null,
         ?string $shipmentState = null,
         ?string $action = null
     ) {
         $this->returnItemId = $returnItemId;
+        $this->returnItemKey = $returnItemKey;
         $this->shipmentState = $shipmentState;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -71,6 +79,8 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +99,28 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getReturnItemKey()
+    {
+        if (is_null($this->returnItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_RETURN_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->returnItemKey = (string) $data;
+        }
+
+        return $this->returnItemKey;
+    }
+
+    /**
+     * <p>New shipment state of the <a href="ctp:api:type:ReturnItem">ReturnItem</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -113,6 +145,14 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
     public function setReturnItemId(?string $returnItemId): void
     {
         $this->returnItemId = $returnItemId;
+    }
+
+    /**
+     * @param ?string $returnItemKey
+     */
+    public function setReturnItemKey(?string $returnItemKey): void
+    {
+        $this->returnItemKey = $returnItemKey;
     }
 
     /**

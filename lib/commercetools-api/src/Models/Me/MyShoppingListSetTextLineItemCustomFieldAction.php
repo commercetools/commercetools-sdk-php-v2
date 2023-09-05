@@ -14,16 +14,25 @@ use Commercetools\Base\JsonObject;
 interface MyShoppingListSetTextLineItemCustomFieldAction extends MyShoppingListUpdateAction
 {
     public const FIELD_TEXT_LINE_ITEM_ID = 'textLineItemId';
+    public const FIELD_TEXT_LINE_ITEM_KEY = 'textLineItemKey';
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getTextLineItemId();
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTextLineItemKey();
 
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
@@ -47,6 +56,11 @@ interface MyShoppingListSetTextLineItemCustomFieldAction extends MyShoppingListU
      * @param ?string $textLineItemId
      */
     public function setTextLineItemId(?string $textLineItemId): void;
+
+    /**
+     * @param ?string $textLineItemKey
+     */
+    public function setTextLineItemKey(?string $textLineItemKey): void;
 
     /**
      * @param ?string $name

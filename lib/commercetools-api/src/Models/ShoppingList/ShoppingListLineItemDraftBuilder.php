@@ -27,6 +27,12 @@ final class ShoppingListLineItemDraftBuilder implements Builder
 
      * @var ?string
      */
+    private $key;
+
+    /**
+
+     * @var ?string
+     */
     private $productId;
 
     /**
@@ -58,6 +64,17 @@ final class ShoppingListLineItemDraftBuilder implements Builder
      * @var ?int
      */
     private $quantity;
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
@@ -123,6 +140,17 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -205,6 +233,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     public function build(): ShoppingListLineItemDraft
     {
         return new ShoppingListLineItemDraftModel(
+            $this->key,
             $this->productId,
             $this->variantId,
             $this->sku,

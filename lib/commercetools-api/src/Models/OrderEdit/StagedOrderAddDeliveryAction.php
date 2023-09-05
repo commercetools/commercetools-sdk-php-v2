@@ -19,13 +19,14 @@ use Commercetools\Base\JsonObject;
 interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
 {
     public const FIELD_DELIVERY_KEY = 'deliveryKey';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
     public const FIELD_ITEMS = 'items';
     public const FIELD_ADDRESS = 'address';
     public const FIELD_PARCELS = 'parcels';
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier of a Delivery.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
      * @return null|string
@@ -33,15 +34,23 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
     public function getDeliveryKey();
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>, required for <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
+     * <p>Items to be included in the Delivery.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
-     * <p>Polymorphic base type that represents a postal address and contact details.
-     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
-     * only differ in the data type for the optional <code>custom</code> field.</p>
+     * <p>Address the <code>parcels</code> should be delivered to.</p>
      *
 
      * @return null|BaseAddress
@@ -49,13 +58,16 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
     public function getAddress();
 
     /**
+     * <p>Parcels of the Delivery.</p>
+     * <p>If provided, this update action also produces the <a href="ctp:api:type:ParcelAddedToDeliveryMessage">Parcel Added To Delivery</a> Message.</p>
+     *
 
      * @return null|ParcelDraftCollection
      */
     public function getParcels();
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields for the Delivery.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -66,6 +78,11 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
      * @param ?string $deliveryKey
      */
     public function setDeliveryKey(?string $deliveryKey): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 
     /**
      * @param ?DeliveryItemCollection $items

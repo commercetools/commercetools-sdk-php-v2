@@ -39,6 +39,12 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
 
     /**
      *
+     * @var ?string
+     */
+    protected $customLineItemKey;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -67,6 +73,7 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
      */
     public function __construct(
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?int $quantity = null,
         ?StateResourceIdentifier $fromState = null,
         ?StateResourceIdentifier $toState = null,
@@ -74,6 +81,7 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
         ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->quantity = $quantity;
         $this->fromState = $fromState;
         $this->toState = $toState;
@@ -100,6 +108,8 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +128,28 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
+    }
+
+    /**
+     * <p>Number of Custom Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
+     *
      *
      * @return null|int
      */
@@ -136,7 +168,7 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Custom Line Item should transition from.</p>
      *
      *
      * @return null|StateResourceIdentifier
@@ -157,7 +189,7 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Custom Line Item should transition to.</p>
      *
      *
      * @return null|StateResourceIdentifier
@@ -178,6 +210,8 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
+     * <p>Date and time (UTC) to perform the <a href="ctp:api:type:State">State</a> transition.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -206,6 +240,14 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
     }
 
     /**

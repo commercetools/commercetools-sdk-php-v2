@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -68,6 +69,12 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
 
     /**
      *
+     * @var ?StoreResourceIdentifierCollection
+     */
+    protected $stores;
+
+    /**
+     *
      * @var ?bool
      */
     protected $isActive;
@@ -114,6 +121,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         ?string $cartPredicate = null,
         ?CartDiscountTarget $target = null,
         ?string $sortOrder = null,
+        ?StoreResourceIdentifierCollection $stores = null,
         ?bool $isActive = null,
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
@@ -128,6 +136,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         $this->cartPredicate = $cartPredicate;
         $this->target = $target;
         $this->sortOrder = $sortOrder;
+        $this->stores = $stores;
         $this->isActive = $isActive;
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
@@ -199,8 +208,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * <p>Effect of the CartDiscount.
-     * For a <a href="ctp:api:type:CartDiscountTarget">target</a>, relative or absolute Discount values or a fixed item Price value can be specified. If no target is specified, a <a href="/../api/projects/cartDiscounts#gift-line-item">Gift Line Item</a> can be added to the Cart.</p>
+     * <p>Effect of the CartDiscount on the <code>target</code>.</p>
      *
      *
      * @return null|CartDiscountValueDraft
@@ -241,7 +249,8 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * <p>Must not be set when the <code>value</code> has type <code>giftLineItem</code>, otherwise a <a href="ctp:api:type:CartDiscountTarget">CartDiscountTarget</a> must be set.</p>
+     * <p>Segment of the Cart that will be discounted.</p>
+     * <p>Must not be set if the <code>value</code> is <code>giftLineItem</code>.</p>
      *
      *
      * @return null|CartDiscountTarget
@@ -284,7 +293,33 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * <p>Only active Discounts can be applied to the Cart.</p>
+     * <ul>
+     * <li>If defined, the Cart Discount applies on <a href="ctp:api:type:Cart">Carts</a> having a <a href="ctp:api:type:Store">Store</a> matching any Store defined for this field.</li>
+     * <li>If not defined, the Cart Discount applies on all Carts, irrespective of a Store.</li>
+     * </ul>
+     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts-stores">limit</a>, a <a href="ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
+     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
+     *
+     *
+     * @return null|StoreResourceIdentifierCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreResourceIdentifierCollection::fromArray($data);
+        }
+
+        return $this->stores;
+    }
+
+    /**
+     * <p>Only active Discounts can be applied to the Cart.
+     * If the <a href="/../api/limits#cart-discounts">limit</a> for active Cart Discounts is reached, a <a href="ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
      *
      *
      * @return null|bool
@@ -467,6 +502,14 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     public function setSortOrder(?string $sortOrder): void
     {
         $this->sortOrder = $sortOrder;
+    }
+
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
+    public function setStores(?StoreResourceIdentifierCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
     /**

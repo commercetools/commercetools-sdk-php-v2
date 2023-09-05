@@ -42,13 +42,13 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
      *
      * @var ?ChannelResourceIdentifier
      */
-    protected $supplyChannel;
+    protected $distributionChannel;
 
     /**
      *
      * @var ?ChannelResourceIdentifier
      */
-    protected $distributionChannel;
+    protected $supplyChannel;
 
 
     /**
@@ -56,13 +56,13 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
      */
     public function __construct(
         ?ShoppingListResourceIdentifier $shoppingList = null,
-        ?ChannelResourceIdentifier $supplyChannel = null,
         ?ChannelResourceIdentifier $distributionChannel = null,
+        ?ChannelResourceIdentifier $supplyChannel = null,
         ?string $action = null
     ) {
         $this->shoppingList = $shoppingList;
-        $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
+        $this->supplyChannel = $supplyChannel;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -85,7 +85,7 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     * <p>Shopping List that contains the Line Items to be added.</p>
      *
      *
      * @return null|ShoppingListResourceIdentifier
@@ -106,28 +106,8 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
-     *
-     *
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel()
-    {
-        if (is_null($this->supplyChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
-        }
-
-        return $this->supplyChannel;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><code>distributionChannel</code> to set for all <a href="ctp:api:type:LineItem">LineItems</a> that are added to the Cart.
+     * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      *
      * @return null|ChannelResourceIdentifier
@@ -147,6 +127,28 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
         return $this->distributionChannel;
     }
 
+    /**
+     * <p><code>supplyChannel</code> to set for all <a href="ctp:api:type:LineItem">LineItems</a> that are added to the Cart.
+     * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     *
+     *
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getSupplyChannel()
+    {
+        if (is_null($this->supplyChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
+        }
+
+        return $this->supplyChannel;
+    }
+
 
     /**
      * @param ?ShoppingListResourceIdentifier $shoppingList
@@ -157,18 +159,18 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
     }
 
     /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
-     */
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
-    {
-        $this->supplyChannel = $supplyChannel;
-    }
-
-    /**
      * @param ?ChannelResourceIdentifier $distributionChannel
      */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
     {
         $this->distributionChannel = $distributionChannel;
+    }
+
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
+    {
+        $this->supplyChannel = $supplyChannel;
     }
 }

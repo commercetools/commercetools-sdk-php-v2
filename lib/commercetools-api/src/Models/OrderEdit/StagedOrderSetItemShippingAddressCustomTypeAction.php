@@ -21,6 +21,8 @@ interface StagedOrderSetItemShippingAddressCustomTypeAction extends StagedOrderU
     public const FIELD_FIELDS = 'fields';
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> in <code>itemShippingAddresses</code>.</p>
+     *
 
      * @return null|string
      */

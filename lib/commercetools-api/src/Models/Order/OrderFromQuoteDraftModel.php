@@ -96,7 +96,8 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p>ResourceIdentifier of the Quote from which this Order is created. If the Quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also fail if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Quote from which the Order is created.
+     * If the referenced <a href="ctp:api:type:Quote">Quote</a> has expired (<code>validTo</code> check) or its <code>quoteState</code> is <code>Accepted</code>, <code>Declined</code>, or <code>Withdrawn</code>, the Order creation will fail.</p>
      *
      *
      * @return null|QuoteResourceIdentifier
@@ -117,7 +118,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p><code>version</code> of the <a href="ctp:api:type:Quote">Quote</a> from which an Order is created.</p>
+     * <p><code>version</code> of the <a href="ctp:api:type:Quote">Quote</a> from which the Order is created.</p>
      *
      *
      * @return null|int
@@ -157,11 +158,8 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p>String that uniquely identifies an order.
-     * It can be used to create more human-readable (in contrast to ID) identifier for the order.
-     * It should be unique across a project.
-     * Once it's set it cannot be changed.
-     * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
+     * <p>User-defined identifier for the Order that is unique across a Project.
+     * Once set, the value cannot be changed.</p>
      *
      *
      * @return null|string
@@ -181,7 +179,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p>Payment state of the Order.</p>
+     * <p>Payment status for the Order.</p>
      *
      *
      * @return null|string
@@ -201,7 +199,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p>Shipment state of the Order.</p>
+     * <p>Shipment status for the Order.</p>
      *
      *
      * @return null|string
@@ -221,7 +219,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p>Order will be created with <code>Open</code> status by default.</p>
+     * <p>Current status for the Order.</p>
      *
      *
      * @return null|string
@@ -241,7 +239,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a> indicating the Order's state.</p>
+     * <p>State of the Order in a custom workflow.</p>
      *
      *
      * @return null|StateResourceIdentifier

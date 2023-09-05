@@ -98,6 +98,12 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $customLineItemKey;
+
+    /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
@@ -228,6 +234,17 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        return $this->customLineItemKey;
     }
 
     /**
@@ -374,6 +391,17 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemKey
+     * @return $this
+     */
+    public function withCustomLineItemKey(?string $customLineItemKey)
+    {
+        $this->customLineItemKey = $customLineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
      * @return $this
      */
@@ -464,6 +492,7 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->customLineItemId,
+            $this->customLineItemKey,
             $this->discountedPricePerQuantity,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice
         );

@@ -57,18 +57,6 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
 
     /**
      *
-     * @var ?LastModifiedBy
-     */
-    protected $lastModifiedBy;
-
-    /**
-     *
-     * @var ?CreatedBy
-     */
-    protected $createdBy;
-
-    /**
-     *
      * @var ?string
      */
     protected $key;
@@ -87,12 +75,6 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
 
     /**
      *
-     * @var ?CustomFields
-     */
-    protected $custom;
-
-    /**
-     *
      * @var ?OrderEditResult
      */
     protected $result;
@@ -103,6 +85,24 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
      */
     protected $comment;
 
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     *
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
+    /**
+     *
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -112,31 +112,31 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
         ?int $version = null,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $lastModifiedAt = null,
-        ?LastModifiedBy $lastModifiedBy = null,
-        ?CreatedBy $createdBy = null,
         ?string $key = null,
         ?OrderReference $resource = null,
         ?StagedOrderUpdateActionCollection $stagedActions = null,
-        ?CustomFields $custom = null,
         ?OrderEditResult $result = null,
-        ?string $comment = null
+        ?string $comment = null,
+        ?CustomFields $custom = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null
     ) {
         $this->id = $id;
         $this->version = $version;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
-        $this->lastModifiedBy = $lastModifiedBy;
-        $this->createdBy = $createdBy;
         $this->key = $key;
         $this->resource = $resource;
         $this->stagedActions = $stagedActions;
-        $this->custom = $custom;
         $this->result = $result;
         $this->comment = $comment;
+        $this->custom = $custom;
+        $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
     }
 
     /**
-     * <p>Unique identifier of the OrderEdit.</p>
+     * <p>Unique identifier of the Order Edit.</p>
      *
      *
      * @return null|string
@@ -156,7 +156,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>The current version of the OrderEdit.</p>
+     * <p>Current version of the Order Edit.</p>
      *
      *
      * @return null|int
@@ -176,6 +176,8 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
+     * <p>Date and time (UTC) the Order Edit was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -198,6 +200,8 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
+     * <p>Date and time (UTC) the Order Edit was last updated.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -217,6 +221,130 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
         }
 
         return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Order Edit.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Order updated with this edit.</p>
+     *
+     *
+     * @return null|OrderReference
+     */
+    public function getResource()
+    {
+        if (is_null($this->resource)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RESOURCE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->resource = OrderReferenceModel::of($data);
+        }
+
+        return $this->resource;
+    }
+
+    /**
+     * <p>Update actions applied to the Order referenced by <code>resource</code>.</p>
+     *
+     *
+     * @return null|StagedOrderUpdateActionCollection
+     */
+    public function getStagedActions()
+    {
+        if (is_null($this->stagedActions)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STAGED_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stagedActions = StagedOrderUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->stagedActions;
+    }
+
+    /**
+     * <p>For applied edits, it's a summary of the changes on the Order.
+     * For unapplied edits, it's a preview of the changes.</p>
+     *
+     *
+     * @return null|OrderEditResult
+     */
+    public function getResult()
+    {
+        if (is_null($this->result)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RESULT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->result = OrderEditResultModel::of($data);
+        }
+
+        return $this->result;
+    }
+
+    /**
+     * <p>User-defined information regarding the Order Edit.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getComment()
+    {
+        if (is_null($this->comment)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_COMMENT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->comment = (string) $data;
+        }
+
+        return $this->comment;
+    }
+
+    /**
+     * <p>Custom Fields of the Order Edit.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
     }
 
     /**
@@ -261,129 +389,6 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
         return $this->createdBy;
     }
 
-    /**
-     * <p>User-defined unique identifier of the OrderEdit.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
-     * <p>The order to be updated with this edit.</p>
-     *
-     *
-     * @return null|OrderReference
-     */
-    public function getResource()
-    {
-        if (is_null($this->resource)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_RESOURCE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->resource = OrderReferenceModel::of($data);
-        }
-
-        return $this->resource;
-    }
-
-    /**
-     * <p>The actions to apply to the Order.
-     * Cannot be updated after the edit has been applied.</p>
-     *
-     *
-     * @return null|StagedOrderUpdateActionCollection
-     */
-    public function getStagedActions()
-    {
-        if (is_null($this->stagedActions)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_STAGED_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->stagedActions = StagedOrderUpdateActionCollection::fromArray($data);
-        }
-
-        return $this->stagedActions;
-    }
-
-    /**
-     *
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * <p>Contains a preview of the changes in case of unapplied edit.
-     * For applied edits, it contains the summary of the changes.</p>
-     *
-     *
-     * @return null|OrderEditResult
-     */
-    public function getResult()
-    {
-        if (is_null($this->result)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_RESULT);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->result = OrderEditResultModel::of($data);
-        }
-
-        return $this->result;
-    }
-
-    /**
-     * <p>This field can be used to add textual information regarding the edit.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getComment()
-    {
-        if (is_null($this->comment)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_COMMENT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->comment = (string) $data;
-        }
-
-        return $this->comment;
-    }
-
 
     /**
      * @param ?string $id
@@ -418,22 +423,6 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * @param ?LastModifiedBy $lastModifiedBy
-     */
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
-    {
-        $this->lastModifiedBy = $lastModifiedBy;
-    }
-
-    /**
-     * @param ?CreatedBy $createdBy
-     */
-    public function setCreatedBy(?CreatedBy $createdBy): void
-    {
-        $this->createdBy = $createdBy;
-    }
-
-    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void
@@ -458,14 +447,6 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * @param ?CustomFields $custom
-     */
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    /**
      * @param ?OrderEditResult $result
      */
     public function setResult(?OrderEditResult $result): void
@@ -479,6 +460,30 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     public function setComment(?string $comment): void
     {
         $this->comment = $comment;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+    }
+
+    /**
+     * @param ?CreatedBy $createdBy
+     */
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
     }
 
 

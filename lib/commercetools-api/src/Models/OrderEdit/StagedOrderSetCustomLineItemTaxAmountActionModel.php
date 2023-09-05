@@ -38,9 +38,21 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
 
     /**
      *
+     * @var ?string
+     */
+    protected $customLineItemKey;
+
+    /**
+     *
      * @var ?ExternalTaxAmountDraft
      */
     protected $externalTaxAmount;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
 
 
     /**
@@ -48,11 +60,15 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
      */
     public function __construct(
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?ExternalTaxAmountDraft $externalTaxAmount = null,
+        ?string $shippingKey = null,
         ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->externalTaxAmount = $externalTaxAmount;
+        $this->shippingKey = $shippingKey;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -75,6 +91,8 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
      *
      * @return null|string
      */
@@ -93,12 +111,28 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
     }
 
     /**
-     * <p>Cannot be used in <a href="ctp:api:type:LineItemDraft">LineItemDraft</a> or <a href="ctp:api:type:CustomLineItemDraft">CustomLineItemDraft</a>.</p>
-     * <p>Can only be set by these update actions:</p>
-     * <ul>
-     * <li><a href="ctp:api:type:CartSetLineItemTaxAmountAction">Set LineItem TaxAmount</a>, <a href="ctp:api:type:CartSetCustomLineItemTaxAmountAction">Set CustomLineItem TaxAmount</a>, or <a href="ctp:api:type:CartSetShippingMethodTaxAmountAction">Set ShippingMethod TaxAmount</a> on Carts</li>
-     * <li><a href="ctp:api:type:OrderEditSetLineItemTaxAmountAction">Set LineItem TaxAmount</a>, <a href="ctp:api:type:OrderEditSetCustomLineItemTaxAmountAction">Set CustomLineItem TaxAmount</a>, or <a href="ctp:api:type:OrderEditSetShippingMethodTaxAmountAction">Set ShippingMethod TaxAmount</a> on Order Edits</li>
-     * </ul>
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
+    }
+
+    /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
      *
      * @return null|ExternalTaxAmountDraft
@@ -118,6 +152,27 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
         return $this->externalTaxAmount;
     }
 
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> used for this Custom Line Item.
+     * This is required for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
+    }
+
 
     /**
      * @param ?string $customLineItemId
@@ -128,10 +183,26 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
     }
 
     /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
+    }
+
+    /**
      * @param ?ExternalTaxAmountDraft $externalTaxAmount
      */
     public function setExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount): void
     {
         $this->externalTaxAmount = $externalTaxAmount;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 }

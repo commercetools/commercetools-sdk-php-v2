@@ -39,6 +39,12 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $description;
@@ -67,6 +73,7 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
      */
     public function __construct(
         ?LocalizedString $name = null,
+        ?string $key = null,
         ?LocalizedString $description = null,
         ?int $quantity = null,
         ?DateTimeImmutable $addedAt = null,
@@ -74,6 +81,7 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
         ?string $action = null
     ) {
         $this->name = $name;
+        $this->key = $key;
         $this->description = $description;
         $this->quantity = $quantity;
         $this->addedAt = $addedAt;
@@ -118,6 +126,26 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
         }
 
         return $this->name;
+    }
+
+    /**
+     * <p>User-defined identifier of the TextLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -213,6 +241,14 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

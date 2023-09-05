@@ -63,6 +63,9 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|string
      */

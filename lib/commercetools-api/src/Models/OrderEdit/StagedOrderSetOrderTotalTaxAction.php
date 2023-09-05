@@ -20,7 +20,7 @@ interface StagedOrderSetOrderTotalTaxAction extends StagedOrderUpdateAction
     public const FIELD_EXTERNAL_TAX_PORTIONS = 'externalTaxPortions';
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Total gross amount of the Order (totalNet + taxes).</p>
      *
 
      * @return null|Money
@@ -28,6 +28,8 @@ interface StagedOrderSetOrderTotalTaxAction extends StagedOrderUpdateAction
     public function getExternalTotalGross();
 
     /**
+     * <p>Value to set.</p>
+     *
 
      * @return null|TaxPortionDraftCollection
      */

@@ -21,9 +21,11 @@ use Commercetools\Base\JsonObject;
 interface CustomLineItem extends JsonObject
 {
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_MONEY = 'money';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_TAXED_PRICE_PORTIONS = 'taxedPricePortions';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_SLUG = 'slug';
     public const FIELD_QUANTITY = 'quantity';
@@ -43,6 +45,14 @@ interface CustomLineItem extends JsonObject
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Name of the Custom Line Item.</p>
@@ -69,6 +79,14 @@ interface CustomLineItem extends JsonObject
     public function getTaxedPrice();
 
     /**
+     * <p>Taxed price of the Shipping Method that is automatically set after <code>perMethodTaxRate</code> is set.</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions();
+
+    /**
      * <p>Total price of the Custom Line Item (<code>money</code> multiplied by <code>quantity</code>).
      * If the Custom Line Item is discounted, the total price is <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>.</p>
      * <p>Includes taxes if the <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
@@ -88,7 +106,7 @@ interface CustomLineItem extends JsonObject
     public function getSlug();
 
     /**
-     * <p>Number of Custom Line Items in the Cart.</p>
+     * <p>Number of Custom Line Items in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|int
@@ -96,7 +114,7 @@ interface CustomLineItem extends JsonObject
     public function getQuantity();
 
     /**
-     * <p>State of the Custom Line Item in the Cart.</p>
+     * <p>State of the Custom Line Item in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|ItemStateCollection
@@ -169,6 +187,11 @@ interface CustomLineItem extends JsonObject
     public function setId(?string $id): void;
 
     /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -182,6 +205,11 @@ interface CustomLineItem extends JsonObject
      * @param ?TaxedItemPrice $taxedPrice
      */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
+
+    /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     */
+    public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void;
 
     /**
      * @param ?CentPrecisionMoney $totalPrice

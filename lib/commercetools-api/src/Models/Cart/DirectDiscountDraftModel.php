@@ -69,7 +69,7 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
     }
 
     /**
-     * <p>Defines what part of the Cart will be discounted.</p>
+     * <p>Defines what segment of the Cart will be discounted.</p>
      * <p>If <code>value</code> is set to <code>giftLineItem</code>, this must not be set.</p>
      *
      *

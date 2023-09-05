@@ -97,6 +97,12 @@ final class OrderLineItemDistributionChannelSetMessageBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $distributionChannel;
@@ -221,6 +227,17 @@ final class OrderLineItemDistributionChannelSetMessageBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the LineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -356,6 +373,17 @@ final class OrderLineItemDistributionChannelSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?ChannelReference $distributionChannel
      * @return $this
      */
@@ -435,6 +463,7 @@ final class OrderLineItemDistributionChannelSetMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->lineItemId,
+            $this->lineItemKey,
             $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel
         );
     }

@@ -13,4 +13,11 @@ use Commercetools\Base\JsonObject;
 
 interface OrderEditNotProcessed extends OrderEditResult
 {
+    /**
+     * <p>This field is queryable.</p>
+     *
+
+     * @return null|string
+     */
+    public function getType();
 }

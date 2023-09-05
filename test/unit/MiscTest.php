@@ -203,11 +203,11 @@ class MiscTest extends TestCase
         $this->assertSame("foo", $nested->current()->getValue());
         $this->assertSame("foo", $nestedSet->current()->current()->getValue());
 
-//        $this->assertSame("foo", $variant->getAttributes()->at(0)->with(AttributeAccessor::of())->getTypedValue()->getLabel());
-//        $this->assertSame("foo", $variant->getAttributes()->at(1)->with(AttributeAccessor::of())->getTypedValue()->getLabel()['en']);
-//        $this->assertSame("foo", $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getTypedValue());
-//        $this->assertSame("foo", $variant->getAttributes()->at(3)->with(AttributeAccessor::of())->getTypedValue()->current()->getValue());
-//        $this->assertSame("foo", $variant->getAttributes()->at(4)->with(AttributeAccessor::of())->getTypedValue()->current()->current()->getValue());
+        //        $this->assertSame("foo", $variant->getAttributes()->at(0)->with(AttributeAccessor::of())->getTypedValue()->getLabel());
+        //        $this->assertSame("foo", $variant->getAttributes()->at(1)->with(AttributeAccessor::of())->getTypedValue()->getLabel()['en']);
+        //        $this->assertSame("foo", $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getTypedValue());
+        //        $this->assertSame("foo", $variant->getAttributes()->at(3)->with(AttributeAccessor::of())->getTypedValue()->current()->getValue());
+        //        $this->assertSame("foo", $variant->getAttributes()->at(4)->with(AttributeAccessor::of())->getTypedValue()->current()->current()->getValue());
     }
 
     public function testCustomFields()

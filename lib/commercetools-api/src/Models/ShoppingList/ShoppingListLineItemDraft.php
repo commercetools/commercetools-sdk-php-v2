@@ -15,12 +15,21 @@ use DateTimeImmutable;
 
 interface ShoppingListLineItemDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_SKU = 'sku';
     public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_QUANTITY = 'quantity';
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
@@ -69,6 +78,11 @@ interface ShoppingListLineItemDraft extends JsonObject
      * @return null|int
      */
     public function getQuantity();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $productId

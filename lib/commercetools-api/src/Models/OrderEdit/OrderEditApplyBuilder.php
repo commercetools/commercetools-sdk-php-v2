@@ -33,6 +33,8 @@ final class OrderEditApplyBuilder implements Builder
     private $resourceVersion;
 
     /**
+     * <p>Current <code>version</code> of the OrderEdit to be applied.</p>
+     *
 
      * @return null|int
      */
@@ -42,6 +44,8 @@ final class OrderEditApplyBuilder implements Builder
     }
 
     /**
+     * <p>Current <code>version</code> of the <a href="ctp:api:type:Order">Order</a> to which the OrderEdit is applied.</p>
+     *
 
      * @return null|int
      */

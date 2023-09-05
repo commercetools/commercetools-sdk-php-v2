@@ -36,7 +36,7 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
     private $includedDiscounts;
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Discounted money value.</p>
      *
 
      * @return null|Money
@@ -47,6 +47,8 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
     }
 
     /**
+     * <p>Discounts to be applied.</p>
+     *
 
      * @return null|DiscountedLineItemPortionCollection
      */

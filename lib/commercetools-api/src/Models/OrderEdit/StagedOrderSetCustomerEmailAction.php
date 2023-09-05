@@ -17,6 +17,9 @@ interface StagedOrderSetCustomerEmailAction extends StagedOrderUpdateAction
     public const FIELD_EMAIL = 'email';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
 
      * @return null|string
      */

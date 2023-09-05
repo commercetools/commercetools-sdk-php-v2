@@ -26,6 +26,12 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
      *
      * @var ?string
      */
+    protected $key;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $productId;
 
     /**
@@ -63,6 +69,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?string $productId = null,
         ?int $variantId = null,
         ?string $sku = null,
@@ -70,12 +77,33 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
         ?CustomFieldsDraft $custom = null,
         ?int $quantity = null
     ) {
+        $this->key = $key;
         $this->productId = $productId;
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->addedAt = $addedAt;
         $this->custom = $custom;
         $this->quantity = $quantity;
+    }
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -203,6 +231,14 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
         return $this->quantity;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?string $productId

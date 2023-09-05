@@ -16,6 +16,7 @@ use Commercetools\Base\JsonObject;
 interface OrderCustomLineItemDiscountSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_KEY = 'customLineItemKey';
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
 
@@ -26,6 +27,14 @@ interface OrderCustomLineItemDiscountSetMessagePayload extends OrderMessagePaylo
      * @return null|string
      */
     public function getCustomLineItemId();
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey();
 
     /**
      * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
@@ -47,6 +56,11 @@ interface OrderCustomLineItemDiscountSetMessagePayload extends OrderMessagePaylo
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void;
 
     /**
      * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity

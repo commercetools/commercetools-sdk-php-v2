@@ -27,6 +27,12 @@ final class MyShoppingListAddLineItemActionBuilder implements Builder
 
      * @var ?string
      */
+    private $key;
+
+    /**
+
+     * @var ?string
+     */
     private $sku;
 
     /**
@@ -58,6 +64,17 @@ final class MyShoppingListAddLineItemActionBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. Must be unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
@@ -123,6 +140,17 @@ final class MyShoppingListAddLineItemActionBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -205,6 +233,7 @@ final class MyShoppingListAddLineItemActionBuilder implements Builder
     public function build(): MyShoppingListAddLineItemAction
     {
         return new MyShoppingListAddLineItemActionModel(
+            $this->key,
             $this->sku,
             $this->productId,
             $this->variantId,

@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\QuoteRequest;
 
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceBuilder;
+use Commercetools\Api\Models\Cart\CartReference;
+use Commercetools\Api\Models\Cart\CartReferenceBuilder;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
@@ -240,6 +242,12 @@ final class QuoteRequestBuilder implements Builder
      * @var ?string
      */
     private $purchaseOrderNumber;
+
+    /**
+
+     * @var null|CartReference|CartReferenceBuilder
+     */
+    private $cart;
 
     /**
 
@@ -600,6 +608,17 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
+     * <p>The <a href="ctp:api:type:Cart">Cart</a> from which a Quote is requested.</p>
+     *
+
+     * @return null|CartReference
+     */
+    public function getCart()
+    {
+        return $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart;
+    }
+
+    /**
      * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request.</p>
      *
 
@@ -952,6 +971,17 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
+     * @param ?CartReference $cart
+     * @return $this
+     */
+    public function withCart(?CartReference $cart)
+    {
+        $this->cart = $cart;
+
+        return $this;
+    }
+
+    /**
      * @param ?BusinessUnitKeyReference $businessUnit
      * @return $this
      */
@@ -1117,6 +1147,17 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCart() instead
+     * @return $this
+     */
+    public function withCartBuilder(?CartReferenceBuilder $cart)
+    {
+        $this->cart = $cart;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withBusinessUnit() instead
      * @return $this
      */
@@ -1161,6 +1202,7 @@ final class QuoteRequestBuilder implements Builder
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
             $this->purchaseOrderNumber,
+            $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart,
             $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit
         );
     }

@@ -373,7 +373,7 @@ final class OrderPurchaseOrderNumberSetMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Purchase order number on the <a href="ctp:api:type:Order">Order</a> after the <a href="/../api/projects/orders#set-purchase-order-number">Set PurchaseOrderNumber</a> update action.</p>
+     * <p>Purchase order number on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetPurchaseOrderNumberAction">Set Purchase Order Number</a> update action.</p>
      *
      *
      * @return null|string
@@ -393,7 +393,7 @@ final class OrderPurchaseOrderNumberSetMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Purchase order number on the <a href="ctp:api:type:Order">Order</a> before the <a href="/../api/projects/orders#set-purchase-order-number">Set PurchaseOrderNumber</a> update action.</p>
+     * <p>Purchase order number on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetPurchaseOrderNumberAction">Set Purchase Order Number</a> update action.</p>
      *
      *
      * @return null|string

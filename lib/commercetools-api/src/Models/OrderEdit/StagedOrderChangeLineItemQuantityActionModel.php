@@ -141,6 +141,9 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
     /**
+     * <p>New value to set.
+     * If <code>0</code>, the LineItem is removed from the Order.</p>
+     *
      *
      * @return null|int
      */
@@ -159,7 +162,8 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when changing the quantity of a Line Item with the <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     * <p>The <a href="ctp:api:type:LineItem">LineItem</a> price is updated as described in <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
      *
      *
      * @return null|Money
@@ -180,6 +184,8 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
     /**
+     * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> to the given value when changing the quantity of a Line Item with the <code>ExternalTotal</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     *
      *
      * @return null|ExternalLineItemTotalPrice
      */

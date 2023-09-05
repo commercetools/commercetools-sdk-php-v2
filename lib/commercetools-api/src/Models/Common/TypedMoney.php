@@ -18,7 +18,7 @@ interface TypedMoney extends Money
     public const FIELD_FRACTION_DIGITS = 'fractionDigits';
 
     /**
-     * <p>MoneyType supports two different values, one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
+     * <p>Type of money used.</p>
      *
 
      * @return null|string
@@ -26,10 +26,10 @@ interface TypedMoney extends Money
     public function getType();
 
     /**
-     * <p>Number of digits after the decimal separator:</p>
+     * <p>Number of digits after the decimal separator.</p>
      * <ul>
-     * <li>Equal to the default number of fraction digits for a currency in <a href="ctp:api:type:CentPrecisionMoney">CentPrecisionMoney</a>.</li>
-     * <li>Greater than the default number of fraction digits for a currency in <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>.</li>
+     * <li>For <a href="ctp:api:type:CentPrecisionMoney">CentPrecisionMoney</a>, it is equal to the default number of fraction digits for a currency.</li>
+     * <li>For <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>, it is greater than the default number of fraction digits for a currency.</li>
      * </ul>
      *
 

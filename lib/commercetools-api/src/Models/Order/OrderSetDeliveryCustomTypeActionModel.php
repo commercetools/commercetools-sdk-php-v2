@@ -91,7 +91,8 @@ final class OrderSetDeliveryCustomTypeActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
      *
      * @return null|string
@@ -111,7 +112,8 @@ final class OrderSetDeliveryCustomTypeActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
      *
      * @return null|string

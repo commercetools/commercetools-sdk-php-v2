@@ -27,6 +27,9 @@ final class OrderEditSetCommentActionBuilder implements Builder
     private $comment;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
 
      * @return null|string
      */

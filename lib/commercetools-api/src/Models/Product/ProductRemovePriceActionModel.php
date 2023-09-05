@@ -36,24 +36,6 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
 
     /**
      *
-     * @var ?string
-     */
-    protected $sku;
-
-    /**
-     *
-     * @var ?int
-     */
-    protected $variantId;
-
-    /**
-     *
-     * @var ?PriceDraft
-     */
-    protected $price;
-
-    /**
-     *
      * @var ?bool
      */
     protected $staged;
@@ -64,16 +46,10 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
      */
     public function __construct(
         ?string $priceId = null,
-        ?string $sku = null,
-        ?int $variantId = null,
-        ?PriceDraft $price = null,
         ?bool $staged = null,
         ?string $action = null
     ) {
         $this->priceId = $priceId;
-        $this->sku = $sku;
-        $this->variantId = $variantId;
-        $this->price = $price;
         $this->staged = $staged;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -117,72 +93,6 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * <p>The <code>sku</code> of the ProductVariant the provided Price should be removed from.
-     * Either 'variantId' or 'sku' is required&quot; when <code>priceId</code> is not provided.
-     * This field is now deprecated, use 'priceId' instead.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getSku()
-    {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
-    }
-
-    /**
-     * <p>The <code>id</code> of the ProductVariant the provided Price should be removed from.
-     * Either 'variantId' or 'sku' is required&quot; when <code>priceId</code> is not provided.
-     * This field is now deprecated, use 'priceId' instead.</p>
-     *
-     *
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
-    }
-
-    /**
-     * <p>The Price identical to the one to be removed from the ProductVariant.
-     * This field is now deprecated, use 'priceId' instead.</p>
-     *
-     *
-     * @return null|PriceDraft
-     */
-    public function getPrice()
-    {
-        if (is_null($this->price)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->price = PriceDraftModel::of($data);
-        }
-
-        return $this->price;
-    }
-
-    /**
      * <p>If <code>true</code>, only the staged Embedded Price is removed. If <code>false</code>, both the current and staged Embedded Price are removed.</p>
      *
      *
@@ -209,30 +119,6 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     public function setPriceId(?string $priceId): void
     {
         $this->priceId = $priceId;
-    }
-
-    /**
-     * @param ?string $sku
-     */
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
-    }
-
-    /**
-     * @param ?int $variantId
-     */
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
-    }
-
-    /**
-     * @param ?PriceDraft $price
-     */
-    public function setPrice(?PriceDraft $price): void
-    {
-        $this->price = $price;
     }
 
     /**

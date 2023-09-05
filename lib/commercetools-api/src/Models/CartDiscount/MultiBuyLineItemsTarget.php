@@ -36,7 +36,8 @@ interface MultiBuyLineItemsTarget extends CartDiscountTarget
     public function getTriggerQuantity();
 
     /**
-     * <p>Number of Line Items that are discounted per application of this Discount.</p>
+     * <p>Number of Line Items that are discounted per application of this Discount.
+     * It must be less than or equal to the <code>triggerQuantity</code>.</p>
      *
 
      * @return null|int
@@ -44,7 +45,8 @@ interface MultiBuyLineItemsTarget extends CartDiscountTarget
     public function getDiscountedQuantity();
 
     /**
-     * <p>Maximum number of times this Discount can be applied.</p>
+     * <p>Maximum number of times this Discount can be applied.
+     * Do not set if the Discount should be applied an unlimited number of times.</p>
      *
 
      * @return null|int

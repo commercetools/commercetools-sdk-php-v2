@@ -31,6 +31,12 @@ final class LineItemReturnItemBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -78,7 +84,7 @@ final class LineItemReturnItemBuilder implements Builder
     private $lineItemId;
 
     /**
-     * <p>Unique identifier of the ReturnItem.</p>
+     * <p>Unique identifier of the Return Item.</p>
      *
 
      * @return null|string
@@ -89,6 +95,19 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the LineItemReturnItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Number of Line Items returned.</p>
+     *
 
      * @return null|int
      */
@@ -98,6 +117,8 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>User-defined description for the return.</p>
+     *
 
      * @return null|string
      */
@@ -107,6 +128,8 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Shipment status of the Return Item.</p>
+     *
 
      * @return null|string
      */
@@ -116,6 +139,12 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Payment status of the Return Item:</p>
+     * <ul>
+     * <li><code>NonRefundable</code>, for items in the <code>Advised</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * <li><code>Initial</code>, for items in the <code>Returned</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * </ul>
+     *
 
      * @return null|string
      */
@@ -125,7 +154,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of this return item.</p>
+     * <p>Custom Fields of the Return Item.</p>
      *
 
      * @return null|CustomFields
@@ -136,6 +165,8 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Return Item was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -145,6 +176,8 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Return Item was intitially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -154,6 +187,8 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * <p><code>id</code> of the returned <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
 
      * @return null|string
      */
@@ -169,6 +204,17 @@ final class LineItemReturnItemBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -276,6 +322,7 @@ final class LineItemReturnItemBuilder implements Builder
     {
         return new LineItemReturnItemModel(
             $this->id,
+            $this->key,
             $this->quantity,
             $this->comment,
             $this->shipmentState,

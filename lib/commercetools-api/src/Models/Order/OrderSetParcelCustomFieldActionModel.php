@@ -87,7 +87,8 @@ final class OrderSetParcelCustomFieldActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     * <p>Either <code>parcelId</code> or <code>parcelKey</code> must be provided.</p>
      *
      *
      * @return null|string
@@ -107,7 +108,8 @@ final class OrderSetParcelCustomFieldActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Either <code>parcelId</code> or <code>parcelKey</code> is required for this update action.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     * <p>Either <code>parcelId</code> or <code>parcelKey</code> must be provided.</p>
      *
      *
      * @return null|string

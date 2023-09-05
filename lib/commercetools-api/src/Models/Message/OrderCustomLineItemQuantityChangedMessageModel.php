@@ -101,6 +101,12 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
 
     /**
      *
+     * @var ?string
+     */
+    protected $customLineItemKey;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -127,6 +133,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?int $quantity = null,
         ?int $oldQuantity = null,
         ?string $type = null
@@ -142,6 +149,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->quantity = $quantity;
         $this->oldQuantity = $oldQuantity;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
@@ -401,6 +409,26 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     }
 
     /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
+    }
+
+    /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
      *
      *
@@ -527,6 +555,14 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
     }
 
     /**

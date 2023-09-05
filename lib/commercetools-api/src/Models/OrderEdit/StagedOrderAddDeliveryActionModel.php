@@ -42,6 +42,12 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
 
     /**
      *
+     * @var ?string
+     */
+    protected $shippingKey;
+
+    /**
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -70,6 +76,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $deliveryKey = null,
+        ?string $shippingKey = null,
         ?DeliveryItemCollection $items = null,
         ?BaseAddress $address = null,
         ?ParcelDraftCollection $parcels = null,
@@ -77,6 +84,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
         ?string $action = null
     ) {
         $this->deliveryKey = $deliveryKey;
+        $this->shippingKey = $shippingKey;
         $this->items = $items;
         $this->address = $address;
         $this->parcels = $parcels;
@@ -103,7 +111,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>User-defined unique identifier of a Delivery.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
      *
      * @return null|string
@@ -123,6 +131,28 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>, required for <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
+    }
+
+    /**
+     * <p>Items to be included in the Delivery.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */
@@ -141,9 +171,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Polymorphic base type that represents a postal address and contact details.
-     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
-     * only differ in the data type for the optional <code>custom</code> field.</p>
+     * <p>Address the <code>parcels</code> should be delivered to.</p>
      *
      *
      * @return null|BaseAddress
@@ -164,6 +192,9 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Parcels of the Delivery.</p>
+     * <p>If provided, this update action also produces the <a href="ctp:api:type:ParcelAddedToDeliveryMessage">Parcel Added To Delivery</a> Message.</p>
+     *
      *
      * @return null|ParcelDraftCollection
      */
@@ -182,7 +213,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields for the Delivery.</p>
      *
      *
      * @return null|CustomFieldsDraft
@@ -209,6 +240,14 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     public function setDeliveryKey(?string $deliveryKey): void
     {
         $this->deliveryKey = $deliveryKey;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 
     /**

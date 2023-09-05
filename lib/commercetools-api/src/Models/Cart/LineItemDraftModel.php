@@ -94,6 +94,12 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
 
     /**
      *
+     * @var ?MethodExternalTaxRateDraftCollection
+     */
+    protected $perMethodExternalTaxRate;
+
+    /**
+     *
      * @var ?string
      */
     protected $inventoryMode;
@@ -126,6 +132,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate = null,
         ?string $inventoryMode = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
         ?CustomFieldsDraft $custom = null
@@ -141,6 +148,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
         $this->externalTaxRate = $externalTaxRate;
+        $this->perMethodExternalTaxRate = $perMethodExternalTaxRate;
         $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
         $this->custom = $custom;
@@ -362,7 +370,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>External Tax Rate for the Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>Sets the external Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
      *
      * @return null|ExternalTaxRateDraft
@@ -380,6 +388,26 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
         }
 
         return $this->externalTaxRate;
+    }
+
+    /**
+     * <p>Sets the external Tax Rates for individual Shipping Methods, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|MethodExternalTaxRateDraftCollection
+     */
+    public function getPerMethodExternalTaxRate()
+    {
+        if (is_null($this->perMethodExternalTaxRate)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PER_METHOD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->perMethodExternalTaxRate = MethodExternalTaxRateDraftCollection::fromArray($data);
+        }
+
+        return $this->perMethodExternalTaxRate;
     }
 
     /**
@@ -532,6 +560,14 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
+    }
+
+    /**
+     * @param ?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate
+     */
+    public function setPerMethodExternalTaxRate(?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate): void
+    {
+        $this->perMethodExternalTaxRate = $perMethodExternalTaxRate;
     }
 
     /**

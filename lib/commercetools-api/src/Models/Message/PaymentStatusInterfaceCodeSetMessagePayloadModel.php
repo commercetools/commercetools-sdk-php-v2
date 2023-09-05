@@ -30,12 +30,6 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
      *
      * @var ?string
      */
-    protected $paymentId;
-
-    /**
-     *
-     * @var ?string
-     */
     protected $interfaceCode;
 
 
@@ -43,11 +37,9 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $paymentId = null,
         ?string $interfaceCode = null,
         ?string $type = null
     ) {
-        $this->paymentId = $paymentId;
         $this->interfaceCode = $interfaceCode;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -71,26 +63,6 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     }
 
     /**
-     * <p>Unique identifier for the <a href="ctp:api:type:Payment">Payment</a> for which the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action was applied.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getPaymentId()
-    {
-        if (is_null($this->paymentId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PAYMENT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->paymentId = (string) $data;
-        }
-
-        return $this->paymentId;
-    }
-
-    /**
      * <p>The <code>interfaceCode</code> that was set during the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action.</p>
      *
      *
@@ -110,14 +82,6 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
         return $this->interfaceCode;
     }
 
-
-    /**
-     * @param ?string $paymentId
-     */
-    public function setPaymentId(?string $paymentId): void
-    {
-        $this->paymentId = $paymentId;
-    }
 
     /**
      * @param ?string $interfaceCode

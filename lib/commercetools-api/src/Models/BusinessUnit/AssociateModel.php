@@ -28,12 +28,6 @@ final class AssociateModel extends JsonObjectModel implements Associate
     protected $associateRoleAssignments;
 
     /**
-     * @deprecated
-     * @var ?array
-     */
-    protected $roles;
-
-    /**
      *
      * @var ?CustomerReference
      */
@@ -45,11 +39,9 @@ final class AssociateModel extends JsonObjectModel implements Associate
      */
     public function __construct(
         ?AssociateRoleAssignmentCollection $associateRoleAssignments = null,
-        ?array $roles = null,
         ?CustomerReference $customer = null
     ) {
         $this->associateRoleAssignments = $associateRoleAssignments;
-        $this->roles = $roles;
         $this->customer = $customer;
     }
 
@@ -71,26 +63,6 @@ final class AssociateModel extends JsonObjectModel implements Associate
         }
 
         return $this->associateRoleAssignments;
-    }
-
-    /**
-     * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
-     *
-     * @deprecated
-     * @return null|array
-     */
-    public function getRoles()
-    {
-        if (is_null($this->roles)) {
-            /** @psalm-var ?list<mixed> $data */
-            $data = $this->raw(self::FIELD_ROLES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->roles = $data;
-        }
-
-        return $this->roles;
     }
 
     /**
@@ -121,14 +93,6 @@ final class AssociateModel extends JsonObjectModel implements Associate
     public function setAssociateRoleAssignments(?AssociateRoleAssignmentCollection $associateRoleAssignments): void
     {
         $this->associateRoleAssignments = $associateRoleAssignments;
-    }
-
-    /**
-     * @param ?array $roles
-     */
-    public function setRoles(?array $roles): void
-    {
-        $this->roles = $roles;
     }
 
     /**

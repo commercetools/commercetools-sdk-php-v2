@@ -28,17 +28,6 @@ class ResourceByProjectKeyMePayments extends ApiResource
 
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyMePaymentsKeyByKey
-    {
-        $args = $this->getArgs();
-        if (!is_null($key)) {
-            $args['key'] = $key;
-        }
-
-        return new ResourceByProjectKeyMePaymentsKeyByKey($args, $this->getClient());
-    }
-    /**
-     */
     public function withId(string $ID = null): ResourceByProjectKeyMePaymentsByID
     {
         $args = $this->getArgs();

@@ -16,6 +16,8 @@ interface OrderChangeOrderStateAction extends OrderUpdateAction
     public const FIELD_ORDER_STATE = 'orderState';
 
     /**
+     * <p>New status of the Order.</p>
+     *
 
      * @return null|string
      */

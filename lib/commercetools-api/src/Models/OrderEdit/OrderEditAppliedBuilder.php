@@ -40,6 +40,8 @@ final class OrderEditAppliedBuilder implements Builder
     private $excerptAfterEdit;
 
     /**
+     * <p>Date and time (UTC) the Order was edited.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -49,6 +51,8 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
+     * <p>Prices of the Order before the edit.</p>
+     *
 
      * @return null|OrderExcerpt
      */
@@ -58,6 +62,8 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
+     * <p>Prices of the Order after the edit.</p>
+     *
 
      * @return null|OrderExcerpt
      */

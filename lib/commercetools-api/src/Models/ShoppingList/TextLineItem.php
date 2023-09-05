@@ -20,6 +20,7 @@ interface TextLineItem extends JsonObject
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_QUANTITY = 'quantity';
 
@@ -56,6 +57,14 @@ interface TextLineItem extends JsonObject
     public function getId();
 
     /**
+     * <p>User-defined identifier of the TextLineItem. It is unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p>Name of the TextLineItem.</p>
      *
 
@@ -90,6 +99,11 @@ interface TextLineItem extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?LocalizedString $name

@@ -65,6 +65,8 @@ final class StagedOrderChangeShipmentStateActionModel extends JsonObjectModel im
     }
 
     /**
+     * <p>New shipment status of the Order.</p>
+     *
      *
      * @return null|string
      */

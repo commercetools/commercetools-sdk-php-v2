@@ -1254,7 +1254,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withCustomerId("customerId")->get()`
 
-Retrieves the recently modified active Cart of a Customer with [CartOrigin](ctp:api:type:CartOrigin) `Customer`. If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+Retrieves the recently modified active Cart of a Customer with [CartOrigin](ctp:api:type:CartOrigin) `Customer`. If no active Cart exists, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
@@ -2174,7 +2174,6 @@ $request = $builder
 The My Business Unit endpoint does not support assigning existing Customers to a Business Unit.
 Associates with the `UpdateAssociates` [Permission](ctp:api:type:Permission) can use this endpoint to create a new Customer and associate it with the Business Unit.
 If the required [Permission](/projects/associate-roles#permission) is missing, an [AssociateMissingPermission](/errors#associatemissingpermission) error is returned.
-The new Associate is created with an empty set of roles.
 
 
 ### Example
@@ -2189,9 +2188,140 @@ $request = $builder
                 ->customers()
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->get()`
 
 null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->post(null)`
+
+When using the endpoint, the Store specified in the path and the Stores specified in the payload's `stores` field are added to the CartDiscount.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withId("ID")->get()`
+
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withId("ID")->post(null)`
+
+To update a CartDiscount, you must have permissions for all Stores the CartDiscount is associated with, except when [removing a Store](ctp:api:type:CartDiscountRemoveStoreAction).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withId("ID")->delete()`
+
+To delete a CartDiscount, specify the `manage_cart_discounts:{projectKey}:{storeKey}` scope for all Stores associated with the CartDiscount.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withKey("key")->post(null)`
+
+To update a CartDiscount, you must have permissions for all Stores the CartDiscount is associated with, except when [removing a Store](ctp:api:type:CartDiscountRemoveStoreAction).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withKey("key")->delete()`
+
+To delete a CartDiscount, specify the `manage_cart_discounts:{projectKey}:{storeKey}` scope for all Stores associated with the CartDiscount.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
+
+Queries carts in a specific [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -2206,9 +2336,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->post(null)`
 
-The `store` field in the created [Cart](ctp:api:type:Cart) is set to the Store specified by the `storeKey` path parameter.
-
-Specific Error Codes: [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+Creates a [Cart](ctp:api:type:Cart) in the [Store](ctp:api:type:Store) specified by `storeKey`.
+When using this endpoint the Cart's `store` field is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
+If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
 
 ### Example
@@ -2224,7 +2354,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->get()`
 
-If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
@@ -2243,8 +2373,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
-Updates a [Cart](ctp:api:type:Cart) in the Store specified by `storeKey`.
-If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+Updates a [Cart](ctp:api:type:Cart) in the [Store](ctp:api:type:Store) specified by `storeKey`.
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2278,9 +2408,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withCustomerId("customerId")->get()`
 
-Retrieves the recently modified active Cart of a Customer with [CartOrigin](ctp:api:type:CartOrigin) `Customer`. If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+Retrieves the recently modified active Cart of a Customer with [CartOrigin](ctp:api:type:CartOrigin) `Customer`. If no active Cart exists, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
-If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
@@ -2299,7 +2429,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
-If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
@@ -2388,11 +2518,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->post(null)`
 
-When using this endpoint, if omitted, the Customer `stores` field is set to the Store specified in the path parameter.
+When using this endpoint, if omitted, the Customer `stores` field is set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
 If the `anonymousCart` field is set on the [CustomerDraft](ctp:api:type:CustomerDraft), then the newly created Customer will be assigned to that [Cart](ctp:api:type:Cart).
 Similarly, if the `anonymousId` field is set, the Customer will be set on all [Carts](ctp:api:type:Cart), [Orders](ctp:api:type:Order), [ShoppingLists](ctp:api:type:ShoppingList) and [Payments](ctp:api:type:Payment) with the same `anonymousId`.
-If a Cart with a `store` field specified, the `store` field must reference the same Store specified in the `{storeKey}` path parameter.
+If a Cart with a `store` field specified, the `store` field must reference the same [Store](ctp:api:type:Store) specified in the `{storeKey}` path parameter.
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
 
 
@@ -2426,7 +2556,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->post(null)`
 
-If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2465,7 +2595,7 @@ $request = $builder
 The customer verifies the email using the token value.
 Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
 
-If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2499,7 +2629,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withEmailToken("emailToken")->get()`
 
-If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2516,7 +2646,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->get()`
 
-If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2552,7 +2682,7 @@ $request = $builder
 
 Deleting a Customer produces the [CustomerDeleted](ctp:api:type:CustomerDeletedMessage) Message.
 
-If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2588,7 +2718,7 @@ $request = $builder
 
 Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
 
-If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2639,9 +2769,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->login()->post(null)`
 
-Authenticates a Customer associated with a Store. For more information, see [Global versus Store-specific Customers](/../api/customers-overview#global-versus-store-specific-customers).
+Authenticates a Customer associated with a [Store](ctp:api:type:Store). For more information, see [Global versus Store-specific Customers](/../api/customers-overview#global-versus-store-specific-customers).
 
-If the Customer exists in the Project but the `stores` field references a different Store, this method returns an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error.
+If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error.
 
 
 ### Example
@@ -2706,7 +2836,7 @@ Retrieves the Customer's most recently modified active Cart in the Store specifi
 
 Carts with `Merchant` or `Quote` [CartOrigin](ctp:api:type:CartOrigin) are ignored.
 
-If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+If no active Cart exists, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -2867,7 +2997,18 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->post(null)`
 
-null
+The Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction) for taxes to be calculated. When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
+
+Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+
+Specific Error Codes:
+
+- [OutOfStock](ctp:api:type:OutOfStockError)
+- [PriceChanged](ctp:api:type:PriceChangedError)
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+- [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError)
+
 
 ### Example
 ```php
@@ -2883,7 +3024,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->withId("ID")->get()`
 
-null
+If the Order exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -2953,7 +3095,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
 
-When using this endpoint, the `store` field of a ShoppingList is always set to the Store specified in the path parameter.
+When using this endpoint, the `store` field of a ShoppingList is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
 
 ### Example
@@ -2970,7 +3112,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->get()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -2989,7 +3131,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3008,7 +3150,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->delete()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3027,7 +3169,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->get()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store, the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store), the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
 ### Example
@@ -3045,7 +3187,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3064,7 +3206,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->delete()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3083,7 +3225,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->signup()->post(null)`
 
-If omitted in the request body, the [Customer](ctp:api:type:Customer) `stores` field is set to the Store specified in the path parameter.
+If omitted in the request body, the [Customer](ctp:api:type:Customer) `stores` field is set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
 
@@ -3102,7 +3244,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->get()`
 
-Queries orders in a specific Store.
+null
 
 ### Example
 ```php
@@ -3117,10 +3259,21 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->post(null)`
 
-Creates an order from a Cart from a specific Store.
-When using this endpoint the orders's store field is always set to the store specified in the path parameter.
-The cart must have a shipping address set before creating an order. When using the Platform TaxMode,
-the shipping address is used for tax calculation.
+Before you create an Order, the Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction).
+The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
+
+Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+
+Specific Error Codes:
+
+- [OutOfStock](ctp:api:type:OutOfStockError)
+- [PriceChanged](ctp:api:type:PriceChangedError)
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
 
 
 ### Example
@@ -3136,9 +3289,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->get()`
 
-Returns an order by its ID from a specific Store.
-If the order exists in the project but does not have the store field,
-or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Order exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -3155,9 +3306,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->post(null)`
 
-Updates an order in the store specified by {storeKey}.
-If the order exists in the project but does not have the store field,
-or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Order exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -3174,7 +3323,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->delete()`
 
-null
+If the Order exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+Deleting an Order produces the [OrderDeleted](ctp:api:type:OrderDeletedMessage) Message.
+
 
 ### Example
 ```php
@@ -3190,12 +3342,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->get()`
 
-Returns an order by its order number from a specific Store.
-
-If the order exists in the project but does not have the store field,
-or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
-In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
-it should be provided in URL-encoded format.
+If the Order exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -3212,11 +3359,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-Updates an order in the store specified by {storeKey}.
-If the order exists in the project but does not have the store field,
-or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
-In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
-it should be provided in URL-encoded format.
+If the Order exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -3233,7 +3376,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->delete()`
 
-null
+If the Order exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+Deleting an Order produces the [OrderDeleted](ctp:api:type:OrderDeletedMessage) Message.
+
 
 ### Example
 ```php
@@ -3293,7 +3439,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productSelectionAssignments()->get()`
 
-Queries Product Selection assignments over all Product Selections that are active in a specific Store.
+Queries Product Selection assignments in a specific [Store](ctp:api:type:Store).
 
 The response will include duplicate Products whenever more than one active Product Selection of the Store
 includes a Product. To make clear through which Product Selection a Product is available in the Store
@@ -3314,7 +3460,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
-Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart in a given Store.
+Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart in a given [Store](ctp:api:type:Store).
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
@@ -3348,7 +3494,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->post(null)`
 
-When using this endpoint, the `store` field of a ShoppingList is always set to the Store specified in the path parameter.
+When using this endpoint, the `store` field of a ShoppingList is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
 
 ### Example
@@ -3364,7 +3510,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->get()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3382,7 +3528,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->post(null)`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3400,7 +3546,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->delete()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3418,7 +3564,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->get()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3436,7 +3582,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->post(null)`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3454,7 +3600,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->delete()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -3654,7 +3800,7 @@ $request = $builder
 Retrieves the Customer's most recently modified active Cart.
 Carts with `Merchant` or `Quote` [CartOrigin](ctp:api:type:CartOrigin) are ignored.
 
-If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+If no active Cart exists, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -4006,7 +4152,17 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->post(null)`
 
-null
+The Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction) for taxes to be calculated. When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
+
+Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+
+Specific Error Codes:
+
+- [OutOfStock](ctp:api:type:OutOfStockError)
+- [PriceChanged](ctp:api:type:PriceChangedError)
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError)
+
 
 ### Example
 ```php
@@ -4035,9 +4191,20 @@ $request = $builder
                 ->withId("ID")
                 ->get();
 ```
-## `withProjectKey("projectKey")->me()->orders()->quotes()->post(null)`
+## `withProjectKey("projectKey")->me()->orders()->orderQuote()->post(null)`
 
-null
+When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyQuotes` [Permission](ctp:api:type:Permission).
+
+Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+
+Specific Error Codes:
+
+- [OutOfStock](ctp:api:type:OutOfStockError)
+- [PriceChanged](ctp:api:type:PriceChangedError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+- [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError)
+
 
 ### Example
 ```php
@@ -4048,7 +4215,7 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
                 ->orders()
-                ->quotes()
+                ->orderQuote()
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->me()->password()->post(null)`
@@ -4169,56 +4336,6 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->me()->payments()->withKey("key")->get()`
-
-null
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->payments()
-                ->withKey("key")
-                ->get();
-```
-## `withProjectKey("projectKey")->me()->payments()->withKey("key")->post(null)`
-
-This endpoint can only update a Payment when it has no [Transactions](ctp:api:type:Transaction).
-
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->payments()
-                ->withKey("key")
-                ->post(null);
-```
-## `withProjectKey("projectKey")->me()->payments()->withKey("key")->delete()`
-
-This endpoint can only delete a Payment when it has no [Transactions](ctp:api:type:Transaction).
-
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->payments()
-                ->withKey("key")
-                ->delete();
-```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->get()`
 
 null
@@ -4248,6 +4365,22 @@ $request = $builder
                 ->me()
                 ->quoteRequests()
                 ->post(null);
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withId("ID")
+                ->get();
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->post(null)`
 
@@ -4281,7 +4414,7 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->get()`
+## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->get()`
 
 null
 
@@ -4294,7 +4427,7 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
                 ->quoteRequests()
-                ->withId("ID")
+                ->withKey("key")
                 ->get();
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->post(null)`
@@ -4328,22 +4461,6 @@ $request = $builder
                 ->quoteRequests()
                 ->withKey("key")
                 ->delete();
-```
-## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->get()`
-
-null
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->quoteRequests()
-                ->withKey("key")
-                ->get();
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->get()`
 
@@ -4613,9 +4730,20 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->post(null)`
 
-Creates an order from a Cart.
-The cart must have a shipping address set before creating an order.
-When using the Platform TaxMode, the shipping address is used for tax calculation.
+Before you create an Order, the Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction).
+The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
+
+Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+
+Specific Error Codes:
+
+- [OutOfStock](ctp:api:type:OutOfStockError)
+- [PriceChanged](ctp:api:type:PriceChangedError)
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
 
 ### Example
@@ -4660,7 +4788,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->delete()`
 
-null
+Deleting an Order produces the [OrderDeleted](ctp:api:type:OrderDeletedMessage) Message.
+
 
 ### Example
 ```php
@@ -4690,7 +4819,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->post(null)`
 
-null
+You can either create multiple Order Edits for an Order and apply them sequentially to an Order, or create multiple Order Edits parallelly (as alternatives to each other) and apply one of them to the Order.
+
 
 ### Example
 ```php
@@ -4753,7 +4883,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->apply()->post(null)`
 
-null
+Applying an OrderEdit produces the [OrderEditApplied](ctp:api:type:OrderEditAppliedMessage) Message.
+
 
 ### Example
 ```php
@@ -4818,7 +4949,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->importOrder()->post(null)`
 
-Create an Order by Import
+Importing an Order produces the [Order Imported](ctp:api:type:OrderImportedMessage) Message.
+
+Specific Error Codes:
+
+- [OutOfStock](ctp:api:type:OutOfStockError)
+- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+
 
 ### Example
 ```php
@@ -4833,9 +4970,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->get()`
 
-In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
-it should be provided in URL-encoded format.
-
+null
 
 ### Example
 ```php
@@ -4865,7 +5000,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->delete()`
 
-null
+Deleting an Order produces the [OrderDeleted](ctp:api:type:OrderDeletedMessage) Message.
+
 
 ### Example
 ```php
@@ -4880,7 +5016,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->orderQuote()->post(null)`
 
-Create an Order from a Quote
+Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+
+Specific Error Codes:
+
+- [OutOfStock](ctp:api:type:OutOfStockError)
+- [PriceChanged](ctp:api:type:PriceChangedError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError)
+- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+
 
 ### Example
 ```php

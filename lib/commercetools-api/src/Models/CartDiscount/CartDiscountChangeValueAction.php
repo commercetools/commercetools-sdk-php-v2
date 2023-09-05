@@ -16,7 +16,8 @@ interface CartDiscountChangeValueAction extends CartDiscountUpdateAction
     public const FIELD_VALUE = 'value';
 
     /**
-     * <p>New value to set.</p>
+     * <p>New value to set.
+     * When trying to set a <a href="ctp:api:type:CartDiscountValueGiftLineItemDraft">CartDiscountValueGiftLineItemDraft</a> an <a href="ctp:api:type:InvalidInputError">InvalidInput</a> error is returned.</p>
      *
 
      * @return null|CartDiscountValueDraft

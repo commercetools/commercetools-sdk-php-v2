@@ -26,7 +26,7 @@ interface Custom extends JsonObject
     public function getType();
 
     /**
-     * <p>The custom fields of this object.</p>
+     * <p>The Custom Fields of this object.</p>
      *
 
      * @return null|FieldContainer

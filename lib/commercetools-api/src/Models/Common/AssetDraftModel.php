@@ -179,7 +179,7 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     }
 
     /**
-     * <p>User-defined unique identifier for the Asset.</p>
+     * <p>User-defined identifier for the Asset. Must be unique per <a href="ctp:api:type:Category">Category</a> or <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
      *
      * @return null|string

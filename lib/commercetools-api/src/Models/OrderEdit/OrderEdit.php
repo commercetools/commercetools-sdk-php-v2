@@ -20,17 +20,17 @@ use DateTimeImmutable;
 
 interface OrderEdit extends BaseResource
 {
-    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    public const FIELD_CREATED_BY = 'createdBy';
     public const FIELD_KEY = 'key';
     public const FIELD_RESOURCE = 'resource';
     public const FIELD_STAGED_ACTIONS = 'stagedActions';
-    public const FIELD_CUSTOM = 'custom';
     public const FIELD_RESULT = 'result';
     public const FIELD_COMMENT = 'comment';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
 
     /**
-     * <p>Unique identifier of the OrderEdit.</p>
+     * <p>Unique identifier of the Order Edit.</p>
      *
 
      * @return null|string
@@ -38,7 +38,7 @@ interface OrderEdit extends BaseResource
     public function getId();
 
     /**
-     * <p>The current version of the OrderEdit.</p>
+     * <p>Current version of the Order Edit.</p>
      *
 
      * @return null|int
@@ -46,12 +46,65 @@ interface OrderEdit extends BaseResource
     public function getVersion();
 
     /**
+     * <p>User-defined unique identifier of the Order Edit.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Order updated with this edit.</p>
+     *
+
+     * @return null|OrderReference
+     */
+    public function getResource();
+
+    /**
+     * <p>Update actions applied to the Order referenced by <code>resource</code>.</p>
+     *
+
+     * @return null|StagedOrderUpdateActionCollection
+     */
+    public function getStagedActions();
+
+    /**
+     * <p>For applied edits, it's a summary of the changes on the Order.
+     * For unapplied edits, it's a preview of the changes.</p>
+     *
+
+     * @return null|OrderEditResult
+     */
+    public function getResult();
+
+    /**
+     * <p>User-defined information regarding the Order Edit.</p>
+     *
+
+     * @return null|string
+     */
+    public function getComment();
+
+    /**
+     * <p>Custom Fields of the Order Edit.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
+     * <p>Date and time (UTC) the Order Edit was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the Order Edit was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -74,54 +127,6 @@ interface OrderEdit extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>User-defined unique identifier of the OrderEdit.</p>
-     *
-
-     * @return null|string
-     */
-    public function getKey();
-
-    /**
-     * <p>The order to be updated with this edit.</p>
-     *
-
-     * @return null|OrderReference
-     */
-    public function getResource();
-
-    /**
-     * <p>The actions to apply to the Order.
-     * Cannot be updated after the edit has been applied.</p>
-     *
-
-     * @return null|StagedOrderUpdateActionCollection
-     */
-    public function getStagedActions();
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getCustom();
-
-    /**
-     * <p>Contains a preview of the changes in case of unapplied edit.
-     * For applied edits, it contains the summary of the changes.</p>
-     *
-
-     * @return null|OrderEditResult
-     */
-    public function getResult();
-
-    /**
-     * <p>This field can be used to add textual information regarding the edit.</p>
-     *
-
-     * @return null|string
-     */
-    public function getComment();
-
-    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -130,6 +135,36 @@ interface OrderEdit extends BaseResource
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
+
+    /**
+     * @param ?OrderReference $resource
+     */
+    public function setResource(?OrderReference $resource): void;
+
+    /**
+     * @param ?StagedOrderUpdateActionCollection $stagedActions
+     */
+    public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void;
+
+    /**
+     * @param ?OrderEditResult $result
+     */
+    public function setResult(?OrderEditResult $result): void;
+
+    /**
+     * @param ?string $comment
+     */
+    public function setComment(?string $comment): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt
@@ -150,34 +185,4 @@ interface OrderEdit extends BaseResource
      * @param ?CreatedBy $createdBy
      */
     public function setCreatedBy(?CreatedBy $createdBy): void;
-
-    /**
-     * @param ?string $key
-     */
-    public function setKey(?string $key): void;
-
-    /**
-     * @param ?OrderReference $resource
-     */
-    public function setResource(?OrderReference $resource): void;
-
-    /**
-     * @param ?StagedOrderUpdateActionCollection $stagedActions
-     */
-    public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void;
-
-    /**
-     * @param ?CustomFields $custom
-     */
-    public function setCustom(?CustomFields $custom): void;
-
-    /**
-     * @param ?OrderEditResult $result
-     */
-    public function setResult(?OrderEditResult $result): void;
-
-    /**
-     * @param ?string $comment
-     */
-    public function setComment(?string $comment): void;
 }

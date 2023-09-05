@@ -424,7 +424,7 @@ final class ParcelRemovedFromDeliveryMessageModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|string

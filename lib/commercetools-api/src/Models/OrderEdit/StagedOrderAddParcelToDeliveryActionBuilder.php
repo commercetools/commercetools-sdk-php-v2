@@ -64,7 +64,8 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     private $items;
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
 
      * @return null|string
@@ -75,7 +76,8 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
-     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     * <p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
      *
 
      * @return null|string
@@ -86,6 +88,8 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
@@ -95,6 +99,8 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
@@ -104,6 +110,8 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set.</p>
+     *
 
      * @return null|TrackingData
      */
@@ -113,6 +121,8 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */

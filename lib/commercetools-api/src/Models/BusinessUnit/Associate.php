@@ -15,7 +15,6 @@ use Commercetools\Base\JsonObject;
 interface Associate extends JsonObject
 {
     public const FIELD_ASSOCIATE_ROLE_ASSIGNMENTS = 'associateRoleAssignments';
-    public const FIELD_ROLES = 'roles';
     public const FIELD_CUSTOMER = 'customer';
 
     /**
@@ -25,14 +24,6 @@ interface Associate extends JsonObject
      * @return null|AssociateRoleAssignmentCollection
      */
     public function getAssociateRoleAssignments();
-
-    /**
-     * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
-     *
-     * @deprecated
-     * @return null|array
-     */
-    public function getRoles();
 
     /**
      * <p>The <a href="ctp:api:type:Customer">Customer</a> that acts as an Associate in the Business Unit.</p>
@@ -46,11 +37,6 @@ interface Associate extends JsonObject
      * @param ?AssociateRoleAssignmentCollection $associateRoleAssignments
      */
     public function setAssociateRoleAssignments(?AssociateRoleAssignmentCollection $associateRoleAssignments): void;
-
-    /**
-     * @param ?array $roles
-     */
-    public function setRoles(?array $roles): void;
 
     /**
      * @param ?CustomerReference $customer

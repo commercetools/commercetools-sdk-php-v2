@@ -39,6 +39,12 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
 
     /**
      *
+     * @var ?string
+     */
+    protected $lineItemKey;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -67,6 +73,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
      */
     public function __construct(
         ?string $lineItemId = null,
+        ?string $lineItemKey = null,
         ?int $quantity = null,
         ?StateResourceIdentifier $fromState = null,
         ?StateResourceIdentifier $toState = null,
@@ -74,6 +81,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
         ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
+        $this->lineItemKey = $lineItemKey;
         $this->quantity = $quantity;
         $this->fromState = $fromState;
         $this->toState = $toState;
@@ -100,6 +108,8 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
      *
      * @return null|string
      */
@@ -118,6 +128,28 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        if (is_null($this->lineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemKey = (string) $data;
+        }
+
+        return $this->lineItemKey;
+    }
+
+    /**
+     * <p>Number of Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
+     *
      *
      * @return null|int
      */
@@ -136,7 +168,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Line Item should transition from.</p>
      *
      *
      * @return null|StateResourceIdentifier
@@ -157,7 +189,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the Line Item should transition to.</p>
      *
      *
      * @return null|StateResourceIdentifier
@@ -178,6 +210,8 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
+     * <p>Date and time (UTC) to perform the <a href="ctp:api:type:State">State</a> transition.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -206,6 +240,14 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $lineItemKey
+     */
+    public function setLineItemKey(?string $lineItemKey): void
+    {
+        $this->lineItemKey = $lineItemKey;
     }
 
     /**

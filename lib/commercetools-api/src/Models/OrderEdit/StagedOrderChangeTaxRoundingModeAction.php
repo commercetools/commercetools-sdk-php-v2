@@ -17,7 +17,7 @@ interface StagedOrderChangeTaxRoundingModeAction extends StagedOrderUpdateAction
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
 
     /**
-     * <p>Determines how monetary values are rounded.</p>
+     * <p>New value to set.</p>
      *
 
      * @return null|string

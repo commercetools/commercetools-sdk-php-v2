@@ -28,12 +28,6 @@ final class AssociateDraftModel extends JsonObjectModel implements AssociateDraf
     protected $associateRoleAssignments;
 
     /**
-     * @deprecated
-     * @var ?array
-     */
-    protected $roles;
-
-    /**
      *
      * @var ?CustomerResourceIdentifier
      */
@@ -45,11 +39,9 @@ final class AssociateDraftModel extends JsonObjectModel implements AssociateDraf
      */
     public function __construct(
         ?AssociateRoleAssignmentDraftCollection $associateRoleAssignments = null,
-        ?array $roles = null,
         ?CustomerResourceIdentifier $customer = null
     ) {
         $this->associateRoleAssignments = $associateRoleAssignments;
-        $this->roles = $roles;
         $this->customer = $customer;
     }
 
@@ -71,26 +63,6 @@ final class AssociateDraftModel extends JsonObjectModel implements AssociateDraf
         }
 
         return $this->associateRoleAssignments;
-    }
-
-    /**
-     * <p>Deprecated type. Use <code>associateRoleAssignment</code> instead.</p>
-     *
-     * @deprecated
-     * @return null|array
-     */
-    public function getRoles()
-    {
-        if (is_null($this->roles)) {
-            /** @psalm-var ?list<mixed> $data */
-            $data = $this->raw(self::FIELD_ROLES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->roles = $data;
-        }
-
-        return $this->roles;
     }
 
     /**
@@ -121,14 +93,6 @@ final class AssociateDraftModel extends JsonObjectModel implements AssociateDraf
     public function setAssociateRoleAssignments(?AssociateRoleAssignmentDraftCollection $associateRoleAssignments): void
     {
         $this->associateRoleAssignments = $associateRoleAssignments;
-    }
-
-    /**
-     * @param ?array $roles
-     */
-    public function setRoles(?array $roles): void
-    {
-        $this->roles = $roles;
     }
 
     /**

@@ -17,7 +17,7 @@ interface OrderRemovePaymentAction extends OrderUpdateAction
     public const FIELD_PAYMENT = 'payment';
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     * <p>Payment to remove from the <a href="ctp:api:type:PaymentInfo">PaymentInfo</a>.</p>
      *
 
      * @return null|PaymentResourceIdentifier

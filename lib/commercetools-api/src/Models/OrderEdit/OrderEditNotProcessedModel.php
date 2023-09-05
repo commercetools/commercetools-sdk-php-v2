@@ -37,6 +37,8 @@ final class OrderEditNotProcessedModel extends JsonObjectModel implements OrderE
     }
 
     /**
+     * <p>This field is queryable.</p>
+     *
      *
      * @return null|string
      */

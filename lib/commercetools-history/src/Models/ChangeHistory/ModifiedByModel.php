@@ -37,9 +37,9 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
 
     /**
      *
-     * @var ?Reference
+     * @var ?string
      */
-    protected $customer;
+    protected $clientId;
 
     /**
      *
@@ -49,9 +49,15 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
 
     /**
      *
-     * @var ?string
+     * @var ?Reference
      */
-    protected $clientId;
+    protected $customer;
+
+    /**
+     *
+     * @var ?Reference
+     */
+    protected $associate;
 
     /**
      *
@@ -66,16 +72,18 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     public function __construct(
         ?string $id = null,
         ?string $type = null,
-        ?Reference $customer = null,
-        ?string $anonymousId = null,
         ?string $clientId = null,
+        ?string $anonymousId = null,
+        ?Reference $customer = null,
+        ?Reference $associate = null,
         ?bool $isPlatformClient = null
     ) {
         $this->id = $id;
         $this->type = $type;
-        $this->customer = $customer;
-        $this->anonymousId = $anonymousId;
         $this->clientId = $clientId;
+        $this->anonymousId = $anonymousId;
+        $this->customer = $customer;
+        $this->associate = $associate;
         $this->isPlatformClient = $isPlatformClient;
 
     }
@@ -106,6 +114,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      * <ul>
      * <li>If the change was made by a user, the value is <code>&quot;user&quot;</code>.</li>
      * <li>If the change was made by an API Client with or without an <a href="/client-logging#external-user-ids">external user ID</a>, the value is <code>&quot;external-user&quot;</code>.</li>
+     * <li>If the change was made by an <a href="ctp:api:type:Associate">Associate</a>, the value is <code>&quot;associate&quot;</code>.</li>
      * </ul>
      *
      *
@@ -126,25 +135,24 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Customer">Customer</a> who made the change.</p>
-     * <p>Present only if the change was made using a token from the <a href="/authorization#password-flow">password flow</a>.</p>
+     * <p><a href="/general-concepts#identifier">ID</a> of the <a href="ctp:api:type:ApiClient">API Client</a> that made the change.</p>
+     * <p>Present only if the change was made using an API Client.</p>
      *
      *
-     * @return null|Reference
+     * @return null|string
      */
-    public function getCustomer()
+    public function getClientId()
     {
-        if (is_null($this->customer)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOMER);
+        if (is_null($this->clientId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CLIENT_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->customer = ReferenceModel::of($data);
+            $this->clientId = (string) $data;
         }
 
-        return $this->customer;
+        return $this->clientId;
     }
 
     /**
@@ -168,24 +176,46 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     }
 
     /**
-     * <p><a href="/general-concepts#identifier">ID</a> of the <a href="ctp:api:type:ApiClient">API Client</a> that made the change.</p>
-     * <p>Present only if the change was made using an API Client.</p>
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> who made the change.</p>
+     * <p>Present only if the change was made using a token from the <a href="/authorization#password-flow">password flow</a>.</p>
      *
      *
-     * @return null|string
+     * @return null|Reference
      */
-    public function getClientId()
+    public function getCustomer()
     {
-        if (is_null($this->clientId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CLIENT_ID);
+        if (is_null($this->customer)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
-            $this->clientId = (string) $data;
+
+            $this->customer = ReferenceModel::of($data);
         }
 
-        return $this->clientId;
+        return $this->customer;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:Associate">Associate</a> who made the change in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Present only if the Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
+     *
+     *
+     * @return null|Reference
+     */
+    public function getAssociate()
+    {
+        if (is_null($this->associate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ASSOCIATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->associate = ReferenceModel::of($data);
+        }
+
+        return $this->associate;
     }
 
     /**
@@ -226,11 +256,11 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     }
 
     /**
-     * @param ?Reference $customer
+     * @param ?string $clientId
      */
-    public function setCustomer(?Reference $customer): void
+    public function setClientId(?string $clientId): void
     {
-        $this->customer = $customer;
+        $this->clientId = $clientId;
     }
 
     /**
@@ -242,11 +272,19 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     }
 
     /**
-     * @param ?string $clientId
+     * @param ?Reference $customer
      */
-    public function setClientId(?string $clientId): void
+    public function setCustomer(?Reference $customer): void
     {
-        $this->clientId = $clientId;
+        $this->customer = $customer;
+    }
+
+    /**
+     * @param ?Reference $associate
+     */
+    public function setAssociate(?Reference $associate): void
+    {
+        $this->associate = $associate;
     }
 
     /**

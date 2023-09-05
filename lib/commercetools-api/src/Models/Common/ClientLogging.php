@@ -18,9 +18,10 @@ interface ClientLogging extends JsonObject
     public const FIELD_EXTERNAL_USER_ID = 'externalUserId';
     public const FIELD_CUSTOMER = 'customer';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_ASSOCIATE = 'associate';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">APIClient</a> which created the resource.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">API Client</a> which created the resource.</p>
      *
 
      * @return null|string
@@ -52,6 +53,14 @@ interface ClientLogging extends JsonObject
     public function getAnonymousId();
 
     /**
+     * <p>Indicates the <a href="ctp:api:type:Customer">Customer</a> who created or modified the resource in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only present when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
+     *
+
+     * @return null|CustomerReference
+     */
+    public function getAssociate();
+
+    /**
      * @param ?string $clientId
      */
     public function setClientId(?string $clientId): void;
@@ -70,4 +79,9 @@ interface ClientLogging extends JsonObject
      * @param ?string $anonymousId
      */
     public function setAnonymousId(?string $anonymousId): void;
+
+    /**
+     * @param ?CustomerReference $associate
+     */
+    public function setAssociate(?CustomerReference $associate): void;
 }

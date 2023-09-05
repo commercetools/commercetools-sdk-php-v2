@@ -85,12 +85,6 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     protected $productCount;
 
     /**
-     * @deprecated
-     * @var ?string
-     */
-    protected $type;
-
-    /**
      *
      * @var ?string
      */
@@ -116,7 +110,6 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
         ?string $key = null,
         ?LocalizedString $name = null,
         ?int $productCount = null,
-        ?string $type = null,
         ?string $mode = null,
         ?CustomFields $custom = null
     ) {
@@ -129,7 +122,6 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
         $this->key = $key;
         $this->name = $name;
         $this->productCount = $productCount;
-        $this->type = $type;
         $this->mode = $mode;
         $this->custom = $custom;
     }
@@ -329,27 +321,6 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
      * <p>Specifies in which way the Products are assigned to the ProductSelection.
      * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:ProductSelectionMode">including or excluding</a> them explicitly.</p>
      *
-     * @deprecated
-     * @return null|string
-     */
-    public function getType()
-    {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->type = (string) $data;
-        }
-
-        return $this->type;
-    }
-
-    /**
-     * <p>Specifies in which way the Products are assigned to the ProductSelection.
-     * Currently, the only way of doing this is to specify each Product individually, either by <a href="ctp:api:type:ProductSelectionMode">including or excluding</a> them explicitly.</p>
-     *
      *
      * @return null|string
      */
@@ -459,14 +430,6 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     public function setProductCount(?int $productCount): void
     {
         $this->productCount = $productCount;
-    }
-
-    /**
-     * @param ?string $type
-     */
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     /**

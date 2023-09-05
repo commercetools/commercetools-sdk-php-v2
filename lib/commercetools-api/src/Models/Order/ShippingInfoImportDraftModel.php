@@ -110,6 +110,8 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
+     * <p>Name of the Shipping Method.</p>
+     *
      *
      * @return null|string
      */
@@ -128,6 +130,8 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
+     * <p>The base price for the Shipping Method.</p>
+     *
      *
      * @return null|Money
      */
@@ -147,7 +151,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * <p>The shipping rate used to determine the price.</p>
+     * <p>Shipping rate information for the Order.</p>
      *
      *
      * @return null|ShippingRateDraft
@@ -168,6 +172,8 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
+     * <p>Include a Tax Rate for the Shipping Method.</p>
+     *
      *
      * @return null|TaxRate
      */
@@ -187,6 +193,8 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
+     * <p>Include a value to associate a Tax Category with the shipping information.</p>
+     *
      *
      * @return null|TaxCategoryResourceIdentifier
      */
@@ -206,7 +214,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * <p>Not set if custom shipping method is used.</p>
+     * <p>Include a value to associate a Shipping Method with the Order.</p>
      *
      *
      * @return null|ShippingMethodResourceIdentifier
@@ -227,7 +235,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
+     * <p>Information on how items are to be delivered to customers.</p>
      *
      *
      * @return null|DeliveryDraftCollection
@@ -247,6 +255,8 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
+     * <p>Discounted Price of the Shipping Method.</p>
+     *
      *
      * @return null|DiscountedLineItemPriceDraft
      */
@@ -266,7 +276,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>
+     * <p>Indicates if the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> referenced is allowed for the Order or not.</p>
      *
      *
      * @return null|string

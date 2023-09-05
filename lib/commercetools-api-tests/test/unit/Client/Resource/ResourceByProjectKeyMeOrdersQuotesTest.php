@@ -96,7 +96,7 @@ class ResourceByProjectKeyMeOrdersQuotesTest extends TestCase
                         ->withProjectKey("test_projectKey")
                         ->me()
                         ->orders()
-                        ->quotes()
+                        ->orderQuote()
                         ->post(null);
                 },
                 'post',
@@ -120,7 +120,7 @@ class ResourceByProjectKeyMeOrdersQuotesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->orders()
-                        ->quotes()
+                        ->orderQuote()
                         ->post(null);
                 }
             ]
@@ -136,10 +136,87 @@ class ResourceByProjectKeyMeOrdersQuotesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->orders()
-                        ->quotes()
+                        ->orderQuote()
                         ->post(null);
                 },
                 201
+            ],
+            'ByProjectKeyMeOrdersQuotesPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->orderQuote()
+                        ->post(null);
+                },
+                400
+            ],
+            'ByProjectKeyMeOrdersQuotesPost_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->orderQuote()
+                        ->post(null);
+                },
+                401
+            ],
+            'ByProjectKeyMeOrdersQuotesPost_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->orderQuote()
+                        ->post(null);
+                },
+                403
+            ],
+            'ByProjectKeyMeOrdersQuotesPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->orderQuote()
+                        ->post(null);
+                },
+                404
+            ],
+            'ByProjectKeyMeOrdersQuotesPost_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->orderQuote()
+                        ->post(null);
+                },
+                500
+            ],
+            'ByProjectKeyMeOrdersQuotesPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->orderQuote()
+                        ->post(null);
+                },
+                502
+            ],
+            'ByProjectKeyMeOrdersQuotesPost_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->orderQuote()
+                        ->post(null);
+                },
+                503
             ],
             'ByProjectKeyMeOrdersQuotesPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -147,7 +224,7 @@ class ResourceByProjectKeyMeOrdersQuotesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->orders()
-                        ->quotes()
+                        ->orderQuote()
                         ->post(null);
                 },
                 599

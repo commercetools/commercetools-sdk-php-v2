@@ -75,7 +75,7 @@ final class OrderEditResourceIdentifierModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
      *
      * @return null|string
@@ -95,7 +95,7 @@ final class OrderEditResourceIdentifierModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
      *
      * @return null|string

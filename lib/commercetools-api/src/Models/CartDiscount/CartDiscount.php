@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -29,6 +30,7 @@ interface CartDiscount extends BaseResource
     public const FIELD_CART_PREDICATE = 'cartPredicate';
     public const FIELD_TARGET = 'target';
     public const FIELD_SORT_ORDER = 'sortOrder';
+    public const FIELD_STORES = 'stores';
     public const FIELD_IS_ACTIVE = 'isActive';
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
@@ -110,7 +112,7 @@ interface CartDiscount extends BaseResource
     public function getDescription();
 
     /**
-     * <p>Effect of the CartDiscount.</p>
+     * <p>Effect of the CartDiscount on the <code>target</code>.</p>
      *
 
      * @return null|CartDiscountValue
@@ -126,7 +128,8 @@ interface CartDiscount extends BaseResource
     public function getCartPredicate();
 
     /**
-     * <p>Sets a <a href="ctp:api:type:CartDiscountTarget">CartDiscountTarget</a>. Empty if <code>value</code> has type <code>giftLineItem</code>.</p>
+     * <p>Segment of the Cart that is discounted.</p>
+     * <p>Empty, if the <code>value</code> is <code>giftLineItem</code>.</p>
      *
 
      * @return null|CartDiscountTarget
@@ -143,6 +146,17 @@ interface CartDiscount extends BaseResource
      * @return null|string
      */
     public function getSortOrder();
+
+    /**
+     * <ul>
+     * <li>If a value exists, the Cart Discount applies on <a href="ctp:api:type:Cart">Carts</a> having a <a href="ctp:api:type:Store">Store</a> matching any Store defined for this field.</li>
+     * <li>If empty, the Cart Discount applies on all <a href="ctp:api:type:Cart">Carts</a>, irrespective of a Store.</li>
+     * </ul>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores();
 
     /**
      * <p>Indicates if the CartDiscount is active and can be applied to the Cart.</p>
@@ -265,6 +279,11 @@ interface CartDiscount extends BaseResource
      * @param ?string $sortOrder
      */
     public function setSortOrder(?string $sortOrder): void;
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void;
 
     /**
      * @param ?bool $isActive

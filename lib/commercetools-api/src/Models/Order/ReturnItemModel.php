@@ -31,6 +31,12 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -91,6 +97,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
      */
     public function __construct(
         ?string $id = null,
+        ?string $key = null,
         ?int $quantity = null,
         ?string $comment = null,
         ?string $shipmentState = null,
@@ -101,6 +108,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         ?string $type = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->quantity = $quantity;
         $this->comment = $comment;
         $this->shipmentState = $shipmentState;
@@ -112,7 +120,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
-     * <p>Unique identifier of the ReturnItem.</p>
+     * <p>Unique identifier of the Return Item.</p>
      *
      *
      * @return null|string
@@ -132,6 +140,28 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>User-defined unique identifier of the Return Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>Number of Line Items or Custom Line Items returned.</p>
+     *
      *
      * @return null|int
      */
@@ -168,6 +198,8 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>User-defined description for the return.</p>
+     *
      *
      * @return null|string
      */
@@ -186,6 +218,8 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>Shipment status of the Return Item.</p>
+     *
      *
      * @return null|string
      */
@@ -204,6 +238,12 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>Payment status of the Return Item:</p>
+     * <ul>
+     * <li><code>NonRefundable</code>, for items in the <code>Advised</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * <li><code>Initial</code>, for items in the <code>Returned</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * </ul>
+     *
      *
      * @return null|string
      */
@@ -222,7 +262,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
-     * <p>Custom Fields of this return item.</p>
+     * <p>Custom Fields of the Return Item.</p>
      *
      *
      * @return null|CustomFields
@@ -243,6 +283,8 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>Date and time (UTC) the Return Item was last updated.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -265,6 +307,8 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>Date and time (UTC) the Return Item was intitially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -293,6 +337,14 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

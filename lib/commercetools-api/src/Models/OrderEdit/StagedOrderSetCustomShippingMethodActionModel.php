@@ -95,6 +95,8 @@ final class StagedOrderSetCustomShippingMethodActionModel extends JsonObjectMode
     }
 
     /**
+     * <p>Name of the custom Shipping Method.</p>
+     *
      *
      * @return null|string
      */
@@ -113,6 +115,8 @@ final class StagedOrderSetCustomShippingMethodActionModel extends JsonObjectMode
     }
 
     /**
+     * <p>Determines the shipping price.</p>
+     *
      *
      * @return null|ShippingRateDraft
      */
@@ -132,7 +136,7 @@ final class StagedOrderSetCustomShippingMethodActionModel extends JsonObjectMode
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p>Tax Category used to determine the Tax Rate when the Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
      *
      * @return null|TaxCategoryResourceIdentifier
@@ -153,7 +157,7 @@ final class StagedOrderSetCustomShippingMethodActionModel extends JsonObjectMode
     }
 
     /**
-     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+     * <p>External Tax Rate for the <code>shippingRate</code> to be set if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
      *
      * @return null|ExternalTaxRateDraft

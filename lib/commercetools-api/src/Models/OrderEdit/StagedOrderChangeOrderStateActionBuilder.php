@@ -29,6 +29,8 @@ final class StagedOrderChangeOrderStateActionBuilder implements Builder
     private $orderState;
 
     /**
+     * <p>New status of the Order.</p>
+     *
 
      * @return null|string
      */

@@ -30,11 +30,10 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
- * @template-implements Expandable<ByProjectKeyExtensionsKeyByKeyGet>
  * @template-implements Errorable<ByProjectKeyExtensionsKeyByKeyGet>
  * @template-implements Deprecatable200<ByProjectKeyExtensionsKeyByKeyGet>
  */
-class ByProjectKeyExtensionsKeyByKeyGet extends ApiRequest implements Expandable, Errorable, Deprecatable200
+class ByProjectKeyExtensionsKeyByKeyGet extends ApiRequest implements Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -142,14 +141,5 @@ class ByProjectKeyExtensionsKeyByKeyGet extends ApiRequest implements Expandable
                 throw $e;
             }
         );
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $expand
-     */
-    public function withExpand($expand): ByProjectKeyExtensionsKeyByKeyGet
-    {
-        return $this->withQueryParam('expand', $expand);
     }
 }

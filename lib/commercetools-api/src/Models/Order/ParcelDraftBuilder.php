@@ -64,6 +64,8 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
+     * <p>Information about the dimensions for the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
@@ -73,6 +75,8 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
+     * <p>Shipment tracking information for the Parcel.</p>
+     *
 
      * @return null|TrackingData
      */
@@ -82,7 +86,7 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
-     * <p>The delivery items contained in this parcel.</p>
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
      *
 
      * @return null|DeliveryItemCollection
@@ -93,7 +97,7 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of this parcel.</p>
+     * <p>Custom Fields for the Parcel.</p>
      *
 
      * @return null|CustomFieldsDraft

@@ -113,7 +113,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     }
 
     /**
-     * <p>MoneyType supports two different values, one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
+     * <p>Type of money used.</p>
      *
      *
      * @return null|string

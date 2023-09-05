@@ -16,16 +16,28 @@ use Commercetools\Base\JsonObject;
 interface StagedOrderSetCustomLineItemShippingDetailsAction extends StagedOrderUpdateAction
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_KEY = 'customLineItemKey';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
-     * <p>For order creation and updates, the sum of the <code>targets</code> must match the quantity of the Line Items or Custom Line Items.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey();
+
+    /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
 
      * @return null|ItemShippingDetailsDraft
@@ -36,6 +48,11 @@ interface StagedOrderSetCustomLineItemShippingDetailsAction extends StagedOrderU
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void;
 
     /**
      * @param ?ItemShippingDetailsDraft $shippingDetails

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\CentPrecisionMoneyCollection;
+use Commercetools\Api\Models\Common\TypedMoneyCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -17,15 +17,15 @@ interface CartDiscountValueFixed extends CartDiscountValue
     public const FIELD_MONEY = 'money';
 
     /**
-     * <p>Cent precision money values in different currencies.</p>
+     * <p>Money values in <a href="ctp:api:type:CentPrecisionMoney">cent precision</a> or <a href="ctp:api:type:HighPrecisionMoney">high precision</a> of different currencies.</p>
      *
 
-     * @return null|CentPrecisionMoneyCollection
+     * @return null|TypedMoneyCollection
      */
     public function getMoney();
 
     /**
-     * @param ?CentPrecisionMoneyCollection $money
+     * @param ?TypedMoneyCollection $money
      */
-    public function setMoney(?CentPrecisionMoneyCollection $money): void;
+    public function setMoney(?TypedMoneyCollection $money): void;
 }

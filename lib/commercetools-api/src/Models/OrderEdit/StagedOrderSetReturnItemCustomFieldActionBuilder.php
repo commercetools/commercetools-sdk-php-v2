@@ -32,6 +32,12 @@ final class StagedOrderSetReturnItemCustomFieldActionBuilder implements Builder
 
      * @var ?string
      */
+    private $returnItemKey;
+
+    /**
+
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -41,12 +47,25 @@ final class StagedOrderSetReturnItemCustomFieldActionBuilder implements Builder
     private $value;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
 
      * @return null|string
      */
     public function getReturnItemId()
     {
         return $this->returnItemId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> to update. Either <code>returnItemId</code> or <code>returnItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getReturnItemKey()
+    {
+        return $this->returnItemKey;
     }
 
     /**
@@ -85,6 +104,17 @@ final class StagedOrderSetReturnItemCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $returnItemKey
+     * @return $this
+     */
+    public function withReturnItemKey(?string $returnItemKey)
+    {
+        $this->returnItemKey = $returnItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -111,6 +141,7 @@ final class StagedOrderSetReturnItemCustomFieldActionBuilder implements Builder
     {
         return new StagedOrderSetReturnItemCustomFieldActionModel(
             $this->returnItemId,
+            $this->returnItemKey,
             $this->name,
             $this->value
         );

@@ -55,6 +55,12 @@ final class ShoppingListLineItemBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -138,6 +144,17 @@ final class ShoppingListLineItemBuilder implements Builder
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. It is unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -260,6 +277,17 @@ final class ShoppingListLineItemBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -403,6 +431,7 @@ final class ShoppingListLineItemBuilder implements Builder
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->deactivatedAt,
             $this->id,
+            $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->productId,
             $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType,

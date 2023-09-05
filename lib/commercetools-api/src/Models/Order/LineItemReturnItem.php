@@ -16,13 +16,41 @@ interface LineItemReturnItem extends ReturnItem
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
 
     /**
+     * <p>User-defined unique identifier of the LineItemReturnItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * <p><code>id</code> of the returned <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+     * <p>Number of Line Items returned.</p>
+     *
+
+     * @return null|int
+     */
+    public function getQuantity();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
+
+    /**
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?int $quantity
+     */
+    public function setQuantity(?int $quantity): void;
 }

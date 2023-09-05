@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Money;
@@ -52,6 +54,12 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -70,21 +78,27 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
 
     /**
      *
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     *
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
 
     /**
      *
+     * @var ?ItemShippingDetailsDraft
+     */
+    protected $shippingDetails;
+
+    /**
+     *
      * @var ?string
      */
     protected $priceMode;
+
+    /**
+     *
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
 
 
     /**
@@ -93,22 +107,26 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     public function __construct(
         ?Money $money = null,
         ?LocalizedString $name = null,
+        ?string $key = null,
         ?int $quantity = null,
         ?string $slug = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
-        ?CustomFieldsDraft $custom = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?ItemShippingDetailsDraft $shippingDetails = null,
         ?string $priceMode = null,
+        ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
         $this->money = $money;
         $this->name = $name;
+        $this->key = $key;
         $this->quantity = $quantity;
         $this->slug = $slug;
         $this->taxCategory = $taxCategory;
-        $this->custom = $custom;
         $this->externalTaxRate = $externalTaxRate;
+        $this->shippingDetails = $shippingDetails;
         $this->priceMode = $priceMode;
+        $this->custom = $custom;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -131,7 +149,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Money value of the Custom Line Item. The value can be negative.</p>
      *
      *
      * @return null|Money
@@ -152,7 +170,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Name of the Custom Line Item.</p>
      *
      *
      * @return null|LocalizedString
@@ -173,6 +191,28 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>Number of Custom Line Items to add to the Cart.</p>
+     *
      *
      * @return null|int
      */
@@ -191,6 +231,8 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>User-defined identifier used in a deep-link URL for the Custom Line Item. It must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -209,7 +251,8 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p>Used to select a Tax Rate when a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.
+     * If <a href="ctp:api:type:TaxMode">TaxMode</a> is <code>Platform</code>, this field must not be empty.</p>
      *
      *
      * @return null|TaxCategoryResourceIdentifier
@@ -230,28 +273,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
-     *
-     *
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+     * <p>An external Tax Rate can be set if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
      *
      * @return null|ExternalTaxRateDraft
@@ -269,6 +291,27 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         }
 
         return $this->externalTaxRate;
+    }
+
+    /**
+     * <p>Container for Custom Line Item-specific addresses.</p>
+     *
+     *
+     * @return null|ItemShippingDetailsDraft
+     */
+    public function getShippingDetails()
+    {
+        if (is_null($this->shippingDetails)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
+        }
+
+        return $this->shippingDetails;
     }
 
     /**
@@ -295,6 +338,27 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         return $this->priceMode;
     }
 
+    /**
+     * <p>Custom Fields for the Custom Line Item.</p>
+     *
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?Money $money
@@ -310,6 +374,14 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**
@@ -337,14 +409,6 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
-     */
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    /**
      * @param ?ExternalTaxRateDraft $externalTaxRate
      */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
@@ -353,10 +417,26 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
+    public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
+    {
+        $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
      * @param ?string $priceMode
      */
     public function setPriceMode(?string $priceMode): void
     {
         $this->priceMode = $priceMode;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

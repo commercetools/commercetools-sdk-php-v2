@@ -42,7 +42,7 @@ final class SyncInfoBuilder implements Builder
     private $syncedAt;
 
     /**
-     * <p>Connection to a particular synchronization destination.</p>
+     * <p>Connection to a synchronization destination.</p>
      *
 
      * @return null|ChannelReference
@@ -53,7 +53,7 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
-     * <p>Can be used to reference an external order instance, file etc.</p>
+     * <p>Identifier of an external order instance, file, or other resource.</p>
      *
 
      * @return null|string
@@ -64,6 +64,8 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the information was synced.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

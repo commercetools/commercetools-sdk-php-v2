@@ -33,7 +33,7 @@ final class MyOrderFromCartDraftBuilder implements Builder
     private $version;
 
     /**
-     * <p>Unique identifier of the Cart that initiates an Order creation.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Cart">Cart</a> from which the Order is created.</p>
      *
 
      * @return null|string
@@ -44,6 +44,8 @@ final class MyOrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * <p>Current <code>version</code> of the <a href="ctp:api:type:Cart">Cart</a> from which the Order is created.</p>
+     *
 
      * @return null|int
      */

@@ -53,6 +53,8 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     }
 
     /**
+     * <p>Information on the Line Items or Custom Line Items returned.</p>
+     *
      *
      * @return null|ReturnItemCollection
      */
@@ -71,7 +73,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     }
 
     /**
-     * <p>Identifies, which return tracking ID is connected to this particular return.</p>
+     * <p>User-defined identifier to track the return.</p>
      *
      *
      * @return null|string
@@ -91,6 +93,8 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     }
 
     /**
+     * <p>Date and time (UTC) the return is initiated.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

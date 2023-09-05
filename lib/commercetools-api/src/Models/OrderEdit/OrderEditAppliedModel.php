@@ -62,6 +62,8 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     }
 
     /**
+     * <p>This field is queryable.</p>
+     *
      *
      * @return null|string
      */
@@ -80,6 +82,8 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     }
 
     /**
+     * <p>Date and time (UTC) the Order was edited.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -102,6 +106,8 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     }
 
     /**
+     * <p>Prices of the Order before the edit.</p>
+     *
      *
      * @return null|OrderExcerpt
      */
@@ -121,6 +127,8 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     }
 
     /**
+     * <p>Prices of the Order after the edit.</p>
+     *
      *
      * @return null|OrderExcerpt
      */

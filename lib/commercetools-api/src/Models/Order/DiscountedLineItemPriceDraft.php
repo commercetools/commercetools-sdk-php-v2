@@ -19,7 +19,7 @@ interface DiscountedLineItemPriceDraft extends JsonObject
     public const FIELD_INCLUDED_DISCOUNTS = 'includedDiscounts';
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Discounted money value.</p>
      *
 
      * @return null|Money
@@ -27,6 +27,8 @@ interface DiscountedLineItemPriceDraft extends JsonObject
     public function getValue();
 
     /**
+     * <p>Discounts to be applied.</p>
+     *
 
      * @return null|DiscountedLineItemPortionCollection
      */

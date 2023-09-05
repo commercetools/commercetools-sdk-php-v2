@@ -35,6 +35,8 @@ final class ItemStateBuilder implements Builder
     private $state;
 
     /**
+     * <p>Number of Line Items or Custom Line Items in this State.</p>
+     *
 
      * @return null|int
      */
@@ -44,6 +46,8 @@ final class ItemStateBuilder implements Builder
     }
 
     /**
+     * <p>State of the Line Items or Custom Line Items in a custom workflow.</p>
+     *
 
      * @return null|StateReference
      */

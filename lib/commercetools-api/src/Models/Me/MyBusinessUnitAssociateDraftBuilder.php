@@ -62,7 +62,7 @@ final class MyBusinessUnitAssociateDraftBuilder implements Builder
     }
 
     /**
-     * <p>Roles assigned to the new Associate within a Business Unit.</p>
+     * <p>Roles assigned to the new Associate within a Business Unit. Can only contain <a href="ctp:api:type:AssociateRole">AssociateRoles</a> with the <code>buyerAssignable</code> property set to <code>true</code>.</p>
      *
 
      * @return null|AssociateRoleAssignmentDraftCollection

@@ -92,18 +92,6 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeySubscriptionsKeyByKeyGet_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->subscriptions()
-                        ->withKey('test_key')
-                        ->get()
-                        ->withExpand('expand');
-                },
-                'get',
-                'test_projectKey/subscriptions/key=test_key?expand=expand',
-            ],
             'ByProjectKeySubscriptionsKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -114,18 +102,6 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                 },
                 'get',
                 'test_projectKey/subscriptions/key=test_key',
-            ],
-            'ByProjectKeySubscriptionsKeyByKeyPost_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->subscriptions()
-                        ->withKey('test_key')
-                        ->post(null)
-                        ->withExpand('expand');
-                },
-                'post',
-                'test_projectKey/subscriptions/key=test_key?expand=expand',
             ],
             'ByProjectKeySubscriptionsKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -149,18 +125,6 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                 },
                 'delete',
                 'test_projectKey/subscriptions/key=test_key?version=version',
-            ],
-            'ByProjectKeySubscriptionsKeyByKeyDelete_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->subscriptions()
-                        ->withKey('test_key')
-                        ->delete()
-                        ->withExpand('expand');
-                },
-                'delete',
-                'test_projectKey/subscriptions/key=test_key?expand=expand',
             ],
             'ByProjectKeySubscriptionsKeyByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

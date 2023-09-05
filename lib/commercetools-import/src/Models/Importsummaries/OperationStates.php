@@ -19,6 +19,7 @@ interface OperationStates extends JsonObject
     public const FIELD_WAIT_FOR_MASTER_VARIANT = 'waitForMasterVariant';
     public const FIELD_IMPORTED = 'imported';
     public const FIELD_REJECTED = 'rejected';
+    public const FIELD_CANCELED = 'canceled';
 
     /**
      * <p>The number of resources in the <code>processing</code> state.</p>
@@ -69,6 +70,14 @@ interface OperationStates extends JsonObject
     public function getRejected();
 
     /**
+     * <p>The number of resources in the <code>canceled</code> state.</p>
+     *
+
+     * @return null|int
+     */
+    public function getCanceled();
+
+    /**
      * @param ?int $processing
      */
     public function setProcessing(?int $processing): void;
@@ -97,4 +106,9 @@ interface OperationStates extends JsonObject
      * @param ?int $rejected
      */
     public function setRejected(?int $rejected): void;
+
+    /**
+     * @param ?int $canceled
+     */
+    public function setCanceled(?int $canceled): void;
 }

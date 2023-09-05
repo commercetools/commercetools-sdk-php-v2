@@ -65,6 +65,8 @@ final class StagedOrderChangePaymentStateActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>New payment status of the Order.</p>
+     *
      *
      * @return null|string
      */

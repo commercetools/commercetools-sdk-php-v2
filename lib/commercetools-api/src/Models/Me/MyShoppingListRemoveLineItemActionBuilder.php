@@ -28,12 +28,18 @@ final class MyShoppingListRemoveLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemKey;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
      *
 
      * @return null|string
@@ -41,6 +47,17 @@ final class MyShoppingListRemoveLineItemActionBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>The <code>key</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update. Either <code>lineItemId</code> or <code>lineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemKey()
+    {
+        return $this->lineItemKey;
     }
 
     /**
@@ -66,6 +83,17 @@ final class MyShoppingListRemoveLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemKey
+     * @return $this
+     */
+    public function withLineItemKey(?string $lineItemKey)
+    {
+        $this->lineItemKey = $lineItemKey;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $quantity
      * @return $this
      */
@@ -81,6 +109,7 @@ final class MyShoppingListRemoveLineItemActionBuilder implements Builder
     {
         return new MyShoppingListRemoveLineItemActionModel(
             $this->lineItemId,
+            $this->lineItemKey,
             $this->quantity
         );
     }

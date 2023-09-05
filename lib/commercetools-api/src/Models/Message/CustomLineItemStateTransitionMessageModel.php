@@ -103,6 +103,12 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
 
     /**
      *
+     * @var ?string
+     */
+    protected $customLineItemKey;
+
+    /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $transitionDate;
@@ -141,6 +147,7 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $customLineItemId = null,
+        ?string $customLineItemKey = null,
         ?DateTimeImmutable $transitionDate = null,
         ?int $quantity = null,
         ?StateReference $fromState = null,
@@ -158,6 +165,7 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItemKey = $customLineItemKey;
         $this->transitionDate = $transitionDate;
         $this->quantity = $quantity;
         $this->fromState = $fromState;
@@ -419,6 +427,26 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     }
 
     /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemKey()
+    {
+        if (is_null($this->customLineItemKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemKey = (string) $data;
+        }
+
+        return $this->customLineItemKey;
+    }
+
+    /**
      * <p>Date and time (UTC) when the transition of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a> <a href="ctp:api:type:State">State</a> was performed.</p>
      *
      *
@@ -591,6 +619,14 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void
+    {
+        $this->customLineItemKey = $customLineItemKey;
     }
 
     /**

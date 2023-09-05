@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftBuilder;
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\Money;
@@ -46,6 +48,12 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -64,15 +72,15 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
 
     /**
 
-     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
+
+    /**
+
+     * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
+     */
+    private $shippingDetails;
 
     /**
 
@@ -81,7 +89,13 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     private $priceMode;
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>Money value of the Custom Line Item. The value can be negative.</p>
      *
 
      * @return null|Money
@@ -92,7 +106,7 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Name of the Custom Line Item.</p>
      *
 
      * @return null|LocalizedString
@@ -103,6 +117,19 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Number of Custom Line Items to add to the Cart.</p>
+     *
 
      * @return null|int
      */
@@ -112,6 +139,8 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier used in a deep-link URL for the Custom Line Item. It must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
+     *
 
      * @return null|string
      */
@@ -121,7 +150,8 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p>Used to select a Tax Rate when a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.
+     * If <a href="ctp:api:type:TaxMode">TaxMode</a> is <code>Platform</code>, this field must not be empty.</p>
      *
 
      * @return null|TaxCategoryResourceIdentifier
@@ -132,18 +162,7 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
-     *
-
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * <p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+     * <p>An external Tax Rate can be set if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
      *
 
      * @return null|ExternalTaxRateDraft
@@ -151,6 +170,17 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     public function getExternalTaxRate()
     {
         return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+    }
+
+    /**
+     * <p>Container for Custom Line Item-specific addresses.</p>
+     *
+
+     * @return null|ItemShippingDetailsDraft
+     */
+    public function getShippingDetails()
+    {
+        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
     }
 
     /**
@@ -166,6 +196,17 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     public function getPriceMode()
     {
         return $this->priceMode;
+    }
+
+    /**
+     * <p>Custom Fields for the Custom Line Item.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -186,6 +227,17 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     public function withName(?LocalizedString $name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -224,17 +276,6 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
@@ -246,12 +287,34 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     * @return $this
+     */
+    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $priceMode
      * @return $this
      */
     public function withPriceMode(?string $priceMode)
     {
         $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -290,17 +353,6 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withExternalTaxRate() instead
      * @return $this
      */
@@ -311,17 +363,41 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withShippingDetails() instead
+     * @return $this
+     */
+    public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): StagedOrderAddCustomLineItemAction
     {
         return new StagedOrderAddCustomLineItemActionModel(
             $this->money instanceof MoneyBuilder ? $this->money->build() : $this->money,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->key,
             $this->quantity,
             $this->slug,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
-            $this->priceMode
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->priceMode,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

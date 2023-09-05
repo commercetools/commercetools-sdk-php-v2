@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\QuoteRequest;
 
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
@@ -60,6 +61,7 @@ interface QuoteRequest extends BaseResource
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STATE = 'state';
     public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
+    public const FIELD_CART = 'cart';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
 
     /**
@@ -322,6 +324,14 @@ interface QuoteRequest extends BaseResource
     public function getPurchaseOrderNumber();
 
     /**
+     * <p>The <a href="ctp:api:type:Cart">Cart</a> from which a Quote is requested.</p>
+     *
+
+     * @return null|CartReference
+     */
+    public function getCart();
+
+    /**
      * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request.</p>
      *
 
@@ -483,6 +493,11 @@ interface QuoteRequest extends BaseResource
      * @param ?string $purchaseOrderNumber
      */
     public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
+
+    /**
+     * @param ?CartReference $cart
+     */
+    public function setCart(?CartReference $cart): void;
 
     /**
      * @param ?BusinessUnitKeyReference $businessUnit

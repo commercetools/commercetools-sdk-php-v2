@@ -19,6 +19,7 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
 {
     public const FIELD_MONEY = 'money';
     public const FIELD_NAME = 'name';
+    public const FIELD_KEY = 'key';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_SLUG = 'slug';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
@@ -43,6 +44,14 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
      * @return null|LocalizedString
      */
     public function getName();
+
+    /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Number of Custom Line Items to add to the Cart.</p>
@@ -115,6 +124,11 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?int $quantity

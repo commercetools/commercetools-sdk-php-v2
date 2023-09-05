@@ -16,14 +16,14 @@ use Commercetools\Base\JsonObject;
 interface OrderAddDeliveryAction extends OrderUpdateAction
 {
     public const FIELD_DELIVERY_KEY = 'deliveryKey';
-    public const FIELD_ITEMS = 'items';
     public const FIELD_SHIPPING_KEY = 'shippingKey';
+    public const FIELD_ITEMS = 'items';
     public const FIELD_ADDRESS = 'address';
     public const FIELD_PARCELS = 'parcels';
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier of a Delivery.</p>
+     * <p><code>key</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
      * @return null|string
@@ -31,13 +31,7 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     public function getDeliveryKey();
 
     /**
-
-     * @return null|DeliveryItemCollection
-     */
-    public function getItems();
-
-    /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>, required for <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|string
@@ -45,9 +39,15 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     public function getShippingKey();
 
     /**
-     * <p>Polymorphic base type that represents a postal address and contact details.
-     * Depending on the read or write action, it can be either <a href="ctp:api:type:Address">Address</a> or <a href="ctp:api:type:AddressDraft">AddressDraft</a> that
-     * only differ in the data type for the optional <code>custom</code> field.</p>
+     * <p>Line Items or Custom Line Items to be included in the Delivery.</p>
+     *
+
+     * @return null|DeliveryItemCollection
+     */
+    public function getItems();
+
+    /**
+     * <p>Address the <code>parcels</code> should be delivered to.</p>
      *
 
      * @return null|BaseAddress
@@ -55,13 +55,16 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     public function getAddress();
 
     /**
+     * <p>Parcels of the Delivery.</p>
+     * <p>If provided, this update action produces the <a href="ctp:api:type:ParcelAddedToDeliveryMessage">Parcel Added To Delivery</a> Message.</p>
+     *
 
      * @return null|ParcelDraftCollection
      */
     public function getParcels();
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields for the Delivery.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -74,14 +77,14 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     public function setDeliveryKey(?string $deliveryKey): void;
 
     /**
-     * @param ?DeliveryItemCollection $items
-     */
-    public function setItems(?DeliveryItemCollection $items): void;
-
-    /**
      * @param ?string $shippingKey
      */
     public function setShippingKey(?string $shippingKey): void;
+
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
+    public function setItems(?DeliveryItemCollection $items): void;
 
     /**
      * @param ?BaseAddress $address

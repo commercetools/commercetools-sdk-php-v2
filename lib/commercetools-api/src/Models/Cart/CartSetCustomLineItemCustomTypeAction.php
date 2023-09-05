@@ -16,16 +16,25 @@ use Commercetools\Base\JsonObject;
 interface CartSetCustomLineItemCustomTypeAction extends CartUpdateAction
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_KEY = 'customLineItemKey';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
      *
 
      * @return null|string
      */
     public function getCustomLineItemId();
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to update. Either <code>customLineItemId</code> or <code>customLineItemKey</code> is required.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemKey();
 
     /**
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the CustomLineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
@@ -48,6 +57,11 @@ interface CartSetCustomLineItemCustomTypeAction extends CartUpdateAction
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $customLineItemKey
+     */
+    public function setCustomLineItemKey(?string $customLineItemKey): void;
 
     /**
      * @param ?TypeResourceIdentifier $type

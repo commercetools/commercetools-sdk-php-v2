@@ -24,24 +24,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
 
      * @var ?string
      */
-    private $paymentId;
-
-    /**
-
-     * @var ?string
-     */
     private $interfaceCode;
-
-    /**
-     * <p>Unique identifier for the <a href="ctp:api:type:Payment">Payment</a> for which the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action was applied.</p>
-     *
-
-     * @return null|string
-     */
-    public function getPaymentId()
-    {
-        return $this->paymentId;
-    }
 
     /**
      * <p>The <code>interfaceCode</code> that was set during the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action.</p>
@@ -52,17 +35,6 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     public function getInterfaceCode()
     {
         return $this->interfaceCode;
-    }
-
-    /**
-     * @param ?string $paymentId
-     * @return $this
-     */
-    public function withPaymentId(?string $paymentId)
-    {
-        $this->paymentId = $paymentId;
-
-        return $this;
     }
 
     /**
@@ -80,7 +52,6 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     public function build(): PaymentStatusInterfaceCodeSetMessagePayload
     {
         return new PaymentStatusInterfaceCodeSetMessagePayloadModel(
-            $this->paymentId,
             $this->interfaceCode
         );
     }

@@ -375,7 +375,7 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
-     * <p><a href="ctp:api:type:Delivery">Delivery</a> that was added to the <a href="ctp:api:type:Order">Order</a>. The <a href="ctp:api:type:Delivery">Delivery</a> in the Message body does not contain <a href="ctp:api:type:Parcel">Parcels</a> if those were part of the initial <a href="ctp:api:type:OrderAddDeliveryAction">Add Delivery</a> update action. In that case, the update action produces an additional <a href="ctp:api:type:ParcelAddedToDeliveryMessage">ParcelAddedToDelivery</a> Message containing information about the <a href="ctp:api:type:Parcel">Parcels</a>.</p>
+     * <p><a href="ctp:api:type:Delivery">Delivery</a> that was added to the <a href="ctp:api:type:Order">Order</a>. The <a href="ctp:api:type:Delivery">Delivery</a> in the Message body does not contain <a href="ctp:api:type:Parcel">Parcels</a> if those were part of the initial <a href="ctp:api:type:OrderAddDeliveryAction">Add Delivery</a> update action. In that case, the update action produces an additional <a href="ctp:api:type:ParcelAddedToDeliveryMessage">Parcel Added To Delivery</a> Message containing information about the <a href="ctp:api:type:Parcel">Parcels</a>.</p>
      *
      *
      * @return null|Delivery
@@ -396,7 +396,7 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|string

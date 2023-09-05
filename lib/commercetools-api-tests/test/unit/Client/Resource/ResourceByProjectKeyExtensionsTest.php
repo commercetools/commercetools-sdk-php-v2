@@ -102,17 +102,6 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyExtensionsGet_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->extensions()
-                        ->get()
-                        ->withExpand('expand');
-                },
-                'get',
-                'test_projectKey/extensions?expand=expand',
-            ],
             'ByProjectKeyExtensionsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -188,17 +177,6 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                 },
                 'get',
                 'test_projectKey/extensions',
-            ],
-            'ByProjectKeyExtensionsPost_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->extensions()
-                        ->post(null)
-                        ->withExpand('expand');
-                },
-                'post',
-                'test_projectKey/extensions?expand=expand',
             ],
             'ByProjectKeyExtensionsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

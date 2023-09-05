@@ -20,7 +20,7 @@ use stdClass;
  */
 final class StandalonePriceSetPriceTiersActionModel extends JsonObjectModel implements StandalonePriceSetPriceTiersAction
 {
-    public const DISCRIMINATOR_VALUE = 'setPriceTier';
+    public const DISCRIMINATOR_VALUE = 'setPriceTiers';
     /**
      *
      * @var ?string
