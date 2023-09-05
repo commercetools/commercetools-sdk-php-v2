@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -159,7 +159,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="../../ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+<p>External Tax Rate for the <code>shippingRate</code> to be set if the <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> has the <code>External</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ExternalTaxRateDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/dbc/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_custom_shipping_method_action_model.html#a68b2490a056aabf707508debf25f326b">Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomShippingMethodActionModel</a>.</p>
@@ -180,6 +180,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Name of the custom Shipping Method.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/dbc/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_custom_shipping_method_action_model.html#aeb62a119407a71555c285f6b0f256d9a">Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomShippingMethodActionModel</a>.</p>
@@ -200,6 +201,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Determines the shipping price.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingRateDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/dbc/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_custom_shipping_method_action_model.html#a2fd5a870bf13a505411b1b4da0a0e61e">Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomShippingMethodActionModel</a>.</p>
@@ -220,7 +222,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="../../ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+<p>Tax <a class="el" href="../../d0/d4e/namespace_commercetools_1_1_api_1_1_models_1_1_category.html">Category</a> used to determine the Tax Rate when the <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> has the <code>Platform</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxCategoryResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/dbc/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_custom_shipping_method_action_model.html#ad4ff77f6728bbb71537d161a61e0b83a">Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomShippingMethodActionModel</a>.</p>

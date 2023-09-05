@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -174,7 +174,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>String that uniquely identifies an order. It can be used to create more human-readable (in contrast to ID) identifier for the order. It should be unique across a project. Once it's set it cannot be changed. For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
+<p>User-defined identifier for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> that is unique across a <a class="el" href="../../da/d59/namespace_commercetools_1_1_api_1_1_models_1_1_project.html">Project</a>. Once set, the value cannot be changed.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/dd7/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_quote_draft_model.html#a174d72bd06c35eb9d972643b01f57534">Commercetools\Api\Models\Order\OrderFromQuoteDraftModel</a>.</p>
@@ -195,7 +195,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> will be created with <code>Open</code> status by default.</p>
+<p>Current status for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/dd7/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_quote_draft_model.html#a845f6b93770c2f83231d79d9adfbaeaa">Commercetools\Api\Models\Order\OrderFromQuoteDraftModel</a>.</p>
@@ -216,7 +216,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="../../dd/d3d/namespace_commercetools_1_1_api_1_1_models_1_1_payment.html">Payment</a> state of the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
+<p><a class="el" href="../../dd/d3d/namespace_commercetools_1_1_api_1_1_models_1_1_payment.html">Payment</a> status for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/dd7/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_quote_draft_model.html#ace15492352ddc79622964aecf74ea446">Commercetools\Api\Models\Order\OrderFromQuoteDraftModel</a>.</p>
@@ -237,7 +237,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ResourceIdentifier of the <a class="el" href="../../d5/d1e/namespace_commercetools_1_1_api_1_1_models_1_1_quote.html">Quote</a> from which this <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> is created. If the <a class="el" href="../../d5/d1e/namespace_commercetools_1_1_api_1_1_models_1_1_quote.html">Quote</a> has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also fail if the <code><a class="el" href="../../d5/d1e/namespace_commercetools_1_1_api_1_1_models_1_1_quote.html">Quote</a></code> has expired (<code>validTo</code> check).</p>
+<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the <a class="el" href="../../d5/d1e/namespace_commercetools_1_1_api_1_1_models_1_1_quote.html">Quote</a> from which the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> is created. If the referenced <a href="../../ctp:api:type:Quote">Quote</a> has expired (<code>validTo</code> check) or its <code>quoteState</code> is <code>Accepted</code>, <code>Declined</code>, or <code>Withdrawn</code>, the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> creation will fail.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|QuoteResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/dd7/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_quote_draft_model.html#a01bf677a708b772cc10737cffaed006d">Commercetools\Api\Models\Order\OrderFromQuoteDraftModel</a>.</p>
@@ -279,7 +279,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Shipment state of the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
+<p>Shipment status for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/dd7/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_quote_draft_model.html#a1b17a3e2aad09ab3a72a1d234433f8ea">Commercetools\Api\Models\Order\OrderFromQuoteDraftModel</a>.</p>
@@ -300,7 +300,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:Reference">Reference</a> to a <a href="../../ctp:api:type:State">State</a> indicating the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>'s state.</p>
+<p><a class="el" href="../../d2/dac/namespace_commercetools_1_1_api_1_1_models_1_1_state.html">State</a> of the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> in a custom workflow.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StateResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/dd7/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_quote_draft_model.html#af1c9fbd2f797b396ba720f1531336524">Commercetools\Api\Models\Order\OrderFromQuoteDraftModel</a>.</p>
@@ -321,7 +321,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>version</code> of the <a href="../../ctp:api:type:Quote">Quote</a> from which an <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> is created.</p>
+<p><code>version</code> of the <a href="../../ctp:api:type:Quote">Quote</a> from which the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/dd7/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_quote_draft_model.html#a8dc1be1e63550a19299cdbe0102846b6">Commercetools\Api\Models\Order\OrderFromQuoteDraftModel</a>.</p>

@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -867,9 +867,9 @@ Additional Inherited Members</h2></td></tr>
 <p>This field is only present on:</p>
 <ul>
 <li>
-Line Items in a <a href="../../ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> at the time the Line Item was created or updated on the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a>. </li>
+Line Items in a <a href="../../ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> at the time the <a class="el" href="../../d5/dbd/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_line_item.html">LineItem</a> was created or updated on the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a>. </li>
 <li>
-<a href="../../ctp:api:type:Order">Orders</a> when the <code>key</code> is available on the specific <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> at the time the <a class="el" href="../../d4/df4/namespace_commercetools_1_1_api_1_1_models_1_1_order.html">Order</a> was created from the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a>. </li>
+Line Items in an <a href="../../ctp:api:type:Order">Order</a> when the <code>key</code> is available on the specific <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> at the time the <a class="el" href="../../d4/df4/namespace_commercetools_1_1_api_1_1_models_1_1_order.html">Order</a> was created from the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a>. </li>
 </ul>
 <p>Present on resources created or updated after 3 December 2021.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
@@ -943,7 +943,7 @@ Line Items in a <a href="../../ctp:api:type:Cart">Cart</a> when the <code>key</c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of Line Items of the given <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Variant present in the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a>.</p>
+<p>Number of Line Items of the given <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Variant present in the <a href="../../ctp:api:type:Cart">Cart</a> or <a href="../../ctp:api:type:Order">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
@@ -991,7 +991,7 @@ Line Items in a <a href="../../ctp:api:type:Cart">Cart</a> when the <code>key</c
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="../../d2/dac/namespace_commercetools_1_1_api_1_1_models_1_1_state.html">State</a> of the Line Item in the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a>.</p>
+<p><a class="el" href="../../d2/dac/namespace_commercetools_1_1_api_1_1_models_1_1_state.html">State</a> of the Line Item in the <a href="../../ctp:api:type:Cart">Cart</a> or the <a href="../../ctp:api:type:Order">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ItemStateCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 

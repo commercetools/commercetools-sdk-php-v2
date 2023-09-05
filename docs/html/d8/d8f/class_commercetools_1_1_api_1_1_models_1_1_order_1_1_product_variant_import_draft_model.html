@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -234,13 +234,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If this property is defined, then it will override the <code>attributes</code> property from the original product variant, otherwise <code>attributes</code> property from the original product variant would be copied in the resulting order.</p>
+<p>The <a href="../../ctp:api:type:Attribute">Attributes</a> of the <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Variant if you want to override the <code>attributes</code> property in the referenced <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>. If not set, the <code>attributes</code> from the referenced <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> are copied to the resulting <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|AttributeCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#a945d62bd7406034a78c143e8f5c30687">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00144">144</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00143">143</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -258,13 +258,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The sequential ID of the variant within the product. The variant with provided ID should exist in some existing product, so you also need to specify the productId if this property is set, or alternatively you can just specify SKU of the product variant.</p>
+<p>The <code>id</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>. Required if you do not set a value for <code>sku</code>. If set, you must specify a <code>productId</code> in the <a href="../../ctp:api:type:LineItemImportDraft">LineItemImportDraft</a> also.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#af8262298ad427337e8a65cf54842baa3">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00081">81</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00080">80</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -282,13 +282,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If this property is defined, then it will override the <code>images</code> property from the original product variant, otherwise <code>images</code> property from the original product variant would be copied in the resulting order.</p>
+<p>The <a href="../../ctp:api:type:Image">Images</a> of the <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Variant if you want to override the <code>images</code> property in the referenced <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>. If not set, the <code>images</code> from the referenced <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> are copied to the resulting <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ImageCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#aadd2c32e47e26e3f03f346230bdb476d">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00165">165</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00164">164</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -306,13 +306,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The <a href="../../ctp:api:type:Price">Embedded Prices</a> of the variant. The prices should not contain two prices for the same price scope (same currency, country, customer group, channel, valid from and valid until). If this property is defined, then it will override the <code>prices</code> property from the original product variant, otherwise <code>prices</code> property from the original product variant would be copied in the resulting order.</p>
+<p>The <a href="../../ctp:api:type:Price">Prices</a> of the <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Variant if you want to override the <code>prices</code> property in the referenced <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>. If not set, the <code>prices</code> from the referenced <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> are used in the resulting <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>. If set, each Price must have its unique price scope (same <code>value.currencyCode</code>, <code>country</code>, <code>customerGroup</code>, <code>channel</code>, <code>validFrom</code> and <code>validUntil</code>).</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceDraftCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#aa54b348c75b5dbdfecd8acd0bf58e67e">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00123">123</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00122">122</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -330,13 +330,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The SKU of the existing variant.</p>
+<p>The <code>sku</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>. Required if you do not set a value for <code>id</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#ad39ff7a9ba81ea09d2774aa81099e7bb">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00101">101</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00100">100</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -364,7 +364,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#a2ebc98d6b423cc2e363e519d682e7428">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00207">207</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00206">206</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -392,7 +392,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#afea6d9c2a2bb7c7983a5631ef27aef6a">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00183">183</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00182">182</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -420,7 +420,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#a8ba60ebd5ea14eca765eba8734ca5996">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00215">215</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00214">214</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -448,7 +448,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#a672c9b29e0c86d10d6c272cefcc8f2ac">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00199">199</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00198">198</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -476,7 +476,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/dd4/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_product_variant_import_draft.html#ae683aa19941f2a3f6c71398de2db948d">Commercetools\Api\Models\Order\ProductVariantImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00191">191</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html#l00190">190</a> of file <a class="el" href="../../d9/d81/_product_variant_import_draft_model_8php_source.html">ProductVariantImportDraftModel.php</a>.</p>
 
 </div>
 </div>

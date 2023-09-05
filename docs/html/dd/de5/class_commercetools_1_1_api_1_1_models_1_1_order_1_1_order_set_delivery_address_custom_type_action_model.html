@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -265,13 +265,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+<p><code>id</code> of an existing <a href="../../ctp:api:type:Delivery">Delivery</a>.</p>
+<p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d9/dce/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_address_custom_type_action.html#abb9818dc3f431760d914938637d8214c">Commercetools\Api\Models\Order\OrderSetDeliveryAddressCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00099">99</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00100">100</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -289,13 +290,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+<p><code>key</code> of an existing <a href="../../ctp:api:type:Delivery">Delivery</a>.</p>
+<p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d9/dce/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_address_custom_type_action.html#aedf58d0d9f4f4587ab48d6c6c01fee83">Commercetools\Api\Models\Order\OrderSetDeliveryAddressCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00119">119</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00121">121</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -313,13 +315,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the <a href="../..//../api/projects/custom-fields">Custom Fields</a> fields for the <code>address</code> in a <a class="el" href="../../d9/d53/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery.html">Delivery</a>.</p>
+<p>Sets the <a href="../..//../api/projects/custom-fields">Custom Fields</a> fields for the <a href="../../ctp:api:type:Delivery">Delivery</a> <code>address</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|FieldContainer </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d9/dce/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_address_custom_type_action.html#ab8e5d926568e1f9996b83e822bccd2cf">Commercetools\Api\Models\Order\OrderSetDeliveryAddressCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00161">161</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00163">163</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -337,13 +339,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the <code>address</code> in a <a class="el" href="../../d9/d53/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery.html">Delivery</a> with <a href="../..//../api/projects/custom-fields">Custom Fields</a>. If absent, any existing <a class="el" href="../../d3/d91/namespace_commercetools_1_1_api_1_1_models_1_1_type.html">Type</a> and Custom Fields are removed from the <code>address</code> in a <a class="el" href="../../d9/d53/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery.html">Delivery</a>.</p>
+<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the <a href="../../ctp:api:type:Delivery">Delivery</a> <code>address</code> with <a href="../..//../api/projects/custom-fields">Custom Fields</a>. If absent, any existing <a class="el" href="../../d3/d91/namespace_commercetools_1_1_api_1_1_models_1_1_type.html">Type</a> and Custom Fields are removed from the <a href="../../ctp:api:type:Delivery">Delivery</a> <code>address</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypeResourceIdentifier </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d9/dce/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_address_custom_type_action.html#a6b6cc3544ee3128acb33aa936557bc21">Commercetools\Api\Models\Order\OrderSetDeliveryAddressCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00140">140</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00142">142</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -371,7 +373,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/dce/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_address_custom_type_action.html#a056cee98476ffa10a6948f868f0e62cc">Commercetools\Api\Models\Order\OrderSetDeliveryAddressCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00180">180</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00182">182</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -399,7 +401,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/dce/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_address_custom_type_action.html#ac59f16d595786074181265b42c5681ab">Commercetools\Api\Models\Order\OrderSetDeliveryAddressCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00188">188</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00190">190</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -427,7 +429,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/dce/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_address_custom_type_action.html#a55e536d9e347ef2b7eae10a75116df20">Commercetools\Api\Models\Order\OrderSetDeliveryAddressCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00204">204</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00206">206</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -455,7 +457,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/dce/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_address_custom_type_action.html#a9cbd3b05bd43c1c9d3e47621289752ae">Commercetools\Api\Models\Order\OrderSetDeliveryAddressCustomTypeAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00196">196</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html#l00198">198</a> of file <a class="el" href="../../de/db6/_order_set_delivery_address_custom_type_action_model_8php_source.html">OrderSetDeliveryAddressCustomTypeActionModel.php</a>.</p>
 
 </div>
 </div>

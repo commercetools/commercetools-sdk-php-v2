@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -304,13 +304,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ResourceIdentifier of the <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> from which the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> is created.</p>
+<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> from which the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> is created.</p>
+<p>This field is required, but is marked as optional for backwards compatibility reasons.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CartResourceIdentifier </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d6/d17/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_cart_draft.html#ae5fc312ee31ad2ee5bd4fac3598bd7de">Commercetools\Api\Models\Order\OrderFromCartDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00142">142</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00143">143</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -328,7 +329,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../..//../api/projects/custom-fields">Custom Fields</a> for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>. The Custom Field type must match the type of the Custom Fields in the referenced <a href="../..//../api/projects/carts#cart">Cart</a>. If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="../..//../api/projects/carts#cart">Cart</a> and added to the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>. If empty, the Custom Fields on the referenced <a href="../..//../api/projects/carts#cart">Cart</a> are added to the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> automatically.</p>
+<p>Custom Fields for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>. The Custom Fields' type must match the Custom Fields' type in the referenced <a href="../../ctp:api:type:Cart">Cart</a>.</p>
+<ul>
+<li>
+If empty, the Custom Fields on the referenced <a href="../../ctp:api:type:Cart">Cart</a> are added to the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> automatically. </li>
+<li>
+If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="../../ctp:api:type:Cart">Cart</a> and added to the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomFieldsDraft </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -352,8 +359,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Unique identifier of the <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> from which you can create an <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001761">Deprecated:</a></b></dt><dd></dd></dl>
+<p><code>id</code> of the <a href="../../ctp:api:type:Cart">Cart</a> used to create the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated001829">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -377,13 +384,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>String that uniquely identifies an order. It can be used to create more human-readable (in contrast to ID) identifier for the order. It should be unique across a project. Once it's set it cannot be changed. For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
+<p>User-defined identifier for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> that is unique across a <a class="el" href="../../da/d59/namespace_commercetools_1_1_api_1_1_models_1_1_project.html">Project</a>. Once set, the value cannot be changed.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d6/d17/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_cart_draft.html#a9c2c28b7690330c9e8fc20059c1052b6">Commercetools\Api\Models\Order\OrderFromCartDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00188">188</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00185">185</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -401,13 +408,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> will be created with <code>Open</code> status by default.</p>
+<p>Current status for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d6/d17/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_cart_draft.html#aff3b1943ab4cf74f1e784b6579ad933f">Commercetools\Api\Models\Order\OrderFromCartDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00269">269</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00266">266</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -425,13 +432,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="../../dd/d3d/namespace_commercetools_1_1_api_1_1_models_1_1_payment.html">Payment</a> state for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
+<p><a class="el" href="../../dd/d3d/namespace_commercetools_1_1_api_1_1_models_1_1_payment.html">Payment</a> status for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d6/d17/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_cart_draft.html#a00b2b1eb5a683ad9223e6498acc5333a">Commercetools\Api\Models\Order\OrderFromCartDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00229">229</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00226">226</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -449,13 +456,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Identifier for a purchase order, usually in a B2B context. The Purchase <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> Number is typically entered by the <a href="../..//quotes-overview#buyer">Buyer</a> and can also be used with <a href="../..//quotes-overview">Quotes</a>.</p>
+<p>User-defined identifier for a purchase <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
+<p>It is typically set by the <a href="../../ctp:api:type:Buyer">Buyer</a> and can be used with <a href="../..//quotes-overview">Quotes</a> to track the purchase <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> during the <a href="../..//../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d6/d17/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_cart_draft.html#ac29b4b6a7224c291766042af429bfc80">Commercetools\Api\Models\Order\OrderFromCartDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00209">209</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00206">206</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -473,13 +481,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Shipment state for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
+<p>Shipment status for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d6/d17/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_cart_draft.html#aadea9a4be5ac2c51b64f7fd0460a23f0">Commercetools\Api\Models\Order\OrderFromCartDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00249">249</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00246">246</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -497,13 +505,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:Reference">Reference</a> to a <a href="../../ctp:api:type:State">State</a> indicating the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a>'s state.</p>
+<p><a class="el" href="../../d2/dac/namespace_commercetools_1_1_api_1_1_models_1_1_state.html">State</a> for the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> in a custom workflow.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StateResourceIdentifier </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d6/d17/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_from_cart_draft.html#a202f086fad60488eb4b6de5428fa97c9">Commercetools\Api\Models\Order\OrderFromCartDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00289">289</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html#l00286">286</a> of file <a class="el" href="../../d8/d42/_order_from_cart_draft_model_8php_source.html">OrderFromCartDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -521,7 +529,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Expected version of the <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> from which the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> is created. If the expected version does not match the actual version, a <a href="../..//../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+<p><code>version</code> of the <a href="../../ctp:api:type:Cart">Cart</a> from which the <a class="el" href="../../d6/d23/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_order.html">Order</a> is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 

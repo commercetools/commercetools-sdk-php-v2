@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -153,7 +153,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+<p><code>id</code> of an existing <a href="../../ctp:api:type:Delivery">Delivery</a>.</p>
+<p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d8/d47/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_items_action_model.html#a5a1433e5f60c4013dae8666b0c83df5f">Commercetools\Api\Models\Order\OrderSetDeliveryItemsActionModel</a>.</p>
@@ -174,7 +175,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Either <code>deliveryId</code> or <code>deliveryKey</code> is required for this update action.</p>
+<p><code>key</code> of an existing <a href="../../ctp:api:type:Delivery">Delivery</a>.</p>
+<p>Either <code>deliveryId</code> or <code>deliveryKey</code> must be provided.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d8/d47/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_items_action_model.html#acf80c262b03353b4e958c6516df6afa5">Commercetools\Api\Models\Order\OrderSetDeliveryItemsActionModel</a>.</p>
@@ -195,6 +197,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Value to set. If empty, any existing value is removed.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DeliveryItemCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d8/d47/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_delivery_items_action_model.html#a3d5b94e5a2fc80506fa99735c0f5ca83">Commercetools\Api\Models\Order\OrderSetDeliveryItemsActionModel</a>.</p>

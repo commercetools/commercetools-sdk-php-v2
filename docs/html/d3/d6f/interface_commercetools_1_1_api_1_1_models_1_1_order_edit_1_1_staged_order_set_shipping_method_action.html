@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -147,7 +147,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Controls calculation of taxed prices for Line Items, Custom Line Items, and Shipping Methods as explained in <a href="../../ctp:api:type:CartTaxCalculation">Cart tax calculation</a>.</p>
+<p>An external Tax Rate can be set if the <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> has the <code>External</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ExternalTaxRateDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/de7/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_shipping_method_action_model.html#a58612a6458d58635ea608faf0077fccb">Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodActionModel</a>.</p>
@@ -168,7 +168,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="../../ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
+<p>Value to set. If empty, any existing value will be removed. If the referenced Shipping Method has a predicate that does not match the <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a>, an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingMethodResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/de7/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_shipping_method_action_model.html#a4638d3bb2b0eb562fac39caaad58e096">Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodActionModel</a>.</p>

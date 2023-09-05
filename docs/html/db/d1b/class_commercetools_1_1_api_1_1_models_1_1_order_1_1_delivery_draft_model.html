@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -234,12 +234,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Address to which the Parcels are delivered.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|AddressDraft </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d2/de3/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft.html#ad321816ddc0f190ff36b1f11c448646f">Commercetools\Api\Models\Order\DeliveryDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00137">137</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00141">141</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -257,13 +258,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Custom Fields for the Transaction.</p>
+<p>Custom Fields for the <a class="el" href="../../d9/d53/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery.html">Delivery</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomFieldsDraft </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d2/de3/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft.html#ac53d537f3664d3191d26d705c23ce06c">Commercetools\Api\Models\Order\DeliveryDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00158">158</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00162">162</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -281,7 +282,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Items which are shipped in this delivery regardless their distribution over several parcels. Can also be specified individually for each <a class="el" href="../../d1/de7/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_parcel.html">Parcel</a>.</p>
+<p>Line Items or Custom Line Items to deliver. It can also be specified individually for each <a href="../../ctp:api:type:Parcel">Parcel</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DeliveryItemCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
@@ -329,12 +330,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Information regarding the appearance, content, and shipment of a parcel.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ParcelDraftCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d2/de3/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft.html#a8a82876b5317294216dbe91a3cc72a0e">Commercetools\Api\Models\Order\DeliveryDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00119">119</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00121">121</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -362,7 +364,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/de3/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft.html#a0a4a97ae04d9a7d01f662c39e0bddfb2">Commercetools\Api\Models\Order\DeliveryDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00201">201</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00205">205</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -390,7 +392,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/de3/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft.html#a1b008442e11411c76dfbf72fcb6717de">Commercetools\Api\Models\Order\DeliveryDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00209">209</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00213">213</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -418,7 +420,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/de3/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft.html#a2028dcd061c70e7a0cdd93b92d9c831c">Commercetools\Api\Models\Order\DeliveryDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00185">185</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00189">189</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -446,7 +448,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/de3/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft.html#aab406207ff407095ba4dbe47bf9c47e5">Commercetools\Api\Models\Order\DeliveryDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00177">177</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00181">181</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -474,7 +476,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/de3/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_draft.html#a2d67f50c372d1ef5c9ed5c7a995ff8a1">Commercetools\Api\Models\Order\DeliveryDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00193">193</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html#l00197">197</a> of file <a class="el" href="../../da/d5c/commercetools-api_2src_2_models_2_order_2_delivery_draft_model_8php_source.html">DeliveryDraftModel.php</a>.</p>
 
 </div>
 </div>

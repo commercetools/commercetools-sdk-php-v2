@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -279,13 +279,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+<p>Sets the <a href="../../ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when changing the quantity of a Line Item with the <code>ExternalPrice</code> <a href="../../ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+<p>The <a href="../../ctp:api:type:LineItem">LineItem</a> price is updated as described in <a href="../../ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Money </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d1/d4b/interface_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_change_line_item_quantity_action.html#ae9a47aeaf7a036035d567f42903dccd7">Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00167">167</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00171">171</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -303,12 +304,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the <a href="../../ctp:api:type:LineItem">LineItem</a> <code>price</code> and <code>totalPrice</code> to the given value when changing the quantity of a Line Item with the <code>ExternalTotal</code> <a href="../../ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ExternalLineItemTotalPrice </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d1/d4b/interface_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_change_line_item_quantity_action.html#a69655537b959fad4ac6e036d6f7c1232">Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00186">186</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00192">192</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -374,12 +376,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>New value to set. If <code>0</code>, the LineItem is removed from the <a class="el" href="../../d4/df4/namespace_commercetools_1_1_api_1_1_models_1_1_order.html">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
 <p>Implements <a class="el" href="../../d1/d4b/interface_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_change_line_item_quantity_action.html#a7b8081d16f51ecc40b067732f8815549">Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00147">147</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00150">150</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -407,7 +410,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d1/d4b/interface_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_change_line_item_quantity_action.html#ac76938f16e4f868883331573b278a2f1">Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00229">229</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00235">235</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -435,7 +438,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d1/d4b/interface_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_change_line_item_quantity_action.html#a72211f5173759ed390df8dda6ba752e5">Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00237">237</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00243">243</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -463,7 +466,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d1/d4b/interface_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_change_line_item_quantity_action.html#aded575df74d894bd5072abedff774831">Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00205">205</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00211">211</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -491,7 +494,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d1/d4b/interface_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_change_line_item_quantity_action.html#a109e9c748b63f6dc600da2d5a0084ab7">Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00213">213</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00219">219</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -519,7 +522,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d1/d4b/interface_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_change_line_item_quantity_action.html#ace301467b62e35f9f7134212a215799c">Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00221">221</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html#l00227">227</a> of file <a class="el" href="../../de/dad/_staged_order_change_line_item_quantity_action_model_8php_source.html">StagedOrderChangeLineItemQuantityActionModel.php</a>.</p>
 
 </div>
 </div>

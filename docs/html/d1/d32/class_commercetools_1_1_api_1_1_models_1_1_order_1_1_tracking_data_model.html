@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">9.6.1</span>
+   &#160;<span id="projectnumber">10.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -234,7 +234,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The carrier that delivers the parcel.</p>
+<p>Name of the carrier that delivers the <a class="el" href="../../d1/de7/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_parcel.html">Parcel</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -258,13 +258,18 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Flag to distinguish if the parcel is on the way to the customer (false) or on the way back (true).</p>
+<ul>
+<li>
+If <code>true</code>, the <a class="el" href="../../d1/de7/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_parcel.html">Parcel</a> is being returned. </li>
+<li>
+If <code>false</code>, the <a class="el" href="../../d1/de7/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_parcel.html">Parcel</a> is being delivered to the customer. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
 <p>Implements <a class="el" href="../../d8/dea/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_tracking_data.html#ab03d29d022dfb38131ecfbfaa3984c48">Commercetools\Api\Models\Order\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00152">152</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00159">159</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -282,12 +287,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Name of the provider that serves as facade to several carriers.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d8/dea/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_tracking_data.html#a61e9bb5947f946625d591bc4ff98e805">Commercetools\Api\Models\Order\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00114">114</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00116">116</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -305,12 +311,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Transaction identifier with the <code>provider</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d8/dea/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_tracking_data.html#a9966d9ab9cdf64d36c50b41ff3206f79">Commercetools\Api\Models\Order\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00132">132</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00136">136</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -328,7 +335,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID to track one parcel.</p>
+<p>Identifier to track the <a class="el" href="../../d1/de7/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_parcel.html">Parcel</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -362,7 +369,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dea/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_tracking_data.html#abb0809cee852d22b649d116b9de3b316">Commercetools\Api\Models\Order\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00178">178</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00185">185</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -390,7 +397,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dea/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_tracking_data.html#a15ef271067db2fa52ca2cd493dd0a276">Commercetools\Api\Models\Order\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00202">202</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00209">209</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -418,7 +425,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dea/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_tracking_data.html#a284dcbd95dd64a62b24ab155d0e02579">Commercetools\Api\Models\Order\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00186">186</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00193">193</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -446,7 +453,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dea/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_tracking_data.html#a43b5822b0a7892abada0dc7221d26d60">Commercetools\Api\Models\Order\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00194">194</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00201">201</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -474,7 +481,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/dea/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_tracking_data.html#a91355f8469cb8ab0fb99c83626351a04">Commercetools\Api\Models\Order\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00170">170</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html#l00177">177</a> of file <a class="el" href="../../d2/de4/commercetools-api_2src_2_models_2_order_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
