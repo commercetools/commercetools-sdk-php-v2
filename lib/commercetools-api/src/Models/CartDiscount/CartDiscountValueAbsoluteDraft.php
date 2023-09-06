@@ -18,7 +18,8 @@ interface CartDiscountValueAbsoluteDraft extends CartDiscountValueDraft
 
     /**
      * <p>Money values in different currencies.
-     * An absolute Cart Discount will only match a price if this array contains a value with the same currency. If it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$.</p>
+     * An absolute Cart Discount will match a price only if the array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$. If the array has multiple values of the same currency, the API returns an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error.</p>
+     * <p>If the array is empty, the discount does not apply.</p>
      *
 
      * @return null|MoneyCollection
