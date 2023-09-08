@@ -26,7 +26,7 @@ interface CustomerCustomFieldChangedMessagePayload extends MessagePayload
     public function getName();
 
     /**
-     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:CustomerSetCustomFieldAction">Set Custom Field</a> update action.</p>
+     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:CustomerSetCustomFieldAction">Set CustomField</a> update action.</p>
      *
 
      * @return null|mixed

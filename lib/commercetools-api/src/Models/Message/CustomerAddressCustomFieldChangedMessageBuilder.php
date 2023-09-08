@@ -228,7 +228,7 @@ final class CustomerAddressCustomFieldChangedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:CustomerSetAddressCustomFieldAction">Set Custom Field</a> update action.</p>
+     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:CustomerSetAddressCustomFieldAction">Set CustomField</a> update action.</p>
      *
 
      * @return null|mixed
