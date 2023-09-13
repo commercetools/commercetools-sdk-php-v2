@@ -188,6 +188,17 @@ class ResourceByProjectKeyByResourceTypeTest extends TestCase
                 'get',
                 'test_projectKey/test_resourceType?associateId=associateId',
             ],
+            'ByProjectKeyByResourceTypeGet_withBusinessUnit' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->get()
+                        ->withBusinessUnit('businessUnit');
+                },
+                'get',
+                'test_projectKey/test_resourceType?businessUnit=businessUnit',
+            ],
             'ByProjectKeyByResourceTypeGet_withType' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder
