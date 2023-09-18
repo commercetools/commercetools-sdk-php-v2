@@ -18,7 +18,7 @@ interface CustomerAddressCustomFieldChangedMessage extends Message
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
-     * <p>Name of the Custom Field that has been changed.</p>
+     * <p>Name of the Custom Field that changed.</p>
      *
 
      * @return null|string

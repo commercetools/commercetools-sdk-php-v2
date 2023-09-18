@@ -217,7 +217,7 @@ final class CustomerAddressCustomFieldChangedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Name of the Custom Field that has been changed.</p>
+     * <p>Name of the Custom Field that changed.</p>
      *
 
      * @return null|string

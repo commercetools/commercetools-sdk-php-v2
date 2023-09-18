@@ -16,7 +16,7 @@ interface CustomerCustomFieldRemovedMessage extends Message
     public const FIELD_NAME = 'name';
 
     /**
-     * <p>Name of the Custom Field that has been removed.</p>
+     * <p>Name of the Custom Field that was removed.</p>
      *
 
      * @return null|string

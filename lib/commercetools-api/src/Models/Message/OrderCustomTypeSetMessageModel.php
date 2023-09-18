@@ -396,8 +396,7 @@ final class OrderCustomTypeSetMessageModel extends JsonObjectModel implements Or
     }
 
     /**
-     * <p><code>id</code> of the previous <a href="ctp:api:type:Type">Custom Type</a>.</p>
-     * <p>Absent when there has not been a Custom Type before.</p>
+     * <p><code>id</code> of the previous <a href="ctp:api:type:Type">Custom Type</a>. Absent if there was no previous Custom Type present.</p>
      *
      *
      * @return null|string

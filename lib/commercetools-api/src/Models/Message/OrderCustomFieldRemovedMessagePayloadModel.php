@@ -63,7 +63,7 @@ final class OrderCustomFieldRemovedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
-     * <p>Name of the Custom Field that has been removed.</p>
+     * <p>Name of the Custom Field that was removed.</p>
      *
      *
      * @return null|string
