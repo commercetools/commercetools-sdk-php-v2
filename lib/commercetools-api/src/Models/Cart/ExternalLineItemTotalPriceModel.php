@@ -47,7 +47,6 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
 
     /**
      * <p>Price of the Line Item.</p>
-     * <p>The value is selected from the Product Variant according to the <a href="ctp:api:type:Product">Product</a> <code>priceMode</code>.</p>
      *
      *
      * @return null|Money
