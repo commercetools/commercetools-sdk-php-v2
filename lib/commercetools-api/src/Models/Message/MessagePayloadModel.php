@@ -31,6 +31,18 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
      * @psalm-suppress InvalidPropertyAssignmentValue
      */
     private static $discriminatorClasses = [
+       'ApprovalFlowApproved' => ApprovalFlowApprovedMessagePayloadModel::class,
+       'ApprovalFlowCompleted' => ApprovalFlowCompletedMessagePayloadModel::class,
+       'ApprovalFlowCreated' => ApprovalFlowCreatedMessagePayloadModel::class,
+       'ApprovalFlowRejected' => ApprovalFlowRejectedMessagePayloadModel::class,
+       'ApprovalRuleApproversSet' => ApprovalRuleApproversSetMessagePayloadModel::class,
+       'ApprovalRuleCreated' => ApprovalRuleCreatedMessagePayloadModel::class,
+       'ApprovalRuleDescriptionSet' => ApprovalRuleDescriptionSetMessagePayloadModel::class,
+       'ApprovalRuleKeySet' => ApprovalRuleKeySetMessagePayloadModel::class,
+       'ApprovalRuleNameSet' => ApprovalRuleNameSetMessagePayloadModel::class,
+       'ApprovalRulePredicateSet' => ApprovalRulePredicateSetMessagePayloadModel::class,
+       'ApprovalRuleRequestersSet' => ApprovalRuleRequestersSetMessagePayloadModel::class,
+       'ApprovalRuleStatusSet' => ApprovalRuleStatusSetMessagePayloadModel::class,
        'AssociateRoleBuyerAssignableChanged' => AssociateRoleBuyerAssignableChangedMessagePayloadModel::class,
        'AssociateRoleCreated' => AssociateRoleCreatedMessagePayloadModel::class,
        'AssociateRoleDeleted' => AssociateRoleDeletedMessagePayloadModel::class,

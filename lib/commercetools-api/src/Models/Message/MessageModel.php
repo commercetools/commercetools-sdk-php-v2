@@ -100,6 +100,18 @@ final class MessageModel extends JsonObjectModel implements Message
      * @psalm-suppress InvalidPropertyAssignmentValue
      */
     private static $discriminatorClasses = [
+       'ApprovalFlowApproved' => ApprovalFlowApprovedMessageModel::class,
+       'ApprovalFlowCompleted' => ApprovalFlowCompletedMessageModel::class,
+       'ApprovalFlowCreated' => ApprovalFlowCreatedMessageModel::class,
+       'ApprovalFlowRejected' => ApprovalFlowRejectedMessageModel::class,
+       'ApprovalRuleApproversSet' => ApprovalRuleApproversSetMessageModel::class,
+       'ApprovalRuleCreated' => ApprovalRuleCreatedMessageModel::class,
+       'ApprovalRuleDescriptionSet' => ApprovalRuleDescriptionSetMessageModel::class,
+       'ApprovalRuleKeySet' => ApprovalRuleKeySetMessageModel::class,
+       'ApprovalRuleNameSet' => ApprovalRuleNameSetMessageModel::class,
+       'ApprovalRulePredicateSet' => ApprovalRulePredicateSetMessageModel::class,
+       'ApprovalRuleRequestersSet' => ApprovalRuleRequestersSetMessageModel::class,
+       'ApprovalRuleStatusSet' => ApprovalRuleStatusSetMessageModel::class,
        'AssociateRoleBuyerAssignableChanged' => AssociateRoleBuyerAssignableChangedMessageModel::class,
        'AssociateRoleCreated' => AssociateRoleCreatedMessageModel::class,
        'AssociateRoleDeleted' => AssociateRoleDeletedMessageModel::class,

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\ApprovalFlow\ApprovalFlow;
+use Commercetools\Api\Models\ApprovalRule\ApprovalRule;
 use Commercetools\Api\Models\AssociateRole\AssociateRole;
 use Commercetools\Api\Models\AttributeGroup\AttributeGroup;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnit;
@@ -23,6 +25,18 @@ use Commercetools\Api\Models\CustomObject\CustomObject;
 use Commercetools\Api\Models\DiscountCode\DiscountCode;
 use Commercetools\Api\Models\Extension\Extension;
 use Commercetools\Api\Models\Inventory\InventoryEntry;
+use Commercetools\Api\Models\Message\ApprovalFlowApprovedMessage;
+use Commercetools\Api\Models\Message\ApprovalFlowCompletedMessage;
+use Commercetools\Api\Models\Message\ApprovalFlowCreatedMessage;
+use Commercetools\Api\Models\Message\ApprovalFlowRejectedMessage;
+use Commercetools\Api\Models\Message\ApprovalRuleApproversSetMessage;
+use Commercetools\Api\Models\Message\ApprovalRuleCreatedMessage;
+use Commercetools\Api\Models\Message\ApprovalRuleDescriptionSetMessage;
+use Commercetools\Api\Models\Message\ApprovalRuleKeySetMessage;
+use Commercetools\Api\Models\Message\ApprovalRuleNameSetMessage;
+use Commercetools\Api\Models\Message\ApprovalRulePredicateSetMessage;
+use Commercetools\Api\Models\Message\ApprovalRuleRequestersSetMessage;
+use Commercetools\Api\Models\Message\ApprovalRuleStatusSetMessage;
 use Commercetools\Api\Models\Message\AssociateRoleBuyerAssignableChangedMessage;
 use Commercetools\Api\Models\Message\AssociateRoleCreatedMessage;
 use Commercetools\Api\Models\Message\AssociateRoleDeletedMessage;
