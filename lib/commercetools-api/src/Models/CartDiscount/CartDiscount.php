@@ -183,7 +183,7 @@ interface CartDiscount extends BaseResource
     public function getValidUntil();
 
     /**
-     * <p>Indicates if the Discount can be used in connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p>Indicates if the Discount is used in connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
 
      * @return null|bool
