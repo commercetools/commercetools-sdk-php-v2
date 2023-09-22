@@ -15,6 +15,8 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 use Commercetools\Api\Models\Order\TrackingData;
 use Commercetools\Api\Models\Order\TrackingDataBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -62,6 +64,12 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
      * @var ?DeliveryItemCollection
      */
     private $items;
+
+    /**
+
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
 
     /**
      * <p><code>id</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
@@ -132,6 +140,17 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields for the Parcel.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
      * @param ?string $deliveryId
      * @return $this
      */
@@ -198,6 +217,17 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMeasurements() instead
      * @return $this
      */
@@ -219,6 +249,17 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): StagedOrderAddParcelToDeliveryAction
     {
         return new StagedOrderAddParcelToDeliveryActionModel(
@@ -227,7 +268,8 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
             $this->parcelKey,
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
             $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
-            $this->items
+            $this->items,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

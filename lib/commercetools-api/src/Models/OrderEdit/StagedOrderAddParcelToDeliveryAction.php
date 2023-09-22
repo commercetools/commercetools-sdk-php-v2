@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\TrackingData;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -23,6 +24,7 @@ interface StagedOrderAddParcelToDeliveryAction extends StagedOrderUpdateAction
     public const FIELD_MEASUREMENTS = 'measurements';
     public const FIELD_TRACKING_DATA = 'trackingData';
     public const FIELD_ITEMS = 'items';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p><code>id</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
@@ -75,6 +77,14 @@ interface StagedOrderAddParcelToDeliveryAction extends StagedOrderUpdateAction
     public function getItems();
 
     /**
+     * <p>Custom Fields for the Parcel.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $deliveryId
      */
     public function setDeliveryId(?string $deliveryId): void;
@@ -103,4 +113,9 @@ interface StagedOrderAddParcelToDeliveryAction extends StagedOrderUpdateAction
      * @param ?DeliveryItemCollection $items
      */
     public function setItems(?DeliveryItemCollection $items): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }
