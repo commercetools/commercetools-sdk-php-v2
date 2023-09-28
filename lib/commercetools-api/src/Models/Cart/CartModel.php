@@ -146,6 +146,12 @@ final class CartModel extends JsonObjectModel implements Cart
 
     /**
      *
+     * @var ?DiscountOnTotalPrice
+     */
+    protected $discountOnTotalPrice;
+
+    /**
+     *
      * @var ?string
      */
     protected $taxMode;
@@ -316,6 +322,7 @@ final class CartModel extends JsonObjectModel implements Cart
         ?CentPrecisionMoney $totalPrice = null,
         ?TaxedPrice $taxedPrice = null,
         ?TaxedPrice $taxedShippingPrice = null,
+        ?DiscountOnTotalPrice $discountOnTotalPrice = null,
         ?string $taxMode = null,
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
@@ -359,6 +366,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->totalPrice = $totalPrice;
         $this->taxedPrice = $taxedPrice;
         $this->taxedShippingPrice = $taxedShippingPrice;
+        $this->discountOnTotalPrice = $discountOnTotalPrice;
         $this->taxMode = $taxMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->taxCalculationMode = $taxCalculationMode;
@@ -678,7 +686,8 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
-     * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.</p>
+     * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.
+     * If a discount applies on <code>totalPrice</code>, this field holds the discounted value.</p>
      * <p>Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
      *
      *
@@ -704,6 +713,7 @@ final class CartModel extends JsonObjectModel implements Cart
      * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a>.</li>
      * <li>For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when the external Tax Rate for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
      * </ul>
+     * <p>If a discount applies on <code>totalPrice</code>, this field holds the discounted values.</p>
      *
      *
      * @return null|TaxedPrice
@@ -742,6 +752,27 @@ final class CartModel extends JsonObjectModel implements Cart
         }
 
         return $this->taxedShippingPrice;
+    }
+
+    /**
+     * <p>Discounts that apply on the Cart <code>totalPrice</code>.</p>
+     *
+     *
+     * @return null|DiscountOnTotalPrice
+     */
+    public function getDiscountOnTotalPrice()
+    {
+        if (is_null($this->discountOnTotalPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISCOUNT_ON_TOTAL_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discountOnTotalPrice = DiscountOnTotalPriceModel::of($data);
+        }
+
+        return $this->discountOnTotalPrice;
     }
 
     /**
@@ -1395,6 +1426,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setTaxedShippingPrice(?TaxedPrice $taxedShippingPrice): void
     {
         $this->taxedShippingPrice = $taxedShippingPrice;
+    }
+
+    /**
+     * @param ?DiscountOnTotalPrice $discountOnTotalPrice
+     */
+    public function setDiscountOnTotalPrice(?DiscountOnTotalPrice $discountOnTotalPrice): void
+    {
+        $this->discountOnTotalPrice = $discountOnTotalPrice;
     }
 
     /**

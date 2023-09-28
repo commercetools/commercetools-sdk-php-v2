@@ -15,6 +15,8 @@ use Commercetools\Api\Models\Cart\CartReferenceBuilder;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
+use Commercetools\Api\Models\Cart\DiscountOnTotalPrice;
+use Commercetools\Api\Models\Cart\DiscountOnTotalPriceBuilder;
 use Commercetools\Api\Models\Cart\LineItemCollection;
 use Commercetools\Api\Models\Cart\ShippingCollection;
 use Commercetools\Api\Models\Cart\ShippingInfo;
@@ -161,6 +163,12 @@ final class OrderBuilder implements Builder
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $taxedShippingPrice;
+
+    /**
+
+     * @var null|DiscountOnTotalPrice|DiscountOnTotalPriceBuilder
+     */
+    private $discountOnTotalPrice;
 
     /**
 
@@ -518,7 +526,8 @@ final class OrderBuilder implements Builder
 
     /**
      * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.
-     * Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
+     * If a discount applies on <code>totalPrice</code>, this field holds the discounted value.</p>
+     * <p>Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
      *
 
      * @return null|TypedMoney
@@ -533,6 +542,7 @@ final class OrderBuilder implements Builder
      * <li>For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:OrderSetShippingAddressAction">shipping address is set</a>.</li>
      * <li>For <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when the external Tax Rate for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
      * </ul>
+     * <p>If a discount applies on <code>totalPrice</code>, this field holds the discounted values.</p>
      *
 
      * @return null|TaxedPrice
@@ -551,6 +561,17 @@ final class OrderBuilder implements Builder
     public function getTaxedShippingPrice()
     {
         return $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice;
+    }
+
+    /**
+     * <p>Discounts that apply on the total price of the Order.</p>
+     *
+
+     * @return null|DiscountOnTotalPrice
+     */
+    public function getDiscountOnTotalPrice()
+    {
+        return $this->discountOnTotalPrice instanceof DiscountOnTotalPriceBuilder ? $this->discountOnTotalPrice->build() : $this->discountOnTotalPrice;
     }
 
     /**
@@ -1121,6 +1142,17 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountOnTotalPrice $discountOnTotalPrice
+     * @return $this
+     */
+    public function withDiscountOnTotalPrice(?DiscountOnTotalPrice $discountOnTotalPrice)
+    {
+        $this->discountOnTotalPrice = $discountOnTotalPrice;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $taxMode
      * @return $this
      */
@@ -1550,6 +1582,17 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscountOnTotalPrice() instead
+     * @return $this
+     */
+    public function withDiscountOnTotalPriceBuilder(?DiscountOnTotalPriceBuilder $discountOnTotalPrice)
+    {
+        $this->discountOnTotalPrice = $discountOnTotalPrice;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withBillingAddress() instead
      * @return $this
      */
@@ -1701,6 +1744,7 @@ final class OrderBuilder implements Builder
             $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice,
+            $this->discountOnTotalPrice instanceof DiscountOnTotalPriceBuilder ? $this->discountOnTotalPrice->build() : $this->discountOnTotalPrice,
             $this->taxMode,
             $this->taxRoundingMode,
             $this->taxCalculationMode,

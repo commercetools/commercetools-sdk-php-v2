@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
+use Commercetools\Api\Models\Cart\DiscountOnTotalPrice;
 use Commercetools\Api\Models\Cart\LineItemCollection;
 use Commercetools\Api\Models\Cart\ShippingCollection;
 use Commercetools\Api\Models\Cart\ShippingInfo;
@@ -50,6 +51,7 @@ interface Order extends BaseResource
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_TAXED_SHIPPING_PRICE = 'taxedShippingPrice';
+    public const FIELD_DISCOUNT_ON_TOTAL_PRICE = 'discountOnTotalPrice';
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
@@ -184,7 +186,8 @@ interface Order extends BaseResource
 
     /**
      * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.
-     * Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
+     * If a discount applies on <code>totalPrice</code>, this field holds the discounted value.</p>
+     * <p>Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
      *
 
      * @return null|TypedMoney
@@ -196,6 +199,7 @@ interface Order extends BaseResource
      * <li>For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:OrderSetShippingAddressAction">shipping address is set</a>.</li>
      * <li>For <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when the external Tax Rate for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
      * </ul>
+     * <p>If a discount applies on <code>totalPrice</code>, this field holds the discounted values.</p>
      *
 
      * @return null|TaxedPrice
@@ -209,6 +213,14 @@ interface Order extends BaseResource
      * @return null|TaxedPrice
      */
     public function getTaxedShippingPrice();
+
+    /**
+     * <p>Discounts that apply on the total price of the Order.</p>
+     *
+
+     * @return null|DiscountOnTotalPrice
+     */
+    public function getDiscountOnTotalPrice();
 
     /**
      * <p>Indicates how Tax Rates are set.</p>
@@ -581,6 +593,11 @@ interface Order extends BaseResource
      * @param ?TaxedPrice $taxedShippingPrice
      */
     public function setTaxedShippingPrice(?TaxedPrice $taxedShippingPrice): void;
+
+    /**
+     * @param ?DiscountOnTotalPrice $discountOnTotalPrice
+     */
+    public function setDiscountOnTotalPrice(?DiscountOnTotalPrice $discountOnTotalPrice): void;
 
     /**
      * @param ?string $taxMode

@@ -39,6 +39,7 @@ interface Cart extends BaseResource
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_TAXED_SHIPPING_PRICE = 'taxedShippingPrice';
+    public const FIELD_DISCOUNT_ON_TOTAL_PRICE = 'discountOnTotalPrice';
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
@@ -162,7 +163,8 @@ interface Cart extends BaseResource
     public function getTotalLineItemQuantity();
 
     /**
-     * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.</p>
+     * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.
+     * If a discount applies on <code>totalPrice</code>, this field holds the discounted value.</p>
      * <p>Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
      *
 
@@ -175,6 +177,7 @@ interface Cart extends BaseResource
      * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a>.</li>
      * <li>For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when the external Tax Rate for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
      * </ul>
+     * <p>If a discount applies on <code>totalPrice</code>, this field holds the discounted values.</p>
      *
 
      * @return null|TaxedPrice
@@ -188,6 +191,14 @@ interface Cart extends BaseResource
      * @return null|TaxedPrice
      */
     public function getTaxedShippingPrice();
+
+    /**
+     * <p>Discounts that apply on the Cart <code>totalPrice</code>.</p>
+     *
+
+     * @return null|DiscountOnTotalPrice
+     */
+    public function getDiscountOnTotalPrice();
 
     /**
      * <p>Indicates how Tax Rates are set.</p>
@@ -486,6 +497,11 @@ interface Cart extends BaseResource
      * @param ?TaxedPrice $taxedShippingPrice
      */
     public function setTaxedShippingPrice(?TaxedPrice $taxedShippingPrice): void;
+
+    /**
+     * @param ?DiscountOnTotalPrice $discountOnTotalPrice
+     */
+    public function setDiscountOnTotalPrice(?DiscountOnTotalPrice $discountOnTotalPrice): void;
 
     /**
      * @param ?string $taxMode

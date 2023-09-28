@@ -36,6 +36,7 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
        'multiBuyCustomLineItems' => MultiBuyCustomLineItemsTargetModel::class,
        'multiBuyLineItems' => MultiBuyLineItemsTargetModel::class,
        'shipping' => CartDiscountShippingCostTargetModel::class,
+       'totalPrice' => CartDiscountTotalPriceTargetModel::class,
     ];
 
     /**

@@ -15,6 +15,8 @@ use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
+use Commercetools\Api\Models\Cart\DiscountOnTotalPrice;
+use Commercetools\Api\Models\Cart\DiscountOnTotalPriceModel;
 use Commercetools\Api\Models\Cart\LineItemCollection;
 use Commercetools\Api\Models\Cart\ShippingCollection;
 use Commercetools\Api\Models\Cart\ShippingInfo;
@@ -160,6 +162,12 @@ final class OrderModel extends JsonObjectModel implements Order
      * @var ?TaxedPrice
      */
     protected $taxedShippingPrice;
+
+    /**
+     *
+     * @var ?DiscountOnTotalPrice
+     */
+    protected $discountOnTotalPrice;
 
     /**
      *
@@ -381,6 +389,7 @@ final class OrderModel extends JsonObjectModel implements Order
         ?TypedMoney $totalPrice = null,
         ?TaxedPrice $taxedPrice = null,
         ?TaxedPrice $taxedShippingPrice = null,
+        ?DiscountOnTotalPrice $discountOnTotalPrice = null,
         ?string $taxMode = null,
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
@@ -432,6 +441,7 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->totalPrice = $totalPrice;
         $this->taxedPrice = $taxedPrice;
         $this->taxedShippingPrice = $taxedShippingPrice;
+        $this->discountOnTotalPrice = $discountOnTotalPrice;
         $this->taxMode = $taxMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->taxCalculationMode = $taxCalculationMode;
@@ -762,7 +772,8 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      * <p>Sum of the <code>totalPrice</code> field of all <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and if available, the <code>price</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.
-     * Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
+     * If a discount applies on <code>totalPrice</code>, this field holds the discounted value.</p>
+     * <p>Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
      *
      *
      * @return null|TypedMoney
@@ -787,6 +798,7 @@ final class OrderModel extends JsonObjectModel implements Order
      * <li>For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:OrderSetShippingAddressAction">shipping address is set</a>.</li>
      * <li>For <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when the external Tax Rate for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
      * </ul>
+     * <p>If a discount applies on <code>totalPrice</code>, this field holds the discounted values.</p>
      *
      *
      * @return null|TaxedPrice
@@ -825,6 +837,27 @@ final class OrderModel extends JsonObjectModel implements Order
         }
 
         return $this->taxedShippingPrice;
+    }
+
+    /**
+     * <p>Discounts that apply on the total price of the Order.</p>
+     *
+     *
+     * @return null|DiscountOnTotalPrice
+     */
+    public function getDiscountOnTotalPrice()
+    {
+        if (is_null($this->discountOnTotalPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISCOUNT_ON_TOTAL_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discountOnTotalPrice = DiscountOnTotalPriceModel::of($data);
+        }
+
+        return $this->discountOnTotalPrice;
     }
 
     /**
@@ -1655,6 +1688,14 @@ final class OrderModel extends JsonObjectModel implements Order
     public function setTaxedShippingPrice(?TaxedPrice $taxedShippingPrice): void
     {
         $this->taxedShippingPrice = $taxedShippingPrice;
+    }
+
+    /**
+     * @param ?DiscountOnTotalPrice $discountOnTotalPrice
+     */
+    public function setDiscountOnTotalPrice(?DiscountOnTotalPrice $discountOnTotalPrice): void
+    {
+        $this->discountOnTotalPrice = $discountOnTotalPrice;
     }
 
     /**
