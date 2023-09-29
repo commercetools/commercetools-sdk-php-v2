@@ -12,6 +12,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Common\ProductKeyReference;
+use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
 use stdClass;
@@ -39,6 +41,12 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
      */
     protected $staged;
 
+    /**
+     *
+     * @var ?ProductKeyReference
+     */
+    protected $product;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -46,17 +54,18 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     public function __construct(
         ?ProductVariantKeyReference $productVariant = null,
         ?Attributes $attributes = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?ProductKeyReference $product = null
     ) {
         $this->productVariant = $productVariant;
         $this->attributes = $attributes;
         $this->staged = $staged;
+        $this->product = $product;
     }
 
     /**
-     * <p>The <a href="/../api/projects/products#productvariant">ProductVariant</a> to which this patch is applied.
-     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the ProductVariantPatch is associated.
-     * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
+     * <p>Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> to update.
+     * If the referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
      *
      * @return null|ProductVariantKeyReference
@@ -123,6 +132,27 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
         return $this->staged;
     }
 
+    /**
+     * <p>Reference to the <a href="/../api/projects/products#product">Product</a> which contains the ProductVariant. Setting a value will batch process the import operations to minimize concurrency errors. If set, this field is required for every ProductVariantPatch in the <a href="ctp:import:type:ProductVariantPatchRequest">ProductVariantPatchRequest</a>.</p>
+     *
+     *
+     * @return null|ProductKeyReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductKeyReferenceModel::of($data);
+        }
+
+        return $this->product;
+    }
+
 
     /**
      * @param ?ProductVariantKeyReference $productVariant
@@ -146,5 +176,13 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
+    }
+
+    /**
+     * @param ?ProductKeyReference $product
+     */
+    public function setProduct(?ProductKeyReference $product): void
+    {
+        $this->product = $product;
     }
 }

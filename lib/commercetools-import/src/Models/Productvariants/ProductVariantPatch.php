@@ -10,6 +10,7 @@ namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 
 interface ProductVariantPatch extends JsonObject
@@ -17,11 +18,11 @@ interface ProductVariantPatch extends JsonObject
     public const FIELD_PRODUCT_VARIANT = 'productVariant';
     public const FIELD_ATTRIBUTES = 'attributes';
     public const FIELD_STAGED = 'staged';
+    public const FIELD_PRODUCT = 'product';
 
     /**
-     * <p>The <a href="/../api/projects/products#productvariant">ProductVariant</a> to which this patch is applied.
-     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the ProductVariantPatch is associated.
-     * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
+     * <p>Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> to update.
+     * If the referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
 
      * @return null|ProductVariantKeyReference
@@ -51,6 +52,14 @@ interface ProductVariantPatch extends JsonObject
     public function getStaged();
 
     /**
+     * <p>Reference to the <a href="/../api/projects/products#product">Product</a> which contains the ProductVariant. Setting a value will batch process the import operations to minimize concurrency errors. If set, this field is required for every ProductVariantPatch in the <a href="ctp:import:type:ProductVariantPatchRequest">ProductVariantPatchRequest</a>.</p>
+     *
+
+     * @return null|ProductKeyReference
+     */
+    public function getProduct();
+
+    /**
      * @param ?ProductVariantKeyReference $productVariant
      */
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void;
@@ -64,4 +73,9 @@ interface ProductVariantPatch extends JsonObject
      * @param ?bool $staged
      */
     public function setStaged(?bool $staged): void;
+
+    /**
+     * @param ?ProductKeyReference $product
+     */
+    public function setProduct(?ProductKeyReference $product): void;
 }
