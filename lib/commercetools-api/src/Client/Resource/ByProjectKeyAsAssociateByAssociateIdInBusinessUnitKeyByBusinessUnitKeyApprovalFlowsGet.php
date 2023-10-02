@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\ApprovalFlow\ApprovalFlowPagedQueryResponse;
+use Commercetools\Api\Models\ApprovalFlow\ApprovalFlowPagedQueryResponseModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Base\JsonObject;
@@ -50,7 +52,7 @@ class ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyAppr
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|T|null
+     * @return ApprovalFlowPagedQueryResponse|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -60,7 +62,7 @@ class ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyAppr
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = JsonObjectModel::class;
+                    $resultType = ApprovalFlowPagedQueryResponseModel::class;
 
                     break;
                 case '400':
@@ -101,7 +103,7 @@ class ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyAppr
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|T|ErrorResponse|JsonObject
+     * @return null|T|ApprovalFlowPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

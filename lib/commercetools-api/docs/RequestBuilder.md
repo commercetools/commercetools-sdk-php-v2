@@ -245,23 +245,6 @@ $request = $builder
                 ->withId("ID")
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->approvalRules()->post(null)`
-
-null
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->asAssociate()
-                ->withAssociateIdValue("associateId")
-                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                ->approvalRules()
-                ->post(null);
-```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->approvalRules()->get()`
 
 null
@@ -278,6 +261,23 @@ $request = $builder
                 ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
                 ->approvalRules()
                 ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->approvalRules()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->approvalRules()
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->approvalRules()->withId("ID")->get()`
 

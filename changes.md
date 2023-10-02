@@ -13,6 +13,7 @@
 - added type `ApprovalFlow`
 - added type `ApprovalFlowApproval`
 - added type `ApprovalFlowApproveAction`
+- added type `ApprovalFlowPagedQueryResponse`
 - added type `ApprovalFlowRejectAction`
 - added type `ApprovalFlowRejection`
 - added type `ApprovalFlowStatus`
@@ -20,6 +21,7 @@
 - added type `ApprovalFlowUpdateAction`
 - added type `ApprovalRule`
 - added type `ApprovalRuleDraft`
+- added type `ApprovalRulePagedQueryResponse`
 - added type `ApprovalRuleSetApproversAction`
 - added type `ApprovalRuleSetDescriptionAction`
 - added type `ApprovalRuleSetKeyAction`
@@ -112,8 +114,8 @@
 <details>
 <summary>Added Method(s)</summary>
 
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->post()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->get()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->post()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalFlows()->get()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->withId()->get()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->withId()->post()`

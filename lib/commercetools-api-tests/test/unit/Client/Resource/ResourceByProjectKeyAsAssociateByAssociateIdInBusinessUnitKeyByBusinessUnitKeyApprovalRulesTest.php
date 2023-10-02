@@ -23,8 +23,8 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRules
  */
 class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesTest extends TestCase
@@ -102,33 +102,6 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
     public function getRequests()
     {
         return [
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->asAssociate()
-                        ->withAssociateIdValue('test_associateId')
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue('test_businessUnitKey')
-                        ->approvalRules()
-                        ->post(null)
-                        ->withExpand('expand');
-                },
-                'post',
-                'test_projectKey/as-associate/test_associateId/in-business-unit/key=test_businessUnitKey/approval-rules?expand=expand',
-            ],
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("test_associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("test_businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                'post',
-                'test_projectKey/as-associate/test_associateId/in-business-unit/key=test_businessUnitKey/approval-rules',
-            ],
             'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -239,6 +212,33 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
                 },
                 'get',
                 'test_projectKey/as-associate/test_associateId/in-business-unit/key=test_businessUnitKey/approval-rules',
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->asAssociate()
+                        ->withAssociateIdValue('test_associateId')
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue('test_businessUnitKey')
+                        ->approvalRules()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                'test_projectKey/as-associate/test_associateId/in-business-unit/key=test_businessUnitKey/approval-rules?expand=expand',
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("test_associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("test_businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                },
+                'post',
+                'test_projectKey/as-associate/test_associateId/in-business-unit/key=test_businessUnitKey/approval-rules',
             ]
         ];
     }
@@ -280,17 +280,6 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
     public function getRequestBuilders()
     {
         return [
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                }
-            ],
             'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -301,6 +290,17 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
                         ->approvalRules()
                         ->get();
                 }
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                }
             ]
         ];
     }
@@ -308,114 +308,6 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_201' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                201
-            ],
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_400' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                400
-            ],
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_401' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                401
-            ],
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_403' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                403
-            ],
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                404
-            ],
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_500' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                500
-            ],
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_502' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                502
-            ],
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_503' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                503
-            ],
-            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_599' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->asAssociate()
-                        ->withAssociateIdValue("associateId")
-                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
-                        ->approvalRules()
-                        ->post(null);
-                },
-                599
-            ],
             'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesGet_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -521,6 +413,114 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
                         ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
                         ->approvalRules()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_201' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                },
+                201
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                },
+                400
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                },
+                401
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                },
+                403
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                },
+                404
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                },
+                500
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                },
+                502
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
+                },
+                503
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRulesPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->approvalRules()
+                        ->post(null);
                 },
                 599
             ]
