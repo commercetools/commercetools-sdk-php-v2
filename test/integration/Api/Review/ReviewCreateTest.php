@@ -106,7 +106,8 @@ class ReviewCreateTest extends ApiTestCase
                 ReviewDraftBuilder::of()
                     ->withTitle("test")
                     ->withRating(4)
-                    ->build())
+                    ->build()
+            )
             ->execute();
         $this->assertTrue($review->getIncludedInStatistics());
 
@@ -116,7 +117,8 @@ class ReviewCreateTest extends ApiTestCase
     public function testIncludedInStatisticsWithState()
     {
         $builder = $this->getApiBuilder();
-        StateFixture::withDraftState($builder,
+        StateFixture::withDraftState(
+            $builder,
             function (StateDraftBuilder $draftBuilder) {
                 return $draftBuilder
                     ->withType("ReviewState")
@@ -129,7 +131,8 @@ class ReviewCreateTest extends ApiTestCase
                             ->withTitle("test")
                             ->withRating(4)
                             ->withState(StateResourceIdentifierBuilder::of()->withId($state->getId())->build())
-                            ->build())
+                            ->build()
+                    )
                     ->execute();
                 $this->assertTrue($review->getIncludedInStatistics());
 
@@ -147,10 +150,12 @@ class ReviewCreateTest extends ApiTestCase
                 ->withRoles(["ReviewIncludedInStatistics"])
                 ->build();
         }, function (State $state2) use ($builder) {
-            StateFixture::withDraftState($builder,
-                function (StateDraftBuilder $draftBuilder) use ($state2){
+            StateFixture::withDraftState(
+                $builder,
+                function (StateDraftBuilder $draftBuilder) use ($state2) {
                     return $draftBuilder
-                        ->withTransitions(StateResourceIdentifierCollection::of()
+                        ->withTransitions(
+                            StateResourceIdentifierCollection::of()
                             ->add(StateResourceIdentifierBuilder::of()->withId($state2->getId())->build())
                         )
                         ->withType("ReviewState")
@@ -163,16 +168,20 @@ class ReviewCreateTest extends ApiTestCase
                                 ->withTitle("test")
                                 ->withRating(4)
                                 ->withState(StateResourceIdentifierBuilder::of()->withId($state1->getId())->build())
-                                ->build())
+                                ->build()
+                        )
                         ->execute();
                     $this->assertFalse($review->getIncludedInStatistics());
 
                     $updatedReview = $builder->reviews()
                         ->withId($review->getId())
-                        ->post(ReviewUpdateBuilder::of()
+                        ->post(
+                            ReviewUpdateBuilder::of()
                             ->withVersion($review->getVersion())
-                            ->withActions(ReviewUpdateActionCollection::of()
-                                ->add(ReviewTransitionStateActionBuilder::of()
+                            ->withActions(
+                                ReviewUpdateActionCollection::of()
+                                ->add(
+                                    ReviewTransitionStateActionBuilder::of()
                                     ->withState(StateResourceIdentifierBuilder::of()->withId($state2->getId())->build())
                                     ->build()
                                 )
@@ -185,6 +194,5 @@ class ReviewCreateTest extends ApiTestCase
                 }
             );
         });
-
     }
 }

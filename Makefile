@@ -84,7 +84,6 @@ generate_history_test: install_deps
 	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(HISTORY_RAML) generate_sdk_test
 
 prettify: install_deps
-	php -dmemory_limit=-1 vendor/bin/ecs check --output-format=summaryOnly --fix
 	php -dmemory_limit=-1 vendor/bin/ecs check --fix
 
 analyse: install_deps prettify
