@@ -1987,7 +1987,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->emailToken()->post(null)`
 
-null
+Produces the [CustomerEmailTokenCreated](ctp:api:type:CustomerEmailTokenCreatedMessage) Message.
 
 ### Example
 ```php
