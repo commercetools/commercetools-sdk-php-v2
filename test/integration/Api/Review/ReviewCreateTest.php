@@ -4,7 +4,12 @@
 namespace Commercetools\IntegrationTest\Api\Review;
 
 use Commercetools\Api\Models\Review\Review;
+use Commercetools\Api\Models\Review\ReviewDraftBuilder;
+use Commercetools\Api\Models\State\State;
+use Commercetools\Api\Models\State\StateDraftBuilder;
+use Commercetools\Api\Models\State\StateResourceIdentifierBuilder;
 use Commercetools\Exception\NotFoundException;
+use Commercetools\IntegrationTest\Api\State\StateFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
 
 class ReviewCreateTest extends ApiTestCase
@@ -83,6 +88,47 @@ class ReviewCreateTest extends ApiTestCase
 
                 $request = $builder->with()->reviews()->withKey($review->getKey())->get();
                 $request->execute();
+            }
+        );
+    }
+
+    public function testIncludedInStatistics()
+    {
+        $builder = $this->getApiBuilder();
+
+        $review = $builder->reviews()
+            ->post(
+                ReviewDraftBuilder::of()
+                    ->withTitle("test")
+                    ->withRating(4)
+                    ->build())
+            ->execute();
+        $this->assertTrue($review->getIncludedInStatistics());
+
+        $builder->reviews()->withId($review->getId())->delete()->withVersion($review->getVersion())->execute();
+    }
+
+    public function testIncludedInStatisticsWithState()
+    {
+        $builder = $this->getApiBuilder();
+        StateFixture::withDraftState($builder,
+            function (StateDraftBuilder $draftBuilder) {
+                return $draftBuilder
+                    ->withType("ReviewState")
+                    ->withRoles(["ReviewIncludedInStatistics"])->build();
+            },
+            function (State $state) use ($builder) {
+                $review = $builder->reviews()
+                    ->post(
+                        ReviewDraftBuilder::of()
+                            ->withTitle("test")
+                            ->withRating(4)
+                            ->withState(StateResourceIdentifierBuilder::of()->withId($state->getId())->build())
+                            ->build())
+                    ->execute();
+                $this->assertTrue($review->getIncludedInStatistics());
+
+                $builder->reviews()->withId($review->getId())->delete()->withVersion($review->getVersion())->execute();
             }
         );
     }
