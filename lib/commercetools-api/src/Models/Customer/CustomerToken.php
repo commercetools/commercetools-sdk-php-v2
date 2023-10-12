@@ -15,11 +15,11 @@ use DateTimeImmutable;
 interface CustomerToken extends JsonObject
 {
     public const FIELD_ID = 'id';
+    public const FIELD_CUSTOMER_ID = 'customerId';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_EXPIRES_AT = 'expiresAt';
     public const FIELD_CREATED_AT = 'createdAt';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
-    public const FIELD_CUSTOMER_ID = 'customerId';
-    public const FIELD_EXPIRES_AT = 'expiresAt';
-    public const FIELD_VALUE = 'value';
 
     /**
      * <p>Unique identifier of the token.</p>
@@ -28,6 +28,30 @@ interface CustomerToken extends JsonObject
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>The <code>id</code> of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomerId();
+
+    /**
+     * <p>Value of the token.</p>
+     *
+
+     * @return null|string
+     */
+    public function getValue();
+
+    /**
+     * <p>Date and time (UTC) the token expires.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt();
 
     /**
      * <p>Date and time (UTC) the token was initially created.</p>
@@ -46,33 +70,24 @@ interface CustomerToken extends JsonObject
     public function getLastModifiedAt();
 
     /**
-     * <p>The <code>id</code> of the Customer.</p>
-     *
-
-     * @return null|string
-     */
-    public function getCustomerId();
-
-    /**
-     * <p>Date and time (UTC) the token expires.</p>
-     *
-
-     * @return null|DateTimeImmutable
-     */
-    public function getExpiresAt();
-
-    /**
-     * <p>Value of the token.</p>
-     *
-
-     * @return null|string
-     */
-    public function getValue();
-
-    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $customerId
+     */
+    public function setCustomerId(?string $customerId): void;
+
+    /**
+     * @param ?string $value
+     */
+    public function setValue(?string $value): void;
+
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     */
+    public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt
@@ -83,19 +98,4 @@ interface CustomerToken extends JsonObject
      * @param ?DateTimeImmutable $lastModifiedAt
      */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
-
-    /**
-     * @param ?string $customerId
-     */
-    public function setCustomerId(?string $customerId): void;
-
-    /**
-     * @param ?DateTimeImmutable $expiresAt
-     */
-    public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
-
-    /**
-     * @param ?string $value
-     */
-    public function setValue(?string $value): void;
 }

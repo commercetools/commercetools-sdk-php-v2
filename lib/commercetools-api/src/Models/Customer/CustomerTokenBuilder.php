@@ -29,6 +29,24 @@ final class CustomerTokenBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $customerId;
+
+    /**
+
+     * @var ?string
+     */
+    private $value;
+
+    /**
+
+     * @var ?DateTimeImmutable
+     */
+    private $expiresAt;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
@@ -40,24 +58,6 @@ final class CustomerTokenBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-
-     * @var ?string
-     */
-    private $customerId;
-
-    /**
-
-     * @var ?DateTimeImmutable
-     */
-    private $expiresAt;
-
-    /**
-
-     * @var ?string
-     */
-    private $value;
-
-    /**
      * <p>Unique identifier of the token.</p>
      *
 
@@ -66,6 +66,39 @@ final class CustomerTokenBuilder implements Builder
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * <p>The <code>id</code> of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomerId()
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * <p>Value of the token.</p>
+     *
+
+     * @return null|string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * <p>Date and time (UTC) the token expires.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
     }
 
     /**
@@ -91,45 +124,45 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
-     * <p>The <code>id</code> of the Customer.</p>
-     *
-
-     * @return null|string
-     */
-    public function getCustomerId()
-    {
-        return $this->customerId;
-    }
-
-    /**
-     * <p>Date and time (UTC) the token expires.</p>
-     *
-
-     * @return null|DateTimeImmutable
-     */
-    public function getExpiresAt()
-    {
-        return $this->expiresAt;
-    }
-
-    /**
-     * <p>Value of the token.</p>
-     *
-
-     * @return null|string
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
      * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customerId
+     * @return $this
+     */
+    public function withCustomerId(?string $customerId)
+    {
+        $this->customerId = $customerId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $value
+     * @return $this
+     */
+    public function withValue(?string $value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     * @return $this
+     */
+    public function withExpiresAt(?DateTimeImmutable $expiresAt)
+    {
+        $this->expiresAt = $expiresAt;
 
         return $this;
     }
@@ -156,49 +189,16 @@ final class CustomerTokenBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?string $customerId
-     * @return $this
-     */
-    public function withCustomerId(?string $customerId)
-    {
-        $this->customerId = $customerId;
-
-        return $this;
-    }
-
-    /**
-     * @param ?DateTimeImmutable $expiresAt
-     * @return $this
-     */
-    public function withExpiresAt(?DateTimeImmutable $expiresAt)
-    {
-        $this->expiresAt = $expiresAt;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $value
-     * @return $this
-     */
-    public function withValue(?string $value)
-    {
-        $this->value = $value;
-
-        return $this;
-    }
-
 
     public function build(): CustomerToken
     {
         return new CustomerTokenModel(
             $this->id,
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->customerId,
+            $this->value,
             $this->expiresAt,
-            $this->value
+            $this->createdAt,
+            $this->lastModifiedAt
         );
     }
 
