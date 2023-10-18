@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAttributeGroupsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAttributeGroupsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAttributeGroupsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAttributeGroupsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyAttributeGroupsByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyAttributeGroupsByIDTest extends TestCase
                 'get',
                 'test_projectKey/attribute-groups/test_ID',
             ],
+            'ByProjectKeyAttributeGroupsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->attributeGroups()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/attribute-groups/test_ID',
+            ],
             'ByProjectKeyAttributeGroupsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyAttributeGroupsByIDTest extends TestCase
                         ->attributeGroups()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyAttributeGroupsByIDPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyAttributeGroupsByIDTest extends TestCase
                         ->attributeGroups()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyAttributeGroupsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

@@ -60,6 +60,16 @@ class ResourceByProjectKeyAsAssociateByAssociateIdBusinessUnits extends ApiResou
         return new ByProjectKeyAsAssociateByAssociateIdBusinessUnitsGet($args['projectKey'], $args['associateId'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyAsAssociateByAssociateIdBusinessUnitsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyAsAssociateByAssociateIdBusinessUnitsHead($args['projectKey'], $args['associateId'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?BusinessUnitDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -37,6 +37,16 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
         return new ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyGet($args['projectKey'], $args['associateId'], $args['businessUnitKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead($args['projectKey'], $args['associateId'], $args['businessUnitKey'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?CartUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

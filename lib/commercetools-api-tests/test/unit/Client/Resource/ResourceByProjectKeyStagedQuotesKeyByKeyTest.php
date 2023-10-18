@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStagedQuotesKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStagedQuotesKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStagedQuotesKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStagedQuotesKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyStagedQuotesKeyByKey
@@ -115,6 +116,17 @@ class ResourceByProjectKeyStagedQuotesKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/staged-quotes/key=test_key',
             ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->stagedQuotes()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/staged-quotes/key=test_key',
+            ],
             'ByProjectKeyStagedQuotesKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -204,6 +216,15 @@ class ResourceByProjectKeyStagedQuotesKeyByKeyTest extends TestCase
                         ->stagedQuotes()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyStagedQuotesKeyByKeyPost' => [
@@ -317,6 +338,96 @@ class ResourceByProjectKeyStagedQuotesKeyByKeyTest extends TestCase
                         ->stagedQuotes()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyStagedQuotesKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

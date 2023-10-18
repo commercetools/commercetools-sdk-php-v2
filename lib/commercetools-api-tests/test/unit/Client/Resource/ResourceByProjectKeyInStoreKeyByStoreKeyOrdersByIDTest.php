@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID
@@ -115,6 +116,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByIDTest extends TestCase
                         ->get();
                 },
                 'get',
+                'test_projectKey/in-store/key=test_storeKey/orders/test_ID',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->orders()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
                 'test_projectKey/in-store/key=test_storeKey/orders/test_ID',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDPost_withExpand' => [
@@ -213,6 +226,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByIDTest extends TestCase
                         ->orders()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDPost' => [
@@ -337,6 +360,105 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByIDTest extends TestCase
                         ->orders()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

@@ -35,4 +35,14 @@ class ResourceByProjectKeyShippingMethodsMatchingLocation extends ApiResource
 
         return new ByProjectKeyShippingMethodsMatchingLocationGet($args['projectKey'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyShippingMethodsMatchingLocationHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyShippingMethodsMatchingLocationHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
 }

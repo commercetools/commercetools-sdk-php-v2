@@ -60,6 +60,16 @@ class ResourceByProjectKeyCategories extends ApiResource
         return new ByProjectKeyCategoriesGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyCategoriesHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyCategoriesHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?CategoryDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAssociateRolesByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAssociateRolesByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAssociateRolesByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAssociateRolesByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyAssociateRolesByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyAssociateRolesByIDTest extends TestCase
                 'get',
                 'test_projectKey/associate-roles/test_ID',
             ],
+            'ByProjectKeyAssociateRolesByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->associateRoles()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/associate-roles/test_ID',
+            ],
             'ByProjectKeyAssociateRolesByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyAssociateRolesByIDTest extends TestCase
                         ->associateRoles()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyAssociateRolesByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyAssociateRolesByIDPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyAssociateRolesByIDTest extends TestCase
                         ->associateRoles()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyAssociateRolesByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyAssociateRolesByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyAssociateRolesByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyAssociateRolesByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyAssociateRolesByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyAssociateRolesByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyAssociateRolesByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyAssociateRolesByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyAssociateRolesByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

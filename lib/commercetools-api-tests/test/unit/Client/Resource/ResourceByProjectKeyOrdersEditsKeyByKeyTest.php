@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersEditsKeyByKey
@@ -117,6 +118,18 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/orders/edits/key=test_key',
             ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/orders/edits/key=test_key',
+            ],
             'ByProjectKeyOrdersEditsKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -200,6 +213,16 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->edits()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyOrdersEditsKeyByKeyPost' => [
@@ -324,6 +347,105 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->edits()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

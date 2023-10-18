@@ -60,6 +60,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
         return new ByProjectKeyInStoreKeyByStoreKeyOrdersGet($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyOrdersHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersHead($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?OrderFromCartDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

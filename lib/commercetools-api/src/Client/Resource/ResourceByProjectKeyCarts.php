@@ -79,6 +79,16 @@ class ResourceByProjectKeyCarts extends ApiResource
         return new ByProjectKeyCartsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyCartsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyCartsHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?CartDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

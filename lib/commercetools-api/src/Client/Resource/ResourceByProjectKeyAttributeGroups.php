@@ -60,6 +60,16 @@ class ResourceByProjectKeyAttributeGroups extends ApiResource
         return new ByProjectKeyAttributeGroupsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyAttributeGroupsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyAttributeGroupsHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?AttributeGroupDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

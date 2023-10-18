@@ -60,6 +60,16 @@ class ResourceByProjectKeyZones extends ApiResource
         return new ByProjectKeyZonesGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyZonesHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyZonesHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ZoneDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

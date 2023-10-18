@@ -37,6 +37,16 @@ class ResourceByProjectKeyChannelsByID extends ApiResource
         return new ByProjectKeyChannelsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyChannelsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyChannelsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ChannelUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

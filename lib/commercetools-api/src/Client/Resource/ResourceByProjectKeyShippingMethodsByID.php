@@ -37,6 +37,16 @@ class ResourceByProjectKeyShippingMethodsByID extends ApiResource
         return new ByProjectKeyShippingMethodsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyShippingMethodsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyShippingMethodsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ShippingMethodUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

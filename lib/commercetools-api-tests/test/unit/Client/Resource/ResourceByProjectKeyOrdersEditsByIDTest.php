@@ -23,6 +23,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersEditsByID
@@ -127,6 +128,18 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                 'get',
                 'test_projectKey/orders/edits/test_ID',
             ],
+            'ByProjectKeyOrdersEditsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/orders/edits/test_ID',
+            ],
             'ByProjectKeyOrdersEditsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -223,6 +236,16 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                         ->edits()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyOrdersEditsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyOrdersEditsByIDPost' => [
@@ -347,6 +370,105 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                         ->edits()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyOrdersEditsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyOrdersEditsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyOrdersEditsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyOrdersEditsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyOrdersEditsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyOrdersEditsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyOrdersEditsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyOrdersEditsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyOrdersEditsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

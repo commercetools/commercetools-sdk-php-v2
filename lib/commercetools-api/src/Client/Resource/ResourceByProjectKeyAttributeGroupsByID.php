@@ -37,6 +37,16 @@ class ResourceByProjectKeyAttributeGroupsByID extends ApiResource
         return new ByProjectKeyAttributeGroupsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyAttributeGroupsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyAttributeGroupsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?AttributeGroupUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

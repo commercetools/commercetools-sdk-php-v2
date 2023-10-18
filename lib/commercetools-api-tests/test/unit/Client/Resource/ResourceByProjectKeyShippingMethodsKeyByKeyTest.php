@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsKeyByKey
@@ -115,6 +116,17 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/shipping-methods/key=test_key',
             ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->shippingMethods()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/shipping-methods/key=test_key',
+            ],
             'ByProjectKeyShippingMethodsKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                         ->shippingMethods()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyShippingMethodsKeyByKeyPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                         ->shippingMethods()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

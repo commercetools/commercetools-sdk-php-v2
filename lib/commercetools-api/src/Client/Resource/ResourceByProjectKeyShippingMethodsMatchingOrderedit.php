@@ -35,4 +35,14 @@ class ResourceByProjectKeyShippingMethodsMatchingOrderedit extends ApiResource
 
         return new ByProjectKeyShippingMethodsMatchingOrdereditGet($args['projectKey'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyShippingMethodsMatchingOrdereditHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyShippingMethodsMatchingOrdereditHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
 }

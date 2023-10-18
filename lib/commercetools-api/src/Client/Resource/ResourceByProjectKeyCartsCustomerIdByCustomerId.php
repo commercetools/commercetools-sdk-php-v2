@@ -35,4 +35,14 @@ class ResourceByProjectKeyCartsCustomerIdByCustomerId extends ApiResource
 
         return new ByProjectKeyCartsCustomerIdByCustomerIdGet($args['projectKey'], $args['customerId'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyCartsCustomerIdByCustomerIdHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyCartsCustomerIdByCustomerIdHead($args['projectKey'], $args['customerId'], $body, $headers, $this->getClient());
+    }
 }

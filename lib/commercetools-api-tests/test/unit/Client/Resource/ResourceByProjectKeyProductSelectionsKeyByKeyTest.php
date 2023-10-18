@@ -23,6 +23,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductSelectionsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductSelectionsKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductSelectionsKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductSelectionsKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyProductSelectionsKeyByKey
@@ -125,6 +126,17 @@ class ResourceByProjectKeyProductSelectionsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/product-selections/key=test_key',
             ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->productSelections()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/product-selections/key=test_key',
+            ],
             'ByProjectKeyProductSelectionsKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -214,6 +226,15 @@ class ResourceByProjectKeyProductSelectionsKeyByKeyTest extends TestCase
                         ->productSelections()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyProductSelectionsKeyByKeyPost' => [
@@ -327,6 +348,96 @@ class ResourceByProjectKeyProductSelectionsKeyByKeyTest extends TestCase
                         ->productSelections()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyProductSelectionsKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productSelections()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

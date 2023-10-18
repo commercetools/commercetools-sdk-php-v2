@@ -23,6 +23,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyApiClientsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyApiClientsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyApiClientsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyApiClients
  */
@@ -188,6 +189,27 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
                 'get',
                 'test_projectKey/api-clients',
             ],
+            'ByProjectKeyApiClientsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->apiClients()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/api-clients?where=where',
+            ],
+            'ByProjectKeyApiClientsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->apiClients()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/api-clients',
+            ],
             'ByProjectKeyApiClientsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -238,6 +260,14 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->apiClients()
                         ->get();
+                }
+            ],
+            'ByProjectKeyApiClientsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
                 }
             ],
             'ByProjectKeyApiClientsPost' => [
@@ -332,6 +362,87 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->apiClients()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyApiClientsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyApiClientsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyApiClientsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyApiClientsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyApiClientsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyApiClientsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyApiClientsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyApiClientsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyApiClientsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->head();
                 },
                 599
             ],

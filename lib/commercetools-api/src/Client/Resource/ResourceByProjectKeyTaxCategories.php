@@ -60,6 +60,16 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
         return new ByProjectKeyTaxCategoriesGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyTaxCategoriesHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyTaxCategoriesHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?TaxCategoryDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

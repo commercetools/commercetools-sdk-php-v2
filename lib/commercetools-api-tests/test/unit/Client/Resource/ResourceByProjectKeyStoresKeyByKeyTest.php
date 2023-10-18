@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyStoresKeyByKey
@@ -115,6 +116,17 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/stores/key=test_key',
             ],
+            'ByProjectKeyStoresKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->stores()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/stores/key=test_key',
+            ],
             'ByProjectKeyStoresKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                         ->stores()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyStoresKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyStoresKeyByKeyPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                         ->stores()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyStoresKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyStoresKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyStoresKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyStoresKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyStoresKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyStoresKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyStoresKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyStoresKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyStoresKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

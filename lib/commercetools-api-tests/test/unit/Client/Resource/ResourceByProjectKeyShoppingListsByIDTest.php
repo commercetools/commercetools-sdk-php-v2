@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyShoppingListsByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
                 'get',
                 'test_projectKey/shopping-lists/test_ID',
             ],
+            'ByProjectKeyShoppingListsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->shoppingLists()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/shopping-lists/test_ID',
+            ],
             'ByProjectKeyShoppingListsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -204,6 +216,15 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
                         ->shoppingLists()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyShoppingListsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyShoppingListsByIDPost' => [
@@ -317,6 +338,96 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
                         ->shoppingLists()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyShoppingListsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyShoppingListsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyShoppingListsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyShoppingListsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyShoppingListsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyShoppingListsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyShoppingListsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyShoppingListsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyShoppingListsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

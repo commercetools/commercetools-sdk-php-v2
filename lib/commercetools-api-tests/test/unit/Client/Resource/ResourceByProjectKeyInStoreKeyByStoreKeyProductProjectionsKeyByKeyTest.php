@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKey
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyTest extends TestCase
@@ -192,6 +193,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyTest ext
                 },
                 'get',
                 'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->productProjections()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key',
             ]
         ];
     }
@@ -213,6 +226,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyTest ext
                         ->productProjections()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
                 }
             ]
         ];
@@ -317,6 +340,105 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyTest ext
                         ->productProjections()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->productProjections()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ]

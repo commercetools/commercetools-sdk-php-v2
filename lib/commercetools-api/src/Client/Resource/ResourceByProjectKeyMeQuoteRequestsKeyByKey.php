@@ -37,6 +37,16 @@ class ResourceByProjectKeyMeQuoteRequestsKeyByKey extends ApiResource
         return new ByProjectKeyMeQuoteRequestsKeyByKeyGet($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyMeQuoteRequestsKeyByKeyHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyMeQuoteRequestsKeyByKeyHead($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?MyQuoteRequestUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

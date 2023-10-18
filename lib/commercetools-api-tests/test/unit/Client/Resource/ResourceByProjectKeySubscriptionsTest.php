@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeySubscriptionsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeySubscriptionsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeySubscriptionsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeySubscriptions
  */
@@ -178,6 +179,27 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 'get',
                 'test_projectKey/subscriptions',
             ],
+            'ByProjectKeySubscriptionsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->subscriptions()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/subscriptions?where=where',
+            ],
+            'ByProjectKeySubscriptionsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->subscriptions()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/subscriptions',
+            ],
             'ByProjectKeySubscriptionsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -228,6 +250,14 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->subscriptions()
                         ->get();
+                }
+            ],
+            'ByProjectKeySubscriptionsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
                 }
             ],
             'ByProjectKeySubscriptionsPost' => [
@@ -322,6 +352,87 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->subscriptions()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeySubscriptionsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeySubscriptionsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeySubscriptionsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeySubscriptionsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeySubscriptionsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeySubscriptionsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeySubscriptionsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeySubscriptionsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeySubscriptionsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->head();
                 },
                 599
             ],

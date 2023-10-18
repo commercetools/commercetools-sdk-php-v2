@@ -39,6 +39,16 @@ class ResourceByProjectKeyApiClientsByID extends ApiResource
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
+    public function head($body = null, array $headers = []): ByProjectKeyApiClientsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyApiClientsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
     public function delete($body = null, array $headers = []): ByProjectKeyApiClientsByIDDelete
     {
         $args = $this->getArgs();

@@ -35,4 +35,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersByID extends ApiResource
 
         return new ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDGet($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDHead($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
 }

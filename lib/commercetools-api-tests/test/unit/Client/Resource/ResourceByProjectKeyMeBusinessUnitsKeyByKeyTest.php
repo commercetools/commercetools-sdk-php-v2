@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeBusinessUnitsKeyByKey
@@ -117,6 +118,18 @@ class ResourceByProjectKeyMeBusinessUnitsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/me/business-units/key=test_key',
             ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/me/business-units/key=test_key',
+            ],
             'ByProjectKeyMeBusinessUnitsKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -200,6 +213,16 @@ class ResourceByProjectKeyMeBusinessUnitsKeyByKeyTest extends TestCase
                         ->businessUnits()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyMeBusinessUnitsKeyByKeyPost' => [
@@ -324,6 +347,105 @@ class ResourceByProjectKeyMeBusinessUnitsKeyByKeyTest extends TestCase
                         ->businessUnits()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyMeBusinessUnitsKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

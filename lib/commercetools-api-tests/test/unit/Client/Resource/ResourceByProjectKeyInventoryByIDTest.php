@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInventoryByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                 'get',
                 'test_projectKey/inventory/test_ID',
             ],
+            'ByProjectKeyInventoryByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inventory()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/inventory/test_ID',
+            ],
             'ByProjectKeyInventoryByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                         ->inventory()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyInventoryByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyInventoryByIDPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                         ->inventory()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyInventoryByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyInventoryByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyInventoryByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyInventoryByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyInventoryByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyInventoryByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyInventoryByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyInventoryByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyInventoryByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

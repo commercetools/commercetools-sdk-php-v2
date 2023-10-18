@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts
  */
@@ -113,6 +114,29 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsTest extends TestCase
                 'get',
                 'test_projectKey/in-store/key=test_storeKey/cart-discounts',
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?where=where',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -169,6 +193,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsTest extends TestCase
                         ->get();
                 }
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                }
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -201,6 +234,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsTest extends TestCase
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->cartDiscounts()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
                 },
                 599
             ],

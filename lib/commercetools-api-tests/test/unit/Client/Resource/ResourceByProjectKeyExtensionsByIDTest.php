@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyExtensionsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyExtensionsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyExtensionsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyExtensionsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyExtensionsByID
@@ -103,6 +104,17 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                 'get',
                 'test_projectKey/extensions/test_ID',
             ],
+            'ByProjectKeyExtensionsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->extensions()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/extensions/test_ID',
+            ],
             'ByProjectKeyExtensionsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -156,6 +168,15 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                         ->extensions()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyExtensionsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyExtensionsByIDPost' => [
@@ -269,6 +290,96 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                         ->extensions()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyExtensionsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyExtensionsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyExtensionsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyExtensionsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyExtensionsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyExtensionsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyExtensionsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyExtensionsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyExtensionsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

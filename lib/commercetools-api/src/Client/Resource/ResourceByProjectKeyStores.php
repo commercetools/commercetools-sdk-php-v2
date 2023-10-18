@@ -60,6 +60,16 @@ class ResourceByProjectKeyStores extends ApiResource
         return new ByProjectKeyStoresGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyStoresHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyStoresHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?StoreDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAttributeGroupsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAttributeGroupsKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAttributeGroupsKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAttributeGroupsKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyAttributeGroupsKeyByKey
@@ -115,6 +116,17 @@ class ResourceByProjectKeyAttributeGroupsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/attribute-groups/key=test_key',
             ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->attributeGroups()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/attribute-groups/key=test_key',
+            ],
             'ByProjectKeyAttributeGroupsKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyAttributeGroupsKeyByKeyTest extends TestCase
                         ->attributeGroups()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyAttributeGroupsKeyByKeyPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyAttributeGroupsKeyByKeyTest extends TestCase
                         ->attributeGroups()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyAttributeGroupsKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->attributeGroups()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

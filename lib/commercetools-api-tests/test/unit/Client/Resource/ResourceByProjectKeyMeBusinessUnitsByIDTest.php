@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeBusinessUnitsByID
@@ -117,6 +118,18 @@ class ResourceByProjectKeyMeBusinessUnitsByIDTest extends TestCase
                 'get',
                 'test_projectKey/me/business-units/test_ID',
             ],
+            'ByProjectKeyMeBusinessUnitsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/me/business-units/test_ID',
+            ],
             'ByProjectKeyMeBusinessUnitsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -200,6 +213,16 @@ class ResourceByProjectKeyMeBusinessUnitsByIDTest extends TestCase
                         ->businessUnits()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyMeBusinessUnitsByIDPost' => [
@@ -324,6 +347,105 @@ class ResourceByProjectKeyMeBusinessUnitsByIDTest extends TestCase
                         ->businessUnits()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyMeBusinessUnitsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->businessUnits()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

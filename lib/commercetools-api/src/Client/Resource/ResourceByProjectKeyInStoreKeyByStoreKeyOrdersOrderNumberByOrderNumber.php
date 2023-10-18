@@ -37,6 +37,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber ext
         return new ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberGet($args['projectKey'], $args['storeKey'], $args['orderNumber'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead($args['projectKey'], $args['storeKey'], $args['orderNumber'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?OrderUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyZonesByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyZonesByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyZonesByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyZonesByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyZonesByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyZonesByIDTest extends TestCase
                 'get',
                 'test_projectKey/zones/test_ID',
             ],
+            'ByProjectKeyZonesByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->zones()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/zones/test_ID',
+            ],
             'ByProjectKeyZonesByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyZonesByIDTest extends TestCase
                         ->zones()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyZonesByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyZonesByIDPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyZonesByIDTest extends TestCase
                         ->zones()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyZonesByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyZonesByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyZonesByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyZonesByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyZonesByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyZonesByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyZonesByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyZonesByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyZonesByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

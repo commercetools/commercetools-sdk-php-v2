@@ -37,6 +37,16 @@ class ResourceByProjectKeyAsAssociateByAssociateIdBusinessUnitsByID extends ApiR
         return new ByProjectKeyAsAssociateByAssociateIdBusinessUnitsByIDGet($args['projectKey'], $args['associateId'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyAsAssociateByAssociateIdBusinessUnitsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyAsAssociateByAssociateIdBusinessUnitsByIDHead($args['projectKey'], $args['associateId'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?BusinessUnitUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -60,6 +60,16 @@ class ResourceByProjectKeyAssociateRoles extends ApiResource
         return new ByProjectKeyAssociateRolesGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyAssociateRolesHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyAssociateRolesHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?AssociateRoleDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

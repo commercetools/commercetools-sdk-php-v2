@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest extends TestCase
@@ -114,6 +115,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
                 },
                 'get',
                 'test_projectKey/in-store/key=test_storeKey/carts/customer-id=test_customerId',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->carts()
+                        ->withCustomerId("test_customerId")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/in-store/key=test_storeKey/carts/customer-id=test_customerId',
             ]
         ];
     }
@@ -135,6 +148,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
                         ->carts()
                         ->withCustomerId("customerId")
                         ->get();
+                }
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
                 }
             ]
         ];
@@ -239,6 +262,105 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
                         ->carts()
                         ->withCustomerId("customerId")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
                 },
                 599
             ]

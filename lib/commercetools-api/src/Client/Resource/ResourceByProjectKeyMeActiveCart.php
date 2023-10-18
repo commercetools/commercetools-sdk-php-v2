@@ -35,4 +35,14 @@ class ResourceByProjectKeyMeActiveCart extends ApiResource
 
         return new ByProjectKeyMeActiveCartGet($args['projectKey'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyMeActiveCartHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyMeActiveCartHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
 }

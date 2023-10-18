@@ -37,6 +37,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByID extends ApiRes
         return new ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDGet($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDHead($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?MyShoppingListUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -37,6 +37,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKey extends ApiR
         return new ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyGet($args['projectKey'], $args['storeKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyHead($args['projectKey'], $args['storeKey'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ShoppingListUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

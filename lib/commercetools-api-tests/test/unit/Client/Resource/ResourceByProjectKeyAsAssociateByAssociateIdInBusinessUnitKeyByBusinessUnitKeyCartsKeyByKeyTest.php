@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKey
@@ -119,6 +120,20 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
                         ->get();
                 },
                 'get',
+                'test_projectKey/as-associate/test_associateId/in-business-unit/key=test_businessUnitKey/carts/key=test_key',
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("test_associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("test_businessUnitKey")
+                        ->carts()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
                 'test_projectKey/as-associate/test_associateId/in-business-unit/key=test_businessUnitKey/carts/key=test_key',
             ],
             'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyPost_withExpand' => [
@@ -231,6 +246,18 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
                         ->carts()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyPost' => [
@@ -377,6 +404,123 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
                         ->carts()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCartsKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->asAssociate()
+                        ->withAssociateIdValue("associateId")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

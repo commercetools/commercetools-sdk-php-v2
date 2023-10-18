@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber
@@ -115,6 +116,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->get();
                 },
                 'get',
+                'test_projectKey/in-store/key=test_storeKey/orders/order-number=test_orderNumber',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->orders()
+                        ->withOrderNumber("test_orderNumber")
+                        ->head();
+                },
+                'head',
                 'test_projectKey/in-store/key=test_storeKey/orders/order-number=test_orderNumber',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost_withExpand' => [
@@ -213,6 +226,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->orders()
                         ->withOrderNumber("orderNumber")
                         ->get();
+                }
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
                 }
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost' => [
@@ -337,6 +360,105 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->orders()
                         ->withOrderNumber("orderNumber")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
                 },
                 599
             ],

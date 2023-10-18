@@ -37,6 +37,16 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumber extends ApiResource
         return new ByProjectKeyOrdersOrderNumberByOrderNumberGet($args['projectKey'], $args['orderNumber'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyOrdersOrderNumberByOrderNumberHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyOrdersOrderNumberByOrderNumberHead($args['projectKey'], $args['orderNumber'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?OrderUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

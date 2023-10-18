@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsMatchingLocationGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsMatchingLocationHead
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsMatchingLocation
  */
 class ResourceByProjectKeyShippingMethodsMatchingLocationTest extends TestCase
@@ -160,6 +161,53 @@ class ResourceByProjectKeyShippingMethodsMatchingLocationTest extends TestCase
                 },
                 'get',
                 'test_projectKey/shipping-methods/matching-location',
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_withCountry' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head()
+                        ->withCountry('country');
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-location?country=country',
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_withState' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head()
+                        ->withState('state');
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-location?state=state',
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_withCurrency' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head()
+                        ->withCurrency('currency');
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-location?currency=currency',
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-location',
             ]
         ];
     }
@@ -180,6 +228,15 @@ class ResourceByProjectKeyShippingMethodsMatchingLocationTest extends TestCase
                         ->shippingMethods()
                         ->matchingLocation()
                         ->get();
+                }
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
                 }
             ]
         ];
@@ -275,6 +332,96 @@ class ResourceByProjectKeyShippingMethodsMatchingLocationTest extends TestCase
                         ->shippingMethods()
                         ->matchingLocation()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->head();
                 },
                 599
             ]

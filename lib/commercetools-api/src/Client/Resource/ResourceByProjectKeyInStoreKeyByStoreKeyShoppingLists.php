@@ -60,6 +60,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShoppingLists extends ApiResource
         return new ByProjectKeyInStoreKeyByStoreKeyShoppingListsGet($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyShoppingListsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyShoppingListsHead($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ShoppingListDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

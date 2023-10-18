@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInventoryKeyByKey
@@ -115,6 +116,17 @@ class ResourceByProjectKeyInventoryKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/inventory/key=test_key',
             ],
+            'ByProjectKeyInventoryKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inventory()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/inventory/key=test_key',
+            ],
             'ByProjectKeyInventoryKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyInventoryKeyByKeyTest extends TestCase
                         ->inventory()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyInventoryKeyByKeyPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyInventoryKeyByKeyTest extends TestCase
                         ->inventory()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyInventoryKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

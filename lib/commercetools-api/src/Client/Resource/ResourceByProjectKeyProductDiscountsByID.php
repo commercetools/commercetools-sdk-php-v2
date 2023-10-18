@@ -37,6 +37,16 @@ class ResourceByProjectKeyProductDiscountsByID extends ApiResource
         return new ByProjectKeyProductDiscountsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyProductDiscountsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyProductDiscountsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ProductDiscountUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

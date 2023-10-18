@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomerGroupsByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyCustomerGroupsByIDTest extends TestCase
                 'get',
                 'test_projectKey/customer-groups/test_ID',
             ],
+            'ByProjectKeyCustomerGroupsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->customerGroups()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/customer-groups/test_ID',
+            ],
             'ByProjectKeyCustomerGroupsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyCustomerGroupsByIDTest extends TestCase
                         ->customerGroups()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyCustomerGroupsByIDPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyCustomerGroupsByIDTest extends TestCase
                         ->customerGroups()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyCustomerGroupsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

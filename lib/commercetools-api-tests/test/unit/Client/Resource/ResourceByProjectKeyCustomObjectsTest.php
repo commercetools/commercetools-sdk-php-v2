@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomObjectsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomObjectsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomObjectsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomObjects
  */
@@ -189,6 +190,27 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 'get',
                 'test_projectKey/custom-objects',
             ],
+            'ByProjectKeyCustomObjectsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customObjects()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/custom-objects?where=where',
+            ],
+            'ByProjectKeyCustomObjectsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->customObjects()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/custom-objects',
+            ],
             'ByProjectKeyCustomObjectsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -250,6 +272,14 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->customObjects()
                         ->get();
+                }
+            ],
+            'ByProjectKeyCustomObjectsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
                 }
             ],
             'ByProjectKeyCustomObjectsPost' => [
@@ -344,6 +374,87 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->customObjects()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyCustomObjectsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyCustomObjectsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyCustomObjectsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyCustomObjectsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyCustomObjectsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyCustomObjectsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyCustomObjectsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyCustomObjectsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyCustomObjectsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->head();
                 },
                 599
             ],

@@ -37,6 +37,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsByID extends ApiResou
         return new ByProjectKeyInStoreKeyByStoreKeyCartDiscountsByIDGet($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyCartDiscountsByIDHead($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?CartDiscountUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -37,6 +37,16 @@ class ResourceByProjectKeyBusinessUnitsByID extends ApiResource
         return new ByProjectKeyBusinessUnitsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyBusinessUnitsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyBusinessUnitsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?BusinessUnitUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

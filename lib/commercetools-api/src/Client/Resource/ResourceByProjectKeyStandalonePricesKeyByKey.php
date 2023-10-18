@@ -37,6 +37,16 @@ class ResourceByProjectKeyStandalonePricesKeyByKey extends ApiResource
         return new ByProjectKeyStandalonePricesKeyByKeyGet($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyStandalonePricesKeyByKeyHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyStandalonePricesKeyByKeyHead($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?StandalonePriceUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -63,6 +63,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKey
  */
@@ -148,6 +149,15 @@ class ResourceByProjectKeyTest extends TestCase
                         ->get();
                 },
                 'get',
+                'test_projectKey',
+            ],
+            'ByProjectKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->head();
+                },
+                'head',
                 'test_projectKey',
             ],
             'ByProjectKeyPost' => [
@@ -588,6 +598,13 @@ class ResourceByProjectKeyTest extends TestCase
                         ->get();
                 }
             ],
+            'ByProjectKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->head();
+                }
+            ],
             'ByProjectKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -670,6 +687,22 @@ class ResourceByProjectKeyTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->head();
                 },
                 599
             ],

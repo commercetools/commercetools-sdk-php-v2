@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductProjectionsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductProjectionsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyProductProjectionsByID
  */
 class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
@@ -196,6 +197,17 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                 },
                 'get',
                 'test_projectKey/product-projections/test_ID',
+            ],
+            'ByProjectKeyProductProjectionsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->productProjections()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/product-projections/test_ID',
             ]
         ];
     }
@@ -216,6 +228,15 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                         ->productProjections()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyProductProjectionsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
                 }
             ]
         ];
@@ -311,6 +332,96 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                         ->productProjections()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyProductProjectionsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyProductProjectionsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyProductProjectionsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyProductProjectionsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyProductProjectionsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyProductProjectionsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyProductProjectionsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyProductProjectionsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyProductProjectionsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ]

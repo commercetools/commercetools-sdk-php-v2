@@ -35,4 +35,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByID extends Api
 
         return new ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDHead($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
 }

@@ -46,6 +46,16 @@ class ResourceByProjectKeySubscriptionsByID extends ApiResource
         return new ByProjectKeySubscriptionsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeySubscriptionsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeySubscriptionsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?SubscriptionUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

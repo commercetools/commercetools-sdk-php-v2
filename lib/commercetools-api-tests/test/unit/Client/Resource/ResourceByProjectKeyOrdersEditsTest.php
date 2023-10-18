@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersEdits
  */
@@ -197,6 +198,29 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                 'get',
                 'test_projectKey/orders/edits',
             ],
+            'ByProjectKeyOrdersEditsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->orders()
+                        ->edits()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/orders/edits?where=where',
+            ],
+            'ByProjectKeyOrdersEditsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/orders/edits',
+            ],
             'ByProjectKeyOrdersEditsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -263,6 +287,15 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->orders()
                         ->edits()
                         ->get();
+                }
+            ],
+            'ByProjectKeyOrdersEditsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
                 }
             ],
             'ByProjectKeyOrdersEditsPost' => [
@@ -367,6 +400,96 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->orders()
                         ->edits()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyOrdersEditsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyOrdersEditsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyOrdersEditsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyOrdersEditsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyOrdersEditsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyOrdersEditsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyOrdersEditsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyOrdersEditsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyOrdersEditsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->head();
                 },
                 599
             ],

@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersKeyByKey
@@ -115,6 +116,17 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/customers/key=test_key',
             ],
+            'ByProjectKeyCustomersKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->customers()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/customers/key=test_key',
+            ],
             'ByProjectKeyCustomersKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -204,6 +216,15 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->customers()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyCustomersKeyByKeyPost' => [
@@ -317,6 +338,96 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->customers()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyCustomersKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

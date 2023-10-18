@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeShoppingListsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeShoppingListsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeShoppingListsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeShoppingListsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeShoppingListsByID
@@ -117,6 +118,18 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                 'get',
                 'test_projectKey/me/shopping-lists/test_ID',
             ],
+            'ByProjectKeyMeShoppingListsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/me/shopping-lists/test_ID',
+            ],
             'ByProjectKeyMeShoppingListsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -200,6 +213,16 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->shoppingLists()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyMeShoppingListsByIDPost' => [
@@ -324,6 +347,105 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->shoppingLists()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyMeShoppingListsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

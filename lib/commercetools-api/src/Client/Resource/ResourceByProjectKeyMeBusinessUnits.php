@@ -60,6 +60,16 @@ class ResourceByProjectKeyMeBusinessUnits extends ApiResource
         return new ByProjectKeyMeBusinessUnitsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyMeBusinessUnitsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyMeBusinessUnitsHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?MyBusinessUnitDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

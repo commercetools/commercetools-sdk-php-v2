@@ -35,4 +35,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart extend
 
         return new ByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCartGet($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCartHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCartHead($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+    }
 }

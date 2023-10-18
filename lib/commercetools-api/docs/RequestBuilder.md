@@ -21,6 +21,19 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->get();
 ```
+## `withProjectKey("projectKey")->head()`
+
+Checks if a Project exists for a given `projectKey`. Returns a `200 OK` status if the Project exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->head();
+```
 ## `withProjectKey("projectKey")->post(null)`
 
 null
@@ -47,6 +60,20 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->apiClients()
                 ->get();
+```
+## `withProjectKey("projectKey")->apiClients()->head()`
+
+Checks if an API Client exists for a given Query Predicate. Returns a `200 OK` status if any API Clients match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->apiClients()
+                ->head();
 ```
 ## `withProjectKey("projectKey")->apiClients()->post(null)`
 
@@ -76,6 +103,21 @@ $request = $builder
                 ->apiClients()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->apiClients()->withId("ID")->head()`
+
+Checks if an API Client exists for a given `id`. Returns a `200 OK` status if the API Client exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->apiClients()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->apiClients()->withId("ID")->delete()`
 
@@ -107,6 +149,22 @@ $request = $builder
                 ->withAssociateIdValue("associateId")
                 ->businessUnits()
                 ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->head()`
+
+Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->businessUnits()
+                ->head();
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->post(null)`
 
@@ -141,6 +199,23 @@ $request = $builder
                 ->withId("ID")
                 ->get();
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withId("ID")->head()`
+
+Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->businessUnits()
+                ->withId("ID")
+                ->head();
+```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withId("ID")->post(null)`
 
 null
@@ -174,6 +249,23 @@ $request = $builder
                 ->businessUnits()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withKey("key")->head()`
+
+Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->businessUnits()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withKey("key")->post(null)`
 
@@ -368,6 +460,23 @@ $request = $builder
                 ->carts()
                 ->get();
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->head()`
+
+Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->head();
+```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->post(null)`
 
 Creates a [Cart](ctp:api:type:Cart) in the [BusinessUnit](ctp:api:type:BusinessUnit) referenced by `businessUnitKey`. As such, the `businessUnit` field on [CartDraft](ctp:api:type:CartDraft) is ignored for this request.
@@ -405,6 +514,24 @@ $request = $builder
                 ->carts()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withId("ID")->head()`
+
+Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withId("ID")->post(null)`
 
@@ -461,6 +588,24 @@ $request = $builder
                 ->carts()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withKey("key")->head()`
+
+Checks if a Cart exists for a given `key`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->carts()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withKey("key")->post(null)`
 
@@ -541,6 +686,23 @@ $request = $builder
                 ->orders()
                 ->get();
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->head()`
+
+Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status if any Orders match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->head();
+```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->post(null)`
 
 Creates an Order from a [Cart](ctp:api:type:Cart) in a [BusinessUnit](ctp:api:type:BusinessUnit).
@@ -580,6 +742,24 @@ $request = $builder
                 ->withId("ID")
                 ->get();
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->head()`
+
+Checks if an Order exists for a given `id`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->withId("ID")
+                ->head();
+```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->post(null)`
 
 If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
@@ -617,6 +797,24 @@ $request = $builder
                 ->orders()
                 ->withOrderNumber("orderNumber")
                 ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withOrderNumber("orderNumber")->head()`
+
+Checks if an Order exists for a given `orderNumber`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->orders()
+                ->withOrderNumber("orderNumber")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
@@ -674,6 +872,23 @@ $request = $builder
                 ->quoteRequests()
                 ->get();
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->head()`
+
+Checks if a QuoteRequest exists for a given Query Predicate. Returns a `200 OK` status if any QuoteRequests match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quoteRequests()
+                ->head();
+```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->post(null)`
 
 Creates a QuoteRequest in a [BusinessUnit](ctp:api:type:BusinessUnit). Creating QuoteRequest fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Cart does not reference the same BusinessUnit as the `businessUnitKey` path parameter.
@@ -709,6 +924,24 @@ $request = $builder
                 ->quoteRequests()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->head()`
+
+Checks if a QuoteRequest exists for a given `id`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quoteRequests()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->post(null)`
 
@@ -748,6 +981,24 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->head()`
+
+Checks if a QuoteRequest exists for a given `key`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quoteRequests()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->post(null)`
 
 If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
@@ -784,6 +1035,23 @@ $request = $builder
                 ->quotes()
                 ->get();
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->head()`
+
+Checks if a Quote exists for a given Query Predicate. Returns a `200 OK` status if any Quotes match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quotes()
+                ->head();
+```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->get()`
 
 If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
@@ -802,6 +1070,24 @@ $request = $builder
                 ->quotes()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->head()`
+
+Checks if a Quote exists for a given `id`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quotes()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->post(null)`
 
@@ -841,6 +1127,24 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->head()`
+
+Checks if a Quote exists for a given `key`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->quotes()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->post(null)`
 
 If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
@@ -874,6 +1178,20 @@ $request = $builder
                 ->associateRoles()
                 ->get();
 ```
+## `withProjectKey("projectKey")->associateRoles()->head()`
+
+Checks if an AssociateRole exists for a given Query Predicate. Returns a `200 OK` status if any AssociateRole match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->head();
+```
 ## `withProjectKey("projectKey")->associateRoles()->post(null)`
 
 Creating a Associate Role generates the [AssociateRoleCreated](ctp:api:type:AssociateRoleCreatedMessage) Message.
@@ -903,6 +1221,21 @@ $request = $builder
                 ->associateRoles()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->associateRoles()->withId("ID")->head()`
+
+Checks if an AssociateRole exists for a given `id`. Returns a `200 OK` status if the AssociateRole exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->associateRoles()->withId("ID")->post(null)`
 
@@ -949,6 +1282,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->associateRoles()->withKey("key")->head()`
+
+Checks if an AssociateRole exists for a given `key`. Returns a `200 OK` status if the AssociateRole exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->associateRoles()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->associateRoles()->withKey("key")->post(null)`
 
 null
@@ -994,6 +1342,20 @@ $request = $builder
                 ->attributeGroups()
                 ->get();
 ```
+## `withProjectKey("projectKey")->attributeGroups()->head()`
+
+Checks if an AttributeGroup exists for a given Query Predicate. Returns `200 OK` status if any AttributeGroups match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->head();
+```
 ## `withProjectKey("projectKey")->attributeGroups()->post(null)`
 
 null
@@ -1022,6 +1384,21 @@ $request = $builder
                 ->attributeGroups()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->attributeGroups()->withId("ID")->head()`
+
+Checks if an AttributeGroup exists for a given `id`. Returns a `200 OK` status if the AttributeGroup exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->attributeGroups()->withId("ID")->post(null)`
 
@@ -1068,6 +1445,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->attributeGroups()->withKey("key")->head()`
+
+Checks if an AttributeGroup exists for a given `key`. Returns `200 OK` status if the AttributeGroup exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->attributeGroups()->withKey("key")->post(null)`
 
 null
@@ -1112,6 +1504,20 @@ $request = $builder
                 ->businessUnits()
                 ->get();
 ```
+## `withProjectKey("projectKey")->businessUnits()->head()`
+
+Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->head();
+```
 ## `withProjectKey("projectKey")->businessUnits()->post(null)`
 
 null
@@ -1140,6 +1546,21 @@ $request = $builder
                 ->businessUnits()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->businessUnits()->withId("ID")->head()`
+
+Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->businessUnits()->withId("ID")->post(null)`
 
@@ -1186,6 +1607,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->businessUnits()->withKey("key")->head()`
+
+Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->businessUnits()->withKey("key")->post(null)`
 
 null
@@ -1230,6 +1666,20 @@ $request = $builder
                 ->cartDiscounts()
                 ->get();
 ```
+## `withProjectKey("projectKey")->cartDiscounts()->head()`
+
+Checks if a CartDiscount exists for a given Query Predicate. Returns a `200 OK` status if any CartDiscounts match the Query Predicate, or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->cartDiscounts()
+                ->head();
+```
 ## `withProjectKey("projectKey")->cartDiscounts()->post(null)`
 
 null
@@ -1258,6 +1708,21 @@ $request = $builder
                 ->cartDiscounts()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->cartDiscounts()->withId("ID")->head()`
+
+Checks if a CartDiscount exists for a given `id`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->cartDiscounts()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withId("ID")->post(null)`
 
@@ -1304,6 +1769,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->cartDiscounts()->withKey("key")->head()`
+
+Checks if a CartDiscount exists for a given `key`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->cartDiscounts()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->cartDiscounts()->withKey("key")->post(null)`
 
 null
@@ -1348,6 +1828,20 @@ $request = $builder
                 ->carts()
                 ->get();
 ```
+## `withProjectKey("projectKey")->carts()->head()`
+
+Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate, or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->carts()
+                ->head();
+```
 ## `withProjectKey("projectKey")->carts()->post(null)`
 
 Creating a Cart fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error if the
@@ -1380,6 +1874,21 @@ $request = $builder
                 ->carts()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->carts()->withId("ID")->head()`
+
+Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->carts()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->post(null)`
 
@@ -1429,6 +1938,21 @@ $request = $builder
                 ->withCustomerId("customerId")
                 ->get();
 ```
+## `withProjectKey("projectKey")->carts()->withCustomerId("customerId")->head()`
+
+Checks if a Cart of a Customer exists. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->carts()
+                ->withCustomerId("customerId")
+                ->head();
+```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->get()`
 
 To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
@@ -1444,6 +1968,21 @@ $request = $builder
                 ->carts()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->carts()->withKey("key")->head()`
+
+Checks if a Cart exists for a given `key`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->carts()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->post(null)`
 
@@ -1510,6 +2049,20 @@ $request = $builder
                 ->categories()
                 ->get();
 ```
+## `withProjectKey("projectKey")->categories()->head()`
+
+Checks if a Category exists for on a given Query Predicate. Returns a `200 OK` status if any Categories match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->categories()
+                ->head();
+```
 ## `withProjectKey("projectKey")->categories()->post(null)`
 
 Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
@@ -1542,6 +2095,21 @@ $request = $builder
                 ->categories()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->categories()->withId("ID")->head()`
+
+Checks if a Category exists for a given `id`. Returns a `200 OK` status if the Category exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->categories()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->post(null)`
 
@@ -1591,6 +2159,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->categories()->withKey("key")->head()`
+
+Checks if a Category exists for a given `key`. Returns a `200 OK` status if the Category exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->categories()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->post(null)`
 
 Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
@@ -1637,6 +2220,20 @@ $request = $builder
                 ->channels()
                 ->get();
 ```
+## `withProjectKey("projectKey")->channels()->head()`
+
+Checks if a Channel exists for a given Query Predicate. Returns a `200 OK` status if any Channels match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->channels()
+                ->head();
+```
 ## `withProjectKey("projectKey")->channels()->post(null)`
 
 null
@@ -1665,6 +2262,21 @@ $request = $builder
                 ->channels()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->channels()->withId("ID")->head()`
+
+Checks if a Channel exists for a given `id`. Returns a `200 OK` status if the Channel exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->channels()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->channels()->withId("ID")->post(null)`
 
@@ -1710,6 +2322,20 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->customObjects()
                 ->get();
+```
+## `withProjectKey("projectKey")->customObjects()->head()`
+
+Checks if a CustomObject exists for a given Query Predicate. Returns a `200 OK` status if any CustomObjects match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customObjects()
+                ->head();
 ```
 ## `withProjectKey("projectKey")->customObjects()->post(null)`
 
@@ -1788,6 +2414,20 @@ $request = $builder
                 ->customerGroups()
                 ->get();
 ```
+## `withProjectKey("projectKey")->customerGroups()->head()`
+
+Checks if a CustomerGroup exists for a given Query Predicate. Returns a `200 OK` status if any CustomerGroup match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customerGroups()
+                ->head();
+```
 ## `withProjectKey("projectKey")->customerGroups()->post(null)`
 
 null
@@ -1816,6 +2456,21 @@ $request = $builder
                 ->customerGroups()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->customerGroups()->withId("ID")->head()`
+
+Checks if a CustomerGroup exists for a given `id`. Returns a `200 OK` status if the CustomerGroup exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customerGroups()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withId("ID")->post(null)`
 
@@ -1862,6 +2517,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->customerGroups()->withKey("key")->head()`
+
+Checks if a CustomerGroup exists for a given `key`. Returns a `200 OK` status if the CustomerGroup exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customerGroups()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->customerGroups()->withKey("key")->post(null)`
 
 
@@ -1906,6 +2576,20 @@ $request = $builder
                 ->customers()
                 ->get();
 ```
+## `withProjectKey("projectKey")->customers()->head()`
+
+Checks if a Customer exists for a given Query Predicate. Returns a `200 OK` status if any Customers match the Query Predicate, or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customers()
+                ->head();
+```
 ## `withProjectKey("projectKey")->customers()->post(null)`
 
 If the `anonymousCart` field is set on the [CustomerDraft](ctp:api:type:CustomerDraft), then the newly created Customer will be assigned to that [Cart](ctp:api:type:Cart).
@@ -1937,6 +2621,21 @@ $request = $builder
                 ->customers()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->customers()->withId("ID")->head()`
+
+Checks if a Customer exists for a given `id`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customers()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->customers()->withId("ID")->post(null)`
 
@@ -2029,6 +2728,21 @@ $request = $builder
                 ->customers()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->customers()->withKey("key")->head()`
+
+Checks if a Customer exists for a given `key`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customers()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->customers()->withKey("key")->post(null)`
 
@@ -2137,6 +2851,20 @@ $request = $builder
                 ->discountCodes()
                 ->get();
 ```
+## `withProjectKey("projectKey")->discountCodes()->head()`
+
+Checks if a DiscountCode exists for a given Query Predicate. Returns a `200 OK` status if any DiscountCodes match the Query Predicate, or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountCodes()
+                ->head();
+```
 ## `withProjectKey("projectKey")->discountCodes()->post(null)`
 
 Deprecated scope: `manage_orders:{projectKey}`
@@ -2165,6 +2893,21 @@ $request = $builder
                 ->discountCodes()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->discountCodes()->withId("ID")->head()`
+
+Checks if a DiscountCode exists for a given `id`. Returns a `200 OK` status if the DiscountCode exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountCodes()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->post(null)`
 
@@ -2210,6 +2953,20 @@ $request = $builder
                 ->extensions()
                 ->get();
 ```
+## `withProjectKey("projectKey")->extensions()->head()`
+
+Checks if an Extension exists for a given Query Predicate. Returns a `200 OK` status if any Extensions match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->extensions()
+                ->head();
+```
 ## `withProjectKey("projectKey")->extensions()->post(null)`
 
 null
@@ -2238,6 +2995,21 @@ $request = $builder
                 ->extensions()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->extensions()->withId("ID")->head()`
+
+Checks if an Extension exists for a given `id`. Returns a `200 OK` status if the Extension exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->extensions()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->extensions()->withId("ID")->post(null)`
 
@@ -2283,6 +3055,21 @@ $request = $builder
                 ->extensions()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->extensions()->withKey("key")->head()`
+
+Checks if an Extension exists for a given `key`. Returns a `200 OK` status if the Extension exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->extensions()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->extensions()->withKey("key")->post(null)`
 
@@ -2362,6 +3149,21 @@ $request = $builder
                 ->cartDiscounts()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->head()`
+
+Checks if a CartDiscount exists for a given Query Predicate. Returns a `200 OK` status if any CartDiscounts match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->post(null)`
 
 When using the endpoint, the Store specified in the path and the Stores specified in the payload's `stores` field are added to the CartDiscount.
@@ -2393,6 +3195,22 @@ $request = $builder
                 ->cartDiscounts()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withId("ID")->head()`
+
+Checks if a CartDiscount exists for a given `id`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withId("ID")->post(null)`
 
@@ -2444,6 +3262,22 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withKey("key")->head()`
+
+Checks if a CartDiscount exists for a given `key`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->cartDiscounts()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withKey("key")->post(null)`
 
 To update a CartDiscount, you must have permissions for all Stores the CartDiscount is associated with, except when [removing a Store](ctp:api:type:CartDiscountRemoveStoreAction).
@@ -2493,6 +3327,21 @@ $request = $builder
                 ->carts()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->head()`
+
+Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->carts()
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->post(null)`
 
 Creates a [Cart](ctp:api:type:Cart) in the [Store](ctp:api:type:Store) specified by `storeKey`.
@@ -2529,6 +3378,22 @@ $request = $builder
                 ->carts()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->head()`
+
+Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->carts()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
@@ -2586,6 +3451,22 @@ $request = $builder
                 ->withCustomerId("customerId")
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withCustomerId("customerId")->head()`
+
+Checks if a Cart of a Customer exists. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->carts()
+                ->withCustomerId("customerId")
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
 If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
@@ -2604,6 +3485,22 @@ $request = $builder
                 ->carts()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->head()`
+
+Checks if a Cart exists for a given `key`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->carts()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->post(null)`
 
@@ -2675,6 +3572,21 @@ $request = $builder
                 ->customers()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->head()`
+
+Checks if a Customer exists for a given Query Predicate. Returns a `200 OK` status if any Customers match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->customers()
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->post(null)`
 
 When using this endpoint, if omitted, the Customer `stores` field is set to the [Store](ctp:api:type:Store) specified in the path parameter.
@@ -2712,6 +3624,22 @@ $request = $builder
                 ->customers()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->head()`
+
+Checks if a Customer exists for a given `id`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->customers()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->post(null)`
 
@@ -2819,6 +3747,22 @@ $request = $builder
                 ->customers()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->head()`
+
+Checks if a Customer exists for a given `key`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->customers()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->post(null)`
 
@@ -3010,6 +3954,22 @@ $request = $builder
                 ->activeCart()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->activeCart()->head()`
+
+Checks if an active Cart exists. Returns a `200 OK` status if an active Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->activeCart()
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->get()`
 
 null
@@ -3025,6 +3985,22 @@ $request = $builder
                 ->me()
                 ->carts()
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->head()`
+
+Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->carts()
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->post(null)`
 
@@ -3061,6 +4037,23 @@ $request = $builder
                 ->carts()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->head()`
+
+Checks ifa My Cart exists for a given `id`. Returns a `200 OK` status if the My Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->carts()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->post(null)`
 
@@ -3154,6 +4147,22 @@ $request = $builder
                 ->orders()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->head()`
+
+Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status if any Orders match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->orders()
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->post(null)`
 
 The Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction) for taxes to be calculated. When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
@@ -3198,6 +4207,23 @@ $request = $builder
                 ->orders()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->withId("ID")->head()`
+
+Checks if an Order exists for a given `id`. Returns a `200 OK` status if the My Order exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->orders()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->password()->post(null)`
 
@@ -3252,6 +4278,22 @@ $request = $builder
                 ->shoppingLists()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->head()`
+
+Checks if a ShoppingList exists for a given Query Predicate. Returns a `200 OK` status if any ShoppingLists match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
 
 When using this endpoint, the `store` field of a ShoppingList is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
@@ -3287,6 +4329,23 @@ $request = $builder
                 ->shoppingLists()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->head()`
+
+Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
@@ -3343,6 +4402,23 @@ $request = $builder
                 ->shoppingLists()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->head()`
+
+Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
@@ -3416,6 +4492,21 @@ $request = $builder
                 ->orders()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->head()`
+
+Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status if any Orders match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->orders()
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->post(null)`
 
 Before you create an Order, the Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction).
@@ -3462,6 +4553,22 @@ $request = $builder
                 ->orders()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->head()`
+
+Checks if an Order exists for a given `id`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->orders()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->post(null)`
 
@@ -3515,6 +4622,22 @@ $request = $builder
                 ->orders()
                 ->withOrderNumber("orderNumber")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->head()`
+
+Checks if an Order exists for a given `orderNumber`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->orders()
+                ->withOrderNumber("orderNumber")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
@@ -3574,6 +4697,22 @@ $request = $builder
                 ->withId("ID")
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->head()`
+
+Checks if the current or staged representations of a Product exists for a given `id` in the specified [Store](ctp:api:type:Store). Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withId("ID")
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
 
 Gets the current or staged representation of a [Product](ctp:api:type:Product) by its key from the specified [Store](ctp:api:type:Store).
@@ -3595,6 +4734,22 @@ $request = $builder
                 ->productProjections()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->head()`
+
+Checks if the current or staged representations of a Product exists for a given `key` in the specified [Store](ctp:api:type:Store). Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productSelectionAssignments()->get()`
 
@@ -3636,6 +4791,22 @@ $request = $builder
                 ->matchingCart()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->head()`
+
+Checks if a ShippingMethod that can ship to the shipping address of the given Cart exists in the given [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shippingMethods()
+                ->matchingCart()
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->get()`
 
 null
@@ -3650,6 +4821,21 @@ $request = $builder
                 ->inStoreKeyWithStoreKeyValue("storeKey")
                 ->shoppingLists()
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->head()`
+
+Checks if a ShoppingList exists for a given Query Predicate. Returns a `200 OK` status if any ShoppingLists match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->post(null)`
 
@@ -3684,6 +4870,22 @@ $request = $builder
                 ->shoppingLists()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->head()`
+
+Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->post(null)`
 
@@ -3739,6 +4941,22 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->head()`
+
+Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->post(null)`
 
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
@@ -3789,6 +5007,20 @@ $request = $builder
                 ->inventory()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inventory()->head()`
+
+Checks if an InventoryEntry exists for a given Query Predicate. Returns a `200 OK` status if any Inventory Entries match the Query Predicate, a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->head();
+```
 ## `withProjectKey("projectKey")->inventory()->post(null)`
 
 Produces the [InventoryEntryCreated](ctp:api:type:InventoryEntryCreatedMessage) Message.
@@ -3817,6 +5049,21 @@ $request = $builder
                 ->inventory()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inventory()->withId("ID")->head()`
+
+Checks if an InventoryEntry exists for a given `id`. Returns a `200 OK` status if the InventoryEntry exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inventory()->withId("ID")->post(null)`
 
@@ -3862,6 +5109,21 @@ $request = $builder
                 ->inventory()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->head()`
+
+Checks if an InventoryEntry exists for a given `key`. Returns a `200 OK` status if the InventoryEntry exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inventory()->withKey("key")->post(null)`
 
@@ -3973,6 +5235,21 @@ $request = $builder
                 ->activeCart()
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->activeCart()->head()`
+
+Checks if an active Cart exists. Returns a `200 OK` status if an active Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->activeCart()
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->businessUnits()->get()`
 
 null
@@ -3987,6 +5264,21 @@ $request = $builder
                 ->me()
                 ->businessUnits()
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->head()`
+
+Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->post(null)`
 
@@ -4019,6 +5311,22 @@ $request = $builder
                 ->businessUnits()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->head()`
+
+Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->post(null)`
 
@@ -4068,6 +5376,22 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->head()`
+
+Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->post(null)`
 
 null
@@ -4115,6 +5439,21 @@ $request = $builder
                 ->carts()
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->carts()->head()`
+
+Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->carts()
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->carts()->post(null)`
 
 null
@@ -4145,6 +5484,22 @@ $request = $builder
                 ->carts()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->carts()->withId("ID")->head()`
+
+Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->carts()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->post(null)`
 
@@ -4193,6 +5548,22 @@ $request = $builder
                 ->carts()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->carts()->withKey("key")->head()`
+
+Checks if a Cart exists for a given `key`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->carts()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withKey("key")->post(null)`
 
@@ -4309,6 +5680,21 @@ $request = $builder
                 ->orders()
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->orders()->head()`
+
+Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status if any Orders match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->orders()
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->orders()->post(null)`
 
 The Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction) for taxes to be calculated. When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
@@ -4349,6 +5735,22 @@ $request = $builder
                 ->orders()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->orders()->withId("ID")->head()`
+
+Checks if an Order exists for a given `id`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->orders()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->orders()->orderQuote()->post(null)`
 
@@ -4429,6 +5831,21 @@ $request = $builder
                 ->payments()
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->payments()->head()`
+
+Checks if a Payment exists for a given Query Predicate. Returns a `200 OK` status if any Payments match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->payments()
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->payments()->post(null)`
 
 Creating a Payment produces the [PaymentCreated](ctp:api:type:PaymentCreatedMessage) Message.
@@ -4460,6 +5877,22 @@ $request = $builder
                 ->payments()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->payments()->withId("ID")->head()`
+
+Checks if a Payment exists for a given `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->payments()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->post(null)`
 
@@ -4510,6 +5943,21 @@ $request = $builder
                 ->quoteRequests()
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->quoteRequests()->head()`
+
+Checks if my QuoteRequest exists for a given Query Predicate. Returns a `200 OK` status if any QuoteRequests match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->post(null)`
 
 null
@@ -4540,6 +5988,22 @@ $request = $builder
                 ->quoteRequests()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->head()`
+
+Checks if my QuoteRequest exists for a given `id`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->post(null)`
 
@@ -4589,6 +6053,22 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->head()`
+
+Checks if my QuoteRequest exists for a given `key`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->post(null)`
 
 null
@@ -4636,6 +6116,21 @@ $request = $builder
                 ->quotes()
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->quotes()->head()`
+
+Checks if a Quote exists for a given Query Predicate. Returns a `200 OK` status if any Quotes match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quotes()
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->get()`
 
 null
@@ -4651,6 +6146,22 @@ $request = $builder
                 ->quotes()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->head()`
+
+Checks if a Quote exists for a given `id`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quotes()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->post(null)`
 
@@ -4684,6 +6195,22 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->quotes()->withKey("key")->head()`
+
+Checks if a Quote exists for a given `key`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quotes()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->quotes()->withKey("key")->post(null)`
 
 null
@@ -4715,6 +6242,21 @@ $request = $builder
                 ->shoppingLists()
                 ->get();
 ```
+## `withProjectKey("projectKey")->me()->shoppingLists()->head()`
+
+Checks if a ShoppingList exists for a given Query Predicate. Returns a `200 OK` status if any ShoppingLists match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->shoppingLists()
+                ->head();
+```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->post(null)`
 
 null
@@ -4745,6 +6287,22 @@ $request = $builder
                 ->shoppingLists()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->head()`
+
+Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->shoppingLists()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
@@ -4793,6 +6351,22 @@ $request = $builder
                 ->shoppingLists()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->head()`
+
+Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->shoppingLists()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
@@ -4858,6 +6432,20 @@ $request = $builder
                 ->messages()
                 ->get();
 ```
+## `withProjectKey("projectKey")->messages()->head()`
+
+Checks if a Message exists for a given Query Predicate. Returns a `200 OK` status if any Messages match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->messages()
+                ->head();
+```
 ## `withProjectKey("projectKey")->messages()->withId("ID")->get()`
 
 Deprecated scope: `view_orders:{projectKey}`
@@ -4873,6 +6461,21 @@ $request = $builder
                 ->withId("ID")
                 ->get();
 ```
+## `withProjectKey("projectKey")->messages()->withId("ID")->head()`
+
+Checks if a Message exists for a given `id`. Returns a `200 OK` status if the Message exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->messages()
+                ->withId("ID")
+                ->head();
+```
 ## `withProjectKey("projectKey")->orders()->get()`
 
 null
@@ -4886,6 +6489,20 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
                 ->get();
+```
+## `withProjectKey("projectKey")->orders()->head()`
+
+Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status if any Orders match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->head();
 ```
 ## `withProjectKey("projectKey")->orders()->post(null)`
 
@@ -4929,6 +6546,21 @@ $request = $builder
                 ->orders()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->orders()->withId("ID")->head()`
+
+Checks if an Order exists for a given `id`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->post(null)`
 
@@ -4976,6 +6608,21 @@ $request = $builder
                 ->edits()
                 ->get();
 ```
+## `withProjectKey("projectKey")->orders()->edits()->head()`
+
+Checks if an OrderEdit exists for a given Query Predicate. Returns a `200 OK` status if any OrderEdits match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->edits()
+                ->head();
+```
 ## `withProjectKey("projectKey")->orders()->edits()->post(null)`
 
 You can either create multiple Order Edits for an Order and apply them sequentially to an Order, or create multiple Order Edits parallelly (as alternatives to each other) and apply one of them to the Order.
@@ -5007,6 +6654,22 @@ $request = $builder
                 ->edits()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->head()`
+
+Checks if an OrderEdit exists for a given `id`. Returns a `200 OK` status if the OrderEdit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->edits()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->post(null)`
 
@@ -5073,6 +6736,22 @@ $request = $builder
                 ->edits()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->head()`
+
+Checks if an OrderEdit exists for a given `key`. Returns a `200 OK` status if the OrderEdit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->edits()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->post(null)`
 
@@ -5141,6 +6820,21 @@ $request = $builder
                 ->orders()
                 ->withOrderNumber("orderNumber")
                 ->get();
+```
+## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->head()`
+
+Checks if an Order exists for a given `orderNumber`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->withOrderNumber("orderNumber")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
@@ -5241,6 +6935,20 @@ $request = $builder
                 ->payments()
                 ->get();
 ```
+## `withProjectKey("projectKey")->payments()->head()`
+
+Checks if a Payment exists for a given Query Predicate. Returns a `200 OK` status if any Payments match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->payments()
+                ->head();
+```
 ## `withProjectKey("projectKey")->payments()->post(null)`
 
 Creating a Payment produces the [PaymentCreated](ctp:api:type:PaymentCreatedMessage) Message.
@@ -5270,6 +6978,21 @@ $request = $builder
                 ->payments()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->payments()->withId("ID")->head()`
+
+Checks if a Payment exists for a given `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->payments()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->post(null)`
 
@@ -5316,6 +7039,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->payments()->withKey("key")->head()`
+
+Checks if a Payment exists for a given `key`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->payments()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->post(null)`
 
 null
@@ -5360,6 +7098,20 @@ $request = $builder
                 ->productDiscounts()
                 ->get();
 ```
+## `withProjectKey("projectKey")->productDiscounts()->head()`
+
+Checks if a ProductDiscount exists for a given Query Predicate. Returns a `200 OK` status if any ProductDiscounts match the Query Predicate, or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productDiscounts()
+                ->head();
+```
 ## `withProjectKey("projectKey")->productDiscounts()->post(null)`
 
 null
@@ -5388,6 +7140,21 @@ $request = $builder
                 ->productDiscounts()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->productDiscounts()->withId("ID")->head()`
+
+Checks if a ProductDiscount exists for a given `id`. Returns a `200 OK` status if the ProductDiscount exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productDiscounts()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withId("ID")->post(null)`
 
@@ -5433,6 +7200,21 @@ $request = $builder
                 ->productDiscounts()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->productDiscounts()->withKey("key")->head()`
+
+Checks if a ProductDiscount exists for a given `key`. Returns a `200 OK` status if the ProductDiscount exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productDiscounts()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withKey("key")->post(null)`
 
@@ -5500,6 +7282,20 @@ $request = $builder
                 ->productProjections()
                 ->get();
 ```
+## `withProjectKey("projectKey")->productProjections()->head()`
+
+Checks if the current or staged representation of a Product exists for a given Query Predicate. Returns a `200 OK` status if any ProductProjections match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productProjections()
+                ->head();
+```
 ## `withProjectKey("projectKey")->productProjections()->withId("ID")->get()`
 
 Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID. When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
@@ -5515,6 +7311,21 @@ $request = $builder
                 ->productProjections()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->productProjections()->withId("ID")->head()`
+
+Checks if the current or staged representation of a Product exists for a given `id`. Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productProjections()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->productProjections()->withKey("key")->get()`
 
@@ -5533,6 +7344,21 @@ $request = $builder
                 ->productProjections()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->productProjections()->withKey("key")->head()`
+
+Checks if the current or staged representation of a Product exists for a given `key`. Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productProjections()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->productProjections()->search()->post(null)`
 
@@ -5593,6 +7419,20 @@ $request = $builder
                 ->productSelections()
                 ->get();
 ```
+## `withProjectKey("projectKey")->productSelections()->head()`
+
+Checks if a ProductSelection exists for a given Query Predicate. Returns a `200 OK` status if any ProductSelections match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->head();
+```
 ## `withProjectKey("projectKey")->productSelections()->post(null)`
 
 null
@@ -5621,6 +7461,21 @@ $request = $builder
                 ->productSelections()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->withId("ID")->head()`
+
+Checks if a ProductSelection exists for a given `id`. Returns a `200 OK` status if the ProductSelection exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->productSelections()->withId("ID")->post(null)`
 
@@ -5682,6 +7537,21 @@ $request = $builder
                 ->productSelections()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->withKey("key")->head()`
+
+Checks if a ProductSelection exists for a given `key`. Returns a `200 OK` status if the ProductSelection exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->productSelections()->withKey("key")->post(null)`
 
@@ -5745,7 +7615,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->head()`
 
-Check if Product Types exist. Responds with a `200 OK` status if any Product Types match the Query Predicate, or `404 Not Found` otherwise.
+Checks if a ProductType exists for a given Query Predicate. Returns a `200 OK` status if any ProductTypes match the Query Predicate or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -5788,7 +7658,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withId("ID")->head()`
 
-Checks if a Product Type with given `id` exists. Responds with a `200 OK` status if the `Product Type` exists or `404 Not Found` otherwise.
+Checks if a ProductType exists for a given `id`. Returns a `200 OK` status if the ProductType exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -5848,7 +7718,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withKey("key")->head()`
 
-Checks if a Product Type with given `key` exists. Responds with a `200 OK` status if the `Product Type` exists or `404 Not Found` otherwise.
+Checks if a ProductType exists for a given `key`. Returns a `200 OK` status if the ProductType exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -5907,7 +7777,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->head()`
 
-Check if Products exist. Responds with a `200 OK` status if any Products match the Query Predicate, or `404 Not Found` otherwise.
+Checks if a Product exists for a given Query Predicate. Returns a `200 OK` status if any Products match the Query Predicate or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -5953,7 +7823,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->head()`
 
-Check if a Product exists with a specified `id`. Responds with a `200 OK` status if the Product exists or `404 Not Found` otherwise.
+Checks if a Product exists for a given `id`. Returns a `200 OK` status if the Product exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -6049,7 +7919,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->head()`
 
-Check if a Product exists with a specified `key`. Responds with a `200 OK` status if the Product exists or `404 Not Found` otherwise.
+Checks if a Product exists for a given `key`. Returns a `200 OK` status if the Product exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -6123,6 +7993,20 @@ $request = $builder
                 ->quoteRequests()
                 ->get();
 ```
+## `withProjectKey("projectKey")->quoteRequests()->head()`
+
+Checks if a QuoteRequest exists for a given Query Predicate. Returns a `200 OK` status if any QuoteRequests match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->head();
+```
 ## `withProjectKey("projectKey")->quoteRequests()->post(null)`
 
 null
@@ -6151,6 +8035,21 @@ $request = $builder
                 ->quoteRequests()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->head()`
+
+Checks if a QuoteRequest exists for a given `id`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->post(null)`
 
@@ -6197,6 +8096,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->head()`
+
+Checks if a QuoteRequest exists for a given `key`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->post(null)`
 
 null
@@ -6241,6 +8155,20 @@ $request = $builder
                 ->quotes()
                 ->get();
 ```
+## `withProjectKey("projectKey")->quotes()->head()`
+
+Checks if a Quote exists for a given Query Predicate. Returns a `200 OK` status if any Quotes match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->head();
+```
 ## `withProjectKey("projectKey")->quotes()->post(null)`
 
 null
@@ -6269,6 +8197,21 @@ $request = $builder
                 ->quotes()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->quotes()->withId("ID")->head()`
+
+Checks if a Quote exists for a given `id`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->quotes()->withId("ID")->post(null)`
 
@@ -6315,6 +8258,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->quotes()->withKey("key")->head()`
+
+Checks if a Quote exists for a given `key`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->quotes()->withKey("key")->post(null)`
 
 null
@@ -6359,6 +8317,20 @@ $request = $builder
                 ->reviews()
                 ->get();
 ```
+## `withProjectKey("projectKey")->reviews()->head()`
+
+Checks if a Review exists for a given Query Predicate. Returns a `200 OK` status if any Reviews match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->reviews()
+                ->head();
+```
 ## `withProjectKey("projectKey")->reviews()->post(null)`
 
 null
@@ -6387,6 +8359,21 @@ $request = $builder
                 ->reviews()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->reviews()->withId("ID")->head()`
+
+Checks if a Review exists for a given `id`. Returns a `200 OK` status if the Review exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->reviews()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->reviews()->withId("ID")->post(null)`
 
@@ -6433,6 +8420,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->reviews()->withKey("key")->head()`
+
+Checks if a Review exists for a given `key`. Returns a `200 OK` status if the Review exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->reviews()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->reviews()->withKey("key")->post(null)`
 
 null
@@ -6477,6 +8479,20 @@ $request = $builder
                 ->shippingMethods()
                 ->get();
 ```
+## `withProjectKey("projectKey")->shippingMethods()->head()`
+
+Checks if a ShippingMethod exists for a given Query Predicate. Returns a `200 OK` status if any ShippingMethods match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->head();
+```
 ## `withProjectKey("projectKey")->shippingMethods()->post(null)`
 
 null
@@ -6505,6 +8521,21 @@ $request = $builder
                 ->shippingMethods()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->head()`
+
+Checks if a ShippingMethod exists for a given `id`. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->post(null)`
 
@@ -6550,6 +8581,21 @@ $request = $builder
                 ->shippingMethods()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->head()`
+
+Checks if a ShippingMethod exists for a given `key`. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->post(null)`
 
@@ -6599,6 +8645,21 @@ $request = $builder
                 ->matchingCart()
                 ->get();
 ```
+## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->head()`
+
+Checks if a ShippingMethod exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->matchingCart()
+                ->head();
+```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->get()`
 
 Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location)
@@ -6617,6 +8678,21 @@ $request = $builder
                 ->shippingMethods()
                 ->matchingCartLocation()
                 ->get();
+```
+## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->head()`
+
+Checks if a ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->matchingCartLocation()
+                ->head();
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
@@ -6638,6 +8714,21 @@ $request = $builder
                 ->matchingLocation()
                 ->get();
 ```
+## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->head()`
+
+Checks if a ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->matchingLocation()
+                ->head();
+```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
 Retrieves all the ShippingMethods that can ship to the given [Location](/../api/projects/zones#location) for an [OrderEdit](/../api/projects/order-edits).
@@ -6656,6 +8747,21 @@ $request = $builder
                 ->matchingOrderedit()
                 ->get();
 ```
+## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->head()`
+
+Checks if a ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given [OrderEdit](ctp:api:type:OrderEdit). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->matchingOrderedit()
+                ->head();
+```
 ## `withProjectKey("projectKey")->shoppingLists()->get()`
 
 null
@@ -6669,6 +8775,20 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
                 ->get();
+```
+## `withProjectKey("projectKey")->shoppingLists()->head()`
+
+Checks if a ShoppingList exists for a given Query Predicate. Returns a `200 OK` status if any ShoppingLists match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shoppingLists()
+                ->head();
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->post(null)`
 
@@ -6698,6 +8818,21 @@ $request = $builder
                 ->shoppingLists()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->head()`
+
+Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shoppingLists()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->post(null)`
 
@@ -6744,6 +8879,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->head()`
+
+Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shoppingLists()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->post(null)`
 
 null
@@ -6788,6 +8938,20 @@ $request = $builder
                 ->stagedQuotes()
                 ->get();
 ```
+## `withProjectKey("projectKey")->stagedQuotes()->head()`
+
+Checks if a StagedQuote exists for a given Query Predicate. Returns a `200 OK` status if any StagedQuotes match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->head();
+```
 ## `withProjectKey("projectKey")->stagedQuotes()->post(null)`
 
 null
@@ -6816,6 +8980,21 @@ $request = $builder
                 ->stagedQuotes()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->head()`
+
+Checks if a StagedQuote exists for a given `id`. Returns a `200 OK` status if the StagedQuote exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->post(null)`
 
@@ -6862,6 +9041,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->head()`
+
+Checks if a StagedQuote exists for a given `key`. Returns a `200 OK` status if the StagedQuote exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->post(null)`
 
 null
@@ -6906,6 +9100,20 @@ $request = $builder
                 ->standalonePrices()
                 ->get();
 ```
+## `withProjectKey("projectKey")->standalonePrices()->head()`
+
+Checks if a StandalonePrice exists for a given Query Predicate. Returns a `200 OK` status if any StandalonePrices match the Query Predicate, or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->head();
+```
 ## `withProjectKey("projectKey")->standalonePrices()->post(null)`
 
 Produces the [StandalonePriceCreated](ctp:api:type:StandalonePriceCreatedMessage) Message.
@@ -6935,6 +9143,21 @@ $request = $builder
                 ->standalonePrices()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->head()`
+
+Checks if a StandalonePrice exists for a given `id`. Returns a `200 OK` status if the StandalonePrice exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->post(null)`
 
@@ -6982,6 +9205,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->head()`
+
+Checks if a StandalonePrice exists for a given `key`. Returns a `200 OK` status if the StandalonePrice exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->post(null)`
 
 null
@@ -7027,6 +9265,20 @@ $request = $builder
                 ->states()
                 ->get();
 ```
+## `withProjectKey("projectKey")->states()->head()`
+
+Checks if a State exists for a given Query Predicate. Returns a `200 OK` status if any States match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->states()
+                ->head();
+```
 ## `withProjectKey("projectKey")->states()->post(null)`
 
 null
@@ -7055,6 +9307,21 @@ $request = $builder
                 ->states()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->states()->withId("ID")->head()`
+
+Checks if a State exists for a given `id`. Returns a `200 OK` status if the State exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->states()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->states()->withId("ID")->post(null)`
 
@@ -7101,6 +9368,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->states()->withKey("key")->head()`
+
+Checks if a State exists for a given `key`. Returns a `200 OK` status if the State exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->states()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->states()->withKey("key")->post(null)`
 
 null
@@ -7145,6 +9427,20 @@ $request = $builder
                 ->stores()
                 ->get();
 ```
+## `withProjectKey("projectKey")->stores()->head()`
+
+Checks if a Store exists for a given Query Predicate. Returns a `200 OK` status if any Stores match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stores()
+                ->head();
+```
 ## `withProjectKey("projectKey")->stores()->post(null)`
 
 null
@@ -7173,6 +9469,21 @@ $request = $builder
                 ->stores()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->stores()->withId("ID")->head()`
+
+Checks if a Store exists for a given `id`. Returns a `200 OK` status if the Store exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stores()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->stores()->withId("ID")->post(null)`
 
@@ -7219,6 +9530,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->stores()->withKey("key")->head()`
+
+Checks if a Store exists for a given `key`. Returns a `200 OK` status if the Store exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stores()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->stores()->withKey("key")->post(null)`
 
 null
@@ -7263,6 +9589,20 @@ $request = $builder
                 ->subscriptions()
                 ->get();
 ```
+## `withProjectKey("projectKey")->subscriptions()->head()`
+
+Checks if a Subscription exists for a given Query Predicate. Returns a `200 OK` status if any Subscriptions match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->subscriptions()
+                ->head();
+```
 ## `withProjectKey("projectKey")->subscriptions()->post(null)`
 
 A test message is sent to ensure the correct configuration of the Destination. If the message cannot be delivered, the Subscription will not be created. The payload of the test message is a notification of type [ResourceCreated](/../api/projects/subscriptions#resourcecreateddeliverypayload) for the `resourceTypeId` `subscription`.
@@ -7292,6 +9632,21 @@ $request = $builder
                 ->subscriptions()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->subscriptions()->withId("ID")->head()`
+
+Checks if a Subscription exists for a given `id`. Returns a `200 OK` status if the Subscription exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->subscriptions()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withId("ID")->post(null)`
 
@@ -7355,6 +9710,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->subscriptions()->withKey("key")->head()`
+
+Checks if a Subscription exists for a given `key`. Returns a `200 OK` status if the Subscription exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->subscriptions()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->subscriptions()->withKey("key")->post(null)`
 
 null
@@ -7399,6 +9769,20 @@ $request = $builder
                 ->taxCategories()
                 ->get();
 ```
+## `withProjectKey("projectKey")->taxCategories()->head()`
+
+Checks if a TaxCategory exists for a given Query Predicate. Returns a `200 OK` status if any TaxCategories match the Query Predicate, or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->taxCategories()
+                ->head();
+```
 ## `withProjectKey("projectKey")->taxCategories()->post(null)`
 
 null
@@ -7427,6 +9811,21 @@ $request = $builder
                 ->taxCategories()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->taxCategories()->withId("ID")->head()`
+
+Checks if a TaxCategory exists for a given `id`. Returns a `200 OK` status if the TaxCategory exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->taxCategories()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withId("ID")->post(null)`
 
@@ -7473,6 +9872,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->taxCategories()->withKey("key")->head()`
+
+Checks if a TaxCategory exists for a given `key`. Returns a `200 OK` status if the Tax Category exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->taxCategories()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->taxCategories()->withKey("key")->post(null)`
 
 null
@@ -7517,6 +9931,20 @@ $request = $builder
                 ->types()
                 ->get();
 ```
+## `withProjectKey("projectKey")->types()->head()`
+
+Checks if a Type exists for a given Query Predicate. Returns a `200 OK` status if any Types match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->types()
+                ->head();
+```
 ## `withProjectKey("projectKey")->types()->post(null)`
 
 null
@@ -7545,6 +9973,21 @@ $request = $builder
                 ->types()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->types()->withId("ID")->head()`
+
+Checks if a Type exists for a given `id`. Returns a `200 OK` status if the Type exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->types()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->types()->withId("ID")->post(null)`
 
@@ -7591,6 +10034,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->types()->withKey("key")->head()`
+
+Checks if a Type exists for a given `key`. Returns a `200 OK` status if the Type exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->types()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->types()->withKey("key")->post(null)`
 
 null
@@ -7635,6 +10093,20 @@ $request = $builder
                 ->zones()
                 ->get();
 ```
+## `withProjectKey("projectKey")->zones()->head()`
+
+Checks if a Zone exists for a given Query Predicate. Returns a `200 OK` status if any Zones match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->zones()
+                ->head();
+```
 ## `withProjectKey("projectKey")->zones()->post(null)`
 
 null
@@ -7663,6 +10135,21 @@ $request = $builder
                 ->zones()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->zones()->withId("ID")->head()`
+
+Checks if a Zone exists for a given `id`. Returns a `200 OK` status if the Zone exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->zones()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->zones()->withId("ID")->post(null)`
 
@@ -7708,6 +10195,21 @@ $request = $builder
                 ->zones()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->zones()->withKey("key")->head()`
+
+Checks if a Zone exists for a given `key`. Returns a `200 OK` status if the Zone exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->zones()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->post(null)`
 

@@ -25,6 +25,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductDiscountsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductDiscountsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductDiscountsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyProductDiscounts
  */
@@ -190,6 +191,27 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 'get',
                 'test_projectKey/product-discounts',
             ],
+            'ByProjectKeyProductDiscountsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productDiscounts()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/product-discounts?where=where',
+            ],
+            'ByProjectKeyProductDiscountsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->productDiscounts()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/product-discounts',
+            ],
             'ByProjectKeyProductDiscountsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -262,6 +284,14 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productDiscounts()
                         ->get();
+                }
+            ],
+            'ByProjectKeyProductDiscountsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
                 }
             ],
             'ByProjectKeyProductDiscountsPost' => [
@@ -356,6 +386,87 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productDiscounts()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyProductDiscountsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyProductDiscountsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyProductDiscountsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyProductDiscountsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyProductDiscountsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyProductDiscountsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyProductDiscountsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyProductDiscountsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyProductDiscountsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->head();
                 },
                 599
             ],
