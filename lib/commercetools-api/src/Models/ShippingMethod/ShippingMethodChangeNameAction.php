@@ -16,7 +16,7 @@ interface ShippingMethodChangeNameAction extends ShippingMethodUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
-     * <p>Value to set. Must not be empty.</p>
+     * <p>Unique value to set within a <a href="ctp:api:type:Project">Project</a>. Must not be empty.</p>
      *
 
      * @return null|string

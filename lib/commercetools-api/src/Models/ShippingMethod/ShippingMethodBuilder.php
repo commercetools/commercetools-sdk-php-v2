@@ -207,7 +207,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * <p>Name of the ShippingMethod.</p>
+     * <p>Unique name of the ShippingMethod within a <a href="ctp:api:type:Project">Project</a>.</p>
      *
 
      * @return null|string
