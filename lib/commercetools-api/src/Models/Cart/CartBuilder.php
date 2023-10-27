@@ -471,7 +471,7 @@ final class CartBuilder implements Builder
     /**
      * <ul>
      * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a>.</li>
-     * <li>For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when the external Tax Rate for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
+     * <li>For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when <code>shippingAddress</code> and external Tax Rates for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
      * </ul>
      * <p>If a discount applies on <code>totalPrice</code>, this field holds the discounted values.</p>
      *
