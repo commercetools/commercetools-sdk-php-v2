@@ -19,6 +19,14 @@ interface ProductTypeImport extends ImportResource
     public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
+     * <p>User-defined unique identifier. If a <a href="/../api/projects/productTypes#producttype">ProductType</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p>Maps to <code>ProductType.name</code>.</p>
      *
 
@@ -41,6 +49,11 @@ interface ProductTypeImport extends ImportResource
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $name

@@ -37,6 +37,14 @@ interface ProductDraftImport extends ImportResource
     public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
+     * <p>User-defined unique identifier. If a <a href="/../api/projects/products#product">Product</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p>The <code>productType</code> of a <a href="/../api/projects/products#product">Product</a>.
      * Maps to <code>Product.productType</code>.
      * The Reference to the <a href="/../api/projects/productTypes#producttype">ProductType</a> with which the ProductDraft is associated.
@@ -194,6 +202,11 @@ interface ProductDraftImport extends ImportResource
      * @return null|string
      */
     public function getPriceMode();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?ProductTypeKeyReference $productType

@@ -26,6 +26,14 @@ interface ProductVariantImport extends ImportResource
     public const FIELD_PRODUCT = 'product';
 
     /**
+     * <p>User-defined unique identifier. If a <a href="/../api/projects/products#productvariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it will be updated with the imported data.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p>Maps to <code>ProductVariant.sku</code>.</p>
      *
 
@@ -85,6 +93,11 @@ interface ProductVariantImport extends ImportResource
      * @return null|ProductKeyReference
      */
     public function getProduct();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $sku

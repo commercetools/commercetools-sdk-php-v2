@@ -102,7 +102,7 @@ final class CategoryImportBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-defined unique identifier.</p>
+     * <p>User-defined unique identifier. If a <a href="/../api/projects/categories#category">Category</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
 
      * @return null|string

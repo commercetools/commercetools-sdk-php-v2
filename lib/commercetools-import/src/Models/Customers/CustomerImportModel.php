@@ -228,7 +228,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     }
 
     /**
-     * <p>User-defined unique identifier.</p>
+     * <p>User-defined unique identifier. If a <a href="/../api/projects/customers#customer">Customer</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
      *
      * @return null|string

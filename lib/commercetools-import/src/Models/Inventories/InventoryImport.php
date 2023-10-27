@@ -25,6 +25,14 @@ interface InventoryImport extends ImportResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>User-defined unique identifier. If an <a href="/../api/projects/inventory#inventoryentry">InventoryEntry</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p>Maps to <code>Inventory.sku</code></p>
      *
 
@@ -71,6 +79,11 @@ interface InventoryImport extends ImportResource
      * @return null|Custom
      */
     public function getCustom();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $sku

@@ -33,7 +33,7 @@ interface StandalonePriceImport extends ImportResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier for the Standalone Price.</p>
+     * <p>User-defined unique identifier for the Standalone Price. If a <a href="/../api/projects/standalone-prices#standaloneprice">StandalonePrice</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
 
      * @return null|string
