@@ -10,6 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscount;
 use Commercetools\Api\Models\CartDiscount\CartDiscountModel;
+use Commercetools\Api\Models\Error\ErrorResponse;
+use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -28,9 +30,11 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
- *
+ * @template-implements Expandable<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost>
+ * @template-implements Deprecatable201<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost>
+ * @template-implements Errorable<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost>
  */
-class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost extends ApiRequest
+class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost extends ApiRequest implements Expandable, Deprecatable201, Errorable
 {
     /**
      * @param ?object|array|string $body
@@ -45,7 +49,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return CartDiscount|JsonObject|T|null
+     * @return CartDiscount|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -56,6 +60,30 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost extends ApiRequest
             switch ($response->getStatusCode()) {
                 case '201':
                     $resultType = CartDiscountModel::class;
+
+                    break;
+                case '400':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '401':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '403':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '500':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '502':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '503':
+                    $resultType = ErrorResponseModel::class;
 
                     break;
                 default:
@@ -72,7 +100,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|T|CartDiscount|JsonObject
+     * @return null|T|CartDiscount|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -114,5 +142,14 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost extends ApiRequest
                 throw $e;
             }
         );
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $expand
+     */
+    public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost
+    {
+        return $this->withQueryParam('expand', $expand);
     }
 }

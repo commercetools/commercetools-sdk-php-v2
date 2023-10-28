@@ -8,8 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\CartDiscount\CartDiscount;
-use Commercetools\Api\Models\CartDiscount\CartDiscountModel;
+use Commercetools\Api\Models\CartDiscount\CartDiscountPagedQueryResponse;
+use Commercetools\Api\Models\CartDiscount\CartDiscountPagedQueryResponseModel;
+use Commercetools\Api\Models\Error\ErrorResponse;
+use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -28,9 +30,14 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
- *
+ * @template-implements Expandable<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet>
+ * @template-implements Sortable<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet>
+ * @template-implements Paging<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet>
+ * @template-implements Query<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet>
+ * @template-implements Errorable<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet>
+ * @template-implements Deprecatable200<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet>
  */
-class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet extends ApiRequest
+class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet extends ApiRequest implements Expandable, Sortable, Paging, Query, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -45,7 +52,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return CartDiscount|JsonObject|T|null
+     * @return CartDiscountPagedQueryResponse|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -55,7 +62,31 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = CartDiscountModel::class;
+                    $resultType = CartDiscountPagedQueryResponseModel::class;
+
+                    break;
+                case '400':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '401':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '403':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '500':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '502':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '503':
+                    $resultType = ErrorResponseModel::class;
 
                     break;
                 default:
@@ -72,7 +103,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|T|CartDiscount|JsonObject
+     * @return null|T|CartDiscountPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -114,5 +145,68 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet extends ApiRequest
                 throw $e;
             }
         );
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $expand
+     */
+    public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet
+    {
+        return $this->withQueryParam('expand', $expand);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $sort
+     */
+    public function withSort($sort): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet
+    {
+        return $this->withQueryParam('sort', $sort);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $limit
+     */
+    public function withLimit($limit): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet
+    {
+        return $this->withQueryParam('limit', $limit);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $offset
+     */
+    public function withOffset($offset): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet
+    {
+        return $this->withQueryParam('offset', $offset);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $withTotal
+     */
+    public function withWithTotal($withTotal): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet
+    {
+        return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     * @psalm-param string $varName
+     * @psalm-param scalar|scalar[] $predicateVar
+     */
+    public function withPredicateVar(string $varName, $predicateVar): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet
+    {
+        return $this->withQueryParam(sprintf('var.%s', $varName), $predicateVar);
     }
 }

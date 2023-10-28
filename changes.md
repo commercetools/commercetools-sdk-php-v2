@@ -1,33 +1,9 @@
 **Api changes**
 
 <details>
-<summary>Added Property(s)</summary>
+<summary>Removed Type(s)</summary>
 
-- added property `discountOnTotalPrice` to type `Cart`
-- added property `discountOnTotalPrice` to type `StagedOrder`
-- added property `custom` to type `StagedOrderAddParcelToDeliveryAction`
-- added property `discountOnTotalPrice` to type `Order`
-- added property `custom` to type `OrderAddParcelToDeliveryAction`
-</details>
-
-
-<details>
-<summary>Added Enum(s)</summary>
-
-- added enum `CreateApprovalRules` to type `Permission`
-- added enum `UpdateApprovalRules` to type `Permission`
-- added enum `UpdateApprovalFlows` to type `Permission`
-- added enum `approval-flow` to type `ReferenceTypeId`
-- added enum `approval-rule` to type `ReferenceTypeId`
-- added enum `customer-email-token` to type `ReferenceTypeId`
-- added enum `customer-password-token` to type `ReferenceTypeId`
-- added enum `approval-flow` to type `ChangeSubscriptionResourceTypeId`
-- added enum `approval-rule` to type `ChangeSubscriptionResourceTypeId`
-- added enum `approval-flow` to type `MessageSubscriptionResourceTypeId`
-- added enum `approval-rule` to type `MessageSubscriptionResourceTypeId`
-- added enum `customer-email-token` to type `MessageSubscriptionResourceTypeId`
-- added enum `customer-group` to type `MessageSubscriptionResourceTypeId`
-- added enum `customer-password-token` to type `MessageSubscriptionResourceTypeId`
+- :warning: removed type `CustomerMessagePayload`
 </details>
 
 
@@ -133,9 +109,65 @@
 
 
 <details>
-<summary>Removed Type(s)</summary>
+<summary>Added QueryParameter(s)</summary>
 
-- :warning: removed type `CustomerMessagePayload`
+- added query parameter `expand` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `sort` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `limit` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `offset` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `withTotal` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `where` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `/^var[.][a-zA-Z0-9]+$/` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `expand` to method `post /{projectKey}/in-store/key={storeKey}/cart-discounts`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `CreateApprovalRules` to type `Permission`
+- added enum `UpdateApprovalRules` to type `Permission`
+- added enum `UpdateApprovalFlows` to type `Permission`
+- added enum `approval-flow` to type `ReferenceTypeId`
+- added enum `approval-rule` to type `ReferenceTypeId`
+- added enum `customer-email-token` to type `ReferenceTypeId`
+- added enum `customer-password-token` to type `ReferenceTypeId`
+- added enum `approval-flow` to type `ChangeSubscriptionResourceTypeId`
+- added enum `approval-rule` to type `ChangeSubscriptionResourceTypeId`
+- added enum `approval-flow` to type `MessageSubscriptionResourceTypeId`
+- added enum `approval-rule` to type `MessageSubscriptionResourceTypeId`
+- added enum `customer-email-token` to type `MessageSubscriptionResourceTypeId`
+- added enum `customer-group` to type `MessageSubscriptionResourceTypeId`
+- added enum `customer-password-token` to type `MessageSubscriptionResourceTypeId`
+</details>
+
+
+<details>
+<summary>Changed MethodResponseBody(s)</summary>
+
+- :warning: changed response body for `200: application/json` of method `get /{projectKey}/in-store/key={storeKey}/cart-discounts` from type `CartDiscount` to `CartDiscountPagedQueryResponse`
+</details>
+
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `discountOnTotalPrice` to type `Cart`
+- added property `discountOnTotalPrice` to type `StagedOrder`
+- added property `custom` to type `StagedOrderAddParcelToDeliveryAction`
+- added property `discountOnTotalPrice` to type `Order`
+- added property `custom` to type `OrderAddParcelToDeliveryAction`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-rules`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-flows`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-rules/{ID}`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-rules/key={key}`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-flows/{ID}`
 </details>
 
 
@@ -317,17 +349,6 @@
 - added method `$apiRoot->withProjectKey()->attributeGroups()->withId()->head()`
 </details>
 
-
-<details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-rules`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-flows`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-rules/{ID}`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-rules/key={key}`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-flows/{ID}`
-</details>
-
 **Import changes**
 
 <details>
@@ -339,9 +360,11 @@
 **History changes**
 
 <details>
-<summary>Added Property(s)</summary>
+<summary>Added QueryParameter(s)</summary>
 
-- added property `businessUnit` to type `Record`
+- added query parameter `businessUnit` to method `get /{projectKey}`
+- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}`
+- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}/{ID}`
 </details>
 
 
@@ -354,10 +377,8 @@
 
 
 <details>
-<summary>Added QueryParameter(s)</summary>
+<summary>Added Property(s)</summary>
 
-- added query parameter `businessUnit` to method `get /{projectKey}`
-- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}`
-- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}/{ID}`
+- added property `businessUnit` to type `Record`
 </details>
 

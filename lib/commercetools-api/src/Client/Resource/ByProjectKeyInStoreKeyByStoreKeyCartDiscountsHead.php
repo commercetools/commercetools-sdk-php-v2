@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Error\ErrorResponse;
+use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -26,9 +28,10 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
- *
+ * @template-implements Errorable<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead>
+ * @template-implements Deprecatable200<ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead>
  */
-class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead extends ApiRequest
+class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead extends ApiRequest implements Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -43,7 +46,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return JsonObject|T|null
+     * @return ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -52,6 +55,30 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead extends ApiRequest
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
+                case '400':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '401':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '403':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '500':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '502':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '503':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 default:
                     $resultType = JsonObjectModel::class;
 
@@ -66,7 +93,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|T|JsonObject
+     * @return null|T|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
