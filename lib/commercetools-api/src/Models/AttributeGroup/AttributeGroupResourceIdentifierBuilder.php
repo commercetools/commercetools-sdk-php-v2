@@ -35,7 +35,7 @@ final class AttributeGroupResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:AttributeGroup">AttributeGroup</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:AttributeGroup">AttributeGroup</a>. Required if <code>key</code> is absent.</p>
      *
 
      * @return null|string
@@ -46,7 +46,7 @@ final class AttributeGroupResourceIdentifierBuilder implements Builder
     }
 
     /**
-     * <p>User-generated unique identifier of the referenced <a href="ctp:api:type:AttributeGroup">AttributeGroup</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-generated unique identifier of the referenced <a href="ctp:api:type:AttributeGroup">AttributeGroup</a>. Required if <code>id</code> is absent.</p>
      *
 
      * @return null|string

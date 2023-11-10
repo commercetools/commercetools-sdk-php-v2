@@ -35,7 +35,7 @@ final class CategoryResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:Channel">Category</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Channel">Category</a>. Required if <code>key</code> is absent.</p>
      *
 
      * @return null|string
@@ -46,7 +46,7 @@ final class CategoryResourceIdentifierBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>. Required if <code>id</code> is absent.</p>
      *
 
      * @return null|string

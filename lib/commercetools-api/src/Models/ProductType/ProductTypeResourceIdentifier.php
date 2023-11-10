@@ -15,7 +15,7 @@ use Commercetools\Base\JsonObject;
 interface ProductTypeResourceIdentifier extends ResourceIdentifier
 {
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductType">ProductType</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductType">ProductType</a>. Required if <code>key</code> is absent.</p>
      *
 
      * @return null|string
@@ -23,7 +23,7 @@ interface ProductTypeResourceIdentifier extends ResourceIdentifier
     public function getId();
 
     /**
-     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:ProductType">ProductType</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:ProductType">ProductType</a>. Required if <code>id</code> is absent.</p>
      *
 
      * @return null|string

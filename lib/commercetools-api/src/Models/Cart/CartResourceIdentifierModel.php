@@ -75,7 +75,7 @@ final class CartResourceIdentifierModel extends JsonObjectModel implements CartR
     }
 
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:Cart">Cart</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Cart">Cart</a>. Required if <code>key</code> is absent.</p>
      *
      *
      * @return null|string
@@ -95,7 +95,7 @@ final class CartResourceIdentifierModel extends JsonObjectModel implements CartR
     }
 
     /**
-     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Cart">Cart</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Cart">Cart</a>. Required if <code>id</code> is absent.</p>
      *
      *
      * @return null|string

@@ -75,7 +75,7 @@ final class InventoryEntryResourceIdentifierModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>. Required if <code>key</code> is absent.</p>
      *
      *
      * @return null|string
@@ -95,7 +95,7 @@ final class InventoryEntryResourceIdentifierModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>. Required if <code>id</code> is absent.</p>
      *
      *
      * @return null|string
