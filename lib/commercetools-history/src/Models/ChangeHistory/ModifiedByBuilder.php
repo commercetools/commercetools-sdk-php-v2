@@ -80,7 +80,7 @@ final class ModifiedByBuilder implements Builder
      * <p>Indicates who performed the change.</p>
      * <ul>
      * <li>If the change was made by a user, the value is <code>&quot;user&quot;</code>.</li>
-     * <li>If the change was made by an API Client with or without an <a href="/client-logging#external-user-ids">external user ID</a>, the value is <code>&quot;external-user&quot;</code>.</li>
+     * <li>If the change was made by an API Client with or without an <a href="/general-concepts#external-user-ids">external user ID</a>, the value is <code>&quot;external-user&quot;</code>.</li>
      * <li>If the change was made by an <a href="ctp:api:type:Associate">Associate</a>, the value is <code>&quot;associate&quot;</code>.</li>
      * </ul>
      *

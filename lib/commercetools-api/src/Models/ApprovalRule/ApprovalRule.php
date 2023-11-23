@@ -54,7 +54,7 @@ interface ApprovalRule extends BaseResource
     public function getCreatedAt();
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/general-concepts#events-tracked">events not tracked</a>.</p>
      *
 
      * @return null|CreatedBy
@@ -70,7 +70,7 @@ interface ApprovalRule extends BaseResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/general-concepts#events-tracked">events not tracked</a>.</p>
      *
 
      * @return null|LastModifiedBy

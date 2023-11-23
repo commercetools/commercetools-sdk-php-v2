@@ -90,7 +90,7 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
     }
 
     /**
-     * <p><a href="/../api/client-logging#external-user-ids">External user ID</a> provided by <code>X-External-User-ID</code> HTTP Header.</p>
+     * <p><a href="/../api/general-concepts#external-user-ids">External user ID</a> provided by <code>X-External-User-ID</code> HTTP Header.</p>
      *
      *
      * @return null|string
