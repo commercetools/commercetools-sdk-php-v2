@@ -34,7 +34,7 @@ final class MyCartUpdateBuilder implements Builder
 
     /**
      * <p>Expected version of the Cart on which the changes apply.
-     * If it does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error is returned.</p>
+     * If the expected version does not match the actual version, a <a href="ctp:api:type:ConcurrentModificationError">ConcurrentModification</a> error will be returned.</p>
      *
 
      * @return null|int

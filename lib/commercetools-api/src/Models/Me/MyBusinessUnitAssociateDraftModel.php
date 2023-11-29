@@ -53,7 +53,8 @@ final class MyBusinessUnitAssociateDraftModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Expected version of the BusinessUnit on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     * <p>Expected version of the BusinessUnit on which the changes should be applied.
+     * If the expected version does not match the actual version, a <a href="ctp:api:type:ConcurrentModificationError">ConcurrentModification</a> error will be returned.</p>
      *
      *
      * @return null|int
