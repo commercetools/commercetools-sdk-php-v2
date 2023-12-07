@@ -213,7 +213,7 @@ interface BusinessUnit extends BaseResource
     public function getAssociates();
 
     /**
-     * <p>Associates that are inherited from a parent Business Unit. This value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
+     * <p>Associates that are inherited from a parent Business Unit. The value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
      *
 
      * @return null|InheritedAssociateCollection
