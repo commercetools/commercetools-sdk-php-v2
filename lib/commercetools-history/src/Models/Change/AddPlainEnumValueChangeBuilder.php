@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValue;
-use Commercetools\History\Models\ChangeValue\EnumValueBuilder;
+use Commercetools\History\Models\Common\AttributePlainEnumValue;
+use Commercetools\History\Models\Common\AttributePlainEnumValueBuilder;
 
 /**
  * @implements Builder<AddPlainEnumValueChange>
@@ -30,7 +30,7 @@ final class AddPlainEnumValueChangeBuilder implements Builder
 
     /**
 
-     * @var null|EnumValue|EnumValueBuilder
+     * @var null|AttributePlainEnumValue|AttributePlainEnumValueBuilder
      */
     private $nextValue;
 
@@ -53,11 +53,11 @@ final class AddPlainEnumValueChangeBuilder implements Builder
      * <p>Value after the change.</p>
      *
 
-     * @return null|EnumValue
+     * @return null|AttributePlainEnumValue
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof AttributePlainEnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -83,10 +83,10 @@ final class AddPlainEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * @param ?EnumValue $nextValue
+     * @param ?AttributePlainEnumValue $nextValue
      * @return $this
      */
-    public function withNextValue(?EnumValue $nextValue)
+    public function withNextValue(?AttributePlainEnumValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -108,7 +108,7 @@ final class AddPlainEnumValueChangeBuilder implements Builder
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?EnumValueBuilder $nextValue)
+    public function withNextValueBuilder(?AttributePlainEnumValueBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -119,7 +119,7 @@ final class AddPlainEnumValueChangeBuilder implements Builder
     {
         return new AddPlainEnumValueChangeModel(
             $this->change,
-            $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->nextValue instanceof AttributePlainEnumValueBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->attributeName
         );
     }

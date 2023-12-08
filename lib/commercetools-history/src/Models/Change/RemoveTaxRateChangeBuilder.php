@@ -36,12 +36,6 @@ final class RemoveTaxRateChangeBuilder implements Builder
 
     /**
 
-     * @var null|TaxRate|TaxRateBuilder
-     */
-    private $nextValue;
-
-    /**
-
      * @return null|string
      */
     public function getChange()
@@ -58,17 +52,6 @@ final class RemoveTaxRateChangeBuilder implements Builder
     public function getPreviousValue()
     {
         return $this->previousValue instanceof TaxRateBuilder ? $this->previousValue->build() : $this->previousValue;
-    }
-
-    /**
-     * <p>Value after the change.</p>
-     *
-
-     * @return null|TaxRate
-     */
-    public function getNextValue()
-    {
-        return $this->nextValue instanceof TaxRateBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -94,17 +77,6 @@ final class RemoveTaxRateChangeBuilder implements Builder
     }
 
     /**
-     * @param ?TaxRate $nextValue
-     * @return $this
-     */
-    public function withNextValue(?TaxRate $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -115,23 +87,11 @@ final class RemoveTaxRateChangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withNextValue() instead
-     * @return $this
-     */
-    public function withNextValueBuilder(?TaxRateBuilder $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
     public function build(): RemoveTaxRateChange
     {
         return new RemoveTaxRateChangeModel(
             $this->change,
-            $this->previousValue instanceof TaxRateBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof TaxRateBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->previousValue instanceof TaxRateBuilder ? $this->previousValue->build() : $this->previousValue
         );
     }
 

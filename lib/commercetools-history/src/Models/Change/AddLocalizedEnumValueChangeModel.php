@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\LocalizedEnumValue;
-use Commercetools\History\Models\ChangeValue\LocalizedEnumValueModel;
+use Commercetools\History\Models\Common\AttributeLocalizedEnumValue;
+use Commercetools\History\Models\Common\AttributeLocalizedEnumValueModel;
 
 /**
  * @internal
@@ -37,7 +37,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
 
     /**
      *
-     * @var ?LocalizedEnumValue
+     * @var ?AttributeLocalizedEnumValue
      */
     protected $nextValue;
 
@@ -59,7 +59,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
      */
     public function __construct(
         ?string $change = null,
-        ?LocalizedEnumValue $nextValue = null,
+        ?AttributeLocalizedEnumValue $nextValue = null,
         ?string $fieldName = null,
         ?string $attributeName = null,
         ?string $type = null
@@ -111,7 +111,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
      * <p>Value after the change.</p>
      *
      *
-     * @return null|LocalizedEnumValue
+     * @return null|AttributeLocalizedEnumValue
      */
     public function getNextValue()
     {
@@ -122,7 +122,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
                 return null;
             }
 
-            $this->nextValue = LocalizedEnumValueModel::of($data);
+            $this->nextValue = AttributeLocalizedEnumValueModel::of($data);
         }
 
         return $this->nextValue;
@@ -178,9 +178,9 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     }
 
     /**
-     * @param ?LocalizedEnumValue $nextValue
+     * @param ?AttributeLocalizedEnumValue $nextValue
      */
-    public function setNextValue(?LocalizedEnumValue $nextValue): void
+    public function setNextValue(?AttributeLocalizedEnumValue $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

@@ -32,12 +32,6 @@ final class AddAddressChangeBuilder implements Builder
 
      * @var null|Address|AddressBuilder
      */
-    private $previousValue;
-
-    /**
-
-     * @var null|Address|AddressBuilder
-     */
     private $nextValue;
 
     /**
@@ -47,17 +41,6 @@ final class AddAddressChangeBuilder implements Builder
     public function getChange()
     {
         return $this->change;
-    }
-
-    /**
-     * <p>Value before the change.</p>
-     *
-
-     * @return null|Address
-     */
-    public function getPreviousValue()
-    {
-        return $this->previousValue instanceof AddressBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
@@ -83,34 +66,12 @@ final class AddAddressChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Address $previousValue
-     * @return $this
-     */
-    public function withPreviousValue(?Address $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
      * @param ?Address $nextValue
      * @return $this
      */
     public function withNextValue(?Address $nextValue)
     {
         $this->nextValue = $nextValue;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withPreviousValue() instead
-     * @return $this
-     */
-    public function withPreviousValueBuilder(?AddressBuilder $previousValue)
-    {
-        $this->previousValue = $previousValue;
 
         return $this;
     }
@@ -130,7 +91,6 @@ final class AddAddressChangeBuilder implements Builder
     {
         return new AddAddressChangeModel(
             $this->change,
-            $this->previousValue instanceof AddressBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof AddressBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
