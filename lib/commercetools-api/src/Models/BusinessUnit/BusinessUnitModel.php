@@ -328,7 +328,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
     }
 
     /**
-     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|LastModifiedBy
@@ -349,7 +349,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|CreatedBy
@@ -673,7 +673,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
     }
 
     /**
-     * <p>Associates that are inherited from a parent Business Unit. This value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
+     * <p>Associates that are inherited from a parent Business Unit. The value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
      *
      *
      * @return null|InheritedAssociateCollection

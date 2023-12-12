@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStandalonePricesGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStandalonePricesHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStandalonePricesPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyStandalonePrices
  */
@@ -189,6 +190,27 @@ class ResourceByProjectKeyStandalonePricesTest extends TestCase
                 'get',
                 'test_projectKey/standalone-prices',
             ],
+            'ByProjectKeyStandalonePricesHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->standalonePrices()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/standalone-prices?where=where',
+            ],
+            'ByProjectKeyStandalonePricesHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->standalonePrices()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/standalone-prices',
+            ],
             'ByProjectKeyStandalonePricesPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -250,6 +272,14 @@ class ResourceByProjectKeyStandalonePricesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->standalonePrices()
                         ->get();
+                }
+            ],
+            'ByProjectKeyStandalonePricesHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
                 }
             ],
             'ByProjectKeyStandalonePricesPost' => [
@@ -344,6 +374,87 @@ class ResourceByProjectKeyStandalonePricesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->standalonePrices()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyStandalonePricesHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyStandalonePricesHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyStandalonePricesHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyStandalonePricesHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyStandalonePricesHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyStandalonePricesHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyStandalonePricesHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyStandalonePricesHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyStandalonePricesHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->standalonePrices()
+                        ->head();
                 },
                 599
             ],

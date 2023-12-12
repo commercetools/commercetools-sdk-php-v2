@@ -37,6 +37,16 @@ class ResourceByProjectKeyAsAssociateByAssociateIdBusinessUnitsKeyByKey extends 
         return new ByProjectKeyAsAssociateByAssociateIdBusinessUnitsKeyByKeyGet($args['projectKey'], $args['associateId'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyAsAssociateByAssociateIdBusinessUnitsKeyByKeyHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyAsAssociateByAssociateIdBusinessUnitsKeyByKeyHead($args['projectKey'], $args['associateId'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?BusinessUnitUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

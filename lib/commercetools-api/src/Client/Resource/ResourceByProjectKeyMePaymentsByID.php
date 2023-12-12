@@ -37,6 +37,16 @@ class ResourceByProjectKeyMePaymentsByID extends ApiResource
         return new ByProjectKeyMePaymentsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyMePaymentsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyMePaymentsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?MyPaymentUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

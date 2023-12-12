@@ -13,6 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Common\ProductKeyReference;
+use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
 use stdClass;
@@ -41,9 +43,14 @@ final class ProductVariantPatchBuilder implements Builder
     private $staged;
 
     /**
-     * <p>The <a href="/../api/projects/products#productvariant">ProductVariant</a> to which this patch is applied.
-     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the ProductVariantPatch is associated.
-     * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
+
+     * @var null|ProductKeyReference|ProductKeyReferenceBuilder
+     */
+    private $product;
+
+    /**
+     * <p>Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> to update.
+     * If the referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
 
      * @return null|ProductVariantKeyReference
@@ -82,6 +89,17 @@ final class ProductVariantPatchBuilder implements Builder
     }
 
     /**
+     * <p>Reference to the <a href="/../api/projects/products#product">Product</a> which contains the ProductVariant. Setting a value will batch process the import operations to minimize concurrency errors. If set, this field is required for every ProductVariantPatch in the <a href="ctp:import:type:ProductVariantPatchRequest">ProductVariantPatchRequest</a>.</p>
+     *
+
+     * @return null|ProductKeyReference
+     */
+    public function getProduct()
+    {
+        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
+    }
+
+    /**
      * @param ?ProductVariantKeyReference $productVariant
      * @return $this
      */
@@ -115,6 +133,17 @@ final class ProductVariantPatchBuilder implements Builder
     }
 
     /**
+     * @param ?ProductKeyReference $product
+     * @return $this
+     */
+    public function withProduct(?ProductKeyReference $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withProductVariant() instead
      * @return $this
      */
@@ -136,12 +165,24 @@ final class ProductVariantPatchBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withProduct() instead
+     * @return $this
+     */
+    public function withProductBuilder(?ProductKeyReferenceBuilder $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
     public function build(): ProductVariantPatch
     {
         return new ProductVariantPatchModel(
             $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,
             $this->attributes instanceof AttributesBuilder ? $this->attributes->build() : $this->attributes,
-            $this->staged
+            $this->staged,
+            $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product
         );
     }
 

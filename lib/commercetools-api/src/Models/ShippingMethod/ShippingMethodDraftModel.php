@@ -134,7 +134,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
-     * <p>Name of the ShippingMethod.</p>
+     * <p>Unique name for the ShippingMethod within a <a href="ctp:api:type:Project">Project</a>.</p>
      *
      *
      * @return null|string

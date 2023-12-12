@@ -37,6 +37,16 @@ class ResourceByProjectKeyMeShoppingListsByID extends ApiResource
         return new ByProjectKeyMeShoppingListsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyMeShoppingListsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyMeShoppingListsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?MyShoppingListUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

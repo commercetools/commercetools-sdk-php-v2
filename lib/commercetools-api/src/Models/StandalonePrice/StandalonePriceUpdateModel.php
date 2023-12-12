@@ -44,7 +44,8 @@ final class StandalonePriceUpdateModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Expected version of the StandalonePrice on which the changes should be applied. If the expected version does not match the actual version, a <a href="ctp:api:type:ConcurrentModificationError">ConcurrentModification</a> error is returned.</p>
+     * <p>Expected version of the StandalonePrice on which the changes should be applied.
+     * If the expected version does not match the actual version, a <a href="ctp:api:type:ConcurrentModificationError">ConcurrentModification</a> error will be returned.</p>
      *
      *
      * @return null|int

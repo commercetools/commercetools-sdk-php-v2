@@ -65,6 +65,16 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
         return new ByProjectKeyCustomObjectsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyCustomObjectsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyCustomObjectsHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?CustomObjectDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

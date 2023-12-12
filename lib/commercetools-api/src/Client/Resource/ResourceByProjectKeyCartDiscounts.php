@@ -60,6 +60,16 @@ class ResourceByProjectKeyCartDiscounts extends ApiResource
         return new ByProjectKeyCartDiscountsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyCartDiscountsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyCartDiscountsHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?CartDiscountDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

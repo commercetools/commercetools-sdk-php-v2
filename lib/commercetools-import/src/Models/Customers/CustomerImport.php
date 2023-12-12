@@ -43,6 +43,14 @@ interface CustomerImport extends ImportResource
     public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
+     * <p>User-defined unique identifier. If a <a href="/../api/projects/customers#customer">Customer</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p>Maps to <code>Customer.customerNumber</code>.</p>
      *
 
@@ -229,6 +237,11 @@ interface CustomerImport extends ImportResource
      * @return null|string
      */
     public function getAuthenticationMode();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $customerNumber

@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeShoppingListsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeShoppingListsKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeShoppingListsKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeShoppingListsKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeShoppingListsKeyByKey
@@ -117,6 +118,18 @@ class ResourceByProjectKeyMeShoppingListsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/me/shopping-lists/key=test_key',
             ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/me/shopping-lists/key=test_key',
+            ],
             'ByProjectKeyMeShoppingListsKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -200,6 +213,16 @@ class ResourceByProjectKeyMeShoppingListsKeyByKeyTest extends TestCase
                         ->shoppingLists()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyMeShoppingListsKeyByKeyPost' => [
@@ -324,6 +347,105 @@ class ResourceByProjectKeyMeShoppingListsKeyByKeyTest extends TestCase
                         ->shoppingLists()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyMeShoppingListsKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

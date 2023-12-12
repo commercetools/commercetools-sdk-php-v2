@@ -47,7 +47,7 @@ final class ProductTypeImportBuilder implements Builder
     private $attributes;
 
     /**
-     * <p>User-defined unique identifier.</p>
+     * <p>User-defined unique identifier. If a <a href="/../api/projects/productTypes#producttype">ProductType</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
 
      * @return null|string

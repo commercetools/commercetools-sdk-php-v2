@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -19,6 +20,7 @@ interface OrderAddParcelToDeliveryAction extends OrderUpdateAction
     public const FIELD_MEASUREMENTS = 'measurements';
     public const FIELD_TRACKING_DATA = 'trackingData';
     public const FIELD_ITEMS = 'items';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p><code>id</code> of an existing <a href="ctp:api:type:Delivery">Delivery</a>.</p>
@@ -71,6 +73,14 @@ interface OrderAddParcelToDeliveryAction extends OrderUpdateAction
     public function getItems();
 
     /**
+     * <p>Custom Fields for the Parcel.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $deliveryId
      */
     public function setDeliveryId(?string $deliveryId): void;
@@ -99,4 +109,9 @@ interface OrderAddParcelToDeliveryAction extends OrderUpdateAction
      * @param ?DeliveryItemCollection $items
      */
     public function setItems(?DeliveryItemCollection $items): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

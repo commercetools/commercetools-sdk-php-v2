@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsMatchingCartLocationGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsMatchingCartLocationHead
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsMatchingCartLocation
  */
 class ResourceByProjectKeyShippingMethodsMatchingCartLocationTest extends TestCase
@@ -148,6 +149,53 @@ class ResourceByProjectKeyShippingMethodsMatchingCartLocationTest extends TestCa
                 },
                 'get',
                 'test_projectKey/shipping-methods/matching-cart-location',
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_withCountry' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head()
+                        ->withCountry('country');
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-cart-location?country=country',
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_withState' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head()
+                        ->withState('state');
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-cart-location?state=state',
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_withCartId' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head()
+                        ->withCartId('cartId');
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-cart-location?cartId=cartId',
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-cart-location',
             ]
         ];
     }
@@ -168,6 +216,15 @@ class ResourceByProjectKeyShippingMethodsMatchingCartLocationTest extends TestCa
                         ->shippingMethods()
                         ->matchingCartLocation()
                         ->get();
+                }
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
                 }
             ]
         ];
@@ -263,6 +320,96 @@ class ResourceByProjectKeyShippingMethodsMatchingCartLocationTest extends TestCa
                         ->shippingMethods()
                         ->matchingCartLocation()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartLocationHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCartLocation()
+                        ->head();
                 },
                 599
             ]

@@ -60,6 +60,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts extends ApiResource
         return new ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?CartDiscountDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStatesGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStatesHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStatesPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyStates
  */
@@ -189,6 +190,27 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 'get',
                 'test_projectKey/states',
             ],
+            'ByProjectKeyStatesHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->states()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/states?where=where',
+            ],
+            'ByProjectKeyStatesHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->states()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/states',
+            ],
             'ByProjectKeyStatesPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -250,6 +272,14 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->states()
                         ->get();
+                }
+            ],
+            'ByProjectKeyStatesHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
                 }
             ],
             'ByProjectKeyStatesPost' => [
@@ -344,6 +374,87 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->states()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyStatesHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyStatesHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyStatesHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyStatesHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyStatesHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyStatesHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyStatesHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyStatesHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyStatesHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->head();
                 },
                 599
             ],

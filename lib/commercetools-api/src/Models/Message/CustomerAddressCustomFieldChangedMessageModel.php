@@ -257,7 +257,7 @@ final class CustomerAddressCustomFieldChangedMessageModel extends JsonObjectMode
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|CreatedBy
@@ -381,7 +381,7 @@ final class CustomerAddressCustomFieldChangedMessageModel extends JsonObjectMode
     }
 
     /**
-     * <p>Name of the Custom Field that has been changed.</p>
+     * <p>Name of the Custom Field that changed.</p>
      *
      *
      * @return null|string
@@ -401,7 +401,7 @@ final class CustomerAddressCustomFieldChangedMessageModel extends JsonObjectMode
     }
 
     /**
-     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:CustomerSetAddressCustomFieldAction">Set Custom Field</a> update action.</p>
+     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:CustomerSetAddressCustomFieldAction">Set CustomField</a> update action.</p>
      *
      *
      * @return null|mixed

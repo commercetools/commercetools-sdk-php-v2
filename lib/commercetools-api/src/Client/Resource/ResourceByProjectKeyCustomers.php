@@ -122,6 +122,16 @@ class ResourceByProjectKeyCustomers extends ApiResource
         return new ByProjectKeyCustomersGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyCustomersHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyCustomersHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?CustomerDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

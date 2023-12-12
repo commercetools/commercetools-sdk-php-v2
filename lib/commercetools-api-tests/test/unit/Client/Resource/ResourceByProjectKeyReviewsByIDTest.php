@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyReviewsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyReviewsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyReviewsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyReviewsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyReviewsByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 'get',
                 'test_projectKey/reviews/test_ID',
             ],
+            'ByProjectKeyReviewsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->reviews()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/reviews/test_ID',
+            ],
             'ByProjectKeyReviewsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -204,6 +216,15 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                         ->reviews()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyReviewsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyReviewsByIDPost' => [
@@ -317,6 +338,96 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                         ->reviews()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyReviewsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyReviewsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyReviewsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyReviewsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyReviewsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyReviewsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyReviewsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyReviewsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyReviewsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

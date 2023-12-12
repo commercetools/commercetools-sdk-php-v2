@@ -60,6 +60,16 @@ class ResourceByProjectKeyProductSelections extends ApiResource
         return new ByProjectKeyProductSelectionsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyProductSelectionsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyProductSelectionsHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ProductSelectionDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

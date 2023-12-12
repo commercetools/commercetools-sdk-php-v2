@@ -75,7 +75,7 @@ final class BusinessUnitResourceIdentifierModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:BusinessUnit">BusinessUnit</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:BusinessUnit">BusinessUnit</a>. Required if <code>key</code> is absent.</p>
      *
      *
      * @return null|string
@@ -95,7 +95,7 @@ final class BusinessUnitResourceIdentifierModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Unique key of the referenced <a href="ctp:api:type:BusinessUnit">BusinessUnit</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique key of the referenced <a href="ctp:api:type:BusinessUnit">BusinessUnit</a>. Required if <code>id</code> is absent.</p>
      *
      *
      * @return null|string

@@ -18,7 +18,7 @@ interface OrderCustomFieldChangedMessagePayload extends OrderMessagePayload
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
-     * <p>Name of the Custom Field that has been changed.</p>
+     * <p>Name of the Custom Field that changed.</p>
      *
 
      * @return null|string
@@ -26,7 +26,7 @@ interface OrderCustomFieldChangedMessagePayload extends OrderMessagePayload
     public function getName();
 
     /**
-     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:OrderSetCustomFieldAction">Set Custom Field</a> update action.</p>
+     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:OrderSetCustomFieldAction">Set CustomField</a> update action.</p>
      *
 
      * @return null|mixed

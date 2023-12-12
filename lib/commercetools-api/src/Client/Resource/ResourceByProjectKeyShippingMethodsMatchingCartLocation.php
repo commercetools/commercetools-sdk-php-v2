@@ -35,4 +35,14 @@ class ResourceByProjectKeyShippingMethodsMatchingCartLocation extends ApiResourc
 
         return new ByProjectKeyShippingMethodsMatchingCartLocationGet($args['projectKey'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyShippingMethodsMatchingCartLocationHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyShippingMethodsMatchingCartLocationHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
 }

@@ -35,4 +35,14 @@ class ResourceByProjectKeyShippingMethodsMatchingCart extends ApiResource
 
         return new ByProjectKeyShippingMethodsMatchingCartGet($args['projectKey'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyShippingMethodsMatchingCartHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyShippingMethodsMatchingCartHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
 }

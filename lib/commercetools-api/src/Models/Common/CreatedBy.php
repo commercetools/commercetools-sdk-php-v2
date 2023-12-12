@@ -23,7 +23,7 @@ interface CreatedBy extends ClientLogging
     public function getClientId();
 
     /**
-     * <p><a href="/../api/client-logging#external-user-ids">External user ID</a> provided by <code>X-External-User-ID</code> HTTP Header.</p>
+     * <p><a href="/../api/general-concepts#external-user-ids">External user ID</a> provided by <code>X-External-User-ID</code> HTTP Header or <a href="/../api/scopes#external_user_idexternaluserid"><code>external_user_id:{externalUserId}</code></a> scope.</p>
      *
 
      * @return null|string

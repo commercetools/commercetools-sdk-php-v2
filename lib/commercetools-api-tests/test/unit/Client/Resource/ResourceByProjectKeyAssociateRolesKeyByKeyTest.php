@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAssociateRolesKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAssociateRolesKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAssociateRolesKeyByKeyPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyAssociateRolesKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyAssociateRolesKeyByKey
@@ -115,6 +116,17 @@ class ResourceByProjectKeyAssociateRolesKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/associate-roles/key=test_key',
             ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->associateRoles()
+                        ->withKey("test_key")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/associate-roles/key=test_key',
+            ],
             'ByProjectKeyAssociateRolesKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyAssociateRolesKeyByKeyTest extends TestCase
                         ->associateRoles()
                         ->withKey("key")
                         ->get();
+                }
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
                 }
             ],
             'ByProjectKeyAssociateRolesKeyByKeyPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyAssociateRolesKeyByKeyTest extends TestCase
                         ->associateRoles()
                         ->withKey("key")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyAssociateRolesKeyByKeyHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->associateRoles()
+                        ->withKey("key")
+                        ->head();
                 },
                 599
             ],

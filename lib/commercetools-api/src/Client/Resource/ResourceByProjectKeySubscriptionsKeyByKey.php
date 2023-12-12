@@ -37,6 +37,16 @@ class ResourceByProjectKeySubscriptionsKeyByKey extends ApiResource
         return new ByProjectKeySubscriptionsKeyByKeyGet($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeySubscriptionsKeyByKeyHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeySubscriptionsKeyByKeyHead($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?SubscriptionUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

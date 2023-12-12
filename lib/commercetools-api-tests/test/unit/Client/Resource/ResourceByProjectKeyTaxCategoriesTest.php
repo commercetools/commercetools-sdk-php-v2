@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyTaxCategories
  */
@@ -189,6 +190,27 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                 'get',
                 'test_projectKey/tax-categories',
             ],
+            'ByProjectKeyTaxCategoriesHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->taxCategories()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/tax-categories?where=where',
+            ],
+            'ByProjectKeyTaxCategoriesHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->taxCategories()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/tax-categories',
+            ],
             'ByProjectKeyTaxCategoriesPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -250,6 +272,14 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->taxCategories()
                         ->get();
+                }
+            ],
+            'ByProjectKeyTaxCategoriesHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
                 }
             ],
             'ByProjectKeyTaxCategoriesPost' => [
@@ -344,6 +374,87 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->taxCategories()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyTaxCategoriesHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyTaxCategoriesHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyTaxCategoriesHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyTaxCategoriesHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyTaxCategoriesHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyTaxCategoriesHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyTaxCategoriesHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyTaxCategoriesHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyTaxCategoriesHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->head();
                 },
                 599
             ],

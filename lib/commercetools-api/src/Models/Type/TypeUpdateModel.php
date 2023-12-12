@@ -45,7 +45,7 @@ final class TypeUpdateModel extends JsonObjectModel implements TypeUpdate
 
     /**
      * <p>Expected version of the type on which the changes should be applied.
-     * If the expected version does not match the actual version, a <a href="ctp:api:type:ConcurrentModificationError">ConcurrentModification</a> error is returned.</p>
+     * If the expected version does not match the actual version, a <a href="ctp:api:type:ConcurrentModificationError">ConcurrentModification</a> error will be returned.</p>
      *
      *
      * @return null|int

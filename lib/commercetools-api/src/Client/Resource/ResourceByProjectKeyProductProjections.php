@@ -74,4 +74,14 @@ class ResourceByProjectKeyProductProjections extends ApiResource
 
         return new ByProjectKeyProductProjectionsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyProductProjectionsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyProductProjectionsHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
 }

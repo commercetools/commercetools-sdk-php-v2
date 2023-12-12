@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsCustomerIdByCustomerIdGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsCustomerIdByCustomerIdHead
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsCustomerIdByCustomerId
  */
 class ResourceByProjectKeyCartsCustomerIdByCustomerIdTest extends TestCase
@@ -112,6 +113,17 @@ class ResourceByProjectKeyCartsCustomerIdByCustomerIdTest extends TestCase
                 },
                 'get',
                 'test_projectKey/carts/customer-id=test_customerId',
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->carts()
+                        ->withCustomerId("test_customerId")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/carts/customer-id=test_customerId',
             ]
         ];
     }
@@ -132,6 +144,15 @@ class ResourceByProjectKeyCartsCustomerIdByCustomerIdTest extends TestCase
                         ->carts()
                         ->withCustomerId("customerId")
                         ->get();
+                }
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
                 }
             ]
         ];
@@ -227,6 +248,96 @@ class ResourceByProjectKeyCartsCustomerIdByCustomerIdTest extends TestCase
                         ->carts()
                         ->withCustomerId("customerId")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->head();
                 },
                 599
             ]

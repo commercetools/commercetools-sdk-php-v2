@@ -41,12 +41,6 @@ final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTa
      */
     protected $previousValue;
 
-    /**
-     *
-     * @var ?TaxRate
-     */
-    protected $nextValue;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -54,12 +48,10 @@ final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTa
     public function __construct(
         ?string $change = null,
         ?TaxRate $previousValue = null,
-        ?TaxRate $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
-        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -120,27 +112,6 @@ final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTa
         return $this->previousValue;
     }
 
-    /**
-     * <p>Value after the change.</p>
-     *
-     *
-     * @return null|TaxRate
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = TaxRateModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
 
     /**
      * @param ?string $change
@@ -156,14 +127,6 @@ final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTa
     public function setPreviousValue(?TaxRate $previousValue): void
     {
         $this->previousValue = $previousValue;
-    }
-
-    /**
-     * @param ?TaxRate $nextValue
-     */
-    public function setNextValue(?TaxRate $nextValue): void
-    {
-        $this->nextValue = $nextValue;
     }
 
 

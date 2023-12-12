@@ -249,7 +249,7 @@ final class OrderCustomFieldAddedMessageModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|CreatedBy
@@ -373,7 +373,7 @@ final class OrderCustomFieldAddedMessageModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Name of the Custom Field that has been added.</p>
+     * <p>Name of the Custom Field that was added.</p>
      *
      *
      * @return null|string

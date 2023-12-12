@@ -150,7 +150,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * <p>User-defined unique identifier for the Embedded Price.</p>
+     * <p>User-defined unique identifier for the Embedded Price. If a <a href="/../api/types#price">Price</a> with this <code>key</code> exists on the specified <code>productVariant</code>, it will be updated with the imported data.</p>
      *
      *
      * @return null|string

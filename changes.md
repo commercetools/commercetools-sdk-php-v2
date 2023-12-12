@@ -1,401 +1,363 @@
 **Api changes**
 
 <details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/in-store/key={storeKey}/cart-discounts`
-- added resource `/{projectKey}/in-store/key={storeKey}/cart-discounts/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/cart-discounts/{ID}`
-</details>
-
-
-<details>
-<summary>Removed Resource(s)</summary>
-
-- :warning: removed resource `/{projectKey}/me/payments/key={key}`
-</details>
-
-
-<details>
 <summary>Added QueryParameter(s)</summary>
 
-- added query parameter `where` to method `get /{projectKey}/in-store/key={storeKey}/product-selection-assignments`
-- added query parameter `/^var[.][a-zA-Z0-9]+$/` to method `get /{projectKey}/in-store/key={storeKey}/product-selection-assignments`
-</details>
-
-
-<details>
-<summary>Removed QueryParameter(s)</summary>
-
-- :warning: removed query parameter `expand` from method `get /{projectKey}/subscriptions`
-- :warning: removed query parameter `expand` from method `post /{projectKey}/subscriptions`
-- :warning: removed query parameter `expand` from method `get /{projectKey}/extensions`
-- :warning: removed query parameter `expand` from method `post /{projectKey}/extensions`
-- :warning: removed query parameter `expand` from method `get /{projectKey}/subscriptions/key={key}`
-- :warning: removed query parameter `expand` from method `post /{projectKey}/subscriptions/key={key}`
-- :warning: removed query parameter `expand` from method `delete /{projectKey}/subscriptions/key={key}`
-- :warning: removed query parameter `expand` from method `get /{projectKey}/subscriptions/{ID}`
-- :warning: removed query parameter `expand` from method `post /{projectKey}/subscriptions/{ID}`
-- :warning: removed query parameter `expand` from method `delete /{projectKey}/subscriptions/{ID}`
-- :warning: removed query parameter `expand` from method `get /{projectKey}/extensions/key={key}`
-- :warning: removed query parameter `expand` from method `post /{projectKey}/extensions/key={key}`
-- :warning: removed query parameter `expand` from method `delete /{projectKey}/extensions/key={key}`
-- :warning: removed query parameter `expand` from method `get /{projectKey}/extensions/{ID}`
-- :warning: removed query parameter `expand` from method `post /{projectKey}/extensions/{ID}`
-- :warning: removed query parameter `expand` from method `delete /{projectKey}/extensions/{ID}`
-</details>
-
-
-<details>
-<summary>Required Property(s)</summary>
-
-- changed property `roles` of type `Associate` to be optional
-- changed property `customLineItemId` of type `CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction` to be optional
-- changed property `customLineItemId` of type `CartChangeCustomLineItemMoneyAction` to be optional
-- changed property `customLineItemId` of type `CartChangeCustomLineItemPriceModeAction` to be optional
-- changed property `customLineItemId` of type `CartChangeCustomLineItemQuantityAction` to be optional
-- changed property `customLineItemId` of type `CartRemoveCustomLineItemAction` to be optional
-- changed property `customLineItemId` of type `CartSetCustomLineItemCustomFieldAction` to be optional
-- changed property `customLineItemId` of type `CartSetCustomLineItemCustomTypeAction` to be optional
-- changed property `customLineItemId` of type `CartSetCustomLineItemShippingDetailsAction` to be optional
-- changed property `customLineItemId` of type `CartSetCustomLineItemTaxAmountAction` to be optional
-- changed property `customLineItemId` of type `CartSetCustomLineItemTaxRateAction` to be optional
-- changed property `centAmount` of type `CentPrecisionMoneyDraft` to be optional
-- changed property `centAmount` of type `TypedMoneyDraft` to be optional
-- changed property `comment` of type `MyQuoteRequestDraft` to be optional
-- changed property `textLineItemId` of type `MyShoppingListChangeTextLineItemNameAction` to be optional
-- changed property `textLineItemId` of type `MyShoppingListChangeTextLineItemQuantityAction` to be optional
-- changed property `lineItemId` of type `MyShoppingListRemoveLineItemAction` to be optional
-- changed property `textLineItemId` of type `MyShoppingListRemoveTextLineItemAction` to be optional
-- changed property `lineItemId` of type `MyShoppingListSetLineItemCustomFieldAction` to be optional
-- changed property `textLineItemId` of type `MyShoppingListSetTextLineItemCustomFieldAction` to be optional
-- changed property `textLineItemId` of type `MyShoppingListSetTextLineItemCustomTypeAction` to be optional
-- changed property `textLineItemId` of type `MyShoppingListSetTextLineItemDescriptionAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderChangeCustomLineItemMoneyAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderChangeCustomLineItemQuantityAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderImportCustomLineItemStateAction` to be optional
-- changed property `lineItemId` of type `StagedOrderImportLineItemStateAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderRemoveCustomLineItemAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderSetCustomLineItemCustomFieldAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderSetCustomLineItemCustomTypeAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderSetCustomLineItemShippingDetailsAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderSetCustomLineItemTaxAmountAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderSetCustomLineItemTaxRateAction` to be optional
-- changed property `returnItemId` of type `StagedOrderSetReturnItemCustomFieldAction` to be optional
-- changed property `returnItemId` of type `StagedOrderSetReturnItemCustomTypeAction` to be optional
-- changed property `returnItemId` of type `StagedOrderSetReturnPaymentStateAction` to be optional
-- changed property `returnItemId` of type `StagedOrderSetReturnShipmentStateAction` to be optional
-- changed property `customLineItemId` of type `StagedOrderTransitionCustomLineItemStateAction` to be optional
-- changed property `lineItemId` of type `StagedOrderTransitionLineItemStateAction` to be optional
-- changed property `priceMode` of type `CustomLineItemImportDraft` to be optional
-- changed property `customLineItemId` of type `OrderImportCustomLineItemStateAction` to be optional
-- changed property `lineItemId` of type `OrderImportLineItemStateAction` to be optional
-- changed property `customLineItemId` of type `OrderSetCustomLineItemCustomFieldAction` to be optional
-- changed property `customLineItemId` of type `OrderSetCustomLineItemCustomTypeAction` to be optional
-- changed property `customLineItemId` of type `OrderSetCustomLineItemShippingDetailsAction` to be optional
-- changed property `returnItemId` of type `OrderSetReturnItemCustomFieldAction` to be optional
-- changed property `returnItemId` of type `OrderSetReturnItemCustomTypeAction` to be optional
-- changed property `returnItemId` of type `OrderSetReturnPaymentStateAction` to be optional
-- changed property `returnItemId` of type `OrderSetReturnShipmentStateAction` to be optional
-- changed property `customLineItemId` of type `OrderTransitionCustomLineItemStateAction` to be optional
-- changed property `lineItemId` of type `OrderTransitionLineItemStateAction` to be optional
-- changed property `comment` of type `QuoteRequestDraft` to be optional
-- changed property `lineItemId` of type `ShoppingListChangeLineItemQuantityAction` to be optional
-- changed property `textLineItemId` of type `ShoppingListChangeTextLineItemNameAction` to be optional
-- changed property `textLineItemId` of type `ShoppingListChangeTextLineItemQuantityAction` to be optional
-- changed property `lineItemId` of type `ShoppingListRemoveLineItemAction` to be optional
-- changed property `textLineItemId` of type `ShoppingListRemoveTextLineItemAction` to be optional
-- changed property `lineItemId` of type `ShoppingListSetLineItemCustomFieldAction` to be optional
-- changed property `lineItemId` of type `ShoppingListSetLineItemCustomTypeAction` to be optional
-- changed property `textLineItemId` of type `ShoppingListSetTextLineItemCustomFieldAction` to be optional
-- changed property `textLineItemId` of type `ShoppingListSetTextLineItemCustomTypeAction` to be optional
-- changed property `textLineItemId` of type `ShoppingListSetTextLineItemDescriptionAction` to be optional
-- :warning: changed property `associateRoleAssignments` of type `AssociateDraft` to be required
-- :warning: changed property `paymentState` of type `StagedOrderChangePaymentStateAction` to be required
-- :warning: changed property `shipmentState` of type `StagedOrderChangeShipmentStateAction` to be required
-- :warning: changed property `paymentState` of type `OrderChangePaymentStateAction` to be required
-- :warning: changed property `shipmentState` of type `OrderChangeShipmentStateAction` to be required
-</details>
-
-
-<details>
-<summary>Added Property(s)</summary>
-
-- added property `stores` to type `CartDiscount`
-- added property `stores` to type `CartDiscountDraft`
-- added property `taxedPricePortions` to type `CustomLineItem`
-- added property `perMethodExternalTaxRate` to type `LineItemDraft`
-- added property `customLineItemKey` to type `CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction`
-- added property `customLineItemKey` to type `CartChangeCustomLineItemMoneyAction`
-- added property `customLineItemKey` to type `CartChangeCustomLineItemPriceModeAction`
-- added property `customLineItemKey` to type `CartChangeCustomLineItemQuantityAction`
-- added property `customLineItemKey` to type `CartRemoveCustomLineItemAction`
-- added property `customLineItemKey` to type `CartSetCustomLineItemCustomFieldAction`
-- added property `customLineItemKey` to type `CartSetCustomLineItemCustomTypeAction`
-- added property `customLineItemKey` to type `CartSetCustomLineItemShippingDetailsAction`
-- added property `customLineItemKey` to type `CartSetCustomLineItemTaxAmountAction`
-- added property `shippingKey` to type `CartSetCustomLineItemTaxAmountAction`
-- added property `customLineItemKey` to type `CartSetCustomLineItemTaxRateAction`
-- added property `shippingKey` to type `CartSetCustomLineItemTaxRateAction`
-- added property `associate` to type `ClientLogging`
-- added property `associate` to type `CreatedBy`
-- added property `associate` to type `LastModifiedBy`
-- added property `key` to type `MyShoppingListAddLineItemAction`
-- added property `key` to type `MyShoppingListAddTextLineItemAction`
-- added property `textLineItemKey` to type `MyShoppingListChangeTextLineItemNameAction`
-- added property `textLineItemKey` to type `MyShoppingListChangeTextLineItemQuantityAction`
-- added property `lineItemKey` to type `MyShoppingListRemoveLineItemAction`
-- added property `textLineItemKey` to type `MyShoppingListRemoveTextLineItemAction`
-- added property `lineItemKey` to type `MyShoppingListSetLineItemCustomFieldAction`
-- added property `textLineItemKey` to type `MyShoppingListSetTextLineItemCustomFieldAction`
-- added property `textLineItemKey` to type `MyShoppingListSetTextLineItemCustomTypeAction`
-- added property `textLineItemKey` to type `MyShoppingListSetTextLineItemDescriptionAction`
-- added property `customLineItemKey` to type `CustomLineItemStateTransitionMessage`
-- added property `lineItemKey` to type `LineItemStateTransitionMessage`
-- added property `customLineItemKey` to type `OrderCustomLineItemDiscountSetMessage`
-- added property `customLineItemKey` to type `OrderCustomLineItemQuantityChangedMessage`
-- added property `customLineItemKey` to type `OrderCustomLineItemRemovedMessage`
-- added property `lineItemKey` to type `OrderLineItemDiscountSetMessage`
-- added property `lineItemKey` to type `OrderLineItemDistributionChannelSetMessage`
-- added property `lineItemKey` to type `OrderLineItemRemovedMessage`
-- added property `customLineItemKey` to type `CustomLineItemStateTransitionMessagePayload`
-- added property `lineItemKey` to type `LineItemStateTransitionMessagePayload`
-- added property `customLineItemKey` to type `OrderCustomLineItemDiscountSetMessagePayload`
-- added property `customLineItemKey` to type `OrderCustomLineItemQuantityChangedMessagePayload`
-- added property `customLineItemKey` to type `OrderCustomLineItemRemovedMessagePayload`
-- added property `lineItemKey` to type `OrderLineItemDiscountSetMessagePayload`
-- added property `lineItemKey` to type `OrderLineItemDistributionChannelSetMessagePayload`
-- added property `lineItemKey` to type `OrderLineItemRemovedMessagePayload`
-- added property `directDiscounts` to type `StagedOrder`
-- added property `shippingDetails` to type `StagedOrderAddCustomLineItemAction`
-- added property `shippingKey` to type `StagedOrderAddDeliveryAction`
-- added property `inventoryMode` to type `StagedOrderAddLineItemAction`
-- added property `customLineItemKey` to type `StagedOrderChangeCustomLineItemMoneyAction`
-- added property `customLineItemKey` to type `StagedOrderChangeCustomLineItemQuantityAction`
-- added property `customLineItemKey` to type `StagedOrderImportCustomLineItemStateAction`
-- added property `lineItemKey` to type `StagedOrderImportLineItemStateAction`
-- added property `customLineItemKey` to type `StagedOrderRemoveCustomLineItemAction`
-- added property `customLineItemKey` to type `StagedOrderSetCustomLineItemCustomFieldAction`
-- added property `customLineItemKey` to type `StagedOrderSetCustomLineItemCustomTypeAction`
-- added property `customLineItemKey` to type `StagedOrderSetCustomLineItemShippingDetailsAction`
-- added property `customLineItemKey` to type `StagedOrderSetCustomLineItemTaxAmountAction`
-- added property `shippingKey` to type `StagedOrderSetCustomLineItemTaxAmountAction`
-- added property `customLineItemKey` to type `StagedOrderSetCustomLineItemTaxRateAction`
-- added property `shippingKey` to type `StagedOrderSetCustomLineItemTaxRateAction`
-- added property `returnItemKey` to type `StagedOrderSetReturnItemCustomFieldAction`
-- added property `returnItemKey` to type `StagedOrderSetReturnItemCustomTypeAction`
-- added property `returnItemKey` to type `StagedOrderSetReturnPaymentStateAction`
-- added property `returnItemKey` to type `StagedOrderSetReturnShipmentStateAction`
-- added property `customLineItemKey` to type `StagedOrderTransitionCustomLineItemStateAction`
-- added property `lineItemKey` to type `StagedOrderTransitionLineItemStateAction`
-- added property `key` to type `CustomLineItemImportDraft`
-- added property `key` to type `CustomLineItemReturnItem`
-- added property `key` to type `LineItemImportDraft`
-- added property `key` to type `LineItemReturnItem`
-- added property `directDiscounts` to type `Order`
-- added property `purchaseOrderNumber` to type `OrderImportDraft`
-- added property `taxCalculationMode` to type `OrderImportDraft`
-- added property `key` to type `ReturnItem`
-- added property `key` to type `ReturnItemDraft`
-- added property `customLineItemKey` to type `OrderImportCustomLineItemStateAction`
-- added property `lineItemKey` to type `OrderImportLineItemStateAction`
-- added property `customLineItemKey` to type `OrderSetCustomLineItemCustomFieldAction`
-- added property `customLineItemKey` to type `OrderSetCustomLineItemCustomTypeAction`
-- added property `customLineItemKey` to type `OrderSetCustomLineItemShippingDetailsAction`
-- added property `returnItemKey` to type `OrderSetReturnItemCustomFieldAction`
-- added property `returnItemKey` to type `OrderSetReturnItemCustomTypeAction`
-- added property `returnItemKey` to type `OrderSetReturnPaymentStateAction`
-- added property `returnItemKey` to type `OrderSetReturnShipmentStateAction`
-- added property `customLineItemKey` to type `OrderTransitionCustomLineItemStateAction`
-- added property `lineItemKey` to type `OrderTransitionLineItemStateAction`
-- added property `cart` to type `QuoteRequest`
-- added property `key` to type `ShoppingListLineItem`
-- added property `key` to type `ShoppingListLineItemDraft`
-- added property `key` to type `TextLineItem`
-- added property `key` to type `TextLineItemDraft`
-- added property `key` to type `ShoppingListAddLineItemAction`
-- added property `key` to type `ShoppingListAddTextLineItemAction`
-- added property `lineItemKey` to type `ShoppingListChangeLineItemQuantityAction`
-- added property `textLineItemKey` to type `ShoppingListChangeTextLineItemNameAction`
-- added property `textLineItemKey` to type `ShoppingListChangeTextLineItemQuantityAction`
-- added property `lineItemKey` to type `ShoppingListRemoveLineItemAction`
-- added property `textLineItemKey` to type `ShoppingListRemoveTextLineItemAction`
-- added property `lineItemKey` to type `ShoppingListSetLineItemCustomFieldAction`
-- added property `lineItemKey` to type `ShoppingListSetLineItemCustomTypeAction`
-- added property `textLineItemKey` to type `ShoppingListSetTextLineItemCustomFieldAction`
-- added property `textLineItemKey` to type `ShoppingListSetTextLineItemCustomTypeAction`
-- added property `textLineItemKey` to type `ShoppingListSetTextLineItemDescriptionAction`
-- added property `staged` to type `StandalonePriceDraft`
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `money` of type `CartDiscountValueFixed` from type `CentPrecisionMoney[]` to `TypedMoney[]`
-- :warning: changed property `money` of type `CartDiscountValueFixedDraft` from type `Money[]` to `TypedMoneyDraft[]`
-- :warning: changed property `country` of type `StagedOrder` from type `string` to `CountryCode`
-- :warning: changed property `locale` of type `StagedOrder` from type `string` to `Locale`
-- :warning: changed property `country` of type `StagedOrderSetCountryAction` from type `string` to `CountryCode`
-- :warning: changed property `locale` of type `StagedOrderSetLocaleAction` from type `string` to `Locale`
-- :warning: changed property `country` of type `Order` from type `string` to `CountryCode`
-- :warning: changed property `locale` of type `Order` from type `string` to `Locale`
-- :warning: changed property `country` of type `OrderImportDraft` from type `string` to `CountryCode`
-- :warning: changed property `locale` of type `OrderSetLocaleAction` from type `string` to `Locale`
-</details>
-
-
-<details>
-<summary>Deprecated Property(s)</summary>
-
-- property `Associate::roles` is removed
-- property `AssociateDraft::roles` is removed
-- property `IndividualExclusionProductSelectionType::type` is removed
-- property `IndividualProductSelectionType::type` is removed
-- property `ProductSelection::type` is removed
-- property `ProductSelectionDraft::type` is removed
-- property `ProductSelectionType::type` is removed
+- added query parameter `expand` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `sort` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `limit` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `offset` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `withTotal` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `where` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `/^var[.][a-zA-Z0-9]+$/` to method `get /{projectKey}/in-store/key={storeKey}/cart-discounts`
+- added query parameter `expand` to method `post /{projectKey}/in-store/key={storeKey}/cart-discounts`
 </details>
 
 
 <details>
 <summary>Added Type(s)</summary>
 
-- added type `CartDiscountAddStoreAction`
-- added type `CartDiscountRemoveStoreAction`
-- added type `CartDiscountSetStoresAction`
-- added type `MethodExternalTaxRateDraft`
-- added type `ContentTooLargeError`
-- added type `MaxCartDiscountsReachedError`
-- added type `MaxStoreReferencesReachedError`
-- added type `StoreCartDiscountsLimitReachedError`
-- added type `GraphQLContentTooLargeError`
-- added type `GraphQLMaxCartDiscountsReachedError`
-- added type `GraphQLMaxStoreReferencesReachedError`
-- added type `GraphQLStoreCartDiscountsLimitReachedError`
-- added type `BusinessUnitParentChangedMessage`
-- added type `CustomerAddressCustomFieldAddedMessage`
-- added type `CustomerAddressCustomFieldChangedMessage`
-- added type `CustomerAddressCustomFieldRemovedMessage`
-- added type `CustomerAddressCustomTypeRemovedMessage`
-- added type `CustomerAddressCustomTypeSetMessage`
-- added type `CustomerCustomFieldAddedMessage`
-- added type `CustomerCustomFieldChangedMessage`
-- added type `CustomerCustomFieldRemovedMessage`
-- added type `CustomerCustomTypeRemovedMessage`
-- added type `CustomerCustomTypeSetMessage`
-- added type `OrderCustomFieldAddedMessage`
-- added type `OrderCustomFieldChangedMessage`
-- added type `OrderCustomFieldRemovedMessage`
-- added type `OrderCustomTypeRemovedMessage`
-- added type `OrderCustomTypeSetMessage`
-- added type `QuoteRenegotiationRequestedMessage`
-- added type `StandalonePriceStagedChangesRemovedMessage`
-- added type `BusinessUnitParentChangedMessagePayload`
-- added type `CustomerAddressCustomFieldAddedMessagePayload`
-- added type `CustomerAddressCustomFieldChangedMessagePayload`
-- added type `CustomerAddressCustomFieldRemovedMessagePayload`
-- added type `CustomerAddressCustomTypeRemovedMessagePayload`
-- added type `CustomerAddressCustomTypeSetMessagePayload`
-- added type `CustomerCustomFieldAddedMessagePayload`
-- added type `CustomerCustomFieldChangedMessagePayload`
-- added type `CustomerCustomFieldRemovedMessagePayload`
-- added type `CustomerCustomTypeRemovedMessagePayload`
-- added type `CustomerCustomTypeSetMessagePayload`
-- added type `CustomerMessagePayload`
-- added type `OrderCustomFieldAddedMessagePayload`
-- added type `OrderCustomFieldChangedMessagePayload`
-- added type `OrderCustomFieldRemovedMessagePayload`
-- added type `OrderCustomTypeRemovedMessagePayload`
-- added type `OrderCustomTypeSetMessagePayload`
-- added type `QuoteRenegotiationRequestedMessagePayload`
-- added type `StandalonePriceStagedChangesRemovedMessagePayload`
-- added type `StagedOrderSetDirectDiscountsAction`
-- added type `StagedOrderSetStoreAction`
-- added type `StagedPriceDraft`
-- added type `StandalonePriceRemoveStagedChangesAction`
-</details>
-
-
-<details>
-<summary>Deprecated Type(s)</summary>
-
-- type `AssociateRoleDeprecated` is removed
-- type `IndividualExclusionProductSelectionType` is removed
-- type `IndividualProductSelectionType` is removed
-- type `ProductSelectionType` is removed
-- type `ProductSelectionTypeEnum` is removed
+- added type `ApprovalFlow`
+- added type `ApprovalFlowApproval`
+- added type `ApprovalFlowApproveAction`
+- added type `ApprovalFlowPagedQueryResponse`
+- added type `ApprovalFlowRejectAction`
+- added type `ApprovalFlowRejection`
+- added type `ApprovalFlowStatus`
+- added type `ApprovalFlowUpdate`
+- added type `ApprovalFlowUpdateAction`
+- added type `ApprovalRule`
+- added type `ApprovalRuleDraft`
+- added type `ApprovalRulePagedQueryResponse`
+- added type `ApprovalRuleSetApproversAction`
+- added type `ApprovalRuleSetDescriptionAction`
+- added type `ApprovalRuleSetKeyAction`
+- added type `ApprovalRuleSetNameAction`
+- added type `ApprovalRuleSetPredicateAction`
+- added type `ApprovalRuleSetRequestersAction`
+- added type `ApprovalRuleSetStatusAction`
+- added type `ApprovalRuleStatus`
+- added type `ApprovalRuleUpdate`
+- added type `ApprovalRuleUpdateAction`
+- added type `ApproverConjunction`
+- added type `ApproverConjunctionDraft`
+- added type `ApproverDisjunction`
+- added type `ApproverDisjunctionDraft`
+- added type `ApproverHierarchy`
+- added type `ApproverHierarchyDraft`
+- added type `RuleApprover`
+- added type `RuleApproverDraft`
+- added type `RuleRequester`
+- added type `RuleRequesterDraft`
+- added type `CartDiscountTotalPriceTarget`
+- added type `DiscountOnTotalPrice`
+- added type `DiscountedTotalPricePortion`
+- added type `CustomerEmailTokenReference`
+- added type `CustomerPasswordTokenReference`
+- added type `ApprovalFlowApprovedMessage`
+- added type `ApprovalFlowCompletedMessage`
+- added type `ApprovalFlowCreatedMessage`
+- added type `ApprovalFlowRejectedMessage`
+- added type `ApprovalRuleApproversSetMessage`
+- added type `ApprovalRuleCreatedMessage`
+- added type `ApprovalRuleDescriptionSetMessage`
+- added type `ApprovalRuleKeySetMessage`
+- added type `ApprovalRuleNameSetMessage`
+- added type `ApprovalRulePredicateSetMessage`
+- added type `ApprovalRuleRequestersSetMessage`
+- added type `ApprovalRuleStatusSetMessage`
+- added type `BusinessUnitAddressCustomFieldAddedMessage`
+- added type `BusinessUnitAddressCustomFieldChangedMessage`
+- added type `BusinessUnitAddressCustomFieldRemovedMessage`
+- added type `BusinessUnitAddressCustomTypeRemovedMessage`
+- added type `BusinessUnitAddressCustomTypeSetMessage`
+- added type `BusinessUnitCustomFieldAddedMessage`
+- added type `BusinessUnitCustomFieldChangedMessage`
+- added type `BusinessUnitCustomFieldRemovedMessage`
+- added type `BusinessUnitCustomTypeRemovedMessage`
+- added type `BusinessUnitCustomTypeSetMessage`
+- added type `CustomerEmailTokenCreatedMessage`
+- added type `CustomerGroupCustomFieldAddedMessage`
+- added type `CustomerGroupCustomFieldChangedMessage`
+- added type `CustomerGroupCustomFieldRemovedMessage`
+- added type `CustomerGroupCustomTypeRemovedMessage`
+- added type `CustomerGroupCustomTypeSetMessage`
+- added type `CustomerPasswordTokenCreatedMessage`
+- added type `ApprovalFlowApprovedMessagePayload`
+- added type `ApprovalFlowCompletedMessagePayload`
+- added type `ApprovalFlowCreatedMessagePayload`
+- added type `ApprovalFlowRejectedMessagePayload`
+- added type `ApprovalRuleApproversSetMessagePayload`
+- added type `ApprovalRuleCreatedMessagePayload`
+- added type `ApprovalRuleDescriptionSetMessagePayload`
+- added type `ApprovalRuleKeySetMessagePayload`
+- added type `ApprovalRuleNameSetMessagePayload`
+- added type `ApprovalRulePredicateSetMessagePayload`
+- added type `ApprovalRuleRequestersSetMessagePayload`
+- added type `ApprovalRuleStatusSetMessagePayload`
+- added type `BusinessUnitAddressCustomFieldAddedMessagePayload`
+- added type `BusinessUnitAddressCustomFieldChangedMessagePayload`
+- added type `BusinessUnitAddressCustomFieldRemovedMessagePayload`
+- added type `BusinessUnitAddressCustomTypeRemovedMessagePayload`
+- added type `BusinessUnitAddressCustomTypeSetMessagePayload`
+- added type `BusinessUnitCustomFieldAddedMessagePayload`
+- added type `BusinessUnitCustomFieldChangedMessagePayload`
+- added type `BusinessUnitCustomFieldRemovedMessagePayload`
+- added type `BusinessUnitCustomTypeRemovedMessagePayload`
+- added type `BusinessUnitCustomTypeSetMessagePayload`
+- added type `CustomerEmailTokenCreatedMessagePayload`
+- added type `CustomerGroupCustomFieldAddedMessagePayload`
+- added type `CustomerGroupCustomFieldChangedMessagePayload`
+- added type `CustomerGroupCustomFieldRemovedMessagePayload`
+- added type `CustomerGroupCustomTypeRemovedMessagePayload`
+- added type `CustomerGroupCustomTypeSetMessagePayload`
+- added type `CustomerPasswordTokenCreatedMessagePayload`
 </details>
 
 
 <details>
 <summary>Removed Type(s)</summary>
 
-- :warning: removed type `CartSetDeliveryAddressCustomFieldAction`
-- :warning: removed type `CartSetDeliveryAddressCustomTypeAction`
-- :warning: removed type `BusinessUnitParentUnitChangedMessage`
-- :warning: removed type `BusinessUnitParentUnitChangedMessagePayload`
-- :warning: removed type `OrderResourceIdentifier`
+- :warning: removed type `CustomerMessagePayload`
 </details>
 
 
 <details>
 <summary>Added Method(s)</summary>
 
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->get()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->post()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->withKey()->get()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->withKey()->post()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->withKey()->delete()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->withId()->get()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->withId()->post()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->withId()->delete()`
-</details>
-
-
-<details>
-<summary>Removed Method(s)</summary>
-
-- :warning: removed method `$apiRoot->withProjectKey()->me()->payments()->withKey()->get()`
-- :warning: removed method `$apiRoot->withProjectKey()->me()->payments()->withKey()->post()`
-- :warning: removed method `$apiRoot->withProjectKey()->me()->payments()->withKey()->delete()`
-</details>
-
-
-<details>
-<summary>Added Enum(s)</summary>
-
-- added enum `associate-role` to type `ChangeSubscriptionResourceTypeId`
-</details>
-
-
-<details>
-<summary>Removed Enum(s)</summary>
-
-- :warning: removed enum `Failed` from type `QuoteState`
-</details>
-
-**Import changes**
-
-<details>
-<summary>Required Property(s)</summary>
-
-- changed property `addresses` of type `CustomerImport` to be optional
-- :warning: changed property `key` of type `PriceDraftImport` to be required
+- added method `$apiRoot->withProjectKey()->head()`
+- added method `$apiRoot->withProjectKey()->associateRoles()->head()`
+- added method `$apiRoot->withProjectKey()->businessUnits()->head()`
+- added method `$apiRoot->withProjectKey()->categories()->head()`
+- added method `$apiRoot->withProjectKey()->carts()->head()`
+- added method `$apiRoot->withProjectKey()->cartDiscounts()->head()`
+- added method `$apiRoot->withProjectKey()->channels()->head()`
+- added method `$apiRoot->withProjectKey()->customers()->head()`
+- added method `$apiRoot->withProjectKey()->customerGroups()->head()`
+- added method `$apiRoot->withProjectKey()->customObjects()->head()`
+- added method `$apiRoot->withProjectKey()->discountCodes()->head()`
+- added method `$apiRoot->withProjectKey()->inventory()->head()`
+- added method `$apiRoot->withProjectKey()->messages()->head()`
+- added method `$apiRoot->withProjectKey()->orders()->head()`
+- added method `$apiRoot->withProjectKey()->payments()->head()`
+- added method `$apiRoot->withProjectKey()->productDiscounts()->head()`
+- added method `$apiRoot->withProjectKey()->productProjections()->head()`
+- added method `$apiRoot->withProjectKey()->productSelections()->head()`
+- added method `$apiRoot->withProjectKey()->quotes()->head()`
+- added method `$apiRoot->withProjectKey()->quoteRequests()->head()`
+- added method `$apiRoot->withProjectKey()->stagedQuotes()->head()`
+- added method `$apiRoot->withProjectKey()->reviews()->head()`
+- added method `$apiRoot->withProjectKey()->shippingMethods()->head()`
+- added method `$apiRoot->withProjectKey()->shoppingLists()->head()`
+- added method `$apiRoot->withProjectKey()->states()->head()`
+- added method `$apiRoot->withProjectKey()->subscriptions()->head()`
+- added method `$apiRoot->withProjectKey()->taxCategories()->head()`
+- added method `$apiRoot->withProjectKey()->types()->head()`
+- added method `$apiRoot->withProjectKey()->zones()->head()`
+- added method `$apiRoot->withProjectKey()->extensions()->head()`
+- added method `$apiRoot->withProjectKey()->apiClients()->head()`
+- added method `$apiRoot->withProjectKey()->stores()->head()`
+- added method `$apiRoot->withProjectKey()->standalonePrices()->head()`
+- added method `$apiRoot->withProjectKey()->attributeGroups()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->businessUnits()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->businessUnits()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->businessUnits()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->get()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->post()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalFlows()->get()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->carts()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->orders()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->quotes()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->quoteRequests()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalRules()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalFlows()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->approvalFlows()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->carts()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->carts()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->orders()->withOrderNumber()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->orders()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->quotes()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->quotes()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->quoteRequests()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->quoteRequests()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->associateRoles()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->associateRoles()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->businessUnits()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->businessUnits()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->categories()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->categories()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->carts()->withCustomerId()->head()`
+- added method `$apiRoot->withProjectKey()->carts()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->carts()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->cartDiscounts()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->cartDiscounts()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->channels()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->customers()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->customers()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->customerGroups()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->customerGroups()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->discountCodes()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inventory()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inventory()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->messages()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->orders()->withOrderNumber()->head()`
+- added method `$apiRoot->withProjectKey()->orders()->edits()->head()`
+- added method `$apiRoot->withProjectKey()->orders()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->orders()->edits()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->orders()->edits()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->payments()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->payments()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->productDiscounts()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->productDiscounts()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->productProjections()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->productProjections()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->productSelections()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->productSelections()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->quotes()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->quotes()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->quoteRequests()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->quoteRequests()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->stagedQuotes()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->stagedQuotes()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->reviews()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->reviews()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->shippingMethods()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->shippingMethods()->matchingCart()->head()`
+- added method `$apiRoot->withProjectKey()->shippingMethods()->matchingCartLocation()->head()`
+- added method `$apiRoot->withProjectKey()->shippingMethods()->matchingOrderedit()->head()`
+- added method `$apiRoot->withProjectKey()->shippingMethods()->matchingLocation()->head()`
+- added method `$apiRoot->withProjectKey()->shippingMethods()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->shoppingLists()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->shoppingLists()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->states()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->states()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->subscriptions()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->subscriptions()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->taxCategories()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->taxCategories()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->types()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->types()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->zones()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->zones()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->me()->activeCart()->head()`
+- added method `$apiRoot->withProjectKey()->me()->businessUnits()->head()`
+- added method `$apiRoot->withProjectKey()->me()->carts()->head()`
+- added method `$apiRoot->withProjectKey()->me()->orders()->head()`
+- added method `$apiRoot->withProjectKey()->me()->payments()->head()`
+- added method `$apiRoot->withProjectKey()->me()->quoteRequests()->head()`
+- added method `$apiRoot->withProjectKey()->me()->quotes()->head()`
+- added method `$apiRoot->withProjectKey()->me()->shoppingLists()->head()`
+- added method `$apiRoot->withProjectKey()->me()->businessUnits()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->me()->businessUnits()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->me()->carts()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->me()->carts()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->me()->orders()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->me()->payments()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->me()->quoteRequests()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->me()->quoteRequests()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->me()->quotes()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->me()->quotes()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->me()->shoppingLists()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->me()->shoppingLists()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->extensions()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->extensions()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->apiClients()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->stores()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->stores()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->carts()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->orders()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->customers()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->shoppingLists()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->carts()->withCustomerId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->carts()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->carts()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->orders()->withOrderNumber()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->orders()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->me()->carts()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->me()->orders()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->me()->activeCart()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->me()->shoppingLists()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->me()->carts()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->me()->orders()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->me()->shoppingLists()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->me()->shoppingLists()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->customers()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->customers()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->shippingMethods()->matchingCart()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->shoppingLists()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->shoppingLists()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->productProjections()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->productProjections()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->cartDiscounts()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->standalonePrices()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->standalonePrices()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->attributeGroups()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->attributeGroups()->withId()->head()`
 </details>
 
 
 <details>
 <summary>Added Property(s)</summary>
 
-- added property `canceled` to type `OperationStates`
+- added property `discountOnTotalPrice` to type `Cart`
+- added property `discountOnTotalPrice` to type `StagedOrder`
+- added property `custom` to type `StagedOrderAddParcelToDeliveryAction`
+- added property `discountOnTotalPrice` to type `Order`
+- added property `custom` to type `OrderAddParcelToDeliveryAction`
 </details>
 
 
 <details>
 <summary>Added Enum(s)</summary>
 
-- added enum `canceled` to type `ProcessingState`
+- added enum `CreateApprovalRules` to type `Permission`
+- added enum `UpdateApprovalRules` to type `Permission`
+- added enum `UpdateApprovalFlows` to type `Permission`
+- added enum `approval-flow` to type `ReferenceTypeId`
+- added enum `approval-rule` to type `ReferenceTypeId`
+- added enum `customer-email-token` to type `ReferenceTypeId`
+- added enum `customer-password-token` to type `ReferenceTypeId`
+- added enum `associate-role` to type `AttributeReferenceTypeId`
+- added enum `business-unit` to type `AttributeReferenceTypeId`
+- added enum `cart-discount` to type `AttributeReferenceTypeId`
+- added enum `approval-flow` to type `ChangeSubscriptionResourceTypeId`
+- added enum `approval-rule` to type `ChangeSubscriptionResourceTypeId`
+- added enum `approval-flow` to type `MessageSubscriptionResourceTypeId`
+- added enum `approval-rule` to type `MessageSubscriptionResourceTypeId`
+- added enum `customer-email-token` to type `MessageSubscriptionResourceTypeId`
+- added enum `customer-group` to type `MessageSubscriptionResourceTypeId`
+- added enum `customer-password-token` to type `MessageSubscriptionResourceTypeId`
+</details>
+
+
+<details>
+<summary>Changed MethodResponseBody(s)</summary>
+
+- :warning: changed response body for `200: application/json` of method `get /{projectKey}/in-store/key={storeKey}/cart-discounts` from type `CartDiscount` to `CartDiscountPagedQueryResponse`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-rules`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-flows`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-rules/{ID}`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-rules/key={key}`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/approval-flows/{ID}`
+</details>
+
+**Import changes**
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `product` to type `ProductVariantPatch`
 </details>
 
 **History changes**
@@ -403,38 +365,69 @@
 <details>
 <summary>Added QueryParameter(s)</summary>
 
-- added query parameter `associateId` to method `get /{projectKey}`
-- added query parameter `associateId` to method `get /{projectKey}/{resourceType}`
-- added query parameter `associateId` to method `get /{projectKey}/{resourceType}/{ID}`
+- added query parameter `businessUnit` to method `get /{projectKey}`
+- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}`
+- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}/{ID}`
 </details>
 
 
 <details>
 <summary>Added Type(s)</summary>
 
-- added type `AddInheritedAssociateChange`
-- added type `AssociateRoleLabel`
-- added type `ChangeBuyerAssignableChange`
-- added type `ChangeInheritedAssociateChange`
-- added type `InheritedAssociate`
-- added type `InheritedAssociateRoleAssignment`
-- added type `Permission`
-- added type `RemoveInheritedAssociateChange`
-- added type `SetLocalizedNameChange`
-- added type `SetPermissionsChange`
+- added type `AttributeLocalizedEnumValue`
+- added type `AttributePlainEnumValue`
+- added type `ChannelRoleEnum`
+- added type `StateRoleEnum`
+- added type `StateTypeEnum`
+</details>
+
+
+<details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `ChannelRole`
+- :warning: removed type `StateRole`
+- :warning: removed type `StateType`
 </details>
 
 
 <details>
 <summary>Added Property(s)</summary>
 
-- added property `associate` to type `ModifiedBy`
+- added property `businessUnit` to type `Record`
 </details>
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Removed Property(s)</summary>
 
-- added enum `associate-role` to type `ChangeHistoryResourceType`
+- :warning: removed property `previousValue` from type `AddAddressChange`
+- :warning: removed property `previousValue` from type `AddLocationChange`
+- :warning: removed property `nextValue` from type `RemoveLocationChange`
+- :warning: removed property `nextValue` from type `RemoveTaxRateChange`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `previousValue` of type `AddChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `nextValue` of type `AddChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `nextValue` of type `AddLocalizedEnumValueChange` from type `LocalizedEnumValue` to `AttributeLocalizedEnumValue`
+- :warning: changed property `nextValue` of type `AddPlainEnumValueChange` from type `EnumValue` to `AttributePlainEnumValue`
+- :warning: changed property `previousValue` of type `AddStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `nextValue` of type `AddStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `previousValue` of type `ChangeStateTypeChange` from type `StateType` to `StateTypeEnum`
+- :warning: changed property `nextValue` of type `ChangeStateTypeChange` from type `StateType` to `StateTypeEnum`
+- :warning: changed property `previousValue` of type `RemoveChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `nextValue` of type `RemoveChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `previousValue` of type `RemoveStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `nextValue` of type `RemoveStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `previousValue` of type `SetChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `nextValue` of type `SetChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `previousValue` of type `SetNameChange` from type `LocalizedString` to `string`
+- :warning: changed property `nextValue` of type `SetNameChange` from type `LocalizedString` to `string`
+- :warning: changed property `previousValue` of type `SetStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `nextValue` of type `SetStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
 </details>
 

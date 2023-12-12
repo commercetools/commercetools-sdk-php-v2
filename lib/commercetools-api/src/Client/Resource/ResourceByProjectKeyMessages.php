@@ -47,4 +47,14 @@ class ResourceByProjectKeyMessages extends ApiResource
 
         return new ByProjectKeyMessagesGet($args['projectKey'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyMessagesHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyMessagesHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
 }

@@ -71,7 +71,7 @@ final class OrderCustomFieldAddedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>Name of the Custom Field that has been added.</p>
+     * <p>Name of the Custom Field that was added.</p>
      *
      *
      * @return null|string

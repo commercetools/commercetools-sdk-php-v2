@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomerGroups
  */
@@ -189,6 +190,27 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 'get',
                 'test_projectKey/customer-groups',
             ],
+            'ByProjectKeyCustomerGroupsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customerGroups()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/customer-groups?where=where',
+            ],
+            'ByProjectKeyCustomerGroupsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->customerGroups()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/customer-groups',
+            ],
             'ByProjectKeyCustomerGroupsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -250,6 +272,14 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->customerGroups()
                         ->get();
+                }
+            ],
+            'ByProjectKeyCustomerGroupsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
                 }
             ],
             'ByProjectKeyCustomerGroupsPost' => [
@@ -344,6 +374,87 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->customerGroups()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyCustomerGroupsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyCustomerGroupsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyCustomerGroupsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyCustomerGroupsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyCustomerGroupsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyCustomerGroupsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyCustomerGroupsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyCustomerGroupsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyCustomerGroupsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->head();
                 },
                 599
             ],

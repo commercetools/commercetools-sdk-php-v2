@@ -75,7 +75,7 @@ final class CustomerResourceIdentifierModel extends JsonObjectModel implements C
     }
 
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>. Required if <code>key</code> is absent.</p>
      *
      *
      * @return null|string
@@ -95,7 +95,7 @@ final class CustomerResourceIdentifierModel extends JsonObjectModel implements C
     }
 
     /**
-     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>. Required if <code>id</code> is absent.</p>
      *
      *
      * @return null|string

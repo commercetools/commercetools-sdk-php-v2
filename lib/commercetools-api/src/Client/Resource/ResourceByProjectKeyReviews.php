@@ -60,6 +60,16 @@ class ResourceByProjectKeyReviews extends ApiResource
         return new ByProjectKeyReviewsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyReviewsHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyReviewsHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ReviewDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -37,6 +37,16 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
         return new ByProjectKeyTaxCategoriesByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyTaxCategoriesByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyTaxCategoriesByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?TaxCategoryUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -26,6 +26,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCarts
  */
@@ -191,6 +192,27 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 'get',
                 'test_projectKey/carts',
             ],
+            'ByProjectKeyCartsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->carts()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/carts?where=where',
+            ],
+            'ByProjectKeyCartsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->carts()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/carts',
+            ],
             'ByProjectKeyCartsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -274,6 +296,14 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->carts()
                         ->get();
+                }
+            ],
+            'ByProjectKeyCartsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
                 }
             ],
             'ByProjectKeyCartsPost' => [
@@ -368,6 +398,87 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->carts()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyCartsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyCartsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyCartsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyCartsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyCartsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyCartsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyCartsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyCartsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyCartsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->head();
                 },
                 599
             ],

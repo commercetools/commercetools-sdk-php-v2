@@ -297,7 +297,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|LastModifiedBy
@@ -318,7 +318,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|CreatedBy
@@ -578,7 +578,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Indicates if the Discount can be used in connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p>Indicates if the Discount is used in connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
      *
      * @return null|bool

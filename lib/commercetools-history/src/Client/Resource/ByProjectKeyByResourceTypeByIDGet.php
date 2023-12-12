@@ -212,6 +212,15 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
 
     /**
      * 
+     * @psalm-param scalar|scalar[] $businessUnit
+     */
+    public function withBusinessUnit($businessUnit): ByProjectKeyByResourceTypeByIDGet
+    {
+        return $this->withQueryParam('businessUnit', $businessUnit);
+    }
+
+    /**
+     * 
      * @psalm-param scalar|scalar[] $type
      */
     public function withType($type): ByProjectKeyByResourceTypeByIDGet

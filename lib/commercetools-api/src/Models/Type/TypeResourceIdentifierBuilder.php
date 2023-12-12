@@ -35,7 +35,7 @@ final class TypeResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>. Required if <code>key</code> is absent.</p>
      *
 
      * @return null|string
@@ -46,7 +46,7 @@ final class TypeResourceIdentifierBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>. Required if <code>id</code> is absent.</p>
      *
 
      * @return null|string

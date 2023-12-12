@@ -15,6 +15,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Change\ChangeCollection;
+use Commercetools\History\Models\Common\KeyReference;
+use Commercetools\History\Models\Common\KeyReferenceBuilder;
 use Commercetools\History\Models\Common\KeyReferenceCollection;
 use Commercetools\History\Models\Common\ResourceIdentifier;
 use Commercetools\History\Models\Common\ResourceIdentifierBuilder;
@@ -85,6 +87,12 @@ final class RecordBuilder implements Builder
      * @var ?KeyReferenceCollection
      */
     private $stores;
+
+    /**
+
+     * @var null|KeyReference|KeyReferenceBuilder
+     */
+    private $businessUnit;
 
     /**
 
@@ -203,6 +211,17 @@ final class RecordBuilder implements Builder
     public function getStores()
     {
         return $this->stores;
+    }
+
+    /**
+     * <p>Reference to the <a href="ctp:api:type:BusinessUnit">Business Unit</a> associated with the <a href="ctp:history:type:Change">Change</a>.</p>
+     *
+
+     * @return null|KeyReference
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof KeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit;
     }
 
     /**
@@ -328,6 +347,17 @@ final class RecordBuilder implements Builder
     }
 
     /**
+     * @param ?KeyReference $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?KeyReference $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $withoutChanges
      * @return $this
      */
@@ -382,6 +412,17 @@ final class RecordBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?KeyReferenceBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
     public function build(): Record
     {
         return new RecordModel(
@@ -395,6 +436,7 @@ final class RecordBuilder implements Builder
             $this->changes,
             $this->resource instanceof ResourceIdentifierBuilder ? $this->resource->build() : $this->resource,
             $this->stores,
+            $this->businessUnit instanceof KeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit,
             $this->withoutChanges
         );
     }

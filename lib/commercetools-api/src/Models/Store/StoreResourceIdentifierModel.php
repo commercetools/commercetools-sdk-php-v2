@@ -75,7 +75,7 @@ final class StoreResourceIdentifierModel extends JsonObjectModel implements Stor
     }
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique ID of the referenced <a href="ctp:api:type:Store">Store</a>. Required if <code>key</code> is absent.</p>
      *
      *
      * @return null|string
@@ -95,7 +95,7 @@ final class StoreResourceIdentifierModel extends JsonObjectModel implements Stor
     }
 
     /**
-     * <p>Unique key of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique key of the referenced <a href="ctp:api:type:Store">Store</a>. Required if <code>id</code> is absent.</p>
      *
      *
      * @return null|string

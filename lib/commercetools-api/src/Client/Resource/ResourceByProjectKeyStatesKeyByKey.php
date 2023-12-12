@@ -37,6 +37,16 @@ class ResourceByProjectKeyStatesKeyByKey extends ApiResource
         return new ByProjectKeyStatesKeyByKeyGet($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyStatesKeyByKeyHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyStatesKeyByKeyHead($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?StateUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

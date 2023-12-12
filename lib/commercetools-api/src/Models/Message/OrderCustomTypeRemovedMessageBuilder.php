@@ -149,7 +149,7 @@ final class OrderCustomTypeRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
      *
 
      * @return null|CreatedBy
@@ -205,8 +205,7 @@ final class OrderCustomTypeRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:Type">Custom Type</a> that has been removed.</p>
-     * <p>Absent when there has not been a Custom Type before.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Type">Custom Type</a> that was removed. Absent if there was no previous Custom Type present.</p>
      *
 
      * @return null|string

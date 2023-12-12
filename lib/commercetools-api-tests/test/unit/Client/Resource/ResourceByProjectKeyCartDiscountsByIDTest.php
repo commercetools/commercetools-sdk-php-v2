@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartDiscountsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartDiscountsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartDiscountsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartDiscountsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCartDiscountsByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                 'get',
                 'test_projectKey/cart-discounts/test_ID',
             ],
+            'ByProjectKeyCartDiscountsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->cartDiscounts()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/cart-discounts/test_ID',
+            ],
             'ByProjectKeyCartDiscountsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                         ->cartDiscounts()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyCartDiscountsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyCartDiscountsByIDPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                         ->cartDiscounts()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyCartDiscountsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyCartDiscountsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyCartDiscountsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyCartDiscountsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyCartDiscountsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyCartDiscountsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyCartDiscountsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyCartDiscountsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyCartDiscountsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

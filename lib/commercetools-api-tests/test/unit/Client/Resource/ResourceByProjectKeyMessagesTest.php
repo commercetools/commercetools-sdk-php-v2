@@ -23,6 +23,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMessagesGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMessagesHead
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMessages
  */
 class ResourceByProjectKeyMessagesTest extends TestCase
@@ -186,6 +187,27 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                 },
                 'get',
                 'test_projectKey/messages',
+            ],
+            'ByProjectKeyMessagesHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->messages()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/messages?where=where',
+            ],
+            'ByProjectKeyMessagesHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->messages()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/messages',
             ]
         ];
     }
@@ -216,6 +238,14 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->messages()
                         ->get();
+                }
+            ],
+            'ByProjectKeyMessagesHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
                 }
             ]
         ];
@@ -302,6 +332,87 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->messages()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyMessagesHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyMessagesHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyMessagesHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyMessagesHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyMessagesHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyMessagesHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyMessagesHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyMessagesHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyMessagesHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->head();
                 },
                 599
             ]

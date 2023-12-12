@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyBusinessUnitsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyBusinessUnitsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyBusinessUnitsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnits
  */
@@ -189,6 +190,27 @@ class ResourceByProjectKeyBusinessUnitsTest extends TestCase
                 'get',
                 'test_projectKey/business-units',
             ],
+            'ByProjectKeyBusinessUnitsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->businessUnits()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/business-units?where=where',
+            ],
+            'ByProjectKeyBusinessUnitsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->businessUnits()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/business-units',
+            ],
             'ByProjectKeyBusinessUnitsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -250,6 +272,14 @@ class ResourceByProjectKeyBusinessUnitsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->businessUnits()
                         ->get();
+                }
+            ],
+            'ByProjectKeyBusinessUnitsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
                 }
             ],
             'ByProjectKeyBusinessUnitsPost' => [
@@ -344,6 +374,87 @@ class ResourceByProjectKeyBusinessUnitsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->businessUnits()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyBusinessUnitsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyBusinessUnitsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyBusinessUnitsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyBusinessUnitsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyBusinessUnitsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyBusinessUnitsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyBusinessUnitsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyBusinessUnitsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyBusinessUnitsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->businessUnits()
+                        ->head();
                 },
                 599
             ],

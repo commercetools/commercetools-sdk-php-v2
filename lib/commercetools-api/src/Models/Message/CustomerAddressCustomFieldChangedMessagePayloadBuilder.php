@@ -39,7 +39,7 @@ final class CustomerAddressCustomFieldChangedMessagePayloadBuilder implements Bu
     private $previousValue;
 
     /**
-     * <p>Name of the Custom Field that has been changed.</p>
+     * <p>Name of the Custom Field that changed.</p>
      *
 
      * @return null|string
@@ -50,7 +50,7 @@ final class CustomerAddressCustomFieldChangedMessagePayloadBuilder implements Bu
     }
 
     /**
-     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:CustomerSetAddressCustomFieldAction">Set Custom Field</a> update action.</p>
+     * <p><a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a> after the <a href="ctp:api:type:CustomerSetAddressCustomFieldAction">Set CustomField</a> update action.</p>
      *
 
      * @return null|mixed

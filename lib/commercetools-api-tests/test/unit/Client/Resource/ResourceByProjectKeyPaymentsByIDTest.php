@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyPaymentsByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                 'get',
                 'test_projectKey/payments/test_ID',
             ],
+            'ByProjectKeyPaymentsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->payments()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/payments/test_ID',
+            ],
             'ByProjectKeyPaymentsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -204,6 +216,15 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->payments()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyPaymentsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyPaymentsByIDPost' => [
@@ -317,6 +338,96 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->payments()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyPaymentsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyPaymentsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyPaymentsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyPaymentsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyPaymentsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyPaymentsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyPaymentsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyPaymentsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyPaymentsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

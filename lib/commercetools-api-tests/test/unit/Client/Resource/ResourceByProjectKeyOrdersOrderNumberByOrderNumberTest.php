@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersOrderNumberByOrderNumberGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersOrderNumberByOrderNumberHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersOrderNumberByOrderNumberPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersOrderNumberByOrderNumberDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersOrderNumberByOrderNumber
@@ -115,6 +116,17 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                 'get',
                 'test_projectKey/orders/order-number=test_orderNumber',
             ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->orders()
+                        ->withOrderNumber("test_orderNumber")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/orders/order-number=test_orderNumber',
+            ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -204,6 +216,15 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->orders()
                         ->withOrderNumber("orderNumber")
                         ->get();
+                }
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
                 }
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberPost' => [
@@ -317,6 +338,96 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->orders()
                         ->withOrderNumber("orderNumber")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->head();
                 },
                 599
             ],

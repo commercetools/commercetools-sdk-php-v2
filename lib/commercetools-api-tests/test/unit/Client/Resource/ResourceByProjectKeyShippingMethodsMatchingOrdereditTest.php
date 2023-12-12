@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsMatchingOrdereditGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsMatchingOrdereditHead
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsMatchingOrderedit
  */
 class ResourceByProjectKeyShippingMethodsMatchingOrdereditTest extends TestCase
@@ -136,6 +137,53 @@ class ResourceByProjectKeyShippingMethodsMatchingOrdereditTest extends TestCase
                 },
                 'get',
                 'test_projectKey/shipping-methods/matching-orderedit',
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_withOrderEditId' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head()
+                        ->withOrderEditId('orderEditId');
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-orderedit?orderEditId=orderEditId',
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_withCountry' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head()
+                        ->withCountry('country');
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-orderedit?country=country',
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_withState' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head()
+                        ->withState('state');
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-orderedit?state=state',
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/shipping-methods/matching-orderedit',
             ]
         ];
     }
@@ -156,6 +204,15 @@ class ResourceByProjectKeyShippingMethodsMatchingOrdereditTest extends TestCase
                         ->shippingMethods()
                         ->matchingOrderedit()
                         ->get();
+                }
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
                 }
             ]
         ];
@@ -251,6 +308,96 @@ class ResourceByProjectKeyShippingMethodsMatchingOrdereditTest extends TestCase
                         ->shippingMethods()
                         ->matchingOrderedit()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->head();
                 },
                 599
             ]

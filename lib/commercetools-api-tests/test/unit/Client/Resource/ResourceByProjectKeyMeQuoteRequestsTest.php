@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeQuoteRequests
  */
@@ -197,6 +198,29 @@ class ResourceByProjectKeyMeQuoteRequestsTest extends TestCase
                 'get',
                 'test_projectKey/me/quote-requests',
             ],
+            'ByProjectKeyMeQuoteRequestsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->me()
+                        ->quoteRequests()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/me/quote-requests?where=where',
+            ],
+            'ByProjectKeyMeQuoteRequestsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/me/quote-requests',
+            ],
             'ByProjectKeyMeQuoteRequestsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -263,6 +287,15 @@ class ResourceByProjectKeyMeQuoteRequestsTest extends TestCase
                         ->me()
                         ->quoteRequests()
                         ->get();
+                }
+            ],
+            'ByProjectKeyMeQuoteRequestsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
                 }
             ],
             'ByProjectKeyMeQuoteRequestsPost' => [
@@ -367,6 +400,96 @@ class ResourceByProjectKeyMeQuoteRequestsTest extends TestCase
                         ->me()
                         ->quoteRequests()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyMeQuoteRequestsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyMeQuoteRequestsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyMeQuoteRequestsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyMeQuoteRequestsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyMeQuoteRequestsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyMeQuoteRequestsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyMeQuoteRequestsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyMeQuoteRequestsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyMeQuoteRequestsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->quoteRequests()
+                        ->head();
                 },
                 599
             ],

@@ -37,6 +37,16 @@ class ResourceByProjectKeyStoresByID extends ApiResource
         return new ByProjectKeyStoresByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyStoresByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyStoresByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?StoreUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

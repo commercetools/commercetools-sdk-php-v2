@@ -11,6 +11,7 @@ namespace Commercetools\History\Models\ChangeHistory;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\History\Models\Change\ChangeCollection;
+use Commercetools\History\Models\Common\KeyReference;
 use Commercetools\History\Models\Common\KeyReferenceCollection;
 use Commercetools\History\Models\Common\ResourceIdentifier;
 use Commercetools\History\Models\Label\Label;
@@ -28,6 +29,7 @@ interface Record extends JsonObject
     public const FIELD_CHANGES = 'changes';
     public const FIELD_RESOURCE = 'resource';
     public const FIELD_STORES = 'stores';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_WITHOUT_CHANGES = 'withoutChanges';
 
     /**
@@ -114,6 +116,14 @@ interface Record extends JsonObject
     public function getStores();
 
     /**
+     * <p>Reference to the <a href="ctp:api:type:BusinessUnit">Business Unit</a> associated with the <a href="ctp:history:type:Change">Change</a>.</p>
+     *
+
+     * @return null|KeyReference
+     */
+    public function getBusinessUnit();
+
+    /**
      * <p><code>true</code> if no change was detected.</p>
      * <p>The version number of the resource can be increased even without any change in the resource.</p>
      *
@@ -171,6 +181,11 @@ interface Record extends JsonObject
      * @param ?KeyReferenceCollection $stores
      */
     public function setStores(?KeyReferenceCollection $stores): void;
+
+    /**
+     * @param ?KeyReference $businessUnit
+     */
+    public function setBusinessUnit(?KeyReference $businessUnit): void;
 
     /**
      * @param ?bool $withoutChanges

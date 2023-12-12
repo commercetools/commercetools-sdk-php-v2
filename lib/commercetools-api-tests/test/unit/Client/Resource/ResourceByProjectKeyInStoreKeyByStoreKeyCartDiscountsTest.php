@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts
  */
@@ -102,6 +103,90 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?expand=expand',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_withSort' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?sort=sort',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_withLimit' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?limit=limit',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_withOffset' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?offset=offset',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_withWithTotal' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?withTotal=withTotal',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?where=where',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_withPredicateVar' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->get()
+                        ->withPredicateVar('varName', 'var.varName');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?var.varName=var.varName',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -112,6 +197,41 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsTest extends TestCase
                 },
                 'get',
                 'test_projectKey/in-store/key=test_storeKey/cart-discounts',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?where=where',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->cartDiscounts()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                'test_projectKey/in-store/key=test_storeKey/cart-discounts?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -169,6 +289,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsTest extends TestCase
                         ->get();
                 }
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                }
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -194,6 +323,76 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsTest extends TestCase
                 },
                 200
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->get();
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->get();
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->get();
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->get();
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->get();
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->get();
+                },
+                502
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->get();
+                },
+                503
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -201,6 +400,96 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsTest extends TestCase
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->cartDiscounts()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->head();
                 },
                 599
             ],
@@ -213,6 +502,76 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscountsTest extends TestCase
                         ->post(null);
                 },
                 201
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->post(null);
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->post(null);
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->post(null);
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->post(null);
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->post(null);
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->post(null);
+                },
+                502
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->cartDiscounts()
+                        ->post(null);
+                },
+                503
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartDiscountsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

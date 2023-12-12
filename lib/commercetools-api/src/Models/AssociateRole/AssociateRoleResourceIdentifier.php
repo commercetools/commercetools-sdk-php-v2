@@ -15,7 +15,7 @@ use Commercetools\Base\JsonObject;
 interface AssociateRoleResourceIdentifier extends ResourceIdentifier
 {
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:AssociateRole">AssociateRole</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:AssociateRole">AssociateRole</a>. Required if <code>key</code> is absent.</p>
      *
 
      * @return null|string
@@ -23,7 +23,7 @@ interface AssociateRoleResourceIdentifier extends ResourceIdentifier
     public function getId();
 
     /**
-     * <p>Unique key of the referenced <a href="ctp:api:type:AssociateRole">AssociateRole</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique key of the referenced <a href="ctp:api:type:AssociateRole">AssociateRole</a>. Required if <code>id</code> is absent.</p>
      *
 
      * @return null|string

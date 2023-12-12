@@ -14,7 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Change\ChangeCollection;
+use Commercetools\History\Models\Common\KeyReference;
 use Commercetools\History\Models\Common\KeyReferenceCollection;
+use Commercetools\History\Models\Common\KeyReferenceModel;
 use Commercetools\History\Models\Common\ResourceIdentifier;
 use Commercetools\History\Models\Common\ResourceIdentifierModel;
 use Commercetools\History\Models\Label\Label;
@@ -89,6 +91,12 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      *
+     * @var ?KeyReference
+     */
+    protected $businessUnit;
+
+    /**
+     *
      * @var ?bool
      */
     protected $withoutChanges;
@@ -108,6 +116,7 @@ final class RecordModel extends JsonObjectModel implements Record
         ?ChangeCollection $changes = null,
         ?ResourceIdentifier $resource = null,
         ?KeyReferenceCollection $stores = null,
+        ?KeyReference $businessUnit = null,
         ?bool $withoutChanges = null
     ) {
         $this->version = $version;
@@ -120,6 +129,7 @@ final class RecordModel extends JsonObjectModel implements Record
         $this->changes = $changes;
         $this->resource = $resource;
         $this->stores = $stores;
+        $this->businessUnit = $businessUnit;
         $this->withoutChanges = $withoutChanges;
 
     }
@@ -332,6 +342,27 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
+     * <p>Reference to the <a href="ctp:api:type:BusinessUnit">Business Unit</a> associated with the <a href="ctp:history:type:Change">Change</a>.</p>
+     *
+     *
+     * @return null|KeyReference
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = KeyReferenceModel::of($data);
+        }
+
+        return $this->businessUnit;
+    }
+
+    /**
      * <p><code>true</code> if no change was detected.</p>
      * <p>The version number of the resource can be increased even without any change in the resource.</p>
      *
@@ -431,6 +462,14 @@ final class RecordModel extends JsonObjectModel implements Record
     public function setStores(?KeyReferenceCollection $stores): void
     {
         $this->stores = $stores;
+    }
+
+    /**
+     * @param ?KeyReference $businessUnit
+     */
+    public function setBusinessUnit(?KeyReference $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
     /**

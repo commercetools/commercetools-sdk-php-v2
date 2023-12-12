@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeOrdersGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeOrdersHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeOrdersPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeOrders
  */
@@ -197,6 +198,29 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                 'get',
                 'test_projectKey/me/orders',
             ],
+            'ByProjectKeyMeOrdersHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->me()
+                        ->orders()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/me/orders?where=where',
+            ],
+            'ByProjectKeyMeOrdersHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/me/orders',
+            ],
             'ByProjectKeyMeOrdersPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -263,6 +287,15 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get();
+                }
+            ],
+            'ByProjectKeyMeOrdersHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
                 }
             ],
             'ByProjectKeyMeOrdersPost' => [
@@ -367,6 +400,96 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyMeOrdersHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyMeOrdersHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyMeOrdersHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyMeOrdersHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyMeOrdersHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyMeOrdersHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyMeOrdersHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyMeOrdersHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyMeOrdersHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->head();
                 },
                 599
             ],

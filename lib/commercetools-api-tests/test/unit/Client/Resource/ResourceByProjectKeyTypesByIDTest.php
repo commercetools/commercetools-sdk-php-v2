@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTypesByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTypesByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTypesByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTypesByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyTypesByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyTypesByIDTest extends TestCase
                 'get',
                 'test_projectKey/types/test_ID',
             ],
+            'ByProjectKeyTypesByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->types()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/types/test_ID',
+            ],
             'ByProjectKeyTypesByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyTypesByIDTest extends TestCase
                         ->types()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyTypesByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyTypesByIDPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyTypesByIDTest extends TestCase
                         ->types()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyTypesByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyTypesByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyTypesByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyTypesByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyTypesByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyTypesByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyTypesByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyTypesByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyTypesByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

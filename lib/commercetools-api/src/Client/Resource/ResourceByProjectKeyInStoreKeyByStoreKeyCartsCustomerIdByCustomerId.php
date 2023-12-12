@@ -35,4 +35,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId extend
 
         return new ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet($args['projectKey'], $args['storeKey'], $args['customerId'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead($args['projectKey'], $args['storeKey'], $args['customerId'], $body, $headers, $this->getClient());
+    }
 }

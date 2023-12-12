@@ -24,6 +24,10 @@ use Commercetools\Api\Models\Category\CategoryReference;
 use Commercetools\Api\Models\Category\CategoryReferenceModel;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Api\Models\Customer\CustomerEmailTokenReference;
+use Commercetools\Api\Models\Customer\CustomerEmailTokenReferenceModel;
+use Commercetools\Api\Models\Customer\CustomerPasswordTokenReference;
+use Commercetools\Api\Models\Customer\CustomerPasswordTokenReferenceModel;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
@@ -109,7 +113,9 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'category' => CategoryReferenceModel::class,
        'channel' => ChannelReferenceModel::class,
        'customer' => CustomerReferenceModel::class,
+       'customer-email-token' => CustomerEmailTokenReferenceModel::class,
        'customer-group' => CustomerGroupReferenceModel::class,
+       'customer-password-token' => CustomerPasswordTokenReferenceModel::class,
        'direct-discount' => DirectDiscountReferenceModel::class,
        'discount-code' => DiscountCodeReferenceModel::class,
        'inventory-entry' => InventoryEntryReferenceModel::class,

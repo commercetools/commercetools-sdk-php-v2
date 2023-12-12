@@ -217,7 +217,7 @@ final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p><code>true</code> if the <code>dataErasure</code> <a href="/../api/general-concepts#data-erasure-of-personal-data">parameter</a> on the <code>DELETE</code> request was set to <code>true</code>.</p>
+     * <p><code>true</code> if the <code>dataErasure</code> <a href="/../api/gdpr#data-erasure-of-personal-data">parameter</a> on the <code>DELETE</code> request was set to <code>true</code>.</p>
      *
      *
      * @return null|bool

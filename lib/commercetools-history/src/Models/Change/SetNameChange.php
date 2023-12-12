@@ -10,7 +10,6 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\LocalizedString;
 
 interface SetNameChange extends Change
 {
@@ -34,7 +33,7 @@ interface SetNameChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|LocalizedString
+     * @return null|string
      */
     public function getPreviousValue();
 
@@ -42,7 +41,7 @@ interface SetNameChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|LocalizedString
+     * @return null|string
      */
     public function getNextValue();
 
@@ -52,12 +51,12 @@ interface SetNameChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?string $previousValue
      */
-    public function setPreviousValue(?LocalizedString $previousValue): void;
+    public function setPreviousValue(?string $previousValue): void;
 
     /**
-     * @param ?LocalizedString $nextValue
+     * @param ?string $nextValue
      */
-    public function setNextValue(?LocalizedString $nextValue): void;
+    public function setNextValue(?string $nextValue): void;
 }

@@ -15,7 +15,7 @@ use Commercetools\Base\JsonObject;
 interface BusinessUnitResourceIdentifier extends ResourceIdentifier
 {
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:BusinessUnit">BusinessUnit</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:BusinessUnit">BusinessUnit</a>. Required if <code>key</code> is absent.</p>
      *
 
      * @return null|string
@@ -23,7 +23,7 @@ interface BusinessUnitResourceIdentifier extends ResourceIdentifier
     public function getId();
 
     /**
-     * <p>Unique key of the referenced <a href="ctp:api:type:BusinessUnit">BusinessUnit</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique key of the referenced <a href="ctp:api:type:BusinessUnit">BusinessUnit</a>. Required if <code>id</code> is absent.</p>
      *
 
      * @return null|string

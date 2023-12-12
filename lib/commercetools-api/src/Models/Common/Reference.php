@@ -16,6 +16,8 @@ use Commercetools\Api\Models\Cart\DirectDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\Category\CategoryReference;
 use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Customer\CustomerEmailTokenReference;
+use Commercetools\Api\Models\Customer\CustomerPasswordTokenReference;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomObject\CustomObjectReference;

@@ -37,6 +37,16 @@ class ResourceByProjectKeyStagedQuotesKeyByKey extends ApiResource
         return new ByProjectKeyStagedQuotesKeyByKeyGet($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyStagedQuotesKeyByKeyHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyStagedQuotesKeyByKeyHead($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?StagedQuoteUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

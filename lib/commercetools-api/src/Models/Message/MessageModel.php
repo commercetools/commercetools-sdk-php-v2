@@ -100,6 +100,18 @@ final class MessageModel extends JsonObjectModel implements Message
      * @psalm-suppress InvalidPropertyAssignmentValue
      */
     private static $discriminatorClasses = [
+       'ApprovalFlowApproved' => ApprovalFlowApprovedMessageModel::class,
+       'ApprovalFlowCompleted' => ApprovalFlowCompletedMessageModel::class,
+       'ApprovalFlowCreated' => ApprovalFlowCreatedMessageModel::class,
+       'ApprovalFlowRejected' => ApprovalFlowRejectedMessageModel::class,
+       'ApprovalRuleApproversSet' => ApprovalRuleApproversSetMessageModel::class,
+       'ApprovalRuleCreated' => ApprovalRuleCreatedMessageModel::class,
+       'ApprovalRuleDescriptionSet' => ApprovalRuleDescriptionSetMessageModel::class,
+       'ApprovalRuleKeySet' => ApprovalRuleKeySetMessageModel::class,
+       'ApprovalRuleNameSet' => ApprovalRuleNameSetMessageModel::class,
+       'ApprovalRulePredicateSet' => ApprovalRulePredicateSetMessageModel::class,
+       'ApprovalRuleRequestersSet' => ApprovalRuleRequestersSetMessageModel::class,
+       'ApprovalRuleStatusSet' => ApprovalRuleStatusSetMessageModel::class,
        'AssociateRoleBuyerAssignableChanged' => AssociateRoleBuyerAssignableChangedMessageModel::class,
        'AssociateRoleCreated' => AssociateRoleCreatedMessageModel::class,
        'AssociateRoleDeleted' => AssociateRoleDeletedMessageModel::class,
@@ -109,6 +121,11 @@ final class MessageModel extends JsonObjectModel implements Message
        'AssociateRolePermissionsSet' => AssociateRolePermissionsSetMessageModel::class,
        'BusinessUnitAddressAdded' => BusinessUnitAddressAddedMessageModel::class,
        'BusinessUnitAddressChanged' => BusinessUnitAddressChangedMessageModel::class,
+       'BusinessUnitAddressCustomFieldAdded' => BusinessUnitAddressCustomFieldAddedMessageModel::class,
+       'BusinessUnitAddressCustomFieldChanged' => BusinessUnitAddressCustomFieldChangedMessageModel::class,
+       'BusinessUnitAddressCustomFieldRemoved' => BusinessUnitAddressCustomFieldRemovedMessageModel::class,
+       'BusinessUnitAddressCustomTypeRemoved' => BusinessUnitAddressCustomTypeRemovedMessageModel::class,
+       'BusinessUnitAddressCustomTypeSet' => BusinessUnitAddressCustomTypeSetMessageModel::class,
        'BusinessUnitAddressRemoved' => BusinessUnitAddressRemovedMessageModel::class,
        'BusinessUnitAssociateAdded' => BusinessUnitAssociateAddedMessageModel::class,
        'BusinessUnitAssociateChanged' => BusinessUnitAssociateChangedMessageModel::class,
@@ -119,6 +136,11 @@ final class MessageModel extends JsonObjectModel implements Message
        'BusinessUnitBillingAddressRemoved' => BusinessUnitBillingAddressRemovedMessageModel::class,
        'BusinessUnitContactEmailSet' => BusinessUnitContactEmailSetMessageModel::class,
        'BusinessUnitCreated' => BusinessUnitCreatedMessageModel::class,
+       'BusinessUnitCustomFieldAdded' => BusinessUnitCustomFieldAddedMessageModel::class,
+       'BusinessUnitCustomFieldChanged' => BusinessUnitCustomFieldChangedMessageModel::class,
+       'BusinessUnitCustomFieldRemoved' => BusinessUnitCustomFieldRemovedMessageModel::class,
+       'BusinessUnitCustomTypeRemoved' => BusinessUnitCustomTypeRemovedMessageModel::class,
+       'BusinessUnitCustomTypeSet' => BusinessUnitCustomTypeSetMessageModel::class,
        'BusinessUnitDefaultBillingAddressSet' => BusinessUnitDefaultBillingAddressSetMessageModel::class,
        'BusinessUnitDefaultShippingAddressSet' => BusinessUnitDefaultShippingAddressSetMessageModel::class,
        'BusinessUnitDeleted' => BusinessUnitDeletedMessageModel::class,
@@ -152,10 +174,17 @@ final class MessageModel extends JsonObjectModel implements Message
        'CustomerDateOfBirthSet' => CustomerDateOfBirthSetMessageModel::class,
        'CustomerDeleted' => CustomerDeletedMessageModel::class,
        'CustomerEmailChanged' => CustomerEmailChangedMessageModel::class,
+       'CustomerEmailTokenCreated' => CustomerEmailTokenCreatedMessageModel::class,
        'CustomerEmailVerified' => CustomerEmailVerifiedMessageModel::class,
        'CustomerFirstNameSet' => CustomerFirstNameSetMessageModel::class,
+       'CustomerGroupCustomFieldAdded' => CustomerGroupCustomFieldAddedMessageModel::class,
+       'CustomerGroupCustomFieldChanged' => CustomerGroupCustomFieldChangedMessageModel::class,
+       'CustomerGroupCustomFieldRemoved' => CustomerGroupCustomFieldRemovedMessageModel::class,
+       'CustomerGroupCustomTypeRemoved' => CustomerGroupCustomTypeRemovedMessageModel::class,
+       'CustomerGroupCustomTypeSet' => CustomerGroupCustomTypeSetMessageModel::class,
        'CustomerGroupSet' => CustomerGroupSetMessageModel::class,
        'CustomerLastNameSet' => CustomerLastNameSetMessageModel::class,
+       'CustomerPasswordTokenCreated' => CustomerPasswordTokenCreatedMessageModel::class,
        'CustomerPasswordUpdated' => CustomerPasswordUpdatedMessageModel::class,
        'CustomerTitleSet' => CustomerTitleSetMessageModel::class,
        'DeliveryAdded' => DeliveryAddedMessageModel::class,
@@ -425,7 +454,7 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|CreatedBy

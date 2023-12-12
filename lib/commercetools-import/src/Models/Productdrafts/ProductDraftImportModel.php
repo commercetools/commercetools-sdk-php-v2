@@ -169,7 +169,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     }
 
     /**
-     * <p>User-defined unique identifier.</p>
+     * <p>User-defined unique identifier. If a <a href="/../api/projects/products#product">Product</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
      *
      * @return null|string

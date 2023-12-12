@@ -27,6 +27,22 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
 
     /**
      */
+    public function approvalRules(): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRules
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalRules($args, $this->getClient());
+    }
+    /**
+     */
+    public function approvalFlows(): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalFlows
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyApprovalFlows($args, $this->getClient());
+    }
+    /**
+     */
     public function carts(): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyCarts
     {
         $args = $this->getArgs();

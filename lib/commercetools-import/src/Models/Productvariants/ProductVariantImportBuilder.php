@@ -75,7 +75,7 @@ final class ProductVariantImportBuilder implements Builder
     private $product;
 
     /**
-     * <p>User-defined unique identifier.</p>
+     * <p>User-defined unique identifier. If a <a href="/../api/projects/products#productvariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it will be updated with the imported data.</p>
      *
 
      * @return null|string

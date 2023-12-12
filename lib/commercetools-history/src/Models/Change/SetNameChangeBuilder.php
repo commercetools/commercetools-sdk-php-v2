@@ -14,8 +14,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\LocalizedString;
-use Commercetools\History\Models\Common\LocalizedStringBuilder;
 
 /**
  * @implements Builder<SetNameChange>
@@ -30,13 +28,13 @@ final class SetNameChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
+     * @var ?string
      */
     private $previousValue;
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
+     * @var ?string
      */
     private $nextValue;
 
@@ -53,22 +51,22 @@ final class SetNameChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|LocalizedString
+     * @return null|string
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue;
     }
 
     /**
      * <p>Value after the change.</p>
      *
 
-     * @return null|LocalizedString
+     * @return null|string
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue;
     }
 
     /**
@@ -83,10 +81,10 @@ final class SetNameChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?string $previousValue
      * @return $this
      */
-    public function withPreviousValue(?LocalizedString $previousValue)
+    public function withPreviousValue(?string $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -94,44 +92,23 @@ final class SetNameChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedString $nextValue
+     * @param ?string $nextValue
      * @return $this
      */
-    public function withNextValue(?LocalizedString $nextValue)
+    public function withNextValue(?string $nextValue)
     {
         $this->nextValue = $nextValue;
 
         return $this;
     }
 
-    /**
-     * @deprecated use withPreviousValue() instead
-     * @return $this
-     */
-    public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
-    {
-        $this->previousValue = $previousValue;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withNextValue() instead
-     * @return $this
-     */
-    public function withNextValueBuilder(?LocalizedStringBuilder $nextValue)
-    {
-        $this->nextValue = $nextValue;
-
-        return $this;
-    }
 
     public function build(): SetNameChange
     {
         return new SetNameChangeModel(
             $this->change,
-            $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->previousValue,
+            $this->nextValue
         );
     }
 

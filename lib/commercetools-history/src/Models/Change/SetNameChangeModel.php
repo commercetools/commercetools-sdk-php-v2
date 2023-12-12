@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\LocalizedString;
-use Commercetools\History\Models\Common\LocalizedStringModel;
 
 /**
  * @internal
@@ -37,13 +35,13 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
 
     /**
      *
-     * @var ?LocalizedString
+     * @var ?string
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?LocalizedString
+     * @var ?string
      */
     protected $nextValue;
 
@@ -53,8 +51,8 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
      */
     public function __construct(
         ?string $change = null,
-        ?LocalizedString $previousValue = null,
-        ?LocalizedString $nextValue = null,
+        ?string $previousValue = null,
+        ?string $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -103,18 +101,17 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
      * <p>Value before the change.</p>
      *
      *
-     * @return null|LocalizedString
+     * @return null|string
      */
     public function getPreviousValue()
     {
         if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?string $data */
             $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = LocalizedStringModel::of($data);
+            $this->previousValue = (string) $data;
         }
 
         return $this->previousValue;
@@ -124,18 +121,17 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
      * <p>Value after the change.</p>
      *
      *
-     * @return null|LocalizedString
+     * @return null|string
      */
     public function getNextValue()
     {
         if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?string $data */
             $data = $this->raw(self::FIELD_NEXT_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->nextValue = LocalizedStringModel::of($data);
+            $this->nextValue = (string) $data;
         }
 
         return $this->nextValue;
@@ -151,17 +147,17 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
     }
 
     /**
-     * @param ?LocalizedString $previousValue
+     * @param ?string $previousValue
      */
-    public function setPreviousValue(?LocalizedString $previousValue): void
+    public function setPreviousValue(?string $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?LocalizedString $nextValue
+     * @param ?string $nextValue
      */
-    public function setNextValue(?LocalizedString $nextValue): void
+    public function setNextValue(?string $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

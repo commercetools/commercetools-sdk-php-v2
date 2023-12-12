@@ -22,6 +22,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsByIDPost
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyChannelsByID
@@ -115,6 +116,17 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 'get',
                 'test_projectKey/channels/test_ID',
             ],
+            'ByProjectKeyChannelsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->channels()
+                        ->withId("test_ID")
+                        ->head();
+                },
+                'head',
+                'test_projectKey/channels/test_ID',
+            ],
             'ByProjectKeyChannelsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -192,6 +204,15 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->channels()
                         ->withId("ID")
                         ->get();
+                }
+            ],
+            'ByProjectKeyChannelsByIDHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
                 }
             ],
             'ByProjectKeyChannelsByIDPost' => [
@@ -305,6 +326,96 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->channels()
                         ->withId("ID")
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyChannelsByIDHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyChannelsByIDHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyChannelsByIDHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyChannelsByIDHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyChannelsByIDHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyChannelsByIDHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyChannelsByIDHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyChannelsByIDHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyChannelsByIDHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->head();
                 },
                 599
             ],

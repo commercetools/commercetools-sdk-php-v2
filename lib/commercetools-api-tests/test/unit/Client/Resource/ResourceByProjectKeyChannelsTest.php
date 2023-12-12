@@ -23,6 +23,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyChannels
  */
@@ -188,6 +189,27 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                 'get',
                 'test_projectKey/channels',
             ],
+            'ByProjectKeyChannelsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->channels()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/channels?where=where',
+            ],
+            'ByProjectKeyChannelsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->channels()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/channels',
+            ],
             'ByProjectKeyChannelsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -238,6 +260,14 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->channels()
                         ->get();
+                }
+            ],
+            'ByProjectKeyChannelsHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
                 }
             ],
             'ByProjectKeyChannelsPost' => [
@@ -332,6 +362,87 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->channels()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyChannelsHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyChannelsHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyChannelsHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyChannelsHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyChannelsHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyChannelsHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyChannelsHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyChannelsHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyChannelsHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->head();
                 },
                 599
             ],

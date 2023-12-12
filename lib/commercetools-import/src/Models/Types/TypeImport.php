@@ -21,7 +21,7 @@ interface TypeImport extends ImportResource
     public const FIELD_FIELD_DEFINITIONS = 'fieldDefinitions';
 
     /**
-     * <p>User-defined unique identifier for the Type.</p>
+     * <p>User-defined unique identifier for the Type. If a <a href="/../api/projects/types#type">Type</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
 
      * @return null|string
