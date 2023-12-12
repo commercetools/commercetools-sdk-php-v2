@@ -12,12 +12,12 @@ install_deps: codegen_install composer_install
 
 build: install_deps parallel_gen_sdks parallel_test_sdks_bc parallel_gen_sdk_tests parallel_prettify_sdks parallel_analyze_sdks parallel_test_sdks
 
-parallel_gen_sdks: install_deps generate_base generate_api generate_import generate_ml generate_history
+parallel_gen_sdks: install_deps generate_base generate_api generate_import generate_history
 
 parallel_test_sdks_bc: install_deps parallel_gen_sdks
 #	vendor/bin/phpunit --testsuite=unit
 
-parallel_gen_sdk_tests: install_deps parallel_test_sdks_bc parallel_generate_api_test parallel_generate_import_test parallel_generate_ml_test parallel_generate_history_test
+parallel_gen_sdk_tests: install_deps parallel_test_sdks_bc parallel_generate_api_test parallel_generate_import_test parallel_generate_history_test
 
 parallel_generate_api_test: install_deps parallel_test_sdks_bc
 	$(MAKE) -C lib LIB_NAME=api GEN_RAML_FILE=../$(API_RAML) generate_sdk_test
