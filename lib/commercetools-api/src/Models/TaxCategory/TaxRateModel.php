@@ -154,7 +154,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-     * <p>Tax rate. If subrates are used, the amount must be the sum of all subrates.</p>
+     * <p>Tax rate. If subrates are used, the amount is the sum of all rates in <code>subRates</code>.</p>
      *
      *
      * @return null|float
@@ -234,7 +234,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-     * <p>Used to calculate the <a href="/../api/projects/carts#taxedprice">taxPortions</a> field in a Cart or Order. It is useful if the total tax of a country (such as the US) is a combination of multiple taxes (such as state and local taxes).</p>
+     * <p>Used to calculate the <a href="/../api/projects/carts#taxedprice">taxPortions</a> field in a Cart or Order. It is useful if the total tax of a country (such as the US) is a combination of multiple taxes (such as state and local taxes). The total of all subrates equals the TaxRate <code>amount</code>.</p>
      *
      *
      * @return null|SubRateCollection
