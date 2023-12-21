@@ -118,6 +118,8 @@
 <details>
 <summary>Removed Type(s)</summary>
 
+- :warning: removed type `NotEnabledError`
+- :warning: removed type `GraphQLNotEnabledError`
 - :warning: removed type `CustomerMessagePayload`
 </details>
 

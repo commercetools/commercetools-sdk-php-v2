@@ -86,7 +86,6 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'MissingTaxRateForCountry' => MissingTaxRateForCountryErrorModel::class,
        'MoneyOverflow' => MoneyOverflowErrorModel::class,
        'NoMatchingProductDiscountFound' => NoMatchingProductDiscountFoundErrorModel::class,
-       'NotEnabled' => NotEnabledErrorModel::class,
        'ObjectNotFound' => ObjectNotFoundErrorModel::class,
        'OutOfStock' => OutOfStockErrorModel::class,
        'OverCapacity' => OverCapacityErrorModel::class,
