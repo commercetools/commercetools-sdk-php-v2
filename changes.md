@@ -23,6 +23,8 @@
 - added type `ApprovalFlowPagedQueryResponse`
 - added type `ApprovalFlowRejectAction`
 - added type `ApprovalFlowRejection`
+- added type `ApprovalFlowSetCustomFieldAction`
+- added type `ApprovalFlowSetCustomTypeAction`
 - added type `ApprovalFlowStatus`
 - added type `ApprovalFlowUpdate`
 - added type `ApprovalFlowUpdateAction`
@@ -334,6 +336,8 @@
 - added enum `customer-email-token` to type `MessageSubscriptionResourceTypeId`
 - added enum `customer-group` to type `MessageSubscriptionResourceTypeId`
 - added enum `customer-password-token` to type `MessageSubscriptionResourceTypeId`
+- added enum `approval-flow` to type `CustomFieldReferenceValue`
+- added enum `approval-flow` to type `ResourceTypeId`
 </details>
 
 

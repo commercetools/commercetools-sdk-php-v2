@@ -20,6 +20,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\OrderReferenceModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -122,6 +124,12 @@ final class ApprovalFlowModel extends JsonObjectModel implements ApprovalFlow
      */
     protected $currentTierPendingApprovers;
 
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -141,7 +149,8 @@ final class ApprovalFlowModel extends JsonObjectModel implements ApprovalFlow
         ?ApprovalFlowApprovalCollection $approvals = null,
         ?RuleApproverCollection $eligibleApprovers = null,
         ?RuleApproverCollection $pendingApprovers = null,
-        ?RuleApproverCollection $currentTierPendingApprovers = null
+        ?RuleApproverCollection $currentTierPendingApprovers = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -158,6 +167,7 @@ final class ApprovalFlowModel extends JsonObjectModel implements ApprovalFlow
         $this->eligibleApprovers = $eligibleApprovers;
         $this->pendingApprovers = $pendingApprovers;
         $this->currentTierPendingApprovers = $currentTierPendingApprovers;
+        $this->custom = $custom;
     }
 
     /**
@@ -474,6 +484,27 @@ final class ApprovalFlowModel extends JsonObjectModel implements ApprovalFlow
         return $this->currentTierPendingApprovers;
     }
 
+    /**
+     * <p>Custom Fields on the Approval Flow.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -593,6 +624,14 @@ final class ApprovalFlowModel extends JsonObjectModel implements ApprovalFlow
     public function setCurrentTierPendingApprovers(?RuleApproverCollection $currentTierPendingApprovers): void
     {
         $this->currentTierPendingApprovers = $currentTierPendingApprovers;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
 
