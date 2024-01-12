@@ -1682,7 +1682,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->post(null)`
 
-null
+Creating a Cart Discount produces the [CartDiscountCreated](ctp:api:type:CartDiscountCreatedMessage) Message.
 
 ### Example
 ```php
@@ -1741,7 +1741,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withId("ID")->delete()`
 
-null
+Deleting a Cart Discount produces the [CartDiscountDeleted](ctp:api:type:CartDiscountDeletedMessage) Message.
 
 ### Example
 ```php
@@ -1801,7 +1801,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withKey("key")->delete()`
 
-null
+Deleting a Cart Discount produces the [CartDiscountDeleted](ctp:api:type:CartDiscountDeletedMessage) Message.
 
 ### Example
 ```php
@@ -3168,6 +3168,8 @@ $request = $builder
 
 When using the endpoint, the Store specified in the path and the Stores specified in the payload's `stores` field are added to the CartDiscount.
 
+Creating a Cart Discount produces the [CartDiscountCreated](ctp:api:type:CartDiscountCreatedMessage) Message.
+
 
 ### Example
 ```php
@@ -3232,6 +3234,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withId("ID")->delete()`
 
 To delete a CartDiscount, specify the `manage_cart_discounts:{projectKey}:{storeKey}` scope for all Stores associated with the CartDiscount.
+
+Deleting a Cart Discount produces the [CartDiscountDeleted](ctp:api:type:CartDiscountDeletedMessage) Message.
 
 
 ### Example
@@ -3298,6 +3302,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withKey("key")->delete()`
 
 To delete a CartDiscount, specify the `manage_cart_discounts:{projectKey}:{storeKey}` scope for all Stores associated with the CartDiscount.
+
+Deleting a Cart Discount produces the [CartDiscountDeleted](ctp:api:type:CartDiscountDeletedMessage) Message.
 
 
 ### Example
