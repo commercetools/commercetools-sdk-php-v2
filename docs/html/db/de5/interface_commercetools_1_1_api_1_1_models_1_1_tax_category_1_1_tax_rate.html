@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">10.0.0</span>
+   &#160;<span id="projectnumber">10.1.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -174,7 +174,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Tax rate. If subrates are used, the amount must be the sum of all subrates.</p>
+<p>Tax rate. If subrates are used, the amount is the sum of all rates in <code>subRates</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|float </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d8/dfe/class_commercetools_1_1_api_1_1_models_1_1_tax_category_1_1_tax_rate_model.html#aa43f465a039c52756ce7ac1bc86cc6c2">Commercetools\Api\Models\TaxCategory\TaxRateModel</a>.</p>
@@ -321,7 +321,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to calculate the <a href="../..//../api/projects/carts#taxedprice">taxPortions</a> field in a <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> or <a class="el" href="../../d4/df4/namespace_commercetools_1_1_api_1_1_models_1_1_order.html">Order</a>. It is useful if the total tax of a country (such as the US) is a combination of multiple taxes (such as state and local taxes).</p>
+<p>Used to calculate the <a href="../..//../api/projects/carts#taxedprice">taxPortions</a> field in a <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> or <a class="el" href="../../d4/df4/namespace_commercetools_1_1_api_1_1_models_1_1_order.html">Order</a>. It is useful if the total tax of a country (such as the US) is a combination of multiple taxes (such as state and local taxes). The total of all subrates equals the <a class="el" href="../../db/de5/interface_commercetools_1_1_api_1_1_models_1_1_tax_category_1_1_tax_rate.html">TaxRate</a> <code>amount</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|SubRateCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d8/dfe/class_commercetools_1_1_api_1_1_models_1_1_tax_category_1_1_tax_rate_model.html#aaa321bf82654acfe50fa9a58801f5be2">Commercetools\Api\Models\TaxCategory\TaxRateModel</a>.</p>
