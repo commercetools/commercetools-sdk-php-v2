@@ -15,6 +15,7 @@ use Commercetools\History\Models\Common\Location;
 interface AddLocationChange extends Change
 {
 
+    public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
@@ -30,6 +31,14 @@ interface AddLocationChange extends Change
     public function getChange();
 
     /**
+     * <p>Value before the change.</p>
+     *
+
+     * @return null|Location
+     */
+    public function getPreviousValue();
+
+    /**
      * <p>Value after the change.</p>
      *
 
@@ -41,6 +50,11 @@ interface AddLocationChange extends Change
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?Location $previousValue
+     */
+    public function setPreviousValue(?Location $previousValue): void;
 
     /**
      * @param ?Location $nextValue

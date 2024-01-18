@@ -36,6 +36,12 @@ final class RemoveLocationChangeBuilder implements Builder
 
     /**
 
+     * @var null|Location|LocationBuilder
+     */
+    private $nextValue;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -52,6 +58,17 @@ final class RemoveLocationChangeBuilder implements Builder
     public function getPreviousValue()
     {
         return $this->previousValue instanceof LocationBuilder ? $this->previousValue->build() : $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Location
+     */
+    public function getNextValue()
+    {
+        return $this->nextValue instanceof LocationBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -77,6 +94,17 @@ final class RemoveLocationChangeBuilder implements Builder
     }
 
     /**
+     * @param ?Location $nextValue
+     * @return $this
+     */
+    public function withNextValue(?Location $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -87,11 +115,23 @@ final class RemoveLocationChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?LocationBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
     public function build(): RemoveLocationChange
     {
         return new RemoveLocationChangeModel(
             $this->change,
-            $this->previousValue instanceof LocationBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof LocationBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof LocationBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

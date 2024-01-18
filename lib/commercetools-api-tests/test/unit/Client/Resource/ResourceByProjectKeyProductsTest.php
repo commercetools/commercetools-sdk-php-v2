@@ -11,6 +11,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductsByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductsKeyByKey;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductsSearch;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -369,6 +370,17 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 ResourceByProjectKeyProductsByID::class,
                 ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/products/{ID}'
+            ],
+            'ResourceByProjectKeyProductsSearch' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyProductsSearch {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->products()
+                        ->search();
+                },
+                ResourceByProjectKeyProductsSearch::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/products/search'
             ]
         ];
     }

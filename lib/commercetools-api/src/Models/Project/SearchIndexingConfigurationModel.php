@@ -29,6 +29,12 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
      *
      * @var ?SearchIndexingConfigurationValues
      */
+    protected $productsNew;
+
+    /**
+     *
+     * @var ?SearchIndexingConfigurationValues
+     */
     protected $orders;
 
 
@@ -37,9 +43,11 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
      */
     public function __construct(
         ?SearchIndexingConfigurationValues $products = null,
+        ?SearchIndexingConfigurationValues $productsNew = null,
         ?SearchIndexingConfigurationValues $orders = null
     ) {
         $this->products = $products;
+        $this->productsNew = $productsNew;
         $this->orders = $orders;
     }
 
@@ -62,6 +70,27 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
         }
 
         return $this->products;
+    }
+
+    /**
+     * <p>Configuration for the <a href="/../api/projects/product-search">Product Search</a> feature.</p>
+     *
+     *
+     * @return null|SearchIndexingConfigurationValues
+     */
+    public function getProductsNew()
+    {
+        if (is_null($this->productsNew)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCTS_NEW);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->productsNew = SearchIndexingConfigurationValuesModel::of($data);
+        }
+
+        return $this->productsNew;
     }
 
     /**
@@ -92,6 +121,14 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
     public function setProducts(?SearchIndexingConfigurationValues $products): void
     {
         $this->products = $products;
+    }
+
+    /**
+     * @param ?SearchIndexingConfigurationValues $productsNew
+     */
+    public function setProductsNew(?SearchIndexingConfigurationValues $productsNew): void
+    {
+        $this->productsNew = $productsNew;
     }
 
     /**

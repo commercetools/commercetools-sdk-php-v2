@@ -7979,6 +7979,36 @@ $request = $builder
                 ->productSelections()
                 ->get();
 ```
+## `withProjectKey("projectKey")->products()->search()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->products()
+                ->search()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->products()->search()->head()`
+
+Checks whether a search index for the Project's Products exists.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->products()
+                ->search()
+                ->head();
+```
 ## `withProjectKey("projectKey")->quoteRequests()->get()`
 
 null

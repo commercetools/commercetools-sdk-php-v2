@@ -16,6 +16,7 @@ interface RemoveTaxRateChange extends Change
 {
 
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -38,6 +39,14 @@ interface RemoveTaxRateChange extends Change
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|TaxRate
+     */
+    public function getNextValue();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -46,4 +55,9 @@ interface RemoveTaxRateChange extends Change
      * @param ?TaxRate $previousValue
      */
     public function setPreviousValue(?TaxRate $previousValue): void;
+
+    /**
+     * @param ?TaxRate $nextValue
+     */
+    public function setNextValue(?TaxRate $nextValue): void;
 }

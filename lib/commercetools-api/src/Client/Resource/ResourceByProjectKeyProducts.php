@@ -48,6 +48,14 @@ class ResourceByProjectKeyProducts extends ApiResource
 
         return new ResourceByProjectKeyProductsByID($args, $this->getClient());
     }
+    /**
+     */
+    public function search(): ResourceByProjectKeyProductsSearch
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductsSearch($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

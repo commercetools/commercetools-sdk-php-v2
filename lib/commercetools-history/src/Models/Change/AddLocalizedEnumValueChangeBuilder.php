@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\AttributeLocalizedEnumValue;
-use Commercetools\History\Models\Common\AttributeLocalizedEnumValueBuilder;
+use Commercetools\History\Models\ChangeValue\LocalizedEnumValue;
+use Commercetools\History\Models\ChangeValue\LocalizedEnumValueBuilder;
 
 /**
  * @implements Builder<AddLocalizedEnumValueChange>
@@ -30,7 +30,7 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
 
     /**
 
-     * @var null|AttributeLocalizedEnumValue|AttributeLocalizedEnumValueBuilder
+     * @var null|LocalizedEnumValue|LocalizedEnumValueBuilder
      */
     private $nextValue;
 
@@ -59,11 +59,11 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
      * <p>Value after the change.</p>
      *
 
-     * @return null|AttributeLocalizedEnumValue
+     * @return null|LocalizedEnumValue
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof AttributeLocalizedEnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof LocalizedEnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -100,10 +100,10 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * @param ?AttributeLocalizedEnumValue $nextValue
+     * @param ?LocalizedEnumValue $nextValue
      * @return $this
      */
-    public function withNextValue(?AttributeLocalizedEnumValue $nextValue)
+    public function withNextValue(?LocalizedEnumValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -136,7 +136,7 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?AttributeLocalizedEnumValueBuilder $nextValue)
+    public function withNextValueBuilder(?LocalizedEnumValueBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -147,7 +147,7 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     {
         return new AddLocalizedEnumValueChangeModel(
             $this->change,
-            $this->nextValue instanceof AttributeLocalizedEnumValueBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->nextValue instanceof LocalizedEnumValueBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->fieldName,
             $this->attributeName
         );

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 interface SearchIndexingConfiguration extends JsonObject
 {
     public const FIELD_PRODUCTS = 'products';
+    public const FIELD_PRODUCTS_NEW = 'productsNew';
     public const FIELD_ORDERS = 'orders';
 
     /**
@@ -23,6 +24,14 @@ interface SearchIndexingConfiguration extends JsonObject
      * @return null|SearchIndexingConfigurationValues
      */
     public function getProducts();
+
+    /**
+     * <p>Configuration for the <a href="/../api/projects/product-search">Product Search</a> feature.</p>
+     *
+
+     * @return null|SearchIndexingConfigurationValues
+     */
+    public function getProductsNew();
 
     /**
      * <p>Configuration for the <a href="/../api/projects/order-search">Order Search</a> feature.</p>
@@ -36,6 +45,11 @@ interface SearchIndexingConfiguration extends JsonObject
      * @param ?SearchIndexingConfigurationValues $products
      */
     public function setProducts(?SearchIndexingConfigurationValues $products): void;
+
+    /**
+     * @param ?SearchIndexingConfigurationValues $productsNew
+     */
+    public function setProductsNew(?SearchIndexingConfigurationValues $productsNew): void;
 
     /**
      * @param ?SearchIndexingConfigurationValues $orders

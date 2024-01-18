@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\AttributePlainEnumValue;
+use Commercetools\History\Models\ChangeValue\EnumValue;
 
 interface AddPlainEnumValueChange extends Change
 {
@@ -34,7 +34,7 @@ interface AddPlainEnumValueChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|AttributePlainEnumValue
+     * @return null|EnumValue
      */
     public function getNextValue();
 
@@ -52,9 +52,9 @@ interface AddPlainEnumValueChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?AttributePlainEnumValue $nextValue
+     * @param ?EnumValue $nextValue
      */
-    public function setNextValue(?AttributePlainEnumValue $nextValue): void;
+    public function setNextValue(?EnumValue $nextValue): void;
 
     /**
      * @param ?string $attributeName

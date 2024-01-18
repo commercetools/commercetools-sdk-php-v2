@@ -41,6 +41,7 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
        'changeName' => ProjectChangeNameActionModel::class,
        'changeOrderSearchStatus' => ProjectChangeOrderSearchStatusActionModel::class,
        'changeProductSearchIndexingEnabled' => ProjectChangeProductSearchIndexingEnabledActionModel::class,
+       'changeProductSearchStatus' => ProjectChangeProductSearchStatusActionModel::class,
        'changeShoppingListsConfiguration' => ProjectChangeShoppingListsConfigurationActionModel::class,
        'setExternalOAuth' => ProjectSetExternalOAuthActionModel::class,
        'setMyBusinessUnitAssociateRoleOnCreation' => ProjectSetBusinessUnitAssociateRoleOnCreationActionModel::class,

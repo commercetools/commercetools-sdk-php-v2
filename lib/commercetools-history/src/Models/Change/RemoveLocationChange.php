@@ -16,6 +16,7 @@ interface RemoveLocationChange extends Change
 {
 
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
+    public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
 
@@ -38,6 +39,14 @@ interface RemoveLocationChange extends Change
     public function getPreviousValue();
 
     /**
+     * <p>Value after the change.</p>
+     *
+
+     * @return null|Location
+     */
+    public function getNextValue();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -46,4 +55,9 @@ interface RemoveLocationChange extends Change
      * @param ?Location $previousValue
      */
     public function setPreviousValue(?Location $previousValue): void;
+
+    /**
+     * @param ?Location $nextValue
+     */
+    public function setNextValue(?Location $nextValue): void;
 }
