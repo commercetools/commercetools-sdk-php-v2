@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Error;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -16,17 +16,17 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<GraphQLNotEnabledError>
+ * @implements Builder<CartDiscountDeletedMessagePayload>
  */
-final class GraphQLNotEnabledErrorBuilder implements Builder
+final class CartDiscountDeletedMessagePayloadBuilder implements Builder
 {
-    public function build(): GraphQLNotEnabledError
+    public function build(): CartDiscountDeletedMessagePayload
     {
-        return new GraphQLNotEnabledErrorModel(
+        return new CartDiscountDeletedMessagePayloadModel(
         );
     }
 
-    public static function of(): GraphQLNotEnabledErrorBuilder
+    public static function of(): CartDiscountDeletedMessagePayloadBuilder
     {
         return new self();
     }

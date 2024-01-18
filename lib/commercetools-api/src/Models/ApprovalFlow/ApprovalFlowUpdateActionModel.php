@@ -33,6 +33,8 @@ final class ApprovalFlowUpdateActionModel extends JsonObjectModel implements App
     private static $discriminatorClasses = [
        'approve' => ApprovalFlowApproveActionModel::class,
        'reject' => ApprovalFlowRejectActionModel::class,
+       'setCustomField' => ApprovalFlowSetCustomFieldActionModel::class,
+       'setCustomType' => ApprovalFlowSetCustomTypeActionModel::class,
     ];
 
     /**

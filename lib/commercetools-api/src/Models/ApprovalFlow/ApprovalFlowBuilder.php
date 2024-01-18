@@ -20,6 +20,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\OrderReferenceBuilder;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -122,6 +124,12 @@ final class ApprovalFlowBuilder implements Builder
      * @var ?RuleApproverCollection
      */
     private $currentTierPendingApprovers;
+
+    /**
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
 
     /**
      * <p>Unique identifier of the Approval Flow.</p>
@@ -290,6 +298,17 @@ final class ApprovalFlowBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields on the Approval Flow.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -455,6 +474,17 @@ final class ApprovalFlowBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCreatedBy() instead
      * @return $this
      */
@@ -509,6 +539,17 @@ final class ApprovalFlowBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): ApprovalFlow
     {
         return new ApprovalFlowModel(
@@ -526,7 +567,8 @@ final class ApprovalFlowBuilder implements Builder
             $this->approvals,
             $this->eligibleApprovers,
             $this->pendingApprovers,
-            $this->currentTierPendingApprovers
+            $this->currentTierPendingApprovers,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

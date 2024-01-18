@@ -1682,7 +1682,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->post(null)`
 
-null
+Creating a Cart Discount produces the [CartDiscountCreated](ctp:api:type:CartDiscountCreatedMessage) Message.
 
 ### Example
 ```php
@@ -1741,7 +1741,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withId("ID")->delete()`
 
-null
+Deleting a Cart Discount produces the [CartDiscountDeleted](ctp:api:type:CartDiscountDeletedMessage) Message.
 
 ### Example
 ```php
@@ -1801,7 +1801,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withKey("key")->delete()`
 
-null
+Deleting a Cart Discount produces the [CartDiscountDeleted](ctp:api:type:CartDiscountDeletedMessage) Message.
 
 ### Example
 ```php
@@ -3168,6 +3168,8 @@ $request = $builder
 
 When using the endpoint, the Store specified in the path and the Stores specified in the payload's `stores` field are added to the CartDiscount.
 
+Creating a Cart Discount produces the [CartDiscountCreated](ctp:api:type:CartDiscountCreatedMessage) Message.
+
 
 ### Example
 ```php
@@ -3232,6 +3234,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withId("ID")->delete()`
 
 To delete a CartDiscount, specify the `manage_cart_discounts:{projectKey}:{storeKey}` scope for all Stores associated with the CartDiscount.
+
+Deleting a Cart Discount produces the [CartDiscountDeleted](ctp:api:type:CartDiscountDeletedMessage) Message.
 
 
 ### Example
@@ -3298,6 +3302,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withKey("key")->delete()`
 
 To delete a CartDiscount, specify the `manage_cart_discounts:{projectKey}:{storeKey}` scope for all Stores associated with the CartDiscount.
+
+Deleting a Cart Discount produces the [CartDiscountDeleted](ctp:api:type:CartDiscountDeletedMessage) Message.
 
 
 ### Example
@@ -4678,9 +4684,11 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->get()`
 
 Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID from the specified [Store](ctp:api:type:Store).
-If the Store has defined some languages, countries, distribution or supply Channels,
+If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices)
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
+
+If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/projects/stores#products-available-in-store) in the specified Store.
 
 When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
 
@@ -4716,9 +4724,11 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
 
 Gets the current or staged representation of a [Product](ctp:api:type:Product) by its key from the specified [Store](ctp:api:type:Store).
-If the Store has defined some languages, countries, distribution or supply Channels,
+If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices)
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
+
+If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/projects/stores#products-available-in-store) in the specified Store.
 
 When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
 
@@ -5159,7 +5169,7 @@ $request = $builder
 
 Authenticates a global Customer not associated with a Store.
 For more information, see [Global versus Store-specific Customers](/../api/customers-overview#global-versus-store-specific-customers).
-If the Customer is registered in a Store, use the [Authenticate (sign in) Customer in Store](/../api/projects/customers#authenticate-sign-in-customer-in-store) method.
+If the Customer is registered in a Store, use the [Authenticate (sign in) Customer in Store](ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/login:POST) method.
 
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
@@ -7494,7 +7504,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productSelections()->withId("ID")->delete()`
 
-Deletion will only succeed if the Product Selection is not assigned to any [Store](/../api/projects/stores#store).
+Deletion will only succeed if the Product Selection is not assigned to any [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -7570,7 +7580,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productSelections()->withKey("key")->delete()`
 
-Deletion will only succeed if the Product Selection is not assigned to any [Store](/../api/projects/stores#store).
+Deletion will only succeed if the Product Selection is not assigned to any [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -8662,7 +8672,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->get()`
 
-Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location)
+Retrieves all the ShippingMethods that can ship to the given [Location](ctp:api:type:Location)
 with a `predicate` that matches the given Cart.
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
@@ -8731,7 +8741,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
-Retrieves all the ShippingMethods that can ship to the given [Location](/../api/projects/zones#location) for an [OrderEdit](/../api/projects/order-edits).
+Retrieves all the ShippingMethods that can ship to the given [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
 
 If the OrderEdit preview cannot be generated, an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is returned.
 

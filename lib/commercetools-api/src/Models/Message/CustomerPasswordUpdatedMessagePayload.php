@@ -16,7 +16,7 @@ interface CustomerPasswordUpdatedMessagePayload extends MessagePayload
     public const FIELD_RESET = 'reset';
 
     /**
-     * <p>Whether the Customer's password was updated during the <a href="/../api/projects/customers#password-reset-of-customer">Reset password</a> or <a href="/../api/projects/customers#change-password-of-customer">Change password</a> flow.</p>
+     * <p>Whether the Customer's password was updated during the <a href="ctp:api:endpoint:/{projectKey}/customers/password/reset:POST">Reset password</a> or <a href="ctp:api:endpoint:/{projectKey}/customers/password:POST">Change password</a> flow.</p>
      *
 
      * @return null|bool
