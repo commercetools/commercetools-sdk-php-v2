@@ -41,12 +41,6 @@ final class RemoveLocationChangeModel extends JsonObjectModel implements RemoveL
      */
     protected $previousValue;
 
-    /**
-     *
-     * @var ?Location
-     */
-    protected $nextValue;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -54,12 +48,10 @@ final class RemoveLocationChangeModel extends JsonObjectModel implements RemoveL
     public function __construct(
         ?string $change = null,
         ?Location $previousValue = null,
-        ?Location $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
-        $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -120,27 +112,6 @@ final class RemoveLocationChangeModel extends JsonObjectModel implements RemoveL
         return $this->previousValue;
     }
 
-    /**
-     * <p>Value after the change.</p>
-     *
-     *
-     * @return null|Location
-     */
-    public function getNextValue()
-    {
-        if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NEXT_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->nextValue = LocationModel::of($data);
-        }
-
-        return $this->nextValue;
-    }
-
 
     /**
      * @param ?string $change
@@ -156,14 +127,6 @@ final class RemoveLocationChangeModel extends JsonObjectModel implements RemoveL
     public function setPreviousValue(?Location $previousValue): void
     {
         $this->previousValue = $previousValue;
-    }
-
-    /**
-     * @param ?Location $nextValue
-     */
-    public function setNextValue(?Location $nextValue): void
-    {
-        $this->nextValue = $nextValue;
     }
 
 

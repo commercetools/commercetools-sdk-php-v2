@@ -39,12 +39,6 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
      *
      * @var ?Location
      */
-    protected $previousValue;
-
-    /**
-     *
-     * @var ?Location
-     */
     protected $nextValue;
 
 
@@ -53,12 +47,10 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
      */
     public function __construct(
         ?string $change = null,
-        ?Location $previousValue = null,
         ?Location $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -100,27 +92,6 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
     }
 
     /**
-     * <p>Value before the change.</p>
-     *
-     *
-     * @return null|Location
-     */
-    public function getPreviousValue()
-    {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->previousValue = LocationModel::of($data);
-        }
-
-        return $this->previousValue;
-    }
-
-    /**
      * <p>Value after the change.</p>
      *
      *
@@ -148,14 +119,6 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?Location $previousValue
-     */
-    public function setPreviousValue(?Location $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
     /**

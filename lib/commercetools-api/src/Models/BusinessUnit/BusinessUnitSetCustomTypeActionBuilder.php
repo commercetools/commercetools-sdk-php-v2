@@ -37,7 +37,7 @@ final class BusinessUnitSetCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the BusinessUnit with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the BusinessUnit with <a href="ctp:api:type:CustomFields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the BusinessUnit.</p>
      *
 

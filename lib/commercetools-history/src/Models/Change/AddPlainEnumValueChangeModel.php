@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValue;
-use Commercetools\History\Models\ChangeValue\EnumValueModel;
+use Commercetools\History\Models\Common\AttributePlainEnumValue;
+use Commercetools\History\Models\Common\AttributePlainEnumValueModel;
 
 /**
  * @internal
@@ -37,7 +37,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
 
     /**
      *
-     * @var ?EnumValue
+     * @var ?AttributePlainEnumValue
      */
     protected $nextValue;
 
@@ -53,7 +53,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
      */
     public function __construct(
         ?string $change = null,
-        ?EnumValue $nextValue = null,
+        ?AttributePlainEnumValue $nextValue = null,
         ?string $attributeName = null,
         ?string $type = null
     ) {
@@ -103,7 +103,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
      * <p>Value after the change.</p>
      *
      *
-     * @return null|EnumValue
+     * @return null|AttributePlainEnumValue
      */
     public function getNextValue()
     {
@@ -114,7 +114,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
                 return null;
             }
 
-            $this->nextValue = EnumValueModel::of($data);
+            $this->nextValue = AttributePlainEnumValueModel::of($data);
         }
 
         return $this->nextValue;
@@ -150,9 +150,9 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
     }
 
     /**
-     * @param ?EnumValue $nextValue
+     * @param ?AttributePlainEnumValue $nextValue
      */
-    public function setNextValue(?EnumValue $nextValue): void
+    public function setNextValue(?AttributePlainEnumValue $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

@@ -15,6 +15,7 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Order\OrderReference;
+use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -32,6 +33,7 @@ interface ApprovalFlow extends BaseResource
     public const FIELD_ELIGIBLE_APPROVERS = 'eligibleApprovers';
     public const FIELD_PENDING_APPROVERS = 'pendingApprovers';
     public const FIELD_CURRENT_TIER_PENDING_APPROVERS = 'currentTierPendingApprovers';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>Unique identifier of the Approval Flow.</p>
@@ -155,6 +157,14 @@ interface ApprovalFlow extends BaseResource
     public function getCurrentTierPendingApprovers();
 
     /**
+     * <p>Custom Fields on the Approval Flow.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -228,4 +238,9 @@ interface ApprovalFlow extends BaseResource
      * @param ?RuleApproverCollection $currentTierPendingApprovers
      */
     public function setCurrentTierPendingApprovers(?RuleApproverCollection $currentTierPendingApprovers): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 }

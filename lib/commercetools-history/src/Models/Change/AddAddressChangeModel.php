@@ -39,12 +39,6 @@ final class AddAddressChangeModel extends JsonObjectModel implements AddAddressC
      *
      * @var ?Address
      */
-    protected $previousValue;
-
-    /**
-     *
-     * @var ?Address
-     */
     protected $nextValue;
 
 
@@ -53,12 +47,10 @@ final class AddAddressChangeModel extends JsonObjectModel implements AddAddressC
      */
     public function __construct(
         ?string $change = null,
-        ?Address $previousValue = null,
         ?Address $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
-        $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -100,27 +92,6 @@ final class AddAddressChangeModel extends JsonObjectModel implements AddAddressC
     }
 
     /**
-     * <p>Value before the change.</p>
-     *
-     *
-     * @return null|Address
-     */
-    public function getPreviousValue()
-    {
-        if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->previousValue = AddressModel::of($data);
-        }
-
-        return $this->previousValue;
-    }
-
-    /**
      * <p>Value after the change.</p>
      *
      *
@@ -148,14 +119,6 @@ final class AddAddressChangeModel extends JsonObjectModel implements AddAddressC
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?Address $previousValue
-     */
-    public function setPreviousValue(?Address $previousValue): void
-    {
-        $this->previousValue = $previousValue;
     }
 
     /**

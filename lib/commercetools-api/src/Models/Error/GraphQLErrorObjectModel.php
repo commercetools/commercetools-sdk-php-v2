@@ -80,7 +80,6 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'MissingTaxRateForCountry' => GraphQLMissingTaxRateForCountryErrorModel::class,
        'MoneyOverflow' => GraphQLMoneyOverflowErrorModel::class,
        'NoMatchingProductDiscountFound' => GraphQLNoMatchingProductDiscountFoundErrorModel::class,
-       'NotEnabled' => GraphQLNotEnabledErrorModel::class,
        'ObjectNotFound' => GraphQLObjectNotFoundErrorModel::class,
        'OutOfStock' => GraphQLOutOfStockErrorModel::class,
        'OverCapacity' => GraphQLOverCapacityErrorModel::class,

@@ -184,6 +184,8 @@
 <details>
 <summary>Removed Type(s)</summary>
 
+- :warning: removed type `NotEnabledError`
+- :warning: removed type `GraphQLNotEnabledError`
 - :warning: removed type `CustomerMessagePayload`
 </details>
 
@@ -197,6 +199,8 @@
 - added type `ApprovalFlowPagedQueryResponse`
 - added type `ApprovalFlowRejectAction`
 - added type `ApprovalFlowRejection`
+- added type `ApprovalFlowSetCustomFieldAction`
+- added type `ApprovalFlowSetCustomTypeAction`
 - added type `ApprovalFlowStatus`
 - added type `ApprovalFlowUpdate`
 - added type `ApprovalFlowUpdateAction`
@@ -250,6 +254,11 @@
 - added type `BusinessUnitCustomFieldRemovedMessage`
 - added type `BusinessUnitCustomTypeRemovedMessage`
 - added type `BusinessUnitCustomTypeSetMessage`
+- added type `CartDiscountCreatedMessage`
+- added type `CartDiscountDeletedMessage`
+- added type `CartDiscountStoreAddedMessage`
+- added type `CartDiscountStoreRemovedMessage`
+- added type `CartDiscountStoresSetMessage`
 - added type `CustomerEmailTokenCreatedMessage`
 - added type `CustomerGroupCustomFieldAddedMessage`
 - added type `CustomerGroupCustomFieldChangedMessage`
@@ -279,6 +288,11 @@
 - added type `BusinessUnitCustomFieldRemovedMessagePayload`
 - added type `BusinessUnitCustomTypeRemovedMessagePayload`
 - added type `BusinessUnitCustomTypeSetMessagePayload`
+- added type `CartDiscountCreatedMessagePayload`
+- added type `CartDiscountDeletedMessagePayload`
+- added type `CartDiscountStoreAddedMessagePayload`
+- added type `CartDiscountStoreRemovedMessagePayload`
+- added type `CartDiscountStoresSetMessagePayload`
 - added type `CustomerEmailTokenCreatedMessagePayload`
 - added type `CustomerGroupCustomFieldAddedMessagePayload`
 - added type `CustomerGroupCustomFieldChangedMessagePayload`
@@ -368,6 +382,9 @@
 - added enum `approval-rule` to type `ReferenceTypeId`
 - added enum `customer-email-token` to type `ReferenceTypeId`
 - added enum `customer-password-token` to type `ReferenceTypeId`
+- added enum `associate-role` to type `AttributeReferenceTypeId`
+- added enum `business-unit` to type `AttributeReferenceTypeId`
+- added enum `cart-discount` to type `AttributeReferenceTypeId`
 - added enum `approval-flow` to type `ChangeSubscriptionResourceTypeId`
 - added enum `approval-rule` to type `ChangeSubscriptionResourceTypeId`
 - added enum `approval-flow` to type `MessageSubscriptionResourceTypeId`
@@ -375,6 +392,8 @@
 - added enum `customer-email-token` to type `MessageSubscriptionResourceTypeId`
 - added enum `customer-group` to type `MessageSubscriptionResourceTypeId`
 - added enum `customer-password-token` to type `MessageSubscriptionResourceTypeId`
+- added enum `approval-flow` to type `CustomFieldReferenceValue`
+- added enum `approval-flow` to type `ResourceTypeId`
 </details>
 
 
@@ -426,19 +445,56 @@
 **History changes**
 
 <details>
-<summary>Added QueryParameter(s)</summary>
+<summary>Removed Type(s)</summary>
 
-- added query parameter `businessUnit` to method `get /{projectKey}`
-- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}`
-- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}/{ID}`
+- :warning: removed type `ChannelRole`
+- :warning: removed type `StateRole`
+- :warning: removed type `StateType`
+</details>
+
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `AttributeLocalizedEnumValue`
+- added type `AttributePlainEnumValue`
+- added type `ChannelRoleEnum`
+- added type `StateRoleEnum`
+- added type `StateTypeEnum`
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `previousValue` from type `AddAddressChange`
+- :warning: removed property `previousValue` from type `AddLocationChange`
+- :warning: removed property `nextValue` from type `RemoveLocationChange`
+- :warning: removed property `nextValue` from type `RemoveTaxRateChange`
 </details>
 
 
 <details>
 <summary>Changed Property(s)</summary>
 
+- :warning: changed property `previousValue` of type `AddChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `nextValue` of type `AddChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `nextValue` of type `AddLocalizedEnumValueChange` from type `LocalizedEnumValue` to `AttributeLocalizedEnumValue`
+- :warning: changed property `nextValue` of type `AddPlainEnumValueChange` from type `EnumValue` to `AttributePlainEnumValue`
+- :warning: changed property `previousValue` of type `AddStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `nextValue` of type `AddStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `previousValue` of type `ChangeStateTypeChange` from type `StateType` to `StateTypeEnum`
+- :warning: changed property `nextValue` of type `ChangeStateTypeChange` from type `StateType` to `StateTypeEnum`
+- :warning: changed property `previousValue` of type `RemoveChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `nextValue` of type `RemoveChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `previousValue` of type `RemoveStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `nextValue` of type `RemoveStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `previousValue` of type `SetChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
+- :warning: changed property `nextValue` of type `SetChannelRolesChange` from type `ChannelRole[]` to `ChannelRoleEnum[]`
 - :warning: changed property `previousValue` of type `SetNameChange` from type `LocalizedString` to `string`
 - :warning: changed property `nextValue` of type `SetNameChange` from type `LocalizedString` to `string`
+- :warning: changed property `previousValue` of type `SetStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
+- :warning: changed property `nextValue` of type `SetStateRolesChange` from type `StateRole[]` to `StateRoleEnum[]`
 </details>
 
 
@@ -446,5 +502,14 @@
 <summary>Added Property(s)</summary>
 
 - added property `businessUnit` to type `Record`
+</details>
+
+
+<details>
+<summary>Added QueryParameter(s)</summary>
+
+- added query parameter `businessUnit` to method `get /{projectKey}`
+- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}`
+- added query parameter `businessUnit` to method `get /{projectKey}/{resourceType}/{ID}`
 </details>
 

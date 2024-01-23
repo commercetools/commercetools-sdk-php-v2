@@ -6,16 +6,11 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Error;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface GraphQLNotEnabledError extends GraphQLErrorObject
+interface CartDiscountDeletedMessage extends Message
 {
-    /**
-
-     * @return null|string
-     */
-    public function getCode();
 }
