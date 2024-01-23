@@ -56,7 +56,7 @@ final class LineItemImportDraftBuilder implements Builder
 
     /**
 
-     * @var ?float
+     * @var ?int
      */
     private $quantity;
 
@@ -144,7 +144,7 @@ final class LineItemImportDraftBuilder implements Builder
      * <p>Maps to <code>LineItem.quantity</code>.</p>
      *
 
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
@@ -264,10 +264,10 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      * @return $this
      */
-    public function withQuantity(?float $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
 

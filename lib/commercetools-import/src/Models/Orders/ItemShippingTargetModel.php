@@ -27,7 +27,7 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
 
     /**
      *
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -37,7 +37,7 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
      */
     public function __construct(
         ?string $addressKey = null,
-        ?float $quantity = null
+        ?int $quantity = null
     ) {
         $this->addressKey = $addressKey;
         $this->quantity = $quantity;
@@ -67,17 +67,17 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
      * <p>Maps to <code>ItemShippingTarget.quantity</code>.</p>
      *
      *
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -93,9 +93,9 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
