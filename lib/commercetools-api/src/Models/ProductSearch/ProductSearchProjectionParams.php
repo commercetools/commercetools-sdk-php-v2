@@ -27,7 +27,7 @@ interface ProductSearchProjectionParams extends JsonObject
      * In case the referenced object does not exist, the API returns the non-expanded reference.</p>
      *
 
-     * @return null|string
+     * @return null|array
      */
     public function getExpand();
 
@@ -92,9 +92,9 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getStoreProjection();
 
     /**
-     * @param ?string $expand
+     * @param ?array $expand
      */
-    public function setExpand(?string $expand): void;
+    public function setExpand(?array $expand): void;
 
     /**
      * @param ?bool $staged

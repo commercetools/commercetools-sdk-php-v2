@@ -55,12 +55,6 @@ final class ProductSearchSortingModel extends JsonObjectModel implements Product
      */
     protected $filter;
 
-    /**
-     *
-     * @var ?bool
-     */
-    protected $internal;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -71,8 +65,7 @@ final class ProductSearchSortingModel extends JsonObjectModel implements Product
         ?string $order = null,
         ?string $mode = null,
         ?string $attributeType = null,
-        ?ProductSearchQueryExpression $filter = null,
-        ?bool $internal = null
+        ?ProductSearchQueryExpression $filter = null
     ) {
         $this->field = $field;
         $this->language = $language;
@@ -80,7 +73,6 @@ final class ProductSearchSortingModel extends JsonObjectModel implements Product
         $this->mode = $mode;
         $this->attributeType = $attributeType;
         $this->filter = $filter;
-        $this->internal = $internal;
     }
 
     /**
@@ -194,24 +186,6 @@ final class ProductSearchSortingModel extends JsonObjectModel implements Product
         return $this->filter;
     }
 
-    /**
-     *
-     * @return null|bool
-     */
-    public function getInternal()
-    {
-        if (is_null($this->internal)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_INTERNAL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->internal = (bool) $data;
-        }
-
-        return $this->internal;
-    }
-
 
     /**
      * @param ?string $field
@@ -259,13 +233,5 @@ final class ProductSearchSortingModel extends JsonObjectModel implements Product
     public function setFilter(?ProductSearchQueryExpression $filter): void
     {
         $this->filter = $filter;
-    }
-
-    /**
-     * @param ?bool $internal
-     */
-    public function setInternal(?bool $internal): void
-    {
-        $this->internal = $internal;
     }
 }

@@ -22,7 +22,7 @@ final class ProductSearchProjectionParamsBuilder implements Builder
 {
     /**
 
-     * @var ?string
+     * @var ?array
      */
     private $expand;
 
@@ -73,7 +73,7 @@ final class ProductSearchProjectionParamsBuilder implements Builder
      * In case the referenced object does not exist, the API returns the non-expanded reference.</p>
      *
 
-     * @return null|string
+     * @return null|array
      */
     public function getExpand()
     {
@@ -162,10 +162,10 @@ final class ProductSearchProjectionParamsBuilder implements Builder
     }
 
     /**
-     * @param ?string $expand
+     * @param ?array $expand
      * @return $this
      */
-    public function withExpand(?string $expand)
+    public function withExpand(?array $expand)
     {
         $this->expand = $expand;
 

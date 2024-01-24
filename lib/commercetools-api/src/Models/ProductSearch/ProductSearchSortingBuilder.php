@@ -58,12 +58,6 @@ final class ProductSearchSortingBuilder implements Builder
 
     /**
 
-     * @var ?bool
-     */
-    private $internal;
-
-    /**
-
      * @return null|string
      */
     public function getField()
@@ -116,15 +110,6 @@ final class ProductSearchSortingBuilder implements Builder
     public function getFilter()
     {
         return $this->filter instanceof ProductSearchQueryExpressionBuilder ? $this->filter->build() : $this->filter;
-    }
-
-    /**
-
-     * @return null|bool
-     */
-    public function getInternal()
-    {
-        return $this->internal;
     }
 
     /**
@@ -194,17 +179,6 @@ final class ProductSearchSortingBuilder implements Builder
     }
 
     /**
-     * @param ?bool $internal
-     * @return $this
-     */
-    public function withInternal(?bool $internal)
-    {
-        $this->internal = $internal;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withFilter() instead
      * @return $this
      */
@@ -223,8 +197,7 @@ final class ProductSearchSortingBuilder implements Builder
             $this->order,
             $this->mode,
             $this->attributeType,
-            $this->filter instanceof ProductSearchQueryExpressionBuilder ? $this->filter->build() : $this->filter,
-            $this->internal
+            $this->filter instanceof ProductSearchQueryExpressionBuilder ? $this->filter->build() : $this->filter
         );
     }
 

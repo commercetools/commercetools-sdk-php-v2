@@ -19,7 +19,6 @@ interface ProductSearchSorting extends JsonObject
     public const FIELD_MODE = 'mode';
     public const FIELD_ATTRIBUTE_TYPE = 'attributeType';
     public const FIELD_FILTER = 'filter';
-    public const FIELD_INTERNAL = 'internal';
 
     /**
 
@@ -60,12 +59,6 @@ interface ProductSearchSorting extends JsonObject
     public function getFilter();
 
     /**
-
-     * @return null|bool
-     */
-    public function getInternal();
-
-    /**
      * @param ?string $field
      */
     public function setField(?string $field): void;
@@ -94,9 +87,4 @@ interface ProductSearchSorting extends JsonObject
      * @param ?ProductSearchQueryExpression $filter
      */
     public function setFilter(?ProductSearchQueryExpression $filter): void;
-
-    /**
-     * @param ?bool $internal
-     */
-    public function setInternal(?bool $internal): void;
 }

@@ -21,7 +21,7 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
 {
     /**
      *
-     * @var ?string
+     * @var ?array
      */
     protected $expand;
 
@@ -72,7 +72,7 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $expand = null,
+        ?array $expand = null,
         ?bool $staged = null,
         ?string $priceCurrency = null,
         ?string $priceCountry = null,
@@ -96,17 +96,17 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
      * In case the referenced object does not exist, the API returns the non-expanded reference.</p>
      *
      *
-     * @return null|string
+     * @return null|array
      */
     public function getExpand()
     {
         if (is_null($this->expand)) {
-            /** @psalm-var ?string $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_EXPAND);
             if (is_null($data)) {
                 return null;
             }
-            $this->expand = (string) $data;
+            $this->expand = $data;
         }
 
         return $this->expand;
@@ -258,9 +258,9 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
 
 
     /**
-     * @param ?string $expand
+     * @param ?array $expand
      */
-    public function setExpand(?string $expand): void
+    public function setExpand(?array $expand): void
     {
         $this->expand = $expand;
     }
