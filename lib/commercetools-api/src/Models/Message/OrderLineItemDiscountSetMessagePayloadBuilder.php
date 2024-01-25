@@ -118,7 +118,8 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Total taxed prices based on the quantity of Line Item assigned to each <a href="ctp:api:type:ShippingMethod">Shipping Method</a>. Only applicable for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Automatically set after <code>perMethodTaxRate</code> is set.</p>
      *
 
      * @return null|MethodTaxedPriceCollection
