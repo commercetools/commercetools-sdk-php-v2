@@ -20,7 +20,7 @@ interface CartScoreTier extends ShippingRatePriceTier
     public const FIELD_IS_MATCHING = 'isMatching';
 
     /**
-     * <p>Abstract value for categorizing a Cart. The range starts at <code>0</code>. The default price covers <code>0</code>, tiers start at <code>1</code>. See <a href="/../tutorials/shipping-rate">Using Tiered Shipping Rates</a> for details and examples.</p>
+     * <p>Abstract value for categorizing a Cart. The range starts at <code>0</code>. The default price covers <code>0</code>, tiers start at <code>1</code>. See <a href="/../api/shipping-delivery-overview#tiered-shipping-rates">Tiered shipping rates</a> for details and examples.</p>
      *
 
      * @return null|int

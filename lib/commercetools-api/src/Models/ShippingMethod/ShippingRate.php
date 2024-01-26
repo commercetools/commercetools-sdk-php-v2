@@ -28,7 +28,7 @@ interface ShippingRate extends JsonObject
     public function getPrice();
 
     /**
-     * <p>Shipping is free if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
+     * <p><a href="/../shipping-delivery-overview#free-shipping">Free shipping</a> is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
 
      * @return null|TypedMoney

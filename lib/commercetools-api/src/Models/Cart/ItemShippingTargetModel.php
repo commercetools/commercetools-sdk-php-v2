@@ -95,7 +95,7 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
 
     /**
      * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     * <p>It connects Line Item quantities with individual shipping addresses.</p>
+     * <p>It connects Line Item or Custom Line Item quantities with individual Shipping Methods.</p>
      *
      *
      * @return null|string
