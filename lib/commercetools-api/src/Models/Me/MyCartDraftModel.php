@@ -98,6 +98,12 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
 
     /**
      *
+     * @var ?string
+     */
+    protected $shippingMode;
+
+    /**
+     *
      * @var ?array
      */
     protected $discountCodes;
@@ -142,6 +148,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         ?BaseAddress $shippingAddress = null,
         ?ShippingMethodResourceIdentifier $shippingMethod = null,
         ?BaseAddressCollection $itemShippingAddresses = null,
+        ?string $shippingMode = null,
         ?array $discountCodes = null,
         ?string $country = null,
         ?string $locale = null,
@@ -159,6 +166,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         $this->shippingAddress = $shippingAddress;
         $this->shippingMethod = $shippingMethod;
         $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->shippingMode = $shippingMode;
         $this->discountCodes = $discountCodes;
         $this->country = $country;
         $this->locale = $locale;
@@ -394,6 +402,29 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     * <ul>
+     * <li>If set to <code>Single</code>, only a single Shipping Method can be added to the Cart.</li>
+     * <li>If set to <code>Multiple</code>, multiple Shipping Methods can be added to the Cart.</li>
+     * </ul>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingMode()
+    {
+        if (is_null($this->shippingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingMode = (string) $data;
+        }
+
+        return $this->shippingMode;
+    }
+
+    /**
      * <p><code>code</code> of the existing <a href="ctp:api:type:DiscountCode">DiscountCodes</a> to add to the Cart.</p>
      *
      *
@@ -585,6 +616,14 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
+    }
+
+    /**
+     * @param ?string $shippingMode
+     */
+    public function setShippingMode(?string $shippingMode): void
+    {
+        $this->shippingMode = $shippingMode;
     }
 
     /**

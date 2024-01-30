@@ -99,6 +99,12 @@ final class MyCartDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $shippingMode;
+
+    /**
+
      * @var ?array
      */
     private $discountCodes;
@@ -248,6 +254,20 @@ final class MyCartDraftBuilder implements Builder
     public function getItemShippingAddresses()
     {
         return $this->itemShippingAddresses;
+    }
+
+    /**
+     * <ul>
+     * <li>If set to <code>Single</code>, only a single Shipping Method can be added to the Cart.</li>
+     * <li>If set to <code>Multiple</code>, multiple Shipping Methods can be added to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode()
+    {
+        return $this->shippingMode;
     }
 
     /**
@@ -431,6 +451,17 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingMode
+     * @return $this
+     */
+    public function withShippingMode(?string $shippingMode)
+    {
+        $this->shippingMode = $shippingMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?array $discountCodes
      * @return $this
      */
@@ -565,6 +596,7 @@ final class MyCartDraftBuilder implements Builder
             $this->shippingAddress instanceof BaseAddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
             $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
             $this->itemShippingAddresses,
+            $this->shippingMode,
             $this->discountCodes,
             $this->country,
             $this->locale,
