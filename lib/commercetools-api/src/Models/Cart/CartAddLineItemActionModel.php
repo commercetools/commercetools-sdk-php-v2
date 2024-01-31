@@ -101,6 +101,12 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
 
     /**
      *
+     * @var ?MethodExternalTaxRateDraftCollection
+     */
+    protected $perMethodExternalTaxRate;
+
+    /**
+     *
      * @var ?string
      */
     protected $inventoryMode;
@@ -133,6 +139,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate = null,
         ?string $inventoryMode = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
         ?CustomFieldsDraft $custom = null,
@@ -149,6 +156,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
         $this->externalTaxRate = $externalTaxRate;
+        $this->perMethodExternalTaxRate = $perMethodExternalTaxRate;
         $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
         $this->custom = $custom;
@@ -412,6 +420,26 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
+     * <p>Sets the external Tax Rates for individual Shipping Methods, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|MethodExternalTaxRateDraftCollection
+     */
+    public function getPerMethodExternalTaxRate()
+    {
+        if (is_null($this->perMethodExternalTaxRate)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PER_METHOD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->perMethodExternalTaxRate = MethodExternalTaxRateDraftCollection::fromArray($data);
+        }
+
+        return $this->perMethodExternalTaxRate;
+    }
+
+    /**
      * <p>Inventory mode specific to the Line Item only, and valid for the entire <code>quantity</code> of the Line Item.
      * Set only if the inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
@@ -561,6 +589,14 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
+    }
+
+    /**
+     * @param ?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate
+     */
+    public function setPerMethodExternalTaxRate(?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate): void
+    {
+        $this->perMethodExternalTaxRate = $perMethodExternalTaxRate;
     }
 
     /**
