@@ -33,7 +33,7 @@ final class MethodTaxedPriceBuilder implements Builder
     private $taxedPrice;
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:ShippingMethod">Shipping Method</a> in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|string
@@ -44,7 +44,7 @@ final class MethodTaxedPriceBuilder implements Builder
     }
 
     /**
-     * <p>Taxed price for the Shipping Method.</p>
+     * <p>Total taxed price based on the quantity of the Line Item or Custom Line Item assigned to the Shipping Method identified by <code>shippingMethodKey</code>.</p>
      *
 
      * @return null|TaxedItemPrice

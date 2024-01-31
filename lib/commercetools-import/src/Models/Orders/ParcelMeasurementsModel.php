@@ -21,25 +21,25 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
 {
     /**
      *
-     * @var ?float
+     * @var ?int
      */
     protected $heightInMillimeter;
 
     /**
      *
-     * @var ?float
+     * @var ?int
      */
     protected $lengthInMillimeter;
 
     /**
      *
-     * @var ?float
+     * @var ?int
      */
     protected $widthInMillimeter;
 
     /**
      *
-     * @var ?float
+     * @var ?int
      */
     protected $weightInGram;
 
@@ -48,10 +48,10 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?float $heightInMillimeter = null,
-        ?float $lengthInMillimeter = null,
-        ?float $widthInMillimeter = null,
-        ?float $weightInGram = null
+        ?int $heightInMillimeter = null,
+        ?int $lengthInMillimeter = null,
+        ?int $widthInMillimeter = null,
+        ?int $weightInGram = null
     ) {
         $this->heightInMillimeter = $heightInMillimeter;
         $this->lengthInMillimeter = $lengthInMillimeter;
@@ -61,17 +61,17 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
 
     /**
      *
-     * @return null|float
+     * @return null|int
      */
     public function getHeightInMillimeter()
     {
         if (is_null($this->heightInMillimeter)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_HEIGHT_IN_MILLIMETER);
             if (is_null($data)) {
                 return null;
             }
-            $this->heightInMillimeter = (float) $data;
+            $this->heightInMillimeter = (int) $data;
         }
 
         return $this->heightInMillimeter;
@@ -79,17 +79,17 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
 
     /**
      *
-     * @return null|float
+     * @return null|int
      */
     public function getLengthInMillimeter()
     {
         if (is_null($this->lengthInMillimeter)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_LENGTH_IN_MILLIMETER);
             if (is_null($data)) {
                 return null;
             }
-            $this->lengthInMillimeter = (float) $data;
+            $this->lengthInMillimeter = (int) $data;
         }
 
         return $this->lengthInMillimeter;
@@ -97,17 +97,17 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
 
     /**
      *
-     * @return null|float
+     * @return null|int
      */
     public function getWidthInMillimeter()
     {
         if (is_null($this->widthInMillimeter)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_WIDTH_IN_MILLIMETER);
             if (is_null($data)) {
                 return null;
             }
-            $this->widthInMillimeter = (float) $data;
+            $this->widthInMillimeter = (int) $data;
         }
 
         return $this->widthInMillimeter;
@@ -115,17 +115,17 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
 
     /**
      *
-     * @return null|float
+     * @return null|int
      */
     public function getWeightInGram()
     {
         if (is_null($this->weightInGram)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_WEIGHT_IN_GRAM);
             if (is_null($data)) {
                 return null;
             }
-            $this->weightInGram = (float) $data;
+            $this->weightInGram = (int) $data;
         }
 
         return $this->weightInGram;
@@ -133,33 +133,33 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
 
 
     /**
-     * @param ?float $heightInMillimeter
+     * @param ?int $heightInMillimeter
      */
-    public function setHeightInMillimeter(?float $heightInMillimeter): void
+    public function setHeightInMillimeter(?int $heightInMillimeter): void
     {
         $this->heightInMillimeter = $heightInMillimeter;
     }
 
     /**
-     * @param ?float $lengthInMillimeter
+     * @param ?int $lengthInMillimeter
      */
-    public function setLengthInMillimeter(?float $lengthInMillimeter): void
+    public function setLengthInMillimeter(?int $lengthInMillimeter): void
     {
         $this->lengthInMillimeter = $lengthInMillimeter;
     }
 
     /**
-     * @param ?float $widthInMillimeter
+     * @param ?int $widthInMillimeter
      */
-    public function setWidthInMillimeter(?float $widthInMillimeter): void
+    public function setWidthInMillimeter(?int $widthInMillimeter): void
     {
         $this->widthInMillimeter = $widthInMillimeter;
     }
 
     /**
-     * @param ?float $weightInGram
+     * @param ?int $weightInGram
      */
-    public function setWeightInGram(?float $weightInGram): void
+    public function setWeightInGram(?int $weightInGram): void
     {
         $this->weightInGram = $weightInGram;
     }

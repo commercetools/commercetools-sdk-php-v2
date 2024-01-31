@@ -59,7 +59,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
 
     /**
      *
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -109,7 +109,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
         ?CustomLineItemTaxedPrice $taxedPrice = null,
         ?TypedMoney $totalPrice = null,
         ?string $slug = null,
-        ?float $quantity = null,
+        ?int $quantity = null,
         ?ItemStateCollection $state = null,
         ?TaxCategoryKeyReference $taxCategory = null,
         ?TaxRate $taxRate = null,
@@ -234,17 +234,17 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
 
     /**
      *
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -406,9 +406,9 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }

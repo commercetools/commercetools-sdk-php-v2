@@ -386,7 +386,8 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Shipping address for a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates and Tax Rates of Line Items.</p>
+     * <p>Shipping address for a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates and Tax Rates of Line Items.
+     * Must be one of the <code>itemShippingAddresses</code> when that field is also provided.</p>
      *
 
      * @return null|BaseAddress

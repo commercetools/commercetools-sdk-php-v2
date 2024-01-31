@@ -20,45 +20,45 @@ interface ParcelMeasurements extends JsonObject
 
     /**
 
-     * @return null|float
+     * @return null|int
      */
     public function getHeightInMillimeter();
 
     /**
 
-     * @return null|float
+     * @return null|int
      */
     public function getLengthInMillimeter();
 
     /**
 
-     * @return null|float
+     * @return null|int
      */
     public function getWidthInMillimeter();
 
     /**
 
-     * @return null|float
+     * @return null|int
      */
     public function getWeightInGram();
 
     /**
-     * @param ?float $heightInMillimeter
+     * @param ?int $heightInMillimeter
      */
-    public function setHeightInMillimeter(?float $heightInMillimeter): void;
+    public function setHeightInMillimeter(?int $heightInMillimeter): void;
 
     /**
-     * @param ?float $lengthInMillimeter
+     * @param ?int $lengthInMillimeter
      */
-    public function setLengthInMillimeter(?float $lengthInMillimeter): void;
+    public function setLengthInMillimeter(?int $lengthInMillimeter): void;
 
     /**
-     * @param ?float $widthInMillimeter
+     * @param ?int $widthInMillimeter
      */
-    public function setWidthInMillimeter(?float $widthInMillimeter): void;
+    public function setWidthInMillimeter(?int $widthInMillimeter): void;
 
     /**
-     * @param ?float $weightInGram
+     * @param ?int $weightInGram
      */
-    public function setWeightInGram(?float $weightInGram): void;
+    public function setWeightInGram(?int $weightInGram): void;
 }

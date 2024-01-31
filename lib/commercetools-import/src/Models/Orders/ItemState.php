@@ -19,7 +19,7 @@ interface ItemState extends JsonObject
 
     /**
 
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity();
 
@@ -32,9 +32,9 @@ interface ItemState extends JsonObject
     public function getState();
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void;
+    public function setQuantity(?int $quantity): void;
 
     /**
      * @param ?StateKeyReference $state

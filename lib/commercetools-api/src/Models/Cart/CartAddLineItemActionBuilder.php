@@ -95,6 +95,12 @@ final class CartAddLineItemActionBuilder implements Builder
 
     /**
 
+     * @var ?MethodExternalTaxRateDraftCollection
+     */
+    private $perMethodExternalTaxRate;
+
+    /**
+
      * @var ?string
      */
     private $inventoryMode;
@@ -239,6 +245,17 @@ final class CartAddLineItemActionBuilder implements Builder
     public function getExternalTaxRate()
     {
         return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+    }
+
+    /**
+     * <p>Sets the external Tax Rates for individual Shipping Methods, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|MethodExternalTaxRateDraftCollection
+     */
+    public function getPerMethodExternalTaxRate()
+    {
+        return $this->perMethodExternalTaxRate;
     }
 
     /**
@@ -397,6 +414,17 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate
+     * @return $this
+     */
+    public function withPerMethodExternalTaxRate(?MethodExternalTaxRateDraftCollection $perMethodExternalTaxRate)
+    {
+        $this->perMethodExternalTaxRate = $perMethodExternalTaxRate;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $inventoryMode
      * @return $this
      */
@@ -520,6 +548,7 @@ final class CartAddLineItemActionBuilder implements Builder
             $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
             $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
+            $this->perMethodExternalTaxRate,
             $this->inventoryMode,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom

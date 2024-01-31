@@ -165,7 +165,8 @@ interface LineItem extends JsonObject
     public function getTaxedPrice();
 
     /**
-     * <p>Taxed price of the Shipping Method that is automatically set after <code>perMethodTaxRate</code> is set.</p>
+     * <p>Total taxed prices based on the quantity of Line Item assigned to each <a href="ctp:api:type:ShippingMethod">Shipping Method</a>. Only applicable for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Automatically set after <code>perMethodTaxRate</code> is set.</p>
      *
 
      * @return null|MethodTaxedPriceCollection

@@ -30,6 +30,7 @@ interface MyCartDraft extends JsonObject
     public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
     public const FIELD_SHIPPING_METHOD = 'shippingMethod';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_SHIPPING_MODE = 'shippingMode';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_LOCALE = 'locale';
@@ -125,6 +126,17 @@ interface MyCartDraft extends JsonObject
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses();
+
+    /**
+     * <ul>
+     * <li>If set to <code>Single</code>, only a single Shipping Method can be added to the Cart.</li>
+     * <li>If set to <code>Multiple</code>, multiple Shipping Methods can be added to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode();
 
     /**
      * <p><code>code</code> of the existing <a href="ctp:api:type:DiscountCode">DiscountCodes</a> to add to the Cart.</p>
@@ -224,6 +236,11 @@ interface MyCartDraft extends JsonObject
      * @param ?BaseAddressCollection $itemShippingAddresses
      */
     public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void;
+
+    /**
+     * @param ?string $shippingMode
+     */
+    public function setShippingMode(?string $shippingMode): void;
 
     /**
      * @param ?array $discountCodes
