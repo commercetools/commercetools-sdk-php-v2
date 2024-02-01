@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: master
           token: ${{ steps.generate_github_token.outputs.token }}
 
       - name: "Switch SDK to after release branch"
