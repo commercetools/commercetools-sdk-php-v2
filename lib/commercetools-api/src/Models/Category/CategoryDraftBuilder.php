@@ -145,7 +145,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
-     * <p>Decimal value between 0 and 1 used to order Categories that are on the same level in the Category tree.
+     * <p>Decimal value between 0 and 1. Frontend applications can use this value for ordering Categories within the same level in the category tree.
      * If not set, a random value will be assigned.</p>
      *
 
