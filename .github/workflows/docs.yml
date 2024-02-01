@@ -99,7 +99,7 @@ jobs:
         env:
           PROJECT_NUMBER: ${{ github.ref_name }}
 
-      - run: rsync -r sdk/build/docs/javadoc/ doc/javadoc
+      - run: rsync -r --delete ./sdk/docs ./doc
 
       - uses: stefanzweifel/git-auto-commit-action@e8f94e4dd298db5a6a2aa2d42fe0bcef6f2c9660
         with:
