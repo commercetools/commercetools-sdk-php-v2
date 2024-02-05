@@ -52,7 +52,7 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../shipping-delivery-overview#free-shipping">Free shipping</a> is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
+     * <p><a href="/../api/shipping-delivery-overview#free-shipping">Free shipping</a> is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
 
      * @return null|Money
