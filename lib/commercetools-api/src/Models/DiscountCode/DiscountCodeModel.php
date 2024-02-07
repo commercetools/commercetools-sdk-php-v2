@@ -58,6 +58,12 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
@@ -161,6 +167,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         ?int $version = null,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $lastModifiedAt = null,
+        ?string $key = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null,
         ?LocalizedString $name = null,
@@ -182,6 +189,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->version = $version;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
+        $this->key = $key;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
         $this->name = $name;
@@ -286,6 +294,26 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         }
 
         return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the DiscountCode.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -656,6 +684,14 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

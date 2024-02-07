@@ -9,8 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyDiscountCodesByID;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyDiscountCodesKeyByKey;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -23,12 +21,13 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyDiscountCodesGet
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyDiscountCodesHead
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyDiscountCodesPost
- * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyDiscountCodes
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyDiscountCodesKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyDiscountCodesKeyByKeyHead
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyDiscountCodesKeyByKeyPost
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyDiscountCodesKeyByKeyDelete
+ * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyDiscountCodesKeyByKey
  */
-class ResourceByProjectKeyDiscountCodesTest extends TestCase
+class ResourceByProjectKeyDiscountCodesKeyByKeyTest extends TestCase
 {
     /**
      * @dataProvider getRequests()
@@ -46,16 +45,7 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider getResources()
-     */
-    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
-    {
-        $builder = new ApiRequestBuilder();
-        $resource = $builderFunction($builder);
-        $this->assertInstanceOf($class, $resource);
-        $this->assertEquals($expectedArgs, $resource->getArgs());
-    }
+
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -103,134 +93,109 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyDiscountCodesGet_withExpand' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->discountCodes()
+                        ->withKey('test_key')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                'test_projectKey/discount-codes?expand=expand',
+                'test_projectKey/discount-codes/key=test_key?expand=expand',
             ],
-            'ByProjectKeyDiscountCodesGet_withSort' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->discountCodes()
-                        ->get()
-                        ->withSort('sort');
-                },
-                'get',
-                'test_projectKey/discount-codes?sort=sort',
-            ],
-            'ByProjectKeyDiscountCodesGet_withLimit' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->discountCodes()
-                        ->get()
-                        ->withLimit('limit');
-                },
-                'get',
-                'test_projectKey/discount-codes?limit=limit',
-            ],
-            'ByProjectKeyDiscountCodesGet_withOffset' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->discountCodes()
-                        ->get()
-                        ->withOffset('offset');
-                },
-                'get',
-                'test_projectKey/discount-codes?offset=offset',
-            ],
-            'ByProjectKeyDiscountCodesGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->discountCodes()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/discount-codes?withTotal=withTotal',
-            ],
-            'ByProjectKeyDiscountCodesGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->discountCodes()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                'test_projectKey/discount-codes?where=where',
-            ],
-            'ByProjectKeyDiscountCodesGet_withPredicateVar' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->discountCodes()
-                        ->get()
-                        ->withPredicateVar('varName', 'var.varName');
-                },
-                'get',
-                'test_projectKey/discount-codes?var.varName=var.varName',
-            ],
-            'ByProjectKeyDiscountCodesGet' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->discountCodes()
+                        ->withKey("test_key")
                         ->get();
                 },
                 'get',
-                'test_projectKey/discount-codes',
+                'test_projectKey/discount-codes/key=test_key',
             ],
-            'ByProjectKeyDiscountCodesHead_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->discountCodes()
-                        ->head()
-                        ->withWhere('where');
-                },
-                'head',
-                'test_projectKey/discount-codes?where=where',
-            ],
-            'ByProjectKeyDiscountCodesHead' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->discountCodes()
+                        ->withKey("test_key")
                         ->head();
                 },
                 'head',
-                'test_projectKey/discount-codes',
+                'test_projectKey/discount-codes/key=test_key',
             ],
-            'ByProjectKeyDiscountCodesPost_withExpand' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->discountCodes()
+                        ->withKey('test_key')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                'test_projectKey/discount-codes?expand=expand',
+                'test_projectKey/discount-codes/key=test_key?expand=expand',
             ],
-            'ByProjectKeyDiscountCodesPost' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->discountCodes()
+                        ->withKey("test_key")
                         ->post(null);
                 },
                 'post',
-                'test_projectKey/discount-codes',
+                'test_projectKey/discount-codes/key=test_key',
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_withDataErasure' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->discountCodes()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                'test_projectKey/discount-codes/key=test_key?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_withVersion' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->discountCodes()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                'test_projectKey/discount-codes/key=test_key?version=version',
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->discountCodes()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                'test_projectKey/discount-codes/key=test_key?expand=expand',
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->discountCodes()
+                        ->withKey("test_key")
+                        ->delete();
+                },
+                'delete',
+                'test_projectKey/discount-codes/key=test_key',
             ]
         ];
     }
@@ -238,56 +203,46 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyDiscountCodesByID' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyDiscountCodesByID {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->discountCodes()
-                        ->withId("test_ID");
-                },
-                ResourceByProjectKeyDiscountCodesByID::class,
-                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
-                '/{projectKey}/discount-codes/{ID}'
-            ],
-            'ResourceByProjectKeyDiscountCodesKeyByKey' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyDiscountCodesKeyByKey {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->discountCodes()
-                        ->withKey("test_key");
-                },
-                ResourceByProjectKeyDiscountCodesKeyByKey::class,
-                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
-                '/{projectKey}/discount-codes/key={key}'
-            ]
         ];
     }
 
     public function getRequestBuilders()
     {
         return [
-            'ByProjectKeyDiscountCodesGet' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 }
             ],
-            'ByProjectKeyDiscountCodesHead' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 }
             ],
-            'ByProjectKeyDiscountCodesPost' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
+                }
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
                 }
             ]
         ];
@@ -296,246 +251,383 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyDiscountCodesGet_200' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 },
                 200
             ],
-            'ByProjectKeyDiscountCodesGet_400' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 },
                 400
             ],
-            'ByProjectKeyDiscountCodesGet_401' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 },
                 401
             ],
-            'ByProjectKeyDiscountCodesGet_403' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_403' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 },
                 403
             ],
-            'ByProjectKeyDiscountCodesGet_404' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_404' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 },
                 404
             ],
-            'ByProjectKeyDiscountCodesGet_500' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 },
                 500
             ],
-            'ByProjectKeyDiscountCodesGet_502' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_502' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 },
                 502
             ],
-            'ByProjectKeyDiscountCodesGet_503' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 },
                 503
             ],
-            'ByProjectKeyDiscountCodesGet_599' => [
+            'ByProjectKeyDiscountCodesKeyByKeyGet_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->get();
                 },
                 599
             ],
-            'ByProjectKeyDiscountCodesHead_200' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 },
                 200
             ],
-            'ByProjectKeyDiscountCodesHead_404' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead_404' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 },
                 404
             ],
-            'ByProjectKeyDiscountCodesHead_400' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 },
                 400
             ],
-            'ByProjectKeyDiscountCodesHead_401' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 },
                 401
             ],
-            'ByProjectKeyDiscountCodesHead_403' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead_403' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 },
                 403
             ],
-            'ByProjectKeyDiscountCodesHead_500' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 },
                 500
             ],
-            'ByProjectKeyDiscountCodesHead_502' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead_502' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 },
                 502
             ],
-            'ByProjectKeyDiscountCodesHead_503' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 },
                 503
             ],
-            'ByProjectKeyDiscountCodesHead_599' => [
+            'ByProjectKeyDiscountCodesKeyByKeyHead_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->head();
                 },
                 599
             ],
-            'ByProjectKeyDiscountCodesPost_201' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
                 },
-                201
+                200
             ],
-            'ByProjectKeyDiscountCodesPost_400' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_409' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                409
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 400
             ],
-            'ByProjectKeyDiscountCodesPost_401' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 401
             ],
-            'ByProjectKeyDiscountCodesPost_403' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_403' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 403
             ],
-            'ByProjectKeyDiscountCodesPost_404' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_404' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 404
             ],
-            'ByProjectKeyDiscountCodesPost_500' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 500
             ],
-            'ByProjectKeyDiscountCodesPost_502' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_502' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 502
             ],
-            'ByProjectKeyDiscountCodesPost_503' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 503
             ],
-            'ByProjectKeyDiscountCodesPost_599' => [
+            'ByProjectKeyDiscountCodesKeyByKeyPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
+                        ->withKey("key")
                         ->post(null);
+                },
+                599
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                200
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_409' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                409
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                400
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                401
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                403
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                404
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                500
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                503
+            ],
+            'ByProjectKeyDiscountCodesKeyByKeyDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withKey("key")
+                        ->delete();
                 },
                 599
             ]

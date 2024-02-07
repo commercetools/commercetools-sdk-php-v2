@@ -27,6 +27,12 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 {
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -102,6 +108,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?LocalizedString $name = null,
         ?LocalizedString $description = null,
         ?string $code = null,
@@ -115,6 +122,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null
     ) {
+        $this->key = $key;
         $this->name = $name;
         $this->description = $description;
         $this->code = $code;
@@ -127,6 +135,26 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
         $this->groups = $groups;
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the DiscountCode.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -381,6 +409,14 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
         return $this->validUntil;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?LocalizedString $name

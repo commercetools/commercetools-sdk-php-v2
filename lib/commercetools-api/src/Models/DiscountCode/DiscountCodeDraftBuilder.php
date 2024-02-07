@@ -28,6 +28,12 @@ final class DiscountCodeDraftBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -97,6 +103,17 @@ final class DiscountCodeDraftBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $validUntil;
+
+    /**
+     * <p>User-defined unique identifier for the DiscountCode.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p>Name of the DiscountCode.</p>
@@ -229,6 +246,17 @@ final class DiscountCodeDraftBuilder implements Builder
     public function getValidUntil()
     {
         return $this->validUntil;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -399,6 +427,7 @@ final class DiscountCodeDraftBuilder implements Builder
     public function build(): DiscountCodeDraft
     {
         return new DiscountCodeDraftModel(
+            $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->code,

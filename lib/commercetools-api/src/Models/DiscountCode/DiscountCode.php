@@ -21,6 +21,7 @@ use DateTimeImmutable;
 
 interface DiscountCode extends BaseResource
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
     public const FIELD_NAME = 'name';
@@ -45,6 +46,14 @@ interface DiscountCode extends BaseResource
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-defined unique identifier of the DiscountCode.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Current version of the DiscountCode.</p>
@@ -206,6 +215,11 @@ interface DiscountCode extends BaseResource
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?int $version
