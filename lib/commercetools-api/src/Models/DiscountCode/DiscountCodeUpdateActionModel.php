@@ -38,6 +38,7 @@ final class DiscountCodeUpdateActionModel extends JsonObjectModel implements Dis
        'setCustomField' => DiscountCodeSetCustomFieldActionModel::class,
        'setCustomType' => DiscountCodeSetCustomTypeActionModel::class,
        'setDescription' => DiscountCodeSetDescriptionActionModel::class,
+       'setKey' => DiscountCodeSetKeyActionModel::class,
        'setMaxApplications' => DiscountCodeSetMaxApplicationsActionModel::class,
        'setMaxApplicationsPerCustomer' => DiscountCodeSetMaxApplicationsPerCustomerActionModel::class,
        'setName' => DiscountCodeSetNameActionModel::class,

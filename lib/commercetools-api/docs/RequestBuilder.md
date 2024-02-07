@@ -2867,7 +2867,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->post(null)`
 
+Creating a Discount Code produces the [DiscountCodeCreated](ctp:api:type:DiscountCodeCreatedMessage) Message.
+
 Deprecated scope: `manage_orders:{projectKey}`
+
 
 ### Example
 ```php
@@ -2926,7 +2929,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->delete()`
 
+Deleting a Discount Code produces the [DiscountCodeDeleted](ctp:api:type:DiscountCodeDeletedMessage) Message.
+
 Deprecated scope: `manage_orders:{projectKey}`
+
 
 ### Example
 ```php
@@ -2937,6 +2943,69 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->discountCodes()
                 ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->discountCodes()->withKey("key")->get()`
+
+Deprecated scope: `view_orders:{projectKey}`
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountCodes()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->discountCodes()->withKey("key")->head()`
+
+Checks if a DiscountCode exists for a given `key`. Returns a `200 OK` status if the DiscountCode exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountCodes()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->discountCodes()->withKey("key")->post(null)`
+
+Deprecated scope: `manage_orders:{projectKey}`
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountCodes()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->discountCodes()->withKey("key")->delete()`
+
+Deleting a Discount Code produces the [DiscountCodeDeleted](ctp:api:type:DiscountCodeDeletedMessage) Message.
+
+Deprecated scope: `manage_orders:{projectKey}`
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountCodes()
+                ->withKey("key")
                 ->delete();
 ```
 ## `withProjectKey("projectKey")->extensions()->get()`

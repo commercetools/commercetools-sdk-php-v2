@@ -17,6 +17,7 @@ use DateTimeImmutable;
 
 interface DiscountCodeDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_CODE = 'code';
@@ -29,6 +30,14 @@ interface DiscountCodeDraft extends JsonObject
     public const FIELD_GROUPS = 'groups';
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
+
+    /**
+     * <p>User-defined unique identifier for the DiscountCode.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Name of the DiscountCode.</p>
@@ -126,6 +135,11 @@ interface DiscountCodeDraft extends JsonObject
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?LocalizedString $name
