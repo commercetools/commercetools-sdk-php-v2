@@ -65,7 +65,7 @@ final class ShoppingListStoreSetMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
      *
      *
      * @return null|StoreKeyReference
