@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder;
+use Commercetools\Api\Models\Common\TypedMoneyDraft;
+use Commercetools\Api\Models\Common\TypedMoneyDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -20,9 +20,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<DiscountedLineItemPortion>
+ * @implements Builder<DiscountedLineItemPortionDraft>
  */
-final class DiscountedLineItemPortionBuilder implements Builder
+final class DiscountedLineItemPortionDraftBuilder implements Builder
 {
     /**
 
@@ -32,12 +32,12 @@ final class DiscountedLineItemPortionBuilder implements Builder
 
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|TypedMoneyDraft|TypedMoneyDraftBuilder
      */
     private $discountedAmount;
 
     /**
-     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> of the applicable discount on the Line Item.</p>
+     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> for the discount applicable on the Line Item.</p>
      *
 
      * @return null|Reference
@@ -48,14 +48,14 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
-     * <p>Money value of the applicable discount.</p>
+     * <p>Money value for the discount applicable.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|TypedMoneyDraft
      */
     public function getDiscountedAmount()
     {
-        return $this->discountedAmount instanceof TypedMoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount;
+        return $this->discountedAmount instanceof TypedMoneyDraftBuilder ? $this->discountedAmount->build() : $this->discountedAmount;
     }
 
     /**
@@ -70,10 +70,10 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $discountedAmount
+     * @param ?TypedMoneyDraft $discountedAmount
      * @return $this
      */
-    public function withDiscountedAmount(?TypedMoney $discountedAmount)
+    public function withDiscountedAmount(?TypedMoneyDraft $discountedAmount)
     {
         $this->discountedAmount = $discountedAmount;
 
@@ -95,22 +95,22 @@ final class DiscountedLineItemPortionBuilder implements Builder
      * @deprecated use withDiscountedAmount() instead
      * @return $this
      */
-    public function withDiscountedAmountBuilder(?TypedMoneyBuilder $discountedAmount)
+    public function withDiscountedAmountBuilder(?TypedMoneyDraftBuilder $discountedAmount)
     {
         $this->discountedAmount = $discountedAmount;
 
         return $this;
     }
 
-    public function build(): DiscountedLineItemPortion
+    public function build(): DiscountedLineItemPortionDraft
     {
-        return new DiscountedLineItemPortionModel(
+        return new DiscountedLineItemPortionDraftModel(
             $this->discount instanceof ReferenceBuilder ? $this->discount->build() : $this->discount,
-            $this->discountedAmount instanceof TypedMoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount
+            $this->discountedAmount instanceof TypedMoneyDraftBuilder ? $this->discountedAmount->build() : $this->discountedAmount
         );
     }
 
-    public static function of(): DiscountedLineItemPortionBuilder
+    public static function of(): DiscountedLineItemPortionDraftBuilder
     {
         return new self();
     }

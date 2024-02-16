@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Cart\DiscountedLineItemPortionCollection;
+use Commercetools\Api\Models\Cart\DiscountedLineItemPortionDraftCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -30,7 +30,7 @@ interface DiscountedLineItemPriceDraft extends JsonObject
      * <p>Discounts to be applied.</p>
      *
 
-     * @return null|DiscountedLineItemPortionCollection
+     * @return null|DiscountedLineItemPortionDraftCollection
      */
     public function getIncludedDiscounts();
 
@@ -40,7 +40,7 @@ interface DiscountedLineItemPriceDraft extends JsonObject
     public function setValue(?Money $value): void;
 
     /**
-     * @param ?DiscountedLineItemPortionCollection $includedDiscounts
+     * @param ?DiscountedLineItemPortionDraftCollection $includedDiscounts
      */
-    public function setIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts): void;
+    public function setIncludedDiscounts(?DiscountedLineItemPortionDraftCollection $includedDiscounts): void;
 }
