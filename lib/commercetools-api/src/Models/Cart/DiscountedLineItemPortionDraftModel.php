@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Common\TypedMoneyDraft;
+use Commercetools\Api\Models\Common\TypedMoneyDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -21,7 +21,7 @@ use stdClass;
 /**
  * @internal
  */
-final class DiscountedLineItemPortionModel extends JsonObjectModel implements DiscountedLineItemPortion
+final class DiscountedLineItemPortionDraftModel extends JsonObjectModel implements DiscountedLineItemPortionDraft
 {
     /**
      *
@@ -31,7 +31,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?TypedMoneyDraft
      */
     protected $discountedAmount;
 
@@ -41,14 +41,14 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
      */
     public function __construct(
         ?Reference $discount = null,
-        ?TypedMoney $discountedAmount = null
+        ?TypedMoneyDraft $discountedAmount = null
     ) {
         $this->discount = $discount;
         $this->discountedAmount = $discountedAmount;
     }
 
     /**
-     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> of the applicable discount on the Line Item.</p>
+     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> for the discount applicable on the Line Item.</p>
      *
      *
      * @return null|Reference
@@ -69,10 +69,10 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
-     * <p>Money value of the applicable discount.</p>
+     * <p>Money value for the discount applicable.</p>
      *
      *
-     * @return null|TypedMoney
+     * @return null|TypedMoneyDraft
      */
     public function getDiscountedAmount()
     {
@@ -83,7 +83,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
                 return null;
             }
 
-            $this->discountedAmount = TypedMoneyModel::of($data);
+            $this->discountedAmount = TypedMoneyDraftModel::of($data);
         }
 
         return $this->discountedAmount;
@@ -99,9 +99,9 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
-     * @param ?TypedMoney $discountedAmount
+     * @param ?TypedMoneyDraft $discountedAmount
      */
-    public function setDiscountedAmount(?TypedMoney $discountedAmount): void
+    public function setDiscountedAmount(?TypedMoneyDraft $discountedAmount): void
     {
         $this->discountedAmount = $discountedAmount;
     }

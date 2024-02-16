@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Cart\DiscountedLineItemPortionCollection;
+use Commercetools\Api\Models\Cart\DiscountedLineItemPortionDraftCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Base\Builder;
@@ -31,7 +31,7 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
 
     /**
 
-     * @var ?DiscountedLineItemPortionCollection
+     * @var ?DiscountedLineItemPortionDraftCollection
      */
     private $includedDiscounts;
 
@@ -50,7 +50,7 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
      * <p>Discounts to be applied.</p>
      *
 
-     * @return null|DiscountedLineItemPortionCollection
+     * @return null|DiscountedLineItemPortionDraftCollection
      */
     public function getIncludedDiscounts()
     {
@@ -69,10 +69,10 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
     }
 
     /**
-     * @param ?DiscountedLineItemPortionCollection $includedDiscounts
+     * @param ?DiscountedLineItemPortionDraftCollection $includedDiscounts
      * @return $this
      */
-    public function withIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts)
+    public function withIncludedDiscounts(?DiscountedLineItemPortionDraftCollection $includedDiscounts)
     {
         $this->includedDiscounts = $includedDiscounts;
 

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Cart\DiscountedLineItemPortionCollection;
+use Commercetools\Api\Models\Cart\DiscountedLineItemPortionDraftCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -30,7 +30,7 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
 
     /**
      *
-     * @var ?DiscountedLineItemPortionCollection
+     * @var ?DiscountedLineItemPortionDraftCollection
      */
     protected $includedDiscounts;
 
@@ -40,7 +40,7 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
      */
     public function __construct(
         ?Money $value = null,
-        ?DiscountedLineItemPortionCollection $includedDiscounts = null
+        ?DiscountedLineItemPortionDraftCollection $includedDiscounts = null
     ) {
         $this->value = $value;
         $this->includedDiscounts = $includedDiscounts;
@@ -71,7 +71,7 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
      * <p>Discounts to be applied.</p>
      *
      *
-     * @return null|DiscountedLineItemPortionCollection
+     * @return null|DiscountedLineItemPortionDraftCollection
      */
     public function getIncludedDiscounts()
     {
@@ -81,7 +81,7 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
             if (is_null($data)) {
                 return null;
             }
-            $this->includedDiscounts = DiscountedLineItemPortionCollection::fromArray($data);
+            $this->includedDiscounts = DiscountedLineItemPortionDraftCollection::fromArray($data);
         }
 
         return $this->includedDiscounts;
@@ -97,9 +97,9 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?DiscountedLineItemPortionCollection $includedDiscounts
+     * @param ?DiscountedLineItemPortionDraftCollection $includedDiscounts
      */
-    public function setIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts): void
+    public function setIncludedDiscounts(?DiscountedLineItemPortionDraftCollection $includedDiscounts): void
     {
         $this->includedDiscounts = $includedDiscounts;
     }

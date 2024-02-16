@@ -9,17 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Reference;
-use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface DiscountedLineItemPortion extends JsonObject
+interface DiscountedLineItemPortionDraft extends JsonObject
 {
     public const FIELD_DISCOUNT = 'discount';
     public const FIELD_DISCOUNTED_AMOUNT = 'discountedAmount';
 
     /**
-     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> of the applicable discount on the Line Item.</p>
+     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> for the discount applicable on the Line Item.</p>
      *
 
      * @return null|Reference
@@ -27,10 +27,10 @@ interface DiscountedLineItemPortion extends JsonObject
     public function getDiscount();
 
     /**
-     * <p>Money value of the applicable discount.</p>
+     * <p>Money value for the discount applicable.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|TypedMoneyDraft
      */
     public function getDiscountedAmount();
 
@@ -40,7 +40,7 @@ interface DiscountedLineItemPortion extends JsonObject
     public function setDiscount(?Reference $discount): void;
 
     /**
-     * @param ?TypedMoney $discountedAmount
+     * @param ?TypedMoneyDraft $discountedAmount
      */
-    public function setDiscountedAmount(?TypedMoney $discountedAmount): void;
+    public function setDiscountedAmount(?TypedMoneyDraft $discountedAmount): void;
 }
