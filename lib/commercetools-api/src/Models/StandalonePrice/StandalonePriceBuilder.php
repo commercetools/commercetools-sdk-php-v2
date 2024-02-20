@@ -308,6 +308,7 @@ final class StandalonePriceBuilder implements Builder
 
     /**
      * <p>Price tiers if any are defined.</p>
+     * <p>If <code>discounted</code> is present, the tiered Price is ignored for a Product Variant.</p>
      *
 
      * @return null|PriceTierCollection

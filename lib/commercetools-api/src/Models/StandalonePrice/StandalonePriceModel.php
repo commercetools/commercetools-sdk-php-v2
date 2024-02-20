@@ -500,6 +500,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
 
     /**
      * <p>Price tiers if any are defined.</p>
+     * <p>If <code>discounted</code> is present, the tiered Price is ignored for a Product Variant.</p>
      *
      *
      * @return null|PriceTierCollection
