@@ -188,6 +188,7 @@ final class QueryPriceBuilder implements Builder
 
     /**
      * <p>Price tier applied when the minimum quantity for the <a href="ctp:api:type:LineItem">LineItem</a> of a ProductVariant with the related Price is reached in a Cart.</p>
+     * <p>If <code>discounted</code> is specified, the tiered Price is ignored for a Product Variant.</p>
      *
 
      * @return null|PriceTierDraftCollection

@@ -105,6 +105,7 @@ interface Price extends JsonObject
 
     /**
      * <p>Present if different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities have been specified.</p>
+     * <p>If <code>discounted</code> is present, the tiered Price is ignored for a Product Variant.</p>
      *
 
      * @return null|PriceTierCollection

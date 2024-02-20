@@ -295,6 +295,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
 
     /**
      * <p>Set this field to specify different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities.</p>
+     * <p>If <code>discounted</code> is set, the tiered Price is ignored for a Product Variant.</p>
      *
      *
      * @return null|PriceTierDraftCollection

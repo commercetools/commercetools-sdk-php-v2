@@ -317,6 +317,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
 
     /**
      * <p>Sets price tiers.</p>
+     * <p>If <code>discounted</code> is set, the tiered Price is ignored for a Product Variant.</p>
      *
      *
      * @return null|PriceTierDraftCollection
