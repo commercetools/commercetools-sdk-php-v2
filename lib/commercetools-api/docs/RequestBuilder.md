@@ -3949,6 +3949,8 @@ $request = $builder
 
 Authenticates a Customer associated with a [Store](ctp:api:type:Store). For more information, see [Global versus Store-specific Customers](/../api/customers-overview#global-versus-store-specific-customers).
 
+Triggers [Cart merge during sign-in](/../api/customers-overview#cart-merge-during-sign-in).
+
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error.
 
 
@@ -5239,6 +5241,8 @@ $request = $builder
 Authenticates a global Customer not associated with a Store.
 For more information, see [Global versus Store-specific Customers](/../api/customers-overview#global-versus-store-specific-customers).
 If the Customer is registered in a Store, use the [Authenticate (sign in) Customer in Store](ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/login:POST) method.
+
+Triggers [Cart merge during sign-in](/../api/customers-overview#cart-merge-during-sign-in).
 
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
