@@ -20,7 +20,6 @@
         <directory name="lib/commercetools-api/src" />
         <directory name="lib/commercetools-import/src" />
         <directory name="lib/commercetools-base/src" />
-        <directory name="lib/commercetools-ml/src" />
         <ignoreFiles>
             <directory name="vendor" />
         </ignoreFiles>

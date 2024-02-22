@@ -11,9 +11,6 @@
       "Commercetools\\Import\\": [
         "lib/commercetools-import/src/"
       ],
-      "Commercetools\\Ml\\": [
-        "lib/commercetools-ml/src/"
-      ],
       "Commercetools\\History\\": [
         "lib/commercetools-history/src/"
       ],
@@ -30,9 +27,6 @@
       ],
       "Commercetools\\Import\\Test\\": [
         "lib/commercetools-import-tests/test/unit/"
-      ],
-      "Commercetools\\Ml\\Test\\": [
-        "lib/commercetools-ml-tests/test/unit/"
       ],
       "Commercetools\\History\\Test\\": [
         "lib/commercetools-history-tests/test/unit/"
