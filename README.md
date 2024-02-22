@@ -51,7 +51,6 @@ To avoid specifying the project key for every request built it's possible to use
 ```php
 use Commercetools\Client\ApiRequestBuilder;
 use Commercetools\Client\ImportRequestBuilder;
-use Commercetools\Client\MLRequestBuilder;
 use GuzzleHttp\ClientInterface;
 
 /** @var ClientInterface $client */
@@ -60,9 +59,6 @@ $request = $builder->categories()->get();
 
 $importBuilder =  new ImportRequestBuilder('your-project-key', $client);
 $request = $importBuilder->importSinks()->get();
-
-$mlBuilder =  new MLRequestBuilder('your-project-key', $client);
-$request = $mlBuilder->recommendations()->generalCategories()->get();
 ```
 
 
