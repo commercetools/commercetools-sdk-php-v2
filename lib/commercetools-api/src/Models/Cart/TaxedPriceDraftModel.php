@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Common\TypedMoneyDraft;
+use Commercetools\Api\Models\Common\TypedMoneyDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -39,6 +41,12 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
      */
     protected $taxPortions;
 
+    /**
+     *
+     * @var ?TypedMoneyDraft
+     */
+    protected $totalTax;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -46,11 +54,13 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     public function __construct(
         ?Money $totalNet = null,
         ?Money $totalGross = null,
-        ?TaxPortionDraftCollection $taxPortions = null
+        ?TaxPortionDraftCollection $taxPortions = null,
+        ?TypedMoneyDraft $totalTax = null
     ) {
         $this->totalNet = $totalNet;
         $this->totalGross = $totalGross;
         $this->taxPortions = $taxPortions;
+        $this->totalTax = $totalTax;
     }
 
     /**
@@ -116,6 +126,27 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
         return $this->taxPortions;
     }
 
+    /**
+     * <p>Total tax applicable for the Cart or Order.</p>
+     *
+     *
+     * @return null|TypedMoneyDraft
+     */
+    public function getTotalTax()
+    {
+        if (is_null($this->totalTax)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TOTAL_TAX);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalTax = TypedMoneyDraftModel::of($data);
+        }
+
+        return $this->totalTax;
+    }
+
 
     /**
      * @param ?Money $totalNet
@@ -139,5 +170,13 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     public function setTaxPortions(?TaxPortionDraftCollection $taxPortions): void
     {
         $this->taxPortions = $taxPortions;
+    }
+
+    /**
+     * @param ?TypedMoneyDraft $totalTax
+     */
+    public function setTotalTax(?TypedMoneyDraft $totalTax): void
+    {
+        $this->totalTax = $totalTax;
     }
 }

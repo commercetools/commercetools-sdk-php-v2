@@ -24,6 +24,7 @@
 <details>
 <summary>Added Property(s)</summary>
 
+- added property `totalTax` to type `TaxedPriceDraft`
 - added property `key` to type `DiscountCode`
 - added property `key` to type `DiscountCodeDraft`
 </details>
