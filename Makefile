@@ -6,7 +6,7 @@ ML_RAML ?= $(RAML_FILE)
 HISTORY_RAML ?= $(RAML_FILE)
 CPUS := `./tools/numcpu.sh`
 
-.PHONY: build_api_sdk build_import_sdk build_import_sdk build_ml_sdk gen_api_sdk gen_import_sdk gen_ml_sdk gen_history_sdk
+.PHONY: build_api_sdk build_import_sdk build_import_sdk gen_api_sdk gen_import_sdk gen_history_sdk
 
 install_deps: codegen_install composer_install
 
@@ -25,9 +25,6 @@ parallel_generate_api_test: install_deps parallel_test_sdks_bc
 parallel_generate_import_test: install_deps parallel_test_sdks_bc
 	$(MAKE) -C lib LIB_NAME=import GEN_RAML_FILE=../$(IMPORT_RAML) generate_sdk_test
 
-parallel_generate_ml_test: install_deps parallel_test_sdks_bc
-	$(MAKE) -C lib LIB_NAME=ml GEN_RAML_FILE=../$(ML_RAML) generate_sdk_test
-
 parallel_generate_history_test: install_deps parallel_test_sdks_bc
 	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(HISTORY_RAML) generate_sdk_test
 
@@ -42,12 +39,10 @@ parallel_test_sdks: install_deps parallel_analyze_sdks
 
 build_api_sdk: codegen_install generate_base gen_api_sdk prettify analyse test_api
 build_import_sdk: codegen_install generate_base gen_import_sdk prettify analyse test_import
-build_ml_sdk: codegen_install generate_base gen_ml_sdk prettify analyse test_ml
 build_history_sdk: codegen_install generate_base gen_history_sdk prettify analyse test_history
 
 gen_api_sdk: generate_api composer_install test_bc generate_api_test
 gen_import_sdk: generate_import composer_install test_bc generate_import_test
-gen_ml_sdk: generate_ml composer_install test_bc generate_ml_test
 gen_history_sdk: generate_history composer_install test_bc generate_history_test
 
 codegen_install:
@@ -71,12 +66,6 @@ generate_import: install_deps
 generate_import_test: install_deps
 	$(MAKE) -C lib LIB_NAME=import GEN_RAML_FILE=../$(IMPORT_RAML) generate_sdk_test
 
-generate_ml: install_deps
-	$(MAKE) -C lib LIB_NAME=ml GEN_RAML_FILE=../$(ML_RAML) generate_sdk
-
-generate_ml_test: install_deps
-	$(MAKE) -C lib LIB_NAME=ml GEN_RAML_FILE=../$(ML_RAML) generate_sdk_test
-
 generate_history: install_deps
 	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(HISTORY_RAML) generate_sdk
 
@@ -97,9 +86,6 @@ test_unit: install_deps
 
 test_api: install_deps
 	vendor/bin/phpunit --testsuite=api
-
-test_ml: install_deps
-	vendor/bin/phpunit --testsuite=ml
 
 test_history: install_deps
 	vendor/bin/phpunit --testsuite=history

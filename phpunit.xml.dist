@@ -9,7 +9,6 @@
       <directory suffix="Test.php">lib/commercetools-base/test/unit</directory>
       <directory suffix="Test.php">lib/commercetools-api-tests/test/unit</directory>
       <directory suffix="Test.php">lib/commercetools-import-tests/test/unit</directory>
-      <directory suffix="Test.php">lib/commercetools-ml-tests/test/unit</directory>
       <directory suffix="Test.php">lib/commercetools-history-tests/test/unit</directory>
     </testsuite>
     <testsuite name="base">
@@ -20,9 +19,6 @@
     </testsuite>
     <testsuite name="import">
       <directory suffix="Test.php">lib/commercetools-import-tests/test/unit</directory>
-    </testsuite>
-    <testsuite name="ml">
-      <directory suffix="Test.php">lib/commercetools-ml-tests/test/unit</directory>
     </testsuite>
     <testsuite name="history">
       <directory suffix="Test.php">lib/commercetools-history-tests/test/unit</directory>
