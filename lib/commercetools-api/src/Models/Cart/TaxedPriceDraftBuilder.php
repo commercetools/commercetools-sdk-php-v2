@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Common\TypedMoneyDraft;
+use Commercetools\Api\Models\Common\TypedMoneyDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -39,6 +41,12 @@ final class TaxedPriceDraftBuilder implements Builder
      * @var ?TaxPortionDraftCollection
      */
     private $taxPortions;
+
+    /**
+
+     * @var null|TypedMoneyDraft|TypedMoneyDraftBuilder
+     */
+    private $totalTax;
 
     /**
      * <p>Total net price of the Cart or Order.</p>
@@ -75,6 +83,17 @@ final class TaxedPriceDraftBuilder implements Builder
     }
 
     /**
+     * <p>Total tax applicable for the Cart or Order.</p>
+     *
+
+     * @return null|TypedMoneyDraft
+     */
+    public function getTotalTax()
+    {
+        return $this->totalTax instanceof TypedMoneyDraftBuilder ? $this->totalTax->build() : $this->totalTax;
+    }
+
+    /**
      * @param ?Money $totalNet
      * @return $this
      */
@@ -108,6 +127,17 @@ final class TaxedPriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoneyDraft $totalTax
+     * @return $this
+     */
+    public function withTotalTax(?TypedMoneyDraft $totalTax)
+    {
+        $this->totalTax = $totalTax;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withTotalNet() instead
      * @return $this
      */
@@ -129,12 +159,24 @@ final class TaxedPriceDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withTotalTax() instead
+     * @return $this
+     */
+    public function withTotalTaxBuilder(?TypedMoneyDraftBuilder $totalTax)
+    {
+        $this->totalTax = $totalTax;
+
+        return $this;
+    }
+
     public function build(): TaxedPriceDraft
     {
         return new TaxedPriceDraftModel(
             $this->totalNet instanceof MoneyBuilder ? $this->totalNet->build() : $this->totalNet,
             $this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross,
-            $this->taxPortions
+            $this->taxPortions,
+            $this->totalTax instanceof TypedMoneyDraftBuilder ? $this->totalTax->build() : $this->totalTax
         );
     }
 
