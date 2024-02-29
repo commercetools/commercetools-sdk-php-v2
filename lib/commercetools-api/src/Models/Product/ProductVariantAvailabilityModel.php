@@ -43,6 +43,18 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
      */
     protected $availableQuantity;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     *
+     * @var ?int
+     */
+    protected $version;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -51,12 +63,16 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
         ?ProductVariantChannelAvailabilityMap $channels = null,
         ?bool $isOnStock = null,
         ?int $restockableInDays = null,
-        ?int $availableQuantity = null
+        ?int $availableQuantity = null,
+        ?string $id = null,
+        ?int $version = null
     ) {
         $this->channels = $channels;
         $this->isOnStock = $isOnStock;
         $this->restockableInDays = $restockableInDays;
         $this->availableQuantity = $availableQuantity;
+        $this->id = $id;
+        $this->version = $version;
     }
 
     /**
@@ -140,6 +156,46 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
         return $this->availableQuantity;
     }
 
+    /**
+     * <p>Unique identifier of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * <p>Current version of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
+    }
+
 
     /**
      * @param ?ProductVariantChannelAvailabilityMap $channels
@@ -171,5 +227,21 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     public function setAvailableQuantity(?int $availableQuantity): void
     {
         $this->availableQuantity = $availableQuantity;
+    }
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param ?int $version
+     */
+    public function setVersion(?int $version): void
+    {
+        $this->version = $version;
     }
 }
