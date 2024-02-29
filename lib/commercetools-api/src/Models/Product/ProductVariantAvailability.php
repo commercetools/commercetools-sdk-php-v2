@@ -17,6 +17,8 @@ interface ProductVariantAvailability extends JsonObject
     public const FIELD_IS_ON_STOCK = 'isOnStock';
     public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
     public const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
+    public const FIELD_ID = 'id';
+    public const FIELD_VERSION = 'version';
 
     /**
      * <p>For each <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> with a supply Channel, an entry is added to <code>channels</code>.</p>
@@ -51,6 +53,22 @@ interface ProductVariantAvailability extends JsonObject
     public function getAvailableQuantity();
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * <p>Current version of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
+     *
+
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
      * @param ?ProductVariantChannelAvailabilityMap $channels
      */
     public function setChannels(?ProductVariantChannelAvailabilityMap $channels): void;
@@ -69,4 +87,14 @@ interface ProductVariantAvailability extends JsonObject
      * @param ?int $availableQuantity
      */
     public function setAvailableQuantity(?int $availableQuantity): void;
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void;
+
+    /**
+     * @param ?int $version
+     */
+    public function setVersion(?int $version): void;
 }
