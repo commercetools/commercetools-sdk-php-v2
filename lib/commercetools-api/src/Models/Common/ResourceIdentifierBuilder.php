@@ -40,6 +40,8 @@ use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifier;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifierBuilder;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierBuilder;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringResourceIdentifier;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringResourceIdentifierBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
 use Commercetools\Api\Models\Quote\QuoteResourceIdentifier;

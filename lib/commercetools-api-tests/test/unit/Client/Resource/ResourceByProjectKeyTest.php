@@ -36,6 +36,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductDiscounts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductProjections;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProducts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductSelections;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductTailoring;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductTypes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyQuoteRequests;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyQuotes;
@@ -384,6 +385,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyProductSelections::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-selections'
+            ],
+            'ResourceByProjectKeyProductTailoring' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyProductTailoring {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->productTailoring();
+                },
+                ResourceByProjectKeyProductTailoring::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/product-tailoring'
             ],
             'ResourceByProjectKeyProductTypes' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductTypes {

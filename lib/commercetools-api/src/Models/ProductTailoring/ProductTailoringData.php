@@ -1,0 +1,102 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\ProductTailoring;
+
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
+interface ProductTailoringData extends JsonObject
+{
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_META_TITLE = 'metaTitle';
+    public const FIELD_META_DESCRIPTION = 'metaDescription';
+    public const FIELD_META_KEYWORDS = 'metaKeywords';
+    public const FIELD_SLUG = 'slug';
+
+    /**
+     * <p>Tailored name of the Product.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getName();
+
+    /**
+     * <p>Tailored description of the Product.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getDescription();
+
+    /**
+     * <p>Tailored title of the Product used by external search engines for improved search engine performance.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getMetaTitle();
+
+    /**
+     * <p>Tailored description of the Product used by external search engines for improved search engine performance.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getMetaDescription();
+
+    /**
+     * <p>Tailored keywords related to the Product used by external search engines for improved search engine performance.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getMetaKeywords();
+
+    /**
+     * <p>User-defined identifier used in a deep-link URL for the ProductTailoring.
+     * Matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getSlug();
+
+    /**
+     * @param ?LocalizedString $name
+     */
+    public function setName(?LocalizedString $name): void;
+
+    /**
+     * @param ?LocalizedString $description
+     */
+    public function setDescription(?LocalizedString $description): void;
+
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
+    public function setMetaTitle(?LocalizedString $metaTitle): void;
+
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
+    public function setMetaDescription(?LocalizedString $metaDescription): void;
+
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void;
+
+    /**
+     * @param ?LocalizedString $slug
+     */
+    public function setSlug(?LocalizedString $slug): void;
+}

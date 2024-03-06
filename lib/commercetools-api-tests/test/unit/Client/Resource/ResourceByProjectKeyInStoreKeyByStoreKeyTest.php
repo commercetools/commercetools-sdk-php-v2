@@ -16,7 +16,9 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyLo
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyMe;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyOrders;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyProductProjections;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyProducts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignments;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyProductTailoring;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyShoppingLists;
 use Commercetools\Base\JsonObject;
@@ -170,6 +172,28 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
                 ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/cart-discounts'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyProductTailoring' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyProductTailoring {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->productTailoring();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyProductTailoring::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/product-tailoring'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyProducts' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyProducts {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->products();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyProducts::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/products'
             ]
         ];
     }

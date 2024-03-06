@@ -50,6 +50,8 @@ use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReferenceBuilder;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionReference;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionReferenceBuilder;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringReference;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringReferenceBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceBuilder;
 use Commercetools\Api\Models\Quote\QuoteReference;

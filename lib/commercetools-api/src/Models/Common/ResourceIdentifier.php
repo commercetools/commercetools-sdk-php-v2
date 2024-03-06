@@ -24,6 +24,7 @@ use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
 use Commercetools\Api\Models\Product\ProductResourceIdentifier;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifier;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringResourceIdentifier;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\Quote\QuoteResourceIdentifier;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestResourceIdentifier;
