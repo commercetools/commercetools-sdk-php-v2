@@ -50,6 +50,8 @@ use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReferenceModel;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionReference;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionReferenceModel;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringReference;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringReferenceModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
 use Commercetools\Api\Models\Quote\QuoteReference;
@@ -126,6 +128,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'product' => ProductReferenceModel::class,
        'product-discount' => ProductDiscountReferenceModel::class,
        'product-selection' => ProductSelectionReferenceModel::class,
+       'product-tailoring' => ProductTailoringReferenceModel::class,
        'product-type' => ProductTypeReferenceModel::class,
        'quote' => QuoteReferenceModel::class,
        'quote-request' => QuoteRequestReferenceModel::class,

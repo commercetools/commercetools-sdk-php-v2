@@ -4754,7 +4754,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID from the specified [Store](ctp:api:type:Store).
+Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID in the specified [Store](ctp:api:type:Store).
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices)
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
@@ -4794,7 +4794,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) by its key from the specified [Store](ctp:api:type:Store).
+Gets the current or staged representation of a [Product](ctp:api:type:Product) by its key in the specified [Store](ctp:api:type:Store).
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices)
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
@@ -4852,6 +4852,149 @@ $request = $builder
                 ->inStoreKeyWithStoreKeyValue("storeKey")
                 ->productSelectionAssignments()
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productTailoring()->get()`
+
+Queries Product Tailoring in a specific [Store](ctp:api:type:Store).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productTailoring()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productTailoring()->post(null)`
+
+Creates a [ProductTailoring](ctp:api:type:ProductTailoring) in the [Store](ctp:api:type:Store) specified by `storeKey`.
+When using this endpoint the ProductTailoring's `store` field is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
+
+Generates the [ProductTailoringCreated](ctp:api:type:ProductTailoringCreatedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productTailoring()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductId("productID")->productTailoring()->get()`
+
+Gets the current or staged representation of a [Product Tailoring](ctp:api:type:ProductTailoring) by its Product ID in the specified [Store](ctp:api:type:Store).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->products()
+                ->withProductId("productID")
+                ->productTailoring()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductId("productID")->productTailoring()->post(null)`
+
+Updates the current or staged representation of a [Product Tailoring](ctp:api:type:ProductTailoring) by its Product ID in the specified [Store](ctp:api:type:Store).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->products()
+                ->withProductId("productID")
+                ->productTailoring()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductId("productID")->productTailoring()->delete()`
+
+Generates the [ProductTailoringDeleted](ctp:api:type:ProductTailoringDeletedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->products()
+                ->withProductId("productID")
+                ->productTailoring()
+                ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductKey("productKey")->productTailoring()->get()`
+
+Gets the current or staged representation of a [Product Tailoring](ctp:api:type:ProductTailoring) by its Product key in the specified [Store](ctp:api:type:Store).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->products()
+                ->withProductKey("productKey")
+                ->productTailoring()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductKey("productKey")->productTailoring()->post(null)`
+
+Updates the current or staged representation of a [Product Tailoring](ctp:api:type:ProductTailoring) by its Product key in the specified [Store](ctp:api:type:Store).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->products()
+                ->withProductKey("productKey")
+                ->productTailoring()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductKey("productKey")->productTailoring()->delete()`
+
+Generates the [ProductTailoringDeleted](ctp:api:type:ProductTailoringDeletedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->products()
+                ->withProductKey("productKey")
+                ->productTailoring()
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
@@ -7681,6 +7824,127 @@ $request = $builder
                 ->withKey("key")
                 ->products()
                 ->get();
+```
+## `withProjectKey("projectKey")->productTailoring()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTailoring()
+                ->get();
+```
+## `withProjectKey("projectKey")->productTailoring()->post(null)`
+
+Generates the [ProductTailoringCreated](ctp:api:type:ProductTailoringCreatedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTailoring()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->productTailoring()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTailoring()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->productTailoring()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTailoring()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->productTailoring()->withId("ID")->delete()`
+
+Generates the [ProductTailoringDeleted](ctp:api:type:ProductTailoringDeletedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTailoring()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->productTailoring()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTailoring()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->productTailoring()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTailoring()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->productTailoring()->withKey("key")->delete()`
+
+Generates the [ProductTailoringDeleted](ctp:api:type:ProductTailoringDeletedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTailoring()
+                ->withKey("key")
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->productTypes()->get()`
 

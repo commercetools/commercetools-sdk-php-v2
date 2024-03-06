@@ -40,6 +40,8 @@ use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifier;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifierModel;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierModel;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringResourceIdentifier;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringResourceIdentifierModel;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierModel;
 use Commercetools\Api\Models\Quote\QuoteResourceIdentifier;
@@ -117,6 +119,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'product' => ProductResourceIdentifierModel::class,
        'product-discount' => ProductDiscountResourceIdentifierModel::class,
        'product-selection' => ProductSelectionResourceIdentifierModel::class,
+       'product-tailoring' => ProductTailoringResourceIdentifierModel::class,
        'product-type' => ProductTypeResourceIdentifierModel::class,
        'quote' => QuoteResourceIdentifierModel::class,
        'quote-request' => QuoteRequestResourceIdentifierModel::class,

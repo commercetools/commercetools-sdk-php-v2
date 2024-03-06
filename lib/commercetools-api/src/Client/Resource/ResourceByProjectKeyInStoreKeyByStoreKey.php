@@ -105,4 +105,20 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts($args, $this->getClient());
     }
+    /**
+     */
+    public function productTailoring(): ResourceByProjectKeyInStoreKeyByStoreKeyProductTailoring
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyProductTailoring($args, $this->getClient());
+    }
+    /**
+     */
+    public function products(): ResourceByProjectKeyInStoreKeyByStoreKeyProducts
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyProducts($args, $this->getClient());
+    }
 }
