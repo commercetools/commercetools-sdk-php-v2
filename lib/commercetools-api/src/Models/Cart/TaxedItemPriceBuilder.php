@@ -36,6 +36,12 @@ final class TaxedItemPriceBuilder implements Builder
 
     /**
 
+     * @var ?TaxPortionCollection
+     */
+    private $taxPortions;
+
+    /**
+
      * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $totalTax;
@@ -60,6 +66,18 @@ final class TaxedItemPriceBuilder implements Builder
     public function getTotalGross()
     {
         return $this->totalGross instanceof CentPrecisionMoneyBuilder ? $this->totalGross->build() : $this->totalGross;
+    }
+
+    /**
+     * <p>Taxable portions added to the total net price.</p>
+     * <p>Calculated from the <a href="ctp:api:type:TaxRate">TaxRates</a>.</p>
+     *
+
+     * @return null|TaxPortionCollection
+     */
+    public function getTaxPortions()
+    {
+        return $this->taxPortions;
     }
 
     /**
@@ -92,6 +110,17 @@ final class TaxedItemPriceBuilder implements Builder
     public function withTotalGross(?CentPrecisionMoney $totalGross)
     {
         $this->totalGross = $totalGross;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TaxPortionCollection $taxPortions
+     * @return $this
+     */
+    public function withTaxPortions(?TaxPortionCollection $taxPortions)
+    {
+        $this->taxPortions = $taxPortions;
 
         return $this;
     }
@@ -145,6 +174,7 @@ final class TaxedItemPriceBuilder implements Builder
         return new TaxedItemPriceModel(
             $this->totalNet instanceof CentPrecisionMoneyBuilder ? $this->totalNet->build() : $this->totalNet,
             $this->totalGross instanceof CentPrecisionMoneyBuilder ? $this->totalGross->build() : $this->totalGross,
+            $this->taxPortions,
             $this->totalTax instanceof CentPrecisionMoneyBuilder ? $this->totalTax->build() : $this->totalTax
         );
     }

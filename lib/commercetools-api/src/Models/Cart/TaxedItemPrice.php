@@ -16,6 +16,7 @@ interface TaxedItemPrice extends JsonObject
 {
     public const FIELD_TOTAL_NET = 'totalNet';
     public const FIELD_TOTAL_GROSS = 'totalGross';
+    public const FIELD_TAX_PORTIONS = 'taxPortions';
     public const FIELD_TOTAL_TAX = 'totalTax';
 
     /**
@@ -35,6 +36,15 @@ interface TaxedItemPrice extends JsonObject
     public function getTotalGross();
 
     /**
+     * <p>Taxable portions added to the total net price.</p>
+     * <p>Calculated from the <a href="ctp:api:type:TaxRate">TaxRates</a>.</p>
+     *
+
+     * @return null|TaxPortionCollection
+     */
+    public function getTaxPortions();
+
+    /**
      * <p>Total tax applicable for the Line Item or Custom Line Item.
      * Automatically calculated as the difference between the <code>totalGross</code> and <code>totalNet</code> values.</p>
      *
@@ -52,6 +62,11 @@ interface TaxedItemPrice extends JsonObject
      * @param ?CentPrecisionMoney $totalGross
      */
     public function setTotalGross(?CentPrecisionMoney $totalGross): void;
+
+    /**
+     * @param ?TaxPortionCollection $taxPortions
+     */
+    public function setTaxPortions(?TaxPortionCollection $taxPortions): void;
 
     /**
      * @param ?CentPrecisionMoney $totalTax

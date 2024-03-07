@@ -64,7 +64,7 @@ interface TaxRateDraft extends JsonObject
     public function getState();
 
     /**
-     * <p>Used to calculate the <a href="/../api/projects/carts#taxedprice">taxPortions</a> field in a Cart or Order. It is useful if the total tax of a country (such as the US) is a combination of multiple taxes (such as state and local taxes). The total of all subrates must equal the TaxRate <code>amount</code>.</p>
+     * <p>Used to calculate the <code>taxPortions</code> field in a <a href="/../api/projects/carts#taxedprice">Cart or Order</a> or <a href="/../api/projects/carts#taxeditemprice">(Custom) Line Items</a>. It is useful if the total tax of a country (such as the US) is a combination of multiple taxes (such as state and local taxes). The total of all subrates must equal the TaxRate <code>amount</code>.</p>
      *
 
      * @return null|SubRateCollection
