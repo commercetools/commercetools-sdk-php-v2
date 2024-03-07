@@ -35,6 +35,12 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
 
     /**
      *
+     * @var ?TaxPortionCollection
+     */
+    protected $taxPortions;
+
+    /**
+     *
      * @var ?CentPrecisionMoney
      */
     protected $totalTax;
@@ -46,10 +52,12 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     public function __construct(
         ?CentPrecisionMoney $totalNet = null,
         ?CentPrecisionMoney $totalGross = null,
+        ?TaxPortionCollection $taxPortions = null,
         ?CentPrecisionMoney $totalTax = null
     ) {
         $this->totalNet = $totalNet;
         $this->totalGross = $totalGross;
+        $this->taxPortions = $taxPortions;
         $this->totalTax = $totalTax;
     }
 
@@ -96,6 +104,27 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     }
 
     /**
+     * <p>Taxable portions added to the total net price.</p>
+     * <p>Calculated from the <a href="ctp:api:type:TaxRate">TaxRates</a>.</p>
+     *
+     *
+     * @return null|TaxPortionCollection
+     */
+    public function getTaxPortions()
+    {
+        if (is_null($this->taxPortions)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TAX_PORTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxPortions = TaxPortionCollection::fromArray($data);
+        }
+
+        return $this->taxPortions;
+    }
+
+    /**
      * <p>Total tax applicable for the Line Item or Custom Line Item.
      * Automatically calculated as the difference between the <code>totalGross</code> and <code>totalNet</code> values.</p>
      *
@@ -132,6 +161,14 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     public function setTotalGross(?CentPrecisionMoney $totalGross): void
     {
         $this->totalGross = $totalGross;
+    }
+
+    /**
+     * @param ?TaxPortionCollection $taxPortions
+     */
+    public function setTaxPortions(?TaxPortionCollection $taxPortions): void
+    {
+        $this->taxPortions = $taxPortions;
     }
 
     /**
