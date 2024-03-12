@@ -136,7 +136,7 @@ interface Category extends BaseResource
     public function getOrderHint();
 
     /**
-     * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     * <p>Additional identifier for external systems like customer relationship management (CRM) or enterprise resource planning (ERP).</p>
      *
 
      * @return null|string

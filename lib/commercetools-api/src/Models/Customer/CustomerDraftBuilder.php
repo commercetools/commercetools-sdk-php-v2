@@ -217,7 +217,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>Optional identifier for use in external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     * <p>Optional identifier for use in external systems like customer relationship management (CRM) or enterprise resource planning (ERP).</p>
      *
 
      * @return null|string
