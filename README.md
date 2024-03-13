@@ -33,7 +33,7 @@ $client = ClientFactory::of()->createGuzzleClient(
 ### RequestBuilder
 
 Detailed information of all available methods for the product API can be found [here](lib/commercetools-api/docs/RequestBuilder.md).
-For the Import API [here](lib/commercetools-import/docs/RequestBuilder.md) and for the ML API [here](lib/commercetools-ml/docs/RequestBuilder.md)
+Information for the Import API can be found [here](lib/commercetools-import/docs/RequestBuilder.md).
 
 Examples to retrieve project information
 
