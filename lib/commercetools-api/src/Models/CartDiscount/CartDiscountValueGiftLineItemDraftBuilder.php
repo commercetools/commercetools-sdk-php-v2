@@ -50,6 +50,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
 
     /**
      * <p>ResourceIdentifier of a Product.</p>
+     * <p>A Gift Line Item is added to a Cart even if the referenced Product is unpublished.</p>
      *
 
      * @return null|ProductResourceIdentifier
