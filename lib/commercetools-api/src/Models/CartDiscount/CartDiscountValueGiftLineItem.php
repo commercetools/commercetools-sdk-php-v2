@@ -22,6 +22,7 @@ interface CartDiscountValueGiftLineItem extends CartDiscountValue
 
     /**
      * <p>Reference to a Product.</p>
+     * <p>A Gift Line Item can be present on a Cart even if the referenced Product is unpublished.</p>
      *
 
      * @return null|ProductReference
