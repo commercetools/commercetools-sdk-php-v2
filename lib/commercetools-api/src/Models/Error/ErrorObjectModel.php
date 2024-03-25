@@ -78,6 +78,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'InvalidOperation' => InvalidOperationErrorModel::class,
        'InvalidSubject' => InvalidSubjectErrorModel::class,
        'LanguageUsedInStores' => LanguageUsedInStoresErrorModel::class,
+       'LockedField' => LockedFieldErrorModel::class,
        'MatchingPriceNotFound' => MatchingPriceNotFoundErrorModel::class,
        'MaxCartDiscountsReached' => MaxCartDiscountsReachedErrorModel::class,
        'MaxResourceLimitExceeded' => MaxResourceLimitExceededErrorModel::class,
