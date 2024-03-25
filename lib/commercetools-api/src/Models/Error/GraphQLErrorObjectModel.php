@@ -72,6 +72,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'InvalidOperation' => GraphQLInvalidOperationErrorModel::class,
        'InvalidSubject' => GraphQLInvalidSubjectErrorModel::class,
        'LanguageUsedInStores' => GraphQLLanguageUsedInStoresErrorModel::class,
+       'LockedField' => GraphQLLockedFieldErrorModel::class,
        'MatchingPriceNotFound' => GraphQLMatchingPriceNotFoundErrorModel::class,
        'MaxCartDiscountsReached' => GraphQLMaxCartDiscountsReachedErrorModel::class,
        'MaxResourceLimitExceeded' => GraphQLMaxResourceLimitExceededErrorModel::class,
