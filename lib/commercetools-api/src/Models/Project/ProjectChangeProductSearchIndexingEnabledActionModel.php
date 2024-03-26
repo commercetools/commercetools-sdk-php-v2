@@ -32,15 +32,23 @@ final class ProjectChangeProductSearchIndexingEnabledActionModel extends JsonObj
      */
     protected $enabled;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $mode;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?bool $enabled = null,
+        ?string $mode = null,
         ?string $action = null
     ) {
         $this->enabled = $enabled;
+        $this->mode = $mode;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -85,6 +93,26 @@ final class ProjectChangeProductSearchIndexingEnabledActionModel extends JsonObj
         return $this->enabled;
     }
 
+    /**
+     * <p>Controls whether the action should apply to <a href="/../api/projects/products-search">Product Projection Search</a> or to <a href="/../api/projects/product-search">Product Search</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getMode()
+    {
+        if (is_null($this->mode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->mode = (string) $data;
+        }
+
+        return $this->mode;
+    }
+
 
     /**
      * @param ?bool $enabled
@@ -92,5 +120,13 @@ final class ProjectChangeProductSearchIndexingEnabledActionModel extends JsonObj
     public function setEnabled(?bool $enabled): void
     {
         $this->enabled = $enabled;
+    }
+
+    /**
+     * @param ?string $mode
+     */
+    public function setMode(?string $mode): void
+    {
+        $this->mode = $mode;
     }
 }

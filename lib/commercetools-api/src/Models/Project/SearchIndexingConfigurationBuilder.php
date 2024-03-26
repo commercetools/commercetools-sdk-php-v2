@@ -30,6 +30,12 @@ final class SearchIndexingConfigurationBuilder implements Builder
 
      * @var null|SearchIndexingConfigurationValues|SearchIndexingConfigurationValuesBuilder
      */
+    private $productsSearch;
+
+    /**
+
+     * @var null|SearchIndexingConfigurationValues|SearchIndexingConfigurationValuesBuilder
+     */
     private $orders;
 
     /**
@@ -41,6 +47,17 @@ final class SearchIndexingConfigurationBuilder implements Builder
     public function getProducts()
     {
         return $this->products instanceof SearchIndexingConfigurationValuesBuilder ? $this->products->build() : $this->products;
+    }
+
+    /**
+     * <p>Configuration for the <a href="/../api/projects/product-search">Product Search</a> feature.</p>
+     *
+
+     * @return null|SearchIndexingConfigurationValues
+     */
+    public function getProductsSearch()
+    {
+        return $this->productsSearch instanceof SearchIndexingConfigurationValuesBuilder ? $this->productsSearch->build() : $this->productsSearch;
     }
 
     /**
@@ -61,6 +78,17 @@ final class SearchIndexingConfigurationBuilder implements Builder
     public function withProducts(?SearchIndexingConfigurationValues $products)
     {
         $this->products = $products;
+
+        return $this;
+    }
+
+    /**
+     * @param ?SearchIndexingConfigurationValues $productsSearch
+     * @return $this
+     */
+    public function withProductsSearch(?SearchIndexingConfigurationValues $productsSearch)
+    {
+        $this->productsSearch = $productsSearch;
 
         return $this;
     }
@@ -88,6 +116,17 @@ final class SearchIndexingConfigurationBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductsSearch() instead
+     * @return $this
+     */
+    public function withProductsSearchBuilder(?SearchIndexingConfigurationValuesBuilder $productsSearch)
+    {
+        $this->productsSearch = $productsSearch;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withOrders() instead
      * @return $this
      */
@@ -102,6 +141,7 @@ final class SearchIndexingConfigurationBuilder implements Builder
     {
         return new SearchIndexingConfigurationModel(
             $this->products instanceof SearchIndexingConfigurationValuesBuilder ? $this->products->build() : $this->products,
+            $this->productsSearch instanceof SearchIndexingConfigurationValuesBuilder ? $this->productsSearch->build() : $this->productsSearch,
             $this->orders instanceof SearchIndexingConfigurationValuesBuilder ? $this->orders->build() : $this->orders
         );
     }

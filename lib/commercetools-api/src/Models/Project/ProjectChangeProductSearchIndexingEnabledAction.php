@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 interface ProjectChangeProductSearchIndexingEnabledAction extends ProjectUpdateAction
 {
     public const FIELD_ENABLED = 'enabled';
+    public const FIELD_MODE = 'mode';
 
     /**
      * <ul>
@@ -27,7 +28,20 @@ interface ProjectChangeProductSearchIndexingEnabledAction extends ProjectUpdateA
     public function getEnabled();
 
     /**
+     * <p>Controls whether the action should apply to <a href="/../api/projects/products-search">Product Projection Search</a> or to <a href="/../api/projects/product-search">Product Search</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMode();
+
+    /**
      * @param ?bool $enabled
      */
     public function setEnabled(?bool $enabled): void;
+
+    /**
+     * @param ?string $mode
+     */
+    public function setMode(?string $mode): void;
 }

@@ -28,6 +28,8 @@
 - added property `key` to type `DiscountCodeDraft`
 - added property `id` to type `ProductVariantAvailability`
 - added property `version` to type `ProductVariantAvailability`
+- added property `productsSearch` to type `SearchIndexingConfiguration`
+- added property `mode` to type `ProjectChangeProductSearchIndexingEnabledAction`
 </details>
 
 
@@ -47,6 +49,8 @@
 - added method `$apiRoot->withProjectKey()->discountCodes()->withKey()->head()`
 - added method `$apiRoot->withProjectKey()->discountCodes()->withKey()->post()`
 - added method `$apiRoot->withProjectKey()->discountCodes()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->products()->search()->post()`
+- added method `$apiRoot->withProjectKey()->products()->search()->head()`
 - added method `$apiRoot->withProjectKey()->productTailoring()->withKey()->get()`
 - added method `$apiRoot->withProjectKey()->productTailoring()->withKey()->post()`
 - added method `$apiRoot->withProjectKey()->productTailoring()->withKey()->delete()`
@@ -69,6 +73,7 @@
 
 - added resource `/{projectKey}/product-tailoring`
 - added resource `/{projectKey}/discount-codes/key={key}`
+- added resource `/{projectKey}/products/search`
 - added resource `/{projectKey}/product-tailoring/key={key}`
 - added resource `/{projectKey}/product-tailoring/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/product-tailoring`
@@ -107,6 +112,30 @@
 - added type `ProductTailoringPublishedMessagePayload`
 - added type `ProductTailoringSlugSetMessagePayload`
 - added type `ProductTailoringUnpublishedMessagePayload`
+- added type `ProductPagedSearchResponse`
+- added type `ProductSearchErrorResponse`
+- added type `ProductSearchMatchingVariantEntry`
+- added type `ProductSearchMatchingVariants`
+- added type `ProductSearchProjectionParams`
+- added type `ProductSearchRequest`
+- added type `ProductSearchResult`
+- added type `ProductSearchFacetCountExpression`
+- added type `ProductSearchFacetCountLevelEnum`
+- added type `ProductSearchFacetCountValue`
+- added type `ProductSearchFacetDistinctBucketSortBy`
+- added type `ProductSearchFacetDistinctBucketSortExpression`
+- added type `ProductSearchFacetDistinctExpression`
+- added type `ProductSearchFacetDistinctValue`
+- added type `ProductSearchFacetExpression`
+- added type `ProductSearchFacetRangesExpression`
+- added type `ProductSearchFacetRangesFacetRange`
+- added type `ProductSearchFacetRangesValue`
+- added type `ProductSearchFacetResult`
+- added type `ProductSearchFacetResultBucket`
+- added type `ProductSearchFacetResultBucketEntry`
+- added type `ProductSearchFacetResultCount`
+- added type `ProductSearchFacetScope`
+- added type `ProductSearchFacetScopeEnum`
 - added type `ProductTailoring`
 - added type `ProductTailoringData`
 - added type `ProductTailoringDraft`
@@ -125,5 +154,41 @@
 - added type `ProductTailoringSetNameAction`
 - added type `ProductTailoringSetSlugAction`
 - added type `ProductTailoringUnpublishAction`
+- added type `ProductSearchIndexingMode`
+- added type `ProductSearchStatus`
+- added type `SearchAndExpression`
+- added type `SearchAnyValue`
+- added type `SearchCompoundExpression`
+- added type `SearchDateRangeExpression`
+- added type `SearchDateRangeValue`
+- added type `SearchDateTimeRangeExpression`
+- added type `SearchDateTimeRangeValue`
+- added type `SearchExactExpression`
+- added type `SearchExistsExpression`
+- added type `SearchExistsValue`
+- added type `SearchFieldType`
+- added type `SearchFilterExpression`
+- added type `SearchFullTextExpression`
+- added type `SearchFullTextPrefixExpression`
+- added type `SearchFullTextPrefixValue`
+- added type `SearchFullTextValue`
+- added type `SearchLongRangeExpression`
+- added type `SearchLongRangeValue`
+- added type `SearchMatchType`
+- added type `SearchMatchingVariant`
+- added type `SearchNotExpression`
+- added type `SearchNumberRangeExpression`
+- added type `SearchNumberRangeValue`
+- added type `SearchOrExpression`
+- added type `SearchPrefixExpression`
+- added type `SearchQuery`
+- added type `SearchQueryExpression`
+- added type `SearchQueryExpressionValue`
+- added type `SearchSortMode`
+- added type `SearchSortOrder`
+- added type `SearchSorting`
+- added type `SearchTimeRangeExpression`
+- added type `SearchTimeRangeValue`
+- added type `SearchWildCardExpression`
 </details>
 
