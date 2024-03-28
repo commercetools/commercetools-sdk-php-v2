@@ -197,7 +197,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
+     * <p>IDs and references that last modified the CustomerGroup.</p>
      *
      *
      * @return null|LastModifiedBy
@@ -218,7 +218,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
+     * <p>IDs and references that created the CustomerGroup.</p>
      *
      *
      * @return null|CreatedBy

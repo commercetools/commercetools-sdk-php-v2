@@ -158,7 +158,7 @@ final class ApprovalRuleBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/general-concepts#events-tracked">events not tracked</a>.</p>
+     * <p>IDs and references that created the ApprovalRule.</p>
      *
 
      * @return null|CreatedBy
@@ -169,7 +169,7 @@ final class ApprovalRuleBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/general-concepts#events-tracked">events not tracked</a>.</p>
+     * <p>IDs and references that last modified the ApprovalRule.</p>
      *
 
      * @return null|LastModifiedBy
