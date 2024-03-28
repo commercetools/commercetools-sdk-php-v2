@@ -156,7 +156,7 @@ final class OrderCustomLineItemQuantityChangedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Value of <code>createdBy</code>.</p>
+     * <p>IDs and references that last modified the Message.</p>
      *
 
      * @return null|LastModifiedBy
@@ -167,7 +167,7 @@ final class OrderCustomLineItemQuantityChangedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/general-concepts#events-tracked">events not tracked</a>.</p>
+     * <p>IDs and references that created the Message.</p>
      *
 
      * @return null|CreatedBy
