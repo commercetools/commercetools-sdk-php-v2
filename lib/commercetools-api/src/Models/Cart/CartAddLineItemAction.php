@@ -123,7 +123,7 @@ interface CartAddLineItemAction extends CartUpdateAction
     public function getExternalTotalPrice();
 
     /**
-     * <p>External Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>External Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|ExternalTaxRateDraft
