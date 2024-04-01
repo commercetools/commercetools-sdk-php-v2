@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">master</span>
+   &#160;<span id="projectnumber">10.3.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -184,7 +184,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00466">466</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00467">467</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -205,7 +205,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Set to <code>false</code>, if the <a class="el" href="../../db/db4/interface_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price.html">StandalonePrice</a> should not be considered during <a href="../../ctp:api:type:ProductPriceSelection">price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00252">252</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00253">253</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -268,7 +268,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Custom Fields for the <a class="el" href="../../db/db4/interface_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price.html">StandalonePrice</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomFieldsDraft </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00230">230</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00231">231</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -310,7 +310,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Sets a discounted price for this Price that is different from the base price with <code>value</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DiscountedPriceDraft </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00219">219</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00220">220</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -373,7 +373,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Staged changes for the <a class="el" href="../../db/db4/interface_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price.html">StandalonePrice</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StagedPriceDraft </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00241">241</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00242">242</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -392,9 +392,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Sets price tiers.</p>
+<p>If <code>discounted</code> is set, the tiered Price is ignored for a <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Variant.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceTierDraftCollection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00208">208</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00209">209</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -484,7 +485,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00485">485</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00486">486</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -511,7 +512,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00393">393</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00394">394</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -538,7 +539,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00316">316</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00317">317</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -557,10 +558,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002592">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#a5d539657c0cf28edfc96214b3c489d15">withChannel()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002744">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#a5d539657c0cf28edfc96214b3c489d15">withChannel()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00426">426</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00427">427</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -587,7 +588,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00294">294</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00295">295</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -614,7 +615,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00371">371</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00372">372</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -633,10 +634,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002594">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#a0885af1e27b14b40417d65e52bd5fd8f">withCustom()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002746">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#a0885af1e27b14b40417d65e52bd5fd8f">withCustom()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00448">448</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00449">449</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -663,7 +664,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00305">305</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00306">306</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -682,10 +683,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002591">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#aa781f12e9d0d31328aa5bf8431a8bb18">withCustomerGroup()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002743">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#aa781f12e9d0d31328aa5bf8431a8bb18">withCustomerGroup()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00415">415</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00416">416</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -712,7 +713,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00360">360</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00361">361</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -731,10 +732,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002593">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#a1161916d1e1a279c3d5960657ef2b316">withDiscounted()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002745">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#a1161916d1e1a279c3d5960657ef2b316">withDiscounted()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00437">437</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00438">438</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -761,7 +762,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00261">261</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00262">262</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -788,7 +789,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00272">272</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00273">273</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -815,7 +816,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00382">382</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00383">383</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -834,10 +835,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002595">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#a2c1586abfc84a851e1a6d2f4b9427ebe">withStaged()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002747">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#a2c1586abfc84a851e1a6d2f4b9427ebe">withStaged()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00459">459</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00460">460</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -864,7 +865,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00349">349</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00350">350</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -891,7 +892,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00327">327</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00328">328</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -918,7 +919,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00338">338</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00339">339</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -945,7 +946,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00283">283</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00284">284</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -964,10 +965,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002590">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#aff5f9d0b4502c88cfa5bfa069e38dc89">withValue()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002742">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d7/dab/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_builder.html#aff5f9d0b4502c88cfa5bfa069e38dc89">withValue()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00404">404</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html#l00405">405</a> of file <a class="el" href="../../de/d1d/_standalone_price_draft_builder_8php_source.html">StandalonePriceDraftBuilder.php</a>.</p>
 
 </div>
 </div>
