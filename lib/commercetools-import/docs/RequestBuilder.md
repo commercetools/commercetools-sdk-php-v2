@@ -40,6 +40,22 @@ $request = $builder
                 ->withImportContainerKeyValue("importContainerKey")
                 ->post(null);
 ```
+## `withProjectKeyValue("projectKey")->discountCodes()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
+
+Creates a request for creating new Discount Codes or updating existing ones.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->discountCodes()
+                ->importContainers()
+                ->withImportContainerKeyValue("importContainerKey")
+                ->post(null);
+```
 ## `withProjectKeyValue("projectKey")->importContainers()->post(null)`
 
 Creates a new import container.

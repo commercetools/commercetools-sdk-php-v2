@@ -16,6 +16,8 @@ use Commercetools\Import\Models\Categories\CategoryImport;
 use Commercetools\Import\Models\Categories\CategoryImportModel;
 use Commercetools\Import\Models\Customers\CustomerImport;
 use Commercetools\Import\Models\Customers\CustomerImportModel;
+use Commercetools\Import\Models\DiscountCodes\DiscountCodeImport;
+use Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel;
 use Commercetools\Import\Models\Inventories\InventoryImport;
 use Commercetools\Import\Models\Inventories\InventoryImportModel;
 use Commercetools\Import\Models\Prices\PriceImport;
