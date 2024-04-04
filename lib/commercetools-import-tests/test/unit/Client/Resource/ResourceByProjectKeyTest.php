@@ -15,6 +15,7 @@ use Commercetools\Exception\ApiServerException;
 use Commercetools\Import\Client\ImportRequestBuilder;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCategories;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCustomers;
+use Commercetools\Import\Client\Resource\ResourceByProjectKeyDiscountCodes;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportContainers;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportOperations;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyInventories;
@@ -215,6 +216,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyTypes::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/types'
+            ],
+            'ResourceByProjectKeyDiscountCodes' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyDiscountCodes {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->discountCodes();
+                },
+                ResourceByProjectKeyDiscountCodes::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/discount-codes'
             ]
         ];
     }

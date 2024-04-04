@@ -64,6 +64,7 @@ final class ProductSetKeyActionModel extends JsonObjectModel implements ProductS
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
+     * <p>To update a Product using the <a href="/../import-export/product">Import API</a>, the Product <code>key</code> must match the pattern <code>^[A-Za-z0-9_-]{2,256}$</code>.</p>
      *
      *
      * @return null|string
