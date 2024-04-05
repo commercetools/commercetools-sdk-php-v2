@@ -51,6 +51,12 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
      */
     protected $associate;
 
+    /**
+     *
+     * @var ?Attribution
+     */
+    protected $attributedTo;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -60,13 +66,15 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
         ?string $externalUserId = null,
         ?CustomerReference $customer = null,
         ?string $anonymousId = null,
-        ?CustomerReference $associate = null
+        ?CustomerReference $associate = null,
+        ?Attribution $attributedTo = null
     ) {
         $this->clientId = $clientId;
         $this->externalUserId = $externalUserId;
         $this->customer = $customer;
         $this->anonymousId = $anonymousId;
         $this->associate = $associate;
+        $this->attributedTo = $attributedTo;
     }
 
     /**
@@ -171,6 +179,27 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
         return $this->associate;
     }
 
+    /**
+     * <p>Indicates if the resource was modified indirectly.</p>
+     *
+     *
+     * @return null|Attribution
+     */
+    public function getAttributedTo()
+    {
+        if (is_null($this->attributedTo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTED_TO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->attributedTo = AttributionModel::of($data);
+        }
+
+        return $this->attributedTo;
+    }
+
 
     /**
      * @param ?string $clientId
@@ -210,5 +239,13 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     public function setAssociate(?CustomerReference $associate): void
     {
         $this->associate = $associate;
+    }
+
+    /**
+     * @param ?Attribution $attributedTo
+     */
+    public function setAttributedTo(?Attribution $attributedTo): void
+    {
+        $this->attributedTo = $attributedTo;
     }
 }

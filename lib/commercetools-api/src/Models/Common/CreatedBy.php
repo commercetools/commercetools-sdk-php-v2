@@ -14,6 +14,8 @@ use Commercetools\Base\JsonObject;
 
 interface CreatedBy extends ClientLogging
 {
+    public const FIELD_ATTRIBUTED_TO = 'attributedTo';
+
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">API Client</a> which created the resource.</p>
      *
@@ -47,6 +49,14 @@ interface CreatedBy extends ClientLogging
     public function getAnonymousId();
 
     /**
+     * <p>Indicates if the resource was created indirectly.</p>
+     *
+
+     * @return null|Attribution
+     */
+    public function getAttributedTo();
+
+    /**
      * <p>Indicates the <a href="ctp:api:type:Customer">Customer</a> who created the resource in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only present when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
      *
 
@@ -73,6 +83,11 @@ interface CreatedBy extends ClientLogging
      * @param ?string $anonymousId
      */
     public function setAnonymousId(?string $anonymousId): void;
+
+    /**
+     * @param ?Attribution $attributedTo
+     */
+    public function setAttributedTo(?Attribution $attributedTo): void;
 
     /**
      * @param ?CustomerReference $associate
