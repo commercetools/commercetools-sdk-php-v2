@@ -53,6 +53,12 @@ final class LastModifiedByBuilder implements Builder
     private $associate;
 
     /**
+
+     * @var null|Attribution|AttributionBuilder
+     */
+    private $attributedTo;
+
+    /**
      * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">API Client</a> which modified the resource.</p>
      *
 
@@ -105,6 +111,17 @@ final class LastModifiedByBuilder implements Builder
     public function getAssociate()
     {
         return $this->associate instanceof CustomerReferenceBuilder ? $this->associate->build() : $this->associate;
+    }
+
+    /**
+     * <p>Indicates if the resource was modified indirectly.</p>
+     *
+
+     * @return null|Attribution
+     */
+    public function getAttributedTo()
+    {
+        return $this->attributedTo instanceof AttributionBuilder ? $this->attributedTo->build() : $this->attributedTo;
     }
 
     /**
@@ -163,6 +180,17 @@ final class LastModifiedByBuilder implements Builder
     }
 
     /**
+     * @param ?Attribution $attributedTo
+     * @return $this
+     */
+    public function withAttributedTo(?Attribution $attributedTo)
+    {
+        $this->attributedTo = $attributedTo;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomer() instead
      * @return $this
      */
@@ -184,6 +212,17 @@ final class LastModifiedByBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withAttributedTo() instead
+     * @return $this
+     */
+    public function withAttributedToBuilder(?AttributionBuilder $attributedTo)
+    {
+        $this->attributedTo = $attributedTo;
+
+        return $this;
+    }
+
     public function build(): LastModifiedBy
     {
         return new LastModifiedByModel(
@@ -191,7 +230,8 @@ final class LastModifiedByBuilder implements Builder
             $this->externalUserId,
             $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->anonymousId,
-            $this->associate instanceof CustomerReferenceBuilder ? $this->associate->build() : $this->associate
+            $this->associate instanceof CustomerReferenceBuilder ? $this->associate->build() : $this->associate,
+            $this->attributedTo instanceof AttributionBuilder ? $this->attributedTo->build() : $this->attributedTo
         );
     }
 
