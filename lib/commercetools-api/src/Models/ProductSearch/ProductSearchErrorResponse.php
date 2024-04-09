@@ -16,7 +16,7 @@ use Commercetools\Base\JsonObject;
 interface ProductSearchErrorResponse extends ErrorResponse
 {
     /**
-     * <p>The http status code of the response.</p>
+     * <p>The HTTP status code of the response.</p>
      *
 
      * @return null|int

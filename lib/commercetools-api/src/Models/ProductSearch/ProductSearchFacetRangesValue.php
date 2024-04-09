@@ -24,7 +24,7 @@ interface ProductSearchFacetRangesValue extends JsonObject
     public const FIELD_FIELD_TYPE = 'fieldType';
 
     /**
-     * <p>Name to assign the ranges facet.</p>
+     * <p>Name of the ranges facet to appear in the <a href="ctp:api:type:ProductSearchFacetResultBucket">ProductSearchFacetResultBucket</a>.</p>
      *
 
      * @return null|string
@@ -56,7 +56,7 @@ interface ProductSearchFacetRangesValue extends JsonObject
     public function getLevel();
 
     /**
-     * <p>The field to facet on. Can be any searchable field on the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>The <a href="/api/projects/product-search#searchable-product-fields">searchable Product field</a> to facet on.</p>
      *
 
      * @return null|string

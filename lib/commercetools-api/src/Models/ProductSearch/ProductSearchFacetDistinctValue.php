@@ -27,7 +27,7 @@ interface ProductSearchFacetDistinctValue extends JsonObject
     public const FIELD_MISSING = 'missing';
 
     /**
-     * <p>Name of the distinct facet.</p>
+     * <p>Name of the distinct facet to appear in the <a href="ctp:api:type:ProductSearchFacetResultBucket">ProductSearchFacetResultBucket</a>.</p>
      *
 
      * @return null|string
@@ -59,7 +59,7 @@ interface ProductSearchFacetDistinctValue extends JsonObject
     public function getLevel();
 
     /**
-     * <p>The field to facet on. Can be any searchable field on the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>The <a href="/api/projects/product-search#searchable-product-fields">searchable Product field</a> to facet on.</p>
      *
 
      * @return null|string
