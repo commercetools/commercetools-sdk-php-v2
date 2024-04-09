@@ -27,7 +27,7 @@ interface ApprovalFlowApproval extends JsonObject
     public function getApprover();
 
     /**
-     * <p>Date and time (UTC) when the <a href="ctp:api:type:ApprovalFlow">Approval Flow</a> was approved at.</p>
+     * <p>Date and time (UTC) the <a href="ctp:api:type:ApprovalFlow">Approval Flow</a> was approved.</p>
      *
 
      * @return null|DateTimeImmutable

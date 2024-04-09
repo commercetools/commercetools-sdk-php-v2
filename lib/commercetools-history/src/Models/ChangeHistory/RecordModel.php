@@ -218,7 +218,7 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p>Date and time (UTC) when the change was made.</p>
+     * <p>Date and time (UTC) the change was made.</p>
      *
      *
      * @return null|string

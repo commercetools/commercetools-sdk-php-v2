@@ -249,7 +249,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Date and time (UTC) for the CartDiscount was initially created.</p>
+     * <p>Date and time (UTC) the CartDiscount was initially created.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -273,7 +273,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Date and time (UTC) for the CartDiscount was last updated.</p>
+     * <p>Date and time (UTC) the CartDiscount was last updated.</p>
      *
      *
      * @return null|DateTimeImmutable
