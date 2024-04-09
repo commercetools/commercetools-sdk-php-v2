@@ -76,7 +76,7 @@ final class ApprovalFlowRejectionModel extends JsonObjectModel implements Approv
     }
 
     /**
-     * <p>Date and time (UTC) when the <a href="ctp:api:type:ApprovalFlow">Approval Flow</a> was rejected at.</p>
+     * <p>Date and time (UTC) the <a href="ctp:api:type:ApprovalFlow">Approval Flow</a> was rejected.</p>
      *
      *
      * @return null|DateTimeImmutable

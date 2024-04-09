@@ -74,7 +74,7 @@ interface ApiClient extends JsonObject
     public function getDeleteAt();
 
     /**
-     * <p>Date and time (UTC) the APIClient was initially created at.</p>
+     * <p>Date and time (UTC) the APIClient was initially created.</p>
      *
 
      * @return null|DateTimeImmutable

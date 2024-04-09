@@ -82,7 +82,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
-     * <p>Date and time (UTC) when the transition of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a> <a href="ctp:api:type:State">State</a> was performed.</p>
+     * <p>Date and time (UTC) the transition of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a> <a href="ctp:api:type:State">State</a> was performed.</p>
      *
 
      * @return null|DateTimeImmutable

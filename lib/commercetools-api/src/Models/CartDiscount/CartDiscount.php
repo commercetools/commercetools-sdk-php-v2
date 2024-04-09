@@ -56,7 +56,7 @@ interface CartDiscount extends BaseResource
     public function getVersion();
 
     /**
-     * <p>Date and time (UTC) for the CartDiscount was initially created.</p>
+     * <p>Date and time (UTC) the CartDiscount was initially created.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -64,7 +64,7 @@ interface CartDiscount extends BaseResource
     public function getCreatedAt();
 
     /**
-     * <p>Date and time (UTC) for the CartDiscount was last updated.</p>
+     * <p>Date and time (UTC) the CartDiscount was last updated.</p>
      *
 
      * @return null|DateTimeImmutable

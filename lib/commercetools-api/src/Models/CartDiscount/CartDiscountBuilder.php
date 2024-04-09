@@ -182,7 +182,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Date and time (UTC) for the CartDiscount was initially created.</p>
+     * <p>Date and time (UTC) the CartDiscount was initially created.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -193,7 +193,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Date and time (UTC) for the CartDiscount was last updated.</p>
+     * <p>Date and time (UTC) the CartDiscount was last updated.</p>
      *
 
      * @return null|DateTimeImmutable
