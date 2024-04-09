@@ -8347,23 +8347,6 @@ $request = $builder
                 ->search()
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->products()->search()->head()`
-
-Checks whether a search index for the Project's Products exists.
-Returns a `200 OK` status if the index exists, a `404 Not Found` error otherwise.
-
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->products()
-                ->search()
-                ->head();
-```
 ## `withProjectKey("projectKey")->quoteRequests()->get()`
 
 null

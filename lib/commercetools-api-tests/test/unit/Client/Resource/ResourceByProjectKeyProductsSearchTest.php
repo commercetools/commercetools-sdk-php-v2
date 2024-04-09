@@ -22,7 +22,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsSearchPost
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsSearchHead
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyProductsSearch
  */
 class ResourceByProjectKeyProductsSearchTest extends TestCase
@@ -101,17 +100,6 @@ class ResourceByProjectKeyProductsSearchTest extends TestCase
                 },
                 'post',
                 'test_projectKey/products/search',
-            ],
-            'ByProjectKeyProductsSearchHead' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
-                },
-                'head',
-                'test_projectKey/products/search',
             ]
         ];
     }
@@ -132,15 +120,6 @@ class ResourceByProjectKeyProductsSearchTest extends TestCase
                         ->products()
                         ->search()
                         ->post(null);
-                }
-            ],
-            'ByProjectKeyProductsSearchHead' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
                 }
             ]
         ];
@@ -236,96 +215,6 @@ class ResourceByProjectKeyProductsSearchTest extends TestCase
                         ->products()
                         ->search()
                         ->post(null);
-                },
-                599
-            ],
-            'ByProjectKeyProductsSearchHead_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
-                },
-                200
-            ],
-            'ByProjectKeyProductsSearchHead_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
-                },
-                404
-            ],
-            'ByProjectKeyProductsSearchHead_400' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
-                },
-                400
-            ],
-            'ByProjectKeyProductsSearchHead_401' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
-                },
-                401
-            ],
-            'ByProjectKeyProductsSearchHead_403' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
-                },
-                403
-            ],
-            'ByProjectKeyProductsSearchHead_500' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
-                },
-                500
-            ],
-            'ByProjectKeyProductsSearchHead_502' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
-                },
-                502
-            ],
-            'ByProjectKeyProductsSearchHead_503' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
-                },
-                503
-            ],
-            'ByProjectKeyProductsSearchHead_599' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->products()
-                        ->search()
-                        ->head();
                 },
                 599
             ]
