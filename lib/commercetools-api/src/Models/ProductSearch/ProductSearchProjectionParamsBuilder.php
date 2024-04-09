@@ -149,7 +149,7 @@ final class ProductSearchProjectionParamsBuilder implements Builder
     /**
      * <p><code>key</code> of an existing <a href="ctp:api:type:Store">Store</a>.
      * If the Store has defined some languages, countries, distribution or supply Channels,
-     * they are used for projections based on <a href="ctp:api:type:ProductProjectionLocales">locale</a>, <a href="ctp:api:type:ProductProjectionPrices">price</a>
+     * they are used for projections based on <a href="ctp:api:type:ProductProjectionLocales">locale</a>, <a href="ctp:api:type:ProductProjectionPrices">price</a>,
      * and <a href="ctp:api:type:ProductProjectionInventoryEntries">inventory</a>.
      * If the Store has defined <a href="ctp:api:type:ProductSelection">Product Selections</a>, they have no effect on the results of this query.</p>
      *

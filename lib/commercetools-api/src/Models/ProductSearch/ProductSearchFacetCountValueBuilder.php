@@ -47,6 +47,8 @@ final class ProductSearchFacetCountValueBuilder implements Builder
     private $level;
 
     /**
+     * <p>Name of the count facet to appear in the <a href="ctp:api:type:ProductSearchFacetResultCount">ProductSearchFacetResultCount</a>.</p>
+     *
 
      * @return null|string
      */

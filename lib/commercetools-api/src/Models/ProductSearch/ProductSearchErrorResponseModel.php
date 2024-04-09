@@ -55,7 +55,7 @@ final class ProductSearchErrorResponseModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>The http status code of the response.</p>
+     * <p>The HTTP status code of the response.</p>
      *
      *
      * @return null|int

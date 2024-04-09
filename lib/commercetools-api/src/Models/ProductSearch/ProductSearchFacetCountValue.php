@@ -20,6 +20,8 @@ interface ProductSearchFacetCountValue extends JsonObject
     public const FIELD_LEVEL = 'level';
 
     /**
+     * <p>Name of the count facet to appear in the <a href="ctp:api:type:ProductSearchFacetResultCount">ProductSearchFacetResultCount</a>.</p>
+     *
 
      * @return null|string
      */
