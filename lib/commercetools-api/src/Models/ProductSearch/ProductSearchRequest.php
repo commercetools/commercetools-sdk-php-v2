@@ -22,6 +22,7 @@ interface ProductSearchRequest extends JsonObject
     public const FIELD_MARK_MATCHING_VARIANTS = 'markMatchingVariants';
     public const FIELD_PRODUCT_PROJECTION_PARAMETERS = 'productProjectionParameters';
     public const FIELD_FACETS = 'facets';
+    public const FIELD_POST_FILTER = 'postFilter';
 
     /**
      * <p>The search query against <a href="/../api/projects/product-search#searchable-product-fields">searchable Product fields</a>.</p>
@@ -82,6 +83,15 @@ interface ProductSearchRequest extends JsonObject
     public function getFacets();
 
     /**
+     * <p>Specify an additional filter on the result of the <code>query</code> after the API calculated <code>facets</code>.
+     * This feature assists you in implementing faceted search.</p>
+     *
+
+     * @return null|SearchQuery
+     */
+    public function getPostFilter();
+
+    /**
      * @param ?SearchQuery $query
      */
     public function setQuery(?SearchQuery $query): void;
@@ -115,4 +125,9 @@ interface ProductSearchRequest extends JsonObject
      * @param ?ProductSearchFacetExpressionCollection $facets
      */
     public function setFacets(?ProductSearchFacetExpressionCollection $facets): void;
+
+    /**
+     * @param ?SearchQuery $postFilter
+     */
+    public function setPostFilter(?SearchQuery $postFilter): void;
 }

@@ -64,6 +64,12 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
      */
     protected $facets;
 
+    /**
+     *
+     * @var ?SearchQuery
+     */
+    protected $postFilter;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -75,7 +81,8 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
         ?int $offset = null,
         ?bool $markMatchingVariants = null,
         ?ProductSearchProjectionParams $productProjectionParameters = null,
-        ?ProductSearchFacetExpressionCollection $facets = null
+        ?ProductSearchFacetExpressionCollection $facets = null,
+        ?SearchQuery $postFilter = null
     ) {
         $this->query = $query;
         $this->sort = $sort;
@@ -84,6 +91,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
         $this->markMatchingVariants = $markMatchingVariants;
         $this->productProjectionParameters = $productProjectionParameters;
         $this->facets = $facets;
+        $this->postFilter = $postFilter;
     }
 
     /**
@@ -230,6 +238,28 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
         return $this->facets;
     }
 
+    /**
+     * <p>Specify an additional filter on the result of the <code>query</code> after the API calculated <code>facets</code>.
+     * This feature assists you in implementing faceted search.</p>
+     *
+     *
+     * @return null|SearchQuery
+     */
+    public function getPostFilter()
+    {
+        if (is_null($this->postFilter)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_POST_FILTER);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->postFilter = SearchQueryModel::of($data);
+        }
+
+        return $this->postFilter;
+    }
+
 
     /**
      * @param ?SearchQuery $query
@@ -285,5 +315,13 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     public function setFacets(?ProductSearchFacetExpressionCollection $facets): void
     {
         $this->facets = $facets;
+    }
+
+    /**
+     * @param ?SearchQuery $postFilter
+     */
+    public function setPostFilter(?SearchQuery $postFilter): void
+    {
+        $this->postFilter = $postFilter;
     }
 }
