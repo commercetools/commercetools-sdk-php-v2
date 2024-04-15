@@ -526,7 +526,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Store">Stores</a> to which the Customer is assigned to.</p>
      * <ul>
-     * <li>If no Stores are specified, the Customer is a global customer, and can log in using the <a href="/../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
+     * <li>If <code>stores</code> is empty, the Customer is a global customer, and can log in using the <a href="/../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
      * <li>If any Stores are specified, the Customer can only log in using the <a href="/../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
      * </ul>
      *
