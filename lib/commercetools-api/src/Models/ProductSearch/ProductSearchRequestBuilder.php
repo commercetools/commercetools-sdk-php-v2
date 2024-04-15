@@ -66,6 +66,12 @@ final class ProductSearchRequestBuilder implements Builder
     private $facets;
 
     /**
+
+     * @var null|SearchQuery|SearchQueryBuilder
+     */
+    private $postFilter;
+
+    /**
      * <p>The search query against <a href="/../api/projects/product-search#searchable-product-fields">searchable Product fields</a>.</p>
      *
 
@@ -142,6 +148,18 @@ final class ProductSearchRequestBuilder implements Builder
     public function getFacets()
     {
         return $this->facets;
+    }
+
+    /**
+     * <p>Specify an additional filter on the result of the <code>query</code> after the API calculated <code>facets</code>.
+     * This feature assists you in implementing faceted search.</p>
+     *
+
+     * @return null|SearchQuery
+     */
+    public function getPostFilter()
+    {
+        return $this->postFilter instanceof SearchQueryBuilder ? $this->postFilter->build() : $this->postFilter;
     }
 
     /**
@@ -222,6 +240,17 @@ final class ProductSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?SearchQuery $postFilter
+     * @return $this
+     */
+    public function withPostFilter(?SearchQuery $postFilter)
+    {
+        $this->postFilter = $postFilter;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withQuery() instead
      * @return $this
      */
@@ -243,6 +272,17 @@ final class ProductSearchRequestBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withPostFilter() instead
+     * @return $this
+     */
+    public function withPostFilterBuilder(?SearchQueryBuilder $postFilter)
+    {
+        $this->postFilter = $postFilter;
+
+        return $this;
+    }
+
     public function build(): ProductSearchRequest
     {
         return new ProductSearchRequestModel(
@@ -252,7 +292,8 @@ final class ProductSearchRequestBuilder implements Builder
             $this->offset,
             $this->markMatchingVariants,
             $this->productProjectionParameters instanceof ProductSearchProjectionParamsBuilder ? $this->productProjectionParameters->build() : $this->productProjectionParameters,
-            $this->facets
+            $this->facets,
+            $this->postFilter instanceof SearchQueryBuilder ? $this->postFilter->build() : $this->postFilter
         );
     }
 
