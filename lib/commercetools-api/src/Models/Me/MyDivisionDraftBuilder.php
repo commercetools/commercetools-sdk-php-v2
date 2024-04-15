@@ -11,8 +11,8 @@ namespace Commercetools\Api\Models\Me;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierBuilder;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -45,7 +45,7 @@ final class MyDivisionDraftBuilder implements Builder
 
     /**
 
-     * @var null|CustomFields|CustomFieldsBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -122,11 +122,11 @@ final class MyDivisionDraftBuilder implements Builder
      * <p>Custom Fields for the Business Unit.</p>
      *
 
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -231,10 +231,10 @@ final class MyDivisionDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -311,7 +311,7 @@ final class MyDivisionDraftBuilder implements Builder
      * @deprecated use withCustom() instead
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
 
@@ -335,7 +335,7 @@ final class MyDivisionDraftBuilder implements Builder
             $this->key,
             $this->name,
             $this->contactEmail,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->addresses,
             $this->shippingAddresses,
             $this->defaultShippingAddress,

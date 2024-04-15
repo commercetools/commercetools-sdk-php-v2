@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
-use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -63,7 +63,7 @@ interface MyBusinessUnitDraft extends JsonObject
      * <p>Custom Fields for the Business Unit.</p>
      *
 
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
@@ -125,9 +125,9 @@ interface MyBusinessUnitDraft extends JsonObject
     public function setContactEmail(?string $contactEmail): void;
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void;
+    public function setCustom(?CustomFieldsDraft $custom): void;
 
     /**
      * @param ?BaseAddressCollection $addresses
