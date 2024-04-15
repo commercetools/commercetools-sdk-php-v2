@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -49,7 +49,7 @@ final class MyBusinessUnitDraftModel extends JsonObjectModel implements MyBusine
 
     /**
      *
-     * @var ?CustomFields
+     * @var ?CustomFieldsDraft
      */
     protected $custom;
 
@@ -99,7 +99,7 @@ final class MyBusinessUnitDraftModel extends JsonObjectModel implements MyBusine
         ?string $key = null,
         ?string $name = null,
         ?string $contactEmail = null,
-        ?CustomFields $custom = null,
+        ?CustomFieldsDraft $custom = null,
         ?BaseAddressCollection $addresses = null,
         ?array $shippingAddresses = null,
         ?int $defaultShippingAddress = null,
@@ -203,7 +203,7 @@ final class MyBusinessUnitDraftModel extends JsonObjectModel implements MyBusine
      * <p>Custom Fields for the Business Unit.</p>
      *
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
@@ -214,7 +214,7 @@ final class MyBusinessUnitDraftModel extends JsonObjectModel implements MyBusine
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
         return $this->custom;
@@ -348,9 +348,9 @@ final class MyBusinessUnitDraftModel extends JsonObjectModel implements MyBusine
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
