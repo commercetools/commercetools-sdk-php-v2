@@ -87,10 +87,16 @@ final class PriceImportBuilder implements Builder
     private $discounted;
 
     /**
-
+     * @deprecated
      * @var ?bool
      */
     private $publish;
+
+    /**
+
+     * @var ?bool
+     */
+    private $staged;
 
     /**
 
@@ -209,12 +215,26 @@ final class PriceImportBuilder implements Builder
     /**
      * <p>Only the <a href="/../api/projects/products#embedded-price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
      *
-
+     * @deprecated
      * @return null|bool
      */
     public function getPublish()
     {
         return $this->publish;
+    }
+
+    /**
+     * <ul>
+     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Price data.</li>
+     * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
     }
 
     /**
@@ -365,6 +385,17 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
      * @param ?PriceTierCollection $tiers
      * @return $this
      */
@@ -497,6 +528,7 @@ final class PriceImportBuilder implements Builder
             $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
             $this->publish,
+            $this->staged,
             $this->tiers,
             $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom,
             $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,

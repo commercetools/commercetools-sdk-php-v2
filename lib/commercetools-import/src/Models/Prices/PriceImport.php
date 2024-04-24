@@ -31,6 +31,7 @@ interface PriceImport extends ImportResource
     public const FIELD_CHANNEL = 'channel';
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_PUBLISH = 'publish';
+    public const FIELD_STAGED = 'staged';
     public const FIELD_TIERS = 'tiers';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_PRODUCT_VARIANT = 'productVariant';
@@ -105,10 +106,21 @@ interface PriceImport extends ImportResource
     /**
      * <p>Only the <a href="/../api/projects/products#embedded-price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
      *
-
+     * @deprecated
      * @return null|bool
      */
     public function getPublish();
+
+    /**
+     * <ul>
+     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Price data.</li>
+     * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged();
 
     /**
      * <p>The tiered prices for this price.</p>
@@ -190,6 +202,11 @@ interface PriceImport extends ImportResource
      * @param ?bool $publish
      */
     public function setPublish(?bool $publish): void;
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void;
 
     /**
      * @param ?PriceTierCollection $tiers

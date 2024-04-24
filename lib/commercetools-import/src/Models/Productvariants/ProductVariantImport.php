@@ -23,6 +23,7 @@ interface ProductVariantImport extends ImportResource
     public const FIELD_IMAGES = 'images';
     public const FIELD_ASSETS = 'assets';
     public const FIELD_PUBLISH = 'publish';
+    public const FIELD_STAGED = 'staged';
     public const FIELD_PRODUCT = 'product';
 
     /**
@@ -79,10 +80,21 @@ interface ProductVariantImport extends ImportResource
      * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
      * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
      *
-
+     * @deprecated
      * @return null|bool
      */
     public function getPublish();
+
+    /**
+     * <ul>
+     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Product Variant data.</li>
+     * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged();
 
     /**
      * <p>The <a href="/../api/projects/products#productvariant">Product</a> to which this Product Variant belongs. Maps to <code>ProductVariant.product</code>.
@@ -128,6 +140,11 @@ interface ProductVariantImport extends ImportResource
      * @param ?bool $publish
      */
     public function setPublish(?bool $publish): void;
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void;
 
     /**
      * @param ?ProductKeyReference $product
