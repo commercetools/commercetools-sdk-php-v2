@@ -62,10 +62,16 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     protected $assets;
 
     /**
-     *
+     * @deprecated
      * @var ?bool
      */
     protected $publish;
+
+    /**
+     *
+     * @var ?bool
+     */
+    protected $staged;
 
     /**
      *
@@ -85,6 +91,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         ?ImageCollection $images = null,
         ?AssetCollection $assets = null,
         ?bool $publish = null,
+        ?bool $staged = null,
         ?ProductKeyReference $product = null
     ) {
         $this->key = $key;
@@ -94,6 +101,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         $this->images = $images;
         $this->assets = $assets;
         $this->publish = $publish;
+        $this->staged = $staged;
         $this->product = $product;
     }
 
@@ -223,7 +231,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
      * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
      * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
      *
-     *
+     * @deprecated
      * @return null|bool
      */
     public function getPublish()
@@ -238,6 +246,29 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         }
 
         return $this->publish;
+    }
+
+    /**
+     * <ul>
+     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Product Variant data.</li>
+     * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
+     * </ul>
+     *
+     *
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     /**
@@ -318,6 +349,14 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     public function setPublish(?bool $publish): void
     {
         $this->publish = $publish;
+    }
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 
     /**

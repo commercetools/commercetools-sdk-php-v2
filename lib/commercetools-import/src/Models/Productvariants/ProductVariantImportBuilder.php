@@ -63,10 +63,16 @@ final class ProductVariantImportBuilder implements Builder
     private $assets;
 
     /**
-
+     * @deprecated
      * @var ?bool
      */
     private $publish;
+
+    /**
+
+     * @var ?bool
+     */
+    private $staged;
 
     /**
 
@@ -146,12 +152,26 @@ final class ProductVariantImportBuilder implements Builder
      * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
      * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
      *
-
+     * @deprecated
      * @return null|bool
      */
     public function getPublish()
     {
         return $this->publish;
+    }
+
+    /**
+     * <ul>
+     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Product Variant data.</li>
+     * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
     }
 
     /**
@@ -245,6 +265,17 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
      * @param ?ProductKeyReference $product
      * @return $this
      */
@@ -276,6 +307,7 @@ final class ProductVariantImportBuilder implements Builder
             $this->images,
             $this->assets,
             $this->publish,
+            $this->staged,
             $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product
         );
     }
