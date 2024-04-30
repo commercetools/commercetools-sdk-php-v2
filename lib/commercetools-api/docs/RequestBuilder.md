@@ -2295,7 +2295,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withId("ID")->delete()`
 
-null
+Returns a [ReferenceExists](ctp:api:type:ReferenceExistsError) error if other resources reference the Channel to be deleted.
+
 
 ### Example
 ```php
