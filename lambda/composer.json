@@ -9,6 +9,6 @@
         }
     ],
     "require": {
-        "bref/bref": "^0.5.20"
+        "bref/bref": "^2.1.21"
     }
 }

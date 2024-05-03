@@ -10,7 +10,7 @@ require __DIR__ . '/vendor/autoload.php';
 return new class implements RequestHandlerInterface {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $body = json_decode($request->getBody(), true);
+        $body = json_decode($request->getBody()->getContents(), true);
         $action = $body['action'] ?? '';
         return new Response($action == 'create' ? 201 : 200);
     }
