@@ -3,7 +3,7 @@ service: extension-responder
 provider:
     name: aws
     region: eu-west-1
-    runtime: provided
+    runtime: provided.al2
 
 plugins:
     - ./vendor/bref/bref
@@ -14,8 +14,7 @@ functions:
         reservedConcurrency: 1
         description: ''
         timeout: 5 # in seconds (API Gateway has a timeout of 29 seconds)
-        layers:
-            - ${bref:layer.php-81-fpm}
+        runtime: php-81-fpm
         events:
             -   http: 'ANY /'
             -   http: 'ANY /{proxy+}'
