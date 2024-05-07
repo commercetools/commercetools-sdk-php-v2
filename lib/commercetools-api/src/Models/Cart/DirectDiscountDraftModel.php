@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountTarget;
 use Commercetools\Api\Models\CartDiscount\CartDiscountTargetModel;
-use Commercetools\Api\Models\CartDiscount\CartDiscountValue;
-use Commercetools\Api\Models\CartDiscount\CartDiscountValueModel;
+use Commercetools\Api\Models\CartDiscount\CartDiscountValueDraft;
+use Commercetools\Api\Models\CartDiscount\CartDiscountValueDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -25,7 +25,7 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
 {
     /**
      *
-     * @var ?CartDiscountValue
+     * @var ?CartDiscountValueDraft
      */
     protected $value;
 
@@ -40,7 +40,7 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CartDiscountValue $value = null,
+        ?CartDiscountValueDraft $value = null,
         ?CartDiscountTarget $target = null
     ) {
         $this->value = $value;
@@ -51,7 +51,7 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
      * <p>Defines the effect the Discount will have.</p>
      *
      *
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue()
     {
@@ -61,7 +61,7 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
             if (is_null($data)) {
                 return null;
             }
-            $className = CartDiscountValueModel::resolveDiscriminatorClass($data);
+            $className = CartDiscountValueDraftModel::resolveDiscriminatorClass($data);
             $this->value = $className::of($data);
         }
 
@@ -92,9 +92,9 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
 
 
     /**
-     * @param ?CartDiscountValue $value
+     * @param ?CartDiscountValueDraft $value
      */
-    public function setValue(?CartDiscountValue $value): void
+    public function setValue(?CartDiscountValueDraft $value): void
     {
         $this->value = $value;
     }

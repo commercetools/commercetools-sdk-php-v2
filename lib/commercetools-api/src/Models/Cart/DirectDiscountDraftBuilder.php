@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountTarget;
 use Commercetools\Api\Models\CartDiscount\CartDiscountTargetBuilder;
-use Commercetools\Api\Models\CartDiscount\CartDiscountValue;
-use Commercetools\Api\Models\CartDiscount\CartDiscountValueBuilder;
+use Commercetools\Api\Models\CartDiscount\CartDiscountValueDraft;
+use Commercetools\Api\Models\CartDiscount\CartDiscountValueDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -26,7 +26,7 @@ final class DirectDiscountDraftBuilder implements Builder
 {
     /**
 
-     * @var null|CartDiscountValue|CartDiscountValueBuilder
+     * @var null|CartDiscountValueDraft|CartDiscountValueDraftBuilder
      */
     private $value;
 
@@ -40,11 +40,11 @@ final class DirectDiscountDraftBuilder implements Builder
      * <p>Defines the effect the Discount will have.</p>
      *
 
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue()
     {
-        return $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -60,10 +60,10 @@ final class DirectDiscountDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CartDiscountValue $value
+     * @param ?CartDiscountValueDraft $value
      * @return $this
      */
-    public function withValue(?CartDiscountValue $value)
+    public function withValue(?CartDiscountValueDraft $value)
     {
         $this->value = $value;
 
@@ -85,7 +85,7 @@ final class DirectDiscountDraftBuilder implements Builder
      * @deprecated use withValue() instead
      * @return $this
      */
-    public function withValueBuilder(?CartDiscountValueBuilder $value)
+    public function withValueBuilder(?CartDiscountValueDraftBuilder $value)
     {
         $this->value = $value;
 
@@ -106,7 +106,7 @@ final class DirectDiscountDraftBuilder implements Builder
     public function build(): DirectDiscountDraft
     {
         return new DirectDiscountDraftModel(
-            $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value,
+            $this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value,
             $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target
         );
     }
