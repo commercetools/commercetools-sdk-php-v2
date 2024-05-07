@@ -109,7 +109,7 @@ final class CompanyDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-defined unique identifier for the Business Unit.</p>
+     * <p>User-defined unique and immutable identifier for the Business Unit.</p>
      *
 
      * @return null|string

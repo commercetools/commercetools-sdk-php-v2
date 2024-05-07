@@ -70,7 +70,7 @@ final class AssociateRoleDraftModel extends JsonObjectModel implements Associate
     }
 
     /**
-     * <p>User-defined unique identifier for the AssociateRole.</p>
+     * <p>User-defined unique and immutable identifier for the AssociateRole.</p>
      *
      *
      * @return null|string

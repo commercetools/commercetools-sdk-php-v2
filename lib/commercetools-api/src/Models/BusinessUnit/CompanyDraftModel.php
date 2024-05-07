@@ -153,7 +153,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
     }
 
     /**
-     * <p>User-defined unique identifier for the Business Unit.</p>
+     * <p>User-defined unique and immutable identifier for the Business Unit.</p>
      *
      *
      * @return null|string

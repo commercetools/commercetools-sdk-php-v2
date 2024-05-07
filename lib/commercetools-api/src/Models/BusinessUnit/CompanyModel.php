@@ -360,7 +360,7 @@ final class CompanyModel extends JsonObjectModel implements Company
     }
 
     /**
-     * <p>User-defined unique identifier of the Business Unit.</p>
+     * <p>User-defined unique and immutable identifier of the Business Unit.</p>
      *
      *
      * @return null|string

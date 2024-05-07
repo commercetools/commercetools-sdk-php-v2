@@ -21,7 +21,7 @@ interface AssociateRoleDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier for the AssociateRole.</p>
+     * <p>User-defined unique and immutable identifier for the AssociateRole.</p>
      *
 
      * @return null|string
