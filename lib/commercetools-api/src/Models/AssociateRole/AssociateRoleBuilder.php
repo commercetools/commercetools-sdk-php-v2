@@ -162,7 +162,7 @@ final class AssociateRoleBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the AssociateRole.</p>
+     * <p>User-defined unique and immutable identifier of the AssociateRole.</p>
      *
 
      * @return null|string

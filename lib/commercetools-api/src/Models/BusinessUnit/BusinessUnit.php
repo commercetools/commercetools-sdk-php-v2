@@ -91,7 +91,7 @@ interface BusinessUnit extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>User-defined unique identifier of the Business Unit.</p>
+     * <p>User-defined unique and immutable identifier of the Business Unit.</p>
      *
 
      * @return null|string
