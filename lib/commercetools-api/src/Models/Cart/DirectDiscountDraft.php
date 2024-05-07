@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountTarget;
-use Commercetools\Api\Models\CartDiscount\CartDiscountValue;
+use Commercetools\Api\Models\CartDiscount\CartDiscountValueDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -22,7 +22,7 @@ interface DirectDiscountDraft extends JsonObject
      * <p>Defines the effect the Discount will have.</p>
      *
 
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue();
 
@@ -36,9 +36,9 @@ interface DirectDiscountDraft extends JsonObject
     public function getTarget();
 
     /**
-     * @param ?CartDiscountValue $value
+     * @param ?CartDiscountValueDraft $value
      */
-    public function setValue(?CartDiscountValue $value): void;
+    public function setValue(?CartDiscountValueDraft $value): void;
 
     /**
      * @param ?CartDiscountTarget $target
