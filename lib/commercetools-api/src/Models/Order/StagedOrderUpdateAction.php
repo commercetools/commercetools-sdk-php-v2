@@ -86,6 +86,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressAndCustomShi
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressAndShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodTaxAmountAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodTaxRateAction;

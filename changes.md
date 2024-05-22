@@ -5,6 +5,10 @@
 
 - added type `Attribution`
 - added type `AttributionSource`
+- added type `StagedOrderSetShippingCustomFieldAction`
+- added type `StagedOrderSetShippingCustomTypeAction`
+- added type `OrderSetShippingCustomFieldAction`
+- added type `OrderSetShippingCustomTypeAction`
 </details>
 
 
