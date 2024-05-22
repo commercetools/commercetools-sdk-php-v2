@@ -164,6 +164,10 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomFieldA
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomFieldActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomTypeActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomFieldActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodTaxAmountAction;
@@ -285,6 +289,8 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setShippingAddressAndShippingMethod' => StagedOrderSetShippingAddressAndShippingMethodActionModel::class,
        'setShippingAddressCustomField' => StagedOrderSetShippingAddressCustomFieldActionModel::class,
        'setShippingAddressCustomType' => StagedOrderSetShippingAddressCustomTypeActionModel::class,
+       'setShippingCustomField' => StagedOrderSetShippingCustomFieldActionModel::class,
+       'setShippingCustomType' => StagedOrderSetShippingCustomTypeActionModel::class,
        'setShippingMethod' => StagedOrderSetShippingMethodActionModel::class,
        'setShippingMethodTaxAmount' => StagedOrderSetShippingMethodTaxAmountActionModel::class,
        'setShippingMethodTaxRate' => StagedOrderSetShippingMethodTaxRateActionModel::class,

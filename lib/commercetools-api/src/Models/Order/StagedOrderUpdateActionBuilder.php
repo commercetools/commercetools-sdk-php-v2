@@ -164,6 +164,10 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomFieldA
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomFieldActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomTypeActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomFieldActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingCustomTypeActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodTaxAmountAction;
