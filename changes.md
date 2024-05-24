@@ -1,24 +1,11 @@
 **Api changes**
 
 <details>
-<summary>Added Type(s)</summary>
+<summary>Added Property(s)</summary>
 
-- added type `Attribution`
-- added type `AttributionSource`
-- added type `StagedOrderSetShippingCustomFieldAction`
-- added type `StagedOrderSetShippingCustomTypeAction`
-- added type `OrderSetShippingCustomFieldAction`
-- added type `OrderSetShippingCustomTypeAction`
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `value` of type `DirectDiscountDraft` from type `CartDiscountValue` to `CartDiscountValueDraft`
-- :warning: changed property `custom` of type `MyBusinessUnitDraft` from type `CustomFields` to `CustomFieldsDraft`
-- :warning: changed property `custom` of type `MyCompanyDraft` from type `CustomFields` to `CustomFieldsDraft`
-- :warning: changed property `custom` of type `MyDivisionDraft` from type `CustomFields` to `CustomFieldsDraft`
+- added property `attributedTo` to type `CreatedBy`
+- added property `attributedTo` to type `LastModifiedBy`
+- added property `postFilter` to type `ProductSearchRequest`
 </details>
 
 
@@ -33,11 +20,12 @@
 
 
 <details>
-<summary>Added Property(s)</summary>
+<summary>Changed Property(s)</summary>
 
-- added property `attributedTo` to type `CreatedBy`
-- added property `attributedTo` to type `LastModifiedBy`
-- added property `postFilter` to type `ProductSearchRequest`
+- :warning: changed property `value` of type `DirectDiscountDraft` from type `CartDiscountValue` to `CartDiscountValueDraft`
+- :warning: changed property `custom` of type `MyBusinessUnitDraft` from type `CustomFields` to `CustomFieldsDraft`
+- :warning: changed property `custom` of type `MyCompanyDraft` from type `CustomFields` to `CustomFieldsDraft`
+- :warning: changed property `custom` of type `MyDivisionDraft` from type `CustomFields` to `CustomFieldsDraft`
 </details>
 
 
@@ -47,23 +35,19 @@
 - :warning: removed method `$apiRoot->withProjectKey()->products()->search()->head()`
 </details>
 
-**Import changes**
 
 <details>
 <summary>Added Type(s)</summary>
 
-- added type `DiscountCodeImportRequest`
-- added type `DiscountCodeImport`
+- added type `Attribution`
+- added type `AttributionSource`
+- added type `StagedOrderSetShippingCustomFieldAction`
+- added type `StagedOrderSetShippingCustomTypeAction`
+- added type `OrderSetShippingCustomFieldAction`
+- added type `OrderSetShippingCustomTypeAction`
 </details>
 
-
-<details>
-<summary>MarkDeprecated Property(s)</summary>
-
-- marked property `PriceImport::publish` as deprecated
-- marked property `ProductVariantImport::publish` as deprecated
-</details>
-
+**Import changes**
 
 <details>
 <summary>Added Property(s)</summary>
@@ -74,9 +58,10 @@
 
 
 <details>
-<summary>Added Method(s)</summary>
+<summary>MarkDeprecated Property(s)</summary>
 
-- added method `$apiRoot->withProjectKeyValue()->discountCodes()->importContainers()->withImportContainerKeyValue()->post()`
+- marked property `PriceImport::publish` as deprecated
+- marked property `ProductVariantImport::publish` as deprecated
 </details>
 
 
@@ -90,8 +75,23 @@
 
 
 <details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKeyValue()->discountCodes()->importContainers()->withImportContainerKeyValue()->post()`
+</details>
+
+
+<details>
 <summary>Added Enum(s)</summary>
 
 - added enum `discount-code` to type `ImportResourceType`
+</details>
+
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `DiscountCodeImportRequest`
+- added type `DiscountCodeImport`
 </details>
 
