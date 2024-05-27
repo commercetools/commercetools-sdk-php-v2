@@ -50,7 +50,7 @@ final class ProductSetPriceKeyActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, only the staged <a href="/projects/products#embedded-price">Embedded Price</a> is updated. If <code>false</code>, both the current and staged Embedded Price are updated.</p>
+     * <p>If <code>true</code>, only the staged <a href="ctp:api:type:Price">Embedded Price</a> is updated. If <code>false</code>, both the current and staged Embedded Price are updated.</p>
      *
 
      * @return null|bool

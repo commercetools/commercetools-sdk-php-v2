@@ -164,7 +164,7 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     /**
      * <p>Required when the Line Item uses <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.
      * Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when changing the quantity of a Line Item.</p>
-     * <p>The <a href="ctp:api:type:LineItem">LineItem</a> price is updated as described in <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+     * <p>The <a href="ctp:api:type:LineItem">LineItem</a> price is updated as described in <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
      *
      * @return null|Money

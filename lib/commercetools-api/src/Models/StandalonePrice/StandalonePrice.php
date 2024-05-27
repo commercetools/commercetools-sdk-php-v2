@@ -161,7 +161,7 @@ interface StandalonePrice extends BaseResource
     public function getTiers();
 
     /**
-     * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.
+     * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.
      * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> is applied and the fraction part of the <code>discounted</code> price is 0.5, the discounted price is rounded in favor of the customer with the <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
      *
 
@@ -186,8 +186,8 @@ interface StandalonePrice extends BaseResource
     public function getStaged();
 
     /**
-     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
-     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
      *
 
      * @return null|bool

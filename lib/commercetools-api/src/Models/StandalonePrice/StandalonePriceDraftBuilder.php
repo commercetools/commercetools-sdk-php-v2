@@ -245,7 +245,7 @@ final class StandalonePriceDraftBuilder implements Builder
     }
 
     /**
-     * <p>Set to <code>false</code>, if the StandalonePrice should not be considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     * <p>Set to <code>false</code>, if the StandalonePrice should not be considered during <a href="/../api/pricing-and-discounts-overview#product-price-selection">Prodct price selection</a>.</p>
      *
 
      * @return null|bool

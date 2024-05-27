@@ -101,7 +101,7 @@ final class ProductPriceAddedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The <a href="/projects/products#embedded-price">Embedded Price</a> that was added to the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>The Embedded Price that was added to the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
      *
      * @return null|Price
