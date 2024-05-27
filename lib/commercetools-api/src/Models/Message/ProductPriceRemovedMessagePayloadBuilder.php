@@ -52,7 +52,7 @@ final class ProductPriceRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="/projects/products#embedded-price">Embedded Price</a> that was removed from the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>The Embedded Price that was removed from the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
 
      * @return null|Price

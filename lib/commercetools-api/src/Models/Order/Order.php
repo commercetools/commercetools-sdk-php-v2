@@ -137,7 +137,7 @@ interface Order extends BaseResource
 
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Order belongs to.
-     * Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+     * Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|CustomerGroupReference
@@ -371,7 +371,7 @@ interface Order extends BaseResource
     public function getPaymentInfo();
 
     /**
-     * <p>Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|string

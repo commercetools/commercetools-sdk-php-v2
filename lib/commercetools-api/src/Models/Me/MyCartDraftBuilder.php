@@ -282,7 +282,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Used for <a href="ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.
+     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.
      * If used for <a href="ctp:api:endpoint:/{projectKey}/in-store/me/carts:POST">Create Cart in Store</a>, the provided country must be one of the <a href="ctp:api:type:Store">Store's</a> <code>countries</code>.</p>
      *
 

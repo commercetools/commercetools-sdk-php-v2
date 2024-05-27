@@ -8119,7 +8119,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->get()`
 
-If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -8148,7 +8148,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->post(null)`
 
 To create a new Product, send a representation that is going to become the initial _staged_ and _current_ representation of the new Product in the catalog.
-If [Price Selection](ctp:api:type:ProductPriceSelection) query parameters are provided, selected Prices will be added to the response.
+If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, selected Prices will be added to the response.
 Produces the [ProductCreated](/projects/messages#product-created) Message.
 
 
@@ -8164,7 +8164,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->get()`
 
-If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -8194,7 +8194,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->post(null)`
 
-If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 
 A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
 
@@ -8211,7 +8211,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
-If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages#product-deleted) Message.
 
 ### Example
@@ -8260,7 +8260,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
-If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+If [Product price selection query parameters]](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -8305,7 +8305,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
-If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages#product-deleted) Message.
 
 ### Example
@@ -9487,7 +9487,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->post(null)`
 
-Produces the [StandalonePriceCreated](ctp:api:type:StandalonePriceCreatedMessage) Message.
+Creating a Standalone Price produces the [StandalonePriceCreated](ctp:api:type:StandalonePriceCreatedMessage) Message.
+
+- If the Standalone Price has the same price scope as an existing Standalone Price, a [DuplicateStandalonePriceScope](ctp:api:type:DuplicateStandalonePriceScopeError) error is returned.
+- If the Standalone Price has overlapping validity periods within the same price scope, a [OverlappingStandalonePriceValidity](ctp:api:type:OverlappingStandalonePriceValidityError) error is returned. A Price without validity period does not conflict with a Price defined for a time period.
 
 
 ### Example

@@ -40,7 +40,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getStaged();
 
     /**
-     * <p>The currency used for <a href="/projects/products#price-selection">Price selection</a>.</p>
+     * <p>The currency used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
      *
 
      * @return null|string
@@ -48,7 +48,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getPriceCurrency();
 
     /**
-     * <p>The country used for <a href="/projects/products#price-selection">Price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     * <p>The country used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|string
@@ -56,7 +56,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getPriceCountry();
 
     /**
-     * <p><code>id</code> of an existing <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> used for <a href="ctp:api:type:ProductPriceSelection">Price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|string
@@ -64,7 +64,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getPriceCustomerGroup();
 
     /**
-     * <p><code>id</code> of an existing <a href="ctp:api:type:Channel">Channel</a> used for <a href="ctp:api:type:ProductPriceSelection">Price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Channel">Channel</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|string

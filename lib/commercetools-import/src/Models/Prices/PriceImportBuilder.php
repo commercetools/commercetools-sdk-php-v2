@@ -213,7 +213,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>Only the <a href="/../api/projects/products#embedded-price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     * <p>Only the <a href="/../api/types#price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
      *
      * @deprecated
      * @return null|bool
@@ -260,7 +260,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>The ProductVariant in which this <a href="/../api/projects/products#embedded-price">Embedded Price</a> is contained.
+     * <p>The ProductVariant in which this <a href="/../api/types#price">Embedded Price</a> is contained.
      * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the <a href="/../api/types#price">Price</a> is associated.
      * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
@@ -273,7 +273,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>The Product in which the Product Variant containing this <a href="/../api/projects/products#embedded-price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>.
+     * <p>The Product in which the Product Variant containing this <a href="/../api/types#price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>.
      * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the <a href="/../api/types#price">Price</a> is associated.
      * If referenced Product does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
      *

@@ -210,7 +210,7 @@ interface LineItem extends JsonObject
     public function getSupplyChannel();
 
     /**
-     * <p>Used to <a href="ctp:api:type:LineItemPriceSelection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>Used to <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelReference

@@ -295,7 +295,7 @@ final class PriceModel extends JsonObjectModel implements Price
 
     /**
      * <p>Is set if a <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> has been applied.
-     * If set, the API uses the DiscountedPrice value for the <a href="ctp:api:type:LineItemPriceSelection">Line Item Price selection</a>.
+     * If set, the API uses the DiscountedPrice value for the <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.
      * When a <a href="ctp:api:type:ProductDiscountValueRelative">relative discount</a> has been applied and the fraction part of the DiscountedPrice <code>value</code> is 0.5, the <code>value</code> is rounded in favor of the customer with <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half-down rounding</a>.</p>
      *
      *

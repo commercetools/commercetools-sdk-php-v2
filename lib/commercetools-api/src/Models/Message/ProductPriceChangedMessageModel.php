@@ -419,7 +419,7 @@ final class ProductPriceChangedMessageModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>The current <a href="/projects/products#embedded-price">Embedded Price</a> before the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
+     * <p>The current Embedded Price before the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
      *
      *
      * @return null|Price
@@ -440,7 +440,7 @@ final class ProductPriceChangedMessageModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>The <a href="/projects/products#embedded-price">Embedded Price</a> after the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
+     * <p>The Embedded Price after the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
      *
      *
      * @return null|Price
@@ -481,7 +481,7 @@ final class ProductPriceChangedMessageModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>The staged <a href="/projects/products#embedded-price">Embedded Price</a> before the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
+     * <p>The staged Embedded Price before the <a href="ctp:api:type:ProductChangePriceAction">Change Embedded Price</a> update action.</p>
      *
      *
      * @return null|Price

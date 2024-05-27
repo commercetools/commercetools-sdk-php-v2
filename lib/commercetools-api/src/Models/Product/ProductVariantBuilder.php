@@ -157,7 +157,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>Only available when <a href="#price-selection">Price selection</a> is used.
+     * <p>Only available when <a href="/../api/pricing-and-discounts-overview#price-selection">price selection</a> is used.
      * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
      *
 
@@ -217,7 +217,7 @@ final class ProductVariantBuilder implements Builder
 
     /**
      * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request
-     * with <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * with <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
      * Can be used to sort, <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
      *
 
@@ -230,7 +230,7 @@ final class ProductVariantBuilder implements Builder
 
     /**
      * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">Product Projection Search</a> request
-     * with <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     * with <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
      *
 
      * @return null|bool
