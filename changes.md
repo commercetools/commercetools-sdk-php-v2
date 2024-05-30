@@ -16,6 +16,7 @@
 - :warning: changed property `stores` of type `CartDiscountSetStoresAction` to be required
 - :warning: changed property `stores` of type `Customer` to be required
 - :warning: changed property `stores` of type `CustomerSetStoresAction` to be required
+- changed property `isOnStock` of type `ProductVariantAvailability` to be optional
 </details>
 
 
