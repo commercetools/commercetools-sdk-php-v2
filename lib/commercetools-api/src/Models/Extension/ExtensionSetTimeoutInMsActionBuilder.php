@@ -31,7 +31,7 @@ final class ExtensionSetTimeoutInMsActionBuilder implements Builder
      * If no timeout is provided, the default value is used for all types of Extensions.
      * The maximum value is 10000 ms (10 seconds) for <code>payment</code> Extensions and 2000 ms (2 seconds) for all other Extensions.</p>
      * <p>This limit can be increased per Project after we review the performance impact.
-     * Please contact our support via the <a href="https://support.commercetools.com/">Support Portal</a> and provide the Region, Project key, and use case.</p>
+     * Please contact the <a href="https://support.commercetools.com/">Composable Commerce support team</a> and provide the Region, Project key, and use case.</p>
      *
 
      * @return null|int
