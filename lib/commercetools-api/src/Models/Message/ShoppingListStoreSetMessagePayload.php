@@ -17,7 +17,7 @@ interface ShoppingListStoreSetMessagePayload extends MessagePayload
     public const FIELD_STORE = 'store';
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
+     * <p><a href="ctp:api:type:KeyReference">KeyReference</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
      *
 
      * @return null|StoreKeyReference
