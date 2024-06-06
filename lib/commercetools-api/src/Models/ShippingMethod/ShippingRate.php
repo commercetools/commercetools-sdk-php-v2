@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -23,7 +23,7 @@ interface ShippingRate extends JsonObject
      * <p>Currency amount of the ShippingRate.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getPrice();
 
@@ -31,7 +31,7 @@ interface ShippingRate extends JsonObject
      * <p><a href="/../api/shipping-delivery-overview#free-shipping">Free shipping</a> is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getFreeAbove();
 
@@ -54,14 +54,14 @@ interface ShippingRate extends JsonObject
     public function getTiers();
 
     /**
-     * @param ?TypedMoney $price
+     * @param ?CentPrecisionMoney $price
      */
-    public function setPrice(?TypedMoney $price): void;
+    public function setPrice(?CentPrecisionMoney $price): void;
 
     /**
-     * @param ?TypedMoney $freeAbove
+     * @param ?CentPrecisionMoney $freeAbove
      */
-    public function setFreeAbove(?TypedMoney $freeAbove): void;
+    public function setFreeAbove(?CentPrecisionMoney $freeAbove): void;
 
     /**
      * @param ?bool $isMatching

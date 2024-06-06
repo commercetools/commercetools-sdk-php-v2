@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -24,7 +24,7 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
 {
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -36,7 +36,7 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $oldValue;
 
@@ -44,11 +44,11 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
      * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -67,18 +67,18 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
      * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
      *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getOldValue()
     {
-        return $this->oldValue instanceof MoneyBuilder ? $this->oldValue->build() : $this->oldValue;
+        return $this->oldValue instanceof TypedMoneyBuilder ? $this->oldValue->build() : $this->oldValue;
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      * @return $this
      */
-    public function withValue(?Money $value)
+    public function withValue(?TypedMoney $value)
     {
         $this->value = $value;
 
@@ -97,10 +97,10 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @param ?Money $oldValue
+     * @param ?TypedMoney $oldValue
      * @return $this
      */
-    public function withOldValue(?Money $oldValue)
+    public function withOldValue(?TypedMoney $oldValue)
     {
         $this->oldValue = $oldValue;
 
@@ -111,7 +111,7 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
      * @deprecated use withValue() instead
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?TypedMoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -122,7 +122,7 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
      * @deprecated use withOldValue() instead
      * @return $this
      */
-    public function withOldValueBuilder(?MoneyBuilder $oldValue)
+    public function withOldValueBuilder(?TypedMoneyBuilder $oldValue)
     {
         $this->oldValue = $oldValue;
 
@@ -132,9 +132,9 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
     public function build(): StandalonePriceValueChangedMessagePayload
     {
         return new StandalonePriceValueChangedMessagePayloadModel(
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
             $this->staged,
-            $this->oldValue instanceof MoneyBuilder ? $this->oldValue->build() : $this->oldValue
+            $this->oldValue instanceof TypedMoneyBuilder ? $this->oldValue->build() : $this->oldValue
         );
     }
 

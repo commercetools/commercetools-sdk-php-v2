@@ -18,7 +18,7 @@ interface TaxedItemPriceDraft extends JsonObject
     public const FIELD_TOTAL_GROSS = 'totalGross';
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Draft object to store money in cent amounts for a specific currency.</p>
      *
 
      * @return null|Money
@@ -26,7 +26,7 @@ interface TaxedItemPriceDraft extends JsonObject
     public function getTotalNet();
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Draft object to store money in cent amounts for a specific currency.</p>
      *
 
      * @return null|Money

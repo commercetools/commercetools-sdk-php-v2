@@ -12,12 +12,12 @@ use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
 use Commercetools\Api\Models\Cart\MethodTaxedPriceCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -119,7 +119,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
 
     /**
      *
-     * @var ?Money
+     * @var ?CentPrecisionMoney
      */
     protected $totalPrice;
 
@@ -153,7 +153,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
         ?string $lineItemId = null,
         ?string $lineItemKey = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
-        ?Money $totalPrice = null,
+        ?CentPrecisionMoney $totalPrice = null,
         ?TaxedItemPrice $taxedPrice = null,
         ?MethodTaxedPriceCollection $taxedPricePortions = null,
         ?string $type = null
@@ -474,7 +474,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
      * <p>Total Price of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
      *
      *
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice()
     {
@@ -485,7 +485,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
                 return null;
             }
 
-            $this->totalPrice = MoneyModel::of($data);
+            $this->totalPrice = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->totalPrice;
@@ -639,9 +639,9 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?Money $totalPrice
+     * @param ?CentPrecisionMoney $totalPrice
      */
-    public function setTotalPrice(?Money $totalPrice): void
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
