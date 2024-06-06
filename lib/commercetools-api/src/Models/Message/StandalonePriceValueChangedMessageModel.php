@@ -12,10 +12,10 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -97,7 +97,7 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
 
     /**
      *
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $value;
 
@@ -109,7 +109,7 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
 
     /**
      *
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $oldValue;
 
@@ -128,9 +128,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?Money $value = null,
+        ?TypedMoney $value = null,
         ?bool $staged = null,
-        ?Money $oldValue = null,
+        ?TypedMoney $oldValue = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -386,7 +386,7 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
      * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
      *
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
@@ -396,8 +396,8 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -428,7 +428,7 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
      * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
      *
      *
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getOldValue()
     {
@@ -438,8 +438,8 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-
-            $this->oldValue = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->oldValue = $className::of($data);
         }
 
         return $this->oldValue;
@@ -527,9 +527,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void
+    public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }
@@ -543,9 +543,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * @param ?Money $oldValue
+     * @param ?TypedMoney $oldValue
      */
-    public function setOldValue(?Money $oldValue): void
+    public function setOldValue(?TypedMoney $oldValue): void
     {
         $this->oldValue = $oldValue;
     }

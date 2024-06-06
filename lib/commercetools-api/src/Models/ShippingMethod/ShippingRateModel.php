@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -23,13 +23,13 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
 {
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $price;
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $freeAbove;
 
@@ -50,8 +50,8 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TypedMoney $price = null,
-        ?TypedMoney $freeAbove = null,
+        ?CentPrecisionMoney $price = null,
+        ?CentPrecisionMoney $freeAbove = null,
         ?bool $isMatching = null,
         ?ShippingRatePriceTierCollection $tiers = null
     ) {
@@ -65,7 +65,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
      * <p>Currency amount of the ShippingRate.</p>
      *
      *
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getPrice()
     {
@@ -75,8 +75,8 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->price = $className::of($data);
+
+            $this->price = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->price;
@@ -86,7 +86,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
      * <p><a href="/../api/shipping-delivery-overview#free-shipping">Free shipping</a> is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
      *
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getFreeAbove()
     {
@@ -96,8 +96,8 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->freeAbove = $className::of($data);
+
+            $this->freeAbove = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->freeAbove;
@@ -147,17 +147,17 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
 
 
     /**
-     * @param ?TypedMoney $price
+     * @param ?CentPrecisionMoney $price
      */
-    public function setPrice(?TypedMoney $price): void
+    public function setPrice(?CentPrecisionMoney $price): void
     {
         $this->price = $price;
     }
 
     /**
-     * @param ?TypedMoney $freeAbove
+     * @param ?CentPrecisionMoney $freeAbove
      */
-    public function setFreeAbove(?TypedMoney $freeAbove): void
+    public function setFreeAbove(?CentPrecisionMoney $freeAbove): void
     {
         $this->freeAbove = $freeAbove;
     }

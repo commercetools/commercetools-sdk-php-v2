@@ -12,8 +12,8 @@ use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
 use Commercetools\Api\Models\Cart\MethodTaxedPriceCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceBuilder;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -46,7 +46,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $totalPrice;
 
@@ -99,11 +99,11 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
      * <p>Total Price of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
      *
 
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice()
     {
-        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+        return $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
 
     /**
@@ -163,10 +163,10 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @param ?Money $totalPrice
+     * @param ?CentPrecisionMoney $totalPrice
      * @return $this
      */
-    public function withTotalPrice(?Money $totalPrice)
+    public function withTotalPrice(?CentPrecisionMoney $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -199,7 +199,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
      * @deprecated use withTotalPrice() instead
      * @return $this
      */
-    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?CentPrecisionMoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -223,7 +223,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
             $this->lineItemId,
             $this->lineItemKey,
             $this->discountedPricePerQuantity,
-            $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
+            $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->taxedPricePortions
         );

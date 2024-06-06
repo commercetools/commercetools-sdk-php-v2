@@ -46,7 +46,7 @@ final class TaxedItemPriceDraftModel extends JsonObjectModel implements TaxedIte
     }
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Draft object to store money in cent amounts for a specific currency.</p>
      *
      *
      * @return null|Money
@@ -67,7 +67,7 @@ final class TaxedItemPriceDraftModel extends JsonObjectModel implements TaxedIte
     }
 
     /**
-     * <p>Draft type that stores amounts only in cent precision for the specified currency.</p>
+     * <p>Draft object to store money in cent amounts for a specific currency.</p>
      *
      *
      * @return null|Money

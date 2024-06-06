@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -22,7 +22,7 @@ interface StandalonePriceValueChangedMessagePayload extends MessagePayload
      * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue();
 
@@ -39,14 +39,14 @@ interface StandalonePriceValueChangedMessagePayload extends MessagePayload
      * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
      *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getOldValue();
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void;
+    public function setValue(?TypedMoney $value): void;
 
     /**
      * @param ?bool $staged
@@ -54,7 +54,7 @@ interface StandalonePriceValueChangedMessagePayload extends MessagePayload
     public function setStaged(?bool $staged): void;
 
     /**
-     * @param ?Money $oldValue
+     * @param ?TypedMoney $oldValue
      */
-    public function setOldValue(?Money $oldValue): void;
+    public function setOldValue(?TypedMoney $oldValue): void;
 }

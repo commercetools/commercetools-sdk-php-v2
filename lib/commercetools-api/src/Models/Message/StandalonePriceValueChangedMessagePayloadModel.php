@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -30,7 +30,7 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
 
     /**
      *
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $value;
 
@@ -42,7 +42,7 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
 
     /**
      *
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $oldValue;
 
@@ -51,9 +51,9 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Money $value = null,
+        ?TypedMoney $value = null,
         ?bool $staged = null,
-        ?Money $oldValue = null,
+        ?TypedMoney $oldValue = null,
         ?string $type = null
     ) {
         $this->value = $value;
@@ -84,7 +84,7 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
      * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
      *
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
@@ -94,8 +94,8 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -126,7 +126,7 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
      * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
      *
      *
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getOldValue()
     {
@@ -136,8 +136,8 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
             if (is_null($data)) {
                 return null;
             }
-
-            $this->oldValue = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->oldValue = $className::of($data);
         }
 
         return $this->oldValue;
@@ -145,9 +145,9 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
 
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void
+    public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }
@@ -161,9 +161,9 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
     }
 
     /**
-     * @param ?Money $oldValue
+     * @param ?TypedMoney $oldValue
      */
-    public function setOldValue(?Money $oldValue): void
+    public function setOldValue(?TypedMoney $oldValue): void
     {
         $this->oldValue = $oldValue;
     }

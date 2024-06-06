@@ -12,8 +12,8 @@ use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
 use Commercetools\Api\Models\Cart\MethodTaxedPriceCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -52,7 +52,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
 
     /**
      *
-     * @var ?Money
+     * @var ?CentPrecisionMoney
      */
     protected $totalPrice;
 
@@ -76,7 +76,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
         ?string $lineItemId = null,
         ?string $lineItemKey = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
-        ?Money $totalPrice = null,
+        ?CentPrecisionMoney $totalPrice = null,
         ?TaxedItemPrice $taxedPrice = null,
         ?MethodTaxedPriceCollection $taxedPricePortions = null,
         ?string $type = null
@@ -172,7 +172,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
      * <p>Total Price of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
      *
      *
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice()
     {
@@ -183,7 +183,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
                 return null;
             }
 
-            $this->totalPrice = MoneyModel::of($data);
+            $this->totalPrice = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->totalPrice;
@@ -257,9 +257,9 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
-     * @param ?Money $totalPrice
+     * @param ?CentPrecisionMoney $totalPrice
      */
-    public function setTotalPrice(?Money $totalPrice): void
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }

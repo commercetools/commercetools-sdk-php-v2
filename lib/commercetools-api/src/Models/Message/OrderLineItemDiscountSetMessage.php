@@ -11,7 +11,7 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
 use Commercetools\Api\Models\Cart\MethodTaxedPriceCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
-use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -52,7 +52,7 @@ interface OrderLineItemDiscountSetMessage extends OrderMessage
      * <p>Total Price of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
      *
 
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice();
 
@@ -89,9 +89,9 @@ interface OrderLineItemDiscountSetMessage extends OrderMessage
     public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void;
 
     /**
-     * @param ?Money $totalPrice
+     * @param ?CentPrecisionMoney $totalPrice
      */
-    public function setTotalPrice(?Money $totalPrice): void;
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void;
 
     /**
      * @param ?TaxedItemPrice $taxedPrice

@@ -12,10 +12,10 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -91,7 +91,7 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -103,7 +103,7 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $oldValue;
 
@@ -222,11 +222,11 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
      * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -245,11 +245,11 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
      * Present on Messages created after 3 February 2023. Optional for backwards compatibility.</p>
      *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getOldValue()
     {
-        return $this->oldValue instanceof MoneyBuilder ? $this->oldValue->build() : $this->oldValue;
+        return $this->oldValue instanceof TypedMoneyBuilder ? $this->oldValue->build() : $this->oldValue;
     }
 
     /**
@@ -363,10 +363,10 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      * @return $this
      */
-    public function withValue(?Money $value)
+    public function withValue(?TypedMoney $value)
     {
         $this->value = $value;
 
@@ -385,10 +385,10 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?Money $oldValue
+     * @param ?TypedMoney $oldValue
      * @return $this
      */
-    public function withOldValue(?Money $oldValue)
+    public function withOldValue(?TypedMoney $oldValue)
     {
         $this->oldValue = $oldValue;
 
@@ -443,7 +443,7 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
      * @deprecated use withValue() instead
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?TypedMoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -454,7 +454,7 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
      * @deprecated use withOldValue() instead
      * @return $this
      */
-    public function withOldValueBuilder(?MoneyBuilder $oldValue)
+    public function withOldValueBuilder(?TypedMoneyBuilder $oldValue)
     {
         $this->oldValue = $oldValue;
 
@@ -474,9 +474,9 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
             $this->staged,
-            $this->oldValue instanceof MoneyBuilder ? $this->oldValue->build() : $this->oldValue
+            $this->oldValue instanceof TypedMoneyBuilder ? $this->oldValue->build() : $this->oldValue
         );
     }
 
