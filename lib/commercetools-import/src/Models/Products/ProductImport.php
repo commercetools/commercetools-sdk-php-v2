@@ -169,9 +169,7 @@ interface ProductImport extends ImportResource
     public function getState();
 
     /**
-     * <p>If <code>publish</code> is set to either <code>true</code> or <code>false</code>, both staged and current projections are set to the same value provided by the import data.
-     * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
-     * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
+     * <p>Determines the published status and current/staged projection of the Product. For more information, see <a href="/best-practices#managing-the-published-state-of-products">Managing the published state of Products</a>.</p>
      *
 
      * @return null|bool
