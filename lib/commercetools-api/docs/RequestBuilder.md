@@ -3391,7 +3391,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
 
-Queries carts in a specific [Store](ctp:api:type:Store).
+Queries Carts in a specific [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -4056,7 +4056,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->get()`
 
-null
+Returns all Carts that match a given Query Predicate and contain either a matching `customerId` or `anonymousId` in a Store.
+
 
 ### Example
 ```php
@@ -4072,7 +4073,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->head()`
 
-Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate or a `404 Not Found` otherwise.
+Checks if a Cart exists for a Store that matches the given Query Predicate, and contains a matching `customerId` or `anonymousId`. Returns a `200 OK` status if any Carts match these conditions, or a `404 Not Found` otherwise.
+
 
 ### Example
 ```php
@@ -4087,6 +4089,8 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->post(null)`
+
+Creates a Cart in the specified Store for a given `customerId` or `anonymousId`.
 
 The `store` field in the created [Cart](ctp:api:type:Cart) is set to the Store specified by the `storeKey` path parameter.
 
@@ -4107,7 +4111,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->get()`
 
-null
+Returns a Cart for a given `id` in a Store. Returns a `200 OK` status if the Cart exists, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+If the Cart exists in the Project but does not belong to a Store, or the Cart's `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+If the Cart exists in the Project but does not have a matching `customerId` or `anonymousId`, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError)  error.
+
 
 ### Example
 ```php
@@ -4124,7 +4133,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->head()`
 
-Checks ifa My Cart exists for a given `id`. Returns a `200 OK` status if the My Cart exists or a `404 Not Found` otherwise.
+null
 
 ### Example
 ```php
@@ -4141,7 +4150,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->post(null)`
 
-If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+Updates the Cart for a given `id` in a Store. Returns a `200 OK` status if the Cart exists, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+If the Cart exists in the Project but does not belong to a Store, or the Cart's `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+If the Cart exists in the Project but does not have a matching `customerId` or `anonymousId`, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError)  error.
 
 
 ### Example
@@ -4159,7 +4172,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->delete()`
 
-null
+Deletes the Cart for a given `id` in a Store. Returns a `200 OK` status if the Cart exists, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+If the Cart exists in the Project but does not belong to a Store, or the Cart's `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+If the Cart exists in the Project but does not have a matching `customerId` or `anonymousId`, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError)  error.
+
 
 ### Example
 ```php
@@ -5662,7 +5680,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->get()`
 
-null
+Returns all Carts that match a given Query Predicate and contain either a matching `customerId` or `anonymousId`.
+
 
 ### Example
 ```php
@@ -5677,7 +5696,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->head()`
 
-Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate or a `404 Not Found` otherwise.
+Checks if a Cart exists that matches a given Query Predicate and contains either a matching `customerId` or `anonymousId`. Returns a `200 OK` status if the Cart exists, or a `404 Not Found` otherwise.
+
 
 ### Example
 ```php
@@ -5692,7 +5712,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->post(null)`
 
-null
+Creates a Cart for a given `customerId` or `anonymousId`.
+
 
 ### Example
 ```php
@@ -5707,7 +5728,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->get()`
 
-null
+Returns a Cart for a given `id`. Returns a `200 OK` status if the Cart exists, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+If the Cart exists in the Project but does not have a matching `customerId` or `anonymousId`, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -5723,7 +5747,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->head()`
 
-Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists, or a `404 Not Found` otherwise.
+
+If the Cart exists in the Project but does not have a matching `customerId` or `anonymousId`, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -5739,7 +5766,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->post(null)`
 
-null
+Updates the Cart for a given `id`. Returns a `200 OK` status if the Cart exists, or a `404 Not Found` otherwise.
+
+If the Cart exists in the Project but does not have a matching `customerId` or `anonymousId`, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -5755,7 +5785,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->delete()`
 
-null
+Deletes the Cart for a given `id`. Returns a `200 OK` status if the Cart exists, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+If the Cart exists in the Project but does not have a matching `customerId` or `anonymousId`, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -5845,7 +5878,7 @@ It has up-to-date Tax Rates, Prices, and Line Item product data and is in `Activ
 
 The new Cart does not contain Payments or Deliveries. The [State](ctp:api:type:ItemState) of Line Items and Custom Line Items is reset to `initial`.
 
-In case the Cart or Order to be replicated does not belong to the authenticaed Customer, the API returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error
+If the Cart or Order to be replicated does not belong to the authenticated Customer, the API returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error
 
 
 ### Example
