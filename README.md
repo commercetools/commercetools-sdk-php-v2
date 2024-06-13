@@ -89,6 +89,23 @@ $project = $request->mapFromResponse($promise->wait());
 $response = $client->send($request);
 $project = $request->mapFromResponse($response);
 ```
+### Custom endpoint for different regions
+
+By default, the library uses `api.europe-west1.gcp.commercetools.com` endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the `us-central1` region:
+```php
+$authConfig = new ClientCredentialsConfig(
+  new ClientCredentials(CLIENT_ID, CLIENT_SECRET), 
+  [], 
+  'https://auth.us-central1.gcp.commercetools.com/oauth/token'
+);
+
+$config = new Config([], 'https://api.us-central1.gcp.commercetools.com');
+$client = ClientFactory::of()->createGuzzleClient(
+  $config,
+  $authConfig,
+);
+```
+Note that the auth endpoint should contain the `/oauth/token` suffix, but the API endpoint - don't.
 
 ### Migration Guidelines
 To migrate from the 1.x to the 2.x, there is a guideline below:
