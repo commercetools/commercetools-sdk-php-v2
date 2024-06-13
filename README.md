@@ -105,6 +105,7 @@ $client = ClientFactory::of()->createGuzzleClient(
   $authConfig,
 );
 ```
+Note that the auth endpoint should contain the `/oauth/token` suffix, but the API endpoint - don't.
 
 ### Migration Guidelines
 To migrate from the 1.x to the 2.x, there is a guideline below:
