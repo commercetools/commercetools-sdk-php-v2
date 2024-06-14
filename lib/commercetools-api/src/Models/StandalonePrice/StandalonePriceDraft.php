@@ -133,7 +133,7 @@ interface StandalonePriceDraft extends JsonObject
     public function getStaged();
 
     /**
-     * <p>Set to <code>false</code>, if the StandalonePrice should not be considered during <a href="/../api/pricing-and-discounts-overview#product-price-selection">Prodct price selection</a>.</p>
+     * <p>Set to <code>false</code>, if the StandalonePrice should not be considered during <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
      *
 
      * @return null|bool
