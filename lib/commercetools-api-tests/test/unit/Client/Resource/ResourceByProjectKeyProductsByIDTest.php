@@ -152,18 +152,6 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                 'get',
                 'test_projectKey/products/test_ID?priceChannel=priceChannel',
             ],
-            'ByProjectKeyProductsByIDGet_withLocaleProjection' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->products()
-                        ->withId('test_ID')
-                        ->get()
-                        ->withLocaleProjection('localeProjection');
-                },
-                'get',
-                'test_projectKey/products/test_ID?localeProjection=localeProjection',
-            ],
             'ByProjectKeyProductsByIDGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -246,18 +234,6 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                 'post',
                 'test_projectKey/products/test_ID?priceChannel=priceChannel',
             ],
-            'ByProjectKeyProductsByIDPost_withLocaleProjection' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->products()
-                        ->withId('test_ID')
-                        ->post(null)
-                        ->withLocaleProjection('localeProjection');
-                },
-                'post',
-                'test_projectKey/products/test_ID?localeProjection=localeProjection',
-            ],
             'ByProjectKeyProductsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -328,18 +304,6 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                 },
                 'delete',
                 'test_projectKey/products/test_ID?priceChannel=priceChannel',
-            ],
-            'ByProjectKeyProductsByIDDelete_withLocaleProjection' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->products()
-                        ->withId('test_ID')
-                        ->delete()
-                        ->withLocaleProjection('localeProjection');
-                },
-                'delete',
-                'test_projectKey/products/test_ID?localeProjection=localeProjection',
             ],
             'ByProjectKeyProductsByIDDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
