@@ -189,15 +189,6 @@ class ByProjectKeyProductsByIDDelete extends ApiRequest implements PriceSelectin
 
     /**
      *
-     * @psalm-param scalar|scalar[] $localeProjection
-     */
-    public function withLocaleProjection($localeProjection): ByProjectKeyProductsByIDDelete
-    {
-        return $this->withQueryParam('localeProjection', $localeProjection);
-    }
-
-    /**
-     *
      * @psalm-param scalar|scalar[] $version
      */
     public function withVersion($version): ByProjectKeyProductsByIDDelete
