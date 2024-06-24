@@ -28,6 +28,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
 
     /**
      */
+    public function orderQuote(): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersQuotes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyOrdersQuotes($args, $this->getClient());
+    }
+    /**
+     */
     public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();

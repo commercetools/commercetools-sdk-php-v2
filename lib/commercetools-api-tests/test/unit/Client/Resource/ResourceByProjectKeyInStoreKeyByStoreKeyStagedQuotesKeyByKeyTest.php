@@ -9,9 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyOrdersQuotes;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -24,12 +21,13 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersGet
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersHead
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersPost
- * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyOrders
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete
+ * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKey
  */
-class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
+class ResourceByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyTest extends TestCase
 {
     /**
      * @dataProvider getRequests()
@@ -47,16 +45,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider getResources()
-     */
-    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
-    {
-        $builder = new ApiRequestBuilder();
-        $resource = $builderFunction($builder);
-        $this->assertInstanceOf($class, $resource);
-        $this->assertEquals($expectedArgs, $resource->getArgs());
-    }
+
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -104,146 +93,118 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withExpand' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey('test_key')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                'test_projectKey/in-store/key=test_storeKey/orders?expand=expand',
+                'test_projectKey/in-store/key=test_storeKey/staged-quotes/key=test_key?expand=expand',
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withSort' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->orders()
-                        ->get()
-                        ->withSort('sort');
-                },
-                'get',
-                'test_projectKey/in-store/key=test_storeKey/orders?sort=sort',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withLimit' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->orders()
-                        ->get()
-                        ->withLimit('limit');
-                },
-                'get',
-                'test_projectKey/in-store/key=test_storeKey/orders?limit=limit',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withOffset' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->orders()
-                        ->get()
-                        ->withOffset('offset');
-                },
-                'get',
-                'test_projectKey/in-store/key=test_storeKey/orders?offset=offset',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->orders()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/in-store/key=test_storeKey/orders?withTotal=withTotal',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->orders()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                'test_projectKey/in-store/key=test_storeKey/orders?where=where',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withPredicateVar' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->orders()
-                        ->get()
-                        ->withPredicateVar('varName', 'var.varName');
-                },
-                'get',
-                'test_projectKey/in-store/key=test_storeKey/orders?var.varName=var.varName',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->inStoreKeyWithStoreKeyValue("test_storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("test_key")
                         ->get();
                 },
                 'get',
-                'test_projectKey/in-store/key=test_storeKey/orders',
+                'test_projectKey/in-store/key=test_storeKey/staged-quotes/key=test_key',
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->orders()
-                        ->head()
-                        ->withWhere('where');
-                },
-                'head',
-                'test_projectKey/in-store/key=test_storeKey/orders?where=where',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->inStoreKeyWithStoreKeyValue("test_storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("test_key")
                         ->head();
                 },
                 'head',
-                'test_projectKey/in-store/key=test_storeKey/orders',
+                'test_projectKey/in-store/key=test_storeKey/staged-quotes/key=test_key',
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_withExpand' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey('test_key')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                'test_projectKey/in-store/key=test_storeKey/orders?expand=expand',
+                'test_projectKey/in-store/key=test_storeKey/staged-quotes/key=test_key?expand=expand',
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->inStoreKeyWithStoreKeyValue("test_storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("test_key")
                         ->post(null);
                 },
                 'post',
-                'test_projectKey/in-store/key=test_storeKey/orders',
+                'test_projectKey/in-store/key=test_storeKey/staged-quotes/key=test_key',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_withDataErasure' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->stagedQuotes()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                'test_projectKey/in-store/key=test_storeKey/staged-quotes/key=test_key?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_withVersion' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->stagedQuotes()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                'test_projectKey/in-store/key=test_storeKey/staged-quotes/key=test_key?version=version',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->stagedQuotes()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                'test_projectKey/in-store/key=test_storeKey/staged-quotes/key=test_key?expand=expand',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->stagedQuotes()
+                        ->withKey("test_key")
+                        ->delete();
+                },
+                'delete',
+                'test_projectKey/in-store/key=test_storeKey/staged-quotes/key=test_key',
             ]
         ];
     }
@@ -251,73 +212,50 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyInStoreKeyByStoreKeyOrdersQuotes' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersQuotes {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
-                        ->orders()
-                        ->orderQuote();
-                },
-                ResourceByProjectKeyInStoreKeyByStoreKeyOrdersQuotes::class,
-                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
-                '/{projectKey}/in-store/key={storeKey}/orders/quotes'
-            ],
-            'ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
-                        ->orders()
-                        ->withOrderNumber("test_orderNumber");
-                },
-                ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber::class,
-                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'orderNumber' => 'test_orderNumber'],
-                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}'
-            ],
-            'ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
-                        ->orders()
-                        ->withId("test_ID");
-                },
-                ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID::class,
-                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'ID' => 'test_ID'],
-                '/{projectKey}/in-store/key={storeKey}/orders/{ID}'
-            ]
         ];
     }
 
     public function getRequestBuilders()
     {
         return [
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 }
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 }
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
+                }
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
                 }
             ]
         ];
@@ -326,273 +264,421 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_200' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 },
                 200
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_400' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 },
                 400
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_401' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 },
                 401
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_403' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_403' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 },
                 403
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_404' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_404' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 },
                 404
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_500' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 },
                 500
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_502' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_502' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 },
                 502
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_503' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 },
                 503
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_599' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyGet_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->get();
                 },
                 599
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_200' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 },
                 200
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_404' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead_404' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 },
                 404
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_400' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 },
                 400
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_401' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 },
                 401
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_403' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead_403' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 },
                 403
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_500' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 },
                 500
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_502' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead_502' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 },
                 502
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_503' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 },
                 503
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersHead_599' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyHead_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->head();
                 },
                 599
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_201' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
                 },
-                201
+                200
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_400' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_409' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                409
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 400
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_401' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 401
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_403' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_403' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 403
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_404' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_404' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 404
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_500' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 500
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_502' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_502' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 502
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_503' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
                 },
                 503
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_599' => [
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->orders()
+                        ->stagedQuotes()
+                        ->withKey("key")
                         ->post(null);
+                },
+                599
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                200
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_409' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                409
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyStagedQuotesKeyByKeyDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->stagedQuotes()
+                        ->withKey("key")
+                        ->delete();
                 },
                 599
             ]
