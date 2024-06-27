@@ -18,6 +18,7 @@ use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
+use Commercetools\Api\Models\ProductTailoring\ProductVariantTailoringCollection;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -143,6 +144,30 @@ final class ProductTailoringCreatedMessageModel extends JsonObjectModel implemen
 
     /**
      *
+     * @var ?LocalizedString
+     */
+    protected $metaTitle;
+
+    /**
+     *
+     * @var ?LocalizedString
+     */
+    protected $metaDescription;
+
+    /**
+     *
+     * @var ?LocalizedString
+     */
+    protected $metaKeywords;
+
+    /**
+     *
+     * @var ?ProductVariantTailoringCollection
+     */
+    protected $variants;
+
+    /**
+     *
      * @var ?bool
      */
     protected $published;
@@ -169,6 +194,10 @@ final class ProductTailoringCreatedMessageModel extends JsonObjectModel implemen
         ?LocalizedString $description = null,
         ?LocalizedString $name = null,
         ?LocalizedString $slug = null,
+        ?LocalizedString $metaTitle = null,
+        ?LocalizedString $metaDescription = null,
+        ?LocalizedString $metaKeywords = null,
+        ?ProductVariantTailoringCollection $variants = null,
         ?bool $published = null,
         ?string $type = null
     ) {
@@ -189,6 +218,10 @@ final class ProductTailoringCreatedMessageModel extends JsonObjectModel implemen
         $this->description = $description;
         $this->name = $name;
         $this->slug = $slug;
+        $this->metaTitle = $metaTitle;
+        $this->metaDescription = $metaDescription;
+        $this->metaKeywords = $metaKeywords;
+        $this->variants = $variants;
         $this->published = $published;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -572,6 +605,89 @@ final class ProductTailoringCreatedMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>The metaTitle of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+     *
+     * @return null|LocalizedString
+     */
+    public function getMetaTitle()
+    {
+        if (is_null($this->metaTitle)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_META_TITLE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaTitle = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaTitle;
+    }
+
+    /**
+     * <p>The metaDescription of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+     *
+     * @return null|LocalizedString
+     */
+    public function getMetaDescription()
+    {
+        if (is_null($this->metaDescription)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_META_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaDescription = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaDescription;
+    }
+
+    /**
+     * <p>The metaKeywords of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+     *
+     * @return null|LocalizedString
+     */
+    public function getMetaKeywords()
+    {
+        if (is_null($this->metaKeywords)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_META_KEYWORDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaKeywords = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaKeywords;
+    }
+
+    /**
+     * <p>The variants of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+     *
+     * @return null|ProductVariantTailoringCollection
+     */
+    public function getVariants()
+    {
+        if (is_null($this->variants)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_VARIANTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variants = ProductVariantTailoringCollection::fromArray($data);
+        }
+
+        return $this->variants;
+    }
+
+    /**
      * <p><code>true</code> if the ProductTailoring is published.</p>
      *
      *
@@ -726,6 +842,38 @@ final class ProductTailoringCreatedMessageModel extends JsonObjectModel implemen
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
+    public function setMetaTitle(?LocalizedString $metaTitle): void
+    {
+        $this->metaTitle = $metaTitle;
+    }
+
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
+    public function setMetaDescription(?LocalizedString $metaDescription): void
+    {
+        $this->metaDescription = $metaDescription;
+    }
+
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
+    {
+        $this->metaKeywords = $metaKeywords;
+    }
+
+    /**
+     * @param ?ProductVariantTailoringCollection $variants
+     */
+    public function setVariants(?ProductVariantTailoringCollection $variants): void
+    {
+        $this->variants = $variants;
     }
 
     /**

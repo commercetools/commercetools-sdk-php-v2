@@ -18,6 +18,7 @@ use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\ProductTailoring\ProductVariantTailoringCollection;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Base\Builder;
@@ -134,6 +135,30 @@ final class ProductTailoringCreatedMessageBuilder implements Builder
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $metaTitle;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $metaDescription;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $metaKeywords;
+
+    /**
+
+     * @var ?ProductVariantTailoringCollection
+     */
+    private $variants;
 
     /**
 
@@ -327,6 +352,50 @@ final class ProductTailoringCreatedMessageBuilder implements Builder
     public function getSlug()
     {
         return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
+    /**
+     * <p>The metaTitle of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getMetaTitle()
+    {
+        return $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle;
+    }
+
+    /**
+     * <p>The metaDescription of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription;
+    }
+
+    /**
+     * <p>The metaKeywords of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords;
+    }
+
+    /**
+     * <p>The variants of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+
+     * @return null|ProductVariantTailoringCollection
+     */
+    public function getVariants()
+    {
+        return $this->variants;
     }
 
     /**
@@ -528,6 +597,50 @@ final class ProductTailoringCreatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
+     * @return $this
+     */
+    public function withMetaTitle(?LocalizedString $metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $metaDescription
+     * @return $this
+     */
+    public function withMetaDescription(?LocalizedString $metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $metaKeywords
+     * @return $this
+     */
+    public function withMetaKeywords(?LocalizedString $metaKeywords)
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductVariantTailoringCollection $variants
+     * @return $this
+     */
+    public function withVariants(?ProductVariantTailoringCollection $variants)
+    {
+        $this->variants = $variants;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $published
      * @return $this
      */
@@ -637,6 +750,39 @@ final class ProductTailoringCreatedMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withMetaTitle() instead
+     * @return $this
+     */
+    public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withMetaDescription() instead
+     * @return $this
+     */
+    public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withMetaKeywords() instead
+     * @return $this
+     */
+    public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
     public function build(): ProductTailoringCreatedMessage
     {
         return new ProductTailoringCreatedMessageModel(
@@ -657,6 +803,10 @@ final class ProductTailoringCreatedMessageBuilder implements Builder
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
+            $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
+            $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
+            $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
+            $this->variants,
             $this->published
         );
     }

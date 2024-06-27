@@ -24,6 +24,7 @@ interface ProductTailoringInStoreDraft extends JsonObject
     public const FIELD_META_KEYWORDS = 'metaKeywords';
     public const FIELD_SLUG = 'slug';
     public const FIELD_PUBLISH = 'publish';
+    public const FIELD_VARIANTS = 'variants';
 
     /**
      * <p>User-defined unique identifier of the ProductTailoring.</p>
@@ -99,6 +100,14 @@ interface ProductTailoringInStoreDraft extends JsonObject
     public function getPublish();
 
     /**
+     * <p>Tailored Variants of the Product.</p>
+     *
+
+     * @return null|ProductVariantTailoringDraftCollection
+     */
+    public function getVariants();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -142,4 +151,9 @@ interface ProductTailoringInStoreDraft extends JsonObject
      * @param ?bool $publish
      */
     public function setPublish(?bool $publish): void;
+
+    /**
+     * @param ?ProductVariantTailoringDraftCollection $variants
+     */
+    public function setVariants(?ProductVariantTailoringDraftCollection $variants): void;
 }

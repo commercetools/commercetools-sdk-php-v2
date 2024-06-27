@@ -27,6 +27,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailorin
     }
 
     /**
+     */
+    public function images(): ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImages
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImages($args, $this->getClient());
+    }
+
+    /**
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
