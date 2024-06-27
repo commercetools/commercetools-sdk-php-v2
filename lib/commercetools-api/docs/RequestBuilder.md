@@ -2839,6 +2839,53 @@ $request = $builder
                 ->withPasswordToken("passwordToken")
                 ->get();
 ```
+## `withProjectKey("projectKey")->customers()->search()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customers()
+                ->search()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->customers()->search()->head()`
+
+Checks whether a search index for the Project's Customers exists.
+Returns a `200 OK` status if the index exists or `404 Not Found` otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customers()
+                ->search()
+                ->head();
+```
+## `withProjectKey("projectKey")->customers()->searchIndexingStatus()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customers()
+                ->searchIndexingStatus()
+                ->get();
+```
 ## `withProjectKey("projectKey")->discountCodes()->get()`
 
 Deprecated scope: `view_orders:{projectKey}`
