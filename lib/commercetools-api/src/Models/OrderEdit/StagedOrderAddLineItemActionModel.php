@@ -399,7 +399,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>External Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     * <p>Sets the external Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>. If the Cart has <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>, the Tax Rate is accepted but ignored.</p>
      *
      *
      * @return null|ExternalTaxRateDraft
