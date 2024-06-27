@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyProductsKeyByProductKeyProductTailoringImages;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -44,7 +45,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductsKeyByProductKeyProductTail
         }
     }
 
-
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
+    {
+        $builder = new ApiRequestBuilder();
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
+    }
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -193,6 +203,20 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductsKeyByProductKeyProductTail
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyInStoreKeyByStoreKeyProductsKeyByProductKeyProductTailoringImages' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyProductsKeyByProductKeyProductTailoringImages {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->products()
+                        ->withProductKey("test_productKey")
+                        ->productTailoring()
+                        ->images();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyProductsKeyByProductKeyProductTailoringImages::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'productKey' => 'test_productKey'],
+                '/{projectKey}/in-store/key={storeKey}/products/key={productKey}/product-tailoring/images'
+            ]
         ];
     }
 

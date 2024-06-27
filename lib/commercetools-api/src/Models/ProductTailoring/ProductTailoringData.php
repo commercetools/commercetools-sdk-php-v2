@@ -20,6 +20,7 @@ interface ProductTailoringData extends JsonObject
     public const FIELD_META_DESCRIPTION = 'metaDescription';
     public const FIELD_META_KEYWORDS = 'metaKeywords';
     public const FIELD_SLUG = 'slug';
+    public const FIELD_VARIANTS = 'variants';
 
     /**
      * <p>Tailored name of the Product.</p>
@@ -71,6 +72,14 @@ interface ProductTailoringData extends JsonObject
     public function getSlug();
 
     /**
+     * <p>Tailored Variants of the Product.</p>
+     *
+
+     * @return null|ProductVariantTailoringCollection
+     */
+    public function getVariants();
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -99,4 +108,9 @@ interface ProductTailoringData extends JsonObject
      * @param ?LocalizedString $slug
      */
     public function setSlug(?LocalizedString $slug): void;
+
+    /**
+     * @param ?ProductVariantTailoringCollection $variants
+     */
+    public function setVariants(?ProductVariantTailoringCollection $variants): void;
 }

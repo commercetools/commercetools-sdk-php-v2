@@ -57,6 +57,12 @@ final class ProductTailoringDataModel extends JsonObjectModel implements Product
      */
     protected $slug;
 
+    /**
+     *
+     * @var ?ProductVariantTailoringCollection
+     */
+    protected $variants;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -67,7 +73,8 @@ final class ProductTailoringDataModel extends JsonObjectModel implements Product
         ?LocalizedString $metaTitle = null,
         ?LocalizedString $metaDescription = null,
         ?LocalizedString $metaKeywords = null,
-        ?LocalizedString $slug = null
+        ?LocalizedString $slug = null,
+        ?ProductVariantTailoringCollection $variants = null
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -75,6 +82,7 @@ final class ProductTailoringDataModel extends JsonObjectModel implements Product
         $this->metaDescription = $metaDescription;
         $this->metaKeywords = $metaKeywords;
         $this->slug = $slug;
+        $this->variants = $variants;
     }
 
     /**
@@ -204,6 +212,26 @@ final class ProductTailoringDataModel extends JsonObjectModel implements Product
         return $this->slug;
     }
 
+    /**
+     * <p>Tailored Variants of the Product.</p>
+     *
+     *
+     * @return null|ProductVariantTailoringCollection
+     */
+    public function getVariants()
+    {
+        if (is_null($this->variants)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_VARIANTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variants = ProductVariantTailoringCollection::fromArray($data);
+        }
+
+        return $this->variants;
+    }
+
 
     /**
      * @param ?LocalizedString $name
@@ -251,5 +279,13 @@ final class ProductTailoringDataModel extends JsonObjectModel implements Product
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * @param ?ProductVariantTailoringCollection $variants
+     */
+    public function setVariants(?ProductVariantTailoringCollection $variants): void
+    {
+        $this->variants = $variants;
     }
 }

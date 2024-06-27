@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\ProductTailoring\ProductVariantTailoringCollection;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -23,6 +24,10 @@ interface ProductTailoringCreatedMessagePayload extends MessagePayload
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_NAME = 'name';
     public const FIELD_SLUG = 'slug';
+    public const FIELD_META_TITLE = 'metaTitle';
+    public const FIELD_META_DESCRIPTION = 'metaDescription';
+    public const FIELD_META_KEYWORDS = 'metaKeywords';
+    public const FIELD_VARIANTS = 'variants';
     public const FIELD_PUBLISHED = 'published';
 
     /**
@@ -82,6 +87,38 @@ interface ProductTailoringCreatedMessagePayload extends MessagePayload
     public function getSlug();
 
     /**
+     * <p>The metaTitle of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getMetaTitle();
+
+    /**
+     * <p>The metaDescription of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getMetaDescription();
+
+    /**
+     * <p>The metaKeywords of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getMetaKeywords();
+
+    /**
+     * <p>The variants of the <a href="ctp:api:type:ProductTailoring">Product Tailoring</a> at the time of creation.</p>
+     *
+
+     * @return null|ProductVariantTailoringCollection
+     */
+    public function getVariants();
+
+    /**
      * <p><code>true</code> if the ProductTailoring is published.</p>
      *
 
@@ -123,6 +160,26 @@ interface ProductTailoringCreatedMessagePayload extends MessagePayload
      * @param ?LocalizedString $slug
      */
     public function setSlug(?LocalizedString $slug): void;
+
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
+    public function setMetaTitle(?LocalizedString $metaTitle): void;
+
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
+    public function setMetaDescription(?LocalizedString $metaDescription): void;
+
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void;
+
+    /**
+     * @param ?ProductVariantTailoringCollection $variants
+     */
+    public function setVariants(?ProductVariantTailoringCollection $variants): void;
 
     /**
      * @param ?bool $published
