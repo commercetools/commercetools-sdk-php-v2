@@ -52,6 +52,7 @@ use Commercetools\Api\Models\Message\BusinessUnitAddressCustomFieldRemovedMessag
 use Commercetools\Api\Models\Message\BusinessUnitAddressCustomTypeRemovedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAddressCustomTypeSetMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAddressRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitApprovalRuleModeChangedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAssociateAddedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAssociateChangedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAssociateModeChangedMessage;

@@ -37,6 +37,7 @@ final class BusinessUnitUpdateActionModel extends JsonObjectModel implements Bus
        'addShippingAddressId' => BusinessUnitAddShippingAddressIdActionModel::class,
        'addStore' => BusinessUnitAddStoreActionModel::class,
        'changeAddress' => BusinessUnitChangeAddressActionModel::class,
+       'changeApprovalRuleMode' => BusinessUnitChangeApprovalRuleModeActionModel::class,
        'changeAssociate' => BusinessUnitChangeAssociateActionModel::class,
        'changeAssociateMode' => BusinessUnitChangeAssociateModeActionModel::class,
        'changeName' => BusinessUnitChangeNameActionModel::class,

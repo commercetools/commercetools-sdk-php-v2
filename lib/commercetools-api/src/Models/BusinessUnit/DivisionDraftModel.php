@@ -80,6 +80,12 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
 
     /**
      *
+     * @var ?string
+     */
+    protected $approvalRuleMode;
+
+    /**
+     *
      * @var ?BaseAddressCollection
      */
     protected $addresses;
@@ -133,6 +139,7 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
         ?string $contactEmail = null,
         ?string $associateMode = null,
         ?AssociateDraftCollection $associates = null,
+        ?string $approvalRuleMode = null,
         ?BaseAddressCollection $addresses = null,
         ?array $shippingAddresses = null,
         ?int $defaultShippingAddress = null,
@@ -150,6 +157,7 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
         $this->contactEmail = $contactEmail;
         $this->associateMode = $associateMode;
         $this->associates = $associates;
+        $this->approvalRuleMode = $approvalRuleMode;
         $this->addresses = $addresses;
         $this->shippingAddresses = $shippingAddresses;
         $this->defaultShippingAddress = $defaultShippingAddress;
@@ -342,6 +350,26 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
         }
 
         return $this->associates;
+    }
+
+    /**
+     * <p>Determines whether the Division can inherit Approval Rules from a parent.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getApprovalRuleMode()
+    {
+        if (is_null($this->approvalRuleMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_APPROVAL_RULE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->approvalRuleMode = (string) $data;
+        }
+
+        return $this->approvalRuleMode;
     }
 
     /**
@@ -551,6 +579,14 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
     public function setAssociates(?AssociateDraftCollection $associates): void
     {
         $this->associates = $associates;
+    }
+
+    /**
+     * @param ?string $approvalRuleMode
+     */
+    public function setApprovalRuleMode(?string $approvalRuleMode): void
+    {
+        $this->approvalRuleMode = $approvalRuleMode;
     }
 
     /**

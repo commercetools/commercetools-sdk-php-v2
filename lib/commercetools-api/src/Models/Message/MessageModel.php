@@ -127,6 +127,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'BusinessUnitAddressCustomTypeRemoved' => BusinessUnitAddressCustomTypeRemovedMessageModel::class,
        'BusinessUnitAddressCustomTypeSet' => BusinessUnitAddressCustomTypeSetMessageModel::class,
        'BusinessUnitAddressRemoved' => BusinessUnitAddressRemovedMessageModel::class,
+       'BusinessUnitApprovalRuleModeChanged' => BusinessUnitApprovalRuleModeChangedMessageModel::class,
        'BusinessUnitAssociateAdded' => BusinessUnitAssociateAddedMessageModel::class,
        'BusinessUnitAssociateChanged' => BusinessUnitAssociateChangedMessageModel::class,
        'BusinessUnitAssociateModeChanged' => BusinessUnitAssociateModeChangedMessageModel::class,

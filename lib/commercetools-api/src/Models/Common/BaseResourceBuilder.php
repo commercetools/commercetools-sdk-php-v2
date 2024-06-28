@@ -96,6 +96,8 @@ use Commercetools\Api\Models\Message\BusinessUnitAddressCustomTypeSetMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAddressCustomTypeSetMessageBuilder;
 use Commercetools\Api\Models\Message\BusinessUnitAddressRemovedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAddressRemovedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitApprovalRuleModeChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitApprovalRuleModeChangedMessageBuilder;
 use Commercetools\Api\Models\Message\BusinessUnitAssociateAddedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitAssociateAddedMessageBuilder;
 use Commercetools\Api\Models\Message\BusinessUnitAssociateChangedMessage;
