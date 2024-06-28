@@ -38,6 +38,14 @@ interface Division extends BusinessUnit
     public function getAssociateMode();
 
     /**
+     * <p>Determines whether a Business Unit can inherit Approval Rules from a parent.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApprovalRuleMode();
+
+    /**
      * @param ?BusinessUnitKeyReference $parentUnit
      */
     public function setParentUnit(?BusinessUnitKeyReference $parentUnit): void;
@@ -51,4 +59,9 @@ interface Division extends BusinessUnit
      * @param ?string $associateMode
      */
     public function setAssociateMode(?string $associateMode): void;
+
+    /**
+     * @param ?string $approvalRuleMode
+     */
+    public function setApprovalRuleMode(?string $approvalRuleMode): void;
 }

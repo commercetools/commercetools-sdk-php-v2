@@ -74,6 +74,12 @@ final class CompanyDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $approvalRuleMode;
+
+    /**
+
      * @var ?BaseAddressCollection
      */
     private $addresses;
@@ -199,6 +205,19 @@ final class CompanyDraftBuilder implements Builder
     public function getAssociates()
     {
         return $this->associates;
+    }
+
+    /**
+     * <p>Determines whether the Business Unit can inherit Approval Rules from a parent.
+     * For <a href="ctp:api:type:BusinessUnitType">Companies</a>, the value of this field is always <code>Explicit</code>.
+     * For <a href="ctp:api:type:BusinessUnitType">Divisions</a>, the default value is <code>ExplicitAndFromParent</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApprovalRuleMode()
+    {
+        return $this->approvalRuleMode;
     }
 
     /**
@@ -358,6 +377,17 @@ final class CompanyDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $approvalRuleMode
+     * @return $this
+     */
+    public function withApprovalRuleMode(?string $approvalRuleMode)
+    {
+        $this->approvalRuleMode = $approvalRuleMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?BaseAddressCollection $addresses
      * @return $this
      */
@@ -445,6 +475,7 @@ final class CompanyDraftBuilder implements Builder
             $this->contactEmail,
             $this->associateMode,
             $this->associates,
+            $this->approvalRuleMode,
             $this->addresses,
             $this->shippingAddresses,
             $this->defaultShippingAddress,

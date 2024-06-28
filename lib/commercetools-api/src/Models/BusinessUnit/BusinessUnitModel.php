@@ -176,6 +176,12 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
     protected $topLevelUnit;
 
     /**
+     *
+     * @var ?string
+     */
+    protected $approvalRuleMode;
+
+    /**
      * @psalm-var array<string, class-string<BusinessUnit> >
      *
      */
@@ -211,6 +217,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
         ?InheritedAssociateCollection $inheritedAssociates = null,
         ?BusinessUnitKeyReference $parentUnit = null,
         ?BusinessUnitKeyReference $topLevelUnit = null,
+        ?string $approvalRuleMode = null,
         ?string $unitType = null
     ) {
         $this->id = $id;
@@ -236,6 +243,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
         $this->inheritedAssociates = $inheritedAssociates;
         $this->parentUnit = $parentUnit;
         $this->topLevelUnit = $topLevelUnit;
+        $this->approvalRuleMode = $approvalRuleMode;
         $this->unitType = $unitType;
     }
 
@@ -734,6 +742,27 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
         return $this->topLevelUnit;
     }
 
+    /**
+     * <p>Determines whether the Business Unit can inherit Approval Rules from a parent.
+     * Always <code>Explicit</code> for <a href="ctp:api:type:BusinessUnitType">Companies</a> and defaults to <code>ExplicitAndFromParent</code> for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getApprovalRuleMode()
+    {
+        if (is_null($this->approvalRuleMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_APPROVAL_RULE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->approvalRuleMode = (string) $data;
+        }
+
+        return $this->approvalRuleMode;
+    }
+
 
     /**
      * @param ?string $id
@@ -917,6 +946,14 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
     public function setTopLevelUnit(?BusinessUnitKeyReference $topLevelUnit): void
     {
         $this->topLevelUnit = $topLevelUnit;
+    }
+
+    /**
+     * @param ?string $approvalRuleMode
+     */
+    public function setApprovalRuleMode(?string $approvalRuleMode): void
+    {
+        $this->approvalRuleMode = $approvalRuleMode;
     }
 
 
