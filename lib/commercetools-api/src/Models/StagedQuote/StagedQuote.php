@@ -16,6 +16,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
 use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -36,6 +37,7 @@ interface StagedQuote extends BaseResource
     public const FIELD_STATE = 'state';
     public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
+    public const FIELD_STORE = 'store';
 
     /**
      * <p>The unique ID of the StagedQuote.</p>
@@ -176,6 +178,14 @@ interface StagedQuote extends BaseResource
     public function getBusinessUnit();
 
     /**
+     * <p>The Store to which the <a href="/../api/quotes-overview#buyer">Buyer</a> belongs.</p>
+     *
+
+     * @return null|StoreKeyReference
+     */
+    public function getStore();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -259,4 +269,9 @@ interface StagedQuote extends BaseResource
      * @param ?BusinessUnitKeyReference $businessUnit
      */
     public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void;
 }

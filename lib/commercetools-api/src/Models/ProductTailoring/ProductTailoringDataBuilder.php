@@ -59,6 +59,12 @@ final class ProductTailoringDataBuilder implements Builder
     private $slug;
 
     /**
+
+     * @var ?ProductVariantTailoringCollection
+     */
+    private $variants;
+
+    /**
      * <p>Tailored name of the Product.</p>
      *
 
@@ -126,6 +132,17 @@ final class ProductTailoringDataBuilder implements Builder
     }
 
     /**
+     * <p>Tailored Variants of the Product.</p>
+     *
+
+     * @return null|ProductVariantTailoringCollection
+     */
+    public function getVariants()
+    {
+        return $this->variants;
+    }
+
+    /**
      * @param ?LocalizedString $name
      * @return $this
      */
@@ -187,6 +204,17 @@ final class ProductTailoringDataBuilder implements Builder
     public function withSlug(?LocalizedString $slug)
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductVariantTailoringCollection $variants
+     * @return $this
+     */
+    public function withVariants(?ProductVariantTailoringCollection $variants)
+    {
+        $this->variants = $variants;
 
         return $this;
     }
@@ -265,7 +293,8 @@ final class ProductTailoringDataBuilder implements Builder
             $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
             $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
             $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
-            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
+            $this->variants
         );
     }
 

@@ -173,6 +173,12 @@ final class CompanyModel extends JsonObjectModel implements Company
      */
     protected $topLevelUnit;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $approvalRuleMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -201,6 +207,7 @@ final class CompanyModel extends JsonObjectModel implements Company
         ?InheritedAssociateCollection $inheritedAssociates = null,
         ?BusinessUnitKeyReference $parentUnit = null,
         ?BusinessUnitKeyReference $topLevelUnit = null,
+        ?string $approvalRuleMode = null,
         ?string $unitType = null
     ) {
         $this->id = $id;
@@ -226,6 +233,7 @@ final class CompanyModel extends JsonObjectModel implements Company
         $this->inheritedAssociates = $inheritedAssociates;
         $this->parentUnit = $parentUnit;
         $this->topLevelUnit = $topLevelUnit;
+        $this->approvalRuleMode = $approvalRuleMode;
         $this->unitType = $unitType ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -422,7 +430,7 @@ final class CompanyModel extends JsonObjectModel implements Company
     }
 
     /**
-     * <p>Is always <code>Explicit</code> since a Company cannot have a parent Business Unit that Stores can be inherited from.</p>
+     * <p>The value of this field is always <code>Explicit</code> because a Company cannot have a parent Business Unit that Stores can be inherited from.</p>
      *
      *
      * @return null|string
@@ -623,7 +631,7 @@ final class CompanyModel extends JsonObjectModel implements Company
     }
 
     /**
-     * <p>Is always <code>Explicit</code> since a Company cannot have a parent Business Unit that Associates can be inherited from.</p>
+     * <p>The value of this field is always <code>Explicit</code> because a Company cannot have a parent Business Unit that Associates can be inherited from.</p>
      *
      *
      * @return null|string
@@ -722,6 +730,26 @@ final class CompanyModel extends JsonObjectModel implements Company
         }
 
         return $this->topLevelUnit;
+    }
+
+    /**
+     * <p>The value of this field is always <code>Explicit</code> because a Company cannot have a parent Business Unit that Approval Rules can be inherited from.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getApprovalRuleMode()
+    {
+        if (is_null($this->approvalRuleMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_APPROVAL_RULE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->approvalRuleMode = (string) $data;
+        }
+
+        return $this->approvalRuleMode;
     }
 
 
@@ -907,6 +935,14 @@ final class CompanyModel extends JsonObjectModel implements Company
     public function setTopLevelUnit(?BusinessUnitKeyReference $topLevelUnit): void
     {
         $this->topLevelUnit = $topLevelUnit;
+    }
+
+    /**
+     * @param ?string $approvalRuleMode
+     */
+    public function setApprovalRuleMode(?string $approvalRuleMode): void
+    {
+        $this->approvalRuleMode = $approvalRuleMode;
     }
 
 

@@ -85,6 +85,12 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
      */
     protected $publish;
 
+    /**
+     *
+     * @var ?ProductVariantTailoringDraftCollection
+     */
+    protected $variants;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -99,7 +105,8 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
         ?LocalizedString $metaDescription = null,
         ?LocalizedString $metaKeywords = null,
         ?LocalizedString $slug = null,
-        ?bool $publish = null
+        ?bool $publish = null,
+        ?ProductVariantTailoringDraftCollection $variants = null
     ) {
         $this->key = $key;
         $this->store = $store;
@@ -111,6 +118,7 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
         $this->metaKeywords = $metaKeywords;
         $this->slug = $slug;
         $this->publish = $publish;
+        $this->variants = $variants;
     }
 
     /**
@@ -322,6 +330,26 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
         return $this->publish;
     }
 
+    /**
+     * <p>Tailored Variants of the Product.</p>
+     *
+     *
+     * @return null|ProductVariantTailoringDraftCollection
+     */
+    public function getVariants()
+    {
+        if (is_null($this->variants)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_VARIANTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variants = ProductVariantTailoringDraftCollection::fromArray($data);
+        }
+
+        return $this->variants;
+    }
+
 
     /**
      * @param ?string $key
@@ -401,5 +429,13 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
     public function setPublish(?bool $publish): void
     {
         $this->publish = $publish;
+    }
+
+    /**
+     * @param ?ProductVariantTailoringDraftCollection $variants
+     */
+    public function setVariants(?ProductVariantTailoringDraftCollection $variants): void
+    {
+        $this->variants = $variants;
     }
 }

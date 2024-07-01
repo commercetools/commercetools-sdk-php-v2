@@ -168,6 +168,12 @@ final class DivisionBuilder implements Builder
     private $topLevelUnit;
 
     /**
+
+     * @var ?string
+     */
+    private $approvalRuleMode;
+
+    /**
      * <p>Unique identifier of the Business Unit.</p>
      *
 
@@ -420,6 +426,17 @@ final class DivisionBuilder implements Builder
     public function getTopLevelUnit()
     {
         return $this->topLevelUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->topLevelUnit->build() : $this->topLevelUnit;
+    }
+
+    /**
+     * <p>Determines whether a Business Unit can inherit Approval Rules from a parent.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApprovalRuleMode()
+    {
+        return $this->approvalRuleMode;
     }
 
     /**
@@ -676,6 +693,17 @@ final class DivisionBuilder implements Builder
     }
 
     /**
+     * @param ?string $approvalRuleMode
+     * @return $this
+     */
+    public function withApprovalRuleMode(?string $approvalRuleMode)
+    {
+        $this->approvalRuleMode = $approvalRuleMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -755,7 +783,8 @@ final class DivisionBuilder implements Builder
             $this->associates,
             $this->inheritedAssociates,
             $this->parentUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->parentUnit->build() : $this->parentUnit,
-            $this->topLevelUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->topLevelUnit->build() : $this->topLevelUnit
+            $this->topLevelUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->topLevelUnit->build() : $this->topLevelUnit,
+            $this->approvalRuleMode
         );
     }
 

@@ -41,6 +41,14 @@ interface DivisionDraft extends BusinessUnitDraft
     public function getAssociateMode();
 
     /**
+     * <p>Determines whether the Division can inherit Approval Rules from a parent.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApprovalRuleMode();
+
+    /**
      * @param ?BusinessUnitResourceIdentifier $parentUnit
      */
     public function setParentUnit(?BusinessUnitResourceIdentifier $parentUnit): void;
@@ -54,4 +62,9 @@ interface DivisionDraft extends BusinessUnitDraft
      * @param ?string $associateMode
      */
     public function setAssociateMode(?string $associateMode): void;
+
+    /**
+     * @param ?string $approvalRuleMode
+     */
+    public function setApprovalRuleMode(?string $approvalRuleMode): void;
 }

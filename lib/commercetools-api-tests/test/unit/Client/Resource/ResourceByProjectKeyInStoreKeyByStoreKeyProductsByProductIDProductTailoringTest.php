@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImages;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -44,7 +45,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailorin
         }
     }
 
-
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
+    {
+        $builder = new ApiRequestBuilder();
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
+    }
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -193,6 +203,20 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailorin
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImages' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImages {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->products()
+                        ->withProductId("test_productID")
+                        ->productTailoring()
+                        ->images();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImages::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'productID' => 'test_productID'],
+                '/{projectKey}/in-store/key={storeKey}/products/{productID}/product-tailoring/images'
+            ]
         ];
     }
 

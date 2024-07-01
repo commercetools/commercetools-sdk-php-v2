@@ -41,6 +41,7 @@ interface BusinessUnit extends BaseResource
     public const FIELD_INHERITED_ASSOCIATES = 'inheritedAssociates';
     public const FIELD_PARENT_UNIT = 'parentUnit';
     public const FIELD_TOP_LEVEL_UNIT = 'topLevelUnit';
+    public const FIELD_APPROVAL_RULE_MODE = 'approvalRuleMode';
 
     /**
      * <p>Unique identifier of the Business Unit.</p>
@@ -237,6 +238,15 @@ interface BusinessUnit extends BaseResource
     public function getTopLevelUnit();
 
     /**
+     * <p>Determines whether the Business Unit can inherit Approval Rules from a parent.
+     * Always <code>Explicit</code> for <a href="ctp:api:type:BusinessUnitType">Companies</a> and defaults to <code>ExplicitAndFromParent</code> for <a href="ctp:api:type:BusinessUnitType">Divisions</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApprovalRuleMode();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -350,4 +360,9 @@ interface BusinessUnit extends BaseResource
      * @param ?BusinessUnitKeyReference $topLevelUnit
      */
     public function setTopLevelUnit(?BusinessUnitKeyReference $topLevelUnit): void;
+
+    /**
+     * @param ?string $approvalRuleMode
+     */
+    public function setApprovalRuleMode(?string $approvalRuleMode): void;
 }

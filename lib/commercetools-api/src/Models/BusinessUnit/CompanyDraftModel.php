@@ -80,6 +80,12 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
 
     /**
      *
+     * @var ?string
+     */
+    protected $approvalRuleMode;
+
+    /**
+     *
      * @var ?BaseAddressCollection
      */
     protected $addresses;
@@ -127,6 +133,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
         ?string $contactEmail = null,
         ?string $associateMode = null,
         ?AssociateDraftCollection $associates = null,
+        ?string $approvalRuleMode = null,
         ?BaseAddressCollection $addresses = null,
         ?array $shippingAddresses = null,
         ?int $defaultShippingAddress = null,
@@ -143,6 +150,7 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
         $this->contactEmail = $contactEmail;
         $this->associateMode = $associateMode;
         $this->associates = $associates;
+        $this->approvalRuleMode = $approvalRuleMode;
         $this->addresses = $addresses;
         $this->shippingAddresses = $shippingAddresses;
         $this->defaultShippingAddress = $defaultShippingAddress;
@@ -338,6 +346,28 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
     }
 
     /**
+     * <p>Determines whether the Business Unit can inherit Approval Rules from a parent.
+     * For <a href="ctp:api:type:BusinessUnitType">Companies</a>, the value of this field is always <code>Explicit</code>.
+     * For <a href="ctp:api:type:BusinessUnitType">Divisions</a>, the default value is <code>ExplicitAndFromParent</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getApprovalRuleMode()
+    {
+        if (is_null($this->approvalRuleMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_APPROVAL_RULE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->approvalRuleMode = (string) $data;
+        }
+
+        return $this->approvalRuleMode;
+    }
+
+    /**
      * <p>Addresses used by the Business Unit.</p>
      *
      *
@@ -523,6 +553,14 @@ final class CompanyDraftModel extends JsonObjectModel implements CompanyDraft
     public function setAssociates(?AssociateDraftCollection $associates): void
     {
         $this->associates = $associates;
+    }
+
+    /**
+     * @param ?string $approvalRuleMode
+     */
+    public function setApprovalRuleMode(?string $approvalRuleMode): void
+    {
+        $this->approvalRuleMode = $approvalRuleMode;
     }
 
     /**

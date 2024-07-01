@@ -173,6 +173,12 @@ final class DivisionModel extends JsonObjectModel implements Division
      */
     protected $topLevelUnit;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $approvalRuleMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -201,6 +207,7 @@ final class DivisionModel extends JsonObjectModel implements Division
         ?InheritedAssociateCollection $inheritedAssociates = null,
         ?BusinessUnitKeyReference $parentUnit = null,
         ?BusinessUnitKeyReference $topLevelUnit = null,
+        ?string $approvalRuleMode = null,
         ?string $unitType = null
     ) {
         $this->id = $id;
@@ -226,6 +233,7 @@ final class DivisionModel extends JsonObjectModel implements Division
         $this->inheritedAssociates = $inheritedAssociates;
         $this->parentUnit = $parentUnit;
         $this->topLevelUnit = $topLevelUnit;
+        $this->approvalRuleMode = $approvalRuleMode;
         $this->unitType = $unitType ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -724,6 +732,26 @@ final class DivisionModel extends JsonObjectModel implements Division
         return $this->topLevelUnit;
     }
 
+    /**
+     * <p>Determines whether a Business Unit can inherit Approval Rules from a parent.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getApprovalRuleMode()
+    {
+        if (is_null($this->approvalRuleMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_APPROVAL_RULE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->approvalRuleMode = (string) $data;
+        }
+
+        return $this->approvalRuleMode;
+    }
+
 
     /**
      * @param ?string $id
@@ -907,6 +935,14 @@ final class DivisionModel extends JsonObjectModel implements Division
     public function setTopLevelUnit(?BusinessUnitKeyReference $topLevelUnit): void
     {
         $this->topLevelUnit = $topLevelUnit;
+    }
+
+    /**
+     * @param ?string $approvalRuleMode
+     */
+    public function setApprovalRuleMode(?string $approvalRuleMode): void
+    {
+        $this->approvalRuleMode = $approvalRuleMode;
     }
 
 

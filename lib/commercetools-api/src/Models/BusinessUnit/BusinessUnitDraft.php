@@ -26,6 +26,7 @@ interface BusinessUnitDraft extends JsonObject
     public const FIELD_CONTACT_EMAIL = 'contactEmail';
     public const FIELD_ASSOCIATE_MODE = 'associateMode';
     public const FIELD_ASSOCIATES = 'associates';
+    public const FIELD_APPROVAL_RULE_MODE = 'approvalRuleMode';
     public const FIELD_ADDRESSES = 'addresses';
     public const FIELD_SHIPPING_ADDRESSES = 'shippingAddresses';
     public const FIELD_DEFAULT_SHIPPING_ADDRESS = 'defaultShippingAddress';
@@ -109,6 +110,16 @@ interface BusinessUnitDraft extends JsonObject
      * @return null|AssociateDraftCollection
      */
     public function getAssociates();
+
+    /**
+     * <p>Determines whether the Business Unit can inherit Approval Rules from a parent.
+     * For <a href="ctp:api:type:BusinessUnitType">Companies</a>, the value of this field is always <code>Explicit</code>.
+     * For <a href="ctp:api:type:BusinessUnitType">Divisions</a>, the default value is <code>ExplicitAndFromParent</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApprovalRuleMode();
 
     /**
      * <p>Addresses used by the Business Unit.</p>
@@ -199,6 +210,11 @@ interface BusinessUnitDraft extends JsonObject
      * @param ?AssociateDraftCollection $associates
      */
     public function setAssociates(?AssociateDraftCollection $associates): void;
+
+    /**
+     * @param ?string $approvalRuleMode
+     */
+    public function setApprovalRuleMode(?string $approvalRuleMode): void;
 
     /**
      * @param ?BaseAddressCollection $addresses

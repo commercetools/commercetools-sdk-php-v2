@@ -87,6 +87,12 @@ final class ProductTailoringDraftBuilder implements Builder
     private $publish;
 
     /**
+
+     * @var ?ProductVariantTailoringDraftCollection
+     */
+    private $variants;
+
+    /**
      * <p>User-defined unique identifier of the ProductTailoring.</p>
      *
 
@@ -195,6 +201,17 @@ final class ProductTailoringDraftBuilder implements Builder
     public function getPublish()
     {
         return $this->publish;
+    }
+
+    /**
+     * <p>Tailored Variants of the Product.</p>
+     *
+
+     * @return null|ProductVariantTailoringDraftCollection
+     */
+    public function getVariants()
+    {
+        return $this->variants;
     }
 
     /**
@@ -308,6 +325,17 @@ final class ProductTailoringDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantTailoringDraftCollection $variants
+     * @return $this
+     */
+    public function withVariants(?ProductVariantTailoringDraftCollection $variants)
+    {
+        $this->variants = $variants;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withStore() instead
      * @return $this
      */
@@ -407,7 +435,8 @@ final class ProductTailoringDraftBuilder implements Builder
             $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
             $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
-            $this->publish
+            $this->publish,
+            $this->variants
         );
     }
 

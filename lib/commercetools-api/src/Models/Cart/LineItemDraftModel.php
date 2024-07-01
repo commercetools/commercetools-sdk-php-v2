@@ -370,7 +370,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>Sets the external Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Sets the external Tax Rate for the Line Item, if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. If the Cart has <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>, the Tax Rate is accepted but ignored.</p>
      *
      *
      * @return null|ExternalTaxRateDraft

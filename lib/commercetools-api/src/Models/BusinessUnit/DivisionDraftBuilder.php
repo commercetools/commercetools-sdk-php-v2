@@ -74,6 +74,12 @@ final class DivisionDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $approvalRuleMode;
+
+    /**
+
      * @var ?BaseAddressCollection
      */
     private $addresses;
@@ -204,6 +210,17 @@ final class DivisionDraftBuilder implements Builder
     public function getAssociates()
     {
         return $this->associates;
+    }
+
+    /**
+     * <p>Determines whether the Division can inherit Approval Rules from a parent.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApprovalRuleMode()
+    {
+        return $this->approvalRuleMode;
     }
 
     /**
@@ -374,6 +391,17 @@ final class DivisionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $approvalRuleMode
+     * @return $this
+     */
+    public function withApprovalRuleMode(?string $approvalRuleMode)
+    {
+        $this->approvalRuleMode = $approvalRuleMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?BaseAddressCollection $addresses
      * @return $this
      */
@@ -483,6 +511,7 @@ final class DivisionDraftBuilder implements Builder
             $this->contactEmail,
             $this->associateMode,
             $this->associates,
+            $this->approvalRuleMode,
             $this->addresses,
             $this->shippingAddresses,
             $this->defaultShippingAddress,

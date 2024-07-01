@@ -110,6 +110,22 @@ class ResourceByProjectKeyCustomers extends ApiResource
 
         return new ResourceByProjectKeyCustomersByID($args, $this->getClient());
     }
+    /**
+     */
+    public function search(): ResourceByProjectKeyCustomersSearch
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyCustomersSearch($args, $this->getClient());
+    }
+    /**
+     */
+    public function searchIndexingStatus(): ResourceByProjectKeyCustomersSearchIndexingStatus
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyCustomersSearchIndexingStatus($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

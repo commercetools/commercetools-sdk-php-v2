@@ -24,6 +24,8 @@ use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
+use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -140,6 +142,12 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
      */
     protected $businessUnit;
 
+    /**
+     *
+     * @var ?StoreKeyReference
+     */
+    protected $store;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -161,7 +169,8 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         ?CustomFields $custom = null,
         ?StateReference $state = null,
         ?string $purchaseOrderNumber = null,
-        ?BusinessUnitKeyReference $businessUnit = null
+        ?BusinessUnitKeyReference $businessUnit = null,
+        ?StoreKeyReference $store = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -180,6 +189,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         $this->state = $state;
         $this->purchaseOrderNumber = $purchaseOrderNumber;
         $this->businessUnit = $businessUnit;
+        $this->store = $store;
     }
 
     /**
@@ -544,6 +554,27 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         return $this->businessUnit;
     }
 
+    /**
+     * <p>The Store to which the <a href="/../api/quotes-overview#buyer">Buyer</a> belongs.</p>
+     *
+     *
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreKeyReferenceModel::of($data);
+        }
+
+        return $this->store;
+    }
+
 
     /**
      * @param ?string $id
@@ -679,6 +710,14 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void
     {
         $this->businessUnit = $businessUnit;
+    }
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void
+    {
+        $this->store = $store;
     }
 
 

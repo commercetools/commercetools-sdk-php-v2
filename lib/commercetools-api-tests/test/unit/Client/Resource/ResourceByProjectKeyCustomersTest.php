@@ -18,6 +18,8 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersPassword;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersPasswordReset;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersPasswordToken;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersPasswordTokenByPasswordToken;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersSearch;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersSearchIndexingStatus;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -343,6 +345,28 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                 ResourceByProjectKeyCustomersByID::class,
                 ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/customers/{ID}'
+            ],
+            'ResourceByProjectKeyCustomersSearch' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersSearch {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->customers()
+                        ->search();
+                },
+                ResourceByProjectKeyCustomersSearch::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/customers/search'
+            ],
+            'ResourceByProjectKeyCustomersSearchIndexingStatus' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersSearchIndexingStatus {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->customers()
+                        ->searchIndexingStatus();
+                },
+                ResourceByProjectKeyCustomersSearchIndexingStatus::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/customers/search/indexing-status'
             ]
         ];
     }
