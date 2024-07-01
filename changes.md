@@ -11,6 +11,8 @@
 - added property `approvalRuleMode` to type `DivisionDraft`
 - added property `attributedTo` to type `CreatedBy`
 - added property `attributedTo` to type `LastModifiedBy`
+- added property `customerGroupAssignments` to type `Customer`
+- added property `customerGroupAssignments` to type `CustomerDraft`
 - added property `metaTitle` to type `ProductTailoringCreatedMessage`
 - added property `metaDescription` to type `ProductTailoringCreatedMessage`
 - added property `metaKeywords` to type `ProductTailoringCreatedMessage`
@@ -156,12 +158,23 @@
 - added type `CustomerSearchIndexingStatusResponse`
 - added type `CustomerSearchRequest`
 - added type `CustomerSearchResult`
+- added type `CustomerGroupAssignment`
+- added type `CustomerGroupAssignmentDraft`
+- added type `CustomerAddCustomerGroupAssignmentAction`
+- added type `CustomerRemoveCustomerGroupAssignmentAction`
+- added type `CustomerSetCustomerGroupAssignmentsAction`
 - added type `BusinessUnitApprovalRuleModeChangedMessage`
+- added type `CustomerGroupAssignmentAddedMessage`
+- added type `CustomerGroupAssignmentRemovedMessage`
+- added type `CustomerGroupAssignmentsSetMessage`
 - added type `ProductTailoringImageAddedMessage`
 - added type `ProductTailoringImagesSetMessage`
 - added type `ProductVariantTailoringAddedMessage`
 - added type `ProductVariantTailoringRemovedMessage`
 - added type `BusinessUnitApprovalRuleModeChangedMessagePayload`
+- added type `CustomerGroupAssignmentAddedMessagePayload`
+- added type `CustomerGroupAssignmentRemovedMessagePayload`
+- added type `CustomerGroupAssignmentsSetMessagePayload`
 - added type `ProductTailoringImageAddedMessagePayload`
 - added type `ProductTailoringImagesSetMessagePayload`
 - added type `ProductVariantTailoringAddedMessagePayload`
