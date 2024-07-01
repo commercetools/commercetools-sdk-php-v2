@@ -16,7 +16,8 @@ interface DiscountCodeSetMaxApplicationsAction extends DiscountCodeUpdateAction
     public const FIELD_MAX_APPLICATIONS = 'maxApplications';
 
     /**
-     * <p>Value to set. If empty, any existing value will be removed.</p>
+     * <p>Value to set.</p>
+     * <p>If empty, any existing value will be removed and the DiscountCode can be applied any number of times.</p>
      *
 
      * @return null|int
