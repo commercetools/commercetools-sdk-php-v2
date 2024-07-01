@@ -282,6 +282,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 
     /**
      * <p>Number of times the DiscountCode can be applied.</p>
+     * <p>If not set, the DiscountCode can be applied any number of times.</p>
      *
      *
      * @return null|int
@@ -302,6 +303,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 
     /**
      * <p>Number of times the DiscountCode can be applied per Customer.</p>
+     * <p>If not set, the DiscountCode can be applied any number of times.</p>
      *
      *
      * @return null|int
