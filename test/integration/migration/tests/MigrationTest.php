@@ -26,10 +26,10 @@ use function PHPUnit\Framework\assertNotSame;
 
 class MigrationTest extends ApiTestCase
 {
-    public $clientId = 'bme-3iUSJonevnAqdovBgJMp';
-    public $clientSecret = 'f-xA0DFe3ooO1bMRZZUS4WjAUKE0KgO9';
-    public $projectKey = 'barbara-mc-test';
-    // The below values are defined as default in the related classes. This test is to demonstrate how to set up the API_URL and the OAUTH_URL
+    public $clientId = 'client-id-to-be-added';
+    public $clientSecret = 'client-secret-to-be-added';
+    public $projectKey = 'project-key-to-be-added';
+    // The below values are defined as default in the related classes. This test is to show how to set up the API_URL and the OAUTH_URL
     public $apiUrl = 'https://api.europe-west1.gcp.commercetools.com';
     public $oAuthUrl = 'https://auth.europe-west1.gcp.commercetools.com/oauth/token';
 
