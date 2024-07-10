@@ -35,6 +35,12 @@ final class BusinessUnitAddressCustomTypeSetMessagePayloadBuilder implements Bui
     private $oldTypeId;
 
     /**
+
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
      * <p>The Custom Fields that were set.</p>
      *
 
@@ -54,6 +60,17 @@ final class BusinessUnitAddressCustomTypeSetMessagePayloadBuilder implements Bui
     public function getOldTypeId()
     {
         return $this->oldTypeId;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> on which the Custom Field was set.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        return $this->addressId;
     }
 
     /**
@@ -79,6 +96,17 @@ final class BusinessUnitAddressCustomTypeSetMessagePayloadBuilder implements Bui
     }
 
     /**
+     * @param ?string $addressId
+     * @return $this
+     */
+    public function withAddressId(?string $addressId)
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomFields() instead
      * @return $this
      */
@@ -93,7 +121,8 @@ final class BusinessUnitAddressCustomTypeSetMessagePayloadBuilder implements Bui
     {
         return new BusinessUnitAddressCustomTypeSetMessagePayloadModel(
             $this->customFields instanceof CustomFieldsBuilder ? $this->customFields->build() : $this->customFields,
-            $this->oldTypeId
+            $this->oldTypeId,
+            $this->addressId
         );
     }
 

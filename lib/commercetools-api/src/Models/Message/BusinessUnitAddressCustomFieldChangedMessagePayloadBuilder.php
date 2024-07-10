@@ -39,6 +39,12 @@ final class BusinessUnitAddressCustomFieldChangedMessagePayloadBuilder implement
     private $oldValue;
 
     /**
+
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
      * <p>Name of the Custom Field that changed.</p>
      *
 
@@ -69,6 +75,17 @@ final class BusinessUnitAddressCustomFieldChangedMessagePayloadBuilder implement
     public function getOldValue()
     {
         return $this->oldValue;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> of which the Custom Field was changed.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        return $this->addressId;
     }
 
     /**
@@ -104,13 +121,25 @@ final class BusinessUnitAddressCustomFieldChangedMessagePayloadBuilder implement
         return $this;
     }
 
+    /**
+     * @param ?string $addressId
+     * @return $this
+     */
+    public function withAddressId(?string $addressId)
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
 
     public function build(): BusinessUnitAddressCustomFieldChangedMessagePayload
     {
         return new BusinessUnitAddressCustomFieldChangedMessagePayloadModel(
             $this->name,
             $this->value,
-            $this->oldValue
+            $this->oldValue,
+            $this->addressId
         );
     }
 

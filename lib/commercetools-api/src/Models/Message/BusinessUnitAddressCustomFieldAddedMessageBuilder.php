@@ -100,6 +100,12 @@ final class BusinessUnitAddressCustomFieldAddedMessageBuilder implements Builder
     private $value;
 
     /**
+
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -230,6 +236,17 @@ final class BusinessUnitAddressCustomFieldAddedMessageBuilder implements Builder
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to which the Custom Field was added.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        return $this->addressId;
     }
 
     /**
@@ -365,6 +382,17 @@ final class BusinessUnitAddressCustomFieldAddedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressId
+     * @return $this
+     */
+    public function withAddressId(?string $addressId)
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -422,7 +450,8 @@ final class BusinessUnitAddressCustomFieldAddedMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->name,
-            $this->value
+            $this->value,
+            $this->addressId
         );
     }
 

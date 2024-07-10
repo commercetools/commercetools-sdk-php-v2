@@ -35,6 +35,12 @@ final class CustomerAddressCustomTypeSetMessagePayloadBuilder implements Builder
     private $previousTypeId;
 
     /**
+
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
      * <p>The Custom Fields that have been set.</p>
      *
 
@@ -54,6 +60,17 @@ final class CustomerAddressCustomTypeSetMessagePayloadBuilder implements Builder
     public function getPreviousTypeId()
     {
         return $this->previousTypeId;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> on which the Custom Field was set.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        return $this->addressId;
     }
 
     /**
@@ -79,6 +96,17 @@ final class CustomerAddressCustomTypeSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressId
+     * @return $this
+     */
+    public function withAddressId(?string $addressId)
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomFields() instead
      * @return $this
      */
@@ -93,7 +121,8 @@ final class CustomerAddressCustomTypeSetMessagePayloadBuilder implements Builder
     {
         return new CustomerAddressCustomTypeSetMessagePayloadModel(
             $this->customFields instanceof CustomFieldsBuilder ? $this->customFields->build() : $this->customFields,
-            $this->previousTypeId
+            $this->previousTypeId,
+            $this->addressId
         );
     }
 

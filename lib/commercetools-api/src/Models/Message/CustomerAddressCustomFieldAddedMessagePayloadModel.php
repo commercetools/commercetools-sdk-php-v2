@@ -38,6 +38,12 @@ final class CustomerAddressCustomFieldAddedMessagePayloadModel extends JsonObjec
      */
     protected $value;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $addressId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -45,10 +51,12 @@ final class CustomerAddressCustomFieldAddedMessagePayloadModel extends JsonObjec
     public function __construct(
         ?string $name = null,
         $value = null,
+        ?string $addressId = null,
         ?string $type = null
     ) {
         $this->name = $name;
         $this->value = $value;
+        $this->addressId = $addressId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -110,6 +118,26 @@ final class CustomerAddressCustomFieldAddedMessagePayloadModel extends JsonObjec
         return $this->value;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to which the Custom Field was added.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
 
     /**
      * @param ?string $name
@@ -125,5 +153,13 @@ final class CustomerAddressCustomFieldAddedMessagePayloadModel extends JsonObjec
     public function setValue($value): void
     {
         $this->value = $value;
+    }
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void
+    {
+        $this->addressId = $addressId;
     }
 }
