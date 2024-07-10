@@ -102,6 +102,12 @@ final class BusinessUnitAddressCustomTypeSetMessageBuilder implements Builder
     private $oldTypeId;
 
     /**
+
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -232,6 +238,17 @@ final class BusinessUnitAddressCustomTypeSetMessageBuilder implements Builder
     public function getOldTypeId()
     {
         return $this->oldTypeId;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> on which the Custom Field was set.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        return $this->addressId;
     }
 
     /**
@@ -367,6 +384,17 @@ final class BusinessUnitAddressCustomTypeSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressId
+     * @return $this
+     */
+    public function withAddressId(?string $addressId)
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -435,7 +463,8 @@ final class BusinessUnitAddressCustomTypeSetMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->customFields instanceof CustomFieldsBuilder ? $this->customFields->build() : $this->customFields,
-            $this->oldTypeId
+            $this->oldTypeId,
+            $this->addressId
         );
     }
 

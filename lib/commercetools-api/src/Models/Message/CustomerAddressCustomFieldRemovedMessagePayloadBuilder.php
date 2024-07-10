@@ -27,6 +27,12 @@ final class CustomerAddressCustomFieldRemovedMessagePayloadBuilder implements Bu
     private $name;
 
     /**
+
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
      * <p>Name of the Custom Field that was removed.</p>
      *
 
@@ -35,6 +41,17 @@ final class CustomerAddressCustomFieldRemovedMessagePayloadBuilder implements Bu
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> from which the Custom Field was removed.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        return $this->addressId;
     }
 
     /**
@@ -48,11 +65,23 @@ final class CustomerAddressCustomFieldRemovedMessagePayloadBuilder implements Bu
         return $this;
     }
 
+    /**
+     * @param ?string $addressId
+     * @return $this
+     */
+    public function withAddressId(?string $addressId)
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
 
     public function build(): CustomerAddressCustomFieldRemovedMessagePayload
     {
         return new CustomerAddressCustomFieldRemovedMessagePayloadModel(
-            $this->name
+            $this->name,
+            $this->addressId
         );
     }
 

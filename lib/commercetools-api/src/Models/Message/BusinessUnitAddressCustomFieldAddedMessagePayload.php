@@ -15,6 +15,7 @@ interface BusinessUnitAddressCustomFieldAddedMessagePayload extends MessagePaylo
 {
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
+    public const FIELD_ADDRESS_ID = 'addressId';
 
     /**
      * <p>Name of the Custom Field that was added.</p>
@@ -33,6 +34,14 @@ interface BusinessUnitAddressCustomFieldAddedMessagePayload extends MessagePaylo
     public function getValue();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to which the Custom Field was added.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId();
+
+    /**
      * @param ?string $name
      */
     public function setName(?string $name): void;
@@ -41,4 +50,9 @@ interface BusinessUnitAddressCustomFieldAddedMessagePayload extends MessagePaylo
      * @param mixed $value
      */
     public function setValue($value): void;
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void;
 }

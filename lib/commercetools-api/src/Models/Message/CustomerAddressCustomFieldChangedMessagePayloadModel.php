@@ -44,6 +44,12 @@ final class CustomerAddressCustomFieldChangedMessagePayloadModel extends JsonObj
      */
     protected $previousValue;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $addressId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -52,11 +58,13 @@ final class CustomerAddressCustomFieldChangedMessagePayloadModel extends JsonObj
         ?string $name = null,
         $value = null,
         $previousValue = null,
+        ?string $addressId = null,
         ?string $type = null
     ) {
         $this->name = $name;
         $this->value = $value;
         $this->previousValue = $previousValue;
+        $this->addressId = $addressId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -139,6 +147,26 @@ final class CustomerAddressCustomFieldChangedMessagePayloadModel extends JsonObj
         return $this->previousValue;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> of which the Custom Field was changed.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
 
     /**
      * @param ?string $name
@@ -162,5 +190,13 @@ final class CustomerAddressCustomFieldChangedMessagePayloadModel extends JsonObj
     public function setPreviousValue($previousValue): void
     {
         $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void
+    {
+        $this->addressId = $addressId;
     }
 }

@@ -32,15 +32,23 @@ final class BusinessUnitAddressCustomFieldRemovedMessagePayloadModel extends Jso
      */
     protected $name;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $addressId;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $name = null,
+        ?string $addressId = null,
         ?string $type = null
     ) {
         $this->name = $name;
+        $this->addressId = $addressId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,6 +90,26 @@ final class BusinessUnitAddressCustomFieldRemovedMessagePayloadModel extends Jso
         return $this->name;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> from which the Custom Field was removed.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
 
     /**
      * @param ?string $name
@@ -89,5 +117,13 @@ final class BusinessUnitAddressCustomFieldRemovedMessagePayloadModel extends Jso
     public function setName(?string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void
+    {
+        $this->addressId = $addressId;
     }
 }

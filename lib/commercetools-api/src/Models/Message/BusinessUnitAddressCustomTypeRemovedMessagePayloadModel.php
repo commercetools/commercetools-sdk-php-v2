@@ -32,15 +32,23 @@ final class BusinessUnitAddressCustomTypeRemovedMessagePayloadModel extends Json
      */
     protected $oldTypeId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $addressId;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $oldTypeId = null,
+        ?string $addressId = null,
         ?string $type = null
     ) {
         $this->oldTypeId = $oldTypeId;
+        $this->addressId = $addressId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,6 +90,26 @@ final class BusinessUnitAddressCustomTypeRemovedMessagePayloadModel extends Json
         return $this->oldTypeId;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> from which the Custom Type was removed.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
 
     /**
      * @param ?string $oldTypeId
@@ -89,5 +117,13 @@ final class BusinessUnitAddressCustomTypeRemovedMessagePayloadModel extends Json
     public function setOldTypeId(?string $oldTypeId): void
     {
         $this->oldTypeId = $oldTypeId;
+    }
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void
+    {
+        $this->addressId = $addressId;
     }
 }

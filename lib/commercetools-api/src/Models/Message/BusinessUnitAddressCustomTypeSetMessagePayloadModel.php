@@ -40,6 +40,12 @@ final class BusinessUnitAddressCustomTypeSetMessagePayloadModel extends JsonObje
      */
     protected $oldTypeId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $addressId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -47,10 +53,12 @@ final class BusinessUnitAddressCustomTypeSetMessagePayloadModel extends JsonObje
     public function __construct(
         ?CustomFields $customFields = null,
         ?string $oldTypeId = null,
+        ?string $addressId = null,
         ?string $type = null
     ) {
         $this->customFields = $customFields;
         $this->oldTypeId = $oldTypeId;
+        $this->addressId = $addressId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -113,6 +121,26 @@ final class BusinessUnitAddressCustomTypeSetMessagePayloadModel extends JsonObje
         return $this->oldTypeId;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> on which the Custom Field was set.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
 
     /**
      * @param ?CustomFields $customFields
@@ -128,5 +156,13 @@ final class BusinessUnitAddressCustomTypeSetMessagePayloadModel extends JsonObje
     public function setOldTypeId(?string $oldTypeId): void
     {
         $this->oldTypeId = $oldTypeId;
+    }
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void
+    {
+        $this->addressId = $addressId;
     }
 }

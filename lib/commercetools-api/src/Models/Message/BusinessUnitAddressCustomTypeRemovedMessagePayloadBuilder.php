@@ -27,6 +27,12 @@ final class BusinessUnitAddressCustomTypeRemovedMessagePayloadBuilder implements
     private $oldTypeId;
 
     /**
+
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
      * <p><code>id</code> of the <a href="ctp:api:type:Type">Custom Type</a> that was removed. Absent if there was no previous Custom Type present.</p>
      *
 
@@ -35,6 +41,17 @@ final class BusinessUnitAddressCustomTypeRemovedMessagePayloadBuilder implements
     public function getOldTypeId()
     {
         return $this->oldTypeId;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> from which the Custom Type was removed.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        return $this->addressId;
     }
 
     /**
@@ -48,11 +65,23 @@ final class BusinessUnitAddressCustomTypeRemovedMessagePayloadBuilder implements
         return $this;
     }
 
+    /**
+     * @param ?string $addressId
+     * @return $this
+     */
+    public function withAddressId(?string $addressId)
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
 
     public function build(): BusinessUnitAddressCustomTypeRemovedMessagePayload
     {
         return new BusinessUnitAddressCustomTypeRemovedMessagePayloadModel(
-            $this->oldTypeId
+            $this->oldTypeId,
+            $this->addressId
         );
     }
 

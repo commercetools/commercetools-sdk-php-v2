@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 interface BusinessUnitAddressCustomTypeRemovedMessagePayload extends MessagePayload
 {
     public const FIELD_OLD_TYPE_ID = 'oldTypeId';
+    public const FIELD_ADDRESS_ID = 'addressId';
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:Type">Custom Type</a> that was removed. Absent if there was no previous Custom Type present.</p>
@@ -24,7 +25,20 @@ interface BusinessUnitAddressCustomTypeRemovedMessagePayload extends MessagePayl
     public function getOldTypeId();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> from which the Custom Type was removed.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId();
+
+    /**
      * @param ?string $oldTypeId
      */
     public function setOldTypeId(?string $oldTypeId): void;
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void;
 }

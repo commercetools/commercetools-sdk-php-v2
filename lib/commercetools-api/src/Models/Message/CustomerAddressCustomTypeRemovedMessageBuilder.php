@@ -94,6 +94,12 @@ final class CustomerAddressCustomTypeRemovedMessageBuilder implements Builder
     private $previousTypeId;
 
     /**
+
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -213,6 +219,17 @@ final class CustomerAddressCustomTypeRemovedMessageBuilder implements Builder
     public function getPreviousTypeId()
     {
         return $this->previousTypeId;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> from which the Custom Type was removed.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        return $this->addressId;
     }
 
     /**
@@ -337,6 +354,17 @@ final class CustomerAddressCustomTypeRemovedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressId
+     * @return $this
+     */
+    public function withAddressId(?string $addressId)
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -393,7 +421,8 @@ final class CustomerAddressCustomTypeRemovedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->previousTypeId
+            $this->previousTypeId,
+            $this->addressId
         );
     }
 
