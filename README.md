@@ -1,14 +1,72 @@
-# Commercetools
+# Composable Commerce PHP SDK
+
+## Introduction
+
+This repository contains the PHP SDK generated from the Composable Commerce API reference.
+
 
 Client and Request Builder for making API requests against [Commercetools](https://www.commercetools.com).
 
-## Installation
+## Package and Installation
 
 ```sh
 composer require commercetools/commercetools-sdk
 ```
 
+| Package            | Version                                                                                                                                                                                                                                                                                                                          |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| commercetools SDK  | [![Latest Stable Version](https://img.shields.io/packagist/v/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk) [![Total Downloads](https://img.shields.io/packagist/dt/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk) |
+
+
+## Technical Overview
+
+The SDK consists of the following projects:
+* `lib/commercetools-base/src`: Contains Client which communicate with Composable Commerce to execute requests, it contains also the classes related to the client like tokens, middlewares and handlers, and mappers and exceptions.
+* `lib/commercetools-api/src`: Contains all generated models and request builders to communicate with [Composable Commerce HTTP API](https://docs.commercetools.com/http-api.html).
+* `lib/commercetools-import/src`: Contains all generated models and request builders to communicate with the [Import API](https://docs.commercetools.com/import-api/).
+* `lib/commercetools-history/src`: Contains all generated models and request builders to communicate with the [Change History API](https://docs.commercetools.com/api/history/change-history).
+
+In addition, the SDK has the following directories:
+* `examples/symfony-app` : it shows how the PHP SDK can be used in a Symfony application for a Docker environment with NewRelic monitoring enabled. 
+* `test/integration` : Integration Tests for the SDK. A good way for anyone using the PHP SDK to understand it further.
+* `test/unit` : Unit Tests for 
+* `lib/commercetools-api-tests` : generated unit test for each class for the api folder
+* `lib/commercetools-history-tests` : generated unit test for each class for the history folder
+* `lib/commercetools-import-tests` : generated unit test for each class for the import folder
+
+
+The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:
+
+- [JSON serializer](https://www.php.net/manual/en/jsonserializable.jsonserialize.php)
+- [PSR-3 - LoggerInterface](https://www.php-fig.org/psr/psr-3/)
+- [PSR-4 - Autoloader](https://www.php-fig.org/psr/psr-4/)
+- [PSR-6 - CachingInterface](https://www.php-fig.org/psr/psr-6/)
+- [PSR-7 - HTTP Message Interface](https://www.php-fig.org/psr/psr-7/)
+- [PSR-16 - Common Interface for Caching Libraries](https://www.php-fig.org/psr/psr-16/)
+- [PSR-18 - HTTP Client](https://www.php-fig.org/psr/psr-18/)
+- PHP Date API:
+    - [DateTimeImmutable](https://secure.php.net/manual/en/datetimeimmutable.construct.php)
+
+## Placeholder values
+
+Example code in this guide uses placeholders that should be replaced with the following values.
+
+If you do not have an API Client, follow our [Get your API Client](/../getting-started/create-api-client) guide.
+
+| Placeholder      | Replace with | From                                    |
+| ---------------- | ------------ | --------------------------------------- |
+| `{projectKey}`   | project_key  | your API Client                         |
+| `{clientID}`     | client_id    | your API Client                         |
+| `{clientSecret}` | secret       | your API Client                         |
+| `{scope}`        | scope        | your API Client                         |
+| `{region}`       | your Region  | [Hosts](/../api/general-concepts#hosts) |
+
+
 ## Usage
+
+
+
+### How to create the Client
 
 ```php
 namespace Commercetools;
@@ -22,13 +80,52 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 /** @var string $clientId */
 /** @var string $clientSecret */
-$authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
-
+/** @var string $scope
+ *   Provide the scope when you want to request a specific ones for the client. 
+ *   Can be omitted to use all scopes of the oauth client.
+ *   Format: `<the scope name>:<the project key>`.
+ *   Example: `manage_products:project1`. $authConfig 
+ */
+    $authConfig = new ClientCredentialsConfig(
+      new ClientCredentials('{clientID}', '{clientSecret}', '{scope}'),
+      [],
+      'https://auth.{region}.commercetools.com/oauth/token'
+    );
 $client = ClientFactory::of()->createGuzzleClient(
-    new Config(),
+    new Config([], 'https://api.{region}.commercetools.com'),
     $authConfig
 );
 ```
+
+### How to apply PSRs
+The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:
+- [PS3 - Logger Interface](https://www.php-fig.org/psr/psr-3/)
+
+```php
+$authHandler = HandlerStack::create();
+$authHandler->push(
+    MiddlewareFactory::createLoggerMiddleware(new Logger('auth', [new StreamHandler('./logs/requests.log')]))
+);
+$authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret), [
+    'handler' => $authHandler,
+]);
+$logger = new Logger('client', [new StreamHandler('./logs/requests.log')]);
+$client = ClientFactory::of()->createGuzzleClientForHandler(
+    new Config(['maxRetries' => 3]),
+    OAuthHandlerFactory::ofAuthConfig($authConfig),
+    $logger
+);
+```
+- [PSR-4 - Autoloader](https://www.php-fig.org/psr/psr-4/)
+- [PSR-6 - CachingInterface](https://www.php-fig.org/psr/psr-6/)
+```php
+$cache = new FilesystemCache(); //using Symfony cache
+ClientFactory->createGuzzleClientForHandler(
+    $config,
+    OAuthHandlerFactory::ofAuthConfig($authConfig, $cache)
+)
+```
+
 
 ### RequestBuilder
 
