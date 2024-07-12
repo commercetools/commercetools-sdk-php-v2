@@ -1,12 +1,30 @@
 # Composable Commerce PHP SDK
 
+## Index of Topics
+
+- [Introduction](#introduction)
+- [Package and Installation](#package-and-installation)
+- [Technical Overview](#technical-overview)
+- [Placeholder values](#placeholder-values)
+- [Usage](#usage)
+  - [How to create the Client](#how-to-create-the-client)
+  - [How to apply PSRs](#how-to-apply-psrs)
+  - [How to use RequestBuilders](#how-to-use-requestbuilders)
+  - [How to execute requests](#how-to-execute-requests)
+  - [How to customize endpoint for different regions](#how-to-customize-endpoint-for-different-regions)
+- [Migration Guidelines](#migration-guidelines)
+- [Observability](#observability)
+- [Documentation](#documentation)
+- [License](#license)
+
+<a id="introduction"></a>
 ## Introduction
 
 This repository contains the PHP SDK generated from the Composable Commerce API reference.
 
-
 Client and Request Builder for making API requests against [Commercetools](https://www.commercetools.com).
 
+<a id="package-and-installation"></a>
 ## Package and Installation
 
 ```sh
@@ -18,6 +36,7 @@ composer require commercetools/commercetools-sdk
 | commercetools SDK  | [![Latest Stable Version](https://img.shields.io/packagist/v/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk) [![Total Downloads](https://img.shields.io/packagist/dt/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk) |
 
 
+<a id="technical-overview"></a>
 ## Technical Overview
 
 The SDK consists of the following projects:
@@ -47,6 +66,7 @@ The PHP SDK utilizes various standard interfaces and components to ensure consis
 - PHP Date API:
     - [DateTimeImmutable](https://secure.php.net/manual/en/datetimeimmutable.construct.php)
 
+<a id="placeholder-values"></a>
 ## Placeholder values
 
 Example code in this guide uses placeholders that should be replaced with the following values.
@@ -61,11 +81,10 @@ If you do not have an API Client, follow our [Get your API Client](/../getting-s
 | `{scope}`        | scope        | your API Client                         |
 | `{region}`       | your Region  | [Hosts](/../api/general-concepts#hosts) |
 
-
+<a id="usage"></a>
 ## Usage
 
-
-
+<a id="how-to-create-the-client"></a>
 ### How to create the Client
 
 ```php
@@ -86,17 +105,18 @@ require_once __DIR__ . '/vendor/autoload.php';
  *   Format: `<the scope name>:<the project key>`.
  *   Example: `manage_products:project1`. $authConfig 
  */
-    $authConfig = new ClientCredentialsConfig(
-      new ClientCredentials('{clientID}', '{clientSecret}', '{scope}'),
-      [],
-      'https://auth.{region}.commercetools.com/oauth/token'
-    );
+$authConfig = new ClientCredentialsConfig(
+  new ClientCredentials('{clientID}', '{clientSecret}', '{scope}'),
+  [],
+  'https://auth.{region}.commercetools.com/oauth/token'
+);
 $client = ClientFactory::of()->createGuzzleClient(
     new Config([], 'https://api.{region}.commercetools.com'),
     $authConfig
 );
 ```
 
+<a id="how-to-apply-psrs"></a>
 ### How to apply PSRs
 The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:
 - [PS3 - Logger Interface](https://www.php-fig.org/psr/psr-3/)
@@ -116,7 +136,6 @@ $client = ClientFactory::of()->createGuzzleClientForHandler(
     $logger
 );
 ```
-- [PSR-4 - Autoloader](https://www.php-fig.org/psr/psr-4/)
 - [PSR-6 - CachingInterface](https://www.php-fig.org/psr/psr-6/)
 ```php
 $cache = new FilesystemCache(); //using Symfony cache
@@ -125,9 +144,25 @@ ClientFactory->createGuzzleClientForHandler(
     OAuthHandlerFactory::ofAuthConfig($authConfig, $cache)
 )
 ```
+- [PSR-7 - HTTP Message Interface](https://www.php-fig.org/psr/psr-7/)
+```php
+//set up the client something like the examples before
 
+// create a guzzle request
+        /** @var CategoryBuilder $category */
+        $request = $client->with()->categories()->withId($category->getId())->get()->withExpand('parent');
+        $result = $request->execute();
 
-### RequestBuilder
+        $request = new \GuzzleHttp\Psr7\Request('GET', '{projectKey}/categories/{ID}');
+        $response = $client->send($request);
+```
+- [PSR-16 - Common Interface for Caching Libraries](https://www.php-fig.org/psr/psr-16/)
+```php
+
+```
+
+<a id="how-to-use-requestbuilders"></a>
+### How to use RequestBuilders
 
 Detailed information of all available methods for the product API can be found [here](lib/commercetools-api/docs/RequestBuilder.md).
 Information for the Import API can be found [here](lib/commercetools-import/docs/RequestBuilder.md).
@@ -158,8 +193,8 @@ $importBuilder =  new ImportRequestBuilder('your-project-key', $client);
 $request = $importBuilder->importSinks()->get();
 ```
 
-
-### Executing requests
+<a id="how-to-execute-requests"></a>
+### How to execute requests
 
 ```php
 use Commercetools\Client\ApiRequestBuilder;
@@ -186,7 +221,9 @@ $project = $request->mapFromResponse($promise->wait());
 $response = $client->send($request);
 $project = $request->mapFromResponse($response);
 ```
-### Custom endpoint for different regions
+
+<a id="how-to-customize-endpoint-for-different-regions"></a>
+### How to customize endpoint for different regions
 
 By default, the library uses `api.europe-west1.gcp.commercetools.com` endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the `us-central1` region:
 ```php
@@ -204,18 +241,22 @@ $client = ClientFactory::of()->createGuzzleClient(
 ```
 Note that the auth endpoint should contain the `/oauth/token` suffix, but the API endpoint - don't.
 
-### Migration Guidelines
+<a id="migration-guidelines"></a>
+## Migration Guidelines
 To migrate from the 1.x to the 2.x, there is a guideline below:
 * [Migration guidelines from v1 to v2](./Migration.md)
 
-### Observability
+<a id="observability"></a>
+## Observability
 
 To monitor and observe the SDK, see the official documentation [Observability](https://docs.commercetools.com/sdk/observability), there is a [Demo application](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app) which shows how to monitor the PHP SDK with New Relic.
 
-### Documentation
+<a id="documentation"></a>
+## Documentation
 
 * [Documentation](https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/index.html)
 
+<a id="license"></a>
 ## License
 
 MIT
