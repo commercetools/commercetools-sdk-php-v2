@@ -6,9 +6,18 @@
 - [Package and Installation](#package-and-installation)
 - [Technical Overview](#technical-overview)
 - [Placeholder values](#placeholder-values)
-- [Usage](#usage)
+- [Configuration](#configuration)
   - [How to create the Client](#how-to-create-the-client)
   - [How to apply PSRs](#how-to-apply-psrs)
+- [Middlewares](#middlewares)
+  - [DefaultMiddleware](#defaultmiddleware)
+  - [CorrelationIdMiddleware](#correlationidmiddleware)
+  - [RetryNAMiddleware](#retrynamiddleware)
+  - [OAuthHandlerMiddleware](#oauthhandlermiddleware)
+  - [LoggerMiddleware](#loggermiddleware)
+  - [ReauthenticateMiddleware](#reauthenticatemiddleware)
+- 
+- 
   - [How to use RequestBuilders](#how-to-use-requestbuilders)
   - [How to execute requests](#how-to-execute-requests)
   - [How to customize endpoint for different regions](#how-to-customize-endpoint-for-different-regions)
@@ -81,12 +90,15 @@ If you do not have an API Client, follow our [Get your API Client](/../getting-s
 | `{scope}`        | scope        | your API Client                         |
 | `{region}`       | your Region  | [Hosts](/../api/general-concepts#hosts) |
 
-<a id="usage"></a>
-## Usage
+<a id="configuration"></a>
+## Configuration
 
 <a id="how-to-create-the-client"></a>
 ### How to create the Client
 
+The example below shows how to create a client with customized URIs passed in the creation of the Client itself.
+
+### 
 ```php
 namespace Commercetools;
 
@@ -116,6 +128,7 @@ $client = ClientFactory::of()->createGuzzleClient(
 );
 ```
 
+
 <a id="how-to-apply-psrs"></a>
 ### How to apply PSRs
 The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:
@@ -138,27 +151,129 @@ $client = ClientFactory::of()->createGuzzleClientForHandler(
 ```
 - [PSR-6 - CachingInterface](https://www.php-fig.org/psr/psr-6/)
 ```php
-$cache = new FilesystemCache(); //using Symfony cache
-ClientFactory->createGuzzleClientForHandler(
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+$filesystemCache = new FilesystemAdapter();
+
+$config = new Config(['timeout' => 30]);
+$client = ClientFactory->createGuzzleClientForHandler(
     $config,
     OAuthHandlerFactory::ofAuthConfig($authConfig, $cache)
-)
+);
 ```
 - [PSR-7 - HTTP Message Interface](https://www.php-fig.org/psr/psr-7/)
 ```php
 //set up the client something like the examples before
 
 // create a guzzle request
-        /** @var CategoryBuilder $category */
-        $request = $client->with()->categories()->withId($category->getId())->get()->withExpand('parent');
-        $result = $request->execute();
+/** @var CategoryBuilder $category */
+$request = $client->with()->categories()->withId($category->getId())->get()->withExpand('parent');
+$result = $request->execute();
 
-        $request = new \GuzzleHttp\Psr7\Request('GET', '{projectKey}/categories/{ID}');
-        $response = $client->send($request);
+$request = new \GuzzleHttp\Psr7\Request('GET', '{projectKey}/categories/{ID}');
+$response = $client->send($request);
 ```
 - [PSR-16 - Common Interface for Caching Libraries](https://www.php-fig.org/psr/psr-16/)
 ```php
+use Symfony\Component\Cache\Simple\FilesystemCache;
+use Symfony\Component\Cache\Psr16Cache;
 
+$filesystemCache = new FilesystemAdapter();
+$cache = new Psr16Cache($filesystemCache);
+
+$config = new Config(['timeout' => 30]);
+$client = ClientFactory->createGuzzleClientForHandler(
+    $config,
+    OAuthHandlerFactory::ofAuthConfig($authConfig, $cache)
+);
+```
+<a id="middlewares"></a>
+## Middlewares
+We introduced middleware to add functionalities to the requests and the responses in the PHP SDK.
+
+You can add middleware when creating the PHP SDK client. Multiple middlewares can be added using the array of middlewares.
+
+The scope of the MiddlewareFactory which is a Factory pattern is to handle all the available middleware and have the chance to have them customized.
+
+The methods that are contained in this class, are meant to create an array of middlewares.
+
+<a id="DefaultMiddleware"></a>
+### DefaultMiddleware
+
+The method [createDefaultMiddlewares](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L26) creates an array with default values of OAuth Handler, Authentication, Logger, Retry and Correlation ID.
+
+```php
+$authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret), [
+            'handler' => $authHandler,
+        ]);
+$oauthHandler = OAuthHandlerFactory::ofAuthConfig($authConfig),
+$logger = new Logger('client', [new StreamHandler('./logs/requests.log')]);
+$maxRetries = 3;
+$correlationIdProvider = new DefaultCorrelationIdProvider();
+
+$middlewares = MiddlewareFactory::createDefaultMiddlewares(
+    $oauthHandler,
+    $logger,
+    $maxRetries,
+    $correlationIdProvider
+);
+```
+<a id="CorrelationIdMiddleware"></a>
+### CorrelationIdMiddleware
+
+The method [createCorrelationIdMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L51) creates a middleware that adds a correlation ID to the headers of HTTP requests.
+
+```php
+$correlationIdProvider = new DefaultCorrelationIdProvider();
+
+$correlationIdMiddleware = MiddlewareFactory::createCorrelationIdMiddleware(
+  $correlationIdProvider
+);
+```
+<a id="RetryNAMiddleware"></a>
+### RetryNAMiddleware
+
+The method [createRetryNAMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L66) is designed to create middleware that retries HTTP requests under certain conditions.
+
+```php
+$maxRetries = 3;
+
+$retryMiddleware = MiddlewareFactory::createRetryNAMiddleware($maxRetries);
+```
+<a id="OAuthHandlerMiddleware"></a>
+### OAuthHandlerMiddleware
+
+The method [createMiddlewareForOAuthHandler](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L95) creates a middleware for handling OAuth2 authentication ensuring to include th necessary OAuth credentials.
+
+```php
+$tokenProvider = new YourTokenProvider();
+$oauthHandler = OAuthHandlerFactory::ofProvider($tokenProvider),
+
+$oauthMiddleware = MiddlewareFactory::createMiddlewareForOAuthHandler($oauthHandler);
+```
+
+<a id="LoggerMiddleware"></a>
+### LoggerMiddleware
+
+The method [createLoggerMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L104) creates a middleware for logging HTTP requests and responses.
+
+```php
+$logger = new Logger('auth');
+$logger->pushHandler(new StreamHandler('./logs/requests.log', Logger::DEBUG));
+
+$loggerMiddleware = MiddlewareFactory::createLoggerMiddleware($logger);
+```
+<a id="ReauthenticateMiddleware"></a>
+### ReauthenticateMiddleware
+
+The method [createReauthenticateMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L114C28-L114C58) creates a middleware that automatically reauthenticates HTTP requests when an invalid token error (HTTP 401) is encountered. It uses an OAuth2Handler to refresh the token and retry the request up to a specified number of times.
+
+```php
+$authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret), [
+            'handler' => $authHandler,
+        ]);
+$oauthHandler = OAuthHandlerFactory::ofAuthConfig($authConfig),
+//maxRetries have the default value 1 as a second parameter of the function
+$reauthMiddleware = MiddlewareFactory::createReauthenticateMiddleware($oauthHandler);
 ```
 
 <a id="how-to-use-requestbuilders"></a>
