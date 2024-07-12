@@ -54,6 +54,8 @@
 - added property `variants` to type `ProductTailoringData`
 - added property `variants` to type `ProductTailoringDraft`
 - added property `variants` to type `ProductTailoringInStoreDraft`
+- added property `active` to type `ShippingMethod`
+- added property `active` to type `ShippingMethodDraft`
 - added property `store` to type `StagedQuote`
 </details>
 
@@ -201,6 +203,7 @@
 - added type `ProductTailoringSetImageLabelAction`
 - added type `CustomerSearchStatus`
 - added type `ProjectChangeCustomerSearchStatusAction`
+- added type `ShippingMethodChangeActiveAction`
 </details>
 
 

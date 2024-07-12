@@ -1871,9 +1871,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->post(null)`
 
-Creating a Cart fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error if the
-[ShippingMethod](ctp:api:type:ShippingMethod) referenced in the CartDraft
-has a `predicate` that does not match the Cart.
+If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, or if the Shipping Method is not active, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
 Specific Error Codes:
 
@@ -3509,7 +3507,7 @@ $request = $builder
 
 Creates a [Cart](ctp:api:type:Cart) in the [Store](ctp:api:type:Store) specified by `storeKey`.
 When using this endpoint the Cart's `store` field is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
-If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, or if the Shipping Method is not active, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
 Specific Error Codes:
 
@@ -4738,6 +4736,7 @@ Specific Error Codes:
 - [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
 - [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError)
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 - [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
@@ -5547,7 +5546,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
-Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart in a given [Store](ctp:api:type:Store).
+Retrieves all the active ShippingMethods that can ship to the shipping address of the given Cart in a given [Store](ctp:api:type:Store).
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
@@ -5566,7 +5565,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->head()`
 
-Checks if a ShippingMethod that can ship to the shipping address of the given Cart exists in the given [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod that can ship to the shipping address of the given Cart exists in the given [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -7505,6 +7504,7 @@ Specific Error Codes:
 - [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
 - [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError)
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
@@ -9754,7 +9754,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->get()`
 
-Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart.
+Retrieves all the active ShippingMethods that can ship to the shipping address of the given Cart.
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
@@ -9772,7 +9772,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->head()`
 
-Checks if a ShippingMethod exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9787,7 +9787,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->get()`
 
-Retrieves all the ShippingMethods that can ship to the given [Location](ctp:api:type:Location)
+Retrieves all the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location)
 with a `predicate` that matches the given Cart.
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
@@ -9806,7 +9806,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->head()`
 
-Checks if a ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9821,7 +9821,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
-Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location).
+Retrieves all the active ShippingMethods that can ship to the given [Location](/projects/zones#location).
 ShippingMethods that have a `predicate` defined are automatically disqualified.
 If the `currency` parameter is given, then the ShippingMethods must also have a rate defined in the specified currency.
 Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
@@ -9841,7 +9841,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->head()`
 
-Checks if a ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9856,7 +9856,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
-Retrieves all the ShippingMethods that can ship to the given [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
+Retrieves all the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
 
 If the OrderEdit preview cannot be generated, an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is returned.
 
@@ -9874,7 +9874,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->head()`
 
-Checks if a ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given [OrderEdit](ctp:api:type:OrderEdit). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given [OrderEdit](ctp:api:type:OrderEdit). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
