@@ -90,18 +90,6 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyProductProjectionsSuggestGet_withFuzzy' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productProjections()
-                        ->suggest()
-                        ->get()
-                        ->withFuzzy('fuzzy');
-                },
-                'get',
-                'test_projectKey/product-projections/suggest?fuzzy=fuzzy',
-            ],
             'ByProjectKeyProductProjectionsSuggestGet_withSearchKeywords' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -113,18 +101,6 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                 },
                 'get',
                 'test_projectKey/product-projections/suggest?searchKeywords.locale=searchKeywords.locale',
-            ],
-            'ByProjectKeyProductProjectionsSuggestGet_withSort' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productProjections()
-                        ->suggest()
-                        ->get()
-                        ->withSort('sort');
-                },
-                'get',
-                'test_projectKey/product-projections/suggest?sort=sort',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -138,29 +114,17 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/suggest?limit=limit',
             ],
-            'ByProjectKeyProductProjectionsSuggestGet_withOffset' => [
+            'ByProjectKeyProductProjectionsSuggestGet_withFuzzy' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withOffset('offset');
+                        ->withFuzzy('fuzzy');
                 },
                 'get',
-                'test_projectKey/product-projections/suggest?offset=offset',
-            ],
-            'ByProjectKeyProductProjectionsSuggestGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productProjections()
-                        ->suggest()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/product-projections/suggest?withTotal=withTotal',
+                'test_projectKey/product-projections/suggest?fuzzy=fuzzy',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withStaged' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

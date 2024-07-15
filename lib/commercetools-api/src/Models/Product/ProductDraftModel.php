@@ -446,7 +446,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
-     * <p>Used by <a href="ctp:api:type:ProductSuggestions">Product Suggestions</a>, but is also considered for a <a href="/projects/products-search#full-text-search">full text search</a>.</p>
+     * <p>Used by <a href="/projects/products-suggestions">Product Suggestions</a>, but is also considered for a <a href="/projects/products-search#full-text-search">full text search</a>.</p>
      *
      *
      * @return null|SearchKeywords

@@ -62,7 +62,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
-     * <p>The tokenizer defines the tokens that are used to match against the <a href="/../products-suggestions#suggest-query">Suggest Query</a> input.</p>
+     * <p>The tokenizer defines the tokens that are used to match against the <a href="/../products-suggestions#query-suggestions">Suggest Query</a> input.</p>
      *
      *
      * @return null|SuggestTokenizer
