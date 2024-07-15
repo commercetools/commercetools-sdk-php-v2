@@ -909,10 +909,9 @@ WARN_LOGFILE           =
 INPUT                  = src \
                          README.md \
                          lib/commercetools-base/src \
-                         lib/commercetools-import/src \
-                         lib/commercetools-api/src \
-                         lib/commercetools-history/src \
-                         lib/commercetools-ml/src
+                         lib/commercetools-import \
+                         lib/commercetools-api \
+                         lib/commercetools-history
 
 
 # This tag can be used to specify the character encoding of the source files
@@ -1031,7 +1030,7 @@ IMAGE_PATH             =
 # need to set EXTENSION_MAPPING for the extension otherwise the files are not
 # properly processed by doxygen.
 
-INPUT_FILTER           =
+INPUT_FILTER           = "sed -e 's|@INCLUDE\([^)]*\)|$(cat \1)|g'"
 
 # The FILTER_PATTERNS tag can be used to specify filters on a per file pattern
 # basis. Doxygen will compare the file name with each pattern and apply the

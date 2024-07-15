@@ -16,12 +16,15 @@
   - [OAuthHandlerMiddleware](#oauthhandlermiddleware)
   - [LoggerMiddleware](#loggermiddleware)
   - [ReauthenticateMiddleware](#reauthenticatemiddleware)
-- 
-- 
-  - [How to use RequestBuilders](#how-to-use-requestbuilders)
-  - [How to execute requests](#how-to-execute-requests)
-  - [How to customize endpoint for different regions](#how-to-customize-endpoint-for-different-regions)
-- [Migration Guidelines](#migration-guidelines)
+- [How to use RequestBuilders](#how-to-use-requestbuilders)
+- [How to execute requests](#how-to-execute-requests)
+- [Querying](#querying)
+  - [Predicates](#predicates)
+  - [Get By Id/Key](#get-by-idkey)
+  - [Sorting](#sorting)
+  - [Pagination](#pagination)
+- [How to customize endpoint for different regions](#how-to-customize-endpoint-for-different-regions)
+- [Migration Guidelines From SDK v1](#migration-guidelines-from-sdk-v1)
 - [Observability](#observability)
 - [Documentation](#documentation)
 - [License](#license)
@@ -118,9 +121,9 @@ require_once __DIR__ . '/vendor/autoload.php';
  *   Example: `manage_products:project1`. $authConfig 
  */
 $authConfig = new ClientCredentialsConfig(
-  new ClientCredentials('{clientID}', '{clientSecret}', '{scope}'),
-  [],
-  'https://auth.{region}.commercetools.com/oauth/token'
+    new ClientCredentials('{clientID}', '{clientSecret}', '{scope}'),
+    [],
+    'https://auth.{region}.commercetools.com/oauth/token'
 );
 $client = ClientFactory::of()->createGuzzleClient(
     new Config([], 'https://api.{region}.commercetools.com'),
@@ -196,7 +199,7 @@ The scope of the MiddlewareFactory which is a Factory pattern is to handle all t
 
 The methods that are contained in this class, are meant to create an array of middlewares.
 
-<a id="DefaultMiddleware"></a>
+<a id="defaultmiddleware"></a>
 ### DefaultMiddleware
 
 The method [createDefaultMiddlewares](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L26) creates an array with default values of OAuth Handler, Authentication, Logger, Retry and Correlation ID.
@@ -217,7 +220,7 @@ $middlewares = MiddlewareFactory::createDefaultMiddlewares(
     $correlationIdProvider
 );
 ```
-<a id="CorrelationIdMiddleware"></a>
+<a id="correlationidmiddleware"></a>
 ### CorrelationIdMiddleware
 
 The method [createCorrelationIdMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L51) creates a middleware that adds a correlation ID to the headers of HTTP requests.
@@ -226,10 +229,10 @@ The method [createCorrelationIdMiddleware](https://github.com/commercetools/comm
 $correlationIdProvider = new DefaultCorrelationIdProvider();
 
 $correlationIdMiddleware = MiddlewareFactory::createCorrelationIdMiddleware(
-  $correlationIdProvider
+    $correlationIdProvider
 );
 ```
-<a id="RetryNAMiddleware"></a>
+<a id="retrynamiddleware"></a>
 ### RetryNAMiddleware
 
 The method [createRetryNAMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L66) is designed to create middleware that retries HTTP requests under certain conditions.
@@ -239,7 +242,7 @@ $maxRetries = 3;
 
 $retryMiddleware = MiddlewareFactory::createRetryNAMiddleware($maxRetries);
 ```
-<a id="OAuthHandlerMiddleware"></a>
+<a id="oauthhandlermiddleware"></a>
 ### OAuthHandlerMiddleware
 
 The method [createMiddlewareForOAuthHandler](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L95) creates a middleware for handling OAuth2 authentication ensuring to include th necessary OAuth credentials.
@@ -251,7 +254,7 @@ $oauthHandler = OAuthHandlerFactory::ofProvider($tokenProvider),
 $oauthMiddleware = MiddlewareFactory::createMiddlewareForOAuthHandler($oauthHandler);
 ```
 
-<a id="LoggerMiddleware"></a>
+<a id="loggermiddleware"></a>
 ### LoggerMiddleware
 
 The method [createLoggerMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L104) creates a middleware for logging HTTP requests and responses.
@@ -262,7 +265,7 @@ $logger->pushHandler(new StreamHandler('./logs/requests.log', Logger::DEBUG));
 
 $loggerMiddleware = MiddlewareFactory::createLoggerMiddleware($logger);
 ```
-<a id="ReauthenticateMiddleware"></a>
+<a id="reauthenticatemiddleware"></a>
 ### ReauthenticateMiddleware
 
 The method [createReauthenticateMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L114C28-L114C58) creates a middleware that automatically reauthenticates HTTP requests when an invalid token error (HTTP 401) is encountered. It uses an OAuth2Handler to refresh the token and retry the request up to a specified number of times.
@@ -279,8 +282,10 @@ $reauthMiddleware = MiddlewareFactory::createReauthenticateMiddleware($oauthHand
 <a id="how-to-use-requestbuilders"></a>
 ### How to use RequestBuilders
 
-Detailed information of all available methods for the product API can be found [here](lib/commercetools-api/docs/RequestBuilder.md).
+Detailed information of all available methods for the product API can be found [here](lib/commercetools-api/docs/RequestBuilder.md)
+@INCLUDE(lib/commercetools-api/docs/RequestBuilder.md)
 Information for the Import API can be found [here](lib/commercetools-import/docs/RequestBuilder.md).
+@INCLUDE(lib/commercetools-import/docs/RequestBuilder.md)
 
 Examples to retrieve project information
 
@@ -290,7 +295,7 @@ use GuzzleHttp\ClientInterface;
 
 /** @var ClientInterface $client */
 $builder =  new ApiRequestBuilder($client);
-$request = $builder->withProjectKey('your-project-key')->get();
+$request = $builder->withProjectKey('{projectKey}')->get();
 ```
 
 To avoid specifying the project key for every request built it's possible to use the ones in the `Commercetools\Client` namespace instead
@@ -301,10 +306,10 @@ use Commercetools\Client\ImportRequestBuilder;
 use GuzzleHttp\ClientInterface;
 
 /** @var ClientInterface $client */
-$builder =  new ApiRequestBuilder('your-project-key', $client);
+$builder =  new ApiRequestBuilder('{projectKey}', $client);
 $request = $builder->categories()->get();
 
-$importBuilder =  new ImportRequestBuilder('your-project-key', $client);
+$importBuilder =  new ImportRequestBuilder('{projectKey}', $client);
 $request = $importBuilder->importSinks()->get();
 ```
 
@@ -316,7 +321,7 @@ use Commercetools\Client\ApiRequestBuilder;
 use GuzzleHttp\ClientInterface;
 
 /** @var ClientInterface $client */
-$builder =  new ApiRequestBuilder('your-project-key', $client);
+$builder =  new ApiRequestBuilder('{projectKey}', $client);
 $request = $builder->with()->get();
 
 // executing the request and mapping the response directly to a domain model
@@ -337,27 +342,106 @@ $response = $client->send($request);
 $project = $request->mapFromResponse($response);
 ```
 
+<a id="querying"></a>
+### Querying
+For the examples that we are mentioning below we are setting the `$builder` like here:
+```php
+use Commercetools\Client\ApiRequestBuilder;
+use GuzzleHttp\ClientInterface;
+
+/** @var ClientInterface $client */
+$builder =  new ApiRequestBuilder('{projectKey}', $client);
+```
+
+Since the most of the variables to pass in the `with()` method are scalars, this means that we can pass arrays in the related parameter of the method like in the examples below.
+
+<a id="predicates"></a>
+#### Predicates
+The system allows the use of predicates when querying the API. Predicates are added as query parameter string to the request itself. 
+The following example shows the usage of input variables:
+```php
+$builder
+    ->customers()
+    ->get()
+    ->withWhere('lastName=:lastName')
+    ->withPredicateVar("lastName", $customerSignIn->getCustomer()->getLastName());
+```
+It's also possible to use array values in predicates in case of a varying number of parameters.
+```php
+$builder
+    ->productProjections()
+    ->get()
+    ->withWhere('masterVariant(sku in :skus)')
+    ->withPredicateVar("skus", ["foo", "bar"]);
+```
+
+<a id="get-by-idkey"></a>
+#### Get By Id/Key
+```php
+$builder
+    ->productProjections()
+    ->withId('test_id')
+    ->get();
+```
+```php
+$builder
+    ->productProjections()
+    ->withKey('test_key')
+    ->get();
+```
+
+<a id="sorting"></a>
+#### Sorting
+See [Sort](https://docs.commercetools.com/api/general-concepts#sorting) for details.
+
+Sorting using one parameter:
+```php
+$builder
+    ->products()
+    ->get()
+    ->withSort("masterData.current.name.en asc");
+```
+
+Sorting using multiple parameters:
+```php
+$builder
+    ->products()
+    ->get()
+    ->withSort(["masterData.current.name.en asc", "id asc"]);
+```
+
+<a id="pagination"></a>
+#### Pagination
+Limiting the number of the returned documents or page size:
+```php
+$builder
+    ->products()
+    ->get()
+    ->withLimit(4)
+    ->withOffset(4);
+```
+
 <a id="how-to-customize-endpoint-for-different-regions"></a>
 ### How to customize endpoint for different regions
 
 By default, the library uses `api.europe-west1.gcp.commercetools.com` endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the `us-central1` region:
 ```php
 $authConfig = new ClientCredentialsConfig(
-  new ClientCredentials(CLIENT_ID, CLIENT_SECRET), 
-  [], 
-  'https://auth.us-central1.gcp.commercetools.com/oauth/token'
+    new ClientCredentials('{clientId}', '{clientSecret}'), 
+    [], 
+    'https://auth.us-central1.gcp.commercetools.com/oauth/token'
 );
 
 $config = new Config([], 'https://api.us-central1.gcp.commercetools.com');
 $client = ClientFactory::of()->createGuzzleClient(
-  $config,
-  $authConfig,
+    $config,
+    $authConfig,
 );
 ```
 Note that the auth endpoint should contain the `/oauth/token` suffix, but the API endpoint - don't.
 
-<a id="migration-guidelines"></a>
-## Migration Guidelines
+<a id="migration-guidelines-from-sdk-v1"></a>
+## Migration Guidelines from SDK v1
 To migrate from the 1.x to the 2.x, there is a guideline below:
 * [Migration guidelines from v1 to v2](./Migration.md)
 
