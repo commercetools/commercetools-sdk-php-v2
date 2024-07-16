@@ -9,6 +9,12 @@
 - [Configuration](#configuration)
   - [How to create the Client](#how-to-create-the-client)
   - [How to apply PSRs](#how-to-apply-psrs)
+  - [Error Handling](#error-handling)
+  - [Authentication](#authentication)
+    - [Token Storage Creation](#token-storage-creation)
+    - [Password Flow](#password-flow)
+    - [Anonymous Flow](#anonymous-flow)
+    - [Refresh Flow](#refresh-flow)
 - [Middlewares](#middlewares)
   - [DefaultMiddleware](#defaultmiddleware)
   - [CorrelationIdMiddleware](#correlationidmiddleware)
@@ -189,6 +195,39 @@ $client = ClientFactory->createGuzzleClientForHandler(
     OAuthHandlerFactory::ofAuthConfig($authConfig, $cache)
 );
 ```
+<a id="error-handling"></a>
+### Error Handling
+The error handle is already provided with the [ExceptionFactory](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Exception/ExceptionFactory.php) class.
+The methods contained in this class encapsulate the logic for converting Guzzle exceptions into your custom exceptions based on the HTTP response status codes.
+Which can be called directly in the request or can be called by a dedicated middleware for the error handling. 
+Direct invocation in a request handling or directly handled in a middleware:
+```php
+    if ($e->getCode() >= 500) {
+        throw ExceptionFactory::createServerException($e, $apiRequest, $response, $result);
+    } else {
+        throw ExceptionFactory::createClientException($e, $apiRequest, $response, $result);
+    }
+```
+<a id="authentication"></a>
+### Authentication
+The factory class [ProviderFactory](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/src/Client/ProviderFactory.php) is for managing authentication and token handling.
+
+<a id="token-storage-creation"></a>
+#### Token Storage Creation
+The `createTokenStorageProvider` method generates a TokenStorageProvider that manages tokens using different flows: Refresh Flow and Anonymous Flow.
+
+<a id="password-flow"></a>
+#### Password Flow
+The `createPasswordFlowProvider` method creates a PasswordFlowTokenProvider for authenticating users with username and password, acquiring tokens securely.
+
+<a id="anonymous-flow"></a>
+#### Anonymous Flow
+The `createAnonymousFlowProvider` method constructs an AnonymousFlowTokenProvider to manage tokens for anonymous users, integrating with the API's anonymous token endpoint.
+
+<a id="refresh-flow"></a>
+#### Refresh Flow
+The `createRefreshFlowProvider`method sets up a RefreshFlowTokenProvider to handle token refresh operations seamlessly, ensuring continuous access to API resources.
+
 <a id="middlewares"></a>
 ## Middlewares
 We introduced middleware to add functionalities to the requests and the responses in the PHP SDK.
