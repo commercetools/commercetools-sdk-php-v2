@@ -1,0 +1,93 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\Cart;
+
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
+/**
+ * @internal
+ */
+final class CartChangeLineItemsOrderActionModel extends JsonObjectModel implements CartChangeLineItemsOrderAction
+{
+    public const DISCRIMINATOR_VALUE = 'changeLineItemsOrder';
+    /**
+     *
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     *
+     * @var ?array
+     */
+    protected $lineItemOrder;
+
+
+    /**
+     * @psalm-suppress MissingParamType
+     */
+    public function __construct(
+        ?array $lineItemOrder = null,
+        ?string $action = null
+    ) {
+        $this->lineItemOrder = $lineItemOrder;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     *
+     * @return null|string
+     */
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
+
+    /**
+     * <p>All existing <a href="ctp:api:type:LineItem">LineItem</a> <code>id</code>s in the desired new order.</p>
+     *
+     *
+     * @return null|array
+     */
+    public function getLineItemOrder()
+    {
+        if (is_null($this->lineItemOrder)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_ORDER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemOrder = $data;
+        }
+
+        return $this->lineItemOrder;
+    }
+
+
+    /**
+     * @param ?array $lineItemOrder
+     */
+    public function setLineItemOrder(?array $lineItemOrder): void
+    {
+        $this->lineItemOrder = $lineItemOrder;
+    }
+}
