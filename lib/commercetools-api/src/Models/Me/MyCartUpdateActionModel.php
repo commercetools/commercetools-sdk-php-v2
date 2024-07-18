@@ -37,6 +37,7 @@ final class MyCartUpdateActionModel extends JsonObjectModel implements MyCartUpd
        'addPayment' => MyCartAddPaymentActionModel::class,
        'applyDeltaToLineItemShippingDetailsTargets' => MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel::class,
        'changeLineItemQuantity' => MyCartChangeLineItemQuantityActionModel::class,
+       'changeLineItemsOrder' => MyCartChangeLineItemsOrderActionModel::class,
        'changeTaxMode' => MyCartChangeTaxModeActionModel::class,
        'recalculate' => MyCartRecalculateActionModel::class,
        'removeDiscountCode' => MyCartRemoveDiscountCodeActionModel::class,
