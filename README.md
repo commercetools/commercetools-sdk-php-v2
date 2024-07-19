@@ -5,16 +5,19 @@
 - [Introduction](#introduction)
 - [Package and Installation](#package-and-installation)
 - [Technical Overview](#technical-overview)
-- [Placeholder values](#placeholder-values)
+  - [Placeholder values](#placeholder-values)
+- [Getting Started](#getting-started) 
+  - [Client Creation](#client-creation)
+  - [Customize Endpoint for different regions](#customize-endpoint-for-different-regions)
+  - [Performing Requests](#performing-requests)
 - [Configuration](#configuration)
-  - [How to create the Client](#how-to-create-the-client)
-  - [How to apply PSRs](#how-to-apply-psrs)
+  - [Applying PSRs](#applying-psrs)
   - [Error Handling](#error-handling)
-  - [Authentication](#authentication)
-    - [Token Storage Creation](#token-storage-creation)
-    - [Password Flow](#password-flow)
-    - [Anonymous Flow](#anonymous-flow)
-    - [Refresh Flow](#refresh-flow)
+- [Authentication](#authentication)
+  - [Token Storage Creation](#token-storage-creation)
+  - [Password Flow](#password-flow)
+  - [Anonymous Flow](#anonymous-flow)
+  - [Refresh Flow](#refresh-flow)
 - [Middlewares](#middlewares)
   - [DefaultMiddleware](#defaultmiddleware)
   - [CorrelationIdMiddleware](#correlationidmiddleware)
@@ -22,14 +25,13 @@
   - [OAuthHandlerMiddleware](#oauthhandlermiddleware)
   - [LoggerMiddleware](#loggermiddleware)
   - [ReauthenticateMiddleware](#reauthenticatemiddleware)
-- [How to use RequestBuilders](#how-to-use-requestbuilders)
-- [How to execute requests](#how-to-execute-requests)
 - [Querying](#querying)
   - [Predicates](#predicates)
   - [Get By Id/Key](#get-by-idkey)
   - [Sorting](#sorting)
   - [Pagination](#pagination)
-- [How to customize endpoint for different regions](#how-to-customize-endpoint-for-different-regions)
+- [Products and ProductTypes](#products-and-producttypes)
+  - [ProductType Creation](#producttype-creation)
 - [Migration Guidelines From SDK v1](#migration-guidelines-from-sdk-v1)
 - [Observability](#observability)
 - [Documentation](#documentation)
@@ -85,11 +87,11 @@ The PHP SDK utilizes various standard interfaces and components to ensure consis
     - [DateTimeImmutable](https://secure.php.net/manual/en/datetimeimmutable.construct.php)
 
 <a id="placeholder-values"></a>
-## Placeholder values
+### Placeholder values
 
 Example code in this guide uses placeholders that should be replaced with the following values.
 
-If you do not have an API Client, follow our [Get your API Client](/../getting-started/create-api-client) guide.
+If you do not have an API Client, follow our [Get your API Client](#client-creation) guide.
 
 | Placeholder      | Replace with | From                                    |
 | ---------------- | ------------ | --------------------------------------- |
@@ -99,15 +101,15 @@ If you do not have an API Client, follow our [Get your API Client](/../getting-s
 | `{scope}`        | scope        | your API Client                         |
 | `{region}`       | your Region  | [Hosts](/../api/general-concepts#hosts) |
 
-<a id="configuration"></a>
-## Configuration
+<a id="getting-started"></a>
+## Getting Started
 
-<a id="how-to-create-the-client"></a>
-### How to create the Client
+<a id="client-creation"></a>
+### Client Creation
 
 The example below shows how to create a client with customized URIs passed in the creation of the Client itself.
+You will find the same classes in the Import API folder.
 
-### 
 ```php
 namespace Commercetools;
 
@@ -137,9 +139,92 @@ $client = ClientFactory::of()->createGuzzleClient(
 );
 ```
 
+<a id="customize-endpoint-for-different-regions"></a>
+### Customize Endpoint for different regions
 
-<a id="how-to-apply-psrs"></a>
-### How to apply PSRs
+By default, the library uses `api.europe-west1.gcp.commercetools.com` endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the `us-central1` region:
+```php
+$authConfig = new ClientCredentialsConfig(
+    new ClientCredentials('{clientId}', '{clientSecret}'), 
+    [], 
+    'https://auth.us-central1.gcp.commercetools.com/oauth/token'
+);
+
+$config = new Config([], 'https://api.us-central1.gcp.commercetools.com');
+$client = ClientFactory::of()->createGuzzleClient(
+    $config,
+    $authConfig,
+);
+```
+Note that the auth endpoint should contain the `/oauth/token` suffix, but the API endpoint - don't.
+
+
+<a id="performing-requests"></a>
+### Performing Requests
+
+Detailed information of all available methods for the product API can be found [here](lib/commercetools-api/docs/RequestBuilder.md)
+@INCLUDE(lib/commercetools-api/docs/RequestBuilder.md)
+Information for the Import API can be found [here](lib/commercetools-import/docs/RequestBuilder.md).
+@INCLUDE(lib/commercetools-import/docs/RequestBuilder.md)
+
+Examples to retrieve project information
+
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+use GuzzleHttp\ClientInterface;
+
+/** @var ClientInterface $client */
+$builder =  new ApiRequestBuilder($client);
+$request = $builder->withProjectKey('{projectKey}')->get();
+```
+
+To avoid specifying the project key for every request built it's possible to use the ones in the `Commercetools\Client` namespace instead
+
+```php
+use Commercetools\Client\ApiRequestBuilder;
+use Commercetools\Client\ImportRequestBuilder;
+use GuzzleHttp\ClientInterface;
+
+/** @var ClientInterface $client */
+$builder =  new ApiRequestBuilder('{projectKey}', $client);
+$request = $builder->categories()->get();
+
+$importBuilder =  new ImportRequestBuilder('{projectKey}', $client);
+$request = $importBuilder->importSinks()->get();
+```
+These are some examples about how to execute a request:
+
+```php
+use Commercetools\Client\ApiRequestBuilder;
+use GuzzleHttp\ClientInterface;
+
+/** @var ClientInterface $client */
+$builder =  new ApiRequestBuilder('{projectKey}', $client);
+$request = $builder->with()->get();
+
+// executing the request and mapping the response directly to a domain model
+$project = $request->execute();
+
+// send the request to get the response object 
+$response = $request->send();
+// map the response to a domain model
+$project = $request->mapFromResponse($response);
+
+// send the request asynchronously 
+$promise = $request->sendAsync();
+// map the response to a domain model
+$project = $request->mapFromResponse($promise->wait());
+
+// send the request using a client instance
+$response = $client->send($request);
+$project = $request->mapFromResponse($response);
+```
+
+<a id="configuration"></a>
+## Configuration
+
+<a id="applying-psrs"></a>
+### Applying PSRs
 The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:
 - [PS3 - Logger Interface](https://www.php-fig.org/psr/psr-3/)
 
@@ -209,24 +294,24 @@ Direct invocation in a request handling or directly handled in a middleware:
     }
 ```
 <a id="authentication"></a>
-### Authentication
+## Authentication
 The factory class [ProviderFactory](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/src/Client/ProviderFactory.php) is for managing authentication and token handling.
 
 <a id="token-storage-creation"></a>
-#### Token Storage Creation
-The `createTokenStorageProvider` method generates a TokenStorageProvider that manages tokens using different flows: Refresh Flow and Anonymous Flow.
+### Token Storage Creation
+To generate a TokenStorageProvider that manages tokens using different flows: Refresh Flow and Anonymous Flow, you can use `ProviderFactory::createTokenStorageProvider($anonTokenUrl, $refreshTokenUrl, $clientCredentials, $client, $tokenStorage, $anonymousIdProvider);`.
 
 <a id="password-flow"></a>
-#### Password Flow
-The `createPasswordFlowProvider` method creates a PasswordFlowTokenProvider for authenticating users with username and password, acquiring tokens securely.
+### Password Flow
+The `ProviderFactory::createPasswordFlowProvider($passwordTokenUrl, $clientCredentials, $client, $tokenStorage);` method, creates a PasswordFlowTokenProvider for authenticating users with username and password, acquiring tokens securely.
 
 <a id="anonymous-flow"></a>
-#### Anonymous Flow
-The `createAnonymousFlowProvider` method constructs an AnonymousFlowTokenProvider to manage tokens for anonymous users, integrating with the API's anonymous token endpoint.
+### Anonymous Flow
+The `createAnonymousFlowProvider($anonTokenUrl, $clientCredentials, $client, $refreshFlowTokenProvider, $anonymousIdProvider);` method builds an AnonymousFlowTokenProvider to manage tokens for anonymous users, integrating with the API's anonymous token endpoint.
 
 <a id="refresh-flow"></a>
-#### Refresh Flow
-The `createRefreshFlowProvider`method sets up a RefreshFlowTokenProvider to handle token refresh operations seamlessly, ensuring continuous access to API resources.
+### Refresh Flow
+The `createRefreshFlowProvider($refreshTokenUrl, $clientCredentials, $client, $tokenStorage)` method sets up a RefreshFlowTokenProvider to handle token refresh operations seamlessly, ensuring continuous access to API resources.
 
 <a id="middlewares"></a>
 ## Middlewares
@@ -318,71 +403,10 @@ $oauthHandler = OAuthHandlerFactory::ofAuthConfig($authConfig),
 $reauthMiddleware = MiddlewareFactory::createReauthenticateMiddleware($oauthHandler);
 ```
 
-<a id="how-to-use-requestbuilders"></a>
-### How to use RequestBuilders
 
-Detailed information of all available methods for the product API can be found [here](lib/commercetools-api/docs/RequestBuilder.md)
-@INCLUDE(lib/commercetools-api/docs/RequestBuilder.md)
-Information for the Import API can be found [here](lib/commercetools-import/docs/RequestBuilder.md).
-@INCLUDE(lib/commercetools-import/docs/RequestBuilder.md)
-
-Examples to retrieve project information
-
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-use GuzzleHttp\ClientInterface;
-
-/** @var ClientInterface $client */
-$builder =  new ApiRequestBuilder($client);
-$request = $builder->withProjectKey('{projectKey}')->get();
-```
-
-To avoid specifying the project key for every request built it's possible to use the ones in the `Commercetools\Client` namespace instead
-
-```php
-use Commercetools\Client\ApiRequestBuilder;
-use Commercetools\Client\ImportRequestBuilder;
-use GuzzleHttp\ClientInterface;
-
-/** @var ClientInterface $client */
-$builder =  new ApiRequestBuilder('{projectKey}', $client);
-$request = $builder->categories()->get();
-
-$importBuilder =  new ImportRequestBuilder('{projectKey}', $client);
-$request = $importBuilder->importSinks()->get();
-```
-
-<a id="how-to-execute-requests"></a>
-### How to execute requests
-
-```php
-use Commercetools\Client\ApiRequestBuilder;
-use GuzzleHttp\ClientInterface;
-
-/** @var ClientInterface $client */
-$builder =  new ApiRequestBuilder('{projectKey}', $client);
-$request = $builder->with()->get();
-
-// executing the request and mapping the response directly to a domain model
-$project = $request->execute();
-
-// send the request to get the response object 
-$response = $request->send();
-// map the response to a domain model
-$project = $request->mapFromResponse($response);
-
-// send the request asynchronously 
-$promise = $request->sendAsync();
-// map the response to a domain model
-$project = $request->mapFromResponse($promise->wait());
-
-// send the request using a client instance
-$response = $client->send($request);
-$project = $request->mapFromResponse($response);
-```
 
 <a id="querying"></a>
-### Querying
+## Querying
 For the examples that we are mentioning below we are setting the `$builder` like here:
 ```php
 use Commercetools\Client\ApiRequestBuilder;
@@ -395,7 +419,7 @@ $builder =  new ApiRequestBuilder('{projectKey}', $client);
 Since the most of the variables to pass in the `with()` method are scalars, this means that we can pass arrays in the related parameter of the method like in the examples below.
 
 <a id="predicates"></a>
-#### Predicates
+### Predicates
 The system allows the use of predicates when querying the API. Predicates are added as query parameter string to the request itself. 
 The following example shows the usage of input variables:
 ```php
@@ -415,7 +439,7 @@ $builder
 ```
 
 <a id="get-by-idkey"></a>
-#### Get By Id/Key
+### Get By Id/Key
 ```php
 $builder
     ->productProjections()
@@ -430,7 +454,7 @@ $builder
 ```
 
 <a id="sorting"></a>
-#### Sorting
+### Sorting
 See [Sort](https://docs.commercetools.com/api/general-concepts#sorting) for details.
 
 Sorting using one parameter:
@@ -450,7 +474,7 @@ $builder
 ```
 
 <a id="pagination"></a>
-#### Pagination
+### Pagination
 Limiting the number of the returned documents or page size:
 ```php
 $builder
@@ -459,25 +483,61 @@ $builder
     ->withLimit(4)
     ->withOffset(4);
 ```
+<a id="products-and-producttypes"></a>
+## Products and ProductTypes
+<a id="producttype-creation"></a>
+### ProductType Creation
+A [ProductType](https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/d7/dbf/interface_commercetools_1_1_api_1_1_models_1_1_product_type_1_1_product_type.html) is like a schema that defines how the product attributes are structured.
 
-<a id="how-to-customize-endpoint-for-different-regions"></a>
-### How to customize endpoint for different regions
+`ProductType` contains a list of [AttributeDefinition](https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/da/d68/interface_commercetools_1_1_api_1_1_models_1_1_product_type_1_1_attribute_definition.html) which corresponds to the name and type of each attribute, along with some additional information. Each name/type pair must be unique across a Project, so if you create an attribute "foo" of type String, you cannot create another ProductType where "foo" has another type (e.g. LocalizedString). If you do it anyway you get an error message like:
 
-By default, the library uses `api.europe-west1.gcp.commercetools.com` endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the `us-central1` region:
+"The attribute with name 'foo' has a different type on product type 'exampleproducttype'."
+
+In this scenario we provide two `ProductTypes` **book** and **t-shirt**.
+
+The **book** product type contains the following attributes:
+
+$isbn as String, International Standard Book Number
+The **t-shirt** product type contains the following attributes:
+
+$color as [AttributeLocalizedEnumValue](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/ProductType/AttributeLocalizedEnumValue.php) with the colors green and red and their translations in German and English.
+$size as [AttributePlainEnumValue](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/ProductType/AttributePlainEnumValue.php) with S, M and X.
+$laundrySymbols as set of [AttributeLocalizedEnumValue](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/ProductType/AttributeLocalizedEnumValue.php) with temperature and tumble drying.
+$matchingProducts as set of [ProductReference](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/Product/ProductReference.php), which can point to products that are similar to the current product.
+$rrp as [Money](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/Common/Money.php) containing the recommended retail price.
+$availableSince as [DateTime](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/ProductType/AttributeDateTimeType.php) which contains the date since when the product is available for the customer in the shop.
+All available attribute types you can find here: AttributeType in "All Known Implementing Classes".
+
+The code for the creation of the book ProductType:
 ```php
-$authConfig = new ClientCredentialsConfig(
-    new ClientCredentials('{clientId}', '{clientSecret}'), 
-    [], 
-    'https://auth.us-central1.gcp.commercetools.com/oauth/token'
-);
+$isbn = AttributeDefinitionBuilder::of()
+    ->withType(AttributeTextTypeBuilder::of()->build())
+    ->withName(self::ISBN_ATTR_NAME)
+    ->withLabel(LocalizedStringBuilder::of("ISBN")->build())
+    ->withIsRequired(false)
+    ->build();
 
-$config = new Config([], 'https://api.us-central1.gcp.commercetools.com');
-$client = ClientFactory::of()->createGuzzleClient(
-    $config,
-    $authConfig,
-);
+$productType = ProductTypeBuilder::of()
+    ->withName(self::BOOK_PRODUCT_TYPE_NAME)
+    ->withDescription("books")
+    ->withAttributes(AttributeDefinitionCollection::of()->add($isbn))
+    ->build();
+    
+$builder =  new ApiRequestBuilder('{projectKey}', $client);
+$request = $builder
+              ->productTypes()
+              ->withId($productType->getId())
+              ->get();
+$productTypeQueryResponse = $request->execute();
+See the [Test Code]()
 ```
-Note that the auth endpoint should contain the `/oauth/token` suffix, but the API endpoint - don't.
+
+The code for the creation of the t-shirt ProductType:
+
+```php
+
+```
+
 
 <a id="migration-guidelines-from-sdk-v1"></a>
 ## Migration Guidelines from SDK v1

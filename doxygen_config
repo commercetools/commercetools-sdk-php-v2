@@ -909,9 +909,12 @@ WARN_LOGFILE           =
 INPUT                  = src \
                          README.md \
                          lib/commercetools-base/src \
-                         lib/commercetools-import \
-                         lib/commercetools-api \
-                         lib/commercetools-history
+                         lib/commercetools-import/src \
+                         lib/commercetools-api/src \
+                         lib/commercetools-history/src \
+                         lib/commercetools-import/docs \
+                         lib/commercetools-api/docs \
+                         lib/commercetools-history/docs
 
 
 # This tag can be used to specify the character encoding of the source files
@@ -1087,7 +1090,7 @@ USE_MDFILE_AS_MAINPAGE = README.md
 # also VERBATIM_HEADERS is set to NO.
 # The default value is: NO.
 
-SOURCE_BROWSER         = NO
+SOURCE_BROWSER         = YES
 
 # Setting the INLINE_SOURCES tag to YES will include the body of functions,
 # classes and enums directly into the documentation.
