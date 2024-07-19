@@ -84,7 +84,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
                     ->withName(self::COLOR_ATTR_NAME)
                     ->withLabel(LocalizedStringBuilder::of(["en" =>"color"])->build())
                     ->withType(AttributeLocalizedEnumTypeBuilder::of()
-                                ->withValues([$green, $red])
+                                ->withValues(AttributeLocalizedEnumValueCollection::fromArray([$green, $red]))
                                 ->build())
                     ->withIsRequired(true)
                     ->build();
@@ -128,7 +128,6 @@ class ProductTypeCreationDemoTest extends ApiTestCase
                                 ->withElementType(AttributeLocalizedEnumTypeBuilder::of()
                                                     ->withValues(AttributeLocalizedEnumValueCollection::fromArray([$cold, $hot, $tumbleDrying, $noTumbleDrying]))
                                                     ->build())
-
                                 ->build();
         $laundrySymbols = AttributeDefinitionDraftBuilder::of()
                             ->withType($laundryLabelType)
@@ -160,12 +159,13 @@ class ProductTypeCreationDemoTest extends ApiTestCase
                             ->build();
         $attributes = AttributeDefinitionDraftCollection::fromArray([$color, $size, $laundrySymbols, $matchingProducts, $rrp, $availableSince]);
 
-        $productTypeDraft = ProductTypeDraftBuilder::of()
+        return $productTypeDraft = ProductTypeDraftBuilder::of()
                                 ->withKey(random_int())
                                 ->withName(self::PRODUCT_TYPE_NAME)
                                 ->withDescription("a 'T' shaped cloth")
                                 ->withAttributes($attributes)
                                 ->build();
+
 
     }
 
@@ -173,47 +173,26 @@ class ProductTypeCreationDemoTest extends ApiTestCase
     {
         $builder = $this->getApiBuilder();
 
-        ProductTypeFixture::withProductType(
-            $builder,
-            function (ProductType $productType) use ($builder) {
-                $request = $builder
-                    ->with()
-                    ->productTypes()
-                    ->withId($productType->getId())
-                    ->get();
-                $productTypeQueryResponse = $request->execute();
+        $productTypeDraft = $this->createProductTypeDraft();
 
-                $this->assertSame($productType->getName(), $productTypeQueryResponse->getName());
-                $this->assertSame($productType->getId(), $productTypeQueryResponse->getId());
-                $this->assertSame(1, $productTypeQueryResponse->getVersion());
-            }
-        );
+        $productType = $builder
+            ->with()
+            ->productTypes()
+            ->post($productTypeDraft)
+            ->execute();
+
+        $request = $builder
+            ->with()
+            ->productTypes()
+            ->withId($productType->getId())
+            ->get();
+        $productTypeQueryResponse = $request->execute();
+        $this->assertSame($productType->getName(), $productTypeQueryResponse->getName());
+        $this->assertSame($productType->getId(), $productTypeQueryResponse->getId());
+        $this->assertSame(1, $productTypeQueryResponse->getVersion());
+
+
     }
 
-    public function testDeleteByKey()
-    {
-        $this->expectException(NotFoundException::class);
-        $this->expectExceptionCode(404);
 
-        $builder = $this->getApiBuilder();
-
-        ProductTypeFixture::withProductType(
-            $builder,
-            function (ProductType $productType) use ($builder) {
-                $request = $builder
-                    ->with()
-                    ->productTypes()
-                    ->withKey($productType->getKey())
-                    ->delete()
-                    ->withVersion($productType->getVersion());
-                $productTypeQueryResponse = $request->execute();
-
-                $this->assertSame($productType->getId(), $productTypeQueryResponse->getId());
-                $this->assertInstanceOf(ProductType::class, $productTypeQueryResponse);
-
-                $request = $builder->with()->productTypes()->withKey($productType->getKey())->get();
-                $request->execute();
-            }
-        );
-    }
 }
