@@ -15,6 +15,8 @@ use Commercetools\Api\Models\Product\ProductUpdateBuilder;
 use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
+use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumTypeBuilder;
+use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValueCollection;
 use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductType;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
@@ -32,6 +34,25 @@ class ProductFixture
     final public static function uniqueProductString()
     {
         return 'test-' . Uuid::uuid4();
+    }
+// TODO WIP
+//    public static function referenceableProduct($builder)
+//    {
+//        $productType = ProductTypeFixture::defaultProductType($builder);
+//        ProductVariantDraftBuilder::of()
+//            ->withPrices(PriceDraftCollection::of()->
+//            ->build();
+//    }
+
+    public static function price()
+    {
+        return PriceDraftBuilder::of()
+            ->withValue(MoneyBuilder::of()
+                ->withCentAmount(1234)
+                ->withCurrencyCode("EUR")
+                ->build())
+            ->withCountry("DE")
+            ->build();
     }
 
     final public static function getAttributesDefinitionDraftCollection(): AttributeDefinitionDraftCollection

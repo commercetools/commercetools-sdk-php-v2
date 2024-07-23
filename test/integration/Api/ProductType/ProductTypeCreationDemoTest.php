@@ -36,70 +36,22 @@ use Commercetools\IntegrationTest\ApiTestCase;
 
 class ProductTypeCreationDemoTest extends ApiTestCase
 {
-    const ISBN_ATTR_NAME = "AttributeTutorialIsbn";
-    const BOOK_PRODUCT_TYPE_NAME = "book-product-type-tutorial";
-    const COLOR_ATTR_NAME = "AttributeTutorialColor";
-    const SIZE_ATTR_NAME = "AttributeTutorialSize";
-    const LAUNDRY_SYMBOLS_ATTR_NAME = "AttributeTutorialLaundrySymbols";
-    const MATCHING_PRODUCTS_ATTR_NAME = "AttributeTutorialMatchingProducts";
-    const RRP_ATTR_NAME = "AttributeTutorialRrp";
-    const AVAILABLE_SINCE_ATTR_NAME = "AttributeTutorialAvailableSince";
-    const PRODUCT_TYPE_NAME = "t-shirt-product-attribute-tutorial";
+    public const ISBN_ATTR_NAME = "AttributeTutorialIsbn";
+    public const BOOK_PRODUCT_TYPE_NAME = "book-product-type-tutorial";
+    public const COLOR_ATTR_NAME = "AttributeTutorialColor";
+    public const SIZE_ATTR_NAME = "AttributeTutorialSize";
+    public const LAUNDRY_SYMBOLS_ATTR_NAME = "AttributeTutorialLaundrySymbols";
+    public const MATCHING_PRODUCTS_ATTR_NAME = "AttributeTutorialMatchingProducts";
+    public const RRP_ATTR_NAME = "AttributeTutorialRrp";
+    public const AVAILABLE_SINCE_ATTR_NAME = "AttributeTutorialAvailableSince";
+    public const PRODUCT_TYPE_NAME = "t-shirt-product-attribute-tutorial";
 
     public function setUp(): void
     {
-        $this->deleteProductTypes();
-    }
-
-    public function deleteProductTypes()
-    {
         $builder = $this->getApiBuilder();
-
-        $bookProductTypeQueryResponse = $builder
-            ->with()
-            ->productTypes()
-            ->get()
-            ->withQueryParam("name", self::BOOK_PRODUCT_TYPE_NAME)
-            ->execute();
-        $bookProductType = $bookProductTypeQueryResponse->getResults()->current();
-        $products = $builder
-            ->with()
-            ->products()
-            ->get()
-            ->withQueryParam("typeId", $bookProductType->getId())
-            ->execute()
-            ->getResults();
-
-        if (!is_null($bookProductType)) {
-//            $builder->products()
-//                ->withId($product->getResults()->current()->getId())
-            foreach ($products as $product) {
-                $unblishedProduct = $builder->with()->products()->withId($product->getId())
-                    ->post(
-                        ProductUpdateBuilder::of()
-                            ->withVersion($product->getVersion())
-                            ->withActions(
-                                ProductUpdateActionCollection::of()->add(ProductUnpublishActionBuilder::of()->build())
-                            )->build()
-                    );
-                $product = $unblishedProduct->execute();
-
-                $builder->products()
-                    ->withId($product->getId())
-                    ->delete()
-                    ->withVersion($product->getVersion())
-                    ->execute();
-            }
-
-
-            $builder
-                ->productTypes()
-                ->withKey($bookProductType->getKey())
-                ->delete()
-                ->withVersion($bookProductType->getVersion())
-                ->execute();
-        }
+        ProductTypeFixture::deleteProductAndProductTypes($builder, self::BOOK_PRODUCT_TYPE_NAME);
     }
+
     public function createBookProductTypeDraft()
     {
         $isbn = AttributeDefinitionBuilder::of()
@@ -126,6 +78,8 @@ class ProductTypeCreationDemoTest extends ApiTestCase
             ->get()
             ->withQueryParam("name", self::BOOK_PRODUCT_TYPE_NAME)
             ->execute();
+
+        return $productType;
     }
 
     public function createTShirtProductTypeDraft()
@@ -140,7 +94,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
                     ->build();
         $color = AttributeDefinitionDraftBuilder::of()
                     ->withName(self::COLOR_ATTR_NAME)
-                    ->withLabel(LocalizedStringBuilder::fromArray(["en" =>"color"])->build())
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "color"])->build())
                     ->withType(AttributeLocalizedEnumTypeBuilder::of()
                                 ->withValues(AttributeLocalizedEnumValueCollection::fromArray([$green, $red]))
                                 ->build())
@@ -219,12 +173,18 @@ class ProductTypeCreationDemoTest extends ApiTestCase
         $attributes = AttributeDefinitionDraftCollection::fromArray([$color, $size, $laundrySymbols, $matchingProducts, $rrp, $availableSince]);
 
         return $productTypeDraft = ProductTypeDraftBuilder::of()
-                                ->withKey(uniqid())
+                                ->withKey(ProductTypeFixture::uniqueProductTypeString())
                                 ->withName(self::PRODUCT_TYPE_NAME)
                                 ->withDescription("a 'T' shaped cloth")
                                 ->withAttributes($attributes)
                                 ->build();
     }
+//TODO WIP
+//    public function createProduct($builder, $name)
+//    {
+//        $productType = ProductTypeFixture::fetchProductTypeByName($builder, $name)
+//        $productReference =
+//    }
 
     public function testCreateBookProductType()
     {
@@ -272,6 +232,4 @@ class ProductTypeCreationDemoTest extends ApiTestCase
         $this->assertSame($productType->getId(), $productTypeQueryResponse->getId());
         $this->assertSame(1, $productTypeQueryResponse->getVersion());
     }
-
-
 }
