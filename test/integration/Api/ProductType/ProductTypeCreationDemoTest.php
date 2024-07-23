@@ -3,6 +3,11 @@
 namespace Commercetools\IntegrationTest\Api\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Product\ProductUnpublishAction;
+use Commercetools\Api\Models\Product\ProductUnpublishActionBuilder;
+use Commercetools\Api\Models\Product\ProductUpdateActionBuilder;
+use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
+use Commercetools\Api\Models\Product\ProductUpdateBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDateTimeTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionCollection;
@@ -22,15 +27,17 @@ use Commercetools\Api\Models\ProductType\AttributeSetTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductType;
 use Commercetools\Api\Models\ProductType\ProductTypeBuilder;
+use Commercetools\Api\Models\ProductType\ProductTypeCollection;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
+use Commercetools\Api\Models\ProductType\ProductTypeDraftCollection;
+use Commercetools\Core\Builder\Request\RequestBuilder;
 use Commercetools\Exception\NotFoundException;
 use Commercetools\IntegrationTest\ApiTestCase;
-use function Sodium\randombytes_random16;
 
 class ProductTypeCreationDemoTest extends ApiTestCase
 {
     const ISBN_ATTR_NAME = "AttributeTutorialIsbn";
-    const BOOK_PRODUCT_TYPE_NAME = "book-product-attribute-tutorial";
+    const BOOK_PRODUCT_TYPE_NAME = "book-product-type-tutorial";
     const COLOR_ATTR_NAME = "AttributeTutorialColor";
     const SIZE_ATTR_NAME = "AttributeTutorialSize";
     const LAUNDRY_SYMBOLS_ATTR_NAME = "AttributeTutorialLaundrySymbols";
@@ -38,6 +45,61 @@ class ProductTypeCreationDemoTest extends ApiTestCase
     const RRP_ATTR_NAME = "AttributeTutorialRrp";
     const AVAILABLE_SINCE_ATTR_NAME = "AttributeTutorialAvailableSince";
     const PRODUCT_TYPE_NAME = "t-shirt-product-attribute-tutorial";
+
+    public function setUp(): void
+    {
+        $this->deleteProductTypes();
+    }
+
+    public function deleteProductTypes()
+    {
+        $builder = $this->getApiBuilder();
+
+        $bookProductTypeQueryResponse = $builder
+            ->with()
+            ->productTypes()
+            ->get()
+            ->withQueryParam("name", self::BOOK_PRODUCT_TYPE_NAME)
+            ->execute();
+        $bookProductType = $bookProductTypeQueryResponse->getResults()->current();
+        $products = $builder
+            ->with()
+            ->products()
+            ->get()
+            ->withQueryParam("typeId", $bookProductType->getId())
+            ->execute()
+            ->getResults();
+
+        if (!is_null($bookProductType)) {
+//            $builder->products()
+//                ->withId($product->getResults()->current()->getId())
+            foreach ($products as $product) {
+                $unblishedProduct = $builder->with()->products()->withId($product->getId())
+                    ->post(
+                        ProductUpdateBuilder::of()
+                            ->withVersion($product->getVersion())
+                            ->withActions(
+                                ProductUpdateActionCollection::of()->add(ProductUnpublishActionBuilder::of()->build())
+                            )->build()
+                    );
+                $product = $unblishedProduct->execute();
+
+                $builder->products()
+                    ->withId($product->getId())
+                    ->delete()
+                    ->withVersion($product->getVersion())
+                    ->execute();
+            }
+
+
+            $builder
+                ->productTypes()
+                ->withKey($bookProductType->getKey())
+                ->delete()
+                ->withVersion($bookProductType->getVersion())
+                ->execute();
+        }
+    }
     public function createBookProductTypeDraft()
     {
         $isbn = AttributeDefinitionBuilder::of()
@@ -53,6 +115,17 @@ class ProductTypeCreationDemoTest extends ApiTestCase
             ->withDescription("books")
             ->withAttributes(AttributeDefinitionDraftCollection::fromArray([$isbn]))
             ->build();
+    }
+
+    public function fetchProductTypeByName()
+    {
+        $builder = $this->getApiBuilder();
+        $productType = $builder
+            ->with()
+            ->productTypes()
+            ->get()
+            ->withQueryParam("name", self::BOOK_PRODUCT_TYPE_NAME)
+            ->execute();
     }
 
     public function createTShirtProductTypeDraft()
