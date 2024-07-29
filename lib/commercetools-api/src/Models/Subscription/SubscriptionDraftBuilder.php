@@ -51,7 +51,7 @@ final class SubscriptionDraftBuilder implements Builder
     private $format;
 
     /**
-     * <p>Change notifications to be subscribed to.</p>
+     * <p>Changes to be subscribed to.</p>
      *
 
      * @return null|ChangeSubscriptionCollection
@@ -62,7 +62,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
-     * <p>Messaging service to which the messages are sent.</p>
+     * <p>Messaging service to which the notifications are sent.</p>
      *
 
      * @return null|Destination

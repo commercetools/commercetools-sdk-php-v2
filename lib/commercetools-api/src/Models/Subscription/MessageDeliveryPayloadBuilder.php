@@ -87,7 +87,7 @@ final class MessageDeliveryPayloadBuilder implements Builder
 
     /**
      * <p><code>key</code> of the <a href="ctp:api:type:Project">Project</a>.
-     * Useful in message processing if the Destination receives events from multiple Projects.</p>
+     * Useful for processing notifications if the Destination receives them from multiple Projects.</p>
      *
 
      * @return null|string
@@ -98,7 +98,7 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
-     * <p>Reference to the resource that triggered the message.</p>
+     * <p>Reference to the resource that triggered the notification.</p>
      *
 
      * @return null|Reference
@@ -176,7 +176,7 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
-     * <p>Version of the resource on which the change was performed.</p>
+     * <p>Version of the resource on which the update was performed.</p>
      *
 
      * @return null|int
