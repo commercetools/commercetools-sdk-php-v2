@@ -3,36 +3,26 @@
 namespace Commercetools\IntegrationTest\Api\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
-use Commercetools\Api\Models\Product\ProductUnpublishAction;
-use Commercetools\Api\Models\Product\ProductUnpublishActionBuilder;
-use Commercetools\Api\Models\Product\ProductUpdateActionBuilder;
-use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
-use Commercetools\Api\Models\Product\ProductUpdateBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDateTimeTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionBuilder;
-use Commercetools\Api\Models\ProductType\AttributeDefinitionCollection;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
 use Commercetools\Api\Models\ProductType\AttributeEnumTypeBuilder;
-use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumType;
 use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValueBuilder;
 use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValueCollection;
 use Commercetools\Api\Models\ProductType\AttributeMoneyTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributePlainEnumValueBuilder;
 use Commercetools\Api\Models\ProductType\AttributePlainEnumValueCollection;
-use Commercetools\Api\Models\ProductType\AttributeReferenceType;
 use Commercetools\Api\Models\ProductType\AttributeReferenceTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeSetTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
-use Commercetools\Api\Models\ProductType\ProductType;
-use Commercetools\Api\Models\ProductType\ProductTypeBuilder;
-use Commercetools\Api\Models\ProductType\ProductTypeCollection;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
-use Commercetools\Api\Models\ProductType\ProductTypeDraftCollection;
-use Commercetools\Core\Builder\Request\RequestBuilder;
-use Commercetools\Exception\NotFoundException;
+use Commercetools\IntegrationTest\Api\Product\ProductFixture;
+use Commercetools\IntegrationTest\Api\TaxCategory\TaxCategoryFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
+use function PHPUnit\Framework\assertEquals;
+use function PHPUnit\Framework\assertNotEmpty;
 
 class ProductTypeCreationDemoTest extends ApiTestCase
 {
@@ -57,7 +47,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
         $isbn = AttributeDefinitionBuilder::of()
             ->withType(AttributeTextTypeBuilder::of()->build())
             ->withName(self::ISBN_ATTR_NAME)
-            ->withLabel(LocalizedStringBuilder::of(["en" => "ISBN"])->build())
+            ->withLabel(LocalizedStringBuilder::of()->put('en', 'ISBN')->build())
             ->withIsRequired(false)
             ->build();
 
@@ -67,19 +57,6 @@ class ProductTypeCreationDemoTest extends ApiTestCase
             ->withDescription("books")
             ->withAttributes(AttributeDefinitionDraftCollection::fromArray([$isbn]))
             ->build();
-    }
-
-    public function fetchProductTypeByName()
-    {
-        $builder = $this->getApiBuilder();
-        $productType = $builder
-            ->with()
-            ->productTypes()
-            ->get()
-            ->withQueryParam("name", self::BOOK_PRODUCT_TYPE_NAME)
-            ->execute();
-
-        return $productType;
     }
 
     public function createTShirtProductTypeDraft()
@@ -179,12 +156,6 @@ class ProductTypeCreationDemoTest extends ApiTestCase
                                 ->withAttributes($attributes)
                                 ->build();
     }
-//TODO WIP
-//    public function createProduct($builder, $name)
-//    {
-//        $productType = ProductTypeFixture::fetchProductTypeByName($builder, $name)
-//        $productReference =
-//    }
 
     public function testCreateBookProductType()
     {
@@ -231,5 +202,17 @@ class ProductTypeCreationDemoTest extends ApiTestCase
         $this->assertSame($productType->getName(), $productTypeQueryResponse->getName());
         $this->assertSame($productType->getId(), $productTypeQueryResponse->getId());
         $this->assertSame(1, $productTypeQueryResponse->getVersion());
+    }
+
+    public function testCreateProduct()
+    {
+        $builder = $this->getApiBuilder();
+        $productType = ProductTypeFixture::defaultProductType($builder, self::BOOK_PRODUCT_TYPE_NAME);
+
+        $product = ProductFixture::createProduct($builder, $productType);
+
+        $masterVariant = $product->getMasterData()->getStaged()->getMasterVariant();
+        assertNotEmpty($masterVariant);
+        assertEquals($productType->getId(), $product->getProductType()->getId());
     }
 }

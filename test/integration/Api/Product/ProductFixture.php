@@ -6,45 +6,114 @@ use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Common\PriceDraftBuilder as PriceDraftBuilder;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Api\Models\Product\AttributeBuilder;
+use Commercetools\Api\Models\Product\AttributeCollection;
 use Commercetools\Api\Models\Product\Product;
 use Commercetools\Api\Models\Product\ProductDraft;
 use Commercetools\Api\Models\Product\ProductDraftBuilder;
+use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\Product\ProductResourceIdentifierBuilder;
 use Commercetools\Api\Models\Product\ProductUnpublishActionModel;
 use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Api\Models\Product\ProductUpdateBuilder;
 use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
+use Commercetools\Api\Models\Product\ProductVariantDraftCollection;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
 use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumTypeBuilder;
-use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValueCollection;
+use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValueBuilder;
 use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductType;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategory;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryDraftBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
+use Commercetools\Api\Models\TaxCategory\TaxRateDraftBuilder;
+use Commercetools\Api\Models\TaxCategory\TaxRateDraftCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequestBuilder;
 use Commercetools\Exception\NotFoundException;
 use Commercetools\IntegrationTest\Api\ProductType\ProductTypeFixture;
 use Commercetools\IntegrationTest\Api\TaxCategory\TaxCategoryFixture;
+use Commercetools\IntegrationTest\ApiTestCase;
+use Monolog\DateTimeImmutable;
 use Ramsey\Uuid\Uuid;
+use function PHPUnit\Framework\assertEmpty;
+use function PHPUnit\Framework\assertEquals;
+use function PHPUnit\Framework\assertNotEmpty;
 
 class ProductFixture
 {
+    public const COLOR_ATTR_NAME = "AttributeTutorialColor";
+    public const SIZE_ATTR_NAME = "AttributeTutorialSize";
+    public const MATCHING_PRODUCTS_ATTR_NAME = "AttributeTutorialMatchingProducts";
+    public const LAUNDRY_SYMBOLS_ATTR_NAME = "AttributeTutorialLaundrySymbols";
+    public const RRP_ATTR_NAME = "AttributeTutorialRrp";
+    public const AVAILABLE_SINCE_ATTR_NAME = "AttributeTutorialAvailableSince";
+    public const ISBN_ATTR_NAME = "AttributeTutorialIsbn";
+
     final public static function uniqueProductString()
     {
         return 'test-' . Uuid::uuid4();
     }
-// TODO WIP
-//    public static function referenceableProduct($builder)
-//    {
-//        $productType = ProductTypeFixture::defaultProductType($builder);
-//        ProductVariantDraftBuilder::of()
-//            ->withPrices(PriceDraftCollection::of()->
-//            ->build();
-//    }
 
-    public static function price()
+    public static function referenceableProduct(ApiRequestBuilder $builder): Product
+    {
+        $productType = ProductTypeFixture::defaultProductType($builder);
+        $productVariantDraft = ProductVariantDraftBuilder::of()
+                                ->withPrices(PriceDraftCollection::fromArray([self::priceDraft()]))
+                                ->build();
+        $productVariantDraft = ProductVariantDraftBuilder::of()
+            ->withPrices(PriceDraftCollection::fromArray([self::priceDraft()]))
+            ->build();
+
+        $slugEn = LocalizedStringBuilder::fromArray(["en" => "referenceable-product-2"])->build();
+        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+            ->withId($productType->getId())
+            ->build();
+        $productDraft = ProductDraftBuilder::of()
+            ->withName($slugEn)
+            ->withSlug($slugEn)
+            ->withVariants(ProductVariantDraftCollection::fromArray([$productVariantDraft]))
+            ->withProductType($productTypeResourceIdentifier)
+            ->build();
+
+        $product = $builder->products()
+            ->get()
+            ->withQueryParam("where", sprintf('masterData(staged(slug(en="%s")))', "referenceable-product-2"))
+            ->execute();
+
+        $existingProduct = $product->getResults()->current();
+
+        if ($existingProduct === null) {
+            $createdProduct = $builder->products()
+                ->post($productDraft)
+                ->execute();
+            return $createdProduct;
+        }
+
+        return $existingProduct;
+    }
+
+    public static function createProduct(ApiRequestBuilder $builder, ProductType $productType)
+    {
+        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()->withId($productType->getId())->build();
+        $productDraft = ProductDraftBuilder::of()
+            ->withProductType($productTypeResourceIdentifier)
+            ->withKey(self::uniqueProductString())
+            ->withName(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+            ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+            ->build();
+
+        $product = $builder->products()
+                    ->post($productDraft)
+                    ->execute();
+
+        return $product;
+    }
+
+    public static function priceDraft()
     {
         return PriceDraftBuilder::of()
             ->withValue(MoneyBuilder::of()
