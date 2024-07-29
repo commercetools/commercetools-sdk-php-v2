@@ -20,7 +20,7 @@ interface SubscriptionDraft extends JsonObject
     public const FIELD_FORMAT = 'format';
 
     /**
-     * <p>Change notifications to be subscribed to.</p>
+     * <p>Changes to be subscribed to.</p>
      *
 
      * @return null|ChangeSubscriptionCollection
@@ -28,7 +28,7 @@ interface SubscriptionDraft extends JsonObject
     public function getChanges();
 
     /**
-     * <p>Messaging service to which the messages are sent.</p>
+     * <p>Messaging service to which the notifications are sent.</p>
      *
 
      * @return null|Destination
