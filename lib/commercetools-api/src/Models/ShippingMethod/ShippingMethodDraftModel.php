@@ -71,6 +71,12 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
      *
      * @var ?bool
      */
+    protected $active;
+
+    /**
+     *
+     * @var ?bool
+     */
     protected $isDefault;
 
     /**
@@ -97,6 +103,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         ?LocalizedString $localizedDescription = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?ZoneRateDraftCollection $zoneRates = null,
+        ?bool $active = null,
         ?bool $isDefault = null,
         ?string $predicate = null,
         ?CustomFieldsDraft $custom = null
@@ -108,6 +115,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         $this->localizedDescription = $localizedDescription;
         $this->taxCategory = $taxCategory;
         $this->zoneRates = $zoneRates;
+        $this->active = $active;
         $this->isDefault = $isDefault;
         $this->predicate = $predicate;
         $this->custom = $custom;
@@ -257,7 +265,27 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
-     * <p>If <code>true</code> the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
+     * <p>If set to <code>true</code>, the ShippingMethod can be used during the creation or update of a Cart or Order.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        if (is_null($this->active)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->active = (bool) $data;
+        }
+
+        return $this->active;
+    }
+
+    /**
+     * <p>If set to <code>true</code>, the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
      *
      * @return null|bool
@@ -372,6 +400,14 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     public function setZoneRates(?ZoneRateDraftCollection $zoneRates): void
     {
         $this->zoneRates = $zoneRates;
+    }
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void
+    {
+        $this->active = $active;
     }
 
     /**

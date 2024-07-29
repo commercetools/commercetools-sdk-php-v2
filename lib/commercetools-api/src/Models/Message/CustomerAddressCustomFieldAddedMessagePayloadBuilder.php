@@ -33,6 +33,12 @@ final class CustomerAddressCustomFieldAddedMessagePayloadBuilder implements Buil
     private $value;
 
     /**
+
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
      * <p>Name of the Custom Field that was added.</p>
      *
 
@@ -52,6 +58,17 @@ final class CustomerAddressCustomFieldAddedMessagePayloadBuilder implements Buil
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to which the Custom Field was added.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        return $this->addressId;
     }
 
     /**
@@ -76,12 +93,24 @@ final class CustomerAddressCustomFieldAddedMessagePayloadBuilder implements Buil
         return $this;
     }
 
+    /**
+     * @param ?string $addressId
+     * @return $this
+     */
+    public function withAddressId(?string $addressId)
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
 
     public function build(): CustomerAddressCustomFieldAddedMessagePayload
     {
         return new CustomerAddressCustomFieldAddedMessagePayloadModel(
             $this->name,
-            $this->value
+            $this->value,
+            $this->addressId
         );
     }
 

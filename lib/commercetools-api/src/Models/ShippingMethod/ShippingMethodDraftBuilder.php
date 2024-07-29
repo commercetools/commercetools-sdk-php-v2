@@ -72,6 +72,12 @@ final class ShippingMethodDraftBuilder implements Builder
 
      * @var ?bool
      */
+    private $active;
+
+    /**
+
+     * @var ?bool
+     */
     private $isDefault;
 
     /**
@@ -164,7 +170,18 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code> the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
+     * <p>If set to <code>true</code>, the ShippingMethod can be used during the creation or update of a Cart or Order.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * <p>If set to <code>true</code>, the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
 
      * @return null|bool
@@ -274,6 +291,17 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $active
+     * @return $this
+     */
+    public function withActive(?bool $active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $isDefault
      * @return $this
      */
@@ -360,6 +388,7 @@ final class ShippingMethodDraftBuilder implements Builder
             $this->localizedDescription instanceof LocalizedStringBuilder ? $this->localizedDescription->build() : $this->localizedDescription,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->zoneRates,
+            $this->active,
             $this->isDefault,
             $this->predicate,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom

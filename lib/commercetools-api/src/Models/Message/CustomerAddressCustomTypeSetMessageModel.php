@@ -107,6 +107,12 @@ final class CustomerAddressCustomTypeSetMessageModel extends JsonObjectModel imp
      */
     protected $previousTypeId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $addressId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -124,6 +130,7 @@ final class CustomerAddressCustomTypeSetMessageModel extends JsonObjectModel imp
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?CustomFields $customFields = null,
         ?string $previousTypeId = null,
+        ?string $addressId = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -138,6 +145,7 @@ final class CustomerAddressCustomTypeSetMessageModel extends JsonObjectModel imp
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->customFields = $customFields;
         $this->previousTypeId = $previousTypeId;
+        $this->addressId = $addressId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -415,6 +423,26 @@ final class CustomerAddressCustomTypeSetMessageModel extends JsonObjectModel imp
         return $this->previousTypeId;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> on which the Custom Field was set.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
 
     /**
      * @param ?string $id
@@ -510,6 +538,14 @@ final class CustomerAddressCustomTypeSetMessageModel extends JsonObjectModel imp
     public function setPreviousTypeId(?string $previousTypeId): void
     {
         $this->previousTypeId = $previousTypeId;
+    }
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void
+    {
+        $this->addressId = $addressId;
     }
 
 

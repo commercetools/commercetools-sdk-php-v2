@@ -101,7 +101,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     }
 
     /**
-     * <p>The maximum number of search results to be returned.</p>
+     * <p>The maximum number of search results to be returned on one <a href="#pagination">page</a>.</p>
      *
      *
      * @return null|int
@@ -121,7 +121,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     }
 
     /**
-     * <p>The number of search results to be skipped in the response for pagination.</p>
+     * <p>The number of search results to be skipped in the response for <a href="#pagination">pagination</a>.</p>
      *
      *
      * @return null|int

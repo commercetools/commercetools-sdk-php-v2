@@ -44,6 +44,12 @@ final class BusinessUnitAddressCustomFieldChangedMessagePayloadModel extends Jso
      */
     protected $oldValue;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $addressId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -52,11 +58,13 @@ final class BusinessUnitAddressCustomFieldChangedMessagePayloadModel extends Jso
         ?string $name = null,
         $value = null,
         $oldValue = null,
+        ?string $addressId = null,
         ?string $type = null
     ) {
         $this->name = $name;
         $this->value = $value;
         $this->oldValue = $oldValue;
+        $this->addressId = $addressId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -138,6 +146,26 @@ final class BusinessUnitAddressCustomFieldChangedMessagePayloadModel extends Jso
         return $this->oldValue;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> of which the Custom Field was changed.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
 
     /**
      * @param ?string $name
@@ -161,5 +189,13 @@ final class BusinessUnitAddressCustomFieldChangedMessagePayloadModel extends Jso
     public function setOldValue($oldValue): void
     {
         $this->oldValue = $oldValue;
+    }
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void
+    {
+        $this->addressId = $addressId;
     }
 }

@@ -22,10 +22,30 @@
 - added property `approvalRuleMode` to type `DivisionDraft`
 - added property `attributedTo` to type `CreatedBy`
 - added property `attributedTo` to type `LastModifiedBy`
+- added property `addressId` to type `BusinessUnitAddressCustomFieldAddedMessage`
+- added property `addressId` to type `BusinessUnitAddressCustomFieldChangedMessage`
+- added property `addressId` to type `BusinessUnitAddressCustomFieldRemovedMessage`
+- added property `addressId` to type `BusinessUnitAddressCustomTypeRemovedMessage`
+- added property `addressId` to type `BusinessUnitAddressCustomTypeSetMessage`
+- added property `addressId` to type `CustomerAddressCustomFieldAddedMessage`
+- added property `addressId` to type `CustomerAddressCustomFieldChangedMessage`
+- added property `addressId` to type `CustomerAddressCustomFieldRemovedMessage`
+- added property `addressId` to type `CustomerAddressCustomTypeRemovedMessage`
+- added property `addressId` to type `CustomerAddressCustomTypeSetMessage`
 - added property `metaTitle` to type `ProductTailoringCreatedMessage`
 - added property `metaDescription` to type `ProductTailoringCreatedMessage`
 - added property `metaKeywords` to type `ProductTailoringCreatedMessage`
 - added property `variants` to type `ProductTailoringCreatedMessage`
+- added property `addressId` to type `BusinessUnitAddressCustomFieldAddedMessagePayload`
+- added property `addressId` to type `BusinessUnitAddressCustomFieldChangedMessagePayload`
+- added property `addressId` to type `BusinessUnitAddressCustomFieldRemovedMessagePayload`
+- added property `addressId` to type `BusinessUnitAddressCustomTypeRemovedMessagePayload`
+- added property `addressId` to type `BusinessUnitAddressCustomTypeSetMessagePayload`
+- added property `addressId` to type `CustomerAddressCustomFieldAddedMessagePayload`
+- added property `addressId` to type `CustomerAddressCustomFieldChangedMessagePayload`
+- added property `addressId` to type `CustomerAddressCustomFieldRemovedMessagePayload`
+- added property `addressId` to type `CustomerAddressCustomTypeRemovedMessagePayload`
+- added property `addressId` to type `CustomerAddressCustomTypeSetMessagePayload`
 - added property `metaTitle` to type `ProductTailoringCreatedMessagePayload`
 - added property `metaDescription` to type `ProductTailoringCreatedMessagePayload`
 - added property `metaKeywords` to type `ProductTailoringCreatedMessagePayload`
@@ -34,6 +54,8 @@
 - added property `variants` to type `ProductTailoringData`
 - added property `variants` to type `ProductTailoringDraft`
 - added property `variants` to type `ProductTailoringInStoreDraft`
+- added property `active` to type `ShippingMethod`
+- added property `active` to type `ShippingMethodDraft`
 - added property `store` to type `StagedQuote`
 </details>
 
@@ -51,6 +73,13 @@
 - :warning: changed property `totalPrice` of type `OrderLineItemDiscountSetMessagePayload` from type `Money` to `CentPrecisionMoney`
 - :warning: changed property `value` of type `StandalonePriceValueChangedMessagePayload` from type `Money` to `TypedMoney`
 - :warning: changed property `oldValue` of type `StandalonePriceValueChangedMessagePayload` from type `Money` to `TypedMoney`
+- :warning: changed property `customType` of type `OrderSearchAnyValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchDateRangeValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchFullTextValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchLongRangeValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchNumberRangeValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchQueryExpressionValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchStringValue` from type `string` to `OrderSearchCustomType`
 - :warning: changed property `price` of type `ShippingRate` from type `TypedMoney` to `CentPrecisionMoney`
 - :warning: changed property `freeAbove` of type `ShippingRate` from type `TypedMoney` to `CentPrecisionMoney`
 </details>
@@ -61,6 +90,7 @@
 
 - added enum `attribute-group` to type `ChangeSubscriptionResourceTypeId`
 - added enum `product-tailoring` to type `ChangeSubscriptionResourceTypeId`
+- added enum `cart-discount` to type `CustomFieldReferenceValue`
 </details>
 
 
@@ -128,6 +158,7 @@
 
 - added type `BusinessUnitApprovalRuleMode`
 - added type `BusinessUnitChangeApprovalRuleModeAction`
+- added type `CartChangeLineItemsOrderAction`
 - added type `Attribution`
 - added type `AttributionSource`
 - added type `CustomerIndexingProgress`
@@ -136,6 +167,7 @@
 - added type `CustomerSearchIndexingStatusResponse`
 - added type `CustomerSearchRequest`
 - added type `CustomerSearchResult`
+- added type `MyCartChangeLineItemsOrderAction`
 - added type `BusinessUnitApprovalRuleModeChangedMessage`
 - added type `ProductPriceCustomFieldAddedMessage`
 - added type `ProductPriceCustomFieldChangedMessage`
@@ -158,6 +190,7 @@
 - added type `ProductVariantTailoringRemovedMessagePayload`
 - added type `StagedOrderSetShippingCustomFieldAction`
 - added type `StagedOrderSetShippingCustomTypeAction`
+- added type `OrderSearchCustomType`
 - added type `OrderSetShippingCustomFieldAction`
 - added type `OrderSetShippingCustomTypeAction`
 - added type `ProductVariantTailoring`
@@ -181,6 +214,7 @@
 - added type `ProductTailoringSetImageLabelAction`
 - added type `CustomerSearchStatus`
 - added type `ProjectChangeCustomerSearchStatusAction`
+- added type `ShippingMethodChangeActiveAction`
 </details>
 
 
@@ -195,6 +229,9 @@
 - :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products/{ID}`
 - :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products/{ID}`
 - :warning: removed query parameter `localeProjection` from method `delete /{projectKey}/products/{ID}`
+- :warning: removed query parameter `sort` from method `get /{projectKey}/product-projections/suggest`
+- :warning: removed query parameter `offset` from method `get /{projectKey}/product-projections/suggest`
+- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/suggest`
 </details>
 
 

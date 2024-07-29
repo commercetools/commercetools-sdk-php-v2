@@ -17,7 +17,7 @@ interface SearchKeyword extends JsonObject
     public const FIELD_SUGGEST_TOKENIZER = 'suggestTokenizer';
 
     /**
-     * <p>Text to return in the result of a <a href="ctp:api:type:ProductSuggestionsSuggestQuery">suggest query</a>.</p>
+     * <p>Text to return in the <a href="ctp:api:type:SuggestionResult">SuggestionResult</a>.</p>
      *
 
      * @return null|string

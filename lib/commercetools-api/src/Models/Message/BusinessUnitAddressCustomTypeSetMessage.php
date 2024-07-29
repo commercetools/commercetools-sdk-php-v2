@@ -16,6 +16,7 @@ interface BusinessUnitAddressCustomTypeSetMessage extends Message
 {
     public const FIELD_CUSTOM_FIELDS = 'customFields';
     public const FIELD_OLD_TYPE_ID = 'oldTypeId';
+    public const FIELD_ADDRESS_ID = 'addressId';
 
     /**
      * <p>The Custom Fields that were set.</p>
@@ -34,6 +35,14 @@ interface BusinessUnitAddressCustomTypeSetMessage extends Message
     public function getOldTypeId();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> on which the Custom Field was set.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId();
+
+    /**
      * @param ?CustomFields $customFields
      */
     public function setCustomFields(?CustomFields $customFields): void;
@@ -42,4 +51,9 @@ interface BusinessUnitAddressCustomTypeSetMessage extends Message
      * @param ?string $oldTypeId
      */
     public function setOldTypeId(?string $oldTypeId): void;
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void;
 }

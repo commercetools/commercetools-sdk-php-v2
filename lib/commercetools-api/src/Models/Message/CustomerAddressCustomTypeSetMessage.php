@@ -16,6 +16,7 @@ interface CustomerAddressCustomTypeSetMessage extends Message
 {
     public const FIELD_CUSTOM_FIELDS = 'customFields';
     public const FIELD_PREVIOUS_TYPE_ID = 'previousTypeId';
+    public const FIELD_ADDRESS_ID = 'addressId';
 
     /**
      * <p>The Custom Fields that have been set.</p>
@@ -34,6 +35,14 @@ interface CustomerAddressCustomTypeSetMessage extends Message
     public function getPreviousTypeId();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> on which the Custom Field was set.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId();
+
+    /**
      * @param ?CustomFields $customFields
      */
     public function setCustomFields(?CustomFields $customFields): void;
@@ -42,4 +51,9 @@ interface CustomerAddressCustomTypeSetMessage extends Message
      * @param ?string $previousTypeId
      */
     public function setPreviousTypeId(?string $previousTypeId): void;
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void;
 }

@@ -25,7 +25,19 @@ class ClientCredentials
     
     /** @psalm-var string */
     private $cacheKey;
-
+    /**
+     * The constructor of the ClientCredentials class.
+     *
+     * @param string $clientId
+     *   The client id.
+     * @param string $clientSecret
+     *   The client secret.
+     * @param string $scope
+     *   Provide the scope when you want to request a specific ones for the client.
+     *   Can be omitted to use all scopes of the oauth client.
+     *   Format: `<the scope name>:<the project key>`.
+     *   Example: `manage_products:project1`.
+     */
     public function __construct(string $clientId, string $clientSecret, string $scope = null)
     {
         $this->clientId = $clientId;

@@ -30,13 +30,11 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
- * @template-implements Sortable<ByProjectKeyProductProjectionsSuggestGet>
- * @template-implements Paging<ByProjectKeyProductProjectionsSuggestGet>
  * @template-implements ProjectionSelecting<ByProjectKeyProductProjectionsSuggestGet>
  * @template-implements Errorable<ByProjectKeyProductProjectionsSuggestGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsSuggestGet>
  */
-class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sortable, Paging, ProjectionSelecting, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements ProjectionSelecting, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -147,30 +145,12 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sor
     }
 
     /**
-     *
-     * @psalm-param scalar|scalar[] $fuzzy
-     */
-    public function withFuzzy($fuzzy): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('fuzzy', $fuzzy);
-    }
-
-    /**
      * @psalm-param string $locale
      * @psalm-param scalar|scalar[] $searchKeywords
      */
     public function withSearchKeywords(string $locale, $searchKeywords): ByProjectKeyProductProjectionsSuggestGet
     {
         return $this->withQueryParam(sprintf('searchKeywords.%s', $locale), $searchKeywords);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $sort
-     */
-    public function withSort($sort): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('sort', $sort);
     }
 
     /**
@@ -184,20 +164,11 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sor
 
     /**
      *
-     * @psalm-param scalar|scalar[] $offset
+     * @psalm-param scalar|scalar[] $fuzzy
      */
-    public function withOffset($offset): ByProjectKeyProductProjectionsSuggestGet
+    public function withFuzzy($fuzzy): ByProjectKeyProductProjectionsSuggestGet
     {
-        return $this->withQueryParam('offset', $offset);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $withTotal
-     */
-    public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('withTotal', $withTotal);
+        return $this->withQueryParam('fuzzy', $fuzzy);
     }
 
     /**

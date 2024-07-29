@@ -32,15 +32,23 @@ final class CustomerAddressCustomTypeRemovedMessagePayloadModel extends JsonObje
      */
     protected $previousTypeId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $addressId;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $previousTypeId = null,
+        ?string $addressId = null,
         ?string $type = null
     ) {
         $this->previousTypeId = $previousTypeId;
+        $this->addressId = $addressId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,6 +90,26 @@ final class CustomerAddressCustomTypeRemovedMessagePayloadModel extends JsonObje
         return $this->previousTypeId;
     }
 
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> from which the Custom Type was removed.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
 
     /**
      * @param ?string $previousTypeId
@@ -89,5 +117,13 @@ final class CustomerAddressCustomTypeRemovedMessagePayloadModel extends JsonObje
     public function setPreviousTypeId(?string $previousTypeId): void
     {
         $this->previousTypeId = $previousTypeId;
+    }
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void
+    {
+        $this->addressId = $addressId;
     }
 }

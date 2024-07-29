@@ -16,6 +16,7 @@ interface BusinessUnitAddressCustomFieldChangedMessage extends Message
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
     public const FIELD_OLD_VALUE = 'oldValue';
+    public const FIELD_ADDRESS_ID = 'addressId';
 
     /**
      * <p>Name of the Custom Field that changed.</p>
@@ -42,6 +43,14 @@ interface BusinessUnitAddressCustomFieldChangedMessage extends Message
     public function getOldValue();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> of which the Custom Field was changed.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId();
+
+    /**
      * @param ?string $name
      */
     public function setName(?string $name): void;
@@ -55,4 +64,9 @@ interface BusinessUnitAddressCustomFieldChangedMessage extends Message
      * @param mixed $oldValue
      */
     public function setOldValue($oldValue): void;
+
+    /**
+     * @param ?string $addressId
+     */
+    public function setAddressId(?string $addressId): void;
 }

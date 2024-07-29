@@ -29,6 +29,7 @@ interface ShippingMethod extends BaseResource
     public const FIELD_LOCALIZED_DESCRIPTION = 'localizedDescription';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_ZONE_RATES = 'zoneRates';
+    public const FIELD_ACTIVE = 'active';
     public const FIELD_IS_DEFAULT = 'isDefault';
     public const FIELD_PREDICATE = 'predicate';
     public const FIELD_CUSTOM = 'custom';
@@ -138,7 +139,16 @@ interface ShippingMethod extends BaseResource
     public function getZoneRates();
 
     /**
-     * <p>If <code>true</code> this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
+     * <p>Indicates if the ShippingMethod is active.</p>
+     * <p>If <code>true</code>, the ShippingMethod can be used during the creation or update of a Cart or Order.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getActive();
+
+    /**
+     * <p>If <code>true</code>, this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
 
      * @return null|bool
@@ -225,6 +235,11 @@ interface ShippingMethod extends BaseResource
      * @param ?ZoneRateCollection $zoneRates
      */
     public function setZoneRates(?ZoneRateCollection $zoneRates): void;
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void;
 
     /**
      * @param ?bool $isDefault

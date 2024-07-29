@@ -35,7 +35,7 @@ interface OrderSearchRequest extends JsonObject
     public function getSort();
 
     /**
-     * <p>The maximum number of search results to be returned.</p>
+     * <p>The maximum number of search results to be returned on one <a href="#pagination">page</a>.</p>
      *
 
      * @return null|int
@@ -43,7 +43,7 @@ interface OrderSearchRequest extends JsonObject
     public function getLimit();
 
     /**
-     * <p>The number of search results to be skipped in the response for pagination.</p>
+     * <p>The number of search results to be skipped in the response for <a href="#pagination">pagination</a>.</p>
      *
 
      * @return null|int

@@ -284,7 +284,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were removed during the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were removed during the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove LineItem</a> update action.</p>
      *
 
      * @return null|int
@@ -295,7 +295,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:LineItem">Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     * <p><a href="ctp:api:type:LineItem">Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove LineItem</a> update action.</p>
      *
 
      * @return null|int
@@ -306,7 +306,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:ItemState">ItemStates</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     * <p><a href="ctp:api:type:ItemState">ItemStates</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove LineItem</a> update action.</p>
      *
 
      * @return null|ItemStateCollection
@@ -317,7 +317,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p><code>totalPrice</code> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     * <p><code>totalPrice</code> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove LineItem</a> update action.</p>
      *
 
      * @return null|CentPrecisionMoney
@@ -328,7 +328,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove LineItem</a> update action.</p>
      *
 
      * @return null|TaxedItemPrice
@@ -339,7 +339,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Price">Price</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     * <p><a href="ctp:api:type:Price">Price</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove LineItem</a> update action.</p>
      *
 
      * @return null|Price
@@ -350,7 +350,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:ItemShippingDetails">Shipping Details</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     * <p><a href="ctp:api:type:ItemShippingDetails">Shipping Details</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove LineItem</a> update action.</p>
      *
 
      * @return null|ItemShippingDetails

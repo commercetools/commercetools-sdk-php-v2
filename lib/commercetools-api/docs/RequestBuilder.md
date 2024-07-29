@@ -482,6 +482,13 @@ $request = $builder
 Creates a [Cart](ctp:api:type:Cart) in the [BusinessUnit](ctp:api:type:BusinessUnit) referenced by `businessUnitKey`. As such, the `businessUnit` field on [CartDraft](ctp:api:type:CartDraft) is ignored for this request.
 Creating a Cart can fail with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match the Cart.
 
+Specific Error Codes:
+
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+
 
 ### Example
 ```php
@@ -654,6 +661,11 @@ The new Cart does not contain Payments or Deliveries. The [State](ctp:api:type:I
 
 If the Cart exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
+Specific Error Codes:
+
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+
 
 ### Example
 ```php
@@ -708,6 +720,16 @@ $request = $builder
 Creates an Order from a [Cart](ctp:api:type:Cart) in a [BusinessUnit](ctp:api:type:BusinessUnit).
 The Cart must have a shipping address set before creating an Order.
 Creating an Order fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Cart does not reference the same BusinessUnit as the `businessUnitKey` path parameter.
+
+Specific Error Codes:
+
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [OutOfStock](ctp:api:type:OutOfStockError)
+- [PriceChanged](ctp:api:type:PriceChangedError)
+- [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
 
 ### Example
@@ -839,6 +861,11 @@ $request = $builder
 
 Creates an Order from a [Quote](ctp:api:type:Cart) in a [BusinessUnit](ctp:api:type:BusinessUnit).
 Creating an Order fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Quote does not reference the same BusinessUnit as the `businessUnitKey` path parameter.
+
+Specific Error Codes:
+
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [OutOfStock](ctp:api:type:OutOfStockError)
 
 
 ### Example
@@ -1844,9 +1871,14 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->post(null)`
 
-Creating a Cart fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error if the
-[ShippingMethod](ctp:api:type:ShippingMethod) referenced in the CartDraft
-has a `predicate` that does not match the Cart.
+If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, or if the Shipping Method is not active, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+
+Specific Error Codes:
+
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
 
 ### Example
@@ -2021,6 +2053,11 @@ Creates a new Cart by replicating an existing Cart or Order. Can be useful in ca
 The replicated Cart preserves Customer information, Line Items and Custom Line Items, Custom Fields, Discount Codes, and other settings of the Cart or Order. If the Line Items become invalid, for example, due to removed Products or Prices, they are removed from the new Cart. If the Customer switches to another Customer Group, the new Cart is updated with the new value. It has up-to-date Tax Rates, Prices, and Line Item product data and is in `Active` [CartState](ctp:api:type:CartState).
 
 The new Cart does not contain Payments or Deliveries. The [State](ctp:api:type:ItemState) of Line Items and Custom Line Items is reset to `initial`.
+
+Specific Error Codes:
+
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
 
 ### Example
@@ -3470,7 +3507,15 @@ $request = $builder
 
 Creates a [Cart](ctp:api:type:Cart) in the [Store](ctp:api:type:Store) specified by `storeKey`.
 When using this endpoint the Cart's `store` field is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
-If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, or if the Shipping Method is not active, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+
+Specific Error Codes:
+
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
 
 
 ### Example
@@ -3667,6 +3712,11 @@ Creates a new Cart by replicating an existing Cart or Order. Can be useful in ca
 The replicated Cart preserves Customer information, Line Items and Custom Line Items, Custom Fields, Discount Codes, and other settings of the Cart or Order. If the Line Items become invalid, for example, due to removed Products or Prices, they are removed from the new Cart. If the Customer switches to another Customer Group, the new Cart is updated with the new value. It has up-to-date Tax Rates, Prices, and Line Item product data and is in `Active` [CartState](ctp:api:type:CartState).
 
 The new Cart does not contain payments or deliveries. The [State](ctp:api:type:ItemState) of Line Items and Custom Line Items is reset to `initial`.
+
+Specific Error Codes:
+
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
 
 ### Example
@@ -4003,6 +4053,8 @@ $request = $builder
 
 Authenticates a Customer associated with a [Store](ctp:api:type:Store). For more information, see [Global versus Store-specific Customers](/../api/customers-overview#global-versus-store-specific-customers).
 
+A Cart returned in the [CustomerSignInResult](ctp:api:type:CustomerSignInResult) has any invalid Line Items removed and is [updated](/api/carts-orders-overview#cart-updates) with the latest prices, taxes, and discounts. During these updates, the following errors can be returned: [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError) and [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError).
+
 Triggers [Cart merge during sign-in](/../api/customers-overview#cart-merge-during-sign-in).
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error.
@@ -4141,7 +4193,13 @@ Creates a Cart in the specified Store for a given `customerId` or `anonymousId`.
 
 The `store` field in the created [Cart](ctp:api:type:Cart) is set to the Store specified by the `storeKey` path parameter.
 
-Specific Error Codes: [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+Specific Error Codes:
+
+- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
 
 ### Example
@@ -4263,7 +4321,7 @@ Retrieves the authenticated Customer (that matches the given email/password pair
 - If the Customer does not have a Cart, the most recently modified anonymous cart becomes the Customer's Cart.
 - If the Customer already has a Cart, the most recently modified anonymous cart is handled according to [AnonymousCartSignInMode](ctp:api:type:AnonymousCartSignInMode).
 
-If a Cart is returned as part of [CustomerSignInResult](ctp:api:type:CustomerSignInResult), it has been [recalculated](ctp:api:type:MyCartRecalculateAction) with up-to-date prices, taxes, discounts, and invalid line items removed.
+A Cart returned in the [CustomerSignInResult](ctp:api:type:CustomerSignInResult) has any invalid Line Items removed and is [updated](/api/carts-orders-overview#cart-updates) with the latest prices, taxes, and discounts. During these updates, the following errors can be returned: [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError) and [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError).
 
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
@@ -4320,11 +4378,15 @@ Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) 
 
 Specific Error Codes:
 
+- [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError)
+- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 - [OutOfStock](ctp:api:type:OutOfStockError)
 - [PriceChanged](ctp:api:type:PriceChangedError)
-- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
-- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
-- [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError)
+- [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
 
 
 ### Example
@@ -4611,6 +4673,8 @@ $request = $builder
 
 If omitted in the request body, the [Customer](ctp:api:type:Customer) `stores` field is set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
+A Cart returned in the [CustomerSignInResult](ctp:api:type:CustomerSignInResult) has any invalid Line Items removed and is [updated](/api/carts-orders-overview#cart-updates) with the latest prices, taxes, and discounts. During these updates, the following errors can be returned: [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError) and [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError).
+
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
 
 
@@ -4662,7 +4726,6 @@ Before you create an Order, the Cart must have a [shipping address set](ctp:api:
 The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
 
 Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
-
 If a server-side problem occurs, indicated by a 500 Internal Server Error HTTP response, the Order creation may still successfully complete after the error is returned.
 If you receive this error, you should verify the status of the Order by querying a unique identifier supplied during the creation request, such as the Order number.
 
@@ -4673,6 +4736,7 @@ Specific Error Codes:
 - [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
 - [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError)
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 - [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
@@ -5482,7 +5546,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
-Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart in a given [Store](ctp:api:type:Store).
+Retrieves all the active ShippingMethods that can ship to the shipping address of the given Cart in a given [Store](ctp:api:type:Store).
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
@@ -5501,7 +5565,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->head()`
 
-Checks if a ShippingMethod that can ship to the shipping address of the given Cart exists in the given [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod that can ship to the shipping address of the given Cart exists in the given [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -6044,6 +6108,8 @@ If the Customer is registered in a Store, use the [Authenticate (sign in) Custom
 
 Triggers [Cart merge during sign-in](/../api/customers-overview#cart-merge-during-sign-in).
 
+A Cart returned in the [CustomerSignInResult](ctp:api:type:CustomerSignInResult) has any invalid Line Items removed and is [updated](/api/carts-orders-overview#cart-updates) with the latest prices, taxes, and discounts. During these updates, the following errors can be returned: [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError) and [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError).
+
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
 
@@ -6343,6 +6409,13 @@ $request = $builder
 
 Creates a Cart for a given `customerId` or `anonymousId`.
 
+Specific Error Codes:
+
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+
 
 ### Example
 ```php
@@ -6509,6 +6582,11 @@ The new Cart does not contain Payments or Deliveries. The [State](ctp:api:type:I
 
 If the Cart or Order to be replicated does not belong to the authenticated Customer, the API returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error
 
+Specific Error Codes:
+
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+
 
 ### Example
 ```php
@@ -6547,7 +6625,7 @@ If used with [an access token for an anonymous session](ctp:api:type:AnonymousSe
 - If the Customer does not have a Cart yet, the most recently modified anonymous cart becomes the Customer's Cart.
 - If the Customer already has a Cart, the most recently modified anonymous cart is handled in accordance with [AnonymousCartSignInMode](ctp:api:type:AnonymousCartSignInMode).
 
-A Cart returned as part of the [CustomerSignInResult](ctp:api:type:CustomerSignInResult) is [recalculated](ctp:api:type:MyCartRecalculateAction) with up-to-date prices, taxes, discounts, and invalid line items removed.
+A Cart returned in the [CustomerSignInResult](ctp:api:type:CustomerSignInResult) has any invalid Line Items removed and is [updated](/api/carts-orders-overview#cart-updates) with the latest prices, taxes, and discounts. During these updates, the following errors can be returned: [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError) and [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError).
 
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
@@ -6604,10 +6682,14 @@ If you receive this error, you should verify the status of the Order by querying
 
 Specific Error Codes:
 
+- [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError)
+- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
+- [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
 - [OutOfStock](ctp:api:type:OutOfStockError)
 - [PriceChanged](ctp:api:type:PriceChangedError)
-- [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
-- [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError)
+- [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
+- [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
+- [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
 
 ### Example
@@ -7422,6 +7504,7 @@ Specific Error Codes:
 - [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
 - [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError)
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
@@ -7779,11 +7862,11 @@ Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) 
 
 Specific Error Codes:
 
-- [OutOfStock](ctp:api:type:OutOfStockError)
-- [PriceChanged](ctp:api:type:PriceChangedError)
+- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
 - [InvalidOperation](ctp:api:type:InvalidOperationError)
-- [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+- [OutOfStock](ctp:api:type:OutOfStockError)
+- [PriceChanged](ctp:api:type:PriceChangedError)
 
 
 ### Example
@@ -7815,6 +7898,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->orders()->search()->head()`
 
 Checks whether a search index for the Project's Orders exists.
+Returns a `200 OK` status if the index exists or a `404 Not Found` error otherwise.
+
 
 ### Example
 ```php
@@ -9671,7 +9756,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->get()`
 
-Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart.
+Retrieves all the active ShippingMethods that can ship to the shipping address of the given Cart.
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
@@ -9689,7 +9774,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->head()`
 
-Checks if a ShippingMethod exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9704,7 +9789,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->get()`
 
-Retrieves all the ShippingMethods that can ship to the given [Location](ctp:api:type:Location)
+Retrieves all the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location)
 with a `predicate` that matches the given Cart.
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
@@ -9723,7 +9808,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->head()`
 
-Checks if a ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9738,7 +9823,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
-Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location).
+Retrieves all the active ShippingMethods that can ship to the given [Location](/projects/zones#location).
 ShippingMethods that have a `predicate` defined are automatically disqualified.
 If the `currency` parameter is given, then the ShippingMethods must also have a rate defined in the specified currency.
 Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
@@ -9758,7 +9843,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->head()`
 
-Checks if a ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9773,7 +9858,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
-Retrieves all the ShippingMethods that can ship to the given [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
+Retrieves all the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
 
 If the OrderEdit preview cannot be generated, an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is returned.
 
@@ -9791,7 +9876,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->head()`
 
-Checks if a ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given [OrderEdit](ctp:api:type:OrderEdit). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given [OrderEdit](ctp:api:type:OrderEdit). Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php

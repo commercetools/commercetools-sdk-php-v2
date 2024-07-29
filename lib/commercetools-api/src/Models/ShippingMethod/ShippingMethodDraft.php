@@ -23,6 +23,7 @@ interface ShippingMethodDraft extends JsonObject
     public const FIELD_LOCALIZED_DESCRIPTION = 'localizedDescription';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_ZONE_RATES = 'zoneRates';
+    public const FIELD_ACTIVE = 'active';
     public const FIELD_IS_DEFAULT = 'isDefault';
     public const FIELD_PREDICATE = 'predicate';
     public const FIELD_CUSTOM = 'custom';
@@ -84,7 +85,15 @@ interface ShippingMethodDraft extends JsonObject
     public function getZoneRates();
 
     /**
-     * <p>If <code>true</code> the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
+     * <p>If set to <code>true</code>, the ShippingMethod can be used during the creation or update of a Cart or Order.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getActive();
+
+    /**
+     * <p>If set to <code>true</code>, the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
 
      * @return null|bool
@@ -141,6 +150,11 @@ interface ShippingMethodDraft extends JsonObject
      * @param ?ZoneRateDraftCollection $zoneRates
      */
     public function setZoneRates(?ZoneRateDraftCollection $zoneRates): void;
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void;
 
     /**
      * @param ?bool $isDefault
