@@ -529,14 +529,118 @@ $request = $builder
               ->withId($productType->getId())
               ->get();
 $productTypeQueryResponse = $request->execute();
-See the [Test Code]()
 ```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
 
 The code for the creation of the t-shirt ProductType:
 
 ```php
+$green = AttributeLocalizedEnumValueBuilder::of()
+                    ->withKey("green")
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "green", "de" => "grün"])->build())
+                    ->build();
+        $red = AttributeLocalizedEnumValueBuilder::of()
+                    ->withKey("red")
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "red", "de" => "rot"])->build())
+                    ->build();
+        $color = AttributeDefinitionDraftBuilder::of()
+                    ->withName(self::COLOR_ATTR_NAME)
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "color"])->build())
+                    ->withType(AttributeLocalizedEnumTypeBuilder::of()
+                                ->withValues(AttributeLocalizedEnumValueCollection::fromArray([$green, $red]))
+                                ->build())
+                    ->withIsRequired(true)
+                    ->build();
+        $small = AttributePlainEnumValueBuilder::of()
+                    ->withKey("S")
+                    ->withLabel("S")
+                    ->build();
+        $medium = AttributePlainEnumValueBuilder::of()
+                    ->withKey("M")
+                    ->withLabel("M")
+                    ->build();
+        $sizeX = AttributePlainEnumValueBuilder::of()
+                    ->withKey("X")
+                    ->withLabel("X")
+                    ->build();
+        $size = AttributeDefinitionDraftBuilder::of()
+                    ->withName(self::SIZE_ATTR_NAME)
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Size"])->build())
+                    ->withType(AttributeEnumTypeBuilder::of()
+                                    ->withValues(AttributePlainEnumValueCollection::fromArray([$small, $medium, $sizeX]))
+                                    ->build())
+                    ->withIsRequired(true)
+                    ->build();
+        $cold = AttributeLocalizedEnumValueBuilder::of()
+                    ->withKey("cold")
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Wash at or below 30°C ", "de" => "30°C"])->build())
+                    ->build();
+        $hot = AttributeLocalizedEnumValueBuilder::of()
+                    ->withKey("hot")
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Wash at or below 60°C", "de" => "60°C"])->build())
+                    ->build();
+        $tumbleDrying = AttributeLocalizedEnumValueBuilder::of()
+                            ->withKey("tumbleDrying")
+                            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Tumble Drying", "de" => "Trommeltrocknen"])->build())
+                            ->build();
+        $noTumbleDrying = AttributeLocalizedEnumValueBuilder::of()
+                            ->withKey("noTumbleDrying")
+                            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "no tumble drying", "de" => "Nicht im Trommeltrockner trocknen"])->build())
+                            ->build();
+        $laundryLabelType = AttributeSetTypeBuilder::of()
+                                ->withElementType(AttributeLocalizedEnumTypeBuilder::of()
+                                                    ->withValues(AttributeLocalizedEnumValueCollection::fromArray([$cold, $hot, $tumbleDrying, $noTumbleDrying]))
+                                                    ->build())
+                                ->build();
+        $laundrySymbols = AttributeDefinitionDraftBuilder::of()
+                            ->withType($laundryLabelType)
+                            ->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)
+                            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "washing labels"])->build())
+                            ->withIsRequired(false)
+                            ->build();
 
+        $matchingProducts = AttributeDefinitionDraftBuilder::of()
+                                ->withName(self::MATCHING_PRODUCTS_ATTR_NAME)
+                                ->withLabel(LocalizedStringBuilder::fromArray(["en" => "matching products"])->build())
+                                ->withType(AttributeSetTypeBuilder::of()
+                                            ->withElementType(AttributeReferenceTypeBuilder::of()
+                                                                ->withReferenceTypeId("product")
+                                                                ->build())
+                                            ->build())
+                                ->withIsRequired(false)
+                                ->build();
+        $rrp = AttributeDefinitionDraftBuilder::of()
+                    ->withName(self::RRP_ATTR_NAME)
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "recommended retail price"])->build())
+                    ->withType(AttributeMoneyTypeBuilder::of()->build())
+                    ->withIsRequired(false)
+                    ->build();
+        $availableSince = AttributeDefinitionDraftBuilder::of()
+                            ->withName(self::AVAILABLE_SINCE_ATTR_NAME)
+                            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "available since"])->build())
+                            ->withType(AttributeDateTimeTypeBuilder::of()->build())
+                            ->withIsRequired(false)
+                            ->build();
+        $attributes = AttributeDefinitionDraftCollection::fromArray([$color, $size, $laundrySymbols, $matchingProducts, $rrp, $availableSince]);
+
+        $productTypeDraft = ProductTypeDraftBuilder::of()
+                              ->withKey(ProductTypeFixture::uniqueProductTypeString())
+                              ->withName(self::PRODUCT_TYPE_NAME)
+                              ->withDescription("a 'T' shaped cloth")
+                              ->withAttributes($attributes)
+                              ->build();
+        $productType = $builder
+            ->with()
+            ->productTypes()
+            ->post($productTypeDraft)
+            ->execute();
 ```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
+ProductTypes have a key (String) which can be used as key to logically identify ProductTypes. The key has an unique constraint.
+
+### Product Creation
+To create a product you need to reference the product type. Since the ProductType ID of the development system will not be the ID of the production system it is necessary to find the product type by name:
 
 
 <a id="migration-guidelines-from-sdk-v1"></a>
