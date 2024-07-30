@@ -1,17 +1,6 @@
 **Api changes**
 
 <details>
-<summary>Required Property(s)</summary>
-
-- changed property `isOnStock` of type `ProductVariantAvailability` to be optional
-- :warning: changed property `stores` of type `BusinessUnitSetStoresAction` to be required
-- :warning: changed property `stores` of type `CartDiscountSetStoresAction` to be required
-- :warning: changed property `stores` of type `Customer` to be required
-- :warning: changed property `stores` of type `CustomerSetStoresAction` to be required
-</details>
-
-
-<details>
 <summary>Changed Property(s)</summary>
 
 - :warning: changed property `value` of type `DirectDiscountDraft` from type `CartDiscountValue` to `CartDiscountValueDraft`
@@ -33,6 +22,17 @@
 - :warning: changed property `customType` of type `OrderSearchStringValue` from type `string` to `OrderSearchCustomType`
 - :warning: changed property `price` of type `ShippingRate` from type `TypedMoney` to `CentPrecisionMoney`
 - :warning: changed property `freeAbove` of type `ShippingRate` from type `TypedMoney` to `CentPrecisionMoney`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- :warning: changed property `stores` of type `BusinessUnitSetStoresAction` to be required
+- :warning: changed property `stores` of type `CartDiscountSetStoresAction` to be required
+- :warning: changed property `stores` of type `Customer` to be required
+- :warning: changed property `stores` of type `CustomerSetStoresAction` to be required
+- changed property `isOnStock` of type `ProductVariantAvailability` to be optional
 </details>
 
 
@@ -106,26 +106,19 @@
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Removed QueryParameter(s)</summary>
 
-- added enum `shopping-list` to type `ExtensionResourceTypeId`
-- added enum `attribute-group` to type `ChangeSubscriptionResourceTypeId`
-- added enum `product-tailoring` to type `ChangeSubscriptionResourceTypeId`
-- added enum `cart-discount` to type `CustomFieldReferenceValue`
-</details>
-
-
-<details>
-<summary>Removed Enum(s)</summary>
-
-- :warning: removed enum `product-price` from type `ChangeSubscriptionResourceTypeId`
-</details>
-
-
-<details>
-<summary>Removed Method(s)</summary>
-
-- :warning: removed method `$apiRoot->withProjectKey()->products()->search()->head()`
+- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products`
+- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products`
+- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products/key={key}`
+- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products/key={key}`
+- :warning: removed query parameter `localeProjection` from method `delete /{projectKey}/products/key={key}`
+- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products/{ID}`
+- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products/{ID}`
+- :warning: removed query parameter `localeProjection` from method `delete /{projectKey}/products/{ID}`
+- :warning: removed query parameter `sort` from method `get /{projectKey}/product-projections/suggest`
+- :warning: removed query parameter `offset` from method `get /{projectKey}/product-projections/suggest`
+- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/suggest`
 </details>
 
 
@@ -175,19 +168,26 @@
 
 
 <details>
-<summary>Removed QueryParameter(s)</summary>
+<summary>Removed Method(s)</summary>
 
-- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products`
-- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products`
-- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products/key={key}`
-- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products/key={key}`
-- :warning: removed query parameter `localeProjection` from method `delete /{projectKey}/products/key={key}`
-- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products/{ID}`
-- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products/{ID}`
-- :warning: removed query parameter `localeProjection` from method `delete /{projectKey}/products/{ID}`
-- :warning: removed query parameter `sort` from method `get /{projectKey}/product-projections/suggest`
-- :warning: removed query parameter `offset` from method `get /{projectKey}/product-projections/suggest`
-- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/suggest`
+- :warning: removed method `$apiRoot->withProjectKey()->products()->search()->head()`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `shopping-list` to type `ExtensionResourceTypeId`
+- added enum `attribute-group` to type `ChangeSubscriptionResourceTypeId`
+- added enum `product-tailoring` to type `ChangeSubscriptionResourceTypeId`
+- added enum `cart-discount` to type `CustomFieldReferenceValue`
+</details>
+
+
+<details>
+<summary>Removed Enum(s)</summary>
+
+- :warning: removed enum `product-price` from type `ChangeSubscriptionResourceTypeId`
 </details>
 
 
@@ -267,25 +267,16 @@
 
 
 <details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKeyValue()->discountCodes()->importContainers()->withImportContainerKeyValue()->post()`
+</details>
+
+
+<details>
 <summary>Added Enum(s)</summary>
 
 - added enum `discount-code` to type `ImportResourceType`
-</details>
-
-
-<details>
-<summary>Added Type(s)</summary>
-
-- added type `DiscountCodeImportRequest`
-- added type `DiscountCodeImport`
-</details>
-
-
-<details>
-<summary>MarkDeprecated Property(s)</summary>
-
-- marked property `PriceImport::publish` as deprecated
-- marked property `ProductVariantImport::publish` as deprecated
 </details>
 
 
@@ -298,8 +289,17 @@
 
 
 <details>
-<summary>Added Method(s)</summary>
+<summary>MarkDeprecated Property(s)</summary>
 
-- added method `$apiRoot->withProjectKeyValue()->discountCodes()->importContainers()->withImportContainerKeyValue()->post()`
+- marked property `PriceImport::publish` as deprecated
+- marked property `ProductVariantImport::publish` as deprecated
+</details>
+
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `DiscountCodeImportRequest`
+- added type `DiscountCodeImport`
 </details>
 
