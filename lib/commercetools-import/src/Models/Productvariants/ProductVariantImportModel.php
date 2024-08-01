@@ -62,12 +62,6 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     protected $assets;
 
     /**
-     * @deprecated
-     * @var ?bool
-     */
-    protected $publish;
-
-    /**
      *
      * @var ?bool
      */
@@ -90,7 +84,6 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         ?AttributeCollection $attributes = null,
         ?ImageCollection $images = null,
         ?AssetCollection $assets = null,
-        ?bool $publish = null,
         ?bool $staged = null,
         ?ProductKeyReference $product = null
     ) {
@@ -100,7 +93,6 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         $this->attributes = $attributes;
         $this->images = $images;
         $this->assets = $assets;
-        $this->publish = $publish;
         $this->staged = $staged;
         $this->product = $product;
     }
@@ -227,28 +219,6 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>If <code>publish</code> is set to either <code>true</code> or <code>false</code>, both staged and current projections are set to the same value provided by the import data.
-     * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
-     * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
-     *
-     * @deprecated
-     * @return null|bool
-     */
-    public function getPublish()
-    {
-        if (is_null($this->publish)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_PUBLISH);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->publish = (bool) $data;
-        }
-
-        return $this->publish;
-    }
-
-    /**
      * <ul>
      * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Product Variant data.</li>
      * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
@@ -341,14 +311,6 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;
-    }
-
-    /**
-     * @param ?bool $publish
-     */
-    public function setPublish(?bool $publish): void
-    {
-        $this->publish = $publish;
     }
 
     /**

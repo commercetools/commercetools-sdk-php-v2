@@ -30,7 +30,6 @@ interface PriceImport extends ImportResource
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_CHANNEL = 'channel';
     public const FIELD_DISCOUNTED = 'discounted';
-    public const FIELD_PUBLISH = 'publish';
     public const FIELD_STAGED = 'staged';
     public const FIELD_TIERS = 'tiers';
     public const FIELD_CUSTOM = 'custom';
@@ -102,14 +101,6 @@ interface PriceImport extends ImportResource
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
-
-    /**
-     * <p>Only the <a href="/../api/types#price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
-     *
-     * @deprecated
-     * @return null|bool
-     */
-    public function getPublish();
 
     /**
      * <ul>
@@ -197,11 +188,6 @@ interface PriceImport extends ImportResource
      * @param ?DiscountedPrice $discounted
      */
     public function setDiscounted(?DiscountedPrice $discounted): void;
-
-    /**
-     * @param ?bool $publish
-     */
-    public function setPublish(?bool $publish): void;
 
     /**
      * @param ?bool $staged

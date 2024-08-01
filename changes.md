@@ -289,10 +289,10 @@
 
 
 <details>
-<summary>MarkDeprecated Property(s)</summary>
+<summary>Deprecated Property(s)</summary>
 
-- marked property `PriceImport::publish` as deprecated
-- marked property `ProductVariantImport::publish` as deprecated
+- property `PriceImport::publish` is removed
+- property `ProductVariantImport::publish` is removed
 </details>
 
 
