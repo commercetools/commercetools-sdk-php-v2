@@ -63,12 +63,6 @@ final class ProductVariantImportBuilder implements Builder
     private $assets;
 
     /**
-     * @deprecated
-     * @var ?bool
-     */
-    private $publish;
-
-    /**
 
      * @var ?bool
      */
@@ -145,19 +139,6 @@ final class ProductVariantImportBuilder implements Builder
     public function getAssets()
     {
         return $this->assets;
-    }
-
-    /**
-     * <p>If <code>publish</code> is set to either <code>true</code> or <code>false</code>, both staged and current projections are set to the same value provided by the import data.
-     * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
-     * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
-     *
-     * @deprecated
-     * @return null|bool
-     */
-    public function getPublish()
-    {
-        return $this->publish;
     }
 
     /**
@@ -254,17 +235,6 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
-     * @param ?bool $publish
-     * @return $this
-     */
-    public function withPublish(?bool $publish)
-    {
-        $this->publish = $publish;
-
-        return $this;
-    }
-
-    /**
      * @param ?bool $staged
      * @return $this
      */
@@ -306,7 +276,6 @@ final class ProductVariantImportBuilder implements Builder
             $this->attributes,
             $this->images,
             $this->assets,
-            $this->publish,
             $this->staged,
             $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product
         );

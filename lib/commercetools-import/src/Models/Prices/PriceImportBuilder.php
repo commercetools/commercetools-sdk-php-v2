@@ -87,12 +87,6 @@ final class PriceImportBuilder implements Builder
     private $discounted;
 
     /**
-     * @deprecated
-     * @var ?bool
-     */
-    private $publish;
-
-    /**
 
      * @var ?bool
      */
@@ -210,17 +204,6 @@ final class PriceImportBuilder implements Builder
     public function getDiscounted()
     {
         return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
-    }
-
-    /**
-     * <p>Only the <a href="/../api/types#price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
-     *
-     * @deprecated
-     * @return null|bool
-     */
-    public function getPublish()
-    {
-        return $this->publish;
     }
 
     /**
@@ -374,17 +357,6 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * @param ?bool $publish
-     * @return $this
-     */
-    public function withPublish(?bool $publish)
-    {
-        $this->publish = $publish;
-
-        return $this;
-    }
-
-    /**
      * @param ?bool $staged
      * @return $this
      */
@@ -527,7 +499,6 @@ final class PriceImportBuilder implements Builder
             $this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
-            $this->publish,
             $this->staged,
             $this->tiers,
             $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom,

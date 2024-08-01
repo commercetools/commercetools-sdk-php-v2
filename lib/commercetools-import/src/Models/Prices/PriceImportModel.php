@@ -86,12 +86,6 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $discounted;
 
     /**
-     * @deprecated
-     * @var ?bool
-     */
-    protected $publish;
-
-    /**
      *
      * @var ?bool
      */
@@ -134,7 +128,6 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         ?CustomerGroupKeyReference $customerGroup = null,
         ?ChannelKeyReference $channel = null,
         ?DiscountedPrice $discounted = null,
-        ?bool $publish = null,
         ?bool $staged = null,
         ?PriceTierCollection $tiers = null,
         ?Custom $custom = null,
@@ -149,7 +142,6 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->customerGroup = $customerGroup;
         $this->channel = $channel;
         $this->discounted = $discounted;
-        $this->publish = $publish;
         $this->staged = $staged;
         $this->tiers = $tiers;
         $this->custom = $custom;
@@ -332,26 +324,6 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * <p>Only the <a href="/../api/types#price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
-     *
-     * @deprecated
-     * @return null|bool
-     */
-    public function getPublish()
-    {
-        if (is_null($this->publish)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_PUBLISH);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->publish = (bool) $data;
-        }
-
-        return $this->publish;
-    }
-
-    /**
      * <ul>
      * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Price data.</li>
      * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
@@ -524,14 +496,6 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;
-    }
-
-    /**
-     * @param ?bool $publish
-     */
-    public function setPublish(?bool $publish): void
-    {
-        $this->publish = $publish;
     }
 
     /**
