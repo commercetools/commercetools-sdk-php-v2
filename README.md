@@ -641,6 +641,19 @@ ProductTypes have a key (String) which can be used as key to logically identify 
 
 ### Product Creation
 To create a product you need to reference the product type. Since the ProductType ID of the development system will not be the ID of the production system it is necessary to find the product type by name:
+```php
+$productType = $builder
+            ->with()
+            ->productTypes()
+            ->get()
+            ->withQueryParam('where', 'name="' . $name . '"')
+            ->execute();
+
+        return $productType->getResults()->current() ?: null;
+```
+The simplest way of adding attributes to a ProductVariant is to use ProductVariantDraftBuilder.plusAttributes(Attribute...) which enables you to directly put the value of the attribute to the draft. But it cannot check if you put the right objects and types in it.
+A book example:
+
 
 
 <a id="migration-guidelines-from-sdk-v1"></a>

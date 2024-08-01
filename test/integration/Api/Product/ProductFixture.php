@@ -4,6 +4,7 @@ namespace Commercetools\IntegrationTest\Api\Product;
 
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Api\Models\Common\PriceDraftBuilder as PriceDraftBuilder;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeBuilder;
@@ -62,26 +63,23 @@ class ProductFixture
     {
         $productType = ProductTypeFixture::defaultProductType($builder);
         $productVariantDraft = ProductVariantDraftBuilder::of()
-                                ->withPrices(PriceDraftCollection::fromArray([self::priceDraft()]))
+                                ->withPrices(PriceDraftCollection::of()->add(self::priceDraft()))
                                 ->build();
-        $productVariantDraft = ProductVariantDraftBuilder::of()
-            ->withPrices(PriceDraftCollection::fromArray([self::priceDraft()]))
-            ->build();
 
-        $slugEn = LocalizedStringBuilder::fromArray(["en" => "referenceable-product-2"])->build();
+        $slugEn = LocalizedStringBuilder::of()->put("en", "referenceable-product-2")->build();
         $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
             ->withId($productType->getId())
             ->build();
         $productDraft = ProductDraftBuilder::of()
             ->withName($slugEn)
             ->withSlug($slugEn)
-            ->withVariants(ProductVariantDraftCollection::fromArray([$productVariantDraft]))
+            ->withVariants(ProductVariantDraftCollection::of()->add($productVariantDraft))
             ->withProductType($productTypeResourceIdentifier)
             ->build();
-
+        $queryParam = sprintf('masterData(staged(slug(en="%s")))', $slugEn->at("en"));
         $product = $builder->products()
             ->get()
-            ->withQueryParam("where", sprintf('masterData(staged(slug(en="%s")))', "referenceable-product-2"))
+            ->withQueryParam("where", $queryParam)
             ->execute();
 
         $existingProduct = $product->getResults()->current();
@@ -98,12 +96,24 @@ class ProductFixture
 
     public static function createProduct(ApiRequestBuilder $builder, ProductType $productType)
     {
-        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()->withId($productType->getId())->build();
+        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+            ->withId($productType->getId())
+            ->build();
+        $productVariantDraft = ProductVariantDraftBuilder::of()
+            ->withAttributes(AttributeCollection::of()
+                ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
+                ->add(AttributeBuilder::of()->withName(self::SIZE_ATTR_NAME)->withValue("S")->build())
+                ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue("cold")->withValue("tumbleDrying")->build())
+                ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue("product-reference")->build())
+                ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCurrencyCode("EUR")->withCentAmount(300))->build())
+                ->add(AttributeBuilder::of()->withName(self::AVAILABLE_SINCE_ATTR_NAME)->withValue(new \DateTime())->build()))
+            ->build();
         $productDraft = ProductDraftBuilder::of()
             ->withProductType($productTypeResourceIdentifier)
             ->withKey(self::uniqueProductString())
             ->withName(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
             ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+            ->withVariants(ProductVariantDraftCollection::of()->add($productVariantDraft))
             ->build();
 
         $product = $builder->products()
@@ -113,7 +123,7 @@ class ProductFixture
         return $product;
     }
 
-    public static function priceDraft()
+    public static function priceDraft(): PriceDraft
     {
         return PriceDraftBuilder::of()
             ->withValue(MoneyBuilder::of()
@@ -122,6 +132,38 @@ class ProductFixture
                 ->build())
             ->withCountry("DE")
             ->build();
+    }
+
+    public function createBookProduct(ApiRequestBuilder $builder, string $name)
+    {
+        $priceDraft = PriceDraftBuilder::of()
+            ->withValue(
+                MoneyBuilder::of()
+                    ->withCentAmount(100)
+                    ->withCurrencyCode('EUR')
+                    ->build()
+            )
+            ->build();
+        $productType = ProductTypeFixture::createProductType($builder, $name);
+
+        $productVariantDraft = ProductVariantDraftBuilder::of()
+            ->withSku(ProductFixture::uniqueProductString())
+            ->withPrices(new PriceDraftCollection([$priceDraft]))
+            ->withAttributes(AttributeCollection::of()->add(AttributeBuilder::of()->withName(self::ISBN_ATTR_NAME)->withValue("978-3-86680-192-9")))
+            ->build();
+        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+            ->withKey($productType->getKey())
+            ->build();
+        $productDraft = ProductDraftBuilder::of()
+            ->withProductType($productTypeResourceIdentifier)
+            ->withKey(ProductFixture::uniqueProductString())
+            ->withName(LocalizedStringBuilder::fromArray(["en" => "a book"])->build())
+            ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+            ->withMasterVariant($productVariantDraft)
+            ->build();
+        return $product = $builder->products()
+            ->post($productDraft)
+            ->execute();
     }
 
     final public static function getAttributesDefinitionDraftCollection(): AttributeDefinitionDraftCollection

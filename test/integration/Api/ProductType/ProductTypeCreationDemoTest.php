@@ -2,7 +2,18 @@
 
 namespace Commercetools\IntegrationTest\Api\ProductType;
 
+use Cassandra\Date;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Common\PriceDraftBuilder as PriceDraftBuilder;
+use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\Product\AttributeBuilder;
+use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\ProductDraftBuilder;
+use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
+use Commercetools\Api\Models\Product\ProductVariantDraftCollection;
 use Commercetools\Api\Models\ProductType\AttributeDateTimeTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
@@ -18,6 +29,7 @@ use Commercetools\Api\Models\ProductType\AttributeReferenceTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeSetTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
+use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
 use Commercetools\IntegrationTest\Api\Product\ProductFixture;
 use Commercetools\IntegrationTest\Api\TaxCategory\TaxCategoryFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
@@ -160,9 +172,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
     public function testCreateBookProductType()
     {
         $builder = $this->getApiBuilder();
-
         $bookProductTypeDraft = $this->createBookProductTypeDraft();
-
         $bookProductType = $builder
             ->with()
             ->productTypes()
@@ -176,6 +186,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
             ->get();
 
         $bookProductTypeQueryResponse = $request->execute();
+
         $this->assertSame($bookProductType->getName(), $bookProductTypeQueryResponse->getName());
         $this->assertSame($bookProductType->getKey(), $bookProductTypeQueryResponse->getKey());
         $this->assertSame(1, $bookProductTypeQueryResponse->getVersion());
@@ -184,9 +195,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
     public function testCreateTShirtProductType()
     {
         $builder = $this->getApiBuilder();
-
         $productTypeDraft = $this->createTShirtProductTypeDraft();
-
         $productType = $builder
             ->with()
             ->productTypes()
@@ -199,6 +208,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
             ->withId($productType->getId())
             ->get();
         $productTypeQueryResponse = $request->execute();
+
         $this->assertSame($productType->getName(), $productTypeQueryResponse->getName());
         $this->assertSame($productType->getId(), $productTypeQueryResponse->getId());
         $this->assertSame(1, $productTypeQueryResponse->getVersion());
@@ -207,12 +217,94 @@ class ProductTypeCreationDemoTest extends ApiTestCase
     public function testCreateProduct()
     {
         $builder = $this->getApiBuilder();
-        $productType = ProductTypeFixture::defaultProductType($builder, self::BOOK_PRODUCT_TYPE_NAME);
+//        $referenceableProduct = ProductFixture::referenceableProduct($builder);
+        $productTypeDraft = $this->createTShirtProductTypeDraft();
+        $productType = $builder
+            ->with()
+            ->productTypes()
+            ->post($productTypeDraft)
+            ->execute();
+        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+            ->withId($productType->getId())
+            ->build();
+//        $productReference = ProductReferenceBuilder::of()->withId($referenceableProduct->getId())->build();
+        $datetime = new \DateTime();
+        $datetime = $datetime->format(\DateTime::ATOM);
+        $productVariantDraft = ProductVariantDraftBuilder::of()
+            ->withAttributes(AttributeCollection::of()
+                ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
+                ->add(AttributeBuilder::of()->withName(self::SIZE_ATTR_NAME)->withValue("S")->build())
+                ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
+                ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCentAmount(300)->withCurrencyCode("EUR")->build())->build())
+                ->add(AttributeBuilder::of()->withName(self::AVAILABLE_SINCE_ATTR_NAME)->withValue($datetime)->build())
+//                ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue($productReference)->build())
+            )
+            ->build();
+        $productDraft = ProductDraftBuilder::of()
+            ->withProductType($productTypeResourceIdentifier)
+            ->withKey(ProductFixture::uniqueProductString())
+            ->withName(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+            ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+            ->withMasterVariant($productVariantDraft)
+            ->build();
+        $product = $builder->products()
+            ->post($productDraft)
+            ->execute();
+        assertNotEmpty($product);
 
-        $product = ProductFixture::createProduct($builder, $productType);
-
-        $masterVariant = $product->getMasterData()->getStaged()->getMasterVariant();
-        assertNotEmpty($masterVariant);
-        assertEquals($productType->getId(), $product->getProductType()->getId());
     }
+
+
+
+//   public function testProductCreationWithGetterSetter()
+//   {
+//       $builder = $this->getApiBuilder();
+//       $cold = AttributeLocalizedEnumValueBuilder::of()
+//           ->withKey("cold")
+//           ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Wash at or below 30°C ", "de" => "30°C"])->build())
+//           ->build();
+//       $tumbleDrying = AttributeLocalizedEnumValueBuilder::of()
+//           ->withKey("tumbleDrying")
+//           ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Tumble Drying", "de" => "Trommeltrocknen"])->build())
+//           ->build();
+//       $product = ProductFixture::referenceableProduct($builder);
+////       $productType = ProductTypeFixture::fetchProductTypeByName($builder, self::PRODUCT_TYPE_NAME);
+////       if (!$productType) {
+//           $productType = ProductTypeFixture::createProductType($builder, self::PRODUCT_TYPE_NAME);
+////       }
+//
+//       $masterVariantDraft = ProductVariantDraftBuilder::of()
+//           ->withAttributes(AttributeCollection::of()
+////               ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
+//               ->add(AttributeBuilder::of()
+//                   ->withName(self::SIZE_ATTR_NAME)
+//                   ->withValue(AttributePlainEnumValueBuilder::of()->withKey("S")->withLabel("S")->build())
+//                   ->build()))
+////               ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
+////               ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue($product)->build())
+////               ->add(AttributeBuilder::of()
+////                   ->withName(self::RRP_ATTR_NAME)
+////                   ->withValue(MoneyBuilder::of()->withCentAmount(300)->withCurrencyCode("EUR")->build())
+////                   ->build())
+////               ->add(AttributeBuilder::of()
+////                   ->withName(self::AVAILABLE_SINCE_ATTR_NAME)
+////                   ->withValue(new \DateTime())
+////                   ->build()
+////                ))
+//           ->build();
+//
+//       $productDraft = ProductDraftBuilder::of()
+//           ->withProductType(ProductTypeResourceIdentifierBuilder::of()->withId($productType->getId())->build())
+//           ->withName(LocalizedStringBuilder::of()->put('en', 'basic shirt')->build())
+//           ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+//           ->withMasterVariant($masterVariantDraft)
+//           ->build();
+//       $product = $builder->products()
+//           ->post($productDraft)
+//           ->execute();
+//       var_dump($product);
+//
+//       assertNotEmpty($product);
+//   }
+
 }

@@ -18,6 +18,8 @@ use Commercetools\Api\Models\ProductType\ProductTypePagedQueryResponse;
 use Commercetools\Api\Models\ProductType\ProductTypePagedQueryResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequestBuilder;
+use Commercetools\Exception\NotFoundException;
+use Commercetools\Import\Models\Common\ProductTypeKeyReferenceBuilder;
 use Exception;
 use Ramsey\Uuid\Uuid;
 
@@ -81,9 +83,6 @@ class ProductTypeFixture
         $productType = self::fetchProductTypeByName($builder, $name);
         if (is_null($productType)) {
             $productType = self::createProductType($builder, $name);
-//            if (is_null($productType)) {
-//                throw new Exception("Failed to create product type");
-//            }
         }
 
         return $productType;
@@ -103,11 +102,18 @@ class ProductTypeFixture
 
     public static function createProductType(ApiRequestBuilder $builder, string $name): ?ProductType
     {
+        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
+            ->withType(AttributeTextTypeBuilder::of()->build())
+            ->withName($name)
+            ->withLabel(LocalizedStringBuilder::of()->put('en', $name)->build())
+            ->withIsRequired(true)
+            ->build();
+
         $productTypeDraft = ProductTypeDraftBuilder::of()
             ->withKey(self::uniqueProductTypeString())
             ->withName($name)
             ->withDescription(self::uniqueProductTypeString())
-//            ->withAttributes(AttributeDefinitionDraftCollection::fromArray([""]))
+            ->withAttributes(new AttributeDefinitionDraftCollection([$attributeDefinitionDraft]))
             ->build();
 
         $productType = $builder->productTypes()
