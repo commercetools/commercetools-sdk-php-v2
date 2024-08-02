@@ -30,9 +30,12 @@ use Commercetools\Api\Models\ProductType\AttributeSetTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
+use Commercetools\Core\Error\ClientErrorException;
+use Commercetools\Exception\ExceptionFactory;
 use Commercetools\IntegrationTest\Api\Product\ProductFixture;
 use Commercetools\IntegrationTest\Api\TaxCategory\TaxCategoryFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
+use function PHPUnit\Framework\assertContains;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertNotEmpty;
 
@@ -252,14 +255,61 @@ class ProductTypeCreationDemoTest extends ApiTestCase
             ->post($productDraft)
             ->execute();
 
-        $productId = $product->getId();
-        $fetchedProduct = $builder->products()->withId($productId)->get()->execute();
+        $masterVariant = $product->getMasterData()->getStaged()->getMasterVariant();
 
-        $masterVariant = $fetchedProduct->getMasterData()->getStaged()->getMasterVariant();
+        assertEquals($product->getProductType()->getId(), $productType->getId());
+        assertEquals(ProductTypeFixture::findAttributes($masterVariant->getAttributes(), self::COLOR_ATTR_NAME)->getValue()->key, "green");
+        assertEquals(ProductTypeFixture::findAttributes($masterVariant->getAttributes(), self::SIZE_ATTR_NAME)->getValue()->key, "S");
+        assertEquals(ProductTypeFixture::findAttributes($masterVariant->getAttributes(), self::LAUNDRY_SYMBOLS_ATTR_NAME)->getValue()[0]->label->en, "Wash at or below 30°C ");
+    }
 
-        assertEquals(ProductTypeFixture::findAttributes($attributes, self::COLOR_ATTR_NAME)->getValue(), "green");
-        assertEquals(ProductTypeFixture::findAttributes($attributes, self::SIZE_ATTR_NAME)->getValue(), "S");
-        assertEquals(ProductTypeFixture::findAttributes($attributes, self::LAUNDRY_SYMBOLS_ATTR_NAME)->getValue(), ["cold", "tumbleDrying"]);
+    public function testCreateBookProduct()
+    {
+        $builder = $this->getApiBuilder();
+
+        $isbn = AttributeDefinitionDraftBuilder::of()
+            ->withType(AttributeTextTypeBuilder::of()->build())
+            ->withName(self::ISBN_ATTR_NAME)
+            ->withLabel(LocalizedStringBuilder::of()->put("en", "ISBN")->build())
+            ->withIsRequired(false)
+            ->build();
+        $productTypeDraft = ProductTypeDraftBuilder::of()
+            ->withKey(ProductTypeFixture::uniqueProductTypeString())
+            ->withName(self::BOOK_PRODUCT_TYPE_NAME)
+            ->withDescription("books")
+            ->withAttributes(AttributeDefinitionDraftCollection::of()
+                                ->add($isbn))
+            ->build();
+        $productType = $builder->productTypes()
+            ->post($productTypeDraft)
+            ->execute();
+
+        $attributes = AttributeCollection::of()
+                        ->add(
+                            AttributeBuilder::of()
+                                ->withName(self::ISBN_ATTR_NAME)
+                                ->withValue("978-3-86680-192-9")
+                                ->build());
+        $productVariantDraft = ProductVariantDraftBuilder::of()
+                                ->withAttributes($attributes)
+                                ->build();
+        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+                                            ->withId($productType->getId())
+                                            ->build();
+        $productDraft = ProductDraftBuilder::of()
+                        ->withProductType($productTypeResourceIdentifier)
+                        ->withName(LocalizedStringBuilder::of()->put("en", "a book")->build())
+                        ->withSlug(LocalizedStringBuilder::of()->put("en", ProductTypeFixture::uniqueProductTypeString())->build())
+                        ->withMasterVariant($productVariantDraft)
+                        ->build();
+
+        $product = $builder->products()
+            ->post($productDraft)
+            ->execute();
+        $masterVariant = $product->getMasterData()->getStaged()->getMasterVariant();
+
+        assertEquals($product->getProductType()->getId(), $productType->getId());
+        assertEquals(ProductTypeFixture::findAttributes($masterVariant->getAttributes(), self::ISBN_ATTR_NAME)->getValue(), "978-3-86680-192-9");
     }
 
 }
