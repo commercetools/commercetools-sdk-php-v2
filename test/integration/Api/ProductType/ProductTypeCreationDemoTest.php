@@ -217,94 +217,49 @@ class ProductTypeCreationDemoTest extends ApiTestCase
     public function testCreateProduct()
     {
         $builder = $this->getApiBuilder();
-//        $referenceableProduct = ProductFixture::referenceableProduct($builder);
-        $productTypeDraft = $this->createTShirtProductTypeDraft();
-        $productType = $builder
-            ->with()
-            ->productTypes()
-            ->post($productTypeDraft)
-            ->execute();
+        $referenceableProduct = ProductFixture::referenceableProduct($builder);
+        $productType = ProductTypeFixture::fetchProductTypeByName($builder, self::PRODUCT_TYPE_NAME);
+
+        if (!$productType) {
+            $productType = ProductTypeFixture::createProductType($builder, self::PRODUCT_TYPE_NAME);
+        }
+
+        $productReference = ProductReferenceBuilder::of()->withId($referenceableProduct->getId())->build();
+        $datetime = new \DateTime('2015-02-02');
+        $datetime = $datetime->format(\DateTime::ATOM);
+        $attributes = AttributeCollection::of()
+            ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
+            ->add(AttributeBuilder::of()->withName(self::SIZE_ATTR_NAME)->withValue("S")->build())
+            ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
+            ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCentAmount(300)->withCurrencyCode("EUR")->build())->build())
+            ->add(AttributeBuilder::of()->withName(self::AVAILABLE_SINCE_ATTR_NAME)->withValue($datetime)->build())
+            ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue([$productReference])->build());
+        $productVariantDraft = ProductVariantDraftBuilder::of()
+            ->withAttributes($attributes)
+            ->build();
         $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
             ->withId($productType->getId())
-            ->build();
-//        $productReference = ProductReferenceBuilder::of()->withId($referenceableProduct->getId())->build();
-        $datetime = new \DateTime();
-        $datetime = $datetime->format(\DateTime::ATOM);
-        $productVariantDraft = ProductVariantDraftBuilder::of()
-            ->withAttributes(AttributeCollection::of()
-                ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
-                ->add(AttributeBuilder::of()->withName(self::SIZE_ATTR_NAME)->withValue("S")->build())
-                ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
-                ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCentAmount(300)->withCurrencyCode("EUR")->build())->build())
-                ->add(AttributeBuilder::of()->withName(self::AVAILABLE_SINCE_ATTR_NAME)->withValue($datetime)->build())
-//                ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue($productReference)->build())
-            )
             ->build();
         $productDraft = ProductDraftBuilder::of()
             ->withProductType($productTypeResourceIdentifier)
             ->withKey(ProductFixture::uniqueProductString())
-            ->withName(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+            ->withName(LocalizedStringBuilder::of()->put('en', 'basic shirt')->build())
             ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
             ->withMasterVariant($productVariantDraft)
             ->build();
+
         $product = $builder->products()
             ->post($productDraft)
             ->execute();
-        assertNotEmpty($product);
 
+        $productId = $product->getId();
+        $fetchedProduct = $builder->products()->withId($productId)->get()->execute();
+
+        $masterVariant = $fetchedProduct->getMasterData()->getStaged()->getMasterVariant();
+
+        assertEquals(ProductTypeFixture::findAttributes($attributes, self::COLOR_ATTR_NAME)->getValue(), "green");
+        assertEquals(ProductTypeFixture::findAttributes($attributes, self::SIZE_ATTR_NAME)->getValue(), "S");
+        assertEquals(ProductTypeFixture::findAttributes($attributes, self::LAUNDRY_SYMBOLS_ATTR_NAME)->getValue(), ["cold", "tumbleDrying"]);
     }
-
-
-
-//   public function testProductCreationWithGetterSetter()
-//   {
-//       $builder = $this->getApiBuilder();
-//       $cold = AttributeLocalizedEnumValueBuilder::of()
-//           ->withKey("cold")
-//           ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Wash at or below 30°C ", "de" => "30°C"])->build())
-//           ->build();
-//       $tumbleDrying = AttributeLocalizedEnumValueBuilder::of()
-//           ->withKey("tumbleDrying")
-//           ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Tumble Drying", "de" => "Trommeltrocknen"])->build())
-//           ->build();
-//       $product = ProductFixture::referenceableProduct($builder);
-////       $productType = ProductTypeFixture::fetchProductTypeByName($builder, self::PRODUCT_TYPE_NAME);
-////       if (!$productType) {
-//           $productType = ProductTypeFixture::createProductType($builder, self::PRODUCT_TYPE_NAME);
-////       }
-//
-//       $masterVariantDraft = ProductVariantDraftBuilder::of()
-//           ->withAttributes(AttributeCollection::of()
-////               ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
-//               ->add(AttributeBuilder::of()
-//                   ->withName(self::SIZE_ATTR_NAME)
-//                   ->withValue(AttributePlainEnumValueBuilder::of()->withKey("S")->withLabel("S")->build())
-//                   ->build()))
-////               ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
-////               ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue($product)->build())
-////               ->add(AttributeBuilder::of()
-////                   ->withName(self::RRP_ATTR_NAME)
-////                   ->withValue(MoneyBuilder::of()->withCentAmount(300)->withCurrencyCode("EUR")->build())
-////                   ->build())
-////               ->add(AttributeBuilder::of()
-////                   ->withName(self::AVAILABLE_SINCE_ATTR_NAME)
-////                   ->withValue(new \DateTime())
-////                   ->build()
-////                ))
-//           ->build();
-//
-//       $productDraft = ProductDraftBuilder::of()
-//           ->withProductType(ProductTypeResourceIdentifierBuilder::of()->withId($productType->getId())->build())
-//           ->withName(LocalizedStringBuilder::of()->put('en', 'basic shirt')->build())
-//           ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
-//           ->withMasterVariant($masterVariantDraft)
-//           ->build();
-//       $product = $builder->products()
-//           ->post($productDraft)
-//           ->execute();
-//       var_dump($product);
-//
-//       assertNotEmpty($product);
-//   }
 
 }

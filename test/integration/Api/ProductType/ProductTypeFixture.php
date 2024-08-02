@@ -3,6 +3,8 @@
 namespace Commercetools\IntegrationTest\Api\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Product\Attribute;
+use Commercetools\Api\Models\Product\AttributeCollection;
 use Commercetools\Api\Models\Product\ProductUnpublishActionBuilder;
 use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Api\Models\Product\ProductUpdateBuilder;
@@ -28,6 +30,17 @@ class ProductTypeFixture
     final public static function uniqueProductTypeString(): string
     {
         return 'test-' . Uuid::uuid4();
+    }
+
+    public static function findAttributes(AttributeCollection $attributes, string $attributeName): ?Attribute
+    {
+        foreach ($attributes as $attribute) {
+            if ($attribute->getName() === $attributeName) {
+                return $attribute;
+            }
+        }
+
+        return null;
     }
 
     public static function deleteProductAndProductTypes(ApiRequestBuilder $builder, string $name): void
@@ -102,25 +115,26 @@ class ProductTypeFixture
 
     public static function createProductType(ApiRequestBuilder $builder, string $name): ?ProductType
     {
-        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
-            ->withType(AttributeTextTypeBuilder::of()->build())
-            ->withName($name)
-            ->withLabel(LocalizedStringBuilder::of()->put('en', $name)->build())
-            ->withIsRequired(true)
-            ->build();
-
         $productTypeDraft = ProductTypeDraftBuilder::of()
             ->withKey(self::uniqueProductTypeString())
             ->withName($name)
             ->withDescription(self::uniqueProductTypeString())
-            ->withAttributes(new AttributeDefinitionDraftCollection([$attributeDefinitionDraft]))
+            ->withAttributes(new AttributeDefinitionDraftCollection([]))
             ->build();
 
         $productType = $builder->productTypes()
-            ->post($productTypeDraft)
+            ->get()
+            ->withQueryParam('where', sprintf('name="%s"', $name))
             ->execute();
+        $existingProductType = $productType->getResults()->current();
 
-        return $productType;
+        if ($existingProductType) {
+            return $existingProductType;
+        } else {
+            return $builder->productTypes()
+                ->post($productTypeDraft)
+                ->execute();
+        }
     }
 
     public function createProductTypeDraftWithAttribute()
