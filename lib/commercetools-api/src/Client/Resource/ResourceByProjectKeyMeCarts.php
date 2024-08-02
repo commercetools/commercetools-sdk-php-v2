@@ -28,17 +28,6 @@ class ResourceByProjectKeyMeCarts extends ApiResource
 
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyMeCartsKeyByKey
-    {
-        $args = $this->getArgs();
-        if (!is_null($key)) {
-            $args['key'] = $key;
-        }
-
-        return new ResourceByProjectKeyMeCartsKeyByKey($args, $this->getClient());
-    }
-    /**
-     */
     public function withId(string $ID = null): ResourceByProjectKeyMeCartsByID
     {
         $args = $this->getArgs();

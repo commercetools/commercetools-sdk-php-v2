@@ -24,7 +24,6 @@ use Psr\Http\Message\RequestInterface;
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsKeyByKeyGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsKeyByKeyPost
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeQuoteRequestsKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeQuoteRequestsKeyByKey
  */
 class ResourceByProjectKeyMeQuoteRequestsKeyByKeyTest extends TestCase
@@ -154,44 +153,6 @@ class ResourceByProjectKeyMeQuoteRequestsKeyByKeyTest extends TestCase
                 },
                 'post',
                 'test_projectKey/me/quote-requests/key=test_key',
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_withVersion' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey('test_key')
-                        ->delete()
-                        ->withVersion('version');
-                },
-                'delete',
-                'test_projectKey/me/quote-requests/key=test_key?version=version',
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey('test_key')
-                        ->delete()
-                        ->withExpand('expand');
-                },
-                'delete',
-                'test_projectKey/me/quote-requests/key=test_key?expand=expand',
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("test_key")
-                        ->delete();
-                },
-                'delete',
-                'test_projectKey/me/quote-requests/key=test_key',
             ]
         ];
     }
@@ -233,16 +194,6 @@ class ResourceByProjectKeyMeQuoteRequestsKeyByKeyTest extends TestCase
                         ->quoteRequests()
                         ->withKey("key")
                         ->post(null);
-                }
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
                 }
             ]
         ];
@@ -556,116 +507,6 @@ class ResourceByProjectKeyMeQuoteRequestsKeyByKeyTest extends TestCase
                         ->quoteRequests()
                         ->withKey("key")
                         ->post(null);
-                },
-                599
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
-                },
-                200
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_409' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
-                },
-                409
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_400' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
-                },
-                400
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_401' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
-                },
-                401
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_403' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
-                },
-                403
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
-                },
-                404
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_500' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
-                },
-                500
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_502' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
-                },
-                502
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_503' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
-                },
-                503
-            ],
-            'ByProjectKeyMeQuoteRequestsKeyByKeyDelete_599' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->quoteRequests()
-                        ->withKey("key")
-                        ->delete();
                 },
                 599
             ]
