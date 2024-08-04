@@ -31,10 +31,12 @@ use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
 use Commercetools\Core\Error\ClientErrorException;
+use Commercetools\Exception\BadRequestException;
 use Commercetools\Exception\ExceptionFactory;
 use Commercetools\IntegrationTest\Api\Product\ProductFixture;
 use Commercetools\IntegrationTest\Api\TaxCategory\TaxCategoryFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
+use InvalidArgumentException;
 use function PHPUnit\Framework\assertContains;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertNotEmpty;
@@ -312,4 +314,27 @@ class ProductTypeCreationDemoTest extends ApiTestCase
         assertEquals(ProductTypeFixture::findAttributes($masterVariant->getAttributes(), self::ISBN_ATTR_NAME)->getValue(), "978-3-86680-192-9");
     }
 
+    public function testInvalidTypeCausesException()
+    {
+        $builder = $this->getApiBuilder();
+        $productTypeDraft = $this->createTShirtProductTypeDraft();
+        $productType = $builder->productTypes()
+            ->post($productTypeDraft)
+            ->execute();
+        $productVariantDraft  = ProductVariantDraftBuilder::of()
+            ->withAttributes(AttributeCollection::of()
+                ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue(1)->build()))
+            ->build();
+        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+            ->withId($productType->getId())
+            ->build();
+        $productDraft = ProductDraftBuilder::of()
+            ->withProductType($productTypeResourceIdentifier)
+            ->withName(LocalizedStringBuilder::of()->put("en", "basic shirt")->build())
+            ->withSlug(LocalizedStringBuilder::of()->put("en", ProductTypeFixture::uniqueProductTypeString())->build())
+            ->withMasterVariant($productVariantDraft)
+            ->build();
+        $this->expectException(BadRequestException::class);
+        $builder->products()->post($productDraft)->execute();
+    }
 }
