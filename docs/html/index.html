@@ -24,7 +24,7 @@
   <td id="projectlogo"><img alt="Logo" src="ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">master</span>
+   &#160;<span id="projectnumber">10.4.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -140,20 +140,34 @@ Executing requests</h2>
 <div class="line"><span class="comment">// send the request using a client instance</span></div>
 <div class="line">$response = $client-&gt;send($request);</div>
 <div class="line">$project = $request-&gt;mapFromResponse($response);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md5"></a>
+Custom endpoint for different regions</h2>
+<p>By default, the library uses <code>api.europe-west1.gcp.commercetools.com</code> endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the <code>us-central1</code> region: </p><div class="fragment"><div class="line">$authConfig = <span class="keyword">new</span> ClientCredentialsConfig(</div>
+<div class="line">  <span class="keyword">new</span> ClientCredentials(CLIENT_ID, CLIENT_SECRET), </div>
+<div class="line">  [], </div>
+<div class="line">  <span class="stringliteral">&#39;https://auth.us-central1.gcp.commercetools.com/oauth/token&#39;</span></div>
+<div class="line">);</div>
+<div class="line"> </div>
+<div class="line">$config = <span class="keyword">new</span> Config([], <span class="stringliteral">&#39;https://api.us-central1.gcp.commercetools.com&#39;</span>);</div>
+<div class="line">$client = ClientFactory::of()-&gt;createGuzzleClient(</div>
+<div class="line">  $config,</div>
+<div class="line">  $authConfig,</div>
+<div class="line">);</div>
+</div><!-- fragment --><p> Note that the auth endpoint should contain the <code>/oauth/token</code> suffix, but the API endpoint - don't.</p>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Migration Guidelines</h2>
 <p>To migrate from the 1.x to the 2.x, there is a guideline below:</p><ul>
 <li>Migration guidelines from v1 to v2</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Observability</h2>
 <p>To monitor and observe the SDK, see the official documentation <a href="https://docs.commercetools.com/sdk/observability">Observability</a>, there is a <a href="https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app">Demo application</a> which shows how to monitor the PHP SDK with New Relic.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Documentation</h2>
 <ul>
 <li><a href="https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/index.html">Documentation</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 License</h1>
 <p>MIT </p>
 </div></div><!-- PageDoc -->

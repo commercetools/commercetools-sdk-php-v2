@@ -24,7 +24,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">master</span>
+   &#160;<span id="projectnumber">10.4.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -864,7 +864,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used for <a href="../../ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+<p>Used for <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -984,7 +984,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:Reference">Reference</a> to the <a class="el" href="../../d8/d83/namespace_commercetools_1_1_api_1_1_models_1_1_customer.html">Customer</a> Group of the <a class="el" href="../../d8/d83/namespace_commercetools_1_1_api_1_1_models_1_1_customer.html">Customer</a> that the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> belongs to. Used for <a href="../../ctp:api:type:LineItemPriceSelection">LineItem Price selection</a>.</p>
+<p><a href="../../ctp:api:type:Reference">Reference</a> to the <a class="el" href="../../d8/d83/namespace_commercetools_1_1_api_1_1_models_1_1_customer.html">Customer</a> Group of the <a class="el" href="../../d8/d83/namespace_commercetools_1_1_api_1_1_models_1_1_customer.html">Customer</a> that the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> belongs to. Used for <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -1643,9 +1643,9 @@ If <code>CartValue</code>, it cannot be used. </li>
 </div><div class="memdoc">
 <ul>
 <li>
-For a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Platform</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="../../ctp:api:type:CartSetShippingAddressAction">shipping address is set</a>. </li>
+For a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>Platform</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="../../ctp:api:type:CartSetShippingAddressAction">shipping address is set</a>. For Carts with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>, all Line Items and Custom Line Items must be fully distributed between the <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Methods (via <code>shippingDetails</code>), otherwise <code>taxedPrice</code> is not automatically set. </li>
 <li>
-For a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>External</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when <code>shippingAddress</code> and external Tax Rates for all Line Items, Custom Line Items, and <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Methods in the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> are set. </li>
+For a <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> with <code>External</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when <code>shippingAddress</code> and external Tax Rates for all Line Items, Custom Line Items, and <a class="el" href="../../d7/dc6/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_shipping.html">Shipping</a> Methods in the <a class="el" href="../../dd/d7d/interface_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart.html">Cart</a> are set. For Carts with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>, all allocations must have their respective tax rates present in <code>perMethodTaxRate</code>, otherwise <code>taxedPrice</code> is not automatically set. </li>
 </ul>
 <p>If a discount applies on <code>totalPrice</code>, this field holds the discounted values.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxedPrice </dd></dl>

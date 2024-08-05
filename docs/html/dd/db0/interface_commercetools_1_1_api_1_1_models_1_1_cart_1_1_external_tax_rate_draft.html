@@ -24,7 +24,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">master</span>
+   &#160;<span id="projectnumber">10.4.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -279,7 +279,7 @@ If set to <code>true</code>, the related price is considered the gross price, an
         </tr>
       </table>
 </div><div class="memdoc">
-<p>For countries (such as the US) where the total tax is a combination of multiple taxes (such as state and local taxes). The total of all subrates must equal the TaxRate <code>amount</code>.</p>
+<p>Used when the total tax is a combination of multiple taxes (for example, local, state/provincial, and/or federal taxes). The total of all subrates must equal the TaxRate <code>amount</code>. These subrates are used to calculate the <code>taxPortions</code> field of a <a href="../../ctp:api:type:Cart">Cart</a> or <a href="../../ctp:api:type:Order">Order</a> and the <code>taxedPrice</code> field of <a href="../../ctp:api:type:LineItem">LineItems</a>, <a href="../../ctp:api:type:CustomLineItem">CustomLineItems</a>, and <a href="../../ctp:api:type:ShippingInfo">ShippingInfos</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|SubRateCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d0/d0d/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_external_tax_rate_draft_model.html#a2c578ad20d8dd65e971f2f27d73b0fb5">Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel</a>.</p>
