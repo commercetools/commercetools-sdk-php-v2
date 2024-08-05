@@ -651,10 +651,167 @@ $productType = $builder
 
         return $productType->getResults()->current() ?: null;
 ```
-The simplest way of adding attributes to a ProductVariant is to use ProductVariantDraftBuilder.plusAttributes(Attribute...) which enables you to directly put the value of the attribute to the draft. But it cannot check if you put the right objects and types in it.
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
+The simplest way of adding attributes to a ProductVariant is to use ```php ProductVariantDraftBuilder::of()->withAttributes($attributes)``` which enables you to directly put the value of the attribute to the draft. But it cannot check if you put the right objects and types in it.
+
 A book example:
+```php
+$attributes = AttributeCollection::of()
+                ->add(
+                    AttributeBuilder::of()
+                        ->withName(self::ISBN_ATTR_NAME)
+                        ->withValue("978-3-86680-192-9")
+                        ->build());
+$productVariantDraft = ProductVariantDraftBuilder::of()
+                        ->withAttributes($attributes)
+                        ->build();
+$productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+                                    ->withId($productType->getId())
+                                    ->build();
+$productDraft = ProductDraftBuilder::of()
+                ->withProductType($productTypeResourceIdentifier)
+                ->withName(LocalizedStringBuilder::of()->put("en", "a book")->build())
+                ->withSlug(LocalizedStringBuilder::of()->put("en", ProductTypeFixture::uniqueProductTypeString())->build())
+                ->withMasterVariant($productVariantDraft)
+                ->build();
 
+$product = $builder->products()
+    ->post($productDraft)
+    ->execute();
+```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
 
+A Tshirt example:
+```php
+$referenceableProduct = ProductFixture::referenceableProduct($builder);
+$productType = ProductTypeFixture::fetchProductTypeByName($builder, self::PRODUCT_TYPE_NAME);
+
+if (!$productType) {
+    $productType = ProductTypeFixture::createProductType($builder, self::PRODUCT_TYPE_NAME);
+}
+
+$productReference = ProductReferenceBuilder::of()->withId($referenceableProduct->getId())->build();
+$datetime = new \DateTime('2015-02-02');
+$datetime = $datetime->format(\DateTime::ATOM);
+$attributes = AttributeCollection::of()
+    ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
+    ->add(AttributeBuilder::of()->withName(self::SIZE_ATTR_NAME)->withValue("S")->build())
+    ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
+    ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCentAmount(300)->withCurrencyCode("EUR")->build())->build())
+    ->add(AttributeBuilder::of()->withName(self::AVAILABLE_SINCE_ATTR_NAME)->withValue($datetime)->build())
+    ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue([$productReference])->build());
+$productVariantDraft = ProductVariantDraftBuilder::of()
+    ->withAttributes($attributes)
+    ->build();
+$productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+    ->withId($productType->getId())
+    ->build();
+$productDraft = ProductDraftBuilder::of()
+    ->withProductType($productTypeResourceIdentifier)
+    ->withKey(ProductFixture::uniqueProductString())
+    ->withName(LocalizedStringBuilder::of()->put('en', 'basic shirt')->build())
+    ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+    ->withMasterVariant($productVariantDraft)
+    ->build();
+
+$product = $builder->products()
+    ->post($productDraft)
+    ->execute();
+```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
+A wrong value for a field or an invalid type will cause a BadRequestException with an error code of "InvalidField".
+
+```php
+$productType = $builder->productTypes()
+            ->post($productTypeDraft)
+            ->execute();
+$productVariantDraft  = ProductVariantDraftBuilder::of()
+    ->withAttributes(AttributeCollection::of()
+        ->add(AttributeBuilder::of()
+                ->withName(self::COLOR_ATTR_NAME)
+                ->withValue(1) //1 is of illegal type and of illegal key
+                ->build()))
+    ->build();
+$productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+    ->withId($productType->getId())
+    ->build();
+$productDraft = ProductDraftBuilder::of()
+    ->withProductType($productTypeResourceIdentifier)
+    ->withName(LocalizedStringBuilder::of()->put("en", "basic shirt")->build())
+    ->withSlug(LocalizedStringBuilder::of()->put("en", ProductTypeFixture::uniqueProductTypeString())->build())
+    ->withMasterVariant($productVariantDraft)
+```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
+As alternative, you could declare your attributes at the same place and use these to read and write attribute values:
+
+```php
+$green = AttributeLocalizedEnumValueBuilder::of()
+            ->withKey("green")
+            ->withLabel(LocalizedStringBuilder::of()->put("en", "green ")->put("de", "grün")->build())
+            ->build();
+        $cold = AttributeLocalizedEnumValueBuilder::of()
+            ->withKey("cold")
+            ->withLabel(LocalizedStringBuilder::of()->put("en", "Wash at or below 30°C ")->put("de", "30°C")->build())
+            ->build();
+        $tumbleDrying = AttributeLocalizedEnumValueBuilder::of()
+            ->withKey("tumbleDrying")
+            ->withLabel(LocalizedStringBuilder::of()->put("en", "tumble drying")->put("de", "Trommeltrocknen")->build())
+            ->build();
+        $productReference = ProductReferenceBuilder::of()->withId($referenceableProduct->getId())->build();
+
+        $attributes = AttributeCollection::of()
+            ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
+            ->add(AttributeBuilder::of()->withName(self::SIZE_ATTR_NAME)->withValue("S")->build())
+            ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
+            ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCentAmount(300)->withCurrencyCode("EUR")->build())->build())
+            ->add(AttributeBuilder::of()->withName(self::AVAILABLE_SINCE_ATTR_NAME)->withValue($datetime)->build())
+            ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue([$productReference])->build());
+        $productVariantDraft = ProductVariantDraftBuilder::of()
+            ->withAttributes($attributes)
+            ->build();
+        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+            ->withId($productType->getId())
+            ->build();
+        $productDraft = ProductDraftBuilder::of()
+            ->withProductType($productTypeResourceIdentifier)
+            ->withKey(ProductFixture::uniqueProductString())
+            ->withName(LocalizedStringBuilder::of()->put('en', 'basic shirt')->build())
+            ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+            ->withMasterVariant($productVariantDraft)
+            ->build();
+        $product = $builder->products()
+            ->post($productDraft)
+            ->execute();
+
+        $masterVariant = $product->getMasterData()->getStaged()->getMasterVariant();
+        foreach ($masterVariant->getAttributes() as $attribute) {
+            if ($attribute->getName() === self::COLOR_ATTR_NAME) {
+                assertEquals($attribute->getValue()->key, "green");
+            }
+            if ($attribute->getName() === self::SIZE_ATTR_NAME) {
+                assertEquals($attribute->getValue()->key, "S");
+            }
+```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
+### Reading Attributes
+The simplest way to get the value of the attribute is to use getValue() methods of Attribute, like ```php $attribute->getValue()```:
+```php
+$product = $this->createProduct();
+$masterVariant = $product->getMasterData()->getStaged()->getMasterVariant();
+foreach ($masterVariant->getAttributes() as $attribute) {
+    if ($attribute->getName() === self::SIZE_ATTR_NAME) {
+        assertEquals($attribute->getValue()->key, "S");
+    }
+}
+```
+If you use a wrong conversion for the attribute, like you have a EnumValue but extract it as boolean as you get a JsonException:
+```php
+
+```
 
 <a id="migration-guidelines-from-sdk-v1"></a>
 ## Migration Guidelines from SDK v1
