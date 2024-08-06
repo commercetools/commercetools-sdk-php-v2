@@ -4,7 +4,9 @@ namespace Commercetools\IntegrationTest\Api\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Product\Attribute;
+use Commercetools\Api\Models\Product\AttributeAccessor;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\AttributeModel;
 use Commercetools\Api\Models\Product\ProductUnpublishActionBuilder;
 use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Api\Models\Product\ProductUpdateBuilder;
@@ -32,11 +34,22 @@ class ProductTypeFixture
         return 'test-' . Uuid::uuid4();
     }
 
-    public static function findAttributes(AttributeCollection $attributes, string $attributeName): ?Attribute
+    public static function findAttribute(AttributeCollection $attributes, string $attributeName): ?Attribute
     {
         foreach ($attributes as $attribute) {
             if ($attribute->getName() === $attributeName) {
                 return $attribute;
+            }
+        }
+
+        return null;
+    }
+
+    public static function findAttributeWithAccessor(AttributeCollection $attributes, string $attributeName, callable $accessor): ?Attribute
+    {
+        foreach ($attributes as $attribute) {
+            if ($attribute->getName() === $attributeName) {
+                return $accessor($attribute);
             }
         }
 

@@ -32,6 +32,9 @@
   - [Pagination](#pagination)
 - [Products and ProductTypes](#products-and-producttypes)
   - [ProductType Creation](#producttype-creation)
+  - [Product Creation](#product-creation)
+  - [Reading Attributes](#reading-attributes)
+  - [Update attribute values of a product](#update-attribute-values-of-a-product)
 - [Migration Guidelines From SDK v1](#migration-guidelines-from-sdk-v1)
 - [Observability](#observability)
 - [Documentation](#documentation)
@@ -682,7 +685,7 @@ $product = $builder->products()
 ```
 See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
 
-A Tshirt example:
+A T-shirt example:
 ```php
 $referenceableProduct = ProductFixture::referenceableProduct($builder);
 $productType = ProductTypeFixture::fetchProductTypeByName($builder, self::PRODUCT_TYPE_NAME);
@@ -808,7 +811,59 @@ foreach ($masterVariant->getAttributes() as $attribute) {
     }
 }
 ```
-If you use a wrong conversion for the attribute, like you have a EnumValue but extract it as boolean as you get a JsonException:
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
+You might also use the ```php getValueAs()``` method as a conversion for the attribute, like you have a EnumValue but extract it as boolean because these methods cast the values passed:
+```php
+$product = $builder->products()->post($productDraft)->execute();
+$masterVariant = $product->getMasterData()->getStaged()->getMasterVariant();
+
+$result = null;
+foreach ($masterVariant->getAttributes() as $attribute) {
+    if ($attribute->getName() === self::SIZE_ATTR_NAME) {
+        /** @var AttributeAccessor $attrAccessor */
+        $attrAccessor = $attribute->with(AttributeAccessor::of());
+
+        $result = $attrAccessor->getValueAsBool();
+    }
+}
+
+$this->assertIsBool($result);
+```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
+### Update attribute values of a product
+Here below some examples about setting attribute values is like a product creation:
+
+Example for books:
+```php
+$product = $this->createBookProduct();
+$masterVariantId = 1;
+$productUpdate = ProductUpdateBuilder::of()
+    ->withVersion($product->getVersion())
+    ->withActions(
+        ProductUpdateActionCollection::fromArray([
+            ProductSetAttributeActionBuilder::of()
+                ->withVariantId($masterVariantId)
+                ->withName(self::ISBN_ATTR_NAME)
+                ->withValue("978-3-86680-192-8")
+                ->build()
+        ])
+        )->build();
+
+$productUpdated = $builder
+    ->products()
+    ->withId($product->getId())
+    ->post($productUpdate)
+    ->execute();
+$masterVariant = $productUpdated->getMasterData()->getStaged()->getMasterVariant();
+$attribute = ProductTypeFixture::findAttributes($masterVariant->getAttributes(), self::ISBN_ATTR_NAME);
+
+assertEquals($attribute->getValue(), "978-3-86680-192-8");
+```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
+Example for T-shirts:
 ```php
 
 ```
