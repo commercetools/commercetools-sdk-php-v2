@@ -674,5 +674,4 @@ class ProductTypeCreationDemoTest extends ApiTestCase
         $rrpAttribute = ProductTypeFixture::findAttribute($productVariant->getAttributes(), self::RRP_ATTR_NAME);
         assertEquals(30, $rrpAttribute->getValue()->centAmount);
     }
-
 }
