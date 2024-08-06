@@ -4,19 +4,18 @@ namespace Commercetools\IntegrationTest\Api\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\MoneyBuilder;
-use Commercetools\Api\Models\Error\ErrorObject;
-use Commercetools\Api\Models\Error\ErrorResponse;
+use Commercetools\Api\Models\Order\LineItemImportDraftBuilder;
+use Commercetools\Api\Models\Order\LineItemImportDraftCollection;
+use Commercetools\Api\Models\Order\OrderImportDraftBuilder;
+use Commercetools\Api\Models\Order\ProductVariantImportDraftBuilder;
 use Commercetools\Api\Models\Product\AttributeAccessor;
 use Commercetools\Api\Models\Product\AttributeBuilder;
 use Commercetools\Api\Models\Product\AttributeCollection;
 use Commercetools\Api\Models\Product\ProductDraftBuilder;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
-use Commercetools\Api\Models\Product\ProductSetAttributeAction;
 use Commercetools\Api\Models\Product\ProductSetAttributeActionBuilder;
-use Commercetools\Api\Models\Product\ProductUpdateAction;
 use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Api\Models\Product\ProductUpdateBuilder;
-use Commercetools\Api\Models\Product\ProductVariantBuilder;
 use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDateTimeTypeBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionBuilder;
@@ -35,7 +34,7 @@ use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
 use Commercetools\Client\ApiRequestBuilder;
-use Commercetools\Core\Model\Common\Attribute;
+use Commercetools\Core\Model\Order\OrderState;
 use Commercetools\Exception\BadRequestException;
 use Commercetools\IntegrationTest\Api\Product\ProductFixture;
 use Commercetools\IntegrationTest\ApiTestCase;
@@ -430,7 +429,6 @@ class ProductTypeCreationDemoTest extends ApiTestCase
             ->post($productTypeDraft)
             ->execute();
 
-
         $this->assertNotNull($productType, "Product type creation failed");
 
         $attributes = AttributeCollection::of()
@@ -553,7 +551,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
                         ->withValue("978-3-86680-192-8")
                         ->build()
                 ])
-                )->build();
+            )->build();
 
         $productUpdated = $builder
             ->products()
@@ -565,4 +563,116 @@ class ProductTypeCreationDemoTest extends ApiTestCase
 
         assertEquals($attribute->getValue(), "978-3-86680-192-8");
     }
+
+
+    public function testUpdateAttributesTShirt()
+    {
+        $builder = $this->getApiBuilder();
+        $productTypeDraft = $this->createTShirtProductTypeDraft();
+        $productType = $builder
+            ->with()
+            ->productTypes()
+            ->post($productTypeDraft)
+            ->execute();
+
+        $attributes = AttributeCollection::of()
+                ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
+                ->add(AttributeBuilder::of()->withName(self::SIZE_ATTR_NAME)->withValue("S")->build())
+                ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
+                ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCurrencyCode("EUR")->withCentAmount(300)->build())->build());
+
+        $masterVariantDraft = ProductVariantDraftBuilder::of()
+            ->withAttributes($attributes)
+            ->build();
+        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+            ->withId($productType->getId())
+            ->build();
+        $productDraft = ProductDraftBuilder::of()
+            ->withProductType($productTypeResourceIdentifier)
+            ->withKey(ProductFixture::uniqueProductString())
+            ->withName(LocalizedStringBuilder::of()->put('en', 'basic shirt')->build())
+            ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+            ->withMasterVariant($masterVariantDraft)
+            ->build();
+        $product = $builder->products()
+            ->post($productDraft)
+            ->execute();
+
+        $masterVariantId = 1;
+        $productUpdatedAction = ProductUpdateBuilder::of()
+            ->withVersion($product->getVersion())
+            ->withActions(
+                ProductUpdateActionCollection::fromArray([
+                    ProductSetAttributeActionBuilder::of()
+                        ->withVariantId($masterVariantId)
+                        ->withName(self::COLOR_ATTR_NAME)
+                        ->withValue("red")
+                        ->build(),
+                    ProductSetAttributeActionBuilder::of()
+                        ->withVariantId($masterVariantId)
+                        ->withName(self::SIZE_ATTR_NAME)
+                        ->withValue("M")
+                        ->build(),
+                    ProductSetAttributeActionBuilder::of()
+                        ->withVariantId($masterVariantId)
+                        ->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)
+                        ->withValue(["cold"])
+                        ->build(),
+                    ProductSetAttributeActionBuilder::of()
+                        ->withVariantId($masterVariantId)
+                        ->withName(self::RRP_ATTR_NAME)
+                        ->withValue(MoneyBuilder::of()->withCurrencyCode("EUR")->withCentAmount(2000)->build())
+                        ->build(),
+                ])
+            )->build();
+        $productUpdated = $builder
+            ->with()
+            ->products()
+            ->withId($product->getId())
+            ->post($productUpdatedAction)
+            ->execute();
+
+        $attributesUpdatedProduct = $productUpdated->getMasterData()->getStaged()->getMasterVariant()->getAttributes();
+
+        self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::SIZE_ATTR_NAME)->getValue()->key, "M");
+        self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::COLOR_ATTR_NAME)->getValue()->key, "red");
+        self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::LAUNDRY_SYMBOLS_ATTR_NAME)->getValue()[0]->key, "cold");
+        self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::RRP_ATTR_NAME)->getValue()->centAmount, 2000);
+    }
+
+    public function testOrderImportExample()
+    {
+        $builder = $this->getApiBuilder();
+        $product = $this->createProduct($builder);
+        $attributes = AttributeCollection::of()
+            ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("yellow")->build())
+            ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCurrencyCode("EUR")->withCentAmount(30)->build())->build());
+
+        $productVariantImportDraft = ProductVariantImportDraftBuilder::of()
+                                        ->withId(1)
+                                        ->withAttributes($attributes)
+                                        ->build();
+        $lineItemImportDraft = LineItemImportDraftBuilder::of()
+            ->withProductId($product->getId())
+            ->withVariant($productVariantImportDraft)
+            ->withQuantity(1)
+            ->withPrice(ProductFixture::priceDraft())
+            ->withName(LocalizedStringBuilder::of()->put("en", "product name")->build())
+            ->build();
+        $orderImportDraft = OrderImportDraftBuilder::of()
+            ->withLineItems(LineItemImportDraftCollection::of()->add($lineItemImportDraft))
+            ->withTotalPrice(MoneyBuilder::of()->withCentAmount(20)->withCurrencyCode("EUR")->build())
+            ->withOrderState(OrderState::COMPLETE)
+            ->build();
+        $order = $builder->orders()
+            ->importOrder()
+            ->post($orderImportDraft)
+            ->execute();
+        $productVariant = $order->getLineItems()->current()->getVariant();
+        $colorAttribute = ProductTypeFixture::findAttribute($productVariant->getAttributes(), self::COLOR_ATTR_NAME);
+        assertEquals("yellow", $colorAttribute->getValue());
+        $rrpAttribute = ProductTypeFixture::findAttribute($productVariant->getAttributes(), self::RRP_ATTR_NAME);
+        assertEquals(30, $rrpAttribute->getValue()->centAmount);
+    }
+
 }

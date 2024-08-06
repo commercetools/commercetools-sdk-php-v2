@@ -4,9 +4,7 @@ namespace Commercetools\IntegrationTest\Api\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Product\Attribute;
-use Commercetools\Api\Models\Product\AttributeAccessor;
 use Commercetools\Api\Models\Product\AttributeCollection;
-use Commercetools\Api\Models\Product\AttributeModel;
 use Commercetools\Api\Models\Product\ProductUnpublishActionBuilder;
 use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Api\Models\Product\ProductUpdateBuilder;
@@ -18,13 +16,7 @@ use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductType;
 use Commercetools\Api\Models\ProductType\ProductTypeDraft;
 use Commercetools\Api\Models\ProductType\ProductTypeDraftBuilder;
-use Commercetools\Api\Models\ProductType\ProductTypePagedQueryResponse;
-use Commercetools\Api\Models\ProductType\ProductTypePagedQueryResponseModel;
-use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequestBuilder;
-use Commercetools\Exception\NotFoundException;
-use Commercetools\Import\Models\Common\ProductTypeKeyReferenceBuilder;
-use Exception;
 use Ramsey\Uuid\Uuid;
 
 class ProductTypeFixture

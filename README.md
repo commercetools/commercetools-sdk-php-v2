@@ -865,8 +865,87 @@ See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/bl
 
 Example for T-shirts:
 ```php
+$masterVariantId = 1;
+$productUpdatedAction = ProductUpdateBuilder::of()
+    ->withVersion($product->getVersion())
+    ->withActions(
+        ProductUpdateActionCollection::fromArray([
+            ProductSetAttributeActionBuilder::of()
+                ->withVariantId($masterVariantId)
+                ->withName(self::COLOR_ATTR_NAME)
+                ->withValue("red")
+                ->build(),
+            ProductSetAttributeActionBuilder::of()
+                ->withVariantId($masterVariantId)
+                ->withName(self::SIZE_ATTR_NAME)
+                ->withValue("M")
+                ->build(),
+            ProductSetAttributeActionBuilder::of()
+                ->withVariantId($masterVariantId)
+                ->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)
+                ->withValue(["cold"])
+                ->build(),
+            ProductSetAttributeActionBuilder::of()
+                ->withVariantId($masterVariantId)
+                ->withName(self::RRP_ATTR_NAME)
+                ->withValue(MoneyBuilder::of()->withCurrencyCode("EUR")->withCentAmount(2000)->build())
+                ->build(),
+        ])
+    )->build();
+$productUpdated = $builder
+    ->with()
+    ->products()
+    ->withId($product->getId())
+    ->post($productUpdatedAction)
+    ->execute();
 
+$attributesUpdatedProduct = $productUpdated->getMasterData()->getStaged()->getMasterVariant()->getAttributes();
+
+self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::SIZE_ATTR_NAME)->getValue()->key, "M");
+self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::COLOR_ATTR_NAME)->getValue()->key, "red");
+self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::LAUNDRY_SYMBOLS_ATTR_NAME)->getValue()[0]->key, "cold");
+self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::RRP_ATTR_NAME)->getValue()->centAmount, 2000);
 ```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
+### Create attributes for importing orders
+
+Importing attribute values for orders works different from updating products. In orders you provide the full value for enum-like types instead of just the key as done for all other types. This makes it possible to create a new enum value on the fly. The other attributes behave as expected.
+
+Example:
+```php
+$product = $this->createProduct($builder);
+$attributes = AttributeCollection::of()
+    ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("yellow")->build())
+    ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCurrencyCode("EUR")->withCentAmount(30)->build())->build());
+
+$productVariantImportDraft = ProductVariantImportDraftBuilder::of()
+                                ->withId(1)
+                                ->withAttributes($attributes)
+                                ->build();
+$lineItemImportDraft = LineItemImportDraftBuilder::of()
+    ->withProductId($product->getId())
+    ->withVariant($productVariantImportDraft)
+    ->withQuantity(1)
+    ->withPrice(ProductFixture::priceDraft())
+    ->withName(LocalizedStringBuilder::of()->put("en", "product name")->build())
+    ->build();
+$orderImportDraft = OrderImportDraftBuilder::of()
+    ->withLineItems(LineItemImportDraftCollection::of()->add($lineItemImportDraft))
+    ->withTotalPrice(MoneyBuilder::of()->withCentAmount(20)->withCurrencyCode("EUR")->build())
+    ->withOrderState(OrderState::COMPLETE)
+    ->build();
+$order = $builder->orders()
+    ->importOrder()
+    ->post($orderImportDraft)
+    ->execute();
+$productVariant = $order->getLineItems()->current()->getVariant();
+$colorAttribute = ProductTypeFixture::findAttribute($productVariant->getAttributes(), self::COLOR_ATTR_NAME);
+assertEquals("yellow", $colorAttribute->getValue());
+$rrpAttribute = ProductTypeFixture::findAttribute($productVariant->getAttributes(), self::RRP_ATTR_NAME);
+assertEquals(30, $rrpAttribute->getValue()->centAmount);
+```
+See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
 
 <a id="migration-guidelines-from-sdk-v1"></a>
 ## Migration Guidelines from SDK v1
