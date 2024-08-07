@@ -64,7 +64,7 @@ interface MessageDeliveryPayload extends DeliveryPayload
     public function getSequenceNumber();
 
     /**
-     * <p>Version of the resource on which the change was performed.</p>
+     * <p>Version of the resource on which the update was performed.</p>
      *
 
      * @return null|int

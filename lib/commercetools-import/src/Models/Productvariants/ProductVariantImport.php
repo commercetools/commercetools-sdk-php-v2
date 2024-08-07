@@ -22,7 +22,6 @@ interface ProductVariantImport extends ImportResource
     public const FIELD_ATTRIBUTES = 'attributes';
     public const FIELD_IMAGES = 'images';
     public const FIELD_ASSETS = 'assets';
-    public const FIELD_PUBLISH = 'publish';
     public const FIELD_STAGED = 'staged';
     public const FIELD_PRODUCT = 'product';
 
@@ -76,16 +75,6 @@ interface ProductVariantImport extends ImportResource
     public function getAssets();
 
     /**
-     * <p>If <code>publish</code> is set to either <code>true</code> or <code>false</code>, both staged and current projections are set to the same value provided by the import data.
-     * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
-     * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
-     *
-     * @deprecated
-     * @return null|bool
-     */
-    public function getPublish();
-
-    /**
      * <ul>
      * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Product Variant data.</li>
      * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
@@ -135,11 +124,6 @@ interface ProductVariantImport extends ImportResource
      * @param ?AssetCollection $assets
      */
     public function setAssets(?AssetCollection $assets): void;
-
-    /**
-     * @param ?bool $publish
-     */
-    public function setPublish(?bool $publish): void;
 
     /**
      * @param ?bool $staged

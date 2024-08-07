@@ -23,7 +23,7 @@ interface DeliveryPayload extends JsonObject
 
     /**
      * <p><code>key</code> of the <a href="ctp:api:type:Project">Project</a>.
-     * Useful in message processing if the Destination receives events from multiple Projects.</p>
+     * Useful for processing notifications if the Destination receives them from multiple Projects.</p>
      *
 
      * @return null|string
@@ -39,7 +39,7 @@ interface DeliveryPayload extends JsonObject
     public function getNotificationType();
 
     /**
-     * <p>Reference to the resource that triggered the message.</p>
+     * <p>Reference to the resource that triggered the notification.</p>
      *
 
      * @return null|Reference

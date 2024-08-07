@@ -56,14 +56,4 @@ class ResourceByProjectKeyMeQuoteRequestsByID extends ApiResource
 
         return new ByProjectKeyMeQuoteRequestsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
-    /**
-     * @psalm-param ?object|array|string $body
-     * @psalm-param array<string, scalar|scalar[]> $headers
-     */
-    public function delete($body = null, array $headers = []): ByProjectKeyMeQuoteRequestsByIDDelete
-    {
-        $args = $this->getArgs();
-
-        return new ByProjectKeyMeQuoteRequestsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
-    }
 }

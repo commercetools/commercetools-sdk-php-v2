@@ -75,7 +75,7 @@ interface Subscription extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>Change notifications subscribed to.</p>
+     * <p>Changes subscribed to.</p>
      *
 
      * @return null|ChangeSubscriptionCollection
@@ -83,7 +83,7 @@ interface Subscription extends BaseResource
     public function getChanges();
 
     /**
-     * <p>Messaging service to which the messages are to be sent.</p>
+     * <p>Messaging service to which the notifications are sent.</p>
      *
 
      * @return null|Destination

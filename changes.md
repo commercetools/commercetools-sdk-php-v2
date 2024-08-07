@@ -1,13 +1,38 @@
 **Api changes**
 
 <details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `value` of type `DirectDiscountDraft` from type `CartDiscountValue` to `CartDiscountValueDraft`
+- :warning: changed property `custom` of type `MyBusinessUnitDraft` from type `CustomFields` to `CustomFieldsDraft`
+- :warning: changed property `custom` of type `MyCompanyDraft` from type `CustomFields` to `CustomFieldsDraft`
+- :warning: changed property `custom` of type `MyDivisionDraft` from type `CustomFields` to `CustomFieldsDraft`
+- :warning: changed property `totalPrice` of type `OrderLineItemDiscountSetMessage` from type `Money` to `CentPrecisionMoney`
+- :warning: changed property `value` of type `StandalonePriceValueChangedMessage` from type `Money` to `TypedMoney`
+- :warning: changed property `oldValue` of type `StandalonePriceValueChangedMessage` from type `Money` to `TypedMoney`
+- :warning: changed property `totalPrice` of type `OrderLineItemDiscountSetMessagePayload` from type `Money` to `CentPrecisionMoney`
+- :warning: changed property `value` of type `StandalonePriceValueChangedMessagePayload` from type `Money` to `TypedMoney`
+- :warning: changed property `oldValue` of type `StandalonePriceValueChangedMessagePayload` from type `Money` to `TypedMoney`
+- :warning: changed property `customType` of type `OrderSearchAnyValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchDateRangeValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchFullTextValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchLongRangeValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchNumberRangeValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchQueryExpressionValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `customType` of type `OrderSearchStringValue` from type `string` to `OrderSearchCustomType`
+- :warning: changed property `price` of type `ShippingRate` from type `TypedMoney` to `CentPrecisionMoney`
+- :warning: changed property `freeAbove` of type `ShippingRate` from type `TypedMoney` to `CentPrecisionMoney`
+</details>
+
+
+<details>
 <summary>Required Property(s)</summary>
 
-- changed property `isOnStock` of type `ProductVariantAvailability` to be optional
 - :warning: changed property `stores` of type `BusinessUnitSetStoresAction` to be required
 - :warning: changed property `stores` of type `CartDiscountSetStoresAction` to be required
 - :warning: changed property `stores` of type `Customer` to be required
 - :warning: changed property `stores` of type `CustomerSetStoresAction` to be required
+- changed property `isOnStock` of type `ProductVariantAvailability` to be optional
 </details>
 
 
@@ -61,43 +86,46 @@
 
 
 <details>
-<summary>Changed Property(s)</summary>
+<summary>Added Resource(s)</summary>
 
-- :warning: changed property `value` of type `DirectDiscountDraft` from type `CartDiscountValue` to `CartDiscountValueDraft`
-- :warning: changed property `custom` of type `MyBusinessUnitDraft` from type `CustomFields` to `CustomFieldsDraft`
-- :warning: changed property `custom` of type `MyCompanyDraft` from type `CustomFields` to `CustomFieldsDraft`
-- :warning: changed property `custom` of type `MyDivisionDraft` from type `CustomFields` to `CustomFieldsDraft`
-- :warning: changed property `totalPrice` of type `OrderLineItemDiscountSetMessage` from type `Money` to `CentPrecisionMoney`
-- :warning: changed property `value` of type `StandalonePriceValueChangedMessage` from type `Money` to `TypedMoney`
-- :warning: changed property `oldValue` of type `StandalonePriceValueChangedMessage` from type `Money` to `TypedMoney`
-- :warning: changed property `totalPrice` of type `OrderLineItemDiscountSetMessagePayload` from type `Money` to `CentPrecisionMoney`
-- :warning: changed property `value` of type `StandalonePriceValueChangedMessagePayload` from type `Money` to `TypedMoney`
-- :warning: changed property `oldValue` of type `StandalonePriceValueChangedMessagePayload` from type `Money` to `TypedMoney`
-- :warning: changed property `customType` of type `OrderSearchAnyValue` from type `string` to `OrderSearchCustomType`
-- :warning: changed property `customType` of type `OrderSearchDateRangeValue` from type `string` to `OrderSearchCustomType`
-- :warning: changed property `customType` of type `OrderSearchFullTextValue` from type `string` to `OrderSearchCustomType`
-- :warning: changed property `customType` of type `OrderSearchLongRangeValue` from type `string` to `OrderSearchCustomType`
-- :warning: changed property `customType` of type `OrderSearchNumberRangeValue` from type `string` to `OrderSearchCustomType`
-- :warning: changed property `customType` of type `OrderSearchQueryExpressionValue` from type `string` to `OrderSearchCustomType`
-- :warning: changed property `customType` of type `OrderSearchStringValue` from type `string` to `OrderSearchCustomType`
-- :warning: changed property `price` of type `ShippingRate` from type `TypedMoney` to `CentPrecisionMoney`
-- :warning: changed property `freeAbove` of type `ShippingRate` from type `TypedMoney` to `CentPrecisionMoney`
+- added resource `/{projectKey}/customers/search`
+- added resource `/{projectKey}/customers/search/indexing-status`
+- added resource `/{projectKey}/in-store/key={storeKey}/quote-requests`
+- added resource `/{projectKey}/in-store/key={storeKey}/staged-quotes`
+- added resource `/{projectKey}/in-store/key={storeKey}/quotes`
+- added resource `/{projectKey}/in-store/key={storeKey}/orders/quotes`
+- added resource `/{projectKey}/in-store/key={storeKey}/products/{productID}/product-tailoring/images`
+- added resource `/{projectKey}/in-store/key={storeKey}/products/key={productKey}/product-tailoring/images`
+- added resource `/{projectKey}/in-store/key={storeKey}/quote-requests/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/quote-requests/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/staged-quotes/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/staged-quotes/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/quotes/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/quotes/{ID}`
 </details>
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Removed Resource(s)</summary>
 
-- added enum `attribute-group` to type `ChangeSubscriptionResourceTypeId`
-- added enum `product-tailoring` to type `ChangeSubscriptionResourceTypeId`
-- added enum `cart-discount` to type `CustomFieldReferenceValue`
+- :warning: removed resource `/{projectKey}/me/carts/key={key}`
 </details>
 
 
 <details>
-<summary>Removed Enum(s)</summary>
+<summary>Removed QueryParameter(s)</summary>
 
-- :warning: removed enum `product-price` from type `ChangeSubscriptionResourceTypeId`
+- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products`
+- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products`
+- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products/key={key}`
+- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products/key={key}`
+- :warning: removed query parameter `localeProjection` from method `delete /{projectKey}/products/key={key}`
+- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products/{ID}`
+- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products/{ID}`
+- :warning: removed query parameter `localeProjection` from method `delete /{projectKey}/products/{ID}`
+- :warning: removed query parameter `sort` from method `get /{projectKey}/product-projections/suggest`
+- :warning: removed query parameter `offset` from method `get /{projectKey}/product-projections/suggest`
+- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/suggest`
 </details>
 
 
@@ -150,6 +178,31 @@
 <summary>Removed Method(s)</summary>
 
 - :warning: removed method `$apiRoot->withProjectKey()->products()->search()->head()`
+- :warning: removed method `$apiRoot->withProjectKey()->me()->carts()->withKey()->get()`
+- :warning: removed method `$apiRoot->withProjectKey()->me()->carts()->withKey()->head()`
+- :warning: removed method `$apiRoot->withProjectKey()->me()->carts()->withKey()->post()`
+- :warning: removed method `$apiRoot->withProjectKey()->me()->carts()->withKey()->delete()`
+- :warning: removed method `$apiRoot->withProjectKey()->me()->quoteRequests()->withId()->delete()`
+- :warning: removed method `$apiRoot->withProjectKey()->me()->quoteRequests()->withKey()->delete()`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `shopping-list` to type `ExtensionResourceTypeId`
+- added enum `customer-group` to type `AttributeReferenceTypeId`
+- added enum `attribute-group` to type `ChangeSubscriptionResourceTypeId`
+- added enum `product-tailoring` to type `ChangeSubscriptionResourceTypeId`
+- added enum `cart-discount` to type `CustomFieldReferenceValue`
+- added enum `customer-group` to type `CustomFieldReferenceValue`
+</details>
+
+
+<details>
+<summary>Removed Enum(s)</summary>
+
+- :warning: removed enum `product-price` from type `ChangeSubscriptionResourceTypeId`
 </details>
 
 
@@ -217,49 +270,14 @@
 - added type `ShippingMethodChangeActiveAction`
 </details>
 
-
-<details>
-<summary>Removed QueryParameter(s)</summary>
-
-- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products`
-- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products`
-- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products/key={key}`
-- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products/key={key}`
-- :warning: removed query parameter `localeProjection` from method `delete /{projectKey}/products/key={key}`
-- :warning: removed query parameter `localeProjection` from method `get /{projectKey}/products/{ID}`
-- :warning: removed query parameter `localeProjection` from method `post /{projectKey}/products/{ID}`
-- :warning: removed query parameter `localeProjection` from method `delete /{projectKey}/products/{ID}`
-- :warning: removed query parameter `sort` from method `get /{projectKey}/product-projections/suggest`
-- :warning: removed query parameter `offset` from method `get /{projectKey}/product-projections/suggest`
-- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/suggest`
-</details>
-
+**Import changes**
 
 <details>
 <summary>Added Resource(s)</summary>
 
-- added resource `/{projectKey}/customers/search`
-- added resource `/{projectKey}/customers/search/indexing-status`
-- added resource `/{projectKey}/in-store/key={storeKey}/quote-requests`
-- added resource `/{projectKey}/in-store/key={storeKey}/staged-quotes`
-- added resource `/{projectKey}/in-store/key={storeKey}/quotes`
-- added resource `/{projectKey}/in-store/key={storeKey}/orders/quotes`
-- added resource `/{projectKey}/in-store/key={storeKey}/products/{productID}/product-tailoring/images`
-- added resource `/{projectKey}/in-store/key={storeKey}/products/key={productKey}/product-tailoring/images`
-- added resource `/{projectKey}/in-store/key={storeKey}/quote-requests/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/quote-requests/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/staged-quotes/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/staged-quotes/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/quotes/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/quotes/{ID}`
-</details>
-
-**Import changes**
-
-<details>
-<summary>Added Enum(s)</summary>
-
-- added enum `discount-code` to type `ImportResourceType`
+- added resource `/{projectKey}/discount-codes`
+- added resource `/{projectKey}/discount-codes/import-containers`
+- added resource `/{projectKey}/discount-codes/import-containers/{importContainerKey}`
 </details>
 
 
@@ -271,10 +289,10 @@
 
 
 <details>
-<summary>MarkDeprecated Property(s)</summary>
+<summary>Added Enum(s)</summary>
 
-- marked property `PriceImport::publish` as deprecated
-- marked property `ProductVariantImport::publish` as deprecated
+- added enum `customer-group` to type `CustomFieldReferenceValue`
+- added enum `discount-code` to type `ImportResourceType`
 </details>
 
 
@@ -287,18 +305,17 @@
 
 
 <details>
-<summary>Added Type(s)</summary>
+<summary>Deprecated Property(s)</summary>
 
-- added type `DiscountCodeImportRequest`
-- added type `DiscountCodeImport`
+- property `PriceImport::publish` is removed
+- property `ProductVariantImport::publish` is removed
 </details>
 
 
 <details>
-<summary>Added Resource(s)</summary>
+<summary>Added Type(s)</summary>
 
-- added resource `/{projectKey}/discount-codes`
-- added resource `/{projectKey}/discount-codes/import-containers`
-- added resource `/{projectKey}/discount-codes/import-containers/{importContainerKey}`
+- added type `DiscountCodeImportRequest`
+- added type `DiscountCodeImport`
 </details>
 

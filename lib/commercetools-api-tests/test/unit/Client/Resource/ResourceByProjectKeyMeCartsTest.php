@@ -10,7 +10,6 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeCartsByID;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeCartsKeyByKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeCartsReplicate;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
@@ -251,18 +250,6 @@ class ResourceByProjectKeyMeCartsTest extends TestCase
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyMeCartsKeyByKey' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCartsKeyByKey {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->me()
-                        ->carts()
-                        ->withKey("test_key");
-                },
-                ResourceByProjectKeyMeCartsKeyByKey::class,
-                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
-                '/{projectKey}/me/carts/key={key}'
-            ],
             'ResourceByProjectKeyMeCartsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCartsByID {
                     return $builder

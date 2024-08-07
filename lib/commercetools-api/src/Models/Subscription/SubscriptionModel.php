@@ -261,7 +261,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
-     * <p>Change notifications subscribed to.</p>
+     * <p>Changes subscribed to.</p>
      *
      *
      * @return null|ChangeSubscriptionCollection
@@ -281,7 +281,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
-     * <p>Messaging service to which the messages are to be sent.</p>
+     * <p>Messaging service to which the notifications are sent.</p>
      *
      *
      * @return null|Destination

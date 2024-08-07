@@ -166,7 +166,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * <p>Change notifications subscribed to.</p>
+     * <p>Changes subscribed to.</p>
      *
 
      * @return null|ChangeSubscriptionCollection
@@ -177,7 +177,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * <p>Messaging service to which the messages are to be sent.</p>
+     * <p>Messaging service to which the notifications are sent.</p>
      *
 
      * @return null|Destination

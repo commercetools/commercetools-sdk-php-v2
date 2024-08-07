@@ -56,14 +56,4 @@ class ResourceByProjectKeyMeQuoteRequestsKeyByKey extends ApiResource
 
         return new ByProjectKeyMeQuoteRequestsKeyByKeyPost($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
-    /**
-     * @psalm-param ?object|array|string $body
-     * @psalm-param array<string, scalar|scalar[]> $headers
-     */
-    public function delete($body = null, array $headers = []): ByProjectKeyMeQuoteRequestsKeyByKeyDelete
-    {
-        $args = $this->getArgs();
-
-        return new ByProjectKeyMeQuoteRequestsKeyByKeyDelete($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
-    }
 }
