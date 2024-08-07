@@ -35,6 +35,7 @@
   - [Product Creation](#product-creation)
   - [Reading Attributes](#reading-attributes)
   - [Update attribute values of a product](#update-attribute-values-of-a-product)
+- [Serialization](#serialization) 
 - [Migration Guidelines From SDK v1](#migration-guidelines-from-sdk-v1)
 - [Observability](#observability)
 - [Documentation](#documentation)
@@ -946,6 +947,33 @@ $rrpAttribute = ProductTypeFixture::findAttribute($productVariant->getAttributes
 assertEquals(30, $rrpAttribute->getValue()->centAmount);
 ```
 See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+This means that, like the example below, an object can be easily serialized to JSON.
+```php
+
+```
+## Serialization
+In the PHP SDK some classes implement the [JsonSerializable](https://www.php.net/manual/en/class.jsonserializable.php) interface, and they have a customized `jsonSerialize()` method to convert the instance of the class to a JSON string easily.
+This mean that when the method `json_encode()` will be called, the object will be correctly converted and formatted to a JSON string.
+
+See the example below:
+
+```php
+$messagePayload = new MessageDeliveryPayloadModel(
+    "{projectKey}",
+    null, // Replace with an actual Reference object if needed
+    null, // Replace with an actual UserProvidedIdentifiers object if needed
+    "uniqueId456", // ID
+    1, // The version
+    new DateTimeImmutable("2024-08-06T12:34:56+00:00"), // CreatedAt
+    new DateTimeImmutable("2024-08-06T12:34:56+00:00"), // LastModifiedAt
+    42, // SequenceNumber
+    1, // Resource version
+    null, // Replace with an actual PayloadNotIncluded object if needed
+    "Message" // notification type
+);
+
+$messagePayloadJSON = json_encode($messagePayload);
+```
 
 <a id="migration-guidelines-from-sdk-v1"></a>
 ## Migration Guidelines from SDK v1
