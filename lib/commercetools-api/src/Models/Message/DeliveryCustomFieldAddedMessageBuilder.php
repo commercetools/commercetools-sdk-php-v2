@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -25,9 +23,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<DeliveryAddressSetMessage>
+ * @implements Builder<DeliveryCustomFieldAddedMessage>
  */
-final class DeliveryAddressSetMessageBuilder implements Builder
+final class DeliveryCustomFieldAddedMessageBuilder implements Builder
 {
     /**
 
@@ -93,25 +91,19 @@ final class DeliveryAddressSetMessageBuilder implements Builder
 
      * @var ?string
      */
-    private $deliveryId;
+    private $name;
 
     /**
 
-     * @var null|Address|AddressBuilder
+     * @var null|mixed|mixed
      */
-    private $address;
-
-    /**
-
-     * @var null|Address|AddressBuilder
-     */
-    private $oldAddress;
+    private $value;
 
     /**
 
      * @var ?string
      */
-    private $shippingKey;
+    private $deliveryId;
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
@@ -225,6 +217,28 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Custom Field that was added.</p>
+     *
+
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * <p>The added <a href="ctp:api:type:CustomFieldValue">CustomFieldValue</a> based on the <a href="ctp:api:type:FieldType">FieldType</a>.</p>
+     *
+
+     * @return null|mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
@@ -233,39 +247,6 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     public function getDeliveryId()
     {
         return $this->deliveryId;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:Address">Address</a> after the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
-     *
-
-     * @return null|Address
-     */
-    public function getAddress()
-    {
-        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:Address">Address</a> before the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
-     *
-
-     * @return null|Address
-     */
-    public function getOldAddress()
-    {
-        return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
-    }
-
-    /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     *
-
-     * @return null|string
-     */
-    public function getShippingKey()
-    {
-        return $this->shippingKey;
     }
 
     /**
@@ -379,45 +360,34 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
+     * @return $this
+     */
+    public function withName(?string $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $value
+     * @return $this
+     */
+    public function withValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Address $address
-     * @return $this
-     */
-    public function withAddress(?Address $address)
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Address $oldAddress
-     * @return $this
-     */
-    public function withOldAddress(?Address $oldAddress)
-    {
-        $this->oldAddress = $oldAddress;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $shippingKey
-     * @return $this
-     */
-    public function withShippingKey(?string $shippingKey)
-    {
-        $this->shippingKey = $shippingKey;
 
         return $this;
     }
@@ -466,31 +436,9 @@ final class DeliveryAddressSetMessageBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withAddress() instead
-     * @return $this
-     */
-    public function withAddressBuilder(?AddressBuilder $address)
+    public function build(): DeliveryCustomFieldAddedMessage
     {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withOldAddress() instead
-     * @return $this
-     */
-    public function withOldAddressBuilder(?AddressBuilder $oldAddress)
-    {
-        $this->oldAddress = $oldAddress;
-
-        return $this;
-    }
-
-    public function build(): DeliveryAddressSetMessage
-    {
-        return new DeliveryAddressSetMessageModel(
+        return new DeliveryCustomFieldAddedMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -501,14 +449,13 @@ final class DeliveryAddressSetMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->deliveryId,
-            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
-            $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress,
-            $this->shippingKey
+            $this->name,
+            $this->value,
+            $this->deliveryId
         );
     }
 
-    public static function of(): DeliveryAddressSetMessageBuilder
+    public static function of(): DeliveryCustomFieldAddedMessageBuilder
     {
         return new self();
     }
