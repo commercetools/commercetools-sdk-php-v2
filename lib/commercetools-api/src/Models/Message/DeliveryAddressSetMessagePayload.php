@@ -20,7 +20,7 @@ interface DeliveryAddressSetMessagePayload extends OrderMessagePayload
     public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
-     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Parcel</a>.</p>
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
      * @return null|string

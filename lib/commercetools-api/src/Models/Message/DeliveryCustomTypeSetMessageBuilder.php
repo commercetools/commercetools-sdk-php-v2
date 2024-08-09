@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -25,9 +25,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<DeliveryAddressSetMessage>
+ * @implements Builder<DeliveryCustomTypeSetMessage>
  */
-final class DeliveryAddressSetMessageBuilder implements Builder
+final class DeliveryCustomTypeSetMessageBuilder implements Builder
 {
     /**
 
@@ -91,27 +91,21 @@ final class DeliveryAddressSetMessageBuilder implements Builder
 
     /**
 
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $customFields;
+
+    /**
+
      * @var ?string
      */
-    private $deliveryId;
-
-    /**
-
-     * @var null|Address|AddressBuilder
-     */
-    private $address;
-
-    /**
-
-     * @var null|Address|AddressBuilder
-     */
-    private $oldAddress;
+    private $previousTypeId;
 
     /**
 
      * @var ?string
      */
-    private $shippingKey;
+    private $deliveryId;
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
@@ -225,6 +219,28 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>The Custom Fields that have been set.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustomFields()
+    {
+        return $this->customFields instanceof CustomFieldsBuilder ? $this->customFields->build() : $this->customFields;
+    }
+
+    /**
+     * <p><code>id</code> of the previous <a href="ctp:api:type:Type">Custom Type</a>. Absent if there was no previous Custom Type present.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPreviousTypeId()
+    {
+        return $this->previousTypeId;
+    }
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
@@ -233,39 +249,6 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     public function getDeliveryId()
     {
         return $this->deliveryId;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:Address">Address</a> after the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
-     *
-
-     * @return null|Address
-     */
-    public function getAddress()
-    {
-        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:Address">Address</a> before the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
-     *
-
-     * @return null|Address
-     */
-    public function getOldAddress()
-    {
-        return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
-    }
-
-    /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     *
-
-     * @return null|string
-     */
-    public function getShippingKey()
-    {
-        return $this->shippingKey;
     }
 
     /**
@@ -379,45 +362,34 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $customFields
+     * @return $this
+     */
+    public function withCustomFields(?CustomFields $customFields)
+    {
+        $this->customFields = $customFields;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $previousTypeId
+     * @return $this
+     */
+    public function withPreviousTypeId(?string $previousTypeId)
+    {
+        $this->previousTypeId = $previousTypeId;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Address $address
-     * @return $this
-     */
-    public function withAddress(?Address $address)
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * @param ?Address $oldAddress
-     * @return $this
-     */
-    public function withOldAddress(?Address $oldAddress)
-    {
-        $this->oldAddress = $oldAddress;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $shippingKey
-     * @return $this
-     */
-    public function withShippingKey(?string $shippingKey)
-    {
-        $this->shippingKey = $shippingKey;
 
         return $this;
     }
@@ -467,30 +439,19 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
-     * @deprecated use withAddress() instead
+     * @deprecated use withCustomFields() instead
      * @return $this
      */
-    public function withAddressBuilder(?AddressBuilder $address)
+    public function withCustomFieldsBuilder(?CustomFieldsBuilder $customFields)
     {
-        $this->address = $address;
+        $this->customFields = $customFields;
 
         return $this;
     }
 
-    /**
-     * @deprecated use withOldAddress() instead
-     * @return $this
-     */
-    public function withOldAddressBuilder(?AddressBuilder $oldAddress)
+    public function build(): DeliveryCustomTypeSetMessage
     {
-        $this->oldAddress = $oldAddress;
-
-        return $this;
-    }
-
-    public function build(): DeliveryAddressSetMessage
-    {
-        return new DeliveryAddressSetMessageModel(
+        return new DeliveryCustomTypeSetMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -501,14 +462,13 @@ final class DeliveryAddressSetMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->deliveryId,
-            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
-            $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress,
-            $this->shippingKey
+            $this->customFields instanceof CustomFieldsBuilder ? $this->customFields->build() : $this->customFields,
+            $this->previousTypeId,
+            $this->deliveryId
         );
     }
 
-    public static function of(): DeliveryAddressSetMessageBuilder
+    public static function of(): DeliveryCustomTypeSetMessageBuilder
     {
         return new self();
     }

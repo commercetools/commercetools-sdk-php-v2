@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -26,9 +24,9 @@ use stdClass;
 /**
  * @internal
  */
-final class DeliveryAddressSetMessageModel extends JsonObjectModel implements DeliveryAddressSetMessage
+final class DeliveryCustomFieldRemovedMessageModel extends JsonObjectModel implements DeliveryCustomFieldRemovedMessage
 {
-    public const DISCRIMINATOR_VALUE = 'DeliveryAddressSet';
+    public const DISCRIMINATOR_VALUE = 'DeliveryCustomFieldRemoved';
     /**
      *
      * @var ?string
@@ -99,25 +97,13 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
      *
      * @var ?string
      */
-    protected $deliveryId;
-
-    /**
-     *
-     * @var ?Address
-     */
-    protected $address;
-
-    /**
-     *
-     * @var ?Address
-     */
-    protected $oldAddress;
+    protected $name;
 
     /**
      *
      * @var ?string
      */
-    protected $shippingKey;
+    protected $deliveryId;
 
 
     /**
@@ -134,10 +120,8 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?string $name = null,
         ?string $deliveryId = null,
-        ?Address $address = null,
-        ?Address $oldAddress = null,
-        ?string $shippingKey = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -150,10 +134,8 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->name = $name;
         $this->deliveryId = $deliveryId;
-        $this->address = $address;
-        $this->oldAddress = $oldAddress;
-        $this->shippingKey = $shippingKey;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -391,6 +373,26 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
     }
 
     /**
+     * <p>Name of the Custom Field that was removed.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->name = (string) $data;
+        }
+
+        return $this->name;
+    }
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
      *
@@ -408,68 +410,6 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
         }
 
         return $this->deliveryId;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:Address">Address</a> after the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
-     *
-     *
-     * @return null|Address
-     */
-    public function getAddress()
-    {
-        if (is_null($this->address)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ADDRESS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->address = AddressModel::of($data);
-        }
-
-        return $this->address;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:Address">Address</a> before the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
-     *
-     *
-     * @return null|Address
-     */
-    public function getOldAddress()
-    {
-        if (is_null($this->oldAddress)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_OLD_ADDRESS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->oldAddress = AddressModel::of($data);
-        }
-
-        return $this->oldAddress;
-    }
-
-    /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getShippingKey()
-    {
-        if (is_null($this->shippingKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SHIPPING_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->shippingKey = (string) $data;
-        }
-
-        return $this->shippingKey;
     }
 
 
@@ -554,35 +494,19 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
     }
 
     /**
+     * @param ?string $name
+     */
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
      * @param ?string $deliveryId
      */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
-    }
-
-    /**
-     * @param ?Address $address
-     */
-    public function setAddress(?Address $address): void
-    {
-        $this->address = $address;
-    }
-
-    /**
-     * @param ?Address $oldAddress
-     */
-    public function setOldAddress(?Address $oldAddress): void
-    {
-        $this->oldAddress = $oldAddress;
-    }
-
-    /**
-     * @param ?string $shippingKey
-     */
-    public function setShippingKey(?string $shippingKey): void
-    {
-        $this->shippingKey = $shippingKey;
     }
 
 
