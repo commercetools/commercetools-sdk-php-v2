@@ -4073,7 +4073,14 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->get()`
 
-null
+Returns a Customer for a given Query Predicate in a [Store](ctp:api:type:Store). Returns a `200 OK` status if successful.
+
+A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+
+- If no Customer exists in the Store for the given Query Predicate.
+- If a Customer exists in the Store for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a Customer exists for the given Query Predicate but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
+
 
 ### Example
 ```php
@@ -4088,7 +4095,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->post(null)`
 
-null
+Updates the Customer in a [Store](ctp:api:type:Store). Returns a `200 OK` status if successful.
+
+A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
+
 
 ### Example
 ```php
@@ -4103,7 +4116,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->delete()`
 
-null
+Deletes the Customer in a [Store](ctp:api:type:Store). Returns a `200 OK` status if successful.
+
+A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
+
 
 ### Example
 ```php
@@ -4317,7 +4336,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->emailConfirm()->post(null)`
 
-This is the last step in the [email verification process of a Customer](/../api/projects/customers#email-verification-of-customer-in-store).
+This is the last step in the [email verification process of a Customer](/../api/projects/customers#email-verification-of-customer-in-store). Returns a `200 OK` status if successful.
+
+A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
 ### Example
@@ -4334,7 +4358,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->login()->post(null)`
 
+
 Retrieves the authenticated Customer (that matches the given email/password pair) if they are part of a specific [Store](ctp:api:type:Store).
+
+If used with an optional [access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly logged-in Customer.
 
 - If the Customer does not have a Cart, the most recently modified anonymous cart becomes the Customer's Cart.
 - If the Customer already has a Cart, the most recently modified anonymous cart is handled according to [AnonymousCartSignInMode](ctp:api:type:AnonymousCartSignInMode).
@@ -4482,7 +4509,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->password()->post(null)`
 
-Changing the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=false`.
+Changing the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=false`.  Returns a `200 OK` status if successful.
+
+A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
 ### Example
@@ -4501,7 +4533,12 @@ $request = $builder
 
 This is the last step in the [password reset process of the authenticated Customer](/../api/projects/customers#password-reset-of-customer-in-store).
 
-Resetting a password produces the of the Customer [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+Resetting a password produces the Customer [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+
+A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
 ### Example
@@ -4777,6 +4814,9 @@ $request = $builder
                 ->delete();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->signup()->post(null)`
+
+
+If used with an optional [access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly created Customer.
 
 If omitted in the request body, the [Customer](ctp:api:type:Customer) `stores` field is set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
@@ -6232,7 +6272,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->get()`
 
-null
+Returns a Customer for a given Query Predicate. Returns a `200 OK` status if successful.
+
+A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+
+- If no Customer exists for the given Query Predicate.
+- If a Customer exists for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+
 
 ### Example
 ```php
@@ -6246,7 +6292,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->post(null)`
 
-null
+Updates the Customer specified in the [customer:{id}](/scopes#customer_idid) scope. Returns a `200 OK` status if successful.
+
 
 ### Example
 ```php
@@ -6260,7 +6307,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->delete()`
 
-null
+Deletes the Customer specified in the [customer:{id}](/scopes#customer_idid) scope. Returns a `200 OK` status if successful.
 
 ### Example
 ```php
@@ -6318,7 +6365,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->get()`
 
-null
+Returns all of the authenticated Customer’s Business Units in a Project. Returns a `200 OK` status if successful, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
 
 ### Example
 ```php
@@ -6333,7 +6381,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->head()`
 
-Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate or a `404 Not Found` otherwise.
+Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate and the Customer has access to them, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
 
 ### Example
 ```php
@@ -6364,7 +6413,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->get()`
 
-null
+Returns a Business Unit for a given `id`. Returns a `200 OK` status if the Business Unit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
 
 ### Example
 ```php
@@ -6380,7 +6430,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->head()`
 
-Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -6396,7 +6446,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->post(null)`
 
-null
+Updates a Business Unit for a given `id`. Returns a `200 OK` status if the Business Unit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
 
 ### Example
 ```php
@@ -6410,25 +6461,9 @@ $request = $builder
                 ->withId("ID")
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->delete()`
-
-null
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->businessUnits()
-                ->withId("ID")
-                ->delete();
-```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->get()`
 
-null
+Returns a Business Unit for a given `key`. Returns a `200 OK` status if the Business Unit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -6444,7 +6479,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->head()`
 
-Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the Business Unit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -6460,7 +6495,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->post(null)`
 
-null
+Updates a Business Unit for a given `key`. Returns a `200 OK` status if the Business Unit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -6473,22 +6508,6 @@ $request = $builder
                 ->businessUnits()
                 ->withKey("key")
                 ->post(null);
-```
-## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->delete()`
-
-null
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->businessUnits()
-                ->withKey("key")
-                ->delete();
 ```
 ## `withProjectKey("projectKey")->me()->carts()->get()`
 
@@ -6686,7 +6705,7 @@ $request = $builder
 
 Retrieves the authenticated customer (that matches the given email/password pair).
 
-If used with [an access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly logged-in Customer.
+If used with an optional [access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly logged-in Customer.
 
 - If the Customer does not have a Cart yet, the most recently modified anonymous cart becomes the Customer's Cart.
 - If the Customer already has a Cart, the most recently modified anonymous cart is handled in accordance with [AnonymousCartSignInMode](ctp:api:type:AnonymousCartSignInMode).
@@ -7510,7 +7529,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->signup()->post(null)`
 
-If used with an [access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly created Customer.
+If used with an optional [access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly created Customer.
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
 
