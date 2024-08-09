@@ -27,7 +27,7 @@ class Configuration extends MigrationService implements MigrationInterface
 
     public function v2()
     {
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET), [], $oauthUrl = 'https://auth.us-central1.gcp.commercetools.com');
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET), [], $oauthUrl = 'https://auth.us-central1.gcp.commercetools.com/oauth/token');
         $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3], $apiUrl = 'https://api.us-central1.gcp.commercetools.com'), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey(self::PROJECT_KEY)->get();

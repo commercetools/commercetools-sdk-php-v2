@@ -19,6 +19,29 @@ class TaxCategoryFixture
         return 'test-' . Uuid::uuid4();
     }
 
+    public static function defaultTaxCategory(ApiRequestBuilder $builder)
+    {
+        $taxRateDraft = TaxRateDraftBuilder::of()
+            ->withName(self::uniqueTaxCategoryString())
+            ->withAmount(0.19)
+            ->withIncludedInPrice(true)
+            ->withCountry('DE')
+            ->build();
+
+        $taxCategoryDraft = TaxCategoryDraftBuilder::of()
+            ->withName(self::uniqueTaxCategoryString())
+            ->withKey(self::uniqueTaxCategoryString())
+            ->withDescription(self::uniqueTaxCategoryString())
+            ->withRates(new TaxRateDraftCollection([$taxRateDraft]))
+            ->build();
+
+        $taxCategory = $builder->taxCategories()
+            ->post($taxCategoryDraft)
+            ->execute();
+
+        return $taxCategory;
+    }
+
     final public static function defaultTaxCategoryDraftFunction()
     {
         $taxRateDraft = TaxRateDraftBuilder::of()
