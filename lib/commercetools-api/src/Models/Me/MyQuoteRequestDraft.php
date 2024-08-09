@@ -18,7 +18,8 @@ interface MyQuoteRequestDraft extends JsonObject
     public const FIELD_COMMENT = 'comment';
 
     /**
-     * <p><code>id</code> of the Cart from which the Quote Request is created.</p>
+     * <p><code>id</code> of the Cart from which the Quote Request is created. Carts with <a href="ctp:api:type:DiscountCode">Discount Codes</a> and Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a> are not supported.
+     * The Cart must have a <code>shippingAddress</code> defined, otherwise an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned when <a href="ctp:api:endpoint:/{projectKey}/me/quote-requests:POST">creating a Quote Request</a>.</p>
      *
 
      * @return null|string
