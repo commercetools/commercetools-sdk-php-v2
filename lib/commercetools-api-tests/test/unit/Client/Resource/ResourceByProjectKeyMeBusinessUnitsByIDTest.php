@@ -24,7 +24,6 @@ use Psr\Http\Message\RequestInterface;
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsByIDPost
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeBusinessUnitsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeBusinessUnitsByID
  */
 class ResourceByProjectKeyMeBusinessUnitsByIDTest extends TestCase
@@ -154,44 +153,6 @@ class ResourceByProjectKeyMeBusinessUnitsByIDTest extends TestCase
                 },
                 'post',
                 'test_projectKey/me/business-units/test_ID',
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_withVersion' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->me()
-                        ->businessUnits()
-                        ->withId('test_ID')
-                        ->delete()
-                        ->withVersion('version');
-                },
-                'delete',
-                'test_projectKey/me/business-units/test_ID?version=version',
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->me()
-                        ->businessUnits()
-                        ->withId('test_ID')
-                        ->delete()
-                        ->withExpand('expand');
-                },
-                'delete',
-                'test_projectKey/me/business-units/test_ID?expand=expand',
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("test_ID")
-                        ->delete();
-                },
-                'delete',
-                'test_projectKey/me/business-units/test_ID',
             ]
         ];
     }
@@ -233,16 +194,6 @@ class ResourceByProjectKeyMeBusinessUnitsByIDTest extends TestCase
                         ->businessUnits()
                         ->withId("ID")
                         ->post(null);
-                }
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
                 }
             ]
         ];
@@ -556,116 +507,6 @@ class ResourceByProjectKeyMeBusinessUnitsByIDTest extends TestCase
                         ->businessUnits()
                         ->withId("ID")
                         ->post(null);
-                },
-                599
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
-                },
-                200
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_409' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
-                },
-                409
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_400' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
-                },
-                400
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_401' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
-                },
-                401
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_403' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
-                },
-                403
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
-                },
-                404
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_500' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
-                },
-                500
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_502' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
-                },
-                502
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_503' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
-                },
-                503
-            ],
-            'ByProjectKeyMeBusinessUnitsByIDDelete_599' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->businessUnits()
-                        ->withId("ID")
-                        ->delete();
                 },
                 599
             ]

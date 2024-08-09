@@ -56,14 +56,4 @@ class ResourceByProjectKeyMeBusinessUnitsByID extends ApiResource
 
         return new ByProjectKeyMeBusinessUnitsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
-    /**
-     * @psalm-param ?object|array|string $body
-     * @psalm-param array<string, scalar|scalar[]> $headers
-     */
-    public function delete($body = null, array $headers = []): ByProjectKeyMeBusinessUnitsByIDDelete
-    {
-        $args = $this->getArgs();
-
-        return new ByProjectKeyMeBusinessUnitsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
-    }
 }
