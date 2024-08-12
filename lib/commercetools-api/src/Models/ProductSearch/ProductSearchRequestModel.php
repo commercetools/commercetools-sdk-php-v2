@@ -116,7 +116,8 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Controls how results to your query are sorted. If not provided, the results are sorted by relevance in descending order.</p>
+     * <p>Controls how results to your query are <a href="/../api/projects/product-search#sorting">sorted</a>.
+     * If not provided, the results are sorted by relevance score in descending order.</p>
      *
      *
      * @return null|SearchSortingCollection
@@ -136,7 +137,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The maximum number of search results to be returned.</p>
+     * <p>The maximum number of search results to be returned in one <a href="/../api/projects/product-search#pagination">page</a>.</p>
      *
      *
      * @return null|int
@@ -156,7 +157,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The number of search results to be skipped in the response for pagination.</p>
+     * <p>The number of search results to be skipped in the response for <a href="/../api/projects/product-search#pagination">pagination</a>.</p>
      *
      *
      * @return null|int
@@ -196,8 +197,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Set this field to <code>{}</code> to get the <a href="ctp:api:type:ProductProjection">ProductProjection</a> included in the <a href="ctp:api:type:ProductSearchResult">ProductSearchResult</a>.
-     * Include query parameters for controlling <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> or <a href="/../api/projects/productProjections#projection-dimensions">projections</a> according to your needs.
+     * <p>Controls data integration <a href="/../api/projects/product-search#with-product-projection-parameters">with Product Projection parameters</a>.
      * If not set, the result does not include the Product Projection.</p>
      *
      *
