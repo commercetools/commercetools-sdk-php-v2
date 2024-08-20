@@ -2925,7 +2925,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->get()`
 
-Deprecated scope: `view_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -2955,7 +2955,7 @@ $request = $builder
 
 Creating a Discount Code produces the [DiscountCodeCreated](ctp:api:type:DiscountCodeCreatedMessage) Message.
 
-Deprecated scope: `manage_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `manage_orders:{projectKey}`
 
 
 ### Example
@@ -2970,7 +2970,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->get()`
 
-Deprecated scope: `view_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -3000,7 +3000,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->post(null)`
 
-Deprecated scope: `manage_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `manage_orders:{projectKey}`
 
 ### Example
 ```php
@@ -3017,7 +3017,7 @@ $request = $builder
 
 Deleting a Discount Code produces the [DiscountCodeDeleted](ctp:api:type:DiscountCodeDeletedMessage) Message.
 
-Deprecated scope: `manage_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `manage_orders:{projectKey}`
 
 
 ### Example
@@ -3033,7 +3033,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withKey("key")->get()`
 
-Deprecated scope: `view_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -3063,7 +3063,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withKey("key")->post(null)`
 
-Deprecated scope: `manage_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `manage_orders:{projectKey}`
 
 ### Example
 ```php
@@ -3080,7 +3080,7 @@ $request = $builder
 
 Deleting a Discount Code produces the [DiscountCodeDeleted](ctp:api:type:DiscountCodeDeletedMessage) Message.
 
-Deprecated scope: `manage_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `manage_orders:{projectKey}`
 
 
 ### Example
@@ -4078,7 +4078,7 @@ Returns a Customer for a given Query Predicate in a [Store](ctp:api:type:Store).
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Customer exists in the Store for the given Query Predicate.
-- If a Customer exists in the Store for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a Customer exists in the Store for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 - If a Customer exists for the given Query Predicate but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -4099,7 +4099,7 @@ Updates the Customer in a [Store](ctp:api:type:Store). Returns a `200 OK` status
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -4120,7 +4120,7 @@ Deletes the Customer in a [Store](ctp:api:type:Store). Returns a `200 OK` status
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -4145,7 +4145,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no active Cart exists.
 - If an active Cart exists but does not have a `store` specified, or the `store` field references a different Store.
-- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4168,7 +4168,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no active Cart exists in a Store.
 - If an active Cart exists but does not have a `store` specified, or the `store` field references a different Store.
-- If an active Cart exists but does not contain a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If an active Cart exists but does not contain a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4220,7 +4220,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->post(null)`
 
 
-Creates a Cart in a Store for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#customer_idid) or [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+Creates a Cart in a Store for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 The `store` field in the created [Cart](ctp:api:type:Cart) is set to the Store specified by the `storeKey` path parameter.
 
@@ -4253,7 +4253,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Cart exists in the Store for the given `id`.
 - If the Cart exists but does not belong to a Store, or the Cart's `store` field references a different Store.
-- If the Cart exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Cart exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4294,7 +4294,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Cart exists in the Store for the given `id`.
 - If the Cart exists but does not belong to a Store, or the Cart's `store` field references a different Store.
-- If the Cart exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Cart exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4318,7 +4318,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Cart exists in the Store for the given `id`.
 - If the Cart exists in the Project but does not belong to a Store, or the Cart's `store` field references a different Store.
-- If the Cart exists in the Project but does not have either a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Cart exists in the Project but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4340,7 +4340,7 @@ This is the last step in the [email verification process of a Customer](/../api/
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -4385,7 +4385,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->get()`
 
-Returns all Orders in a Store that match a given Query Predicate and contain either a `customerId` that matches the [customer_id:{id}](/scopes#customer_idid) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+Returns all Orders in a Store that match a given Query Predicate and contain either a `customerId` that matches the [customer_id:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4408,7 +4408,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Orders exist in the Store that match the Query Predicate.
 - If an Order matches the Query Predicate, but no `store` is specified, or the `store` field references a different Store.
-- If an Order matches the Query Predicate, but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If an Order matches the Query Predicate, but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4426,11 +4426,11 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->post(null)`
 
 
-Creates an Order in a Store from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#customer_idid) or [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+Creates an Order in a Store from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 The Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction) for taxes to be calculated. When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
 
-If the Cart's `customerId` does not match the [customer:{id}](/scopes#customer_idid) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#anonymous_idid) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+If the Cart's `customerId` does not match the [customer:{id}](/scopes#composable-commerce-oauth) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
 
@@ -4467,7 +4467,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Order exists in the Store for the given `id`.
 - If the Order exists but does not have a `store` specified, or the `store` field references a different Store.
-- If the Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4491,7 +4491,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Order exists in the Store for the given `id`.
 - If the Order exists but does not have a `store` specified, or the `store` field references a different Store.
-- If the Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4513,7 +4513,7 @@ Changing the password of the Customer produces the [CustomerPasswordUpdated](ctp
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -4537,7 +4537,7 @@ Resetting a password produces the Customer [CustomerPasswordUpdated](ctp:api:typ
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#customer_idid) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -4562,7 +4562,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingLists exist in a Store.
 - If a ShoppingList exists but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList exists in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4585,7 +4585,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingLists exist for a given Query Predicate in a Store.
 - If a ShoppingList matches the Query Predicate but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList exists in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4603,7 +4603,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
 
 
-Creates a ShoppingList in a Store for a Customer or anonymous user. The `customer` or `anonymousId` field on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#customer_idid) or [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+Creates a ShoppingList in a Store for a Customer or anonymous user. The `customer` or `anonymousId` field on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 When using this endpoint, the `store` field of a ShoppingList is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
@@ -4628,7 +4628,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the given `id` in a Store.
 - If a ShoppingList matches the given `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4652,7 +4652,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the given `id` in a Store.
 - If a ShoppingList matches the given `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4676,7 +4676,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the given `id` in a Store.
 - If a ShoppingList matches the given `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4700,7 +4700,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the given `id` in a Store.
 - If a ShoppingList matches the given `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4724,8 +4724,8 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the given `key` in a Store.
 - If a ShoppingList matches the given `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope,
-   or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope,
+   or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4749,7 +4749,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList exists that matches the given `key` in a Store.
 - If a ShoppingList matches the given `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4773,7 +4773,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the given `key` in a Store.
 - If a ShoppingList matches the given `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -4797,7 +4797,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the given `key` in a Store.
 - If a ShoppingList matches the given `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6277,7 +6277,7 @@ Returns a Customer for a given Query Predicate. Returns a `200 OK` status if suc
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Customer exists for the given Query Predicate.
-- If a Customer exists for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a Customer exists for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6292,7 +6292,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->post(null)`
 
-Updates the Customer specified in the [customer:{id}](/scopes#customer_idid) scope. Returns a `200 OK` status if successful.
+Updates the Customer specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope. Returns a `200 OK` status if successful.
 
 
 ### Example
@@ -6307,7 +6307,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->delete()`
 
-Deletes the Customer specified in the [customer:{id}](/scopes#customer_idid) scope. Returns a `200 OK` status if successful.
+Deletes the Customer specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope. Returns a `200 OK` status if successful.
 
 ### Example
 ```php
@@ -6328,7 +6328,7 @@ Carts with `Merchant` or `Quote` [CartOrigin](ctp:api:type:CartOrigin) are ignor
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no active Cart exists.
-- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6349,7 +6349,7 @@ Checks if an active Cart exists. Returns a `200 OK` status if successful.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no active Cart exists.
-- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6544,7 +6544,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->me()->carts()->post(null)`
 
 
-Creates a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#customer_idid) or [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+Creates a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 Specific Error Codes:
 
@@ -6572,7 +6572,7 @@ Returns a Cart for a given `id`. Returns a `200 OK` status if successful.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Cart exists for a given `id`.
-- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6594,7 +6594,7 @@ Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Cart exists for a given `id`.
-- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6616,7 +6616,7 @@ Updates the Cart for a given `id`. Returns a `200 OK` status if successful.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Cart exists for a given `id`.
-- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6638,7 +6638,7 @@ Deletes the Cart for a given `id`. Returns a `200 OK` status if successful.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Cart exists for a given `id`.
-- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6733,7 +6733,7 @@ Returns all Orders that match a given Query Predicate.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Orders exist for a given Query Predicate.
-- If the Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6754,7 +6754,7 @@ Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Order exists that matches the Query Predicate.
-- If one or more Orders exist but don't have either a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If one or more Orders exist but don't have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6771,12 +6771,12 @@ $request = $builder
 ## `withProjectKey("projectKey")->me()->orders()->post(null)`
 
 
-Creates an Order from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#customer_idid) or [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+Creates an Order from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 The Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction) for taxes to be calculated. When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
 Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
 
-If the Cart's `customerId` does not match the [customer:{id}](/scopes#customer_idid) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#anonymous_idid) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+If the Cart's `customerId` does not match the [customer:{id}](/scopes#composable-commerce-oauth) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 If a server-side problem occurs, indicated by a 500 Internal Server Error HTTP response, the Order creation may still successfully complete after the error is returned.
 If you receive this error, you should verify the status of the Order by querying a unique identifier supplied during the creation request, such as the Order number.
@@ -6811,7 +6811,7 @@ Returns an Order for a given `id`. Returns a `200 OK` status if successful.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Order exists for the given `id`.
-- If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6833,7 +6833,7 @@ Checks if an Order exists for a given `id`. Returns a `200 OK` status if success
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Order exists for the given `id`.
-- If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#customer_idid) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+- If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7303,7 +7303,7 @@ Returns all ShoppingLists that match the given Query Predicate. Returns a `200 O
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given Query Predicate.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7324,7 +7324,7 @@ Checks if a ShoppingList matches the given Query Predicate. Returns a `200 OK` s
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given Query Predicate.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7340,7 +7340,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->post(null)`
 
-Creates a ShoppingList for the Customer or anonymous user. The `customerId` or `anonymousId` on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#customer_idid) or [anonymous_id:{id}](/scopes#anonymous_idid) scope.
+Creates a ShoppingList for the Customer or anonymous user. The `customerId` or `anonymousId` on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7361,7 +7361,7 @@ Returns a ShoppingList for a given `id`. Returns a `200 OK` status if successful
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given `id`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7383,7 +7383,7 @@ Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` status if s
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given `id`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7405,7 +7405,7 @@ Updates a ShoppingList for a given `id`. Returns a `200 OK` status if successful
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given `id`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7427,7 +7427,7 @@ Deletes the ShoppingList for a given `id`. Returns a `200 OK` status if successf
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given `id`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7449,7 +7449,7 @@ Returns a ShoppingList for a given `key`. Returns a `200 OK` status if successfu
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given `key`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7471,7 +7471,7 @@ Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` status if 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given `key`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7493,7 +7493,7 @@ Updates a ShoppingList for a given `key`. Returns a `200 OK` status if successfu
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given `key`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7515,7 +7515,7 @@ Deletes the ShoppingList for a given `key`. Returns a `200 OK` status if success
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the given `key`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#anonymous_idid) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#customer_idid) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7550,7 +7550,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->get()`
 
-Deprecated scope: `view_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -7578,7 +7578,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->withId("ID")->get()`
 
-Deprecated scope: `view_orders:{projectKey}`
+Deprecated OAuth 2.0 Scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
