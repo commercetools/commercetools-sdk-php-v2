@@ -6914,7 +6914,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->get()`
 
-null
+Returns all [Payments](/projects/me-payments#mypayment) that match a given Query Predicate.
 
 ### Example
 ```php
@@ -6929,7 +6929,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->head()`
 
-Checks if a Payment exists for a given Query Predicate. Returns a `200 OK` status if any Payments match the Query Predicate or a `404 Not Found` otherwise.
+Checks if a [Payment](/projects/me-payments#mypayment) exists for a given Query Predicate. Returns a `200 OK` status if any Payments match the Query Predicate or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -6944,6 +6944,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->post(null)`
 
+Creates a [Payment](/projects/me-payments#mypayment) for the Customer or an anonymous user.
 Creating a Payment produces the [PaymentCreated](ctp:api:type:PaymentCreatedMessage) Message.
 
 
@@ -6960,7 +6961,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->get()`
 
-null
+Returns a [Payment](/projects/me-payments#mypayment) for a given `id`.
 
 ### Example
 ```php
@@ -6976,7 +6977,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->head()`
 
-Checks if a Payment exists for a given `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+Checks if a [Payment](/projects/me-payments#mypayment) exists for a given `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -6992,7 +6993,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->post(null)`
 
-This endpoint can only update a Payment when it has no [Transactions](ctp:api:type:Transaction).
+Updates a [Payment](/projects/me-payments#mypayment) for a given `id`.
+You can only update a [Payment](/projects/me-payments#mypayment) if it has no [Transactions](ctp:api:type:Transaction).
 
 
 ### Example
@@ -7009,7 +7011,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->delete()`
 
-This endpoint can only delete a Payment when it has no [Transactions](ctp:api:type:Transaction).
+Deletes the [Payment](/projects/me-payments#mypayment) for a given `id`.
+You can only delete a [Payment](/projects/me-payments#mypayment) if it has no [Transactions](ctp:api:type:Transaction).
 
 
 ### Example
