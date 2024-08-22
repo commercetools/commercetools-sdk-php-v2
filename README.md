@@ -89,6 +89,8 @@ $project = $request->mapFromResponse($promise->wait());
 $response = $client->send($request);
 $project = $request->mapFromResponse($response);
 ```
+
+
 ### Custom endpoint for different regions
 
 By default, the library uses `api.europe-west1.gcp.commercetools.com` endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the `us-central1` region:
@@ -106,6 +108,21 @@ $client = ClientFactory::of()->createGuzzleClient(
 );
 ```
 Note that the auth endpoint should contain the `/oauth/token` suffix, but the API endpoint - don't.
+
+
+### Configuring the scope
+
+The scope is needed when you have a client with multiple permissions but you want only a token for a specific scope. If you need to define the scope, you should combine the scope name with the project key, like this:
+
+```php
+const PROJECT_KEY = 'my_project_key';
+const SCOPE = 'manage_project:my_project_key';
+$clientCredentials = new ClientCredentials(CLIENT_ID, CLIENT_SECRET, SCOPE);
+$client = ClientFactory::of()->createGuzzleClient($new ClientCredentialsConfig($clientCredentials), new Config());
+```
+
+The oauth server will default a token request to the client permissions if the scope is being omitted. The best practice is to create a client in the Merchant Center with the needed permissions and omit the scope when requesting the token.
+
 
 ### Migration Guidelines
 To migrate from the 1.x to the 2.x, there is a guideline below:
