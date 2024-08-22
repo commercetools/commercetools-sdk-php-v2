@@ -28,6 +28,12 @@ final class CartDiscountValueAbsoluteDraftBuilder implements Builder
     private $money;
 
     /**
+
+     * @var ?string
+     */
+    private $applicationMode;
+
+    /**
      * <p>Money values in different currencies.
      * An absolute Cart Discount will match a price only if the array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$. If the array has multiple values of the same currency, the API returns an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error.</p>
      * <p>If the array is empty, the discount does not apply.</p>
@@ -41,6 +47,18 @@ final class CartDiscountValueAbsoluteDraftBuilder implements Builder
     }
 
     /**
+     * <p>Determines how the discount applies on <a href="ctp:api:type:CartDiscountLineItemsTarget">CartDiscountLineItemTarget</a> and <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemTarget</a>.</p>
+     * <p>If not set, the default behavior is <code>ProportionateDistribution</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApplicationMode()
+    {
+        return $this->applicationMode;
+    }
+
+    /**
      * @param ?MoneyCollection $money
      * @return $this
      */
@@ -51,11 +69,23 @@ final class CartDiscountValueAbsoluteDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $applicationMode
+     * @return $this
+     */
+    public function withApplicationMode(?string $applicationMode)
+    {
+        $this->applicationMode = $applicationMode;
+
+        return $this;
+    }
+
 
     public function build(): CartDiscountValueAbsoluteDraft
     {
         return new CartDiscountValueAbsoluteDraftModel(
-            $this->money
+            $this->money,
+            $this->applicationMode
         );
     }
 

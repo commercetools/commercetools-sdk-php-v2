@@ -28,6 +28,12 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
     private $money;
 
     /**
+
+     * @var ?string
+     */
+    private $applicationMode;
+
+    /**
      * <p>Cent precision money values in different currencies.</p>
      *
 
@@ -36,6 +42,17 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
     public function getMoney()
     {
         return $this->money;
+    }
+
+    /**
+     * <p>Determines how the discount is applied on <a href="ctp:api:type:CartDiscountLineItemsTarget">CartDiscountLineItemTarget</a> and <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemTarget</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApplicationMode()
+    {
+        return $this->applicationMode;
     }
 
     /**
@@ -49,11 +66,23 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $applicationMode
+     * @return $this
+     */
+    public function withApplicationMode(?string $applicationMode)
+    {
+        $this->applicationMode = $applicationMode;
+
+        return $this;
+    }
+
 
     public function build(): CartDiscountValueAbsolute
     {
         return new CartDiscountValueAbsoluteModel(
-            $this->money
+            $this->money,
+            $this->applicationMode
         );
     }
 

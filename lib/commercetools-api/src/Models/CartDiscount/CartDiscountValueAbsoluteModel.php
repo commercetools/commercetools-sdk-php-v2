@@ -33,15 +33,23 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
      */
     protected $money;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $applicationMode;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?CentPrecisionMoneyCollection $money = null,
+        ?string $applicationMode = null,
         ?string $type = null
     ) {
         $this->money = $money;
+        $this->applicationMode = $applicationMode;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -83,6 +91,26 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
         return $this->money;
     }
 
+    /**
+     * <p>Determines how the discount is applied on <a href="ctp:api:type:CartDiscountLineItemsTarget">CartDiscountLineItemTarget</a> and <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemTarget</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getApplicationMode()
+    {
+        if (is_null($this->applicationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_APPLICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->applicationMode = (string) $data;
+        }
+
+        return $this->applicationMode;
+    }
+
 
     /**
      * @param ?CentPrecisionMoneyCollection $money
@@ -90,5 +118,13 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     public function setMoney(?CentPrecisionMoneyCollection $money): void
     {
         $this->money = $money;
+    }
+
+    /**
+     * @param ?string $applicationMode
+     */
+    public function setApplicationMode(?string $applicationMode): void
+    {
+        $this->applicationMode = $applicationMode;
     }
 }
