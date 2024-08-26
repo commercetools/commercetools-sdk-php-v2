@@ -947,6 +947,7 @@ $rrpAttribute = ProductTypeFixture::findAttribute($productVariant->getAttributes
 assertEquals(30, $rrpAttribute->getValue()->centAmount);
 ```
 See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
+
 This means that, like the example below, an object can be easily serialized to JSON.
 ```php
 
