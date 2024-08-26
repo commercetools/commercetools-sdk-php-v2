@@ -58,7 +58,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
         ProductTypeFixture::deleteProductAndProductTypes($builder, self::BOOK_PRODUCT_TYPE_NAME);
     }
 
-    public function createBookProductTypeDraft()
+    private function createBookProductTypeDraft()
     {
         $isbn = AttributeDefinitionBuilder::of()
             ->withType(AttributeTextTypeBuilder::of()->build())
@@ -75,7 +75,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
             ->build();
     }
 
-    public function createTShirtProductTypeDraft()
+    private function createTShirtProductTypeDraft()
     {
         $green = AttributeLocalizedEnumValueBuilder::of()
                     ->withKey("green")
@@ -173,52 +173,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
                                 ->build();
     }
 
-    public function testCreateBookProductType()
-    {
-        $builder = $this->getApiBuilder();
-        $bookProductTypeDraft = $this->createBookProductTypeDraft();
-        $bookProductType = $builder
-            ->with()
-            ->productTypes()
-            ->post($bookProductTypeDraft)
-            ->execute();
-
-        $request = $builder
-            ->with()
-            ->productTypes()
-            ->withKey($bookProductType->getKey())
-            ->get();
-
-        $bookProductTypeQueryResponse = $request->execute();
-
-        $this->assertSame($bookProductType->getName(), $bookProductTypeQueryResponse->getName());
-        $this->assertSame($bookProductType->getKey(), $bookProductTypeQueryResponse->getKey());
-        $this->assertSame(1, $bookProductTypeQueryResponse->getVersion());
-    }
-
-    public function testCreateTShirtProductType()
-    {
-        $builder = $this->getApiBuilder();
-        $productTypeDraft = $this->createTShirtProductTypeDraft();
-        $productType = $builder
-            ->with()
-            ->productTypes()
-            ->post($productTypeDraft)
-            ->execute();
-
-        $request = $builder
-            ->with()
-            ->productTypes()
-            ->withId($productType->getId())
-            ->get();
-        $productTypeQueryResponse = $request->execute();
-
-        $this->assertSame($productType->getName(), $productTypeQueryResponse->getName());
-        $this->assertSame($productType->getId(), $productTypeQueryResponse->getId());
-        $this->assertSame(1, $productTypeQueryResponse->getVersion());
-    }
-
-    public function createProduct(ApiRequestBuilder $builder)
+    private function createProduct(ApiRequestBuilder $builder)
     {
         $referenceableProduct = ProductFixture::referenceableProduct($builder);
         $productType = ProductTypeFixture::fetchProductTypeByName($builder, self::PRODUCT_TYPE_NAME);
@@ -265,7 +220,7 @@ class ProductTypeCreationDemoTest extends ApiTestCase
         return $product;
     }
 
-    public function createBookProduct(ApiRequestBuilder $builder)
+    private function createBookProduct(ApiRequestBuilder $builder)
     {
         $isbn = AttributeDefinitionDraftBuilder::of()
             ->withType(AttributeTextTypeBuilder::of()->build())
@@ -278,31 +233,31 @@ class ProductTypeCreationDemoTest extends ApiTestCase
             ->withName(self::BOOK_PRODUCT_TYPE_NAME)
             ->withDescription("books")
             ->withAttributes(AttributeDefinitionDraftCollection::of()
-                                ->add($isbn))
+                ->add($isbn))
             ->build();
         $productType = $builder->productTypes()
             ->post($productTypeDraft)
             ->execute();
 
         $attributes = AttributeCollection::of()
-                        ->add(
-                            AttributeBuilder::of()
-                                ->withName(self::ISBN_ATTR_NAME)
-                                ->withValue("978-3-86680-192-9")
-                                ->build()
-                        );
+            ->add(
+                AttributeBuilder::of()
+                    ->withName(self::ISBN_ATTR_NAME)
+                    ->withValue("978-3-86680-192-9")
+                    ->build()
+            );
         $productVariantDraft = ProductVariantDraftBuilder::of()
-                                ->withAttributes($attributes)
-                                ->build();
+            ->withAttributes($attributes)
+            ->build();
         $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
-                                            ->withId($productType->getId())
-                                            ->build();
+            ->withId($productType->getId())
+            ->build();
         $productDraft = ProductDraftBuilder::of()
-                        ->withProductType($productTypeResourceIdentifier)
-                        ->withName(LocalizedStringBuilder::of()->put("en", "a book")->build())
-                        ->withSlug(LocalizedStringBuilder::of()->put("en", ProductTypeFixture::uniqueProductTypeString())->build())
-                        ->withMasterVariant($productVariantDraft)
-                        ->build();
+            ->withProductType($productTypeResourceIdentifier)
+            ->withName(LocalizedStringBuilder::of()->put("en", "a book")->build())
+            ->withSlug(LocalizedStringBuilder::of()->put("en", ProductTypeFixture::uniqueProductTypeString())->build())
+            ->withMasterVariant($productVariantDraft)
+            ->build();
 
         $product = $builder->products()
             ->post($productDraft)
@@ -315,6 +270,50 @@ class ProductTypeCreationDemoTest extends ApiTestCase
         return $product;
     }
 
+    public function testCreateBookProductType()
+    {
+        $builder = $this->getApiBuilder();
+        $bookProductTypeDraft = $this->createBookProductTypeDraft();
+        $bookProductType = $builder
+            ->with()
+            ->productTypes()
+            ->post($bookProductTypeDraft)
+            ->execute();
+
+        $request = $builder
+            ->with()
+            ->productTypes()
+            ->withKey($bookProductType->getKey())
+            ->get();
+
+        $bookProductTypeQueryResponse = $request->execute();
+
+        $this->assertSame($bookProductType->getName(), $bookProductTypeQueryResponse->getName());
+        $this->assertSame($bookProductType->getKey(), $bookProductTypeQueryResponse->getKey());
+        $this->assertSame(1, $bookProductTypeQueryResponse->getVersion());
+    }
+
+    public function testCreateTShirtProductType()
+    {
+        $builder = $this->getApiBuilder();
+        $productTypeDraft = $this->createTShirtProductTypeDraft();
+        $productType = $builder
+            ->with()
+            ->productTypes()
+            ->post($productTypeDraft)
+            ->execute();
+
+        $request = $builder
+            ->with()
+            ->productTypes()
+            ->withId($productType->getId())
+            ->get();
+        $productTypeQueryResponse = $request->execute();
+
+        $this->assertSame($productType->getName(), $productTypeQueryResponse->getName());
+        $this->assertSame($productType->getId(), $productTypeQueryResponse->getId());
+        $this->assertSame(1, $productTypeQueryResponse->getVersion());
+    }
 
     public function testInvalidTypeCausesException()
     {
@@ -563,7 +562,6 @@ class ProductTypeCreationDemoTest extends ApiTestCase
 
         assertEquals($attribute->getValue(), "978-3-86680-192-8");
     }
-
 
     public function testUpdateAttributesTShirt()
     {

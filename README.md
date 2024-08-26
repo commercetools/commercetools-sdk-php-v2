@@ -65,7 +65,7 @@ composer require commercetools/commercetools-sdk
 
 The SDK consists of the following projects:
 * `lib/commercetools-base/src`: Contains Client which communicate with Composable Commerce to execute requests, it contains also the classes related to the client like tokens, middlewares and handlers, and mappers and exceptions.
-* `lib/commercetools-api/src`: Contains all generated models and request builders to communicate with [Composable Commerce HTTP API](https://docs.commercetools.com/http-api.html).
+* `lib/commercetools-api/src`: Contains all generated models and request builders to communicate with [Composable Commerce HTTP API](https://docs.commercetools.com/api/).
 * `lib/commercetools-import/src`: Contains all generated models and request builders to communicate with the [Import API](https://docs.commercetools.com/import-api/).
 * `lib/commercetools-history/src`: Contains all generated models and request builders to communicate with the [Change History API](https://docs.commercetools.com/api/history/change-history).
 
@@ -167,9 +167,8 @@ Note that the auth endpoint should contain the `/oauth/token` suffix, but the AP
 ### Performing Requests
 
 Detailed information of all available methods for the product API can be found [here](lib/commercetools-api/docs/RequestBuilder.md)
-@INCLUDE(lib/commercetools-api/docs/RequestBuilder.md)
+
 Information for the Import API can be found [here](lib/commercetools-import/docs/RequestBuilder.md).
-@INCLUDE(lib/commercetools-import/docs/RequestBuilder.md)
 
 Examples to retrieve project information
 
@@ -363,7 +362,7 @@ $correlationIdMiddleware = MiddlewareFactory::createCorrelationIdMiddleware(
 <a id="retrynamiddleware"></a>
 ### RetryNAMiddleware
 
-The method [createRetryNAMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L66) is designed to create middleware that retries HTTP requests under certain conditions.
+The method [createRetryNAMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L66) is designed to create middleware that retries HTTP requests under certain conditions are met. This middleware is particularly useful in scenarios where transient errors, such as temporary server unavailability, may occur.
 
 ```php
 $maxRetries = 3;
@@ -373,7 +372,7 @@ $retryMiddleware = MiddlewareFactory::createRetryNAMiddleware($maxRetries);
 <a id="oauthhandlermiddleware"></a>
 ### OAuthHandlerMiddleware
 
-The method [createMiddlewareForOAuthHandler](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L95) creates a middleware for handling OAuth2 authentication ensuring to include th necessary OAuth credentials.
+The method [createMiddlewareForOAuthHandler](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L95) creates a middleware for handling OAuth2 authentication ensuring to include the necessary OAuth credentials.
 
 ```php
 $tokenProvider = new YourTokenProvider();
@@ -948,10 +947,6 @@ assertEquals(30, $rrpAttribute->getValue()->centAmount);
 ```
 See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
 
-This means that, like the example below, an object can be easily serialized to JSON.
-```php
-
-```
 ## Serialization
 In the PHP SDK some classes implement the [JsonSerializable](https://www.php.net/manual/en/class.jsonserializable.php) interface, and they have a customized `jsonSerialize()` method to convert the instance of the class to a JSON string easily.
 This mean that when the method `json_encode()` will be called, the object will be correctly converted and formatted to a JSON string.
