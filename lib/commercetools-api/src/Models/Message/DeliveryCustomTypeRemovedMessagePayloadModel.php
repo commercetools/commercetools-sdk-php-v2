@@ -1,0 +1,129 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\Message;
+
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
+/**
+ * @internal
+ */
+final class DeliveryCustomTypeRemovedMessagePayloadModel extends JsonObjectModel implements DeliveryCustomTypeRemovedMessagePayload
+{
+    public const DISCRIMINATOR_VALUE = 'DeliveryCustomTypeRemoved';
+    /**
+     *
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $previousTypeId;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $deliveryId;
+
+
+    /**
+     * @psalm-suppress MissingParamType
+     */
+    public function __construct(
+        ?string $previousTypeId = null,
+        ?string $deliveryId = null,
+        ?string $type = null
+    ) {
+        $this->previousTypeId = $previousTypeId;
+        $this->deliveryId = $deliveryId;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     *
+     * @return null|string
+     */
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Type">Custom Type</a> that was removed. Absent if there was no previous Custom Type present.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPreviousTypeId()
+    {
+        if (is_null($this->previousTypeId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_TYPE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->previousTypeId = (string) $data;
+        }
+
+        return $this->previousTypeId;
+    }
+
+    /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
+    }
+
+
+    /**
+     * @param ?string $previousTypeId
+     */
+    public function setPreviousTypeId(?string $previousTypeId): void
+    {
+        $this->previousTypeId = $previousTypeId;
+    }
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void
+    {
+        $this->deliveryId = $deliveryId;
+    }
+}

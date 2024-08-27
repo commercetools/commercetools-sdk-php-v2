@@ -57,7 +57,7 @@ final class SearchSortingBuilder implements Builder
     private $filter;
 
     /**
-     * <p>Use any searchable field of the resource as sort criterion.</p>
+     * <p>Use any searchable field of the resource as sort criterion, or <code>&quot;score&quot;</code> to sort by relevance score calculated by the API.</p>
      *
 
      * @return null|string

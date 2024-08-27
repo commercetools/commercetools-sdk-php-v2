@@ -70,7 +70,8 @@ final class QuoteRequestDraftBuilder implements Builder
 
     /**
      * <p>Cart for which a Quote is requested.
-     * Anonymous Carts, Carts with <a href="ctp:api:type:DiscountCode">Discount Codes</a>, or Carts with a <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a> are not supported.</p>
+     * Anonymous Carts, Carts with <a href="ctp:api:type:DiscountCode">Discount Codes</a>, and Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a> are not supported.
+     * The Cart must have a <code>shippingAddress</code> defined, otherwise an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned when <a href="ctp:api:endpoint:/{projectKey}/quote-requests:POST">creating a Quote Request</a>.</p>
      *
 
      * @return null|CartResourceIdentifier
