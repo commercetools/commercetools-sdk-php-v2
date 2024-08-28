@@ -3,8 +3,15 @@
 namespace Commercetools\IntegrationTest\Api\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Product\Attribute;
+use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\ProductUnpublishActionBuilder;
+use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
+use Commercetools\Api\Models\Product\ProductUpdateBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftBuilder;
 use Commercetools\Api\Models\ProductType\AttributeDefinitionDraftCollection;
+use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumTypeBuilder;
+use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValueCollection;
 use Commercetools\Api\Models\ProductType\AttributeTextTypeBuilder;
 use Commercetools\Api\Models\ProductType\ProductType;
 use Commercetools\Api\Models\ProductType\ProductTypeDraft;
@@ -17,6 +24,144 @@ class ProductTypeFixture
     final public static function uniqueProductTypeString(): string
     {
         return 'test-' . Uuid::uuid4();
+    }
+
+    public static function findAttribute(AttributeCollection $attributes, string $attributeName): ?Attribute
+    {
+        foreach ($attributes as $attribute) {
+            if ($attribute->getName() === $attributeName) {
+                return $attribute;
+            }
+        }
+
+        return null;
+    }
+
+    public static function findAttributeWithAccessor(AttributeCollection $attributes, string $attributeName, callable $accessor): ?Attribute
+    {
+        foreach ($attributes as $attribute) {
+            if ($attribute->getName() === $attributeName) {
+                return $accessor($attribute);
+            }
+        }
+
+        return null;
+    }
+
+    public static function deleteProductAndProductTypes(ApiRequestBuilder $builder, string $name): void
+    {
+        $bookProductTypeQueryResponse = $builder
+            ->with()
+            ->productTypes()
+            ->get()
+            ->withQueryParam("name", $name)
+            ->execute();
+        $bookProductType = $bookProductTypeQueryResponse->getResults()->current();
+
+        if (!is_null($bookProductType)) {
+            $products = $builder
+                ->with()
+                ->products()
+                ->get()
+                ->withQueryParam("typeId", $bookProductType->getId())
+                ->execute()
+                ->getResults();
+
+            foreach ($products as $product) {
+                $unpublishedProduct = $builder->with()->products()->withId($product->getId())
+                    ->post(
+                        ProductUpdateBuilder::of()
+                            ->withVersion($product->getVersion())
+                            ->withActions(
+                                ProductUpdateActionCollection::of()->add(ProductUnpublishActionBuilder::of()->build())
+                            )->build()
+                    );
+                $product = $unpublishedProduct->execute();
+
+                $builder->products()
+                    ->withId($product->getId())
+                    ->delete()
+                    ->withVersion($product->getVersion())
+                    ->execute();
+            }
+
+            $builder
+                ->productTypes()
+                ->withKey($bookProductType->getKey())
+                ->delete()
+                ->withVersion($bookProductType->getVersion())
+                ->execute();
+        }
+    }
+
+    public static function defaultProductType(ApiRequestBuilder $builder, string $name = null): ProductType
+    {
+        $name = $name ?? "referenceable-product-1";
+
+        $productType = self::fetchProductTypeByName($builder, $name);
+        if (is_null($productType)) {
+            $productType = self::createProductType($builder, $name);
+        }
+
+        return $productType;
+    }
+
+    public static function fetchProductTypeByName(ApiRequestBuilder $builder, string $name): ?ProductType
+    {
+        $productType = $builder
+            ->with()
+            ->productTypes()
+            ->get()
+            ->withQueryParam('where', 'name="' . $name . '"')
+            ->execute();
+
+        return $productType->getResults()->current() ?: null;
+    }
+
+    public static function createProductType(ApiRequestBuilder $builder, string $name): ?ProductType
+    {
+        $productTypeDraft = ProductTypeDraftBuilder::of()
+            ->withKey(self::uniqueProductTypeString())
+            ->withName($name)
+            ->withDescription(self::uniqueProductTypeString())
+            ->withAttributes(new AttributeDefinitionDraftCollection([]))
+            ->build();
+
+        $productType = $builder->productTypes()
+            ->get()
+            ->withQueryParam('where', sprintf('name="%s"', $name))
+            ->execute();
+        $existingProductType = $productType->getResults()->current();
+
+        if ($existingProductType) {
+            return $existingProductType;
+        } else {
+            return $builder->productTypes()
+                ->post($productTypeDraft)
+                ->execute();
+        }
+    }
+
+    public function createProductTypeDraftWithAttribute()
+    {
+        $attributeDefinitionDraft = AttributeDefinitionDraftBuilder::of()
+            ->withName(ProductTypeFixture::uniqueProductTypeString())
+            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "random-label"])->build())
+            ->withType(AttributeLocalizedEnumTypeBuilder::of()
+                ->withValues(AttributeLocalizedEnumValueCollection::fromArray(["random-type1", "random-type2"]))
+                ->build())
+            ->withAttributeConstraint(ProductTypeFixture::uniqueProductTypeString())
+            ->withInputHint("SingleLine")
+            ->withIsSearchable(true)
+            ->withIsRequired(true)
+            ->build();
+
+        return $productTypeDraft = ProductTypeDraftBuilder::of()
+            ->withKey(ProductTypeFixture::uniqueProductTypeString())
+            ->withName(ProductTypeFixture::uniqueProductTypeString())
+            ->withDescription(ProductTypeFixture::uniqueProductTypeString())
+            ->withAttributes(AttributeDefinitionDraftCollection::fromArray([$attributeDefinitionDraft]))
+            ->build();
     }
 
     final public static function defaultProductTypeDraftFunction(): ProductTypeDraftBuilder
