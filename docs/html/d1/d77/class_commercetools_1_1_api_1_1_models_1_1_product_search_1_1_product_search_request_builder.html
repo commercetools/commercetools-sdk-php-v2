@@ -24,9 +24,8 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">10.5.0</span>
    </div>
-   <div id="projectbrief">The platform and import-api PHP sdks generated from our api reference.</div>
+   <div id="projectbrief">The commercetools platform, import-api and PHP sdks generated from our api reference.</div>
   </td>
  </tr>
  </tbody>
@@ -198,10 +197,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The maximum number of search results to be returned.</p>
+<p>The maximum number of search results to be returned in one <a href="../..//../api/projects/product-search#pagination">page</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00102">102</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00103">103</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -222,7 +221,7 @@ Static Public Member Functions</h2></td></tr>
 <p>The search can return Products where not all <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Variants match the search criteria. If <code>true</code>, the response will include a field called <code>matchingVariants</code> that contains the <code>sku</code> of <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Variants that match the search query. If the query does not specify any variant-level criteria, <code>matchingVariants</code> will be null signifying that all <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Variants are a match.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00124">124</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00125">125</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -240,10 +239,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The number of search results to be skipped in the response for pagination.</p>
+<p>The number of search results to be skipped in the response for <a href="../..//../api/projects/product-search#pagination">pagination</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00113">113</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00114">114</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -282,7 +281,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set this field to <code>{}</code> to get the <a href="../../ctp:api:type:ProductProjection">ProductProjection</a> included in the <a href="../../ctp:api:type:ProductSearchResult">ProductSearchResult</a>. Include query parameters for controlling <a href="../..//../api/general-concepts#reference-expansion">Reference Expansion</a> or <a href="../..//../api/projects/productProjections#projection-dimensions">projections</a> according to your needs. If not set, the result does not include the <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Projection.</p>
+<p>Controls data integration <a href="../..//../api/projects/product-search#with-product-projection-parameters">with Product Projection parameters</a>. If not set, the result does not include the <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> Projection.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductSearchProjectionParams </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00137">137</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
@@ -324,10 +323,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Controls how results to your query are sorted. If not provided, the results are sorted by relevance in descending order.</p>
+<p>Controls how results to your query are <a href="../..//../api/projects/product-search#sorting">sorted</a>. If not provided, the results are sorted by relevance score in descending order.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|SearchSortingCollection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00091">91</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00092">92</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -508,7 +507,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002530">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d1/d77/class_commercetools_1_1_api_1_1_models_1_1_product_search_1_1_product_search_request_builder.html#a9e9cc3c02a084e4b73c1744a2d4ecd33">withPostFilter()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002552">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d1/d77/class_commercetools_1_1_api_1_1_models_1_1_product_search_1_1_product_search_request_builder.html#a9e9cc3c02a084e4b73c1744a2d4ecd33">withPostFilter()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00279">279</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
@@ -557,7 +556,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002529">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d1/d77/class_commercetools_1_1_api_1_1_models_1_1_product_search_1_1_product_search_request_builder.html#afb1a4c8708c21ab60f379288b94d33a7">withProductProjectionParameters()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002551">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d1/d77/class_commercetools_1_1_api_1_1_models_1_1_product_search_1_1_product_search_request_builder.html#afb1a4c8708c21ab60f379288b94d33a7">withProductProjectionParameters()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00268">268</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>
@@ -606,7 +605,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002528">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d1/d77/class_commercetools_1_1_api_1_1_models_1_1_product_search_1_1_product_search_request_builder.html#adebe43245ca548e365de44bc3be18f53">withQuery()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002550">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d1/d77/class_commercetools_1_1_api_1_1_models_1_1_product_search_1_1_product_search_request_builder.html#adebe43245ca548e365de44bc3be18f53">withQuery()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html#l00257">257</a> of file <a class="el" href="../../d2/df3/_product_search_request_builder_8php_source.html">ProductSearchRequestBuilder.php</a>.</p>

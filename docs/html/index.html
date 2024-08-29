@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>commercetools-sdk-php-v2: Commercetools</title>
+<title>commercetools-sdk-php-v2: Composable Commerce PHP SDK</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,9 +24,8 @@
   <td id="projectlogo"><img alt="Logo" src="ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">10.5.0</span>
    </div>
-   <div id="projectbrief">The platform and import-api PHP sdks generated from our api reference.</div>
+   <div id="projectbrief">The commercetools platform, import-api and PHP sdks generated from our api reference.</div>
   </td>
  </tr>
  </tbody>
@@ -66,15 +65,138 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Commercetools </div>  </div>
+<div class="title">Composable Commerce PHP SDK </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> Client and Request Builder for making API requests against <a href="https://www.commercetools.com">Commercetools</a>.</p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Installation</h1>
+Index of Topics</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#package-and-installation">Package and Installation</a></li>
+<li><a href="#technical-overview">Technical Overview</a><ul>
+<li><a href="#placeholder-values">Placeholder values</a></li>
+</ul>
+</li>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#client-creation">Client Creation</a></li>
+<li><a href="#customize-endpoint-for-different-regions">Customize Endpoint for different regions</a></li>
+<li><a href="#performing-requests">Performing Requests</a></li>
+</ul>
+</li>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#applying-psrs">Applying PSRs</a></li>
+<li><a href="#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li><a href="#authentication">Authentication</a><ul>
+<li><a href="#token-storage-creation">Token Storage Creation</a></li>
+<li><a href="#password-flow">Password Flow</a></li>
+<li><a href="#anonymous-flow">Anonymous Flow</a></li>
+<li><a href="#refresh-flow">Refresh Flow</a></li>
+</ul>
+</li>
+<li><a href="#middlewares">Middlewares</a><ul>
+<li><a href="#defaultmiddleware">DefaultMiddleware</a></li>
+<li><a href="#correlationidmiddleware">CorrelationIdMiddleware</a></li>
+<li><a href="#retrynamiddleware">RetryNAMiddleware</a></li>
+<li><a href="#oauthhandlermiddleware">OAuthHandlerMiddleware</a></li>
+<li><a href="#loggermiddleware">LoggerMiddleware</a></li>
+<li><a href="#reauthenticatemiddleware">ReauthenticateMiddleware</a></li>
+</ul>
+</li>
+<li><a href="#querying">Querying</a><ul>
+<li><a href="#predicates">Predicates</a></li>
+<li><a href="#get-by-idkey">Get By Id/Key</a></li>
+<li><a href="#sorting">Sorting</a></li>
+<li><a href="#pagination">Pagination</a></li>
+</ul>
+</li>
+<li><a href="#products-and-producttypes">Products and ProductTypes</a><ul>
+<li><a href="#producttype-creation">ProductType Creation</a></li>
+<li><a href="#product-creation">Product Creation</a></li>
+<li><a href="#reading-attributes">Reading Attributes</a></li>
+<li><a href="#update-attribute-values-of-a-product">Update attribute values of a product</a></li>
+</ul>
+</li>
+<li><a href="#serialization">Serialization</a></li>
+<li><a href="#migration-guidelines-from-sdk-v1">Migration Guidelines From SDK v1</a></li>
+<li><a href="#observability">Observability</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<p><a class="anchor" id="introduction"></a> </p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Introduction</h1>
+<p>This repository contains the PHP SDK generated from the Composable Commerce API reference.</p>
+<p>Client and Request Builder for making API requests against <a href="https://www.commercetools.com">Commercetools</a>.</p>
+<p><a class="anchor" id="package-and-installation"></a> </p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Package and Installation</h1>
 <div class="fragment"><div class="line">composer require commercetools/commercetools-sdk</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
-Usage</h1>
+</div><!-- fragment --><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Package   </th><th class="markdownTableHeadNone">Version    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">commercetools SDK   </td><td class="markdownTableBodyNone"><a href="https://packagist.org/packages/commercetools/commercetools-sdk"><img src="https://img.shields.io/packagist/v/commercetools/commercetools-sdk.svg" alt="Latest Stable Version" style="pointer-events: none;" class="inline"/></a> <a href="https://packagist.org/packages/commercetools/commercetools-sdk"><img src="https://img.shields.io/packagist/dt/commercetools/commercetools-sdk.svg" alt="Total Downloads" style="pointer-events: none;" class="inline"/></a>   </td></tr>
+</table>
+<p><a class="anchor" id="technical-overview"></a> </p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Technical Overview</h1>
+<p>The SDK consists of the following projects:</p><ul>
+<li><code>lib/commercetools-base/src</code>: Contains Client which communicate with Composable Commerce to execute requests, it contains also the classes related to the client like tokens, middlewares and handlers, and mappers and exceptions.</li>
+<li><code>lib/commercetools-api/src</code>: Contains all generated models and request builders to communicate with <a href="https://docs.commercetools.com/api/">Composable Commerce HTTP API</a>.</li>
+<li><code>lib/commercetools-import/src</code>: Contains all generated models and request builders to communicate with the <a href="https://docs.commercetools.com/import-api/">Import API</a>.</li>
+<li><code>lib/commercetools-history/src</code>: Contains all generated models and request builders to communicate with the <a href="https://docs.commercetools.com/api/history/change-history">Change History API</a>.</li>
+</ul>
+<p>In addition, the SDK has the following directories:</p><ul>
+<li><code>examples/symfony-app</code> : it shows how the PHP SDK can be used in a Symfony application for a Docker environment with NewRelic monitoring enabled.</li>
+<li><code>test/integration</code> : Integration Tests for the SDK. A good way for anyone using the PHP SDK to understand it further.</li>
+<li><code>test/unit</code> : Unit Tests for</li>
+<li><code>lib/commercetools-api-tests</code> : generated unit test for each class for the api folder</li>
+<li><code>lib/commercetools-history-tests</code> : generated unit test for each class for the history folder</li>
+<li><code>lib/commercetools-import-tests</code> : generated unit test for each class for the import folder</li>
+</ul>
+<p>The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:</p>
+<ul>
+<li><a href="https://www.php.net/manual/en/jsonserializable.jsonserialize.php">JSON serializer</a></li>
+<li><a href="https://www.php-fig.org/psr/psr-3/">PSR-3 - LoggerInterface</a></li>
+<li><a href="https://www.php-fig.org/psr/psr-4/">PSR-4 - Autoloader</a></li>
+<li><a href="https://www.php-fig.org/psr/psr-6/">PSR-6 - CachingInterface</a></li>
+<li><a href="https://www.php-fig.org/psr/psr-7/">PSR-7 - HTTP Message Interface</a></li>
+<li><a href="https://www.php-fig.org/psr/psr-16/">PSR-16 - Common Interface for Caching Libraries</a></li>
+<li><a href="https://www.php-fig.org/psr/psr-18/">PSR-18 - HTTP Client</a></li>
+<li>PHP Date API:<ul>
+<li><a href="https://secure.php.net/manual/en/datetimeimmutable.construct.php">DateTimeImmutable</a></li>
+</ul>
+</li>
+</ul>
+<p><a class="anchor" id="placeholder-values"></a> </p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Placeholder values</h2>
+<p>Example code in this guide uses placeholders that should be replaced with the following values.</p>
+<p>If you do not have an API Client, follow our <a href="#client-creation">Get your API Client</a> guide.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Placeholder   </th><th class="markdownTableHeadNone">Replace with   </th><th class="markdownTableHeadNone">From    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>{projectKey}</code>   </td><td class="markdownTableBodyNone">project_key   </td><td class="markdownTableBodyNone">your API Client    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>{clientID}</code>   </td><td class="markdownTableBodyNone">client_id   </td><td class="markdownTableBodyNone">your API Client    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>{clientSecret}</code>   </td><td class="markdownTableBodyNone">secret   </td><td class="markdownTableBodyNone">your API Client    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>{scope}</code>   </td><td class="markdownTableBodyNone">scope   </td><td class="markdownTableBodyNone">your API Client    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>{region}</code>   </td><td class="markdownTableBodyNone">your Region   </td><td class="markdownTableBodyNone"><a href="/../api/general-concepts#hosts">Hosts</a>   </td></tr>
+</table>
+<p><a class="anchor" id="getting-started"></a> </p>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Getting Started</h1>
+<p><a class="anchor" id="client-creation"></a> </p>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Client Creation</h2>
+<p>The example below shows how to create a client with customized URIs passed in the creation of the Client itself. You will find the same classes in the Import API folder.</p>
 <div class="fragment"><div class="line"><span class="keyword">namespace </span>Commercetools;</div>
 <div class="line"> </div>
 <div class="line">use <a class="code" href="db/d6f/class_commercetools_1_1_api_1_1_client_1_1_client_credentials_config.html">Commercetools\Api\Client\ClientCredentialsConfig</a>;</div>
@@ -84,44 +206,63 @@ Usage</h1>
 <div class="line"> </div>
 <div class="line">require_once __DIR__ . <span class="stringliteral">&#39;/vendor/autoload.php&#39;</span>;</div>
 <div class="line"> </div>
-<div class="line">$authConfig = <span class="keyword">new</span> ClientCredentialsConfig(<span class="keyword">new</span> ClientCredentials($clientId, $clientSecret));</div>
-<div class="line"> </div>
+<div class="line">$authConfig = <span class="keyword">new</span> ClientCredentialsConfig(</div>
+<div class="line">    <span class="keyword">new</span> ClientCredentials(<span class="stringliteral">&#39;{clientID}&#39;</span>, <span class="stringliteral">&#39;{clientSecret}&#39;</span>, <span class="stringliteral">&#39;{scope}&#39;</span>),</div>
+<div class="line">    [],</div>
+<div class="line">    <span class="stringliteral">&#39;https://auth.{region}.commercetools.com/oauth/token&#39;</span></div>
+<div class="line">);</div>
 <div class="line">$client = ClientFactory::of()-&gt;createGuzzleClient(</div>
-<div class="line">    <span class="keyword">new</span> Config(),</div>
+<div class="line">    <span class="keyword">new</span> Config([], <span class="stringliteral">&#39;https://api.{region}.commercetools.com&#39;</span>),</div>
 <div class="line">    $authConfig</div>
 <div class="line">);</div>
 <div class="ttc" id="aclass_commercetools_1_1_api_1_1_client_1_1_client_credentials_config_html"><div class="ttname"><a href="db/d6f/class_commercetools_1_1_api_1_1_client_1_1_client_credentials_config.html">Commercetools\Api\Client\ClientCredentialsConfig</a></div><div class="ttdef"><b>Definition:</b> <a href="d5/db0/commercetools-api_2src_2_client_2_client_credentials_config_8php_source.html#l00015">ClientCredentialsConfig.php:16</a></div></div>
 <div class="ttc" id="aclass_commercetools_1_1_api_1_1_client_1_1_config_html"><div class="ttname"><a href="db/d62/class_commercetools_1_1_api_1_1_client_1_1_config.html">Commercetools\Api\Client\Config</a></div><div class="ttdef"><b>Definition:</b> <a href="d8/da2/commercetools-api_2src_2_client_2_config_8php_source.html#l00014">Config.php:15</a></div></div>
 <div class="ttc" id="aclass_commercetools_1_1_client_1_1_client_credentials_html"><div class="ttname"><a href="da/d64/class_commercetools_1_1_client_1_1_client_credentials.html">Commercetools\Client\ClientCredentials</a></div><div class="ttdef"><b>Definition:</b> <a href="da/d81/_client_credentials_8php_source.html#l00015">ClientCredentials.php:16</a></div></div>
 <div class="ttc" id="aclass_commercetools_1_1_client_1_1_client_factory_html"><div class="ttname"><a href="d0/dd3/class_commercetools_1_1_client_1_1_client_factory.html">Commercetools\Client\ClientFactory</a></div><div class="ttdef"><b>Definition:</b> <a href="d2/d8a/_client_factory_8php_source.html#l00018">ClientFactory.php:19</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
-RequestBuilder</h2>
-<p>Detailed information of all available methods for the product API can be found here. Information for the Import API can be found here.</p>
+</div><!-- fragment --><p><a class="anchor" id="customize-endpoint-for-different-regions"></a> </p>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Customize Endpoint for different regions</h2>
+<p>By default, the library uses <code>api.europe-west1.gcp.commercetools.com</code> endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the <code>us-central1</code> region: </p><div class="fragment"><div class="line">$authConfig = <span class="keyword">new</span> ClientCredentialsConfig(</div>
+<div class="line">    <span class="keyword">new</span> ClientCredentials(<span class="stringliteral">&#39;{clientId}&#39;</span>, <span class="stringliteral">&#39;{clientSecret}&#39;</span>), </div>
+<div class="line">    [], </div>
+<div class="line">    <span class="stringliteral">&#39;https://auth.us-central1.gcp.commercetools.com/oauth/token&#39;</span></div>
+<div class="line">);</div>
+<div class="line"> </div>
+<div class="line">$config = <span class="keyword">new</span> Config([], <span class="stringliteral">&#39;https://api.us-central1.gcp.commercetools.com&#39;</span>);</div>
+<div class="line">$client = ClientFactory::of()-&gt;createGuzzleClient(</div>
+<div class="line">    $config,</div>
+<div class="line">    $authConfig,</div>
+<div class="line">);</div>
+</div><!-- fragment --><p> Note that the auth endpoint should contain the <code>/oauth/token</code> suffix, but the API endpoint - don't.</p>
+<p><a class="anchor" id="performing-requests"></a> </p>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Performing Requests</h2>
+<p>Detailed information of all available methods for the product API can be found <a class="el" href="df/df4/md_lib_commercetools_api_docs__request_builder.html">here</a></p>
+<p>Information for the Import API can be found <a class="el" href="d9/df0/md_lib_commercetools_import_docs__request_builder.html">here</a>.</p>
 <p>Examples to retrieve project information</p>
 <div class="fragment"><div class="line">use <a class="code" href="d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
 <div class="line">use GuzzleHttp\ClientInterface;</div>
 <div class="line"> </div>
 <div class="line">$builder =  <span class="keyword">new</span> ApiRequestBuilder($client);</div>
-<div class="line">$request = $builder-&gt;withProjectKey(<span class="stringliteral">&#39;your-project-key&#39;</span>)-&gt;get();</div>
+<div class="line">$request = $builder-&gt;withProjectKey(<span class="stringliteral">&#39;{projectKey}&#39;</span>)-&gt;get();</div>
 <div class="ttc" id="aclass_commercetools_1_1_api_1_1_client_1_1_api_request_builder_html"><div class="ttname"><a href="d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a></div><div class="ttdef"><b>Definition:</b> <a href="d1/d96/lib_2commercetools-api_2src_2_client_2_api_request_builder_8php_source.html#l00019">ApiRequestBuilder.php:20</a></div></div>
 </div><!-- fragment --><p>To avoid specifying the project key for every request built it's possible to use the ones in the <code>Commercetools\Client</code> namespace instead</p>
 <div class="fragment"><div class="line">use <a class="code" href="d9/dd9/class_commercetools_1_1_client_1_1_api_request_builder.html">Commercetools\Client\ApiRequestBuilder</a>;</div>
 <div class="line">use <a class="code" href="d8/d37/class_commercetools_1_1_client_1_1_import_request_builder.html">Commercetools\Client\ImportRequestBuilder</a>;</div>
 <div class="line">use GuzzleHttp\ClientInterface;</div>
 <div class="line"> </div>
-<div class="line">$builder =  <span class="keyword">new</span> ApiRequestBuilder(<span class="stringliteral">&#39;your-project-key&#39;</span>, $client);</div>
+<div class="line">$builder =  <span class="keyword">new</span> ApiRequestBuilder(<span class="stringliteral">&#39;{projectKey}&#39;</span>, $client);</div>
 <div class="line">$request = $builder-&gt;categories()-&gt;get();</div>
 <div class="line"> </div>
-<div class="line">$importBuilder =  <span class="keyword">new</span> ImportRequestBuilder(<span class="stringliteral">&#39;your-project-key&#39;</span>, $client);</div>
+<div class="line">$importBuilder =  <span class="keyword">new</span> ImportRequestBuilder(<span class="stringliteral">&#39;{projectKey}&#39;</span>, $client);</div>
 <div class="line">$request = $importBuilder-&gt;importSinks()-&gt;get();</div>
 <div class="ttc" id="aclass_commercetools_1_1_client_1_1_api_request_builder_html"><div class="ttname"><a href="d9/dd9/class_commercetools_1_1_client_1_1_api_request_builder.html">Commercetools\Client\ApiRequestBuilder</a></div><div class="ttdef"><b>Definition:</b> <a href="da/d91/src_2_client_2_api_request_builder_8php_source.html#l00011">ApiRequestBuilder.php:12</a></div></div>
 <div class="ttc" id="aclass_commercetools_1_1_client_1_1_import_request_builder_html"><div class="ttname"><a href="d8/d37/class_commercetools_1_1_client_1_1_import_request_builder.html">Commercetools\Client\ImportRequestBuilder</a></div><div class="ttdef"><b>Definition:</b> <a href="d0/d4b/src_2_client_2_import_request_builder_8php_source.html#l00010">ImportRequestBuilder.php:11</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
-Executing requests</h2>
+</div><!-- fragment --><p> These are some examples about how to execute a request:</p>
 <div class="fragment"><div class="line">use <a class="code" href="d9/dd9/class_commercetools_1_1_client_1_1_api_request_builder.html">Commercetools\Client\ApiRequestBuilder</a>;</div>
 <div class="line">use GuzzleHttp\ClientInterface;</div>
 <div class="line"> </div>
-<div class="line">$builder =  <span class="keyword">new</span> ApiRequestBuilder(<span class="stringliteral">&#39;your-project-key&#39;</span>, $client);</div>
+<div class="line">$builder =  <span class="keyword">new</span> ApiRequestBuilder(<span class="stringliteral">&#39;{projectKey}&#39;</span>, $client);</div>
 <div class="line">$request = $builder-&gt;with()-&gt;get();</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// executing the request and mapping the response directly to a domain model</span></div>
@@ -140,34 +281,642 @@ Executing requests</h2>
 <div class="line"><span class="comment">// send the request using a client instance</span></div>
 <div class="line">$response = $client-&gt;send($request);</div>
 <div class="line">$project = $request-&gt;mapFromResponse($response);</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md5"></a>
-Custom endpoint for different regions</h2>
-<p>By default, the library uses <code>api.europe-west1.gcp.commercetools.com</code> endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the <code>us-central1</code> region: </p><div class="fragment"><div class="line">$authConfig = <span class="keyword">new</span> ClientCredentialsConfig(</div>
-<div class="line">  <span class="keyword">new</span> ClientCredentials(CLIENT_ID, CLIENT_SECRET), </div>
-<div class="line">  [], </div>
-<div class="line">  <span class="stringliteral">&#39;https://auth.us-central1.gcp.commercetools.com/oauth/token&#39;</span></div>
+</div><!-- fragment --><p><a class="anchor" id="configuration"></a> </p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Configuration</h1>
+<p><a class="anchor" id="applying-psrs"></a> </p>
+<h2><a class="anchor" id="autotoc_md11"></a>
+Applying PSRs</h2>
+<p>The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:</p><ul>
+<li><a href="https://www.php-fig.org/psr/psr-3/">PS3 - Logger Interface</a></li>
+</ul>
+<div class="fragment"><div class="line">$authHandler = HandlerStack::create();</div>
+<div class="line">$authHandler-&gt;push(</div>
+<div class="line">    MiddlewareFactory::createLoggerMiddleware(<span class="keyword">new</span> Logger(<span class="stringliteral">&#39;auth&#39;</span>, [<span class="keyword">new</span> StreamHandler(<span class="stringliteral">&#39;./logs/requests.log&#39;</span>)]))</div>
+<div class="line">);</div>
+<div class="line">$authConfig = <span class="keyword">new</span> ClientCredentialsConfig(<span class="keyword">new</span> ClientCredentials($clientId, $clientSecret), [</div>
+<div class="line">    <span class="stringliteral">&#39;handler&#39;</span> =&gt; $authHandler,</div>
+<div class="line">]);</div>
+<div class="line">$logger = <span class="keyword">new</span> Logger(<span class="stringliteral">&#39;client&#39;</span>, [<span class="keyword">new</span> StreamHandler(<span class="stringliteral">&#39;./logs/requests.log&#39;</span>)]);</div>
+<div class="line">$client = ClientFactory::of()-&gt;createGuzzleClientForHandler(</div>
+<div class="line">    <span class="keyword">new</span> Config([<span class="stringliteral">&#39;maxRetries&#39;</span> =&gt; 3]),</div>
+<div class="line">    OAuthHandlerFactory::ofAuthConfig($authConfig),</div>
+<div class="line">    $logger</div>
+<div class="line">);</div>
+</div><!-- fragment --><ul>
+<li><a href="https://www.php-fig.org/psr/psr-6/">PSR-6 - CachingInterface</a> <div class="fragment"><div class="line">use Symfony\Component\Cache\Adapter\FilesystemAdapter;</div>
+<div class="line">$filesystemCache = <span class="keyword">new</span> FilesystemAdapter();</div>
+<div class="line"> </div>
+<div class="line">$config = <span class="keyword">new</span> Config([<span class="stringliteral">&#39;timeout&#39;</span> =&gt; 30]);</div>
+<div class="line">$client = ClientFactory-&gt;createGuzzleClientForHandler(</div>
+<div class="line">    $config,</div>
+<div class="line">    OAuthHandlerFactory::ofAuthConfig($authConfig, $cache)</div>
+<div class="line">);</div>
+</div><!-- fragment --></li>
+<li><a href="https://www.php-fig.org/psr/psr-7/">PSR-7 - HTTP Message Interface</a> <div class="fragment"><div class="line"><span class="comment">//set up the client something like the examples before</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// create a guzzle request</span></div>
+<div class="line"><span class="comment"></span>$request = $client-&gt;with()-&gt;categories()-&gt;withId($category-&gt;getId())-&gt;get()-&gt;withExpand(<span class="stringliteral">&#39;parent&#39;</span>);</div>
+<div class="line">$result = $request-&gt;execute();</div>
+<div class="line"> </div>
+<div class="line">$request = new \GuzzleHttp\Psr7\Request(<span class="stringliteral">&#39;GET&#39;</span>, <span class="stringliteral">&#39;{projectKey}/categories/{ID}&#39;</span>);</div>
+<div class="line">$response = $client-&gt;send($request);</div>
+</div><!-- fragment --></li>
+<li><a href="https://www.php-fig.org/psr/psr-16/">PSR-16 - Common Interface for Caching Libraries</a> <div class="fragment"><div class="line">use Symfony\Component\Cache\Simple\FilesystemCache;</div>
+<div class="line">use Symfony\Component\Cache\Psr16Cache;</div>
+<div class="line"> </div>
+<div class="line">$filesystemCache = <span class="keyword">new</span> FilesystemAdapter();</div>
+<div class="line">$cache = <span class="keyword">new</span> Psr16Cache($filesystemCache);</div>
+<div class="line"> </div>
+<div class="line">$config = <span class="keyword">new</span> Config([<span class="stringliteral">&#39;timeout&#39;</span> =&gt; 30]);</div>
+<div class="line">$client = ClientFactory-&gt;createGuzzleClientForHandler(</div>
+<div class="line">    $config,</div>
+<div class="line">    OAuthHandlerFactory::ofAuthConfig($authConfig, $cache)</div>
+<div class="line">);</div>
+</div><!-- fragment --> <a class="anchor" id="error-handling"></a> </li>
+</ul>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Error Handling</h2>
+<p>The error handle is already provided with the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Exception/ExceptionFactory.php">ExceptionFactory</a> class. The methods contained in this class encapsulate the logic for converting Guzzle exceptions into your custom exceptions based on the HTTP response status codes. Which can be called directly in the request or can be called by a dedicated middleware for the error handling. Direct invocation in a request handling or directly handled in a middleware: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> ($e-&gt;getCode() &gt;= 500) {</div>
+<div class="line">    <span class="keywordflow">throw</span> ExceptionFactory::createServerException($e, $apiRequest, $response, $result);</div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">    <span class="keywordflow">throw</span> ExceptionFactory::createClientException($e, $apiRequest, $response, $result);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> <a class="anchor" id="authentication"></a> </p>
+<h1><a class="anchor" id="autotoc_md13"></a>
+Authentication</h1>
+<p>The factory class <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/src/Client/ProviderFactory.php">ProviderFactory</a> is for managing authentication and token handling.</p>
+<p><a class="anchor" id="token-storage-creation"></a> </p>
+<h2><a class="anchor" id="autotoc_md14"></a>
+Token Storage Creation</h2>
+<p>To generate a TokenStorageProvider that manages tokens using different flows: Refresh Flow and Anonymous Flow, you can use <code>ProviderFactory::createTokenStorageProvider($anonTokenUrl, $refreshTokenUrl, $clientCredentials, $client, $tokenStorage, $anonymousIdProvider);</code>.</p>
+<p><a class="anchor" id="password-flow"></a> </p>
+<h2><a class="anchor" id="autotoc_md15"></a>
+Password Flow</h2>
+<p>The <code>ProviderFactory::createPasswordFlowProvider($passwordTokenUrl, $clientCredentials, $client, $tokenStorage);</code> method, creates a PasswordFlowTokenProvider for authenticating users with username and password, acquiring tokens securely.</p>
+<p><a class="anchor" id="anonymous-flow"></a> </p>
+<h2><a class="anchor" id="autotoc_md16"></a>
+Anonymous Flow</h2>
+<p>The <code>createAnonymousFlowProvider($anonTokenUrl, $clientCredentials, $client, $refreshFlowTokenProvider, $anonymousIdProvider);</code> method builds an AnonymousFlowTokenProvider to manage tokens for anonymous users, integrating with the API's anonymous token endpoint.</p>
+<p><a class="anchor" id="refresh-flow"></a> </p>
+<h2><a class="anchor" id="autotoc_md17"></a>
+Refresh Flow</h2>
+<p>The <code>createRefreshFlowProvider($refreshTokenUrl, $clientCredentials, $client, $tokenStorage)</code> method sets up a RefreshFlowTokenProvider to handle token refresh operations seamlessly, ensuring continuous access to API resources.</p>
+<p><a class="anchor" id="middlewares"></a> </p>
+<h1><a class="anchor" id="autotoc_md18"></a>
+Middlewares</h1>
+<p>We introduced middleware to add functionalities to the requests and the responses in the PHP SDK.</p>
+<p>You can add middleware when creating the PHP SDK client. Multiple middlewares can be added using the array of middlewares.</p>
+<p>The scope of the MiddlewareFactory which is a Factory pattern is to handle all the available middleware and have the chance to have them customized.</p>
+<p>The methods that are contained in this class, are meant to create an array of middlewares.</p>
+<p><a class="anchor" id="defaultmiddleware"></a> </p>
+<h2><a class="anchor" id="autotoc_md19"></a>
+DefaultMiddleware</h2>
+<p>The method <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L26">createDefaultMiddlewares</a> creates an array with default values of OAuth Handler, Authentication, Logger, Retry and Correlation ID.</p>
+<div class="fragment"><div class="line">$authConfig = <span class="keyword">new</span> ClientCredentialsConfig(<span class="keyword">new</span> ClientCredentials($clientId, $clientSecret), [</div>
+<div class="line">            <span class="stringliteral">&#39;handler&#39;</span> =&gt; $authHandler,</div>
+<div class="line">        ]);</div>
+<div class="line">$oauthHandler = OAuthHandlerFactory::ofAuthConfig($authConfig),</div>
+<div class="line">$logger = <span class="keyword">new</span> Logger(<span class="stringliteral">&#39;client&#39;</span>, [<span class="keyword">new</span> StreamHandler(<span class="stringliteral">&#39;./logs/requests.log&#39;</span>)]);</div>
+<div class="line">$maxRetries = 3;</div>
+<div class="line">$correlationIdProvider = <span class="keyword">new</span> DefaultCorrelationIdProvider();</div>
+<div class="line"> </div>
+<div class="line">$middlewares = MiddlewareFactory::createDefaultMiddlewares(</div>
+<div class="line">    $oauthHandler,</div>
+<div class="line">    $logger,</div>
+<div class="line">    $maxRetries,</div>
+<div class="line">    $correlationIdProvider</div>
+<div class="line">);</div>
+</div><!-- fragment --><p> <a class="anchor" id="correlationidmiddleware"></a> </p>
+<h2><a class="anchor" id="autotoc_md20"></a>
+CorrelationIdMiddleware</h2>
+<p>The method <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L51">createCorrelationIdMiddleware</a> creates a middleware that adds a correlation ID to the headers of HTTP requests.</p>
+<div class="fragment"><div class="line">$correlationIdProvider = <span class="keyword">new</span> DefaultCorrelationIdProvider();</div>
+<div class="line"> </div>
+<div class="line">$correlationIdMiddleware = MiddlewareFactory::createCorrelationIdMiddleware(</div>
+<div class="line">    $correlationIdProvider</div>
+<div class="line">);</div>
+</div><!-- fragment --><p> <a class="anchor" id="retrynamiddleware"></a> </p>
+<h2><a class="anchor" id="autotoc_md21"></a>
+RetryNAMiddleware</h2>
+<p>The method <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L66">createRetryNAMiddleware</a> is designed to create middleware that retries HTTP requests under certain conditions are met. This middleware is particularly useful in scenarios where transient errors, such as temporary server unavailability, may occur.</p>
+<div class="fragment"><div class="line">$maxRetries = 3;</div>
+<div class="line"> </div>
+<div class="line">$retryMiddleware = MiddlewareFactory::createRetryNAMiddleware($maxRetries);</div>
+</div><!-- fragment --><p> <a class="anchor" id="oauthhandlermiddleware"></a> </p>
+<h2><a class="anchor" id="autotoc_md22"></a>
+OAuthHandlerMiddleware</h2>
+<p>The method <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L95">createMiddlewareForOAuthHandler</a> creates a middleware for handling OAuth2 authentication ensuring to include the necessary OAuth credentials.</p>
+<div class="fragment"><div class="line">$tokenProvider = <span class="keyword">new</span> YourTokenProvider();</div>
+<div class="line">$oauthHandler = OAuthHandlerFactory::ofProvider($tokenProvider),</div>
+<div class="line"> </div>
+<div class="line">$oauthMiddleware = MiddlewareFactory::createMiddlewareForOAuthHandler($oauthHandler);</div>
+</div><!-- fragment --><p><a class="anchor" id="loggermiddleware"></a> </p>
+<h2><a class="anchor" id="autotoc_md23"></a>
+LoggerMiddleware</h2>
+<p>The method <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L104">createLoggerMiddleware</a> creates a middleware for logging HTTP requests and responses.</p>
+<div class="fragment"><div class="line">$logger = <span class="keyword">new</span> Logger(<span class="stringliteral">&#39;auth&#39;</span>);</div>
+<div class="line">$logger-&gt;pushHandler(<span class="keyword">new</span> StreamHandler(<span class="stringliteral">&#39;./logs/requests.log&#39;</span>, Logger::DEBUG));</div>
+<div class="line"> </div>
+<div class="line">$loggerMiddleware = MiddlewareFactory::createLoggerMiddleware($logger);</div>
+</div><!-- fragment --><p> <a class="anchor" id="reauthenticatemiddleware"></a> </p>
+<h2><a class="anchor" id="autotoc_md24"></a>
+ReauthenticateMiddleware</h2>
+<p>The method <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L114C28-L114C58">createReauthenticateMiddleware</a> creates a middleware that automatically reauthenticates HTTP requests when an invalid token error (HTTP 401) is encountered. It uses an OAuth2Handler to refresh the token and retry the request up to a specified number of times.</p>
+<div class="fragment"><div class="line">$authConfig = <span class="keyword">new</span> ClientCredentialsConfig(<span class="keyword">new</span> ClientCredentials($clientId, $clientSecret), [</div>
+<div class="line">            <span class="stringliteral">&#39;handler&#39;</span> =&gt; $authHandler,</div>
+<div class="line">        ]);</div>
+<div class="line">$oauthHandler = OAuthHandlerFactory::ofAuthConfig($authConfig),</div>
+<div class="line"><span class="comment">//maxRetries have the default value 1 as a second parameter of the function</span></div>
+<div class="line">$reauthMiddleware = MiddlewareFactory::createReauthenticateMiddleware($oauthHandler);</div>
+</div><!-- fragment --><p><a class="anchor" id="querying"></a> </p>
+<h1><a class="anchor" id="autotoc_md25"></a>
+Querying</h1>
+<p>For the examples that we are mentioning below we are setting the <code>$builder</code> like here: </p><div class="fragment"><div class="line">use <a class="code" href="d9/dd9/class_commercetools_1_1_client_1_1_api_request_builder.html">Commercetools\Client\ApiRequestBuilder</a>;</div>
+<div class="line">use GuzzleHttp\ClientInterface;</div>
+<div class="line"> </div>
+<div class="line">$builder =  <span class="keyword">new</span> ApiRequestBuilder(<span class="stringliteral">&#39;{projectKey}&#39;</span>, $client);</div>
+</div><!-- fragment --><p>Since the most of the variables to pass in the <code>with()</code> method are scalars, this means that we can pass arrays in the related parameter of the method like in the examples below.</p>
+<p><a class="anchor" id="predicates"></a> </p>
+<h2><a class="anchor" id="autotoc_md26"></a>
+Predicates</h2>
+<p>The system allows the use of predicates when querying the API. Predicates are added as query parameter string to the request itself. The following example shows the usage of input variables: </p><div class="fragment"><div class="line">$builder</div>
+<div class="line">    -&gt;customers()</div>
+<div class="line">    -&gt;get()</div>
+<div class="line">    -&gt;withWhere(<span class="stringliteral">&#39;lastName=:lastName&#39;</span>)</div>
+<div class="line">    -&gt;withPredicateVar(<span class="stringliteral">&quot;lastName&quot;</span>, $customerSignIn-&gt;getCustomer()-&gt;getLastName());</div>
+</div><!-- fragment --><p> It's also possible to use array values in predicates in case of a varying number of parameters. </p><div class="fragment"><div class="line">$builder</div>
+<div class="line">    -&gt;productProjections()</div>
+<div class="line">    -&gt;get()</div>
+<div class="line">    -&gt;withWhere(<span class="stringliteral">&#39;masterVariant(sku in :skus)&#39;</span>)</div>
+<div class="line">    -&gt;withPredicateVar(<span class="stringliteral">&quot;skus&quot;</span>, [<span class="stringliteral">&quot;foo&quot;</span>, <span class="stringliteral">&quot;bar&quot;</span>]);</div>
+</div><!-- fragment --><p><a class="anchor" id="get-by-idkey"></a> </p>
+<h2><a class="anchor" id="autotoc_md27"></a>
+Get By Id/Key</h2>
+<div class="fragment"><div class="line">$builder</div>
+<div class="line">    -&gt;productProjections()</div>
+<div class="line">    -&gt;withId(<span class="stringliteral">&#39;test_id&#39;</span>)</div>
+<div class="line">    -&gt;get();</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">$builder</div>
+<div class="line">    -&gt;productProjections()</div>
+<div class="line">    -&gt;withKey(<span class="stringliteral">&#39;test_key&#39;</span>)</div>
+<div class="line">    -&gt;get();</div>
+</div><!-- fragment --><p><a class="anchor" id="sorting"></a> </p>
+<h2><a class="anchor" id="autotoc_md28"></a>
+Sorting</h2>
+<p>See <a href="https://docs.commercetools.com/api/general-concepts#sorting">Sort</a> for details.</p>
+<p>Sorting using one parameter: </p><div class="fragment"><div class="line">$builder</div>
+<div class="line">    -&gt;products()</div>
+<div class="line">    -&gt;get()</div>
+<div class="line">    -&gt;withSort(<span class="stringliteral">&quot;masterData.current.name.en asc&quot;</span>);</div>
+</div><!-- fragment --><p>Sorting using multiple parameters: </p><div class="fragment"><div class="line">$builder</div>
+<div class="line">    -&gt;products()</div>
+<div class="line">    -&gt;get()</div>
+<div class="line">    -&gt;withSort([<span class="stringliteral">&quot;masterData.current.name.en asc&quot;</span>, <span class="stringliteral">&quot;id asc&quot;</span>]);</div>
+</div><!-- fragment --><p><a class="anchor" id="pagination"></a> </p>
+<h2><a class="anchor" id="autotoc_md29"></a>
+Pagination</h2>
+<p>Limiting the number of the returned documents or page size: </p><div class="fragment"><div class="line">$builder</div>
+<div class="line">    -&gt;products()</div>
+<div class="line">    -&gt;get()</div>
+<div class="line">    -&gt;withLimit(4)</div>
+<div class="line">    -&gt;withOffset(4);</div>
+</div><!-- fragment --><p> <a class="anchor" id="products-and-producttypes"></a> </p>
+<h1><a class="anchor" id="autotoc_md30"></a>
+Products and ProductTypes</h1>
+<p><a class="anchor" id="producttype-creation"></a> </p>
+<h2><a class="anchor" id="autotoc_md31"></a>
+ProductType Creation</h2>
+<p>A <a href="https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/d7/dbf/interface_commercetools_1_1_api_1_1_models_1_1_product_type_1_1_product_type.html">ProductType</a> is like a schema that defines how the product attributes are structured.</p>
+<p><code>ProductType</code> contains a list of <a href="https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/da/d68/interface_commercetools_1_1_api_1_1_models_1_1_product_type_1_1_attribute_definition.html">AttributeDefinition</a> which corresponds to the name and type of each attribute, along with some additional information. Each name/type pair must be unique across a Project, so if you create an attribute "foo" of type String, you cannot create another ProductType where "foo" has another type (e.g. LocalizedString). If you do it anyway you get an error message like:</p>
+<p>"The attribute with name 'foo' has a different type on product type 'exampleproducttype'."</p>
+<p>In this scenario we provide two <code>ProductTypes</code> <b>book</b> and <b>t-shirt</b>.</p>
+<p>The <b>book</b> product type contains the following attributes:</p>
+<p>$isbn as String, International Standard Book Number The <b>t-shirt</b> product type contains the following attributes:</p>
+<p>$color as <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/ProductType/AttributeLocalizedEnumValue.php">AttributeLocalizedEnumValue</a> with the colors green and red and their translations in German and English. $size as <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/ProductType/AttributePlainEnumValue.php">AttributePlainEnumValue</a> with S, M and X. $laundrySymbols as set of <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/ProductType/AttributeLocalizedEnumValue.php">AttributeLocalizedEnumValue</a> with temperature and tumble drying. $matchingProducts as set of <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/Product/ProductReference.php">ProductReference</a>, which can point to products that are similar to the current product. $rrp as <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/Common/Money.php">Money</a> containing the recommended retail price. $availableSince as <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-api/src/Models/ProductType/AttributeDateTimeType.php">DateTime</a> which contains the date since when the product is available for the customer in the shop. All available attribute types you can find here: AttributeType in "All Known Implementing Classes".</p>
+<p>The code for the creation of the book ProductType: </p><div class="fragment"><div class="line">$isbn = AttributeDefinitionBuilder::of()</div>
+<div class="line">    -&gt;withType(AttributeTextTypeBuilder::of()-&gt;build())</div>
+<div class="line">    -&gt;withName(self::ISBN_ATTR_NAME)</div>
+<div class="line">    -&gt;withLabel(LocalizedStringBuilder::of(<span class="stringliteral">&quot;ISBN&quot;</span>)-&gt;build())</div>
+<div class="line">    -&gt;withIsRequired(<span class="keyword">false</span>)</div>
+<div class="line">    -&gt;build();</div>
+<div class="line"> </div>
+<div class="line">$productType = ProductTypeBuilder::of()</div>
+<div class="line">    -&gt;withName(self::BOOK_PRODUCT_TYPE_NAME)</div>
+<div class="line">    -&gt;withDescription(<span class="stringliteral">&quot;books&quot;</span>)</div>
+<div class="line">    -&gt;withAttributes(AttributeDefinitionCollection::of()-&gt;add($isbn))</div>
+<div class="line">    -&gt;build();</div>
+<div class="line">    </div>
+<div class="line">$builder =  <span class="keyword">new</span> ApiRequestBuilder(<span class="stringliteral">&#39;{projectKey}&#39;</span>, $client);</div>
+<div class="line">$request = $builder</div>
+<div class="line">              -&gt;productTypes()</div>
+<div class="line">              -&gt;withId($productType-&gt;getId())</div>
+<div class="line">              -&gt;get();</div>
+<div class="line">$productTypeQueryResponse = $request-&gt;execute();</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<p>The code for the creation of the t-shirt ProductType:</p>
+<div class="fragment"><div class="line">$green = AttributeLocalizedEnumValueBuilder::of()</div>
+<div class="line">                    -&gt;withKey(<span class="stringliteral">&quot;green&quot;</span>)</div>
+<div class="line">                    -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;green&quot;</span>, <span class="stringliteral">&quot;de&quot;</span> =&gt; <span class="stringliteral">&quot;grün&quot;</span>])-&gt;build())</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $red = AttributeLocalizedEnumValueBuilder::of()</div>
+<div class="line">                    -&gt;withKey(<span class="stringliteral">&quot;red&quot;</span>)</div>
+<div class="line">                    -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;red&quot;</span>, <span class="stringliteral">&quot;de&quot;</span> =&gt; <span class="stringliteral">&quot;rot&quot;</span>])-&gt;build())</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $color = AttributeDefinitionDraftBuilder::of()</div>
+<div class="line">                    -&gt;withName(self::COLOR_ATTR_NAME)</div>
+<div class="line">                    -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;color&quot;</span>])-&gt;build())</div>
+<div class="line">                    -&gt;withType(AttributeLocalizedEnumTypeBuilder::of()</div>
+<div class="line">                                -&gt;withValues(AttributeLocalizedEnumValueCollection::fromArray([$green, $red]))</div>
+<div class="line">                                -&gt;build())</div>
+<div class="line">                    -&gt;withIsRequired(<span class="keyword">true</span>)</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $small = AttributePlainEnumValueBuilder::of()</div>
+<div class="line">                    -&gt;withKey(<span class="stringliteral">&quot;S&quot;</span>)</div>
+<div class="line">                    -&gt;withLabel(<span class="stringliteral">&quot;S&quot;</span>)</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $medium = AttributePlainEnumValueBuilder::of()</div>
+<div class="line">                    -&gt;withKey(<span class="stringliteral">&quot;M&quot;</span>)</div>
+<div class="line">                    -&gt;withLabel(<span class="stringliteral">&quot;M&quot;</span>)</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $sizeX = AttributePlainEnumValueBuilder::of()</div>
+<div class="line">                    -&gt;withKey(<span class="stringliteral">&quot;X&quot;</span>)</div>
+<div class="line">                    -&gt;withLabel(<span class="stringliteral">&quot;X&quot;</span>)</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $size = AttributeDefinitionDraftBuilder::of()</div>
+<div class="line">                    -&gt;withName(self::SIZE_ATTR_NAME)</div>
+<div class="line">                    -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;Size&quot;</span>])-&gt;build())</div>
+<div class="line">                    -&gt;withType(AttributeEnumTypeBuilder::of()</div>
+<div class="line">                                    -&gt;withValues(AttributePlainEnumValueCollection::fromArray([$small, $medium, $sizeX]))</div>
+<div class="line">                                    -&gt;build())</div>
+<div class="line">                    -&gt;withIsRequired(<span class="keyword">true</span>)</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $cold = AttributeLocalizedEnumValueBuilder::of()</div>
+<div class="line">                    -&gt;withKey(<span class="stringliteral">&quot;cold&quot;</span>)</div>
+<div class="line">                    -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;Wash at or below 30°C &quot;</span>, <span class="stringliteral">&quot;de&quot;</span> =&gt; <span class="stringliteral">&quot;30°C&quot;</span>])-&gt;build())</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $hot = AttributeLocalizedEnumValueBuilder::of()</div>
+<div class="line">                    -&gt;withKey(<span class="stringliteral">&quot;hot&quot;</span>)</div>
+<div class="line">                    -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;Wash at or below 60°C&quot;</span>, <span class="stringliteral">&quot;de&quot;</span> =&gt; <span class="stringliteral">&quot;60°C&quot;</span>])-&gt;build())</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $tumbleDrying = AttributeLocalizedEnumValueBuilder::of()</div>
+<div class="line">                            -&gt;withKey(<span class="stringliteral">&quot;tumbleDrying&quot;</span>)</div>
+<div class="line">                            -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;Tumble Drying&quot;</span>, <span class="stringliteral">&quot;de&quot;</span> =&gt; <span class="stringliteral">&quot;Trommeltrocknen&quot;</span>])-&gt;build())</div>
+<div class="line">                            -&gt;build();</div>
+<div class="line">        $noTumbleDrying = AttributeLocalizedEnumValueBuilder::of()</div>
+<div class="line">                            -&gt;withKey(<span class="stringliteral">&quot;noTumbleDrying&quot;</span>)</div>
+<div class="line">                            -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;no tumble drying&quot;</span>, <span class="stringliteral">&quot;de&quot;</span> =&gt; <span class="stringliteral">&quot;Nicht im Trommeltrockner trocknen&quot;</span>])-&gt;build())</div>
+<div class="line">                            -&gt;build();</div>
+<div class="line">        $laundryLabelType = AttributeSetTypeBuilder::of()</div>
+<div class="line">                                -&gt;withElementType(AttributeLocalizedEnumTypeBuilder::of()</div>
+<div class="line">                                                    -&gt;withValues(AttributeLocalizedEnumValueCollection::fromArray([$cold, $hot, $tumbleDrying, $noTumbleDrying]))</div>
+<div class="line">                                                    -&gt;build())</div>
+<div class="line">                                -&gt;build();</div>
+<div class="line">        $laundrySymbols = AttributeDefinitionDraftBuilder::of()</div>
+<div class="line">                            -&gt;withType($laundryLabelType)</div>
+<div class="line">                            -&gt;withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)</div>
+<div class="line">                            -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;washing labels&quot;</span>])-&gt;build())</div>
+<div class="line">                            -&gt;withIsRequired(<span class="keyword">false</span>)</div>
+<div class="line">                            -&gt;build();</div>
+<div class="line"> </div>
+<div class="line">        $matchingProducts = AttributeDefinitionDraftBuilder::of()</div>
+<div class="line">                                -&gt;withName(self::MATCHING_PRODUCTS_ATTR_NAME)</div>
+<div class="line">                                -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;matching products&quot;</span>])-&gt;build())</div>
+<div class="line">                                -&gt;withType(AttributeSetTypeBuilder::of()</div>
+<div class="line">                                            -&gt;withElementType(AttributeReferenceTypeBuilder::of()</div>
+<div class="line">                                                                -&gt;withReferenceTypeId(<span class="stringliteral">&quot;product&quot;</span>)</div>
+<div class="line">                                                                -&gt;build())</div>
+<div class="line">                                            -&gt;build())</div>
+<div class="line">                                -&gt;withIsRequired(<span class="keyword">false</span>)</div>
+<div class="line">                                -&gt;build();</div>
+<div class="line">        $rrp = AttributeDefinitionDraftBuilder::of()</div>
+<div class="line">                    -&gt;withName(self::RRP_ATTR_NAME)</div>
+<div class="line">                    -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;recommended retail price&quot;</span>])-&gt;build())</div>
+<div class="line">                    -&gt;withType(AttributeMoneyTypeBuilder::of()-&gt;build())</div>
+<div class="line">                    -&gt;withIsRequired(<span class="keyword">false</span>)</div>
+<div class="line">                    -&gt;build();</div>
+<div class="line">        $availableSince = AttributeDefinitionDraftBuilder::of()</div>
+<div class="line">                            -&gt;withName(self::AVAILABLE_SINCE_ATTR_NAME)</div>
+<div class="line">                            -&gt;withLabel(LocalizedStringBuilder::fromArray([<span class="stringliteral">&quot;en&quot;</span> =&gt; <span class="stringliteral">&quot;available since&quot;</span>])-&gt;build())</div>
+<div class="line">                            -&gt;withType(AttributeDateTimeTypeBuilder::of()-&gt;build())</div>
+<div class="line">                            -&gt;withIsRequired(<span class="keyword">false</span>)</div>
+<div class="line">                            -&gt;build();</div>
+<div class="line">        $attributes = AttributeDefinitionDraftCollection::fromArray([$color, $size, $laundrySymbols, $matchingProducts, $rrp, $availableSince]);</div>
+<div class="line"> </div>
+<div class="line">        $productTypeDraft = ProductTypeDraftBuilder::of()</div>
+<div class="line">                              -&gt;withKey(ProductTypeFixture::uniqueProductTypeString())</div>
+<div class="line">                              -&gt;withName(self::PRODUCT_TYPE_NAME)</div>
+<div class="line">                              -&gt;withDescription(<span class="stringliteral">&quot;a &#39;T&#39; shaped cloth&quot;</span>)</div>
+<div class="line">                              -&gt;withAttributes($attributes)</div>
+<div class="line">                              -&gt;build();</div>
+<div class="line">        $productType = $builder</div>
+<div class="line">            -&gt;with()</div>
+<div class="line">            -&gt;productTypes()</div>
+<div class="line">            -&gt;post($productTypeDraft)</div>
+<div class="line">            -&gt;execute();</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<p>ProductTypes have a key (String) which can be used as key to logically identify ProductTypes. The key has an unique constraint.</p>
+<h2><a class="anchor" id="autotoc_md32"></a>
+Product Creation</h2>
+<p>To create a product you need to reference the product type. Since the ProductType ID of the development system will not be the ID of the production system it is necessary to find the product type by name: </p><div class="fragment"><div class="line">$productType = $builder</div>
+<div class="line">            -&gt;with()</div>
+<div class="line">            -&gt;productTypes()</div>
+<div class="line">            -&gt;get()</div>
+<div class="line">            -&gt;withQueryParam(<span class="stringliteral">&#39;where&#39;</span>, <span class="stringliteral">&#39;name=&quot;&#39;</span> . $name . <span class="charliteral">&#39;&quot;&#39;</span>)</div>
+<div class="line">            -&gt;execute();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> $productType-&gt;getResults()-&gt;current() ?: <span class="keyword">null</span>;</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<p>The simplest way of adding attributes to a ProductVariant is to use <code>php ProductVariantDraftBuilder::of()-&gt;withAttributes($attributes)</code> which enables you to directly put the value of the attribute to the draft. But it cannot check if you put the right objects and types in it.</p>
+<p>A book example: </p><div class="fragment"><div class="line">$attributes = AttributeCollection::of()</div>
+<div class="line">                -&gt;add(</div>
+<div class="line">                    AttributeBuilder::of()</div>
+<div class="line">                        -&gt;withName(self::ISBN_ATTR_NAME)</div>
+<div class="line">                        -&gt;withValue(<span class="stringliteral">&quot;978-3-86680-192-9&quot;</span>)</div>
+<div class="line">                        -&gt;build());</div>
+<div class="line">$productVariantDraft = ProductVariantDraftBuilder::of()</div>
+<div class="line">                        -&gt;withAttributes($attributes)</div>
+<div class="line">                        -&gt;build();</div>
+<div class="line">$productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()</div>
+<div class="line">                                    -&gt;withId($productType-&gt;getId())</div>
+<div class="line">                                    -&gt;build();</div>
+<div class="line">$productDraft = ProductDraftBuilder::of()</div>
+<div class="line">                -&gt;withProductType($productTypeResourceIdentifier)</div>
+<div class="line">                -&gt;withName(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&quot;en&quot;</span>, <span class="stringliteral">&quot;a book&quot;</span>)-&gt;build())</div>
+<div class="line">                -&gt;withSlug(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&quot;en&quot;</span>, ProductTypeFixture::uniqueProductTypeString())-&gt;build())</div>
+<div class="line">                -&gt;withMasterVariant($productVariantDraft)</div>
+<div class="line">                -&gt;build();</div>
+<div class="line"> </div>
+<div class="line">$product = $builder-&gt;products()</div>
+<div class="line">    -&gt;post($productDraft)</div>
+<div class="line">    -&gt;execute();</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<p>A T-shirt example: </p><div class="fragment"><div class="line">$referenceableProduct = ProductFixture::referenceableProduct($builder);</div>
+<div class="line">$productType = ProductTypeFixture::fetchProductTypeByName($builder, self::PRODUCT_TYPE_NAME);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (!$productType) {</div>
+<div class="line">    $productType = ProductTypeFixture::createProductType($builder, self::PRODUCT_TYPE_NAME);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">$productReference = ProductReferenceBuilder::of()-&gt;withId($referenceableProduct-&gt;getId())-&gt;build();</div>
+<div class="line">$datetime = new \DateTime(<span class="stringliteral">&#39;2015-02-02&#39;</span>);</div>
+<div class="line">$datetime = $datetime-&gt;format(\DateTime::ATOM);</div>
+<div class="line">$attributes = AttributeCollection::of()</div>
+<div class="line">    -&gt;add(AttributeBuilder::of()-&gt;withName(self::COLOR_ATTR_NAME)-&gt;withValue(<span class="stringliteral">&quot;green&quot;</span>)-&gt;build())</div>
+<div class="line">    -&gt;add(AttributeBuilder::of()-&gt;withName(self::SIZE_ATTR_NAME)-&gt;withValue(<span class="stringliteral">&quot;S&quot;</span>)-&gt;build())</div>
+<div class="line">    -&gt;add(AttributeBuilder::of()-&gt;withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)-&gt;withValue([<span class="stringliteral">&quot;cold&quot;</span>, <span class="stringliteral">&quot;tumbleDrying&quot;</span>])-&gt;build())</div>
+<div class="line">    -&gt;add(AttributeBuilder::of()-&gt;withName(self::RRP_ATTR_NAME)-&gt;withValue(MoneyBuilder::of()-&gt;withCentAmount(300)-&gt;withCurrencyCode(<span class="stringliteral">&quot;EUR&quot;</span>)-&gt;build())-&gt;build())</div>
+<div class="line">    -&gt;add(AttributeBuilder::of()-&gt;withName(self::AVAILABLE_SINCE_ATTR_NAME)-&gt;withValue($datetime)-&gt;build())</div>
+<div class="line">    -&gt;add(AttributeBuilder::of()-&gt;withName(self::MATCHING_PRODUCTS_ATTR_NAME)-&gt;withValue([$productReference])-&gt;build());</div>
+<div class="line">$productVariantDraft = ProductVariantDraftBuilder::of()</div>
+<div class="line">    -&gt;withAttributes($attributes)</div>
+<div class="line">    -&gt;build();</div>
+<div class="line">$productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()</div>
+<div class="line">    -&gt;withId($productType-&gt;getId())</div>
+<div class="line">    -&gt;build();</div>
+<div class="line">$productDraft = ProductDraftBuilder::of()</div>
+<div class="line">    -&gt;withProductType($productTypeResourceIdentifier)</div>
+<div class="line">    -&gt;withKey(ProductFixture::uniqueProductString())</div>
+<div class="line">    -&gt;withName(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&#39;en&#39;</span>, <span class="stringliteral">&#39;basic shirt&#39;</span>)-&gt;build())</div>
+<div class="line">    -&gt;withSlug(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&#39;en&#39;</span>, ProductFixture::uniqueProductString())-&gt;build())</div>
+<div class="line">    -&gt;withMasterVariant($productVariantDraft)</div>
+<div class="line">    -&gt;build();</div>
+<div class="line"> </div>
+<div class="line">$product = $builder-&gt;products()</div>
+<div class="line">    -&gt;post($productDraft)</div>
+<div class="line">    -&gt;execute();</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<p>A wrong value for a field or an invalid type will cause a BadRequestException with an error code of "InvalidField".</p>
+<div class="fragment"><div class="line">$productType = $builder-&gt;productTypes()</div>
+<div class="line">            -&gt;post($productTypeDraft)</div>
+<div class="line">            -&gt;execute();</div>
+<div class="line">$productVariantDraft  = ProductVariantDraftBuilder::of()</div>
+<div class="line">    -&gt;withAttributes(AttributeCollection::of()</div>
+<div class="line">        -&gt;add(AttributeBuilder::of()</div>
+<div class="line">                -&gt;withName(self::COLOR_ATTR_NAME)</div>
+<div class="line">                -&gt;withValue(1) <span class="comment">//1 is of illegal type and of illegal key</span></div>
+<div class="line">                -&gt;build()))</div>
+<div class="line">    -&gt;build();</div>
+<div class="line">$productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()</div>
+<div class="line">    -&gt;withId($productType-&gt;getId())</div>
+<div class="line">    -&gt;build();</div>
+<div class="line">$productDraft = ProductDraftBuilder::of()</div>
+<div class="line">    -&gt;withProductType($productTypeResourceIdentifier)</div>
+<div class="line">    -&gt;withName(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&quot;en&quot;</span>, <span class="stringliteral">&quot;basic shirt&quot;</span>)-&gt;build())</div>
+<div class="line">    -&gt;withSlug(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&quot;en&quot;</span>, ProductTypeFixture::uniqueProductTypeString())-&gt;build())</div>
+<div class="line">    -&gt;withMasterVariant($productVariantDraft)</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<p>As alternative, you could declare your attributes at the same place and use these to read and write attribute values:</p>
+<div class="fragment"><div class="line">$green = AttributeLocalizedEnumValueBuilder::of()</div>
+<div class="line">            -&gt;withKey(<span class="stringliteral">&quot;green&quot;</span>)</div>
+<div class="line">            -&gt;withLabel(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&quot;en&quot;</span>, <span class="stringliteral">&quot;green &quot;</span>)-&gt;put(<span class="stringliteral">&quot;de&quot;</span>, <span class="stringliteral">&quot;grün&quot;</span>)-&gt;build())</div>
+<div class="line">            -&gt;build();</div>
+<div class="line">        $cold = AttributeLocalizedEnumValueBuilder::of()</div>
+<div class="line">            -&gt;withKey(<span class="stringliteral">&quot;cold&quot;</span>)</div>
+<div class="line">            -&gt;withLabel(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&quot;en&quot;</span>, <span class="stringliteral">&quot;Wash at or below 30°C &quot;</span>)-&gt;put(<span class="stringliteral">&quot;de&quot;</span>, <span class="stringliteral">&quot;30°C&quot;</span>)-&gt;build())</div>
+<div class="line">            -&gt;build();</div>
+<div class="line">        $tumbleDrying = AttributeLocalizedEnumValueBuilder::of()</div>
+<div class="line">            -&gt;withKey(<span class="stringliteral">&quot;tumbleDrying&quot;</span>)</div>
+<div class="line">            -&gt;withLabel(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&quot;en&quot;</span>, <span class="stringliteral">&quot;tumble drying&quot;</span>)-&gt;put(<span class="stringliteral">&quot;de&quot;</span>, <span class="stringliteral">&quot;Trommeltrocknen&quot;</span>)-&gt;build())</div>
+<div class="line">            -&gt;build();</div>
+<div class="line">        $productReference = ProductReferenceBuilder::of()-&gt;withId($referenceableProduct-&gt;getId())-&gt;build();</div>
+<div class="line"> </div>
+<div class="line">        $attributes = AttributeCollection::of()</div>
+<div class="line">            -&gt;add(AttributeBuilder::of()-&gt;withName(self::COLOR_ATTR_NAME)-&gt;withValue(<span class="stringliteral">&quot;green&quot;</span>)-&gt;build())</div>
+<div class="line">            -&gt;add(AttributeBuilder::of()-&gt;withName(self::SIZE_ATTR_NAME)-&gt;withValue(<span class="stringliteral">&quot;S&quot;</span>)-&gt;build())</div>
+<div class="line">            -&gt;add(AttributeBuilder::of()-&gt;withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)-&gt;withValue([<span class="stringliteral">&quot;cold&quot;</span>, <span class="stringliteral">&quot;tumbleDrying&quot;</span>])-&gt;build())</div>
+<div class="line">            -&gt;add(AttributeBuilder::of()-&gt;withName(self::RRP_ATTR_NAME)-&gt;withValue(MoneyBuilder::of()-&gt;withCentAmount(300)-&gt;withCurrencyCode(<span class="stringliteral">&quot;EUR&quot;</span>)-&gt;build())-&gt;build())</div>
+<div class="line">            -&gt;add(AttributeBuilder::of()-&gt;withName(self::AVAILABLE_SINCE_ATTR_NAME)-&gt;withValue($datetime)-&gt;build())</div>
+<div class="line">            -&gt;add(AttributeBuilder::of()-&gt;withName(self::MATCHING_PRODUCTS_ATTR_NAME)-&gt;withValue([$productReference])-&gt;build());</div>
+<div class="line">        $productVariantDraft = ProductVariantDraftBuilder::of()</div>
+<div class="line">            -&gt;withAttributes($attributes)</div>
+<div class="line">            -&gt;build();</div>
+<div class="line">        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()</div>
+<div class="line">            -&gt;withId($productType-&gt;getId())</div>
+<div class="line">            -&gt;build();</div>
+<div class="line">        $productDraft = ProductDraftBuilder::of()</div>
+<div class="line">            -&gt;withProductType($productTypeResourceIdentifier)</div>
+<div class="line">            -&gt;withKey(ProductFixture::uniqueProductString())</div>
+<div class="line">            -&gt;withName(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&#39;en&#39;</span>, <span class="stringliteral">&#39;basic shirt&#39;</span>)-&gt;build())</div>
+<div class="line">            -&gt;withSlug(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&#39;en&#39;</span>, ProductFixture::uniqueProductString())-&gt;build())</div>
+<div class="line">            -&gt;withMasterVariant($productVariantDraft)</div>
+<div class="line">            -&gt;build();</div>
+<div class="line">        $product = $builder-&gt;products()</div>
+<div class="line">            -&gt;post($productDraft)</div>
+<div class="line">            -&gt;execute();</div>
+<div class="line"> </div>
+<div class="line">        $masterVariant = $product-&gt;getMasterData()-&gt;getStaged()-&gt;getMasterVariant();</div>
+<div class="line">        <span class="keywordflow">foreach</span> ($masterVariant-&gt;getAttributes() as $attribute) {</div>
+<div class="line">            <span class="keywordflow">if</span> ($attribute-&gt;getName() === self::COLOR_ATTR_NAME) {</div>
+<div class="line">                assertEquals($attribute-&gt;getValue()-&gt;key, <span class="stringliteral">&quot;green&quot;</span>);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">if</span> ($attribute-&gt;getName() === self::SIZE_ATTR_NAME) {</div>
+<div class="line">                assertEquals($attribute-&gt;getValue()-&gt;key, <span class="stringliteral">&quot;S&quot;</span>);</div>
+<div class="line">            }</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<h2><a class="anchor" id="autotoc_md33"></a>
+Reading Attributes</h2>
+<p>The simplest way to get the value of the attribute is to use getValue() methods of Attribute, like <code>php $attribute-&gt;getValue()</code>: </p><div class="fragment"><div class="line">$product = $this-&gt;createProduct();</div>
+<div class="line">$masterVariant = $product-&gt;getMasterData()-&gt;getStaged()-&gt;getMasterVariant();</div>
+<div class="line"><span class="keywordflow">foreach</span> ($masterVariant-&gt;getAttributes() as $attribute) {</div>
+<div class="line">    <span class="keywordflow">if</span> ($attribute-&gt;getName() === self::SIZE_ATTR_NAME) {</div>
+<div class="line">        assertEquals($attribute-&gt;getValue()-&gt;key, <span class="stringliteral">&quot;S&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<p>You might also use the <code>php getValueAs()</code> method as a conversion for the attribute, like you have a EnumValue but extract it as boolean because these methods cast the values passed: </p><div class="fragment"><div class="line">$product = $builder-&gt;products()-&gt;post($productDraft)-&gt;execute();</div>
+<div class="line">$masterVariant = $product-&gt;getMasterData()-&gt;getStaged()-&gt;getMasterVariant();</div>
+<div class="line"> </div>
+<div class="line">$result = <span class="keyword">null</span>;</div>
+<div class="line"><span class="keywordflow">foreach</span> ($masterVariant-&gt;getAttributes() as $attribute) {</div>
+<div class="line">    <span class="keywordflow">if</span> ($attribute-&gt;getName() === self::SIZE_ATTR_NAME) {</div>
+<div class="line">        $attrAccessor = $attribute-&gt;with(AttributeAccessor::of());</div>
+<div class="line"> </div>
+<div class="line">        $result = $attrAccessor-&gt;getValueAsBool();</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">$this-&gt;assertIsBool($result);</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<h2><a class="anchor" id="autotoc_md34"></a>
+Update attribute values of a product</h2>
+<p>Here below some examples about setting attribute values is like a product creation:</p>
+<p>Example for books: </p><div class="fragment"><div class="line">$product = $this-&gt;createBookProduct();</div>
+<div class="line">$masterVariantId = 1;</div>
+<div class="line">$productUpdate = ProductUpdateBuilder::of()</div>
+<div class="line">    -&gt;withVersion($product-&gt;getVersion())</div>
+<div class="line">    -&gt;withActions(</div>
+<div class="line">        ProductUpdateActionCollection::fromArray([</div>
+<div class="line">            ProductSetAttributeActionBuilder::of()</div>
+<div class="line">                -&gt;withVariantId($masterVariantId)</div>
+<div class="line">                -&gt;withName(self::ISBN_ATTR_NAME)</div>
+<div class="line">                -&gt;withValue(<span class="stringliteral">&quot;978-3-86680-192-8&quot;</span>)</div>
+<div class="line">                -&gt;build()</div>
+<div class="line">        ])</div>
+<div class="line">        )-&gt;build();</div>
+<div class="line"> </div>
+<div class="line">$productUpdated = $builder</div>
+<div class="line">    -&gt;products()</div>
+<div class="line">    -&gt;withId($product-&gt;getId())</div>
+<div class="line">    -&gt;post($productUpdate)</div>
+<div class="line">    -&gt;execute();</div>
+<div class="line">$masterVariant = $productUpdated-&gt;getMasterData()-&gt;getStaged()-&gt;getMasterVariant();</div>
+<div class="line">$attribute = ProductTypeFixture::findAttributes($masterVariant-&gt;getAttributes(), self::ISBN_ATTR_NAME);</div>
+<div class="line"> </div>
+<div class="line">assertEquals($attribute-&gt;getValue(), <span class="stringliteral">&quot;978-3-86680-192-8&quot;</span>);</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<p>Example for T-shirts: </p><div class="fragment"><div class="line">$masterVariantId = 1;</div>
+<div class="line">$productUpdatedAction = ProductUpdateBuilder::of()</div>
+<div class="line">    -&gt;withVersion($product-&gt;getVersion())</div>
+<div class="line">    -&gt;withActions(</div>
+<div class="line">        ProductUpdateActionCollection::fromArray([</div>
+<div class="line">            ProductSetAttributeActionBuilder::of()</div>
+<div class="line">                -&gt;withVariantId($masterVariantId)</div>
+<div class="line">                -&gt;withName(self::COLOR_ATTR_NAME)</div>
+<div class="line">                -&gt;withValue(<span class="stringliteral">&quot;red&quot;</span>)</div>
+<div class="line">                -&gt;build(),</div>
+<div class="line">            ProductSetAttributeActionBuilder::of()</div>
+<div class="line">                -&gt;withVariantId($masterVariantId)</div>
+<div class="line">                -&gt;withName(self::SIZE_ATTR_NAME)</div>
+<div class="line">                -&gt;withValue(<span class="stringliteral">&quot;M&quot;</span>)</div>
+<div class="line">                -&gt;build(),</div>
+<div class="line">            ProductSetAttributeActionBuilder::of()</div>
+<div class="line">                -&gt;withVariantId($masterVariantId)</div>
+<div class="line">                -&gt;withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)</div>
+<div class="line">                -&gt;withValue([<span class="stringliteral">&quot;cold&quot;</span>])</div>
+<div class="line">                -&gt;build(),</div>
+<div class="line">            ProductSetAttributeActionBuilder::of()</div>
+<div class="line">                -&gt;withVariantId($masterVariantId)</div>
+<div class="line">                -&gt;withName(self::RRP_ATTR_NAME)</div>
+<div class="line">                -&gt;withValue(MoneyBuilder::of()-&gt;withCurrencyCode(<span class="stringliteral">&quot;EUR&quot;</span>)-&gt;withCentAmount(2000)-&gt;build())</div>
+<div class="line">                -&gt;build(),</div>
+<div class="line">        ])</div>
+<div class="line">    )-&gt;build();</div>
+<div class="line">$productUpdated = $builder</div>
+<div class="line">    -&gt;with()</div>
+<div class="line">    -&gt;products()</div>
+<div class="line">    -&gt;withId($product-&gt;getId())</div>
+<div class="line">    -&gt;post($productUpdatedAction)</div>
+<div class="line">    -&gt;execute();</div>
+<div class="line"> </div>
+<div class="line">$attributesUpdatedProduct = $productUpdated-&gt;getMasterData()-&gt;getStaged()-&gt;getMasterVariant()-&gt;getAttributes();</div>
+<div class="line"> </div>
+<div class="line">self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::SIZE_ATTR_NAME)-&gt;getValue()-&gt;key, <span class="stringliteral">&quot;M&quot;</span>);</div>
+<div class="line">self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::COLOR_ATTR_NAME)-&gt;getValue()-&gt;key, <span class="stringliteral">&quot;red&quot;</span>);</div>
+<div class="line">self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::LAUNDRY_SYMBOLS_ATTR_NAME)-&gt;getValue()[0]-&gt;key, <span class="stringliteral">&quot;cold&quot;</span>);</div>
+<div class="line">self::assertEquals(ProductTypeFixture::findAttribute($attributesUpdatedProduct, self::RRP_ATTR_NAME)-&gt;getValue()-&gt;centAmount, 2000);</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<h2><a class="anchor" id="autotoc_md35"></a>
+Create attributes for importing orders</h2>
+<p>Importing attribute values for orders works different from updating products. In orders you provide the full value for enum-like types instead of just the key as done for all other types. This makes it possible to create a new enum value on the fly. The other attributes behave as expected.</p>
+<p>Example: </p><div class="fragment"><div class="line">$product = $this-&gt;createProduct($builder);</div>
+<div class="line">$attributes = AttributeCollection::of()</div>
+<div class="line">    -&gt;add(AttributeBuilder::of()-&gt;withName(self::COLOR_ATTR_NAME)-&gt;withValue(<span class="stringliteral">&quot;yellow&quot;</span>)-&gt;build())</div>
+<div class="line">    -&gt;add(AttributeBuilder::of()-&gt;withName(self::RRP_ATTR_NAME)-&gt;withValue(MoneyBuilder::of()-&gt;withCurrencyCode(<span class="stringliteral">&quot;EUR&quot;</span>)-&gt;withCentAmount(30)-&gt;build())-&gt;build());</div>
+<div class="line"> </div>
+<div class="line">$productVariantImportDraft = ProductVariantImportDraftBuilder::of()</div>
+<div class="line">                                -&gt;withId(1)</div>
+<div class="line">                                -&gt;withAttributes($attributes)</div>
+<div class="line">                                -&gt;build();</div>
+<div class="line">$lineItemImportDraft = LineItemImportDraftBuilder::of()</div>
+<div class="line">    -&gt;withProductId($product-&gt;getId())</div>
+<div class="line">    -&gt;withVariant($productVariantImportDraft)</div>
+<div class="line">    -&gt;withQuantity(1)</div>
+<div class="line">    -&gt;withPrice(ProductFixture::priceDraft())</div>
+<div class="line">    -&gt;withName(LocalizedStringBuilder::of()-&gt;put(<span class="stringliteral">&quot;en&quot;</span>, <span class="stringliteral">&quot;product name&quot;</span>)-&gt;build())</div>
+<div class="line">    -&gt;build();</div>
+<div class="line">$orderImportDraft = OrderImportDraftBuilder::of()</div>
+<div class="line">    -&gt;withLineItems(LineItemImportDraftCollection::of()-&gt;add($lineItemImportDraft))</div>
+<div class="line">    -&gt;withTotalPrice(MoneyBuilder::of()-&gt;withCentAmount(20)-&gt;withCurrencyCode(<span class="stringliteral">&quot;EUR&quot;</span>)-&gt;build())</div>
+<div class="line">    -&gt;withOrderState(OrderState::COMPLETE)</div>
+<div class="line">    -&gt;build();</div>
+<div class="line">$order = $builder-&gt;orders()</div>
+<div class="line">    -&gt;importOrder()</div>
+<div class="line">    -&gt;post($orderImportDraft)</div>
+<div class="line">    -&gt;execute();</div>
+<div class="line">$productVariant = $order-&gt;getLineItems()-&gt;current()-&gt;getVariant();</div>
+<div class="line">$colorAttribute = ProductTypeFixture::findAttribute($productVariant-&gt;getAttributes(), self::COLOR_ATTR_NAME);</div>
+<div class="line">assertEquals(<span class="stringliteral">&quot;yellow&quot;</span>, $colorAttribute-&gt;getValue());</div>
+<div class="line">$rrpAttribute = ProductTypeFixture::findAttribute($productVariant-&gt;getAttributes(), self::RRP_ATTR_NAME);</div>
+<div class="line">assertEquals(30, $rrpAttribute-&gt;getValue()-&gt;centAmount);</div>
+</div><!-- fragment --><p> See the <a href="https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php">Test Code</a></p>
+<h1><a class="anchor" id="autotoc_md36"></a>
+Serialization</h1>
+<p>In the PHP SDK some classes implement the <a href="https://www.php.net/manual/en/class.jsonserializable.php">JsonSerializable</a> interface, and they have a customized <code>jsonSerialize()</code> method to convert the instance of the class to a JSON string easily. This mean that when the method <code>json_encode()</code> will be called, the object will be correctly converted and formatted to a JSON string.</p>
+<p>See the example below:</p>
+<div class="fragment"><div class="line">$messagePayload = <span class="keyword">new</span> MessageDeliveryPayloadModel(</div>
+<div class="line">    <span class="stringliteral">&quot;{projectKey}&quot;</span>,</div>
+<div class="line">    <span class="keyword">null</span>, <span class="comment">// Replace with an actual Reference object if needed</span></div>
+<div class="line">    <span class="keyword">null</span>, <span class="comment">// Replace with an actual UserProvidedIdentifiers object if needed</span></div>
+<div class="line">    <span class="stringliteral">&quot;uniqueId456&quot;</span>, <span class="comment">// ID</span></div>
+<div class="line">    1, <span class="comment">// The version</span></div>
+<div class="line">    <span class="keyword">new</span> DateTimeImmutable(<span class="stringliteral">&quot;2024-08-06T12:34:56+00:00&quot;</span>), <span class="comment">// CreatedAt</span></div>
+<div class="line">    <span class="keyword">new</span> DateTimeImmutable(<span class="stringliteral">&quot;2024-08-06T12:34:56+00:00&quot;</span>), <span class="comment">// LastModifiedAt</span></div>
+<div class="line">    42, <span class="comment">// SequenceNumber</span></div>
+<div class="line">    1, <span class="comment">// Resource version</span></div>
+<div class="line">    <span class="keyword">null</span>, <span class="comment">// Replace with an actual PayloadNotIncluded object if needed</span></div>
+<div class="line">    <span class="stringliteral">&quot;Message&quot;</span> <span class="comment">// notification type</span></div>
 <div class="line">);</div>
 <div class="line"> </div>
-<div class="line">$config = <span class="keyword">new</span> Config([], <span class="stringliteral">&#39;https://api.us-central1.gcp.commercetools.com&#39;</span>);</div>
-<div class="line">$client = ClientFactory::of()-&gt;createGuzzleClient(</div>
-<div class="line">  $config,</div>
-<div class="line">  $authConfig,</div>
-<div class="line">);</div>
-</div><!-- fragment --><p> Note that the auth endpoint should contain the <code>/oauth/token</code> suffix, but the API endpoint - don't.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
-Migration Guidelines</h2>
+<div class="line">$messagePayloadJSON = json_encode($messagePayload);</div>
+</div><!-- fragment --><p><a class="anchor" id="migration-guidelines-from-sdk-v1"></a> </p>
+<h1><a class="anchor" id="autotoc_md37"></a>
+Migration Guidelines from SDK v1</h1>
 <p>To migrate from the 1.x to the 2.x, there is a guideline below:</p><ul>
 <li>Migration guidelines from v1 to v2</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Observability</h2>
+<p><a class="anchor" id="observability"></a> </p>
+<h1><a class="anchor" id="autotoc_md38"></a>
+Observability</h1>
 <p>To monitor and observe the SDK, see the official documentation <a href="https://docs.commercetools.com/sdk/observability">Observability</a>, there is a <a href="https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app">Demo application</a> which shows how to monitor the PHP SDK with New Relic.</p>
-<h2><a class="anchor" id="autotoc_md8"></a>
-Documentation</h2>
+<p><a class="anchor" id="documentation"></a> </p>
+<h1><a class="anchor" id="autotoc_md39"></a>
+Documentation</h1>
 <ul>
 <li><a href="https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/index.html">Documentation</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<p><a class="anchor" id="license"></a> </p>
+<h1><a class="anchor" id="autotoc_md40"></a>
 License</h1>
 <p>MIT </p>
 </div></div><!-- PageDoc -->
