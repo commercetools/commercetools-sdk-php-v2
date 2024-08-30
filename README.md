@@ -230,7 +230,7 @@ $project = $request->mapFromResponse($response);
 <a id="applying-psrs"></a>
 ### Applying PSRs
 The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:
-- [PSR3 - Logger Interface](https://www.php-fig.org/psr/psr-3/)
+- [PSR-3 - Logger Interface](https://www.php-fig.org/psr/psr-3/)
 
 ```php
 $authHandler = HandlerStack::create();
