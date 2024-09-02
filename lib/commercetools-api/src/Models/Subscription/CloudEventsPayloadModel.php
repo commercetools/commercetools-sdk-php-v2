@@ -308,8 +308,8 @@ final class CloudEventsPayloadModel extends JsonObjectModel implements CloudEven
             if (is_null($data)) {
                 return null;
             }
-
-            $this->data = DeliveryPayloadModel::of($data);
+            $className = DeliveryPayloadModel::resolveDiscriminatorClass($data);
+            $this->data = $className::of($data);
         }
 
         return $this->data;

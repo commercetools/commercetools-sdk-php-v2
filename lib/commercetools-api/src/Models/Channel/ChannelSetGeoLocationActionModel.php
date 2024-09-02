@@ -78,8 +78,8 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-
-            $this->geoLocation = GeoJsonModel::of($data);
+            $className = GeoJsonModel::resolveDiscriminatorClass($data);
+            $this->geoLocation = $className::of($data);
         }
 
         return $this->geoLocation;

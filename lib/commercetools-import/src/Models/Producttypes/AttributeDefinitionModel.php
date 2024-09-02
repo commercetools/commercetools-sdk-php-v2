@@ -105,8 +105,8 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
             if (is_null($data)) {
                 return null;
             }
-
-            $this->type = AttributeTypeModel::of($data);
+            $className = AttributeTypeModel::resolveDiscriminatorClass($data);
+            $this->type = $className::of($data);
         }
 
         return $this->type;

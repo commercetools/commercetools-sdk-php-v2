@@ -140,8 +140,8 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
             if (is_null($data)) {
                 return null;
             }
-
-            $this->totalTax = TypedMoneyDraftModel::of($data);
+            $className = TypedMoneyDraftModel::resolveDiscriminatorClass($data);
+            $this->totalTax = $className::of($data);
         }
 
         return $this->totalTax;

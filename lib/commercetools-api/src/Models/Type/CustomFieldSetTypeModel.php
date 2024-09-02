@@ -76,8 +76,8 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
             if (is_null($data)) {
                 return null;
             }
-
-            $this->elementType = FieldTypeModel::of($data);
+            $className = FieldTypeModel::resolveDiscriminatorClass($data);
+            $this->elementType = $className::of($data);
         }
 
         return $this->elementType;

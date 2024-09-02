@@ -76,8 +76,8 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
             if (is_null($data)) {
                 return null;
             }
-
-            $this->elementType = AttributeTypeModel::of($data);
+            $className = AttributeTypeModel::resolveDiscriminatorClass($data);
+            $this->elementType = $className::of($data);
         }
 
         return $this->elementType;

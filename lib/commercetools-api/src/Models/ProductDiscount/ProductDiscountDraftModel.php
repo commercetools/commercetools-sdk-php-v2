@@ -178,8 +178,8 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = ProductDiscountValueDraftModel::of($data);
+            $className = ProductDiscountValueDraftModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;

@@ -414,8 +414,8 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = CartDiscountValueModel::of($data);
+            $className = CartDiscountValueModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -456,8 +456,8 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
             if (is_null($data)) {
                 return null;
             }
-
-            $this->target = CartDiscountTargetModel::of($data);
+            $className = CartDiscountTargetModel::resolveDiscriminatorClass($data);
+            $this->target = $className::of($data);
         }
 
         return $this->target;

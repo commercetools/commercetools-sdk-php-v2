@@ -109,8 +109,8 @@ final class ProductSelectionProductAddedMessagePayloadModel extends JsonObjectMo
             if (is_null($data)) {
                 return null;
             }
-
-            $this->variantSelection = ProductVariantSelectionModel::of($data);
+            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
+            $this->variantSelection = $className::of($data);
         }
 
         return $this->variantSelection;

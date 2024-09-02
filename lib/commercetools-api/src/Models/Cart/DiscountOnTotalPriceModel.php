@@ -75,8 +75,8 @@ final class DiscountOnTotalPriceModel extends JsonObjectModel implements Discoun
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discountedAmount = TypedMoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->discountedAmount = $className::of($data);
         }
 
         return $this->discountedAmount;
@@ -117,8 +117,8 @@ final class DiscountOnTotalPriceModel extends JsonObjectModel implements Discoun
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discountedNetAmount = TypedMoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->discountedNetAmount = $className::of($data);
         }
 
         return $this->discountedNetAmount;
@@ -139,8 +139,8 @@ final class DiscountOnTotalPriceModel extends JsonObjectModel implements Discoun
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discountedGrossAmount = TypedMoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->discountedGrossAmount = $className::of($data);
         }
 
         return $this->discountedGrossAmount;

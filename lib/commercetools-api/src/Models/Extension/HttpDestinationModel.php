@@ -104,8 +104,8 @@ final class HttpDestinationModel extends JsonObjectModel implements HttpDestinat
             if (is_null($data)) {
                 return null;
             }
-
-            $this->authentication = HttpDestinationAuthenticationModel::of($data);
+            $className = HttpDestinationAuthenticationModel::resolveDiscriminatorClass($data);
+            $this->authentication = $className::of($data);
         }
 
         return $this->authentication;

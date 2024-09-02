@@ -278,8 +278,8 @@ final class ExtensionModel extends JsonObjectModel implements Extension
             if (is_null($data)) {
                 return null;
             }
-
-            $this->destination = ExtensionDestinationModel::of($data);
+            $className = ExtensionDestinationModel::resolveDiscriminatorClass($data);
+            $this->destination = $className::of($data);
         }
 
         return $this->destination;

@@ -251,8 +251,8 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-
-            $this->label = LabelModel::of($data);
+            $className = LabelModel::resolveDiscriminatorClass($data);
+            $this->label = $className::of($data);
         }
 
         return $this->label;
@@ -272,8 +272,8 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousLabel = LabelModel::of($data);
+            $className = LabelModel::resolveDiscriminatorClass($data);
+            $this->previousLabel = $className::of($data);
         }
 
         return $this->previousLabel;

@@ -998,8 +998,8 @@ final class CartModel extends JsonObjectModel implements Cart
             if (is_null($data)) {
                 return null;
             }
-
-            $this->shippingRateInput = ShippingRateInputModel::of($data);
+            $className = ShippingRateInputModel::resolveDiscriminatorClass($data);
+            $this->shippingRateInput = $className::of($data);
         }
 
         return $this->shippingRateInput;

@@ -221,8 +221,8 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = CartDiscountValueDraftModel::of($data);
+            $className = CartDiscountValueDraftModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -263,8 +263,8 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
             if (is_null($data)) {
                 return null;
             }
-
-            $this->target = CartDiscountTargetModel::of($data);
+            $className = CartDiscountTargetModel::resolveDiscriminatorClass($data);
+            $this->target = $className::of($data);
         }
 
         return $this->target;

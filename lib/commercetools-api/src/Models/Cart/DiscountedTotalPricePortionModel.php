@@ -82,8 +82,8 @@ final class DiscountedTotalPricePortionModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discountedAmount = TypedMoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->discountedAmount = $className::of($data);
         }
 
         return $this->discountedAmount;

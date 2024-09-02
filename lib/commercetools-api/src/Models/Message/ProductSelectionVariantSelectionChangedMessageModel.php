@@ -419,8 +419,8 @@ final class ProductSelectionVariantSelectionChangedMessageModel extends JsonObje
             if (is_null($data)) {
                 return null;
             }
-
-            $this->oldVariantSelection = ProductVariantSelectionModel::of($data);
+            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
+            $this->oldVariantSelection = $className::of($data);
         }
 
         return $this->oldVariantSelection;
@@ -440,8 +440,8 @@ final class ProductSelectionVariantSelectionChangedMessageModel extends JsonObje
             if (is_null($data)) {
                 return null;
             }
-
-            $this->newVariantSelection = ProductVariantSelectionModel::of($data);
+            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
+            $this->newVariantSelection = $className::of($data);
         }
 
         return $this->newVariantSelection;

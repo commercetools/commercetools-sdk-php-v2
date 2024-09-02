@@ -61,8 +61,8 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discount = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->discount = $className::of($data);
         }
 
         return $this->discount;
@@ -82,8 +82,8 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discountedAmount = TypedMoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->discountedAmount = $className::of($data);
         }
 
         return $this->discountedAmount;
