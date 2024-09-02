@@ -251,8 +251,8 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
             if (is_null($data)) {
                 return null;
             }
-
-            $this->money = TypedMoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->money = $className::of($data);
         }
 
         return $this->money;

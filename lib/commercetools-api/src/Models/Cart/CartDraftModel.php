@@ -662,8 +662,8 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
             if (is_null($data)) {
                 return null;
             }
-
-            $this->shippingRateInput = ShippingRateInputDraftModel::of($data);
+            $className = ShippingRateInputDraftModel::resolveDiscriminatorClass($data);
+            $this->shippingRateInput = $className::of($data);
         }
 
         return $this->shippingRateInput;

@@ -153,8 +153,8 @@ final class ShippingModel extends JsonObjectModel implements Shipping
             if (is_null($data)) {
                 return null;
             }
-
-            $this->shippingRateInput = ShippingRateInputModel::of($data);
+            $className = ShippingRateInputModel::resolveDiscriminatorClass($data);
+            $this->shippingRateInput = $className::of($data);
         }
 
         return $this->shippingRateInput;

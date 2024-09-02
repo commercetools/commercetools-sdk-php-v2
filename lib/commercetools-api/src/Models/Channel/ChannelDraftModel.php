@@ -232,8 +232,8 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
             if (is_null($data)) {
                 return null;
             }
-
-            $this->geoLocation = GeoJsonModel::of($data);
+            $className = GeoJsonModel::resolveDiscriminatorClass($data);
+            $this->geoLocation = $className::of($data);
         }
 
         return $this->geoLocation;

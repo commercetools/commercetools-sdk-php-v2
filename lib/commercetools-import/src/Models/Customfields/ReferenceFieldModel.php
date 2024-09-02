@@ -80,8 +80,8 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = KeyReferenceModel::of($data);
+            $className = KeyReferenceModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;

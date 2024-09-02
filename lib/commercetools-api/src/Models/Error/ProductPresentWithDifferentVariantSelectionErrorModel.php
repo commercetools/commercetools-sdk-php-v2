@@ -137,8 +137,8 @@ final class ProductPresentWithDifferentVariantSelectionErrorModel extends JsonOb
             if (is_null($data)) {
                 return null;
             }
-
-            $this->existingVariantSelection = ProductVariantSelectionModel::of($data);
+            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
+            $this->existingVariantSelection = $className::of($data);
         }
 
         return $this->existingVariantSelection;

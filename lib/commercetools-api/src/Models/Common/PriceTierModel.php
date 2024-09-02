@@ -80,8 +80,8 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = TypedMoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;

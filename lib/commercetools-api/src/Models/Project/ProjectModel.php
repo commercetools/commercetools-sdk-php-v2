@@ -391,8 +391,8 @@ final class ProjectModel extends JsonObjectModel implements Project
             if (is_null($data)) {
                 return null;
             }
-
-            $this->shippingRateInputType = ShippingRateInputTypeModel::of($data);
+            $className = ShippingRateInputTypeModel::resolveDiscriminatorClass($data);
+            $this->shippingRateInputType = $className::of($data);
         }
 
         return $this->shippingRateInputType;

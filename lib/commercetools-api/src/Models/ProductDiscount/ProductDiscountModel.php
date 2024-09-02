@@ -371,8 +371,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = ProductDiscountValueModel::of($data);
+            $className = ProductDiscountValueModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;

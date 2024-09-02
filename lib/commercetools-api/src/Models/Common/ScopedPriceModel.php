@@ -148,8 +148,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = TypedMoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -169,8 +169,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
             if (is_null($data)) {
                 return null;
             }
-
-            $this->currentValue = TypedMoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->currentValue = $className::of($data);
         }
 
         return $this->currentValue;

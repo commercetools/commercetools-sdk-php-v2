@@ -299,8 +299,8 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
             if (is_null($data)) {
                 return null;
             }
-
-            $this->result = OrderEditResultModel::of($data);
+            $className = OrderEditResultModel::resolveDiscriminatorClass($data);
+            $this->result = $className::of($data);
         }
 
         return $this->result;
