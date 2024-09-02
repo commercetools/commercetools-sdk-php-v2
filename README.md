@@ -55,6 +55,7 @@ Client and Request Builder for making API requests against [Commercetools](https
 composer require commercetools/commercetools-sdk
 ```
 
+
 | Package            | Version                                                                                                                                                                                                                                                                                                                          |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | commercetools SDK  | [![Latest Stable Version](https://img.shields.io/packagist/v/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk) [![Total Downloads](https://img.shields.io/packagist/dt/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk) |
@@ -229,7 +230,7 @@ $project = $request->mapFromResponse($response);
 <a id="applying-psrs"></a>
 ### Applying PSRs
 The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:
-- [PS3 - Logger Interface](https://www.php-fig.org/psr/psr-3/)
+- [PSR-3 - Logger Interface](https://www.php-fig.org/psr/psr-3/)
 
 ```php
 $authHandler = HandlerStack::create();
@@ -247,6 +248,7 @@ $client = ClientFactory::of()->createGuzzleClientForHandler(
 );
 ```
 - [PSR-6 - CachingInterface](https://www.php-fig.org/psr/psr-6/)
+
 ```php
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 $filesystemCache = new FilesystemAdapter();
@@ -258,6 +260,7 @@ $client = ClientFactory->createGuzzleClientForHandler(
 );
 ```
 - [PSR-7 - HTTP Message Interface](https://www.php-fig.org/psr/psr-7/)
+
 ```php
 //set up the client something like the examples before
 
@@ -270,6 +273,7 @@ $request = new \GuzzleHttp\Psr7\Request('GET', '{projectKey}/categories/{ID}');
 $response = $client->send($request);
 ```
 - [PSR-16 - Common Interface for Caching Libraries](https://www.php-fig.org/psr/psr-16/)
+
 ```php
 use Symfony\Component\Cache\Simple\FilesystemCache;
 use Symfony\Component\Cache\Psr16Cache;
@@ -542,101 +546,101 @@ $green = AttributeLocalizedEnumValueBuilder::of()
                     ->withKey("green")
                     ->withLabel(LocalizedStringBuilder::fromArray(["en" => "green", "de" => "grün"])->build())
                     ->build();
-        $red = AttributeLocalizedEnumValueBuilder::of()
-                    ->withKey("red")
-                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "red", "de" => "rot"])->build())
+$red = AttributeLocalizedEnumValueBuilder::of()
+            ->withKey("red")
+            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "red", "de" => "rot"])->build())
+            ->build();
+$color = AttributeDefinitionDraftBuilder::of()
+            ->withName(self::COLOR_ATTR_NAME)
+            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "color"])->build())
+            ->withType(AttributeLocalizedEnumTypeBuilder::of()
+                        ->withValues(AttributeLocalizedEnumValueCollection::fromArray([$green, $red]))
+                        ->build())
+            ->withIsRequired(true)
+            ->build();
+$small = AttributePlainEnumValueBuilder::of()
+            ->withKey("S")
+            ->withLabel("S")
+            ->build();
+$medium = AttributePlainEnumValueBuilder::of()
+            ->withKey("M")
+            ->withLabel("M")
+            ->build();
+$sizeX = AttributePlainEnumValueBuilder::of()
+            ->withKey("X")
+            ->withLabel("X")
+            ->build();
+$size = AttributeDefinitionDraftBuilder::of()
+            ->withName(self::SIZE_ATTR_NAME)
+            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Size"])->build())
+            ->withType(AttributeEnumTypeBuilder::of()
+                            ->withValues(AttributePlainEnumValueCollection::fromArray([$small, $medium, $sizeX]))
+                            ->build())
+            ->withIsRequired(true)
+            ->build();
+$cold = AttributeLocalizedEnumValueBuilder::of()
+            ->withKey("cold")
+            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Wash at or below 30°C ", "de" => "30°C"])->build())
+            ->build();
+$hot = AttributeLocalizedEnumValueBuilder::of()
+            ->withKey("hot")
+            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Wash at or below 60°C", "de" => "60°C"])->build())
+            ->build();
+$tumbleDrying = AttributeLocalizedEnumValueBuilder::of()
+                    ->withKey("tumbleDrying")
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Tumble Drying", "de" => "Trommeltrocknen"])->build())
                     ->build();
-        $color = AttributeDefinitionDraftBuilder::of()
-                    ->withName(self::COLOR_ATTR_NAME)
-                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "color"])->build())
-                    ->withType(AttributeLocalizedEnumTypeBuilder::of()
-                                ->withValues(AttributeLocalizedEnumValueCollection::fromArray([$green, $red]))
-                                ->build())
-                    ->withIsRequired(true)
+$noTumbleDrying = AttributeLocalizedEnumValueBuilder::of()
+                    ->withKey("noTumbleDrying")
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "no tumble drying", "de" => "Nicht im Trommeltrockner trocknen"])->build())
                     ->build();
-        $small = AttributePlainEnumValueBuilder::of()
-                    ->withKey("S")
-                    ->withLabel("S")
-                    ->build();
-        $medium = AttributePlainEnumValueBuilder::of()
-                    ->withKey("M")
-                    ->withLabel("M")
-                    ->build();
-        $sizeX = AttributePlainEnumValueBuilder::of()
-                    ->withKey("X")
-                    ->withLabel("X")
-                    ->build();
-        $size = AttributeDefinitionDraftBuilder::of()
-                    ->withName(self::SIZE_ATTR_NAME)
-                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Size"])->build())
-                    ->withType(AttributeEnumTypeBuilder::of()
-                                    ->withValues(AttributePlainEnumValueCollection::fromArray([$small, $medium, $sizeX]))
-                                    ->build())
-                    ->withIsRequired(true)
-                    ->build();
-        $cold = AttributeLocalizedEnumValueBuilder::of()
-                    ->withKey("cold")
-                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Wash at or below 30°C ", "de" => "30°C"])->build())
-                    ->build();
-        $hot = AttributeLocalizedEnumValueBuilder::of()
-                    ->withKey("hot")
-                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Wash at or below 60°C", "de" => "60°C"])->build())
-                    ->build();
-        $tumbleDrying = AttributeLocalizedEnumValueBuilder::of()
-                            ->withKey("tumbleDrying")
-                            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "Tumble Drying", "de" => "Trommeltrocknen"])->build())
-                            ->build();
-        $noTumbleDrying = AttributeLocalizedEnumValueBuilder::of()
-                            ->withKey("noTumbleDrying")
-                            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "no tumble drying", "de" => "Nicht im Trommeltrockner trocknen"])->build())
-                            ->build();
-        $laundryLabelType = AttributeSetTypeBuilder::of()
-                                ->withElementType(AttributeLocalizedEnumTypeBuilder::of()
-                                                    ->withValues(AttributeLocalizedEnumValueCollection::fromArray([$cold, $hot, $tumbleDrying, $noTumbleDrying]))
-                                                    ->build())
-                                ->build();
-        $laundrySymbols = AttributeDefinitionDraftBuilder::of()
-                            ->withType($laundryLabelType)
-                            ->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)
-                            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "washing labels"])->build())
-                            ->withIsRequired(false)
-                            ->build();
-
-        $matchingProducts = AttributeDefinitionDraftBuilder::of()
-                                ->withName(self::MATCHING_PRODUCTS_ATTR_NAME)
-                                ->withLabel(LocalizedStringBuilder::fromArray(["en" => "matching products"])->build())
-                                ->withType(AttributeSetTypeBuilder::of()
-                                            ->withElementType(AttributeReferenceTypeBuilder::of()
-                                                                ->withReferenceTypeId("product")
-                                                                ->build())
+$laundryLabelType = AttributeSetTypeBuilder::of()
+                        ->withElementType(AttributeLocalizedEnumTypeBuilder::of()
+                                            ->withValues(AttributeLocalizedEnumValueCollection::fromArray([$cold, $hot, $tumbleDrying, $noTumbleDrying]))
                                             ->build())
-                                ->withIsRequired(false)
-                                ->build();
-        $rrp = AttributeDefinitionDraftBuilder::of()
-                    ->withName(self::RRP_ATTR_NAME)
-                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "recommended retail price"])->build())
-                    ->withType(AttributeMoneyTypeBuilder::of()->build())
+                        ->build();
+$laundrySymbols = AttributeDefinitionDraftBuilder::of()
+                    ->withType($laundryLabelType)
+                    ->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "washing labels"])->build())
                     ->withIsRequired(false)
                     ->build();
-        $availableSince = AttributeDefinitionDraftBuilder::of()
-                            ->withName(self::AVAILABLE_SINCE_ATTR_NAME)
-                            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "available since"])->build())
-                            ->withType(AttributeDateTimeTypeBuilder::of()->build())
-                            ->withIsRequired(false)
-                            ->build();
-        $attributes = AttributeDefinitionDraftCollection::fromArray([$color, $size, $laundrySymbols, $matchingProducts, $rrp, $availableSince]);
 
-        $productTypeDraft = ProductTypeDraftBuilder::of()
-                              ->withKey(ProductTypeFixture::uniqueProductTypeString())
-                              ->withName(self::PRODUCT_TYPE_NAME)
-                              ->withDescription("a 'T' shaped cloth")
-                              ->withAttributes($attributes)
-                              ->build();
-        $productType = $builder
-            ->with()
-            ->productTypes()
-            ->post($productTypeDraft)
-            ->execute();
+$matchingProducts = AttributeDefinitionDraftBuilder::of()
+                        ->withName(self::MATCHING_PRODUCTS_ATTR_NAME)
+                        ->withLabel(LocalizedStringBuilder::fromArray(["en" => "matching products"])->build())
+                        ->withType(AttributeSetTypeBuilder::of()
+                                    ->withElementType(AttributeReferenceTypeBuilder::of()
+                                                        ->withReferenceTypeId("product")
+                                                        ->build())
+                                    ->build())
+                        ->withIsRequired(false)
+                        ->build();
+$rrp = AttributeDefinitionDraftBuilder::of()
+            ->withName(self::RRP_ATTR_NAME)
+            ->withLabel(LocalizedStringBuilder::fromArray(["en" => "recommended retail price"])->build())
+            ->withType(AttributeMoneyTypeBuilder::of()->build())
+            ->withIsRequired(false)
+            ->build();
+$availableSince = AttributeDefinitionDraftBuilder::of()
+                    ->withName(self::AVAILABLE_SINCE_ATTR_NAME)
+                    ->withLabel(LocalizedStringBuilder::fromArray(["en" => "available since"])->build())
+                    ->withType(AttributeDateTimeTypeBuilder::of()->build())
+                    ->withIsRequired(false)
+                    ->build();
+$attributes = AttributeDefinitionDraftCollection::fromArray([$color, $size, $laundrySymbols, $matchingProducts, $rrp, $availableSince]);
+
+$productTypeDraft = ProductTypeDraftBuilder::of()
+                      ->withKey(ProductTypeFixture::uniqueProductTypeString())
+                      ->withName(self::PRODUCT_TYPE_NAME)
+                      ->withDescription("a 'T' shaped cloth")
+                      ->withAttributes($attributes)
+                      ->build();
+$productType = $builder
+    ->with()
+    ->productTypes()
+    ->post($productTypeDraft)
+    ->execute();
 ```
 See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
 
@@ -652,7 +656,7 @@ $productType = $builder
             ->withQueryParam('where', 'name="' . $name . '"')
             ->execute();
 
-        return $productType->getResults()->current() ?: null;
+return $productType->getResults()->current() ?: null;
 ```
 See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
 
@@ -755,48 +759,48 @@ $green = AttributeLocalizedEnumValueBuilder::of()
             ->withKey("green")
             ->withLabel(LocalizedStringBuilder::of()->put("en", "green ")->put("de", "grün")->build())
             ->build();
-        $cold = AttributeLocalizedEnumValueBuilder::of()
-            ->withKey("cold")
-            ->withLabel(LocalizedStringBuilder::of()->put("en", "Wash at or below 30°C ")->put("de", "30°C")->build())
-            ->build();
-        $tumbleDrying = AttributeLocalizedEnumValueBuilder::of()
-            ->withKey("tumbleDrying")
-            ->withLabel(LocalizedStringBuilder::of()->put("en", "tumble drying")->put("de", "Trommeltrocknen")->build())
-            ->build();
-        $productReference = ProductReferenceBuilder::of()->withId($referenceableProduct->getId())->build();
+$cold = AttributeLocalizedEnumValueBuilder::of()
+    ->withKey("cold")
+    ->withLabel(LocalizedStringBuilder::of()->put("en", "Wash at or below 30°C ")->put("de", "30°C")->build())
+    ->build();
+$tumbleDrying = AttributeLocalizedEnumValueBuilder::of()
+    ->withKey("tumbleDrying")
+    ->withLabel(LocalizedStringBuilder::of()->put("en", "tumble drying")->put("de", "Trommeltrocknen")->build())
+    ->build();
+$productReference = ProductReferenceBuilder::of()->withId($referenceableProduct->getId())->build();
 
-        $attributes = AttributeCollection::of()
-            ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
-            ->add(AttributeBuilder::of()->withName(self::SIZE_ATTR_NAME)->withValue("S")->build())
-            ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
-            ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCentAmount(300)->withCurrencyCode("EUR")->build())->build())
-            ->add(AttributeBuilder::of()->withName(self::AVAILABLE_SINCE_ATTR_NAME)->withValue($datetime)->build())
-            ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue([$productReference])->build());
-        $productVariantDraft = ProductVariantDraftBuilder::of()
-            ->withAttributes($attributes)
-            ->build();
-        $productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
-            ->withId($productType->getId())
-            ->build();
-        $productDraft = ProductDraftBuilder::of()
-            ->withProductType($productTypeResourceIdentifier)
-            ->withKey(ProductFixture::uniqueProductString())
-            ->withName(LocalizedStringBuilder::of()->put('en', 'basic shirt')->build())
-            ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
-            ->withMasterVariant($productVariantDraft)
-            ->build();
-        $product = $builder->products()
-            ->post($productDraft)
-            ->execute();
+$attributes = AttributeCollection::of()
+    ->add(AttributeBuilder::of()->withName(self::COLOR_ATTR_NAME)->withValue("green")->build())
+    ->add(AttributeBuilder::of()->withName(self::SIZE_ATTR_NAME)->withValue("S")->build())
+    ->add(AttributeBuilder::of()->withName(self::LAUNDRY_SYMBOLS_ATTR_NAME)->withValue(["cold", "tumbleDrying"])->build())
+    ->add(AttributeBuilder::of()->withName(self::RRP_ATTR_NAME)->withValue(MoneyBuilder::of()->withCentAmount(300)->withCurrencyCode("EUR")->build())->build())
+    ->add(AttributeBuilder::of()->withName(self::AVAILABLE_SINCE_ATTR_NAME)->withValue($datetime)->build())
+    ->add(AttributeBuilder::of()->withName(self::MATCHING_PRODUCTS_ATTR_NAME)->withValue([$productReference])->build());
+$productVariantDraft = ProductVariantDraftBuilder::of()
+    ->withAttributes($attributes)
+    ->build();
+$productTypeResourceIdentifier = ProductTypeResourceIdentifierBuilder::of()
+    ->withId($productType->getId())
+    ->build();
+$productDraft = ProductDraftBuilder::of()
+    ->withProductType($productTypeResourceIdentifier)
+    ->withKey(ProductFixture::uniqueProductString())
+    ->withName(LocalizedStringBuilder::of()->put('en', 'basic shirt')->build())
+    ->withSlug(LocalizedStringBuilder::of()->put('en', ProductFixture::uniqueProductString())->build())
+    ->withMasterVariant($productVariantDraft)
+    ->build();
+$product = $builder->products()
+    ->post($productDraft)
+    ->execute();
 
-        $masterVariant = $product->getMasterData()->getStaged()->getMasterVariant();
-        foreach ($masterVariant->getAttributes() as $attribute) {
-            if ($attribute->getName() === self::COLOR_ATTR_NAME) {
-                assertEquals($attribute->getValue()->key, "green");
-            }
-            if ($attribute->getName() === self::SIZE_ATTR_NAME) {
-                assertEquals($attribute->getValue()->key, "S");
-            }
+$masterVariant = $product->getMasterData()->getStaged()->getMasterVariant();
+foreach ($masterVariant->getAttributes() as $attribute) {
+    if ($attribute->getName() === self::COLOR_ATTR_NAME) {
+        assertEquals($attribute->getValue()->key, "green");
+    }
+    if ($attribute->getName() === self::SIZE_ATTR_NAME) {
+        assertEquals($attribute->getValue()->key, "S");
+    }
 ```
 See the [Test Code](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/test/integration/Api/ProductType/ProductTypeCreationDemoIntegrationTest.php)
 
@@ -939,6 +943,7 @@ $order = $builder->orders()
     ->importOrder()
     ->post($orderImportDraft)
     ->execute();
+    
 $productVariant = $order->getLineItems()->current()->getVariant();
 $colorAttribute = ProductTypeFixture::findAttribute($productVariant->getAttributes(), self::COLOR_ATTR_NAME);
 assertEquals("yellow", $colorAttribute->getValue());
@@ -979,7 +984,7 @@ To migrate from the 1.x to the 2.x, there is a guideline below:
 <a id="observability"></a>
 ## Observability
 
-To monitor and observe the SDK, see the official documentation [Observability](https://docs.commercetools.com/sdk/observability), there is a [Demo application](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app) which shows how to monitor the PHP SDK with New Relic.
+To monitor and observe the SDK, see the official documentation [Observability](https://docs.commercetools.com/sdk/observability), there is a [Demo application](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app) which shows how to monitor the PHP SDK with New Relic and Datadog.
 
 <a id="documentation"></a>
 ## Documentation
