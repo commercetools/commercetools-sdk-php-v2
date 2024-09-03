@@ -18,7 +18,7 @@ interface ExtensionTrigger extends JsonObject
     public const FIELD_CONDITION = 'condition';
 
     /**
-     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, <code>customer</code>, <code>quote-request</code>, <code>staged-quote</code>, <code>quote</code>, and <code>business-unit</code> are supported.</p>
+     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, <code>customer</code>, <code>quote-request</code>, <code>staged-quote</code>, <code>quote</code>, <code>business-unit</code>, and <code>shopping-list</code> are supported.</p>
      *
 
      * @return null|string
