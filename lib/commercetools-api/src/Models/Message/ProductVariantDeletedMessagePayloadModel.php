@@ -40,6 +40,12 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
      */
     protected $removedImageUrls;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $staged;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -47,10 +53,12 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     public function __construct(
         ?ProductVariant $variant = null,
         ?array $removedImageUrls = null,
+        ?bool $staged = null,
         ?string $type = null
     ) {
         $this->variant = $variant;
         $this->removedImageUrls = $removedImageUrls;
+        $this->staged = $staged;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -113,6 +121,27 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
         return $this->removedImageUrls;
     }
 
+    /**
+     * <p>If <code>true</code>, this message informs that only the staged ProductVariant has been removed by the update action.
+     * If <code>false</code>, both the current and staged ProductVariant have been removed.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
 
     /**
      * @param ?ProductVariant $variant
@@ -128,5 +157,13 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     public function setRemovedImageUrls(?array $removedImageUrls): void
     {
         $this->removedImageUrls = $removedImageUrls;
+    }
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

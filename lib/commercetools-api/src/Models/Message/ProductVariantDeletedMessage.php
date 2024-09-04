@@ -16,6 +16,7 @@ interface ProductVariantDeletedMessage extends Message
 {
     public const FIELD_VARIANT = 'variant';
     public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> that was added.</p>
@@ -34,6 +35,15 @@ interface ProductVariantDeletedMessage extends Message
     public function getRemovedImageUrls();
 
     /**
+     * <p>If <code>true</code>, this message informs that only the staged ProductVariant has been removed by the update action.
+     * If <code>false</code>, both the current and staged ProductVariant have been removed.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged();
+
+    /**
      * @param ?ProductVariant $variant
      */
     public function setVariant(?ProductVariant $variant): void;
@@ -42,4 +52,9 @@ interface ProductVariantDeletedMessage extends Message
      * @param ?array $removedImageUrls
      */
     public function setRemovedImageUrls(?array $removedImageUrls): void;
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void;
 }

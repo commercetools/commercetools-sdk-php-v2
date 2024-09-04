@@ -102,6 +102,12 @@ final class ProductVariantDeletedMessageBuilder implements Builder
     private $removedImageUrls;
 
     /**
+
+     * @var ?bool
+     */
+    private $staged;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -232,6 +238,18 @@ final class ProductVariantDeletedMessageBuilder implements Builder
     public function getRemovedImageUrls()
     {
         return $this->removedImageUrls;
+    }
+
+    /**
+     * <p>If <code>true</code>, this message informs that only the staged ProductVariant has been removed by the update action.
+     * If <code>false</code>, both the current and staged ProductVariant have been removed.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
     }
 
     /**
@@ -367,6 +385,17 @@ final class ProductVariantDeletedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -435,7 +464,8 @@ final class ProductVariantDeletedMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant,
-            $this->removedImageUrls
+            $this->removedImageUrls,
+            $this->staged
         );
     }
 
