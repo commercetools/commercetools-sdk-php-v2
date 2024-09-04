@@ -35,6 +35,12 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     private $removedImageUrls;
 
     /**
+
+     * @var ?bool
+     */
+    private $staged;
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> that was added.</p>
      *
 
@@ -54,6 +60,18 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     public function getRemovedImageUrls()
     {
         return $this->removedImageUrls;
+    }
+
+    /**
+     * <p>If <code>true</code>, this message informs that only the staged ProductVariant has been removed by the update action.
+     * If <code>false</code>, both the current and staged ProductVariant have been removed.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
     }
 
     /**
@@ -79,6 +97,17 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withVariant() instead
      * @return $this
      */
@@ -93,7 +122,8 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     {
         return new ProductVariantDeletedMessagePayloadModel(
             $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant,
-            $this->removedImageUrls
+            $this->removedImageUrls,
+            $this->staged
         );
     }
 

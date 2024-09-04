@@ -107,6 +107,12 @@ final class ProductVariantDeletedMessageModel extends JsonObjectModel implements
      */
     protected $removedImageUrls;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $staged;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -124,6 +130,7 @@ final class ProductVariantDeletedMessageModel extends JsonObjectModel implements
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?ProductVariant $variant = null,
         ?array $removedImageUrls = null,
+        ?bool $staged = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -138,6 +145,7 @@ final class ProductVariantDeletedMessageModel extends JsonObjectModel implements
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->variant = $variant;
         $this->removedImageUrls = $removedImageUrls;
+        $this->staged = $staged;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -415,6 +423,27 @@ final class ProductVariantDeletedMessageModel extends JsonObjectModel implements
         return $this->removedImageUrls;
     }
 
+    /**
+     * <p>If <code>true</code>, this message informs that only the staged ProductVariant has been removed by the update action.
+     * If <code>false</code>, both the current and staged ProductVariant have been removed.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
 
     /**
      * @param ?string $id
@@ -510,6 +539,14 @@ final class ProductVariantDeletedMessageModel extends JsonObjectModel implements
     public function setRemovedImageUrls(?array $removedImageUrls): void
     {
         $this->removedImageUrls = $removedImageUrls;
+    }
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 
 
