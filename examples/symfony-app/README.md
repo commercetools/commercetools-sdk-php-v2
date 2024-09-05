@@ -1,13 +1,15 @@
 # Symfony demo app for New Relic
 
-This Demo is to show how PHP SDK can be used in a Symfony application for a Docker environment with NewRelic monitoring enabled.
+This Demo is to show how PHP SDK can be used in a Symfony application for a Docker environment with monitoring tools enabled.
+
+For now, we configured the docker environment for Datadog and New Relic.
 
 ## Requirements
 
 - PHP at least 8.1
 - Symfony 6 
 - Docker
-- Registration in New Relic
+- Registration in New Relic/Datadog
 
 ## Installation
 
@@ -19,11 +21,7 @@ APP_CTP_CLIENT_ID= your CTP_CLIENT_ID
 APP_CTP_CLIENT_SECRET= your CTP_CLIENT_SECRET
 APP_CTP_PROJECT_KEY= your CTP_PROJECT_KEY
 ```
-4. In the  [docker-compose.yml](https://github.com/commercetools/commercetools-sdk-php-v2/blob/622c664ef69b93d96f11ac2ed26d24446d45dd0c/examples/symfony-app/docker-compose.yml)  add the New Relic license key in the NEWRELIC_KEY: "<newrelic license key>" field
-```yaml
-      args:
-        NEWRELIC_KEY: "replace this field with your New Relic license key"
-```
+4. Complete the .env file with your new relic or datadog credentials.
 
 ## Using the Symfony Demo app in a Docker Environment
 
@@ -44,6 +42,6 @@ APP_CTP_PROJECT_KEY= your CTP_PROJECT_KEY
 1. Navigate to [http://localhost:8080/products](http://localhost:8080/products) or [http://localhost:8080/categories](http://localhost:8080/categories)
 2. The result would be an array objects containing products or categories.
 3. If it's not please make sure that in Merchant Center in the project key selected (see the environment variable for the client credentials in the point 3 of the Installation section), there would be some data for products and categories.
-4. Go in the New Relic UI to see the monitoring of the API calls.
+4. Go in the New Relic/Datadog UI to see the monitoring of the API calls.
 
-
+The docker configuration files will be found in the `docker/php` folder and the `docker-compose.yml` in the `symfony-app/` folder so they can be used in your application.

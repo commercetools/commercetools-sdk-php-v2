@@ -2,6 +2,11 @@ FROM nginx
 
 COPY symfony.conf /etc/nginx/conf.d/default.conf
 
-RUN echo "upstream php-upstream { server application:9000; }" > /etc/nginx/conf.d/upstream.conf
+# Update the upstream configuration to point to the correct PHP service
+RUN echo "upstream php-upstream { server php-datadog:9000;  \
+#    server php-newrelic:9001;  \
+    }" > /etc/nginx/conf.d/upstream.conf
 
-RUN usermod -u 1000 www-data
+
+HEALTHCHECK --interval=30s --timeout=5s \
+  CMD curl -f http://localhost/ || exit 1
