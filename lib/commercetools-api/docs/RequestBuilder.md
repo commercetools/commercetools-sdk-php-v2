@@ -5255,7 +5255,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductId("productID")->productTailoring()->images()->post(null)`
 
-Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. Produces the [ProductTailoringImageAdded](/projects/messages#product-tailoring-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
+Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. Produces the [ProductTailoringImageAdded](/projects/messages/product-catalog-messages#product-tailoring-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
 
 
 ### Example
@@ -5328,7 +5328,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductKey("productKey")->productTailoring()->images()->post(null)`
 
-Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. Produces the [ProductTailoringImageAdded](/projects/messages#product-tailoring-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
+Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. Produces the [ProductTailoringImageAdded](/projects/messages/product-catalog-messages#product-tailoring-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
 
 
 ### Example
@@ -9052,7 +9052,7 @@ $request = $builder
 
 To create a new Product, send a representation that is going to become the initial _staged_ and _current_ representation of the new Product in the catalog.
 If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, selected Prices will be added to the response.
-Produces the [ProductCreated](/projects/messages#product-created) Message.
+Produces the [ProductCreated](/projects/messages/product-catalog-messages#product-created) Message.
 
 
 ### Example
@@ -9115,7 +9115,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
 If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
-Produces the [ProductDeleted](/projects/messages#product-deleted) Message.
+Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example
 ```php
@@ -9130,7 +9130,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->images()->post(null)`
 
-Upload a JPEG, PNG and GIF file to a [ProductVariant](ctp:api:type:ProductVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. The image is uploaded to the Master Variant if `variant` or `sku` are not included. Produces the [ProductImageAdded](/projects/messages#product-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
+Upload a JPEG, PNG and GIF file to a [ProductVariant](ctp:api:type:ProductVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. The image is uploaded to the Master Variant if `variant` or `sku` are not included. Produces the [ProductImageAdded](/projects/messages/product-catalog-messages#product-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
 
 
 ### Example
@@ -9209,7 +9209,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
 If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
-Produces the [ProductDeleted](/projects/messages#product-deleted) Message.
+Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example
 ```php
