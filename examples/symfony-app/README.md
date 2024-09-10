@@ -30,6 +30,8 @@ APP_CTP_PROJECT_KEY= your CTP_PROJECT_KEY
 1. Open the Terminal
 2. Run `composer dump-env prod`
 3. Run `composer install` or `composer update`
+4. Copy the [.env.sample](docker/php/.env.sample) file to the root folder renaming it `.env`.
+5. Please fill the `.env` file with the missing data.
 
 ### Preparing the Docker environment
 
