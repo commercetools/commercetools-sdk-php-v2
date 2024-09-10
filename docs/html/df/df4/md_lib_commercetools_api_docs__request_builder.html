@@ -4466,7 +4466,7 @@ Example</h2>
 <div class="line">                -&gt;delete();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md693"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;inStoreKeyWithStoreKeyValue("storeKey")-&gt;products()-&gt;withProductId("productID")-&gt;productTailoring()-&gt;images()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. <code>variant</code> or <code>sku</code> is required to update a specific ProductVariant. Produces the <a href="../..//projects/messages#product-tailoring-image-added">ProductTailoringImageAdded</a> Message when the <code>Small</code> version of the image has been uploaded to the CDN.</p>
+<p>Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. <code>variant</code> or <code>sku</code> is required to update a specific ProductVariant. Produces the <a href="../..//projects/messages/product-catalog-messages#product-tailoring-image-added">ProductTailoringImageAdded</a> Message when the <code>Small</code> version of the image has been uploaded to the CDN.</p>
 <h2><a class="anchor" id="autotoc_md694"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -4527,7 +4527,7 @@ Example</h2>
 <div class="line">                -&gt;delete();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md701"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;inStoreKeyWithStoreKeyValue("storeKey")-&gt;products()-&gt;withProductKey("productKey")-&gt;productTailoring()-&gt;images()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. <code>variant</code> or <code>sku</code> is required to update a specific ProductVariant. Produces the <a href="../..//projects/messages#product-tailoring-image-added">ProductTailoringImageAdded</a> Message when the <code>Small</code> version of the image has been uploaded to the CDN.</p>
+<p>Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. <code>variant</code> or <code>sku</code> is required to update a specific ProductVariant. Produces the <a href="../..//projects/messages/product-catalog-messages#product-tailoring-image-added">ProductTailoringImageAdded</a> Message when the <code>Small</code> version of the image has been uploaded to the CDN.</p>
 <h2><a class="anchor" id="autotoc_md702"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -7679,7 +7679,7 @@ Example</h2>
 <div class="line">                -&gt;head();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md1149"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;products()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>To create a new Product, send a representation that is going to become the initial <em>staged</em> and <em>current</em> representation of the new Product in the catalog. If <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection query parameters</a> are provided, selected Prices will be added to the response. Produces the <a href="../..//projects/messages#product-created">ProductCreated</a> Message.</p>
+<p>To create a new Product, send a representation that is going to become the initial <em>staged</em> and <em>current</em> representation of the new Product in the catalog. If <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection query parameters</a> are provided, selected Prices will be added to the response. Produces the <a href="../..//projects/messages/product-catalog-messages#product-created">ProductCreated</a> Message.</p>
 <h2><a class="anchor" id="autotoc_md1150"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -7731,7 +7731,7 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md1157"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;products()-&gt;withId("ID")-&gt;delete()&lt;/tt&gt;</h1>
-<p>If <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection query parameters</a> are provided, the selected Prices are added to the response. Produces the <a href="../..//projects/messages#product-deleted">ProductDeleted</a> Message.</p>
+<p>If <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection query parameters</a> are provided, the selected Prices are added to the response. Produces the <a href="../..//projects/messages/product-catalog-messages#product-deleted">ProductDeleted</a> Message.</p>
 <h2><a class="anchor" id="autotoc_md1158"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -7744,7 +7744,7 @@ Example</h2>
 <div class="line">                -&gt;delete();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md1159"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;products()-&gt;withId("ID")-&gt;images()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Upload a JPEG, PNG and GIF file to a [ProductVariant](ctp:api:type:ProductVariant). The maximum file size of the image is 10MB. <code>variant</code> or <code>sku</code> is required to update a specific ProductVariant. The image is uploaded to the Master Variant if <code>variant</code> or <code>sku</code> are not included. Produces the <a href="../..//projects/messages#product-image-added">ProductImageAdded</a> Message when the <code>Small</code> version of the image has been uploaded to the CDN.</p>
+<p>Upload a JPEG, PNG and GIF file to a [ProductVariant](ctp:api:type:ProductVariant). The maximum file size of the image is 10MB. <code>variant</code> or <code>sku</code> is required to update a specific ProductVariant. The image is uploaded to the Master Variant if <code>variant</code> or <code>sku</code> are not included. Produces the <a href="../..//projects/messages/product-catalog-messages#product-image-added">ProductImageAdded</a> Message when the <code>Small</code> version of the image has been uploaded to the CDN.</p>
 <h2><a class="anchor" id="autotoc_md1160"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -7811,7 +7811,7 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md1169"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;products()-&gt;withKey("key")-&gt;delete()&lt;/tt&gt;</h1>
-<p>If <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection query parameters</a> are provided, the selected Prices are added to the response. Produces the <a href="../..//projects/messages#product-deleted">ProductDeleted</a> Message.</p>
+<p>If <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection query parameters</a> are provided, the selected Prices are added to the response. Produces the <a href="../..//projects/messages/product-catalog-messages#product-deleted">ProductDeleted</a> Message.</p>
 <h2><a class="anchor" id="autotoc_md1170"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
