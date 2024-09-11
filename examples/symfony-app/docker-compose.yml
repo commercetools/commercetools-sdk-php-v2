@@ -5,6 +5,14 @@ services:
     build:
       context: ./docker/php
       dockerfile: Dockerfile.datadog
+    environment:
+      - DD_SERVICE=symfony-app
+      - DD_AGENT_HOST=datadog-agent
+      - DD_TRACE_AGENT_PORT=8126
+      - DD_API_KEY=${DD_API_KEY}
+      - DD_TRACE_DEBUG=true
+      - DD_LOGS_ENABLED=true
+      - DD_PROCESS_AGENT_ENABLED=true
     volumes:
       - .:/var/www/symfony
       - ./docker/php/.env.sample:/var/www/symfony/.env
@@ -21,14 +29,17 @@ services:
       - php-datadog
     volumes:
       - ./var/logs/nginx:/var/log/nginx
-      - .:/var/www/symfony"
+      - .:/var/www/symfony
 
   datadog-agent:
     image: datadog/agent:latest
+    environment:
+      - DD_API_KEY=${DD_API_KEY}
+      - DD_SITE=datadoghq.com
+      - DD_APM_ENABLED=true
     ports:
       - "127.0.0.1:8126:8126/tcp"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "/proc/:/host/proc/:ro"
       - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
-
