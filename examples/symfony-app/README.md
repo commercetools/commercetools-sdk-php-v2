@@ -43,7 +43,7 @@ APP_CTP_PROJECT_KEY= your CTP_PROJECT_KEY
 
 1. Navigate to [http://localhost:8080/products](http://localhost:8080/products) or [http://localhost:8080/categories](http://localhost:8080/categories)
 2. The result would be an array objects containing products or categories.
-3. If it's not please make sure that in Merchant Center in the project key selected (see the environment variable for the client credentials in the point 3 of the Installation section), there would be some data for products and categories.
+3. If it's not make sure that in Merchant Center in the project key selected (see the environment variable for the client credentials in the point 3 of the Installation section), there would be some data for products and categories.
 4. Go in the New Relic/Datadog UI to see the monitoring of the API calls.
 
 The docker configuration files will be found in the `docker/php` folder and the `docker-compose.yml` in the `symfony-app/` folder so they can be used in your application.
