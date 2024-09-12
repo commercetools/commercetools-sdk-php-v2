@@ -21,7 +21,7 @@ APP_CTP_CLIENT_ID= your CTP_CLIENT_ID
 APP_CTP_CLIENT_SECRET= your CTP_CLIENT_SECRET
 APP_CTP_PROJECT_KEY= your CTP_PROJECT_KEY
 ```
-4. Complete the .env file with your new relic or datadog credentials.
+4. Complete the .env file with your New Relic or Datadog credentials.
 
 ## Using the Symfony Demo app in a Docker Environment
 
