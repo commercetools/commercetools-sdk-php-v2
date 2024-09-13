@@ -41,27 +41,23 @@
 - [Documentation](#documentation)
 - [License](#license)
 
-<a id="introduction"></a>
 ## Introduction
 
 This repository contains the PHP SDK generated from the Composable Commerce API reference.
 
 Client and Request Builder for making API requests against [Commercetools](https://www.commercetools.com).
 
-<a id="package-and-installation"></a>
 ## Package and Installation
 
 ```sh
 composer require commercetools/commercetools-sdk
 ```
 
+Package           | Version
+------------------|--------------------------------------------------------------------
+commercetools SDK | [![Latest Stable Version](https://img.shields.io/packagist/v/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk) [![Total Downloads](https://img.shields.io/packagist/dt/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk)
 
-| Package            | Version                                                                                                                                                                                                                                                                                                                          |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| commercetools SDK  | [![Latest Stable Version](https://img.shields.io/packagist/v/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk) [![Total Downloads](https://img.shields.io/packagist/dt/commercetools/commercetools-sdk.svg)](https://packagist.org/packages/commercetools/commercetools-sdk) |
 
-
-<a id="technical-overview"></a>
 ## Technical Overview
 
 The SDK consists of the following projects:
@@ -91,25 +87,22 @@ The PHP SDK utilizes various standard interfaces and components to ensure consis
 - PHP Date API:
     - [DateTimeImmutable](https://secure.php.net/manual/en/datetimeimmutable.construct.php)
 
-<a id="placeholder-values"></a>
 ### Placeholder values
 
 Example code in this guide uses placeholders that should be replaced with the following values.
 
 If you do not have an API Client, follow our [Get your API Client](#client-creation) guide.
 
-| Placeholder      | Replace with | From                                    |
-| ---------------- | ------------ | --------------------------------------- |
-| `{projectKey}`   | project_key  | your API Client                         |
-| `{clientID}`     | client_id    | your API Client                         |
-| `{clientSecret}` | secret       | your API Client                         |
-| `{scope}`        | scope        | your API Client                         |
-| `{region}`       | your Region  | [Hosts](/../api/general-concepts#hosts) |
+Placeholder     | Replace with | From
+----------------|--------------|-------
+`{projectKey}`  | project_key  | your API Client
+`{clientID}`    | client_id    | your API Client
+`{clientSecret}`| secret       | your API Client
+`{scope}`       | scope        | your API Client
+`{region}`      | your Region  | [Hosts](/../api/general-concepts#hosts)
 
-<a id="getting-started"></a>
 ## Getting Started
 
-<a id="client-creation"></a>
 ### Client Creation
 
 The example below shows how to create a client with customized URIs passed in the creation of the Client itself.
@@ -144,7 +137,6 @@ $client = ClientFactory::of()->createGuzzleClient(
 );
 ```
 
-<a id="customize-endpoint-for-different-regions"></a>
 ### Customize Endpoint for different regions
 
 By default, the library uses `api.europe-west1.gcp.commercetools.com` endpoint. If you use a different region, you can configure the client to use a custom endpoint. Here is an example for the `us-central1` region:
@@ -163,8 +155,6 @@ $client = ClientFactory::of()->createGuzzleClient(
 ```
 Note that the auth endpoint should contain the `/oauth/token` suffix, but the API endpoint - don't.
 
-
-<a id="performing-requests"></a>
 ### Performing Requests
 
 Detailed information of all available methods for the product API can be found [here](lib/commercetools-api/docs/RequestBuilder.md)
@@ -224,10 +214,8 @@ $response = $client->send($request);
 $project = $request->mapFromResponse($response);
 ```
 
-<a id="configuration"></a>
 ## Configuration
 
-<a id="applying-psrs"></a>
 ### Applying PSRs
 The PHP SDK utilizes various standard interfaces and components to ensure consistency and interoperability:
 - [PSR-3 - Logger Interface](https://www.php-fig.org/psr/psr-3/)
@@ -287,7 +275,7 @@ $client = ClientFactory->createGuzzleClientForHandler(
     OAuthHandlerFactory::ofAuthConfig($authConfig, $cache)
 );
 ```
-<a id="error-handling"></a>
+
 ### Error Handling
 The error handle is already provided with the [ExceptionFactory](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Exception/ExceptionFactory.php) class.
 The methods contained in this class encapsulate the logic for converting Guzzle exceptions into your custom exceptions based on the HTTP response status codes.
@@ -300,27 +288,22 @@ Direct invocation in a request handling or directly handled in a middleware:
         throw ExceptionFactory::createClientException($e, $apiRequest, $response, $result);
     }
 ```
-<a id="authentication"></a>
+
 ## Authentication
 The factory class [ProviderFactory](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/src/Client/ProviderFactory.php) is for managing authentication and token handling.
 
-<a id="token-storage-creation"></a>
 ### Token Storage Creation
 To generate a TokenStorageProvider that manages tokens using different flows: Refresh Flow and Anonymous Flow, you can use `ProviderFactory::createTokenStorageProvider($anonTokenUrl, $refreshTokenUrl, $clientCredentials, $client, $tokenStorage, $anonymousIdProvider);`.
 
-<a id="password-flow"></a>
 ### Password Flow
 The `ProviderFactory::createPasswordFlowProvider($passwordTokenUrl, $clientCredentials, $client, $tokenStorage);` method, creates a PasswordFlowTokenProvider for authenticating users with username and password, acquiring tokens securely.
 
-<a id="anonymous-flow"></a>
 ### Anonymous Flow
 The `createAnonymousFlowProvider($anonTokenUrl, $clientCredentials, $client, $refreshFlowTokenProvider, $anonymousIdProvider);` method builds an AnonymousFlowTokenProvider to manage tokens for anonymous users, integrating with the API's anonymous token endpoint.
 
-<a id="refresh-flow"></a>
 ### Refresh Flow
 The `createRefreshFlowProvider($refreshTokenUrl, $clientCredentials, $client, $tokenStorage)` method sets up a RefreshFlowTokenProvider to handle token refresh operations seamlessly, ensuring continuous access to API resources.
 
-<a id="middlewares"></a>
 ## Middlewares
 We introduced middleware to add functionalities to the requests and the responses in the PHP SDK.
 
@@ -330,7 +313,7 @@ The scope of the MiddlewareFactory which is a Factory pattern is to handle all t
 
 The methods that are contained in this class, are meant to create an array of middlewares.
 
-<a id="defaultmiddleware"></a>
+
 ### DefaultMiddleware
 
 The method [createDefaultMiddlewares](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L26) creates an array with default values of OAuth Handler, Authentication, Logger, Retry and Correlation ID.
@@ -351,7 +334,7 @@ $middlewares = MiddlewareFactory::createDefaultMiddlewares(
     $correlationIdProvider
 );
 ```
-<a id="correlationidmiddleware"></a>
+
 ### CorrelationIdMiddleware
 
 The method [createCorrelationIdMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L51) creates a middleware that adds a correlation ID to the headers of HTTP requests.
@@ -363,7 +346,7 @@ $correlationIdMiddleware = MiddlewareFactory::createCorrelationIdMiddleware(
     $correlationIdProvider
 );
 ```
-<a id="retrynamiddleware"></a>
+
 ### RetryNAMiddleware
 
 The method [createRetryNAMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L66) is designed to create middleware that retries HTTP requests under certain conditions are met. This middleware is particularly useful in scenarios where transient errors, such as temporary server unavailability, may occur.
@@ -373,7 +356,7 @@ $maxRetries = 3;
 
 $retryMiddleware = MiddlewareFactory::createRetryNAMiddleware($maxRetries);
 ```
-<a id="oauthhandlermiddleware"></a>
+
 ### OAuthHandlerMiddleware
 
 The method [createMiddlewareForOAuthHandler](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L95) creates a middleware for handling OAuth2 authentication ensuring to include the necessary OAuth credentials.
@@ -385,7 +368,6 @@ $oauthHandler = OAuthHandlerFactory::ofProvider($tokenProvider),
 $oauthMiddleware = MiddlewareFactory::createMiddlewareForOAuthHandler($oauthHandler);
 ```
 
-<a id="loggermiddleware"></a>
 ### LoggerMiddleware
 
 The method [createLoggerMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L104) creates a middleware for logging HTTP requests and responses.
@@ -396,7 +378,7 @@ $logger->pushHandler(new StreamHandler('./logs/requests.log', Logger::DEBUG));
 
 $loggerMiddleware = MiddlewareFactory::createLoggerMiddleware($logger);
 ```
-<a id="reauthenticatemiddleware"></a>
+
 ### ReauthenticateMiddleware
 
 The method [createReauthenticateMiddleware](https://github.com/commercetools/commercetools-sdk-php-v2/blob/master/lib/commercetools-base/src/Client/MiddlewareFactory.php#L114C28-L114C58) creates a middleware that automatically reauthenticates HTTP requests when an invalid token error (HTTP 401) is encountered. It uses an OAuth2Handler to refresh the token and retry the request up to a specified number of times.
@@ -410,9 +392,6 @@ $oauthHandler = OAuthHandlerFactory::ofAuthConfig($authConfig),
 $reauthMiddleware = MiddlewareFactory::createReauthenticateMiddleware($oauthHandler);
 ```
 
-
-
-<a id="querying"></a>
 ## Querying
 For the examples that we are mentioning below we are setting the `$builder` like here:
 ```php
@@ -425,7 +404,6 @@ $builder =  new ApiRequestBuilder('{projectKey}', $client);
 
 Since the most of the variables to pass in the `with()` method are scalars, this means that we can pass arrays in the related parameter of the method like in the examples below.
 
-<a id="predicates"></a>
 ### Predicates
 The system allows the use of predicates when querying the API. Predicates are added as query parameter string to the request itself. 
 The following example shows the usage of input variables:
@@ -445,7 +423,6 @@ $builder
     ->withPredicateVar("skus", ["foo", "bar"]);
 ```
 
-<a id="get-by-idkey"></a>
 ### Get By Id/Key
 ```php
 $builder
@@ -460,7 +437,6 @@ $builder
     ->get();
 ```
 
-<a id="sorting"></a>
 ### Sorting
 See [Sort](https://docs.commercetools.com/api/general-concepts#sorting) for details.
 
@@ -480,7 +456,6 @@ $builder
     ->withSort(["masterData.current.name.en asc", "id asc"]);
 ```
 
-<a id="pagination"></a>
 ### Pagination
 Limiting the number of the returned documents or page size:
 ```php
@@ -490,9 +465,9 @@ $builder
     ->withLimit(4)
     ->withOffset(4);
 ```
-<a id="products-and-producttypes"></a>
+
 ## Products and ProductTypes
-<a id="producttype-creation"></a>
+
 ### ProductType Creation
 A [ProductType](https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/d7/dbf/interface_commercetools_1_1_api_1_1_models_1_1_product_type_1_1_product_type.html) is like a schema that defines how the product attributes are structured.
 
@@ -976,22 +951,18 @@ $messagePayload = new MessageDeliveryPayloadModel(
 $messagePayloadJSON = json_encode($messagePayload);
 ```
 
-<a id="migration-guidelines-from-sdk-v1"></a>
 ## Migration Guidelines from SDK v1
 To migrate from the 1.x to the 2.x, there is a guideline below:
 * [Migration guidelines from v1 to v2](./Migration.md)
 
-<a id="observability"></a>
 ## Observability
 
 To monitor and observe the SDK, see the official documentation [Observability](https://docs.commercetools.com/sdk/observability), there is a [Demo application](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app) which shows how to monitor the PHP SDK with New Relic and Datadog.
 
-<a id="documentation"></a>
 ## Documentation
 
 * [Documentation](https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/index.html)
 
-<a id="license"></a>
 ## License
 
 MIT
