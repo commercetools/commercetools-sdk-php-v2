@@ -25,6 +25,6 @@ var/
 vendor/
 .editorconfig
 .env.*.local
-.env.local
+docker/php/.env.sample
 .env.local.php
 .env.test

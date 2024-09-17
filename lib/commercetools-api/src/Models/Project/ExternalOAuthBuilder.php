@@ -33,7 +33,7 @@ final class ExternalOAuthBuilder implements Builder
     private $authorizationHeader;
 
     /**
-     * <p>URL with authorization header. If the Project is hosted in the China (AWS, Ningxia) Region, verify that the URL is not blocked due to firewall restrictions.</p>
+     * <p>URL with authorization header.</p>
      *
 
      * @return null|string
