@@ -8,3 +8,4 @@ logs
 /lambda/.serverless/
 .idea/
 docs/
+.env

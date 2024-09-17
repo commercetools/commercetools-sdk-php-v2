@@ -1,0 +1,30 @@
+FROM php:8.2-fpm
+
+# Install necessary packages and PHP extensions
+RUN apt-get update \
+    && apt-get install -y apt-utils wget git curl libicu-dev zlib1g-dev libonig-dev libzip-dev gnupg2 \
+    && docker-php-ext-install intl mbstring zip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download Datadog setup script from the latest release and move it in /usr/local/bin
+RUN curl -LO https://github.com/DataDog/dd-trace-php/releases/latest/download/datadog-setup.php \
+    && mv datadog-setup.php /usr/local/bin/datadog-setup.php \
+    && chmod +x /usr/local/bin/datadog-setup.php
+
+# Copy Datadog configuration and setup script
+COPY conf.d/datadog.ini /usr/local/etc/php/conf.d/
+
+# Copy the .env.sample file from host to the container
+COPY .env.sample /var/www/symfony/.env.sample
+
+# Run the setup script
+RUN php /usr/local/bin/datadog-setup.php --php-bin=all --enable-appsec --enable-profiling
+
+HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost/ || exit 1
+
+WORKDIR /var/www/symfony/public
+
+EXPOSE 9000
+
+CMD ["php-fpm", "-F"]

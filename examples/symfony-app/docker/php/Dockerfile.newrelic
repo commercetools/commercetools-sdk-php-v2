@@ -1,0 +1,32 @@
+# Dockerfile for New Relic
+FROM php:8.2-fpm
+
+ARG NEWRELIC_KEY
+ARG NEWRELIC_APP_NAME
+
+# Install necessary packages and New Relic
+RUN apt-get update \
+    && apt-get install -y apt-utils wget git curl libicu-dev zlib1g-dev libonig-dev libzip-dev gnupg2 \
+    && docker-php-ext-install intl mbstring zip \
+    && echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | tee /etc/apt/sources.list.d/newrelic.list \
+    && wget -qO - https://download.newrelic.com/548C16BF.gpg | apt-key add - \
+    && apt-get update \
+    && apt-get install -y newrelic-php5 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy New Relic configuration files
+COPY conf.d/newrelic.ini /usr/local/etc/php/conf.d/
+COPY conf.d/60-user.ini /usr/local/etc/php/conf.d/
+
+# Configure New Relic
+RUN sed -i \
+   -e 's/"REPLACE_WITH_REAL_KEY"/'"$NEWRELIC_KEY"'/' \
+   -e 's/newrelic.appname = "PHP Application"/newrelic.appname = '"$NEWRELIC_APP_NAME"'/' \
+   /usr/local/etc/php/conf.d/newrelic.ini
+
+WORKDIR /var/www/symfony/public
+
+EXPOSE 9000
+
+CMD ["php-fpm", "-F"]
