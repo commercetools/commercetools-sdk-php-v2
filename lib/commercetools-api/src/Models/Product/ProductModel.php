@@ -22,6 +22,7 @@ use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -112,6 +113,12 @@ final class ProductModel extends JsonObjectModel implements Product
      */
     protected $priceMode;
 
+    /**
+     *
+     * @var ?WarningObjectCollection
+     */
+    protected $warnings;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -129,7 +136,8 @@ final class ProductModel extends JsonObjectModel implements Product
         ?TaxCategoryReference $taxCategory = null,
         ?StateReference $state = null,
         ?ReviewRatingStatistics $reviewRatingStatistics = null,
-        ?string $priceMode = null
+        ?string $priceMode = null,
+        ?WarningObjectCollection $warnings = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -144,6 +152,7 @@ final class ProductModel extends JsonObjectModel implements Product
         $this->state = $state;
         $this->reviewRatingStatistics = $reviewRatingStatistics;
         $this->priceMode = $priceMode;
+        $this->warnings = $warnings;
     }
 
     /**
@@ -422,6 +431,27 @@ final class ProductModel extends JsonObjectModel implements Product
         return $this->priceMode;
     }
 
+    /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+     *
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings()
+    {
+        if (is_null($this->warnings)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_WARNINGS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->warnings = WarningObjectCollection::fromArray($data);
+        }
+
+        return $this->warnings;
+    }
+
 
     /**
      * @param ?string $id
@@ -525,6 +555,14 @@ final class ProductModel extends JsonObjectModel implements Product
     public function setPriceMode(?string $priceMode): void
     {
         $this->priceMode = $priceMode;
+    }
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void
+    {
+        $this->warnings = $warnings;
     }
 
 

@@ -207,6 +207,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailorin
                 },
                 200
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImagesPost_202' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->products()
+                        ->withProductId("productID")
+                        ->productTailoring()
+                        ->images()
+                        ->post(null);
+                },
+                202
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImagesPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
