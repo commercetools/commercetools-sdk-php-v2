@@ -64,6 +64,10 @@ class ByProjectKeyInStoreKeyByStoreKeyProductsKeyByProductKeyProductTailoringIma
                     $resultType = ProductTailoringModel::class;
 
                     break;
+                case '202':
+                    $resultType = ProductTailoringModel::class;
+
+                    break;
                 default:
                     $resultType = JsonObjectModel::class;
 

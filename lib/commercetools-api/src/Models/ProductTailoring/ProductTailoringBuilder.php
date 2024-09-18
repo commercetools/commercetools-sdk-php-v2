@@ -18,6 +18,7 @@ use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -108,6 +109,12 @@ final class ProductTailoringBuilder implements Builder
      * @var ?bool
      */
     private $hasStagedChanges;
+
+    /**
+
+     * @var ?WarningObjectCollection
+     */
+    private $warnings;
 
     /**
      * <p>Unique identifier of the ProductTailoring.</p>
@@ -250,6 +257,18 @@ final class ProductTailoringBuilder implements Builder
     public function getHasStagedChanges()
     {
         return $this->hasStagedChanges;
+    }
+
+    /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings()
+    {
+        return $this->warnings;
     }
 
     /**
@@ -396,6 +415,17 @@ final class ProductTailoringBuilder implements Builder
     }
 
     /**
+     * @param ?WarningObjectCollection $warnings
+     * @return $this
+     */
+    public function withWarnings(?WarningObjectCollection $warnings)
+    {
+        $this->warnings = $warnings;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -476,7 +506,8 @@ final class ProductTailoringBuilder implements Builder
             $this->published,
             $this->current instanceof ProductTailoringDataBuilder ? $this->current->build() : $this->current,
             $this->staged instanceof ProductTailoringDataBuilder ? $this->staged->build() : $this->staged,
-            $this->hasStagedChanges
+            $this->hasStagedChanges,
+            $this->warnings
         );
     }
 

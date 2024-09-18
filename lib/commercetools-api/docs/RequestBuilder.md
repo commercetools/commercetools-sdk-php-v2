@@ -5255,7 +5255,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductId("productID")->productTailoring()->images()->post(null)`
 
-Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. Produces the [ProductTailoringImageAdded](/projects/messages/product-catalog-messages#product-tailoring-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
+Uploads a JPEG, PNG and GIF file to a [ProductVariantTailoring](ctp:api:type:ProductVariantTailoring).
+The maximum file size of the image is **10MB**.
+Either `variant` or `sku` is required to update a specific ProductVariant.
+If neither is provided, the image is uploaded to the Master Variant of the Product.
+
+The response status code depends on the size of the original image.
+If the image is small, the API responds with `200 OK`, and if the image is larger, it responds with `202 Accepted`.
+The Product returned with a `202 Accepted` status code contains a `warnings` field with an [ImageProcessingOngoing](ctp:api:type:ImageProcessingOngoingWarning) Warning.
+
+Produces the [ProductTailoringImageAdded](/projects/messages/product-catalog-messages#product-tailoring-image-added) Message.
 
 
 ### Example
@@ -5328,7 +5337,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->products()->withProductKey("productKey")->productTailoring()->images()->post(null)`
 
-Upload a JPEG, PNG and GIF file to a [ProductTailoringVariant](ctp:api:type:ProductTailoringVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. Produces the [ProductTailoringImageAdded](/projects/messages/product-catalog-messages#product-tailoring-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
+Uploads a JPEG, PNG and GIF file to a [ProductVariantTailoring](ctp:api:type:ProductVariantTailoring).
+The maximum file size of the image is **10MB**.
+Either `variant` or `sku` is required to update a specific ProductVariant.
+If neither is provided, the image is uploaded to the Master Variant of the Product.
+
+The response status code depends on the size of the original image.
+If the image is small, the API responds with `200 OK`, and if the image is larger, it responds with `202 Accepted`.
+The Product returned with a `202 Accepted` status code contains a `warnings` field with an [ImageProcessingOngoing](ctp:api:type:ImageProcessingOngoingWarning) Warning.
+
+Produces the [ProductTailoringImageAdded](/projects/messages/product-catalog-messages#product-tailoring-image-added) Message.
 
 
 ### Example
@@ -9130,7 +9148,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->images()->post(null)`
 
-Upload a JPEG, PNG and GIF file to a [ProductVariant](ctp:api:type:ProductVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. The image is uploaded to the Master Variant if `variant` or `sku` are not included. Produces the [ProductImageAdded](/projects/messages/product-catalog-messages#product-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
+Uploads a JPEG, PNG, or a GIF image file to a [ProductVariant](ctp:api:type:ProductVariant).
+The maximum file size of the image is **10MB**.
+Either `variant` or `sku` is required to update a specific ProductVariant.
+If neither is provided, the image is uploaded to the Master Variant of the Product.
+
+The response status code depends on the size of the original image.
+If the image is small, the API responds with `200 OK`, and if the image is larger, it responds with `202 Accepted`.
+The Product returned with a `202 Accepted` status code contains a `warnings` field with an [ImageProcessingOngoing](ctp:api:type:ImageProcessingOngoingWarning) Warning.
+
+Produces the [ProductImageAdded](/projects/messages/product-catalog-messages#product-image-added) Message.
 
 
 ### Example

@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -28,6 +29,7 @@ interface ProductTailoring extends BaseResource
     public const FIELD_CURRENT = 'current';
     public const FIELD_STAGED = 'staged';
     public const FIELD_HAS_STAGED_CHANGES = 'hasStagedChanges';
+    public const FIELD_WARNINGS = 'warnings';
 
     /**
      * <p>Unique identifier of the ProductTailoring.</p>
@@ -134,6 +136,15 @@ interface ProductTailoring extends BaseResource
     public function getHasStagedChanges();
 
     /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -197,4 +208,9 @@ interface ProductTailoring extends BaseResource
      * @param ?bool $hasStagedChanges
      */
     public function setHasStagedChanges(?bool $hasStagedChanges): void;
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void;
 }
