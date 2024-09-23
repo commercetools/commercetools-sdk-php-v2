@@ -23,11 +23,10 @@
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
 var menudata={children:[
-{text:"Overview",url:"index.html"},
-{text:"Api",url:"dir_5d0a49e0a69a74c64dca1b4287c6c17d.html"},
-{text:"ImportApi",url:"dir_ab5bdcf4026acac89003dbfca17dd1a0.html"},
-{text:"HistoryApi",url:"dir_9844e594bd4123b268a78b427c16e855.html"},
+{text:"Main Page",url:"index.html"},
 {text:"Related Pages",url:"pages.html"},
+{text:"Namespaces",url:"namespaces.html",children:[
+{text:"Namespace List",url:"namespaces.html"}]},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Class List",url:"annotated.html"},
 {text:"Class Index",url:"classes.html"},
