@@ -193,6 +193,17 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                 },
                 200
             ],
+            'ByProjectKeyProductsByIDImagesPost_202' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withId("ID")
+                        ->images()
+                        ->post(null);
+                },
+                202
+            ],
             'ByProjectKeyProductsByIDImagesPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

@@ -43,7 +43,7 @@ interface ProductTailoringChangeAssetOrderAction extends ProductTailoringUpdateA
     public function getStaged();
 
     /**
-     * <p>All existing Asset <code>id</code>s of the ProductTailoringVariant in the desired new order.</p>
+     * <p>All existing Asset <code>id</code>s of the ProductVariantTailoring in the desired new order.</p>
      *
 
      * @return null|array

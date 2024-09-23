@@ -66,6 +66,7 @@ final class StandalonePriceSetDiscountedPriceActionModel extends JsonObjectModel
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
+     * <p>The referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> must be of type external, active, and its predicate must match the referenced Price.</p>
      *
      *
      * @return null|DiscountedPriceDraft

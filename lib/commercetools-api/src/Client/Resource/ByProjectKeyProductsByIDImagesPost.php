@@ -64,6 +64,10 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
                     $resultType = ProductModel::class;
 
                     break;
+                case '202':
+                    $resultType = ProductModel::class;
+
+                    break;
                 default:
                     $resultType = JsonObjectModel::class;
 

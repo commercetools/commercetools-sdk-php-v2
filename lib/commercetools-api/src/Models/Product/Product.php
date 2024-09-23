@@ -15,6 +15,7 @@ use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -30,6 +31,7 @@ interface Product extends BaseResource
     public const FIELD_STATE = 'state';
     public const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
     public const FIELD_PRICE_MODE = 'priceMode';
+    public const FIELD_WARNINGS = 'warnings';
 
     /**
      * <p>Unique identifier of the Product.</p>
@@ -137,6 +139,15 @@ interface Product extends BaseResource
     public function getPriceMode();
 
     /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -200,4 +211,9 @@ interface Product extends BaseResource
      * @param ?string $priceMode
      */
     public function setPriceMode(?string $priceMode): void;
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void;
 }
