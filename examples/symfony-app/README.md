@@ -15,13 +15,6 @@ For now, we configured the docker environment for Datadog and New Relic.
 
 1. Clone/Download the example folder.
 2. Navigate to the path `symfony-app/`.
-3. Register the client credentials in environment variables [.env file](https://github.com/commercetools/commercetools-sdk-php-v2/blob/622c664ef69b93d96f11ac2ed26d24446d45dd0c/examples/symfony-app/.env):
-```
-APP_CTP_CLIENT_ID= your CTP_CLIENT_ID
-APP_CTP_CLIENT_SECRET= your CTP_CLIENT_SECRET
-APP_CTP_PROJECT_KEY= your CTP_PROJECT_KEY
-```
-4. Complete the .env file with your New Relic or Datadog credentials.
 
 ## Using the Symfony Demo app in a Docker Environment
 
