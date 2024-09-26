@@ -107,6 +107,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'SearchExecutionFailure' => SearchExecutionFailureErrorModel::class,
        'SearchFacetPathNotFound' => SearchFacetPathNotFoundErrorModel::class,
        'SearchIndexingInProgress' => SearchIndexingInProgressErrorModel::class,
+       'SearchNotReady' => SearchNotReadyErrorModel::class,
        'SemanticError' => SemanticErrorErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
        'StoreCartDiscountsLimitReached' => StoreCartDiscountsLimitReachedErrorModel::class,

@@ -16,6 +16,8 @@
 <details>
 <summary>Added Type(s)</summary>
 
+- added type `SearchNotReadyError`
+- added type `GraphQLSearchNotReadyError`
 - added type `ProductTailoringAttribute`
 - added type `ProductTailoringSetAttributeAction`
 - added type `ProductTailoringSetAttributeInAllVariantsAction`
