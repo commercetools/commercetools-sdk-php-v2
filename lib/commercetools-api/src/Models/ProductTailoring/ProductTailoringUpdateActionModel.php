@@ -47,6 +47,8 @@ final class ProductTailoringUpdateActionModel extends JsonObjectModel implements
        'setAssetKey' => ProductTailoringSetAssetKeyActionModel::class,
        'setAssetSources' => ProductTailoringSetAssetSourcesActionModel::class,
        'setAssetTags' => ProductTailoringSetAssetTagsActionModel::class,
+       'setAttribute' => ProductTailoringSetAttributeActionModel::class,
+       'setAttributeInAllVariants' => ProductTailoringSetAttributeInAllVariantsActionModel::class,
        'setDescription' => ProductTailoringSetDescriptionActionModel::class,
        'setImageLabel' => ProductTailoringSetImageLabelActionModel::class,
        'setImages' => ProductTailoringSetExternalImagesActionModel::class,

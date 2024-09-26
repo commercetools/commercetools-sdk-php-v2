@@ -19,6 +19,7 @@ interface ProductVariantTailoringDraft extends JsonObject
     public const FIELD_SKU = 'sku';
     public const FIELD_IMAGES = 'images';
     public const FIELD_ASSETS = 'assets';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * <p>The <code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to be tailored.</p>
@@ -53,6 +54,19 @@ interface ProductVariantTailoringDraft extends JsonObject
     public function getAssets();
 
     /**
+     * <p>Attributes of the tailored Product Variant according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.
+     * If provided, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a>:</p>
+     * <ul>
+     * <li>If the ProductVariant contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten,</li>
+     * <li>otherwise the Attribute and its value are added to the ProductVariant.</li>
+     * </ul>
+     *
+
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes();
+
+    /**
      * @param ?int $id
      */
     public function setId(?int $id): void;
@@ -71,4 +85,9 @@ interface ProductVariantTailoringDraft extends JsonObject
      * @param ?AssetCollection $assets
      */
     public function setAssets(?AssetCollection $assets): void;
+
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     */
+    public function setAttributes(?ProductTailoringAttributeCollection $attributes): void;
 }
