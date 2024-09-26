@@ -101,6 +101,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'SearchExecutionFailure' => GraphQLSearchExecutionFailureErrorModel::class,
        'SearchFacetPathNotFound' => GraphQLSearchFacetPathNotFoundErrorModel::class,
        'SearchIndexingInProgress' => GraphQLSearchIndexingInProgressErrorModel::class,
+       'SearchNotReady' => GraphQLSearchNotReadyErrorModel::class,
        'SemanticError' => GraphQLSemanticErrorErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => GraphQLShippingMethodDoesNotMatchCartErrorModel::class,
        'StoreCartDiscountsLimitReached' => GraphQLStoreCartDiscountsLimitReachedErrorModel::class,
