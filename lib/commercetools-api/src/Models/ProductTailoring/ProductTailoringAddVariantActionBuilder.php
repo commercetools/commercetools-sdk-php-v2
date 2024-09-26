@@ -48,6 +48,12 @@ final class ProductTailoringAddVariantActionBuilder implements Builder
 
     /**
 
+     * @var ?ProductTailoringAttributeCollection
+     */
+    private $attributes;
+
+    /**
+
      * @var ?bool
      */
     private $staged;
@@ -94,6 +100,17 @@ final class ProductTailoringAddVariantActionBuilder implements Builder
     public function getAssets()
     {
         return $this->assets;
+    }
+
+    /**
+     * <p>Attributes for the Product Variant Tailoring.</p>
+     *
+
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
     /**
@@ -152,6 +169,17 @@ final class ProductTailoringAddVariantActionBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     * @return $this
+     */
+    public function withAttributes(?ProductTailoringAttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $staged
      * @return $this
      */
@@ -170,6 +198,7 @@ final class ProductTailoringAddVariantActionBuilder implements Builder
             $this->sku,
             $this->images,
             $this->assets,
+            $this->attributes,
             $this->staged
         );
     }

@@ -19,6 +19,7 @@ interface ProductTailoringAddVariantAction extends ProductTailoringUpdateAction
     public const FIELD_SKU = 'sku';
     public const FIELD_IMAGES = 'images';
     public const FIELD_ASSETS = 'assets';
+    public const FIELD_ATTRIBUTES = 'attributes';
     public const FIELD_STAGED = 'staged';
 
     /**
@@ -54,6 +55,14 @@ interface ProductTailoringAddVariantAction extends ProductTailoringUpdateAction
     public function getAssets();
 
     /**
+     * <p>Attributes for the Product Variant Tailoring.</p>
+     *
+
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes();
+
+    /**
      * <p>If <code>true</code> the new Product Variant Tailoring is only staged. If <code>false</code> the new Product Variant Tailoring is both current and staged.</p>
      *
 
@@ -80,6 +89,11 @@ interface ProductTailoringAddVariantAction extends ProductTailoringUpdateAction
      * @param ?AssetDraftCollection $assets
      */
     public function setAssets(?AssetDraftCollection $assets): void;
+
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     */
+    public function setAttributes(?ProductTailoringAttributeCollection $attributes): void;
 
     /**
      * @param ?bool $staged

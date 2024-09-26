@@ -54,6 +54,12 @@ final class ProductTailoringAddVariantActionModel extends JsonObjectModel implem
 
     /**
      *
+     * @var ?ProductTailoringAttributeCollection
+     */
+    protected $attributes;
+
+    /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -67,6 +73,7 @@ final class ProductTailoringAddVariantActionModel extends JsonObjectModel implem
         ?string $sku = null,
         ?ImageCollection $images = null,
         ?AssetDraftCollection $assets = null,
+        ?ProductTailoringAttributeCollection $attributes = null,
         ?bool $staged = null,
         ?string $action = null
     ) {
@@ -74,6 +81,7 @@ final class ProductTailoringAddVariantActionModel extends JsonObjectModel implem
         $this->sku = $sku;
         $this->images = $images;
         $this->assets = $assets;
+        $this->attributes = $attributes;
         $this->staged = $staged;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -177,6 +185,26 @@ final class ProductTailoringAddVariantActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Attributes for the Product Variant Tailoring.</p>
+     *
+     *
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = ProductTailoringAttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
+    }
+
+    /**
      * <p>If <code>true</code> the new Product Variant Tailoring is only staged. If <code>false</code> the new Product Variant Tailoring is both current and staged.</p>
      *
      *
@@ -227,6 +255,14 @@ final class ProductTailoringAddVariantActionModel extends JsonObjectModel implem
     public function setAssets(?AssetDraftCollection $assets): void
     {
         $this->assets = $assets;
+    }
+
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     */
+    public function setAttributes(?ProductTailoringAttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 
     /**

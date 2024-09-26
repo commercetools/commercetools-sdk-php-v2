@@ -41,6 +41,12 @@ final class ProductVariantTailoringBuilder implements Builder
     private $assets;
 
     /**
+
+     * @var ?ProductTailoringAttributeCollection
+     */
+    private $attributes;
+
+    /**
      * <p>The <code>id</code> of the tailored <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
 
@@ -76,6 +82,22 @@ final class ProductVariantTailoringBuilder implements Builder
     }
 
     /**
+     * <p>Attributes of the tailored Product Variant.
+     * If present, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a>:</p>
+     * <ul>
+     * <li>If the ProductVariant contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten,</li>
+     * <li>otherwise the Attribute and its value are added to the ProductVariant.</li>
+     * </ul>
+     *
+
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
      * @param ?int $id
      * @return $this
      */
@@ -108,13 +130,25 @@ final class ProductVariantTailoringBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     * @return $this
+     */
+    public function withAttributes(?ProductTailoringAttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
 
     public function build(): ProductVariantTailoring
     {
         return new ProductVariantTailoringModel(
             $this->id,
             $this->images,
-            $this->assets
+            $this->assets,
+            $this->attributes
         );
     }
 

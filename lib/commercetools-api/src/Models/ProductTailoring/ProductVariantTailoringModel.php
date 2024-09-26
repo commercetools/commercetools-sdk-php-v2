@@ -39,6 +39,12 @@ final class ProductVariantTailoringModel extends JsonObjectModel implements Prod
      */
     protected $assets;
 
+    /**
+     *
+     * @var ?ProductTailoringAttributeCollection
+     */
+    protected $attributes;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -46,11 +52,13 @@ final class ProductVariantTailoringModel extends JsonObjectModel implements Prod
     public function __construct(
         ?int $id = null,
         ?ImageCollection $images = null,
-        ?AssetCollection $assets = null
+        ?AssetCollection $assets = null,
+        ?ProductTailoringAttributeCollection $attributes = null
     ) {
         $this->id = $id;
         $this->images = $images;
         $this->assets = $assets;
+        $this->attributes = $attributes;
     }
 
     /**
@@ -115,6 +123,31 @@ final class ProductVariantTailoringModel extends JsonObjectModel implements Prod
         return $this->assets;
     }
 
+    /**
+     * <p>Attributes of the tailored Product Variant.
+     * If present, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a>:</p>
+     * <ul>
+     * <li>If the ProductVariant contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten,</li>
+     * <li>otherwise the Attribute and its value are added to the ProductVariant.</li>
+     * </ul>
+     *
+     *
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = ProductTailoringAttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
+    }
+
 
     /**
      * @param ?int $id
@@ -138,5 +171,13 @@ final class ProductVariantTailoringModel extends JsonObjectModel implements Prod
     public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;
+    }
+
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     */
+    public function setAttributes(?ProductTailoringAttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 }
