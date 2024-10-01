@@ -39,6 +39,12 @@ final class SearchIndexingConfigurationBuilder implements Builder
     private $orders;
 
     /**
+
+     * @var null|SearchIndexingConfigurationValues|SearchIndexingConfigurationValuesBuilder
+     */
+    private $customers;
+
+    /**
      * <p>Configuration for the <a href="/../api/projects/products-search">Product Projection Search</a> and <a href="/../api/projects/products-suggestions">Product Suggestions</a> endpoints.</p>
      *
 
@@ -72,6 +78,17 @@ final class SearchIndexingConfigurationBuilder implements Builder
     }
 
     /**
+     * <p>Configuration for the <a href="/../api/projects/customer-search">Customer Search</a> feature.</p>
+     *
+
+     * @return null|SearchIndexingConfigurationValues
+     */
+    public function getCustomers()
+    {
+        return $this->customers instanceof SearchIndexingConfigurationValuesBuilder ? $this->customers->build() : $this->customers;
+    }
+
+    /**
      * @param ?SearchIndexingConfigurationValues $products
      * @return $this
      */
@@ -100,6 +117,17 @@ final class SearchIndexingConfigurationBuilder implements Builder
     public function withOrders(?SearchIndexingConfigurationValues $orders)
     {
         $this->orders = $orders;
+
+        return $this;
+    }
+
+    /**
+     * @param ?SearchIndexingConfigurationValues $customers
+     * @return $this
+     */
+    public function withCustomers(?SearchIndexingConfigurationValues $customers)
+    {
+        $this->customers = $customers;
 
         return $this;
     }
@@ -137,12 +165,24 @@ final class SearchIndexingConfigurationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustomers() instead
+     * @return $this
+     */
+    public function withCustomersBuilder(?SearchIndexingConfigurationValuesBuilder $customers)
+    {
+        $this->customers = $customers;
+
+        return $this;
+    }
+
     public function build(): SearchIndexingConfiguration
     {
         return new SearchIndexingConfigurationModel(
             $this->products instanceof SearchIndexingConfigurationValuesBuilder ? $this->products->build() : $this->products,
             $this->productsSearch instanceof SearchIndexingConfigurationValuesBuilder ? $this->productsSearch->build() : $this->productsSearch,
-            $this->orders instanceof SearchIndexingConfigurationValuesBuilder ? $this->orders->build() : $this->orders
+            $this->orders instanceof SearchIndexingConfigurationValuesBuilder ? $this->orders->build() : $this->orders,
+            $this->customers instanceof SearchIndexingConfigurationValuesBuilder ? $this->customers->build() : $this->customers
         );
     }
 

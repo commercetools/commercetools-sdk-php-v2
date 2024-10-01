@@ -249,7 +249,7 @@ class ResourceByProjectKeyCustomersSearchTest extends TestCase
                 },
                 200
             ],
-            'ByProjectKeyCustomersSearchHead_404' => [
+            'ByProjectKeyCustomersSearchHead_409' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
@@ -257,7 +257,7 @@ class ResourceByProjectKeyCustomersSearchTest extends TestCase
                         ->search()
                         ->head();
                 },
-                404
+                409
             ],
             'ByProjectKeyCustomersSearchHead_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -288,6 +288,16 @@ class ResourceByProjectKeyCustomersSearchTest extends TestCase
                         ->head();
                 },
                 403
+            ],
+            'ByProjectKeyCustomersSearchHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->search()
+                        ->head();
+                },
+                404
             ],
             'ByProjectKeyCustomersSearchHead_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
