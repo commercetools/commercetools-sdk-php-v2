@@ -37,6 +37,12 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
      */
     protected $orders;
 
+    /**
+     *
+     * @var ?SearchIndexingConfigurationValues
+     */
+    protected $customers;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -44,11 +50,13 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
     public function __construct(
         ?SearchIndexingConfigurationValues $products = null,
         ?SearchIndexingConfigurationValues $productsSearch = null,
-        ?SearchIndexingConfigurationValues $orders = null
+        ?SearchIndexingConfigurationValues $orders = null,
+        ?SearchIndexingConfigurationValues $customers = null
     ) {
         $this->products = $products;
         $this->productsSearch = $productsSearch;
         $this->orders = $orders;
+        $this->customers = $customers;
     }
 
     /**
@@ -114,6 +122,27 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
         return $this->orders;
     }
 
+    /**
+     * <p>Configuration for the <a href="/../api/projects/customer-search">Customer Search</a> feature.</p>
+     *
+     *
+     * @return null|SearchIndexingConfigurationValues
+     */
+    public function getCustomers()
+    {
+        if (is_null($this->customers)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOMERS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customers = SearchIndexingConfigurationValuesModel::of($data);
+        }
+
+        return $this->customers;
+    }
+
 
     /**
      * @param ?SearchIndexingConfigurationValues $products
@@ -137,5 +166,13 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
     public function setOrders(?SearchIndexingConfigurationValues $orders): void
     {
         $this->orders = $orders;
+    }
+
+    /**
+     * @param ?SearchIndexingConfigurationValues $customers
+     */
+    public function setCustomers(?SearchIndexingConfigurationValues $customers): void
+    {
+        $this->customers = $customers;
     }
 }

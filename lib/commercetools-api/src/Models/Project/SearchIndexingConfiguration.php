@@ -16,6 +16,7 @@ interface SearchIndexingConfiguration extends JsonObject
     public const FIELD_PRODUCTS = 'products';
     public const FIELD_PRODUCTS_SEARCH = 'productsSearch';
     public const FIELD_ORDERS = 'orders';
+    public const FIELD_CUSTOMERS = 'customers';
 
     /**
      * <p>Configuration for the <a href="/../api/projects/products-search">Product Projection Search</a> and <a href="/../api/projects/products-suggestions">Product Suggestions</a> endpoints.</p>
@@ -42,6 +43,14 @@ interface SearchIndexingConfiguration extends JsonObject
     public function getOrders();
 
     /**
+     * <p>Configuration for the <a href="/../api/projects/customer-search">Customer Search</a> feature.</p>
+     *
+
+     * @return null|SearchIndexingConfigurationValues
+     */
+    public function getCustomers();
+
+    /**
      * @param ?SearchIndexingConfigurationValues $products
      */
     public function setProducts(?SearchIndexingConfigurationValues $products): void;
@@ -55,4 +64,9 @@ interface SearchIndexingConfiguration extends JsonObject
      * @param ?SearchIndexingConfigurationValues $orders
      */
     public function setOrders(?SearchIndexingConfigurationValues $orders): void;
+
+    /**
+     * @param ?SearchIndexingConfigurationValues $customers
+     */
+    public function setCustomers(?SearchIndexingConfigurationValues $customers): void;
 }
