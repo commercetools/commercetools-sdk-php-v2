@@ -21,7 +21,7 @@ COPY .env.sample /var/www/symfony/.env.sample
 # Run the setup script
 RUN php /usr/local/bin/datadog-setup.php --php-bin=all --enable-appsec --enable-profiling
 
-HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost/ || exit 1
+# HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost/ || exit 1
 
 WORKDIR /var/www/symfony/public
 

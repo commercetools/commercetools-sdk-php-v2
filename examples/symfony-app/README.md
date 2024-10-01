@@ -28,15 +28,23 @@ For now, we configured the docker environment for Datadog and New Relic.
 
 ### Preparing the Docker environment
 
+#### Run Datadog and Navigate the application
 1. Always in the Root of the project 
-2. Run `docker compose up`
+2. Run `docker-compose -f docker-compose.datadog.yml up -d`
 3. Wait until the environment is running
+4. Navigate to [http://localhost:8080/products](http://localhost:8080/products) or [http://localhost:8080/categories](http://localhost:8080/categories)
+5. The result would be an array objects containing products or categories.
+6. If it's not make sure that in Merchant Center in the project key selected (see the environment variable for the client credentials in the point 3 of the Installation section), there would be some data for products
+7. Go in the Datadog UI to see the monitoring of the API calls.
 
-### Navigate the application
+#### Run New Relic and Navigate the application
+1. Always in the Root of the project
+2. Run `docker-compose -f docker-compose.newrelic.yml up -d`
+3. Wait until the environment is running
+4. Navigate to [http://localhost:8081/products](http://localhost:8081/products) or [http://localhost:8081/categories](http://localhost:8081/categories)
+5. The result would be an array objects containing products or categories.
+6. If it's not make sure that in Merchant Center in the project key selected (see the environment variable for the client credentials in the point 3 of the Installation section), there would be some data for products
+7. Go in the New Relic UI to see the monitoring of the API calls.
 
-1. Navigate to [http://localhost:8080/products](http://localhost:8080/products) or [http://localhost:8080/categories](http://localhost:8080/categories)
-2. The result would be an array objects containing products or categories.
-3. If it's not make sure that in Merchant Center in the project key selected (see the environment variable for the client credentials in the point 3 of the Installation section), there would be some data for products and categories.
-4. Go in the New Relic/Datadog UI to see the monitoring of the API calls.
 
-The docker configuration files will be found in the `docker/php` folder and the `docker-compose.yml` in the `symfony-app/` folder so they can be used in your application.
+The docker configuration files will be found in the `docker` folder and the `docker-compose.*.yml` in the `symfony-app/` folder, so they can be used in your application.
