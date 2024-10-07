@@ -58,6 +58,7 @@ interface StandalonePriceImport extends ImportResource
 
     /**
      * <p>Sets the country for which this Price is valid.</p>
+     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|string
@@ -66,6 +67,7 @@ interface StandalonePriceImport extends ImportResource
 
     /**
      * <p>Sets the CustomerGroup for which this Price is valid.</p>
+     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|CustomerGroupKeyReference
@@ -73,7 +75,8 @@ interface StandalonePriceImport extends ImportResource
     public function getCustomerGroup();
 
     /**
-     * <p>Sets the product distribution Channel for which this Price is valid</p>
+     * <p>Sets the product distribution Channel for which this Price is valid.</p>
+     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|ChannelKeyReference

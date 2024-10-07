@@ -46,6 +46,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'Generic' => GenericErrorModel::class,
        'InvalidCredentials' => InvalidCredentialsErrorModel::class,
        'InvalidField' => InvalidFieldErrorModel::class,
+       'InvalidFieldUpdate' => InvalidFieldsUpdateErrorModel::class,
        'InvalidInput' => InvalidInputModel::class,
        'InvalidJsonInput' => InvalidJsonInputModel::class,
        'InvalidOperation' => InvalidOperationModel::class,
