@@ -1,20 +1,6 @@
 **Api changes**
 
 <details>
-<summary>Added Property(s)</summary>
-
-- added property `staged` to type `ProductVariantDeletedMessage`
-- added property `staged` to type `ProductVariantDeletedMessagePayload`
-- added property `warnings` to type `ProductTailoring`
-- added property `attributes` to type `ProductVariantTailoring`
-- added property `attributes` to type `ProductVariantTailoringDraft`
-- added property `attributes` to type `ProductTailoringAddVariantAction`
-- added property `warnings` to type `Product`
-- added property `customers` to type `SearchIndexingConfiguration`
-</details>
-
-
-<details>
 <summary>Added Type(s)</summary>
 
 - added type `SearchNotReadyError`
@@ -31,6 +17,20 @@
 <summary>Removed Type(s)</summary>
 
 - :warning: removed type `ProductSearchStatus`
+</details>
+
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `staged` to type `ProductVariantDeletedMessage`
+- added property `staged` to type `ProductVariantDeletedMessagePayload`
+- added property `warnings` to type `ProductTailoring`
+- added property `attributes` to type `ProductVariantTailoring`
+- added property `attributes` to type `ProductVariantTailoringDraft`
+- added property `attributes` to type `ProductTailoringAddVariantAction`
+- added property `warnings` to type `Product`
+- added property `customers` to type `SearchIndexingConfiguration`
 </details>
 
 
