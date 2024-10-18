@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductTailoringGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductTailoringHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductTailoringPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyProductTailoring
  */
@@ -189,6 +190,27 @@ class ResourceByProjectKeyProductTailoringTest extends TestCase
                 'get',
                 'test_projectKey/product-tailoring',
             ],
+            'ByProjectKeyProductTailoringHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productTailoring()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/product-tailoring?where=where',
+            ],
+            'ByProjectKeyProductTailoringHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->productTailoring()
+                        ->head();
+                },
+                'head',
+                'test_projectKey/product-tailoring',
+            ],
             'ByProjectKeyProductTailoringPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -250,6 +272,14 @@ class ResourceByProjectKeyProductTailoringTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productTailoring()
                         ->get();
+                }
+            ],
+            'ByProjectKeyProductTailoringHead' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
                 }
             ],
             'ByProjectKeyProductTailoringPost' => [
@@ -344,6 +374,87 @@ class ResourceByProjectKeyProductTailoringTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productTailoring()
                         ->get();
+                },
+                599
+            ],
+            'ByProjectKeyProductTailoringHead_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
+                },
+                200
+            ],
+            'ByProjectKeyProductTailoringHead_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
+                },
+                404
+            ],
+            'ByProjectKeyProductTailoringHead_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
+                },
+                400
+            ],
+            'ByProjectKeyProductTailoringHead_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
+                },
+                401
+            ],
+            'ByProjectKeyProductTailoringHead_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
+                },
+                403
+            ],
+            'ByProjectKeyProductTailoringHead_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
+                },
+                500
+            ],
+            'ByProjectKeyProductTailoringHead_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
+                },
+                502
+            ],
+            'ByProjectKeyProductTailoringHead_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
+                },
+                503
+            ],
+            'ByProjectKeyProductTailoringHead_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTailoring()
+                        ->head();
                 },
                 599
             ],

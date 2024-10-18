@@ -42,6 +42,13 @@
 - added enum `product-tailoring` to type `ResourceTypeId`
 </details>
 
+
+<details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKey()->productTailoring()->head()`
+</details>
+
 **Import changes**
 
 <details>
