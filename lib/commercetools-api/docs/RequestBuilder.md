@@ -8771,6 +8771,20 @@ $request = $builder
                 ->productTailoring()
                 ->get();
 ```
+## `withProjectKey("projectKey")->productTailoring()->head()`
+
+Checks if a ProductTailoring exists for a given Query Predicate. Returns a `200 OK` status if any ProductTailoring match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTailoring()
+                ->head();
+```
 ## `withProjectKey("projectKey")->productTailoring()->post(null)`
 
 Generates the [ProductTailoringCreated](ctp:api:type:ProductTailoringCreatedMessage) Message.

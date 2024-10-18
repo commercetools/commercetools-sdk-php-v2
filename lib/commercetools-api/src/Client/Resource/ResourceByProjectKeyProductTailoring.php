@@ -60,6 +60,16 @@ class ResourceByProjectKeyProductTailoring extends ApiResource
         return new ByProjectKeyProductTailoringGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyProductTailoringHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyProductTailoringHead($args['projectKey'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ProductTailoringDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
