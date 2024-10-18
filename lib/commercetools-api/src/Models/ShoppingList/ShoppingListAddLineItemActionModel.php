@@ -214,7 +214,7 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Date and time the TextLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
+     * <p>Date and time the ShoppingListLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
      *
      *
      * @return null|DateTimeImmutable
