@@ -1,0 +1,35 @@
+services:
+  php-newrelic:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile.newrelic
+    environment:
+      - NEW_RELIC_LICENSE_KEY=${NEW_RELIC_LICENSE_KEY}
+      - NEW_RELIC_APP_NAME=${NEW_RELIC_APP_NAME}
+      - NEW_RELIC_LOG_LEVEL=info
+    volumes:
+      - .:/var/www/symfony
+      - ./docker/php/.env.sample:/var/www/symfony/.env
+    expose:
+      - "9000"
+  
+  newrelic-daemon:
+    image: newrelic/php-daemon:latest
+    platform: linux/amd64
+    environment:
+      - NEW_RELIC_LICENSE_KEY=${NEW_RELIC_LICENSE_KEY}
+    expose:
+      - "31339"
+
+  nginx-newrelic:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile.newrelic
+    ports:
+      - "8080:80"
+    depends_on:
+      - php-newrelic
+      - newrelic-daemon
+    volumes:
+      - ./var/logs/nginx:/var/log/nginx
+      - .:/var/www/symfony
