@@ -31,6 +31,7 @@
 - added property `attributes` to type `ProductTailoringAddVariantAction`
 - added property `warnings` to type `Product`
 - added property `customers` to type `SearchIndexingConfiguration`
+- added property `source` to type `EventBridgeDestination`
 </details>
 
 

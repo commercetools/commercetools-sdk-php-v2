@@ -33,6 +33,12 @@ final class EventBridgeDestinationBuilder implements Builder
     private $accountId;
 
     /**
+
+     * @var ?string
+     */
+    private $source;
+
+    /**
      * <p>AWS region that receives the events.</p>
      *
 
@@ -52,6 +58,17 @@ final class EventBridgeDestinationBuilder implements Builder
     public function getAccountId()
     {
         return $this->accountId;
+    }
+
+    /**
+     * <p>URN for the EventBridge destination.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 
     /**
@@ -76,12 +93,24 @@ final class EventBridgeDestinationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $source
+     * @return $this
+     */
+    public function withSource(?string $source)
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
 
     public function build(): EventBridgeDestination
     {
         return new EventBridgeDestinationModel(
             $this->region,
-            $this->accountId
+            $this->accountId,
+            $this->source
         );
     }
 
