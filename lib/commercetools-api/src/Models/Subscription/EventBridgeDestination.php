@@ -15,6 +15,7 @@ interface EventBridgeDestination extends Destination
 {
     public const FIELD_REGION = 'region';
     public const FIELD_ACCOUNT_ID = 'accountId';
+    public const FIELD_SOURCE = 'source';
 
     /**
      * <p>AWS region that receives the events.</p>
@@ -33,6 +34,14 @@ interface EventBridgeDestination extends Destination
     public function getAccountId();
 
     /**
+     * <p>URN for the EventBridge destination.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSource();
+
+    /**
      * @param ?string $region
      */
     public function setRegion(?string $region): void;
@@ -41,4 +50,9 @@ interface EventBridgeDestination extends Destination
      * @param ?string $accountId
      */
     public function setAccountId(?string $accountId): void;
+
+    /**
+     * @param ?string $source
+     */
+    public function setSource(?string $source): void;
 }

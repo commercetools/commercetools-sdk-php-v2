@@ -38,6 +38,12 @@ final class EventBridgeDestinationModel extends JsonObjectModel implements Event
      */
     protected $accountId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $source;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -45,10 +51,12 @@ final class EventBridgeDestinationModel extends JsonObjectModel implements Event
     public function __construct(
         ?string $region = null,
         ?string $accountId = null,
+        ?string $source = null,
         ?string $type = null
     ) {
         $this->region = $region;
         $this->accountId = $accountId;
+        $this->source = $source;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -110,6 +118,26 @@ final class EventBridgeDestinationModel extends JsonObjectModel implements Event
         return $this->accountId;
     }
 
+    /**
+     * <p>URN for the EventBridge destination.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSource()
+    {
+        if (is_null($this->source)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SOURCE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->source = (string) $data;
+        }
+
+        return $this->source;
+    }
+
 
     /**
      * @param ?string $region
@@ -125,5 +153,13 @@ final class EventBridgeDestinationModel extends JsonObjectModel implements Event
     public function setAccountId(?string $accountId): void
     {
         $this->accountId = $accountId;
+    }
+
+    /**
+     * @param ?string $source
+     */
+    public function setSource(?string $source): void
+    {
+        $this->source = $source;
     }
 }
