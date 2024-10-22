@@ -55,5 +55,6 @@
 <summary>Added Type(s)</summary>
 
 - added type `InvalidFieldsUpdateError`
+- added type `NewMasterVariantAdditionNotAllowedError`
 </details>
 
