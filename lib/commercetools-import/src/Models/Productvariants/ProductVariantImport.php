@@ -42,7 +42,10 @@ interface ProductVariantImport extends ImportResource
     public function getSku();
 
     /**
-     * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>
+     * <ul>
+     * <li>When creating a new ProductVariant, set to <code>false</code>; otherwise, the import operation will fail with a <a href="/error#newmastervariantadditionnotallowederror">NewMasterVariantAdditionNotAllowed</a> error.</li>
+     * <li>Set to <code>true</code> if the ProductVariant exists and you want to set this ProductVariant as the Master Variant.</li>
+     * </ul>
      *
 
      * @return null|bool
