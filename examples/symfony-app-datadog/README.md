@@ -1,20 +1,20 @@
-# Symfony demo app for New Relic
+# Symfony demo app for Datadog
 
 This Demo is to show how PHP SDK can be used in a Symfony application for a Docker environment with monitoring tools enabled.
 
-For now, we configured the docker environment for Datadog and New Relic.
+For now, we configured the docker environment for Datadog.
 
 ## Requirements
 
 - PHP at least 8.1
 - Symfony 6 
 - Docker
-- Registration in New Relic/Datadog
+- Registration in Datadog
 
 ## Installation
 
 1. Clone/Download the example folder.
-2. Navigate to the path `symfony-app/`.
+2. Navigate to the path `symfony-app-datadog/`.
 
 ## Using the Symfony Demo app in a Docker Environment
 
@@ -37,6 +37,6 @@ For now, we configured the docker environment for Datadog and New Relic.
 1. Navigate to [http://localhost:8080/products](http://localhost:8080/products) or [http://localhost:8080/categories](http://localhost:8080/categories)
 2. The result would be an array objects containing products or categories.
 3. If it's not make sure that in Merchant Center in the project key selected (see the environment variable for the client credentials in the point 3 of the Installation section), there would be some data for products and categories.
-4. Go in the New Relic/Datadog UI to see the monitoring of the API calls.
+4. Go in the Datadog UI to see the monitoring of the API calls.
 
 The docker configuration files will be found in the `docker/php` folder and the `docker-compose.yml` in the `symfony-app/` folder so they can be used in your application.
