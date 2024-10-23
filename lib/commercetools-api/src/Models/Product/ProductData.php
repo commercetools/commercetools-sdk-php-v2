@@ -70,7 +70,7 @@ interface ProductData extends JsonObject
     public function getSlug();
 
     /**
-     * <p>Title of the Product displayed in search results.</p>
+     * <p>Title of the Product as displayed in search engine results.</p>
      *
 
      * @return null|LocalizedString
@@ -78,7 +78,7 @@ interface ProductData extends JsonObject
     public function getMetaTitle();
 
     /**
-     * <p>Description of the Product displayed in search results below the meta title.</p>
+     * <p>Description of the Product as displayed in search engine results below the meta title.</p>
      *
 
      * @return null|LocalizedString
