@@ -12,6 +12,11 @@ services:
       - ./docker/php/.env.sample:/var/www/symfony/.env
     expose:
       - "9000"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9000" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
   
   newrelic-daemon:
     image: newrelic/php-daemon:latest
