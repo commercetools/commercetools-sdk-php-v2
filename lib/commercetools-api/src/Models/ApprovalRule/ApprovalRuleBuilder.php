@@ -16,6 +16,8 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -112,6 +114,12 @@ final class ApprovalRuleBuilder implements Builder
      * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
      */
     private $businessUnit;
+
+    /**
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
 
     /**
      * <p>Unique identifier of the Approval Rule.</p>
@@ -265,6 +273,17 @@ final class ApprovalRuleBuilder implements Builder
     public function getBusinessUnit()
     {
         return $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit;
+    }
+
+    /**
+     * <p>Custom Fields on the Approval Rule.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -422,6 +441,17 @@ final class ApprovalRuleBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCreatedBy() instead
      * @return $this
      */
@@ -465,6 +495,17 @@ final class ApprovalRuleBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): ApprovalRule
     {
         return new ApprovalRuleModel(
@@ -481,7 +522,8 @@ final class ApprovalRuleBuilder implements Builder
             $this->predicate,
             $this->approvers instanceof ApproverHierarchyBuilder ? $this->approvers->build() : $this->approvers,
             $this->requesters,
-            $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit
+            $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

@@ -16,6 +16,8 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -112,6 +114,12 @@ final class ApprovalRuleModel extends JsonObjectModel implements ApprovalRule
      */
     protected $businessUnit;
 
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -130,7 +138,8 @@ final class ApprovalRuleModel extends JsonObjectModel implements ApprovalRule
         ?string $predicate = null,
         ?ApproverHierarchy $approvers = null,
         ?RuleRequesterCollection $requesters = null,
-        ?BusinessUnitKeyReference $businessUnit = null
+        ?BusinessUnitKeyReference $businessUnit = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -146,6 +155,7 @@ final class ApprovalRuleModel extends JsonObjectModel implements ApprovalRule
         $this->approvers = $approvers;
         $this->requesters = $requesters;
         $this->businessUnit = $businessUnit;
+        $this->custom = $custom;
     }
 
     /**
@@ -440,6 +450,27 @@ final class ApprovalRuleModel extends JsonObjectModel implements ApprovalRule
         return $this->businessUnit;
     }
 
+    /**
+     * <p>Custom Fields on the Approval Rule.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -551,6 +582,14 @@ final class ApprovalRuleModel extends JsonObjectModel implements ApprovalRule
     public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void
     {
         $this->businessUnit = $businessUnit;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
 
