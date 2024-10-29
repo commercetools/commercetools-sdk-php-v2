@@ -3,6 +3,8 @@
 <details>
 <summary>Added Type(s)</summary>
 
+- added type `ApprovalRuleSetCustomFieldAction`
+- added type `ApprovalRuleSetCustomTypeAction`
 - added type `SearchNotReadyError`
 - added type `GraphQLSearchNotReadyError`
 - added type `ProductTailoringAttribute`
@@ -23,6 +25,7 @@
 <details>
 <summary>Added Property(s)</summary>
 
+- added property `custom` to type `ApprovalRule`
 - added property `staged` to type `ProductVariantDeletedMessage`
 - added property `staged` to type `ProductVariantDeletedMessagePayload`
 - added property `warnings` to type `ProductTailoring`
@@ -40,6 +43,8 @@
 
 - added enum `customer-group` to type `ExtensionResourceTypeId`
 - added enum `product-tailoring` to type `MessageSubscriptionResourceTypeId`
+- added enum `approval-rule` to type `CustomFieldReferenceValue`
+- added enum `approval-rule` to type `ResourceTypeId`
 - added enum `product-tailoring` to type `ResourceTypeId`
 </details>
 

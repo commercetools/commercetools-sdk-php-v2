@@ -12,6 +12,7 @@ use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -28,6 +29,7 @@ interface ApprovalRule extends BaseResource
     public const FIELD_APPROVERS = 'approvers';
     public const FIELD_REQUESTERS = 'requesters';
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>Unique identifier of the Approval Rule.</p>
@@ -142,6 +144,14 @@ interface ApprovalRule extends BaseResource
     public function getBusinessUnit();
 
     /**
+     * <p>Custom Fields on the Approval Rule.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -210,4 +220,9 @@ interface ApprovalRule extends BaseResource
      * @param ?BusinessUnitKeyReference $businessUnit
      */
     public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 }
