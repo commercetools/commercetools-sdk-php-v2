@@ -25,6 +25,12 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
 
     /**
      *
+     * @var ?bool
+     */
+    protected $isPlatformClient;
+
+    /**
+     *
      * @var ?string
      */
     protected $id;
@@ -59,38 +65,52 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      */
     protected $associate;
 
-    /**
-     *
-     * @var ?bool
-     */
-    protected $isPlatformClient;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?bool $isPlatformClient = null,
         ?string $id = null,
         ?string $type = null,
         ?string $clientId = null,
         ?string $anonymousId = null,
         ?Reference $customer = null,
-        ?Reference $associate = null,
-        ?bool $isPlatformClient = null
+        ?Reference $associate = null
     ) {
+        $this->isPlatformClient = $isPlatformClient;
         $this->id = $id;
         $this->type = $type;
         $this->clientId = $clientId;
         $this->anonymousId = $anonymousId;
         $this->customer = $customer;
         $this->associate = $associate;
-        $this->isPlatformClient = $isPlatformClient;
 
     }
 
     /**
+     * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getIsPlatformClient()
+    {
+        if (is_null($this->isPlatformClient)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_IS_PLATFORM_CLIENT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isPlatformClient = (bool) $data;
+        }
+
+        return $this->isPlatformClient;
+    }
+
+    /**
      * <p><a href="/general-concepts#identifier">ID</a> of the Merchant Center user who made the change.</p>
-     * <p>Present only if the change was made in the Merchant Center.</p>
+     * <p>Present only if <code>isPlatformClient</code> is <code>true</code>.</p>
      *
      *
      * @return null|string
@@ -218,26 +238,14 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
         return $this->associate;
     }
 
+
     /**
-     * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
-     *
-     *
-     * @return null|bool
+     * @param ?bool $isPlatformClient
      */
-    public function getIsPlatformClient()
+    public function setIsPlatformClient(?bool $isPlatformClient): void
     {
-        if (is_null($this->isPlatformClient)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_IS_PLATFORM_CLIENT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isPlatformClient = (bool) $data;
-        }
-
-        return $this->isPlatformClient;
+        $this->isPlatformClient = $isPlatformClient;
     }
-
 
     /**
      * @param ?string $id
@@ -285,14 +293,6 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     public function setAssociate(?Reference $associate): void
     {
         $this->associate = $associate;
-    }
-
-    /**
-     * @param ?bool $isPlatformClient
-     */
-    public function setIsPlatformClient(?bool $isPlatformClient): void
-    {
-        $this->isPlatformClient = $isPlatformClient;
     }
 
 
