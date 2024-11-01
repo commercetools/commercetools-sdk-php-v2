@@ -24,6 +24,12 @@ final class ModifiedByBuilder implements Builder
 {
     /**
 
+     * @var ?bool
+     */
+    private $isPlatformClient;
+
+    /**
+
      * @var ?string
      */
     private $id;
@@ -59,14 +65,19 @@ final class ModifiedByBuilder implements Builder
     private $associate;
 
     /**
+     * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
+     *
 
-     * @var ?bool
+     * @return null|bool
      */
-    private $isPlatformClient;
+    public function getIsPlatformClient()
+    {
+        return $this->isPlatformClient;
+    }
 
     /**
      * <p><a href="/general-concepts#identifier">ID</a> of the Merchant Center user who made the change.</p>
-     * <p>Present only if the change was made in the Merchant Center.</p>
+     * <p>Present only if <code>isPlatformClient</code> is <code>true</code>.</p>
      *
 
      * @return null|string
@@ -139,14 +150,14 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
-     *
-
-     * @return null|bool
+     * @param ?bool $isPlatformClient
+     * @return $this
      */
-    public function getIsPlatformClient()
+    public function withIsPlatformClient(?bool $isPlatformClient)
     {
-        return $this->isPlatformClient;
+        $this->isPlatformClient = $isPlatformClient;
+
+        return $this;
     }
 
     /**
@@ -216,17 +227,6 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * @param ?bool $isPlatformClient
-     * @return $this
-     */
-    public function withIsPlatformClient(?bool $isPlatformClient)
-    {
-        $this->isPlatformClient = $isPlatformClient;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withCustomer() instead
      * @return $this
      */
@@ -251,13 +251,13 @@ final class ModifiedByBuilder implements Builder
     public function build(): ModifiedBy
     {
         return new ModifiedByModel(
+            $this->isPlatformClient,
             $this->id,
             $this->type,
             $this->clientId,
             $this->anonymousId,
             $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer,
-            $this->associate instanceof ReferenceBuilder ? $this->associate->build() : $this->associate,
-            $this->isPlatformClient
+            $this->associate instanceof ReferenceBuilder ? $this->associate->build() : $this->associate
         );
     }
 

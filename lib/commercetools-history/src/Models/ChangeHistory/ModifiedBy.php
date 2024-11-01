@@ -15,17 +15,25 @@ use Commercetools\History\Models\Common\Reference;
 interface ModifiedBy extends JsonObject
 {
 
+    public const FIELD_IS_PLATFORM_CLIENT = 'isPlatformClient';
     public const FIELD_ID = 'id';
     public const FIELD_TYPE = 'type';
     public const FIELD_CLIENT_ID = 'clientId';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_CUSTOMER = 'customer';
     public const FIELD_ASSOCIATE = 'associate';
-    public const FIELD_IS_PLATFORM_CLIENT = 'isPlatformClient';
+
+    /**
+     * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsPlatformClient();
 
     /**
      * <p><a href="/general-concepts#identifier">ID</a> of the Merchant Center user who made the change.</p>
-     * <p>Present only if the change was made in the Merchant Center.</p>
+     * <p>Present only if <code>isPlatformClient</code> is <code>true</code>.</p>
      *
 
      * @return null|string
@@ -80,12 +88,9 @@ interface ModifiedBy extends JsonObject
     public function getAssociate();
 
     /**
-     * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
-     *
-
-     * @return null|bool
+     * @param ?bool $isPlatformClient
      */
-    public function getIsPlatformClient();
+    public function setIsPlatformClient(?bool $isPlatformClient): void;
 
     /**
      * @param ?string $id
@@ -116,9 +121,4 @@ interface ModifiedBy extends JsonObject
      * @param ?Reference $associate
      */
     public function setAssociate(?Reference $associate): void;
-
-    /**
-     * @param ?bool $isPlatformClient
-     */
-    public function setIsPlatformClient(?bool $isPlatformClient): void;
 }
