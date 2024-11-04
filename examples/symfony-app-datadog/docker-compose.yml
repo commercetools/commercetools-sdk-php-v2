@@ -19,10 +19,10 @@ services:
     expose:
       - "9000"
 
-  nginx:
+  nginx-datadog:
     build:
       context: ./docker/nginx
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.datadog
     ports:
       - "8080:80"
     depends_on:
