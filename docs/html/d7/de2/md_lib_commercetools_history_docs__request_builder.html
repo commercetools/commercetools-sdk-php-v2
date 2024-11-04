@@ -73,19 +73,8 @@ $(function() {
 <div class="line"> </div>
 <div class="line">$root = <span class="keyword">new</span> HistoryRequestBuilder();</div>
 <div class="ttc" id="aclass_commercetools_1_1_history_1_1_client_1_1_history_request_builder_html"><div class="ttname"><a href="../../d5/df6/class_commercetools_1_1_history_1_1_client_1_1_history_request_builder.html">Commercetools\History\Client\HistoryRequestBuilder</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d97/lib_2commercetools-history_2src_2_client_2_history_request_builder_8php_source.html#l00019">HistoryRequestBuilder.php:20</a></div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1480"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1482"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;get()&lt;/tt&gt;</h1>
-<p>The <code>view_audit_log:{projectKey}</code> scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.</p>
-<h2><a class="anchor" id="autotoc_md1481"></a>
-Example</h2>
-<div class="fragment"><div class="line">use <a class="code" href="../../d5/df6/class_commercetools_1_1_history_1_1_client_1_1_history_request_builder.html">Commercetools\History\Client\HistoryRequestBuilder</a>;</div>
-<div class="line"> </div>
-<div class="line">$builder =  <span class="keyword">new</span> HistoryRequestBuilder();</div>
-<div class="line">$request = $builder</div>
-<div class="line">                -&gt;withProjectKeyValue(<span class="stringliteral">&quot;projectKey&quot;</span>)</div>
-<div class="line">                -&gt;get();</div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md1482"></a>
-&lt;tt&gt;withProjectKeyValue("projectKey")-&gt;withResourceTypeValue("resourceType")-&gt;get()&lt;/tt&gt;</h1>
 <p>The <code>view_audit_log:{projectKey}</code> scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.</p>
 <h2><a class="anchor" id="autotoc_md1483"></a>
 Example</h2>
@@ -94,12 +83,23 @@ Example</h2>
 <div class="line">$builder =  <span class="keyword">new</span> HistoryRequestBuilder();</div>
 <div class="line">$request = $builder</div>
 <div class="line">                -&gt;withProjectKeyValue(<span class="stringliteral">&quot;projectKey&quot;</span>)</div>
-<div class="line">                -&gt;withResourceTypeValue(<span class="stringliteral">&quot;resourceType&quot;</span>)</div>
 <div class="line">                -&gt;get();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md1484"></a>
-&lt;tt&gt;withProjectKeyValue("projectKey")-&gt;withResourceTypeValue("resourceType")-&gt;withIDValue("ID")-&gt;get()&lt;/tt&gt;</h1>
+&lt;tt&gt;withProjectKeyValue("projectKey")-&gt;withResourceTypeValue("resourceType")-&gt;get()&lt;/tt&gt;</h1>
 <p>The <code>view_audit_log:{projectKey}</code> scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.</p>
 <h2><a class="anchor" id="autotoc_md1485"></a>
+Example</h2>
+<div class="fragment"><div class="line">use <a class="code" href="../../d5/df6/class_commercetools_1_1_history_1_1_client_1_1_history_request_builder.html">Commercetools\History\Client\HistoryRequestBuilder</a>;</div>
+<div class="line"> </div>
+<div class="line">$builder =  <span class="keyword">new</span> HistoryRequestBuilder();</div>
+<div class="line">$request = $builder</div>
+<div class="line">                -&gt;withProjectKeyValue(<span class="stringliteral">&quot;projectKey&quot;</span>)</div>
+<div class="line">                -&gt;withResourceTypeValue(<span class="stringliteral">&quot;resourceType&quot;</span>)</div>
+<div class="line">                -&gt;get();</div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md1486"></a>
+&lt;tt&gt;withProjectKeyValue("projectKey")-&gt;withResourceTypeValue("resourceType")-&gt;withIDValue("ID")-&gt;get()&lt;/tt&gt;</h1>
+<p>The <code>view_audit_log:{projectKey}</code> scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.</p>
+<h2><a class="anchor" id="autotoc_md1487"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code" href="../../d5/df6/class_commercetools_1_1_history_1_1_client_1_1_history_request_builder.html">Commercetools\History\Client\HistoryRequestBuilder</a>;</div>
 <div class="line"> </div>

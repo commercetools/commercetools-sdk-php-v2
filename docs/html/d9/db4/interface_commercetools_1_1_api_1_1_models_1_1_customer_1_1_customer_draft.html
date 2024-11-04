@@ -331,7 +331,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Deprecated since an anonymous <a href="../../ctp:api:type:Cart">Cart</a> can be identified by its <code>id</code> or external <code>key</code>.</p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000571">Deprecated:</a></b></dt><dd></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000574">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2d/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_draft_model.html#a74625f447d5ea849a35b09a1a8d4f100">Commercetools\Api\Models\Customer\CustomerDraftModel</a>.</p>
@@ -653,6 +653,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the <a cl
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a>. The <code>key</code> field is preferred over <code>customerNumber</code> as it is mutable and provides more flexibility.</p>
+<p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Customers with the <a href="../..//../import-export/">Import API</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2d/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_draft_model.html#abdcf080bf966ef2b85835cc6242c5afd">Commercetools\Api\Models\Customer\CustomerDraftModel</a>.</p>
