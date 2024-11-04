@@ -39,4 +39,4 @@ For now, we configured the docker environment for New Relic.
 3. If it's not make sure that in Merchant Center in the project key selected (see the environment variable for the client credentials in the point 3 of the Installation section), there would be some data for products and categories.
 4. Go in the New Relic UI to see the monitoring of the API calls.
 
-The docker configuration files will be found in the `docker/php` folder and the `docker-compose.yml` in the `symfony-app/` folder so they can be used in your application.
+The docker configuration files will be found in the `docker/php` folder and the `docker-compose.yml` in the `symfony-app-newrelic/` folder so they can be used in your application.
