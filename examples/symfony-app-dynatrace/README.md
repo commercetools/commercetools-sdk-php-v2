@@ -2,7 +2,7 @@
 
 This Demo is to show how PHP SDK can be used in a Symfony application for a Docker environment with monitoring tools enabled.
 
-For now, we configured the docker environment for Datadog.
+For now, we configured the docker environment for Dynatrace.
 
 ## Requirements
 
