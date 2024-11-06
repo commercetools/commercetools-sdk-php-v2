@@ -39,7 +39,7 @@ final class ExtensionTriggerBuilder implements Builder
     private $condition;
 
     /**
-     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, <code>customer</code>, <code>customer-group</code>, <code>quote-request</code>, <code>staged-quote</code>, <code>quote</code>, <code>business-unit</code>, and <code>shopping-list</code> are supported.</p>
+     * <p>The resource that triggers the Extension.</p>
      *
 
      * @return null|string
