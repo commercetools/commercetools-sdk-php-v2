@@ -65,7 +65,7 @@ final class CustomFieldsDraftModel extends JsonObjectModel implements CustomFiel
     }
 
     /**
-     * <p>Object containing the Custom Fields for the <a href="/../api/projects/types#list-of-customizable-data-types">customized resource or data type</a>.</p>
+     * <p>Object containing the Custom Fields for the <a href="/../api/projects/types#resourcetypeid">customized resource or data type</a>.</p>
      *
      *
      * @return null|FieldContainer
