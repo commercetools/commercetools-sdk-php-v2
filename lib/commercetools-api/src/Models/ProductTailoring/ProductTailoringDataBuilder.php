@@ -87,7 +87,7 @@ final class ProductTailoringDataBuilder implements Builder
     }
 
     /**
-     * <p>Tailored title of the Product as displayed in search engine results.</p>
+     * <p>Tailored title of the Product as used by search engines.</p>
      *
 
      * @return null|LocalizedString
@@ -98,7 +98,7 @@ final class ProductTailoringDataBuilder implements Builder
     }
 
     /**
-     * <p>Tailored description of the Product as displayed in search engine results.</p>
+     * <p>Tailored description of the Product as used by search engines.</p>
      *
 
      * @return null|LocalizedString
