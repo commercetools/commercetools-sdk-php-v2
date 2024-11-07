@@ -97,7 +97,7 @@ interface ProductDraft extends JsonObject
     public function getCategoryOrderHints();
 
     /**
-     * <p>Title of the Product as displayed in search engine results.</p>
+     * <p>Title of the Product as used by search engines.</p>
      *
 
      * @return null|LocalizedString
@@ -105,7 +105,7 @@ interface ProductDraft extends JsonObject
     public function getMetaTitle();
 
     /**
-     * <p>Description of the Product as displayed in search engine results.</p>
+     * <p>Description of the Product as used by search engines.</p>
      *
 
      * @return null|LocalizedString

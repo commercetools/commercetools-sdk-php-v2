@@ -39,7 +39,7 @@ interface ProductTailoringData extends JsonObject
     public function getDescription();
 
     /**
-     * <p>Tailored title of the Product as displayed in search engine results.</p>
+     * <p>Tailored title of the Product as used by search engines.</p>
      *
 
      * @return null|LocalizedString
@@ -47,7 +47,7 @@ interface ProductTailoringData extends JsonObject
     public function getMetaTitle();
 
     /**
-     * <p>Tailored description of the Product as displayed in search engine results.</p>
+     * <p>Tailored description of the Product as used by search engines.</p>
      *
 
      * @return null|LocalizedString

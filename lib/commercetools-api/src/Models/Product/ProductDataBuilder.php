@@ -147,7 +147,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
-     * <p>Title of the Product as displayed in search engine results.</p>
+     * <p>Title of the Product as used by search engines.</p>
      *
 
      * @return null|LocalizedString
@@ -158,7 +158,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
-     * <p>Description of the Product as displayed in search engine results below the meta title.</p>
+     * <p>Description of the Product as used by search engines.</p>
      *
 
      * @return null|LocalizedString
