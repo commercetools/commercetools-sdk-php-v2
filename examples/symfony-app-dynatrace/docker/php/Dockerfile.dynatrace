@@ -35,9 +35,6 @@ RUN mkdir -p "$DT_HOME" && \
 # Set the working directory
 WORKDIR /var/www/symfony
 
-# Copy the .env.sample file from host to the container
-COPY .env.sample /var/www/symfony/.env.sample
-
 # Healthcheck for container
 HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost/ || exit 1
 
