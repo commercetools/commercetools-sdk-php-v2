@@ -1,20 +1,25 @@
-# Symfony demo app for New Relic
+# Symfony demo app for Dynatrace
 
 This Demo is to show how PHP SDK can be used in a Symfony application for a Docker environment with monitoring tools enabled.
 
-For now, we configured the docker environment for New Relic.
+For now, we configured the docker environment for Dynatrace.
 
 ## Requirements
 
 - PHP at least 8.1
 - Symfony 6 
 - Docker
-- Registration in New Relic
+- Registration in Dynatrace
 
 ## Installation
 
 1. Clone/Download the example folder.
-2. Navigate to the path `symfony-app-newrelic/`.
+2. Navigate to the path `symfony-app-dynatrace/`.
+
+### Token creation
+1. Create the token in Dynatrace at least with PAAS and "Ingest metrics" scopes.
+2. The token is necessary to paste it in the .env file later.
+
 
 ## Using the Symfony Demo app in a Docker Environment
 
@@ -37,6 +42,6 @@ For now, we configured the docker environment for New Relic.
 1. Navigate to [http://localhost:8080/products](http://localhost:8080/products) or [http://localhost:8080/categories](http://localhost:8080/categories)
 2. The result would be an array objects containing products or categories.
 3. If it's not make sure that in Merchant Center in the project key selected (see the environment variable for the client credentials in the point 3 of the Installation section), there would be some data for products and categories.
-4. Go in the New Relic UI to see the monitoring of the API calls.
+4. Go in the Dynatrace UI to see the monitoring of the API calls.
 
-The docker configuration files will be found in the `docker/php` folder and the `docker-compose.yml` in the `symfony-app-newrelic/` folder so they can be used in your application.
+The docker configuration files will be found in the `docker/php` folder and the `docker-compose.yml` in the `symfony-app-dynatrace/` folder so they can be used in your application.

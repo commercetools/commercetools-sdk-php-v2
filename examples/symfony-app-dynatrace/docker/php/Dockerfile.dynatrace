@@ -1,0 +1,39 @@
+# Specify the appropriate platform for x86_64
+FROM php:8.2-fpm
+
+# Install necessary packages and PHP extensions
+RUN apt-get update \
+    && apt-get install -y apt-utils wget git curl libicu-dev zlib1g-dev libonig-dev libzip-dev gnupg2 unzip \
+    && docker-php-ext-install intl mbstring zip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set environment variables for Dynatrace
+ENV DYNATRACE_URL="${DYNATRACE_URL}"
+ENV DT_API_TOKEN="${DT_API_TOKEN}"
+ENV DT_SERVICE_NAME="PHP-SDK"
+ENV DT_ONEAGENT_TECHNOLOGY="all"
+
+ARG DT_API_URL="${DYNATRACE_URL}"
+ARG DT_API_TOKEN="${DT_API_TOKEN}"
+ARG DT_ONEAGENT_OPTIONS="flavor=default"
+ENV DT_HOME="/opt/dynatrace/oneagent"
+# Download and install Dynatrace OneAgent
+RUN mkdir -p "$DT_HOME" && \
+    wget -O "$DT_HOME/oneagent.zip" "$DT_API_URL/v1/deployment/installer/agent/unix/paas/latest?Api-Token=$DT_API_TOKEN&$DT_ONEAGENT_OPTIONS" && \
+    unzip -d "$DT_HOME" "$DT_HOME/oneagent.zip" && \
+    rm "$DT_HOME/oneagent.zip"
+
+# Set the working directory
+WORKDIR /var/www/symfony
+
+# Healthcheck for container
+HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost/ || exit 1
+
+# Expose the default port for PHP-FPM
+EXPOSE 9000
+
+ENTRYPOINT [ "/opt/dynatrace/oneagent/dynatrace-agent64.sh" ]
+
+# Command to run PHP-FPM
+CMD ["php-fpm", "-F"]

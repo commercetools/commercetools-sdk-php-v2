@@ -1,0 +1,31 @@
+services:
+  php-dynatrace:
+    platform: linux/amd64
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile.dynatrace
+      args:
+        DYNATRACE_URL: ${DYNATRACE_URL}
+        DT_API_TOKEN: ${DT_API_TOKEN}
+    environment:
+      - DYNATRACE_URL=${DYNATRACE_URL}
+      - DT_API_TOKEN=${DT_API_TOKEN}
+      - DT_SERVICE_NAME=PHP-SDK
+    volumes:
+      - .:/var/www/symfony
+      - ./docker/php/.env.sample:/var/www/symfony/.env
+    expose:
+      - "9000"
+  
+  nginx-dynatrace:
+    platform: linux/amd64
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile.dynatrace
+    ports:
+      - "8080:80"
+    depends_on:
+      - php-dynatrace
+    volumes:
+      - ./var/logs/nginx:/var/log/nginx
+      - .:/var/www/symfony
