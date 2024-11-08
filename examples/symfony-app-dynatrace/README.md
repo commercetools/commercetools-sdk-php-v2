@@ -17,7 +17,7 @@ For now, we configured the docker environment for Dynatrace.
 2. Navigate to the path `symfony-app-dynatrace/`.
 
 ### Token creation
-1. Create the token in Dynatrace at least with PAAS scopes, "Ingest metrics" and "Read configuration" scopes.
+1. Create the token in Dynatrace at least with PAAS and "Ingest metrics" scopes.
 2. The token is necessary to paste it in the .env file later.
 
 
