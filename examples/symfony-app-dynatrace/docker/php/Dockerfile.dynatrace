@@ -8,12 +8,7 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy Dynatrace Code Modules
-ARG DYNATRACE_URL
-ARG DT_API_TOKEN
-
 # Set environment variables for Dynatrace
-# ENV LD_PRELOAD /opt/dynatrace/oneagent/agent/lib64/liboneagentproc.so
 ENV DYNATRACE_URL="${DYNATRACE_URL}"
 ENV DT_API_TOKEN="${DT_API_TOKEN}"
 ENV DT_SERVICE_NAME="PHP-SDK"
@@ -24,13 +19,10 @@ ARG DT_API_TOKEN="${DT_API_TOKEN}"
 ARG DT_ONEAGENT_OPTIONS="flavor=default"
 ENV DT_HOME="/opt/dynatrace/oneagent"
 # Download and install Dynatrace OneAgent
-
 RUN mkdir -p "$DT_HOME" && \
     wget -O "$DT_HOME/oneagent.zip" "$DT_API_URL/v1/deployment/installer/agent/unix/paas/latest?Api-Token=$DT_API_TOKEN&$DT_ONEAGENT_OPTIONS" && \
     unzip -d "$DT_HOME" "$DT_HOME/oneagent.zip" && \
     rm "$DT_HOME/oneagent.zip"
-
-
 
 # Set the working directory
 WORKDIR /var/www/symfony
