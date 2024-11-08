@@ -335,7 +335,11 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>JSON standard types Number, String, Boolean, Array, Object, and <a href="../..//../api/types">common API data types</a>. For values of type <a href="../../ctp:api:type:Reference">Reference</a> the integrity of the data is not guaranteed. If the referenced object is deleted, the API does not delete the corresponding reference to it and the <code>value</code> points to a non-existing object in such case.</p>
+<p>Can be any JSON standard type, such as number, string, boolean, array, object, or a <a href="../..//../api/types">common API data type</a>.</p>
+<ul>
+<li>
+For values of type <a href="../../ctp:api:type:Reference">Reference</a> the integrity of the data is not guaranteed. If the referenced object is deleted, the API does not delete the corresponding reference to it and the <code>value</code> points to a non-existing object in such case. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|mixed </dd></dl>
 
 <p>Implemented in <a class="el" href="../../db/d07/class_commercetools_1_1_api_1_1_models_1_1_custom_object_1_1_custom_object_model.html#a4e0149b9c3141146d7ea787c053ae735">Commercetools\Api\Models\CustomObject\CustomObjectModel</a>.</p>

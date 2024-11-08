@@ -2107,7 +2107,7 @@ Example</h2>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md375"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;customObjects()-&gt;post(null)&lt;/tt&gt;</h1>
 <p>If an object with the given container/key exists, the object will be replaced with the new value and the version is incremented. If the request contains a version and an object with the given container/key, then the version must match the version of the existing object. Concurrent updates to the same Custom Object returns a [ConcurrentModification](ctp:api:type:ConcurrentModificationError) error even if the version is not provided.</p>
-<p>Fields with <code>null</code> values will <b>not be saved</b>.</p>
+<p>Fields within <code>value</code> that have <code>null</code> values <b>are not saved</b>.</p>
 <h2><a class="anchor" id="autotoc_md376"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
