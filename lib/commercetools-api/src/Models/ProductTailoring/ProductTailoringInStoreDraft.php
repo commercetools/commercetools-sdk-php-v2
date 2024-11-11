@@ -59,7 +59,7 @@ interface ProductTailoringInStoreDraft extends JsonObject
     public function getDescription();
 
     /**
-     * <p>Tailored title of the Product used by external search engines for improved search engine performance.</p>
+     * <p>Tailored title of the Product that is used by search engines.</p>
      *
 
      * @return null|LocalizedString
@@ -67,7 +67,7 @@ interface ProductTailoringInStoreDraft extends JsonObject
     public function getMetaTitle();
 
     /**
-     * <p>Tailored description of the Product used by external search engines for improved search engine performance.</p>
+     * <p>Tailored description of the Product that is used in search engine.</p>
      *
 
      * @return null|LocalizedString
@@ -75,7 +75,7 @@ interface ProductTailoringInStoreDraft extends JsonObject
     public function getMetaDescription();
 
     /**
-     * <p>Tailored keywords related to the Product used by external search engines for improved search engine performance.</p>
+     * <p>Tailored keywords related to the Product that are used by search engines.</p>
      *
 
      * @return null|LocalizedString

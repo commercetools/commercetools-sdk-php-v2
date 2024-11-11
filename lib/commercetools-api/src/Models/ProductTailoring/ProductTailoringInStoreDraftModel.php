@@ -195,7 +195,7 @@ final class ProductTailoringInStoreDraftModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Tailored title of the Product used by external search engines for improved search engine performance.</p>
+     * <p>Tailored title of the Product that is used by search engines.</p>
      *
      *
      * @return null|LocalizedString
@@ -216,7 +216,7 @@ final class ProductTailoringInStoreDraftModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Tailored description of the Product used by external search engines for improved search engine performance.</p>
+     * <p>Tailored description of the Product that is used in search engine.</p>
      *
      *
      * @return null|LocalizedString
@@ -237,7 +237,7 @@ final class ProductTailoringInStoreDraftModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Tailored keywords related to the Product used by external search engines for improved search engine performance.</p>
+     * <p>Tailored keywords related to the Product that are used by search engines.</p>
      *
      *
      * @return null|LocalizedString
