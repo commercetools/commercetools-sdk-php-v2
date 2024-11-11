@@ -128,7 +128,7 @@ final class ProductTailoringDataModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Tailored title of the Product as used by search engines.</p>
+     * <p>Tailored title of the Product that is used by search engines.</p>
      *
      *
      * @return null|LocalizedString
@@ -149,7 +149,7 @@ final class ProductTailoringDataModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Tailored description of the Product as used by search engines.</p>
+     * <p>Tailored description of the Product that is used by search engines.</p>
      *
      *
      * @return null|LocalizedString
