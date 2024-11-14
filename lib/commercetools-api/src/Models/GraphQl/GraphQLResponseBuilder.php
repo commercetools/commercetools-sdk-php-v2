@@ -33,6 +33,8 @@ final class GraphQLResponseBuilder implements Builder
     private $errors;
 
     /**
+     * <p>JSON object that contains the results of a GraphQL query.</p>
+     *
 
      * @return null|mixed
      */
@@ -42,6 +44,8 @@ final class GraphQLResponseBuilder implements Builder
     }
 
     /**
+     * <p>Errors that the GraphQL query returns.</p>
+     *
 
      * @return null|GraphQLErrorCollection
      */

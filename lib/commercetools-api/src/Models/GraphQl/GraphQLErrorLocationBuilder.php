@@ -33,6 +33,8 @@ final class GraphQLErrorLocationBuilder implements Builder
     private $column;
 
     /**
+     * <p>Line number of the query where the error occurred.</p>
+     *
 
      * @return null|int
      */
@@ -42,6 +44,8 @@ final class GraphQLErrorLocationBuilder implements Builder
     }
 
     /**
+     * <p>Position in <code>line</code> where the error occurred.</p>
+     *
 
      * @return null|int
      */

@@ -17,12 +17,16 @@ interface GraphQLResponse extends JsonObject
     public const FIELD_ERRORS = 'errors';
 
     /**
+     * <p>JSON object that contains the results of a GraphQL query.</p>
+     *
 
      * @return null|mixed
      */
     public function getData();
 
     /**
+     * <p>Errors that the GraphQL query returns.</p>
+     *
 
      * @return null|GraphQLErrorCollection
      */

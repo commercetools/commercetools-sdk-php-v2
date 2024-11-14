@@ -44,6 +44,8 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     }
 
     /**
+     * <p>Line number of the query where the error occurred.</p>
+     *
      *
      * @return null|int
      */
@@ -62,6 +64,8 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     }
 
     /**
+     * <p>Position in <code>line</code> where the error occurred.</p>
+     *
      *
      * @return null|int
      */
