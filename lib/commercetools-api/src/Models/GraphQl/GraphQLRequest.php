@@ -18,18 +18,24 @@ interface GraphQLRequest extends JsonObject
     public const FIELD_VARIABLES = 'variables';
 
     /**
+     * <p>String representation of the <em>Source Text</em> of the <em>Document</em> that is specified in the <a href="https://spec.graphql.org/draft/#sec-Language">Language section of the GraphQL specification</a>.</p>
+     *
 
      * @return null|string
      */
     public function getQuery();
 
     /**
+     * <p>Name of the operation, if you defined several operations in <code>query</code>.</p>
+     *
 
      * @return null|string
      */
     public function getOperationName();
 
     /**
+     * <p>JSON object that contains key-value pairs in which the keys are variable names and the values are variable values.</p>
+     *
 
      * @return null|GraphQLVariablesMap
      */

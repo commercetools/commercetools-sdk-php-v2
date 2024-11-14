@@ -52,6 +52,8 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     }
 
     /**
+     * <p>String representation of the <em>Source Text</em> of the <em>Document</em> that is specified in the <a href="https://spec.graphql.org/draft/#sec-Language">Language section of the GraphQL specification</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -70,6 +72,8 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     }
 
     /**
+     * <p>Name of the operation, if you defined several operations in <code>query</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -88,6 +92,8 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     }
 
     /**
+     * <p>JSON object that contains key-value pairs in which the keys are variable names and the values are variable values.</p>
+     *
      *
      * @return null|GraphQLVariablesMap
      */

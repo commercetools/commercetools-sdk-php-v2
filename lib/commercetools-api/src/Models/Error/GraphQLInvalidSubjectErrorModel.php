@@ -37,7 +37,7 @@ final class GraphQLInvalidSubjectErrorModel extends JsonObjectModel implements G
     }
 
     /**
-     * <p>Error identifier.</p>
+     * <p>One of the error codes that is listed on the <a href="/errors">Errors</a> page.</p>
      *
      *
      * @return null|string

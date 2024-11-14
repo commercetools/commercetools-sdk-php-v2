@@ -120,7 +120,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
     }
 
     /**
-     * <p>Error identifier.</p>
+     * <p>One of the error codes that is listed on the <a href="/errors">Errors</a> page.</p>
      *
      *
      * @return null|string

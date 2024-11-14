@@ -3260,7 +3260,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->graphql()->post(null)`
 
-Execute a GraphQL query
+Execute a GraphQL request.
 
 ### Example
 ```php
