@@ -90,6 +90,19 @@ class ResourceByProjectKeyProductSelectionsByIDProductsTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyProductSelectionsByIDProductsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productSelections()
+                        ->withId('test_ID')
+                        ->products()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                'test_projectKey/product-selections/test_ID/products?where=where',
+            ],
             'ByProjectKeyProductSelectionsByIDProductsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
