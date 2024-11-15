@@ -148,6 +148,15 @@ class ByProjectKeyProductSelectionsByIDProductsGet extends ApiRequest implements
 
     /**
      *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyProductSelectionsByIDProductsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductSelectionsByIDProductsGet
