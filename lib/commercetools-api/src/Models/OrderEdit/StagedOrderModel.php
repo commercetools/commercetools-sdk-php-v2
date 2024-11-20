@@ -29,12 +29,12 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Api\Models\Order\Order;
@@ -149,7 +149,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $totalPrice;
 
@@ -388,7 +388,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
         ?StoreKeyReference $store = null,
         ?LineItemCollection $lineItems = null,
         ?CustomLineItemCollection $customLineItems = null,
-        ?TypedMoney $totalPrice = null,
+        ?CentPrecisionMoney $totalPrice = null,
         ?TaxedPrice $taxedPrice = null,
         ?TaxedPrice $taxedShippingPrice = null,
         ?DiscountOnTotalPrice $discountOnTotalPrice = null,
@@ -778,7 +778,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
      * <p>Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
      *
      *
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice()
     {
@@ -788,8 +788,8 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->totalPrice = $className::of($data);
+
+            $this->totalPrice = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->totalPrice;
@@ -1669,9 +1669,9 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     }
 
     /**
-     * @param ?TypedMoney $totalPrice
+     * @param ?CentPrecisionMoney $totalPrice
      */
-    public function setTotalPrice(?TypedMoney $totalPrice): void
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
