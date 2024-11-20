@@ -23,9 +23,9 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\OrderEdit\StagedOrder;
 use Commercetools\Api\Models\Quote\QuoteReference;
@@ -190,7 +190,7 @@ interface Order extends BaseResource
      * <p>Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice();
 
@@ -580,9 +580,9 @@ interface Order extends BaseResource
     public function setCustomLineItems(?CustomLineItemCollection $customLineItems): void;
 
     /**
-     * @param ?TypedMoney $totalPrice
+     * @param ?CentPrecisionMoney $totalPrice
      */
-    public function setTotalPrice(?TypedMoney $totalPrice): void;
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void;
 
     /**
      * @param ?TaxedPrice $taxedPrice

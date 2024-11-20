@@ -31,12 +31,12 @@ use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceBuilder;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrder;
@@ -148,7 +148,7 @@ final class OrderBuilder implements Builder
 
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $totalPrice;
 
@@ -530,11 +530,11 @@ final class OrderBuilder implements Builder
      * <p>Taxes are included if <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code> for each price.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice()
     {
-        return $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+        return $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
 
     /**
@@ -1109,10 +1109,10 @@ final class OrderBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $totalPrice
+     * @param ?CentPrecisionMoney $totalPrice
      * @return $this
      */
-    public function withTotalPrice(?TypedMoney $totalPrice)
+    public function withTotalPrice(?CentPrecisionMoney $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -1552,7 +1552,7 @@ final class OrderBuilder implements Builder
      * @deprecated use withTotalPrice() instead
      * @return $this
      */
-    public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?CentPrecisionMoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -1741,7 +1741,7 @@ final class OrderBuilder implements Builder
             $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
             $this->lineItems,
             $this->customLineItems,
-            $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
+            $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice,
             $this->discountOnTotalPrice instanceof DiscountOnTotalPriceBuilder ? $this->discountOnTotalPrice->build() : $this->discountOnTotalPrice,
