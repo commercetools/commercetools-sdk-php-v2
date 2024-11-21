@@ -6,7 +6,6 @@ use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-//added just because New Relic<->Symfony needed it
 class IndexController extends AbstractController
 {
     private $logger;
