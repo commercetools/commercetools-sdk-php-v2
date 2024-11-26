@@ -52,7 +52,9 @@ interface ProductVariantPatch extends JsonObject
     public function getStaged();
 
     /**
-     * <p>Reference to the <a href="/../api/projects/products#product">Product</a> which contains the ProductVariant. Setting a value will batch process the import operations to minimize concurrency errors. If set, this field is required for every ProductVariantPatch in the <a href="ctp:import:type:ProductVariantPatchRequest">ProductVariantPatchRequest</a>.</p>
+     * <p>Reference to the <a href="/../api/projects/products#product">Product</a> that contains the ProductVariant.</p>
+     * <p>We recommend to set this value to minimize concurrency errors.
+     * If set, this field is required for every ProductVariantPatch in the <a href="ctp:import:type:ProductVariantPatchRequest">ProductVariantPatchRequest</a>.</p>
      *
 
      * @return null|ProductKeyReference
