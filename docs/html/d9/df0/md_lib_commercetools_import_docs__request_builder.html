@@ -305,7 +305,7 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md76"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;productVariantPatches()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a new import request for product variant patches</p>
+<p>Creates a new import request for Product Variant Patches. Returns an <a href="../..//error#invalidfielderror">InvalidField</a> error if the [ProductVariantPatchRequest](ctp:import:type:ProductVariantPatchRequest) contains patches with and without the <code>product</code> field set.</p>
 <h2><a class="anchor" id="autotoc_md77"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
