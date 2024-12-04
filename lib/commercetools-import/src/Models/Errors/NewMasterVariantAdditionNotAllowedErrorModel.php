@@ -45,6 +45,8 @@ final class NewMasterVariantAdditionNotAllowedErrorModel extends JsonObjectModel
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */

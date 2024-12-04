@@ -33,6 +33,8 @@ final class DiscountedPriceBuilder implements Builder
     private $discount;
 
     /**
+     * <p>Money value of the discounted price.</p>
+     *
 
      * @return null|TypedMoney
      */

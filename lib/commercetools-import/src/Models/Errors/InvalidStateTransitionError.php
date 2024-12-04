@@ -17,7 +17,7 @@ interface InvalidStateTransitionError extends ErrorObject
     public const FIELD_NEW_STATE = 'newState';
 
     /**
-     * <p>Every <a href="/import-operation">Import Operation</a> is assigned one of the following states.</p>
+     * <p>Every <a href="ctp:import:type:ImportOperation">Import Operation</a> is assigned one of the following states.</p>
      *
 
      * @return null|string
@@ -25,7 +25,7 @@ interface InvalidStateTransitionError extends ErrorObject
     public function getCurrentState();
 
     /**
-     * <p>Every <a href="/import-operation">Import Operation</a> is assigned one of the following states.</p>
+     * <p>Every <a href="ctp:import:type:ImportOperation">Import Operation</a> is assigned one of the following states.</p>
      *
 
      * @return null|string

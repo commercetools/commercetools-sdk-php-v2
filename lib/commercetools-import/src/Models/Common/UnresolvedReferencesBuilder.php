@@ -33,6 +33,8 @@ final class UnresolvedReferencesBuilder implements Builder
     private $typeId;
 
     /**
+     * <p>The <code>key</code> of the resource.</p>
+     *
 
      * @return null|string
      */
@@ -42,7 +44,7 @@ final class UnresolvedReferencesBuilder implements Builder
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>The type of resource.</p>
      *
 
      * @return null|string

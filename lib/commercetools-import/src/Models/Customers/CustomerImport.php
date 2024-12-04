@@ -43,7 +43,7 @@ interface CustomerImport extends ImportResource
     public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
-     * <p>User-defined unique identifier. If a <a href="/../api/projects/customers#customer">Customer</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:Customer">Customer</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
 
      * @return null|string
@@ -75,7 +75,7 @@ interface CustomerImport extends ImportResource
     public function getPassword();
 
     /**
-     * <p>The References to the Stores with which the Customer is associated. If referenced Stores do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Stores are created.</p>
+     * <p>The References to the Stores with which the Customer is associated. If referenced Stores do not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Stores are created.</p>
      *
 
      * @return null|StoreKeyReferenceCollection
@@ -163,8 +163,8 @@ interface CustomerImport extends ImportResource
     public function getIsEmailVerified();
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the Customer is associated.
-     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
+     * <p>The Reference to the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> with which the Customer is associated.
+     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
      *
 
      * @return null|CustomerGroupKeyReference

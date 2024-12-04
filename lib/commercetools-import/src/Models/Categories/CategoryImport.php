@@ -31,7 +31,7 @@ interface CategoryImport extends ImportResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier. If a <a href="/../api/projects/categories#category">Category</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:Category">Category</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
 
      * @return null|string
@@ -65,8 +65,8 @@ interface CategoryImport extends ImportResource
 
     /**
      * <p>Maps to <code>Category.parent</code>.
-     * The Reference to the parent <a href="/../api/projects/categories#category">Category</a> with which the Category is associated.
-     * If referenced Category does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Category is created.</p>
+     * The Reference to the parent <a href="ctp:api:type:Category">Category</a> with which the Category is associated.
+     * If referenced Category does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Category is created.</p>
      *
 
      * @return null|CategoryKeyReference
@@ -114,6 +114,8 @@ interface CategoryImport extends ImportResource
     public function getMetaKeywords();
 
     /**
+     * <p>Maps to <code>Category.assets</code>.</p>
+     *
 
      * @return null|AssetCollection
      */

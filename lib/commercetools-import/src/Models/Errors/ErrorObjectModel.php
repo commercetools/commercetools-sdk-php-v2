@@ -76,6 +76,8 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -94,6 +96,8 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     }
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
      *
      * @return null|string
      */

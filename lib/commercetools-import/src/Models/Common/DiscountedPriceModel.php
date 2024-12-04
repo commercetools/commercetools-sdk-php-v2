@@ -44,6 +44,8 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
     }
 
     /**
+     * <p>Money value of the discounted price.</p>
+     *
      *
      * @return null|TypedMoney
      */

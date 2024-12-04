@@ -45,6 +45,8 @@ final class GenericErrorModel extends JsonObjectModel implements GenericError
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -63,6 +65,8 @@ final class GenericErrorModel extends JsonObjectModel implements GenericError
     }
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
      *
      * @return null|string
      */

@@ -62,7 +62,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
-     * <p>User-defined unique identifier. If a <a href="/../api/projects/productTypes#producttype">ProductType</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:ProductType">ProductType</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
      *
      * @return null|string
@@ -122,7 +122,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
-     * <p>The <code>attributes</code> of <a href="/../api/projects/productTypes#producttype">ProductType</a>.</p>
+     * <p>The <code>attributes</code> of <a href="ctp:api:type:ProductType">ProductType</a>.</p>
      *
      *
      * @return null|AttributeDefinitionCollection

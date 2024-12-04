@@ -27,6 +27,8 @@ final class InvalidJsonInputBuilder implements Builder
     private $message;
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
 
      * @return null|string
      */
