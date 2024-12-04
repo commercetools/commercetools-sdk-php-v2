@@ -1,0 +1,53 @@
+services:
+  php-otel:
+    platform: linux/amd64
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile.otel
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+      - OTEL_SERVICE_NAME=php-otel
+      - OTEL_PHP_AUTOLOAD=/opt/opentelemetry-php-auto/otel_autoload.php
+      - OTEL_LOG_LEVEL=debug
+      - OTEL_TRACES_SAMPLER=always_on
+      - NEW_RELIC_LICENSE_KEY=${NEW_RELIC_LICENSE_KEY}
+      - NEW_RELIC_APP_NAME=php-otel
+    volumes:
+      - .:/var/www/symfony
+      - ./docker/php/.env.sample:/var/www/symfony/.env
+    expose:
+      - "9000"
+
+  newrelic-daemon:
+    image: newrelic/php-daemon:latest
+    platform: linux/amd64
+    environment:
+      - NEW_RELIC_LICENSE_KEY=${NEW_RELIC_LICENSE_KEY}
+    expose:
+      - "31339"
+
+  nginx-otel:
+    platform: linux/amd64
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile.otel
+    ports:
+      - "8080:80"
+    depends_on:
+      - newrelic-daemon
+      - php-otel
+    volumes:
+      - ./var/logs/nginx:/var/log/nginx
+      - .:/var/www/symfony
+  
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    environment:
+      - NEW_RELIC_LICENSE_KEY=${NEW_RELIC_LICENSE_KEY}
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+    volumes:
+      - ./docker/opentelemetry/otel-collector-config.yaml:/etc/otelcol/config.yaml
+    command:
+      - "--config=/etc/otelcol/config.yaml"

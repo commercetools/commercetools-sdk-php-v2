@@ -67,7 +67,7 @@ The SDK consists of the following projects:
 * `lib/commercetools-history/src`: Contains all generated models and request builders to communicate with the [Change History API](https://docs.commercetools.com/api/history/change-history).
 
 In addition, the SDK has the following directories:
-* `examples/symfony-app` : it shows how the PHP SDK can be used in a Symfony application for a Docker environment with NewRelic monitoring enabled. 
+* `examples/` : One Demo Symfony Application in a Dockerized environment for each APM (NewRelic, Datadog, Dynatrace and OpenTelemetry), which shows how the PHP SDK can be used from the user side. 
 * `test/integration` : Integration Tests for the SDK. A good way for anyone using the PHP SDK to understand it further.
 * `test/unit` : Unit Tests for 
 * `lib/commercetools-api-tests` : generated unit test for each class for the api folder
@@ -958,6 +958,16 @@ To migrate from the 1.x to the 2.x, there is a guideline below:
 ## Observability
 
 To monitor and observe the SDK, see the official documentation [Observability](https://docs.commercetools.com/sdk/observability), there is a [Demo application](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app) which shows how to monitor the PHP SDK with New Relic and Datadog.
+
+To monitor and observe the SDK, refer to the official documentation on [Observability](https://docs.commercetools.com/sdk/observability).
+
+The [Demo application](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/) demonstrates how to monitor the PHP SDK with the following APMs:
+
+- [New Relic](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app-newrelic)
+- [Datadog](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app-datadog)
+- [Dynatrace](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app-dynatrace)
+- [OpenTelemetry](https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app-opentelemetry) (configured to work with New Relic for distributed tracing)
+Each APM integration is implemented through configuration and can be easily enabled using the provided instructions in the demo app for each platform.
 
 ## Documentation
 

@@ -35,7 +35,7 @@ services:
     image: datadog/agent:latest
     environment:
       - DD_API_KEY=${DD_API_KEY}
-      - DD_SITE=datadoghq.com
+      - DD_SITE=${DD_SITE}
       - DD_APM_ENABLED=true
     ports:
       - "127.0.0.1:8126:8126/tcp"
