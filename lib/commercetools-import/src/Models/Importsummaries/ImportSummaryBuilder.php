@@ -33,7 +33,7 @@ final class ImportSummaryBuilder implements Builder
     private $total;
 
     /**
-     * <p>The import status of an <a href="/import-container#importcontainer">ImportContainer</a> given by the number of resources in each <a href="/processing-state#processingstate">Processing State</a>.</p>
+     * <p>The import status of an <a href="ctp:import:type:ImportContainer">ImportContainer</a> given by the number of resources in each <a href="ctp:import:type:ProcessingState">Processing State</a>.</p>
      *
 
      * @return null|OperationStates
@@ -44,7 +44,7 @@ final class ImportSummaryBuilder implements Builder
     }
 
     /**
-     * <p>The total number of <a href="/import-operation#importoperation">ImportOperations</a> received for this Import Summary.</p>
+     * <p>The total number of <a href="ctp:import:type:ImportOperation">ImportOperations</a> received for this Import Summary.</p>
      *
 
      * @return null|int

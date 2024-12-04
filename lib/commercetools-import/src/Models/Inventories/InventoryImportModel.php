@@ -91,7 +91,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
-     * <p>User-defined unique identifier. If an <a href="/../api/projects/inventory#inventoryentry">InventoryEntry</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If an <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
      *
      * @return null|string

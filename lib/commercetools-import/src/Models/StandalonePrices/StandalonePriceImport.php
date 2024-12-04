@@ -33,7 +33,7 @@ interface StandalonePriceImport extends ImportResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier for the Standalone Price. If a <a href="/../api/projects/standalone-prices#standaloneprice">StandalonePrice</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier for the Standalone Price. If a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>) with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
 
      * @return null|string
@@ -58,7 +58,7 @@ interface StandalonePriceImport extends ImportResource
 
     /**
      * <p>Sets the country for which this Price is valid.</p>
-     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|string
@@ -67,7 +67,7 @@ interface StandalonePriceImport extends ImportResource
 
     /**
      * <p>Sets the CustomerGroup for which this Price is valid.</p>
-     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|CustomerGroupKeyReference
@@ -76,7 +76,7 @@ interface StandalonePriceImport extends ImportResource
 
     /**
      * <p>Sets the product distribution Channel for which this Price is valid.</p>
-     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|ChannelKeyReference

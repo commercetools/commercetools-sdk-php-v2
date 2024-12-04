@@ -54,6 +54,8 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +74,8 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
      *
      * @return null|string
      */

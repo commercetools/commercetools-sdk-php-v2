@@ -139,7 +139,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
     /**
-     * <p>The key of the <a href="/import-container#importcontainer">importContainer</a>.</p>
+     * <p>The key of the <a href="ctp:import:type:ImportContainer">ImportContainer</a>.</p>
      *
      *
      * @return null|string
@@ -239,7 +239,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
     /**
-     * <p>Contains an error if the import of the resource was not successful. See <a href="/error">Errors</a>.</p>
+     * <p>Contains an error if the import of the resource was not successful. See <a href="/import-export/error">Errors</a>.</p>
      *
      *
      * @return null|ErrorObjectCollection

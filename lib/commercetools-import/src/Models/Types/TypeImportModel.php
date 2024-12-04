@@ -72,7 +72,7 @@ final class TypeImportModel extends JsonObjectModel implements TypeImport
     }
 
     /**
-     * <p>User-defined unique identifier for the Type. If a <a href="/../api/projects/types#type">Type</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier for the Type. If a <a href="ctp:api:type:Type">Type</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
      *
      * @return null|string

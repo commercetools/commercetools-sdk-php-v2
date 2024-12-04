@@ -45,6 +45,8 @@ final class InvalidScopeErrorModel extends JsonObjectModel implements InvalidSco
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -63,6 +65,8 @@ final class InvalidScopeErrorModel extends JsonObjectModel implements InvalidSco
     }
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
      *
      * @return null|string
      */

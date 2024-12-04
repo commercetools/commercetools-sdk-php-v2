@@ -222,7 +222,7 @@ interface OrderImport extends JsonObject
     public function getItemShippingAddresses();
 
     /**
-     * <p>Reference to the Store in which the Order is associated. If referenced Store does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Store exists.</p>
+     * <p>Reference to the Store in which the Order is associated. If referenced Store does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Store exists.</p>
      *
 
      * @return null|StoreKeyReference

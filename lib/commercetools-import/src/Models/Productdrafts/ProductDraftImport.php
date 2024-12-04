@@ -37,7 +37,7 @@ interface ProductDraftImport extends ImportResource
     public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
-     * <p>User-defined unique identifier. If a <a href="/../api/projects/products#product">Product</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:Product">Product</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
 
      * @return null|string
@@ -45,10 +45,10 @@ interface ProductDraftImport extends ImportResource
     public function getKey();
 
     /**
-     * <p>The <code>productType</code> of a <a href="/../api/projects/products#product">Product</a>.
+     * <p>The <code>productType</code> of a <a href="ctp:api:type:Product">Product</a>.
      * Maps to <code>Product.productType</code>.
-     * The Reference to the <a href="/../api/projects/productTypes#producttype">ProductType</a> with which the ProductDraft is associated.
-     * If referenced ProductType does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductType is created.</p>
+     * The Reference to the <a href="ctp:api:type:ProductType">ProductType</a> with which the ProductDraft is associated.
+     * If referenced ProductType does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductType is created.</p>
      *
 
      * @return null|ProductTypeKeyReference
@@ -79,8 +79,8 @@ interface ProductDraftImport extends ImportResource
     public function getDescription();
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/categories#category">Categories</a> with which the ProductDraft is associated.
-     * If referenced Categories do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Categories are created.</p>
+     * <p>The Reference to the <a href="ctp:api:type:Category">Categories</a> with which the ProductDraft is associated.
+     * If referenced Categories do not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Categories are created.</p>
      *
 
      * @return null|CategoryKeyReferenceCollection
@@ -144,8 +144,8 @@ interface ProductDraftImport extends ImportResource
     public function getVariants();
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/taxCategories#taxcategory">TaxCategory</a> with which the ProductDraft is associated.
-     * If referenced TaxCategory does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary TaxCategory is created.</p>
+     * <p>The Reference to the <a href="/projects/taxCategories#taxcategory">TaxCategory</a> with which the ProductDraft is associated.
+     * If referenced TaxCategory does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary TaxCategory is created.</p>
      *
 
      * @return null|TaxCategoryKeyReference
@@ -177,8 +177,8 @@ interface ProductDraftImport extends ImportResource
     public function getSearchKeywords();
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/states#state">State</a> with which the ProductDraft is associated.
-     * If referenced State does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary State is created.</p>
+     * <p>The Reference to the <a href="/projects/states#state">State</a> with which the ProductDraft is associated.
+     * If referenced State does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary State is created.</p>
      *
 
      * @return null|StateKeyReference
@@ -186,7 +186,7 @@ interface ProductDraftImport extends ImportResource
     public function getState();
 
     /**
-     * <p>Determines the published status and current/staged projection of the Product. For more information, see <a href="/best-practices#managing-the-published-state-of-products">Managing the published state of Products</a>.</p>
+     * <p>Determines the published status and current/staged projection of the Product. For more information, see <a href="/import-export/best-practices#managing-the-published-state-of-products">Managing the published state of Products</a>.</p>
      *
 
      * @return null|bool
@@ -194,7 +194,7 @@ interface ProductDraftImport extends ImportResource
     public function getPublish();
 
     /**
-     * <p>Determines the type of Prices the API uses. See <a href="/../api/projects/products#productpricemode">ProductPriceMode</a> for more details. If not provided, the existing <code>Product.priceMode</code> is not changed.</p>
+     * <p>Determines the type of Prices the API uses. If not provided, the existing <code>Product.priceMode</code> is not changed.</p>
      *
 
      * @return null|string

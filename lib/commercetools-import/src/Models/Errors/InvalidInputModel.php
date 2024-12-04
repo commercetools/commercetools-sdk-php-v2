@@ -45,6 +45,8 @@ final class InvalidInputModel extends JsonObjectModel implements InvalidInput
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -63,6 +65,8 @@ final class InvalidInputModel extends JsonObjectModel implements InvalidInput
     }
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
      *
      * @return null|string
      */

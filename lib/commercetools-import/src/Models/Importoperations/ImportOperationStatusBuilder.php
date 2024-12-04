@@ -63,7 +63,7 @@ final class ImportOperationStatusBuilder implements Builder
 
     /**
      * <p>The validation errors for the <a href="#importoperation">ImportOperation</a>.
-     * See <a href="/error">Errors</a>.</p>
+     * See <a href="/import-export/error">Errors</a>.</p>
      *
 
      * @return null|ErrorObjectCollection

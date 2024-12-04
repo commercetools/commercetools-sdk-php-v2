@@ -168,7 +168,7 @@ final class ProductDraftBuilder implements Builder
 
     /**
      * <p>User-defined unique identifier for the Product.</p>
-     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Products with the <a href="/../import-export/">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>.</p>
+     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Products with the <a href="/../api/import-export/">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>.</p>
      * <p>To update a Product using the Import API or Merchant Center, the Product <code>key</code> must match the pattern <code>^[A-Za-z0-9_-]{2,256}$</code>.</p>
      *
 

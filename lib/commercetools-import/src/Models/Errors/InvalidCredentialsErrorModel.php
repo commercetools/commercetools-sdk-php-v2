@@ -45,6 +45,8 @@ final class InvalidCredentialsErrorModel extends JsonObjectModel implements Inva
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -63,6 +65,8 @@ final class InvalidCredentialsErrorModel extends JsonObjectModel implements Inva
     }
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
      *
      * @return null|string
      */

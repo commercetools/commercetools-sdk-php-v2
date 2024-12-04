@@ -259,8 +259,8 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the <a href="/../api/types#price">Price</a> is associated.
-     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
+     * <p>The Reference to the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> with which the <a href="/../api/types#price">Price</a> is associated.
+     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
      *
      *
      * @return null|CustomerGroupKeyReference
@@ -281,8 +281,8 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/channels#channel">Channel</a> with which the <a href="/../api/types#price">Price</a> is associated.
-     * If referenced Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Channel is created.</p>
+     * <p>The Reference to the <a href="ctp:api:type:Channel">Channel</a> with which the <a href="/../api/types#price">Price</a> is associated.
+     * If referenced Channel does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Channel is created.</p>
      *
      *
      * @return null|ChannelKeyReference
@@ -388,9 +388,9 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * <p>The ProductVariant in which this <a href="/../api/types#price">Embedded Price</a> is contained.
-     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the <a href="/../api/types#price">Price</a> is associated.
-     * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
+     * <p>The ProductVariant in which this <a href="/types#price">Embedded Price</a> is contained.
+     * The Reference to the <a href="/projects/products#productvariant">ProductVariant</a> with which the <a href="/types#price">Price</a> is associated.
+     * If the referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-export/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
      *
      * @return null|ProductVariantKeyReference
@@ -411,9 +411,9 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * <p>The Product in which the Product Variant containing this <a href="/../api/types#price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>.
-     * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the <a href="/../api/types#price">Price</a> is associated.
-     * If referenced Product does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
+     * <p>The Product in which the Product Variant containing this <a href="/types#price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>.
+     * The Reference to the <a href="/projects/products#product">Product</a> with which the <a href="/types#price">Price</a> is associated.
+     * If referenced Product does not exist, the <code>state</code> of the <a href="/import-export/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
      *
      *
      * @return null|ProductKeyReference
