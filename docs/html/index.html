@@ -147,7 +147,7 @@ Technical Overview</h1>
 <li><code>lib/commercetools-history/src</code>: Contains all generated models and request builders to communicate with the <a href="https://docs.commercetools.com/api/history/change-history">Change History API</a>.</li>
 </ul>
 <p>In addition, the SDK has the following directories:</p><ul>
-<li><code>examples/symfony-app</code> : it shows how the PHP SDK can be used in a Symfony application for a Docker environment with NewRelic monitoring enabled.</li>
+<li><code>examples/</code> : One Dockerized Symfony app per APM (New Relic, Datadog, Dynatrace, OpenTelemetry) to demo PHP SDK usage.</li>
 <li><code>test/integration</code> : Integration Tests for the SDK. A good way for anyone using the PHP SDK to understand it further.</li>
 <li><code>test/unit</code> : Unit Tests for</li>
 <li><code>lib/commercetools-api-tests</code> : generated unit test for each class for the api folder</li>
@@ -882,7 +882,15 @@ Migration Guidelines from SDK v1</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md38"></a>
 Observability</h1>
-<p>To monitor and observe the SDK, see the official documentation <a href="https://docs.commercetools.com/sdk/observability">Observability</a>, there is a <a href="https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app">Demo application</a> which shows how to monitor the PHP SDK with New Relic and Datadog.</p>
+<p>To monitor and observe the SDK, see the official documentation <a href="https://docs.commercetools.com/sdk/observability">Observability</a>, there is a <a href="https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/">Demo application</a> which shows how to monitor the PHP SDK with New Relic, Datadog, Dynatrace and Open Telemetry.</p>
+<p>To monitor and observe the SDK, refer to the official documentation on <a href="https://docs.commercetools.com/sdk/observability">Observability</a>.</p>
+<p>The <a href="https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/">Demo application</a> demonstrates how to monitor the PHP SDK with the following APMs:</p>
+<ul>
+<li><a href="https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app-newrelic">New Relic</a></li>
+<li><a href="https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app-datadog">Datadog</a></li>
+<li><a href="https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app-dynatrace">Dynatrace</a></li>
+<li><a href="https://github.com/commercetools/commercetools-sdk-php-v2/tree/master/examples/symfony-app-opentelemetry">OpenTelemetry</a> (configured to work with New Relic for distributed tracing) Each APM integration is implemented through configuration and can be easily enabled using the provided instructions in the demo app for each platform.</li>
+</ul>
 <h1><a class="anchor" id="autotoc_md39"></a>
 Documentation</h1>
 <ul>
