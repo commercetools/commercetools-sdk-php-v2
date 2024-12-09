@@ -47,6 +47,8 @@ final class GraphQLErrorBuilder implements Builder
     private $extensions;
 
     /**
+     * <p>Detailed description of the error explaining the root cause of the problem and suggesting how to correct the error.</p>
+     *
 
      * @return null|string
      */
@@ -56,6 +58,8 @@ final class GraphQLErrorBuilder implements Builder
     }
 
     /**
+     * <p>Location within your query where the error occurred.</p>
+     *
 
      * @return null|GraphQLErrorLocationCollection
      */
@@ -65,6 +69,8 @@ final class GraphQLErrorBuilder implements Builder
     }
 
     /**
+     * <p>Query fields listed in order from the root of the query response up to the field in which the error occurred. <code>path</code> is displayed in the response only if an error is associated with a particular field in the query result.</p>
+     *
 
      * @return null|array
      */
@@ -74,7 +80,7 @@ final class GraphQLErrorBuilder implements Builder
     }
 
     /**
-     * <p>Represents a single error.</p>
+     * <p>Dictionary with additional information where applicable.</p>
      *
 
      * @return null|GraphQLErrorObject

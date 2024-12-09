@@ -61,6 +61,8 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -79,6 +81,8 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
      *
      * @return null|string
      */
@@ -97,7 +101,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Every <a href="/import-operation">Import Operation</a> is assigned one of the following states.</p>
+     * <p>Every <a href="ctp:import:type:ImportOperation">Import Operation</a> is assigned one of the following states.</p>
      *
      *
      * @return null|string
@@ -117,7 +121,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Every <a href="/import-operation">Import Operation</a> is assigned one of the following states.</p>
+     * <p>Every <a href="ctp:import:type:ImportOperation">Import Operation</a> is assigned one of the following states.</p>
      *
      *
      * @return null|string

@@ -148,6 +148,15 @@ class ByProjectKeyProductSelectionsKeyByKeyProductsGet extends ApiRequest implem
 
     /**
      *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyProductSelectionsKeyByKeyProductsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductSelectionsKeyByKeyProductsGet

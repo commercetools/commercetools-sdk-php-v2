@@ -32,6 +32,12 @@ final class CustomerAddressBuilder implements Builder
 
      * @var ?string
      */
+    private $country;
+
+    /**
+
+     * @var ?string
+     */
     private $title;
 
     /**
@@ -93,12 +99,6 @@ final class CustomerAddressBuilder implements Builder
      * @var ?string
      */
     private $state;
-
-    /**
-
-     * @var ?string
-     */
-    private $country;
 
     /**
 
@@ -185,106 +185,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getSalutation()
-    {
-        return $this->salutation;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getStreetName()
-    {
-        return $this->streetName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getStreetNumber()
-    {
-        return $this->streetNumber;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getAdditionalStreetInfo()
-    {
-        return $this->additionalStreetInfo;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getPostalCode()
-    {
-        return $this->postalCode;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getRegion()
-    {
-        return $this->region;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Name of the country.</p>
      *
 
      * @return null|string
@@ -295,6 +196,129 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Title of the contact, for example 'Dr.'</p>
+     *
+
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * <p>Salutation of the contact, for example 'Mr.' or 'Ms.'</p>
+     *
+
+     * @return null|string
+     */
+    public function getSalutation()
+    {
+        return $this->salutation;
+    }
+
+    /**
+     * <p>Given name (first name) of the contact.</p>
+     *
+
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * <p>Family name (last name) of the contact.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * <p>Name of the street.</p>
+     *
+
+     * @return null|string
+     */
+    public function getStreetName()
+    {
+        return $this->streetName;
+    }
+
+    /**
+     * <p>Street number.</p>
+     *
+
+     * @return null|string
+     */
+    public function getStreetNumber()
+    {
+        return $this->streetNumber;
+    }
+
+    /**
+     * <p>Further information on the street address.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAdditionalStreetInfo()
+    {
+        return $this->additionalStreetInfo;
+    }
+
+    /**
+     * <p>Postal code.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    /**
+     * <p>Name of the city.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * <p>Name of the region.</p>
+     *
+
+     * @return null|string
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    /**
+     * <p>Name of the state, for example, Colorado.</p>
+     *
+
+     * @return null|string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * <p>Name of the company.</p>
+     *
 
      * @return null|string
      */
@@ -304,6 +328,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Name of the department.</p>
+     *
 
      * @return null|string
      */
@@ -313,6 +339,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Number or name of the building.</p>
+     *
 
      * @return null|string
      */
@@ -322,6 +350,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Number or name of the apartment.</p>
+     *
 
      * @return null|string
      */
@@ -331,6 +361,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Post office box number.</p>
+     *
 
      * @return null|string
      */
@@ -340,6 +372,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Phone number of the contact.</p>
+     *
 
      * @return null|string
      */
@@ -349,6 +383,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Mobile phone number of the contact.</p>
+     *
 
      * @return null|string
      */
@@ -358,6 +394,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Email address of the contact.</p>
+     *
 
      * @return null|string
      */
@@ -367,6 +405,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Fax number of the contact.</p>
+     *
 
      * @return null|string
      */
@@ -376,6 +416,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>Further information on the Address.</p>
+     *
 
      * @return null|string
      */
@@ -385,6 +427,8 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+     * <p>ID for the contact used in an external system.</p>
+     *
 
      * @return null|string
      */
@@ -411,6 +455,17 @@ final class CustomerAddressBuilder implements Builder
     public function withKey(?string $key)
     {
         $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $country
+     * @return $this
+     */
+    public function withCountry(?string $country)
+    {
+        $this->country = $country;
 
         return $this;
     }
@@ -532,17 +587,6 @@ final class CustomerAddressBuilder implements Builder
     public function withState(?string $state)
     {
         $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $country
-     * @return $this
-     */
-    public function withCountry(?string $country)
-    {
-        $this->country = $country;
 
         return $this;
     }
@@ -694,6 +738,7 @@ final class CustomerAddressBuilder implements Builder
     {
         return new CustomerAddressModel(
             $this->key,
+            $this->country,
             $this->title,
             $this->salutation,
             $this->firstName,
@@ -705,7 +750,6 @@ final class CustomerAddressBuilder implements Builder
             $this->city,
             $this->region,
             $this->state,
-            $this->country,
             $this->company,
             $this->department,
             $this->building,

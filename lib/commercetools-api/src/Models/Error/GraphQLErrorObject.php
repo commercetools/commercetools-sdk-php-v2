@@ -18,7 +18,7 @@ interface GraphQLErrorObject extends JsonObject
     public const FIELD_PATTERN1 = '//';
 
     /**
-     * <p>Error identifier.</p>
+     * <p>One of the error codes that is listed on the <a href="/errors">Errors</a> page.</p>
      *
 
      * @return null|string

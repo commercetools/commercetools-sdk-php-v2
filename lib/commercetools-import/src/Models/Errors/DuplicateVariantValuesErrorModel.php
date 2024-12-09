@@ -53,6 +53,8 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -71,6 +73,8 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
      *
      * @return null|string
      */

@@ -45,6 +45,8 @@ final class ConcurrentModificationErrorBuilder implements Builder
     private $conflictedResource;
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
 
      * @return null|string
      */

@@ -98,7 +98,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>User-defined unique identifier. If a <a href="/../api/projects/products#productvariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:ProductVariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it will be updated with the imported data.</p>
      *
      *
      * @return null|string
@@ -139,7 +139,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
 
     /**
      * <ul>
-     * <li>When creating a new ProductVariant, set to <code>false</code>; otherwise, the import operation will fail with a <a href="/error#newmastervariantadditionnotallowederror">NewMasterVariantAdditionNotAllowed</a> error.</li>
+     * <li>When creating a new ProductVariant, set to <code>false</code>; otherwise, the import operation will fail with a <a href="ctp:import:type:NewMasterVariantAdditionNotAllowedError">NewMasterVariantAdditionNotAllowed</a> error.</li>
      * <li>Set to <code>true</code> if the ProductVariant exists and you want to set this ProductVariant as the Master Variant.</li>
      * </ul>
      *
@@ -162,7 +162,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
 
     /**
      * <p>Maps to <code>ProductVariant.attributes</code>.
-     * The referenced attribute must be defined in an already existing ProductType in the project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>unresolved</code>.</p>
+     * The referenced attribute must be defined in an already existing ProductType in the project, or the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be <code>unresolved</code>.</p>
      *
      *
      * @return null|AttributeCollection
@@ -245,9 +245,9 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The <a href="/../api/projects/products#productvariant">Product</a> to which this Product Variant belongs. Maps to <code>ProductVariant.product</code>.
-     * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the ProductVariant is associated.
-     * If referenced Product does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
+     * <p>The <a href="ctp:api:type:ProductVariant">Product</a> to which this Product Variant belongs. Maps to <code>ProductVariant.product</code>.
+     * The Reference to the <a href="ctp:api:type:Product">Product</a> with which the ProductVariant is associated.
+     * If referenced Product does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
      *
      *
      * @return null|ProductKeyReference

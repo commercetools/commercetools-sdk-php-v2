@@ -17,6 +17,8 @@ interface DiscountedPrice extends JsonObject
     public const FIELD_DISCOUNT = 'discount';
 
     /**
+     * <p>Money value of the discounted price.</p>
+     *
 
      * @return null|TypedMoney
      */

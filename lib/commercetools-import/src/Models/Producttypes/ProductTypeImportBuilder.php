@@ -47,7 +47,7 @@ final class ProductTypeImportBuilder implements Builder
     private $attributes;
 
     /**
-     * <p>User-defined unique identifier. If a <a href="/../api/projects/productTypes#producttype">ProductType</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:ProductType">ProductType</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
      *
 
      * @return null|string
@@ -80,7 +80,7 @@ final class ProductTypeImportBuilder implements Builder
     }
 
     /**
-     * <p>The <code>attributes</code> of <a href="/../api/projects/productTypes#producttype">ProductType</a>.</p>
+     * <p>The <code>attributes</code> of <a href="ctp:api:type:ProductType">ProductType</a>.</p>
      *
 
      * @return null|AttributeDefinitionCollection

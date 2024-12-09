@@ -53,6 +53,8 @@ final class InvalidFieldsUpdateErrorModel extends JsonObjectModel implements Inv
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */

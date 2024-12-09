@@ -77,6 +77,8 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+     * <p>An error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -95,6 +97,8 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+     * <p>A plain language description of the cause of an error.</p>
+     *
      *
      * @return null|string
      */

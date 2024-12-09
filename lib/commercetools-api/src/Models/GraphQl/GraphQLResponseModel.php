@@ -44,6 +44,8 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     }
 
     /**
+     * <p>JSON object that contains the results of a GraphQL query.</p>
+     *
      *
      * @return null|mixed
      */
@@ -62,6 +64,8 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     }
 
     /**
+     * <p>Errors that the GraphQL query returns.</p>
+     *
      *
      * @return null|GraphQLErrorCollection
      */

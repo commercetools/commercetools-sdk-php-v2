@@ -17,12 +17,16 @@ interface GraphQLErrorLocation extends JsonObject
     public const FIELD_COLUMN = 'column';
 
     /**
+     * <p>Line number of the query where the error occurred.</p>
+     *
 
      * @return null|int
      */
     public function getLine();
 
     /**
+     * <p>Position in <code>line</code> where the error occurred.</p>
+     *
 
      * @return null|int
      */
