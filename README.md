@@ -67,7 +67,7 @@ The SDK consists of the following projects:
 * `lib/commercetools-history/src`: Contains all generated models and request builders to communicate with the [Change History API](https://docs.commercetools.com/api/history/change-history).
 
 In addition, the SDK has the following directories:
-* `examples/` : One Demo Symfony Application in a Dockerized environment for each APM (NewRelic, Datadog, Dynatrace and OpenTelemetry), which shows how the PHP SDK can be used from the user side. 
+* `examples/` : One Dockerized Symfony app per APM (New Relic, Datadog, Dynatrace, OpenTelemetry) to demo PHP SDK usage. 
 * `test/integration` : Integration Tests for the SDK. A good way for anyone using the PHP SDK to understand it further.
 * `test/unit` : Unit Tests for 
 * `lib/commercetools-api-tests` : generated unit test for each class for the api folder
