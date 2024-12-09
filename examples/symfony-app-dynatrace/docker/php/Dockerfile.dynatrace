@@ -1,4 +1,3 @@
-# Specify the appropriate platform for x86_64
 FROM php:8.2-fpm
 
 # Install necessary packages and PHP extensions

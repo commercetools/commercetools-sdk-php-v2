@@ -1,0 +1,21 @@
+receivers:
+    otlp:
+        protocols:
+            grpc:
+                endpoint: "localhost:4317"
+            http:
+                endpoint: "localhost:4318"
+
+exporters:
+    otlp:
+        endpoint: "otlp.nr-data.net:4317"
+        headers:
+            "api-key": "${NEW_RELIC_LICENSE_KEY}"
+
+
+service:
+    pipelines:
+        traces:
+            receivers: [otlp]
+            processors: []
+            exporters: [otlp]
