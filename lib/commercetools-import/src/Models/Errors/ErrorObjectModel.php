@@ -52,7 +52,6 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'InvalidOperation' => InvalidOperationModel::class,
        'InvalidTransition' => InvalidStateTransitionErrorModel::class,
        'NewMasterVariantAdditionNotAllowed' => NewMasterVariantAdditionNotAllowedErrorModel::class,
-       'ReferencedResourceNotFound' => ReferencedResourceNotFoundModel::class,
        'RequiredField' => RequiredFieldErrorModel::class,
        'ResourceCreation' => ResourceCreationErrorModel::class,
        'ResourceDeletion' => ResourceDeletionErrorModel::class,
