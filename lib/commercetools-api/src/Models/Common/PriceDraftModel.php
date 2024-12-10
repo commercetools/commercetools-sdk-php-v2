@@ -136,6 +136,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
 
     /**
      * <p>Money value of this Price.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
      *
      * @return null|Money
