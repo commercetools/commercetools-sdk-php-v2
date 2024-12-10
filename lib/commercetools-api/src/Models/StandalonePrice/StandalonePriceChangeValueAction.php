@@ -19,6 +19,7 @@ interface StandalonePriceChangeValueAction extends StandalonePriceUpdateAction
 
     /**
      * <p>New value to set. Must not be empty.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
 
      * @return null|Money

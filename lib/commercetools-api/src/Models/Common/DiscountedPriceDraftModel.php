@@ -47,6 +47,7 @@ final class DiscountedPriceDraftModel extends JsonObjectModel implements Discoun
 
     /**
      * <p>Sets the money value for the discounted price.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
      *
      * @return null|Money

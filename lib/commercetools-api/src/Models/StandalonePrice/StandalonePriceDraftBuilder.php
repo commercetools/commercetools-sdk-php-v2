@@ -135,6 +135,7 @@ final class StandalonePriceDraftBuilder implements Builder
 
     /**
      * <p>Sets the money value of this Price.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
 
      * @return null|Money
