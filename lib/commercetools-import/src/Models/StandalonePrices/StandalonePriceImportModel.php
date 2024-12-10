@@ -191,8 +191,8 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets the country for which this Price is valid.</p>
-     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Sets the country for this Price, if the Price does not yet have a country.</p>
+     * <p>The country cannot be updated. Attempting to update the an existing country will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|string
@@ -212,8 +212,8 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets the CustomerGroup for which this Price is valid.</p>
-     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Sets the CustomerGroup for this Price, if the Price does not yet have a CustomerGroup.</p>
+     * <p>The CustomerGroup cannot be updated. Attempting to update an existing CustomerGroup will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|CustomerGroupKeyReference
@@ -234,8 +234,8 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets the product distribution Channel for which this Price is valid.</p>
-     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Sets the product distribution Channel for this Price, if the Price does not yet have a Channel.</p>
+     * <p>The Channel cannot be updated. Attempting to update an existing Channel will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|ChannelKeyReference
