@@ -17,7 +17,7 @@ interface ProductSetKeyAction extends ProductUpdateAction
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
-     * <p>To update a Product using the <a href="/../api/import-export/">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>, the Product <code>key</code> must match the pattern <code>^[A-Za-z0-9_-]{2,256}$</code>.</p>
+     * <p>To update a Product using the <a href="/../api/import-export/overview">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>, the Product <code>key</code> must match the pattern <code>^[A-Za-z0-9_-]{2,256}$</code>.</p>
      *
 
      * @return null|string
