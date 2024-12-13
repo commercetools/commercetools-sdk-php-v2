@@ -224,7 +224,7 @@ final class CategoryDraftBuilder implements Builder
 
     /**
      * <p>User-defined unique identifier for the Category.</p>
-     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Categories with the <a href="/../import-export/">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>.</p>
+     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Categories with the <a href="/../import-export/overview">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>.</p>
      *
 
      * @return null|string
