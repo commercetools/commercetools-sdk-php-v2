@@ -37,6 +37,17 @@ class ResourceByProjectKeyChannels extends ApiResource
 
         return new ResourceByProjectKeyChannelsByID($args, $this->getClient());
     }
+    /**
+     */
+    public function withKey(string $key = null): ResourceByProjectKeyChannelsKeyByKey
+    {
+        $args = $this->getArgs();
+        if (!is_null($key)) {
+            $args['key'] = $key;
+        }
+
+        return new ResourceByProjectKeyChannelsKeyByKey($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body
