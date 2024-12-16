@@ -2346,6 +2346,67 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->channels()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->channels()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->channels()->withKey("key")->head()`
+
+Checks if a Channel exists for a given `key`. Returns a `200 OK` status if the Channel exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->channels()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->channels()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->channels()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->channels()->withKey("key")->delete()`
+
+Returns a [ReferenceExists](ctp:api:type:ReferenceExistsError) error if other resources reference the Channel to be deleted.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->channels()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->customObjects()->get()`
 
 For performance reasons, it is highly advisable to query for Custom Objects in a container by using the `container` field in the `where` predicate.
