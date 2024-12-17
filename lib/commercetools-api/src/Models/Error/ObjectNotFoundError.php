@@ -20,7 +20,8 @@ interface ObjectNotFoundError extends ErrorObject
     public function getCode();
 
     /**
-     * <p><code>&quot;A $resourceType with identifier $id was unexpectedly not found.&quot;</code></p>
+     * <p><code>&quot;A $resourceType with identifier $id was unexpectedly not found.&quot;</code> or</p>
+     * <p><code>&quot;No index found for project&quot;</code></p>
      *
 
      * @return null|string
