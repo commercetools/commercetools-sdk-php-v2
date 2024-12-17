@@ -2939,7 +2939,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->search()->post(null)`
 
-A [SearchNotReady](ctp:api:type:SearchNotReadyError) error is returned if the indexing is in progress or the feature is deactivated. If deactivated, you can [reactivate](/../api/projects/customer-search#reactivate) it.
+If the initial indexing is in progress or the feature is inactive, a [SearchNotReady](ctp:api:type:SearchNotReadyError) error is returned.
+If inactive, you can [reactivate](/../api/projects/customer-search#reactivate) it.
 
 
 ### Example
@@ -2956,7 +2957,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->customers()->search()->head()`
 
 Checks whether a search index of Customers exists for a Project.
-If an index exists, a `200 OK` is returned; otherwise, a `409 Conflict`.
+Returns a `200 OK` if an index exists; otherwise, returns a `409 Conflict`.
 
 
 ### Example
@@ -9344,7 +9345,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->search()->post(null)`
 
-null
+If the indexing is in progress or the feature is inactive, an [ObjectNotFound](ctp:api:type:ObjectNotFoundError) error is returned.
+If inactive, you can [reactivate](/../api/projects/product-search#activation-of-the-feature) it.
+
 
 ### Example
 ```php
