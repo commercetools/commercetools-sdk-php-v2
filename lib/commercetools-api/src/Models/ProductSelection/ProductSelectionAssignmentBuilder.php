@@ -69,7 +69,8 @@ final class ProductSelectionAssignmentBuilder implements Builder
     }
 
     /**
-     * <p>Define which Variants of the added Product will be included in the Product Selection.</p>
+     * <p>Defines which particular Variants of the Product are included in the Product Selection.
+     * If undefined all Variants of the referenced Product are included.</p>
      * <p>This field is only available for assignments to a Product Selection with <code>Individual</code> <a href="ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>.
      * The list of SKUs will be updated automatically on any change of those performed on the respective Product itself.</p>
      *
@@ -82,7 +83,8 @@ final class ProductSelectionAssignmentBuilder implements Builder
     }
 
     /**
-     * <p>Defines which Variants of the Product will be excluded from the Product Selection.</p>
+     * <p>Defines which particular Variants of the Product are excluded from the Product Selection.
+     * If undefined all Variants of the referenced Product are excluded.</p>
      * <p>This field is only available for assignments to a Product Selection with <code>IndividualExclusion</code> <a href="ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>.
      * The list of SKUs will be updated automatically on any change of those performed on the respective Product itself.</p>
      *
