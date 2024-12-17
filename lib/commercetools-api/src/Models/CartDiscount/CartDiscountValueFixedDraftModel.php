@@ -33,15 +33,23 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
      */
     protected $money;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $applicationMode;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?MoneyCollection $money = null,
+        ?string $applicationMode = null,
         ?string $type = null
     ) {
         $this->money = $money;
+        $this->applicationMode = $applicationMode;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -85,6 +93,27 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
         return $this->money;
     }
 
+    /**
+     * <p>Determines how the discount applies on <a href="ctp:api:type:CartDiscountLineItemsTarget">CartDiscountLineItemTarget</a> or <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemTarget</a>.</p>
+     * <p>For <a href="ctp:api:type:CartDiscountPatternTarget">CartDiscountPatternTarget</a>, you can also set the mode to <code>ProportionateDistribution</code> or <code>EvenDistribution</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getApplicationMode()
+    {
+        if (is_null($this->applicationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_APPLICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->applicationMode = (string) $data;
+        }
+
+        return $this->applicationMode;
+    }
+
 
     /**
      * @param ?MoneyCollection $money
@@ -92,5 +121,13 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
     public function setMoney(?MoneyCollection $money): void
     {
         $this->money = $money;
+    }
+
+    /**
+     * @param ?string $applicationMode
+     */
+    public function setApplicationMode(?string $applicationMode): void
+    {
+        $this->applicationMode = $applicationMode;
     }
 }

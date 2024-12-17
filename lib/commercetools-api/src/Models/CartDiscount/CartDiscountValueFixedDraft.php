@@ -15,6 +15,7 @@ use Commercetools\Base\JsonObject;
 interface CartDiscountValueFixedDraft extends CartDiscountValueDraft
 {
     public const FIELD_MONEY = 'money';
+    public const FIELD_APPLICATION_MODE = 'applicationMode';
 
     /**
      * <p>Money values provided either in <a href="ctp:api:type:Money">cent precision</a> or <a href="ctp:api:type:HighPrecisionMoneyDraft">high precision</a> for different currencies.
@@ -27,7 +28,21 @@ interface CartDiscountValueFixedDraft extends CartDiscountValueDraft
     public function getMoney();
 
     /**
+     * <p>Determines how the discount applies on <a href="ctp:api:type:CartDiscountLineItemsTarget">CartDiscountLineItemTarget</a> or <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemTarget</a>.</p>
+     * <p>For <a href="ctp:api:type:CartDiscountPatternTarget">CartDiscountPatternTarget</a>, you can also set the mode to <code>ProportionateDistribution</code> or <code>EvenDistribution</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApplicationMode();
+
+    /**
      * @param ?MoneyCollection $money
      */
     public function setMoney(?MoneyCollection $money): void;
+
+    /**
+     * @param ?string $applicationMode
+     */
+    public function setApplicationMode(?string $applicationMode): void;
 }

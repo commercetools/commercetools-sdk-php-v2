@@ -28,6 +28,12 @@ final class CartDiscountValueFixedBuilder implements Builder
     private $money;
 
     /**
+
+     * @var ?string
+     */
+    private $applicationMode;
+
+    /**
      * <p>Money values in <a href="ctp:api:type:CentPrecisionMoney">cent precision</a> or <a href="ctp:api:type:HighPrecisionMoney">high precision</a> of different currencies.</p>
      *
 
@@ -36,6 +42,18 @@ final class CartDiscountValueFixedBuilder implements Builder
     public function getMoney()
     {
         return $this->money;
+    }
+
+    /**
+     * <p>Indicates how the discount is applied on <a href="ctp:api:type:CartDiscountLineItemsTarget">CartDiscountLineItemTarget</a> or <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemTarget</a>.</p>
+     * <p>For <a href="ctp:api:type:CartDiscountPatternTarget">CartDiscountPatternTarget</a>, the mode can also be <code>ProportionateDistribution</code> or <code>EvenDistribution</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getApplicationMode()
+    {
+        return $this->applicationMode;
     }
 
     /**
@@ -49,11 +67,23 @@ final class CartDiscountValueFixedBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $applicationMode
+     * @return $this
+     */
+    public function withApplicationMode(?string $applicationMode)
+    {
+        $this->applicationMode = $applicationMode;
+
+        return $this;
+    }
+
 
     public function build(): CartDiscountValueFixed
     {
         return new CartDiscountValueFixedModel(
-            $this->money
+            $this->money,
+            $this->applicationMode
         );
     }
 
