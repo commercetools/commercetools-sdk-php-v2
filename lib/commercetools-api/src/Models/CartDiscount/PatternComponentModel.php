@@ -17,7 +17,7 @@ use stdClass;
 /**
  * @internal
  */
-final class CartDiscountTargetModel extends JsonObjectModel implements CartDiscountTarget
+final class PatternComponentModel extends JsonObjectModel implements PatternComponent
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
@@ -27,17 +27,12 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
     protected $type;
 
     /**
-     * @psalm-var array<string, class-string<CartDiscountTarget> >
+     * @psalm-var array<string, class-string<PatternComponent> >
      *
      */
     private static $discriminatorClasses = [
-       'customLineItems' => CartDiscountCustomLineItemsTargetModel::class,
-       'lineItems' => CartDiscountLineItemsTargetModel::class,
-       'multiBuyCustomLineItems' => MultiBuyCustomLineItemsTargetModel::class,
-       'multiBuyLineItems' => MultiBuyLineItemsTargetModel::class,
-       'pattern' => CartDiscountPatternTargetModel::class,
-       'shipping' => CartDiscountShippingCostTargetModel::class,
-       'totalPrice' => CartDiscountTotalPriceTargetModel::class,
+       'CountOnCustomLineItemUnits' => CountOnCustomLineItemUnitsModel::class,
+       'CountOnLineItemUnits' => CountOnLineItemUnitsModel::class,
     ];
 
     /**
@@ -73,11 +68,11 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
 
     /**
      * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<CartDiscountTarget>
+     * @psalm-return class-string<PatternComponent>
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = CartDiscountTarget::DISCRIMINATOR_FIELD;
+        $fieldName = PatternComponent::DISCRIMINATOR_FIELD;
         if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value->$fieldName;
@@ -93,8 +88,8 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
             }
         }
 
-        /** @psalm-var class-string<CartDiscountTarget> */
-        $type = CartDiscountTargetModel::class;
+        /** @psalm-var class-string<PatternComponent> */
+        $type = PatternComponentModel::class;
         return $type;
     }
 }

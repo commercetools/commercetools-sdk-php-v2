@@ -320,7 +320,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Indicates whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a> are applied to the Custom Line Item.</p>
+     * <p>Indicates whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>, <a href="ctp:api:type:MultiBuyCustomLineItemsTarget">MultiBuyCustomLineItemsTarget</a>, or <a href="ctp:api:type:CartDiscountPatternTarget">CartDiscountPatternTarget</a> are applied to the Custom Line Item.</p>
      *
 
      * @return null|string

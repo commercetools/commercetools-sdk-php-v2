@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models\ChangeValue;
+namespace Commercetools\History\Models\CartDiscount;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -17,7 +17,7 @@ use stdClass;
 /**
  * @internal
  */
-final class ChangeTargetChangeValueModel extends JsonObjectModel implements ChangeTargetChangeValue
+final class PatternComponentModel extends JsonObjectModel implements PatternComponent
 {
 
     public const DISCRIMINATOR_VALUE = '';
@@ -28,16 +28,10 @@ final class ChangeTargetChangeValueModel extends JsonObjectModel implements Chan
     protected $type;
 
     /**
-     * @psalm-var array<string, class-string<ChangeTargetChangeValue> >
+     * @psalm-var array<string, class-string<PatternComponent> >
      * 
      */
     private static $discriminatorClasses = [
-       'customLineItems' => ChangeTargetCustomLineItemsChangeValueModel::class,
-       'lineItems' => ChangeTargetLineItemsChangeValueModel::class,
-       'multiBuyCustomLineItems' => ChangeTargetMultiBuyCustomLineItemsChangeValueModel::class,
-       'multiBuyLineItems' => ChangeTargetMultiBuyLineItemsChangeValueModel::class,
-       'pattern' => ChangeTargetPatternChangeValueModel::class,
-       'shipping' => ChangeTargetShippingChangeValueModel::class,
     ];
 
     /**
@@ -74,11 +68,11 @@ final class ChangeTargetChangeValueModel extends JsonObjectModel implements Chan
 
     /**
      * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<ChangeTargetChangeValue>
+     * @psalm-return class-string<PatternComponent>
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = ChangeTargetChangeValue::DISCRIMINATOR_FIELD;
+       $fieldName = PatternComponent::DISCRIMINATOR_FIELD;
        if (is_object($value) && isset($value->$fieldName)) {
            /** @psalm-var string $discriminatorValue */
            $discriminatorValue = $value->$fieldName;
@@ -94,8 +88,8 @@ final class ChangeTargetChangeValueModel extends JsonObjectModel implements Chan
            }
        }
 
-       /** @psalm-var class-string<ChangeTargetChangeValue> */
-       $type = ChangeTargetChangeValueModel::class;
+       /** @psalm-var class-string<PatternComponent> */
+       $type = PatternComponentModel::class;
        return $type;
     }
 }
