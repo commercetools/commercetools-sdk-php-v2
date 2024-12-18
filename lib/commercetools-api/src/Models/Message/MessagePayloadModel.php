@@ -245,6 +245,8 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'ReviewCreated' => ReviewCreatedMessagePayloadModel::class,
        'ReviewRatingSet' => ReviewRatingSetMessagePayloadModel::class,
        'ReviewStateTransition' => ReviewStateTransitionMessagePayloadModel::class,
+       'ShoppingListLineItemAdded' => ShoppingListLineItemAddedMessagePayloadModel::class,
+       'ShoppingListLineItemRemoved' => ShoppingListLineItemRemovedMessagePayloadModel::class,
        'ShoppingListStoreSet' => ShoppingListStoreSetMessagePayloadModel::class,
        'StagedQuoteCreated' => StagedQuoteCreatedMessagePayloadModel::class,
        'StagedQuoteDeleted' => StagedQuoteDeletedMessagePayloadModel::class,

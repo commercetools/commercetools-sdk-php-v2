@@ -370,6 +370,8 @@ use Commercetools\Api\Models\Message\ReviewRatingSetMessage;
 use Commercetools\Api\Models\Message\ReviewRatingSetMessageBuilder;
 use Commercetools\Api\Models\Message\ReviewStateTransitionMessage;
 use Commercetools\Api\Models\Message\ReviewStateTransitionMessageBuilder;
+use Commercetools\Api\Models\Message\ShoppingListMessage;
+use Commercetools\Api\Models\Message\ShoppingListMessageBuilder;
 use Commercetools\Api\Models\Message\StagedQuoteCreatedMessage;
 use Commercetools\Api\Models\Message\StagedQuoteCreatedMessageBuilder;
 use Commercetools\Api\Models\Message\StagedQuoteDeletedMessage;

@@ -189,6 +189,7 @@ use Commercetools\Api\Models\Message\QuoteStateTransitionMessage;
 use Commercetools\Api\Models\Message\ReviewCreatedMessage;
 use Commercetools\Api\Models\Message\ReviewRatingSetMessage;
 use Commercetools\Api\Models\Message\ReviewStateTransitionMessage;
+use Commercetools\Api\Models\Message\ShoppingListMessage;
 use Commercetools\Api\Models\Message\StagedQuoteCreatedMessage;
 use Commercetools\Api\Models\Message\StagedQuoteDeletedMessage;
 use Commercetools\Api\Models\Message\StagedQuoteSellerCommentSetMessage;
