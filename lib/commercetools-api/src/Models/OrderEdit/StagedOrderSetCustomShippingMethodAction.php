@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -21,6 +22,7 @@ interface StagedOrderSetCustomShippingMethodAction extends StagedOrderUpdateActi
     public const FIELD_SHIPPING_RATE = 'shippingRate';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>Name of the custom Shipping Method.</p>
@@ -55,6 +57,14 @@ interface StagedOrderSetCustomShippingMethodAction extends StagedOrderUpdateActi
     public function getExternalTaxRate();
 
     /**
+     * <p>Custom Fields for the custom Shipping Method.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $shippingMethodName
      */
     public function setShippingMethodName(?string $shippingMethodName): void;
@@ -73,4 +83,9 @@ interface StagedOrderSetCustomShippingMethodAction extends StagedOrderUpdateActi
      * @param ?ExternalTaxRateDraft $externalTaxRate
      */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }
