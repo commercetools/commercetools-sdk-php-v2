@@ -18,6 +18,8 @@ use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -66,6 +68,12 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
      */
     protected $externalTaxRate;
 
+    /**
+     *
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -76,6 +84,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
         ?ShippingRateDraft $shippingRate = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
         $this->address = $address;
@@ -83,6 +92,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
         $this->shippingRate = $shippingRate;
         $this->taxCategory = $taxCategory;
         $this->externalTaxRate = $externalTaxRate;
+        $this->custom = $custom;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -208,6 +218,27 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
         return $this->externalTaxRate;
     }
 
+    /**
+     * <p>Custom Fields for the custom Shipping Method.</p>
+     *
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?BaseAddress $address
@@ -247,5 +278,13 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }
