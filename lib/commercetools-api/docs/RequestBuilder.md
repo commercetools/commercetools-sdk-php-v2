@@ -1679,6 +1679,55 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->businessUnits()->search()->post(null)`
+
+If the initial indexing is in progress or the feature is inactive, A [SearchNotReady](ctp:api:type:SearchNotReadyError) error is returned. If inactive, you can [reactivate](/../api/projects/business-unit-search#reactivate) it.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->search()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->businessUnits()->search()->head()`
+
+Checks whether a search index of Business Units exists for a Project.
+Returns a `200 OK` if an index exists; otherwise, returns a `409 Conflict`.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->search()
+                ->head();
+```
+## `withProjectKey("projectKey")->businessUnits()->searchIndexingStatus()->get()`
+
+Returns the indexing status of the Business Unit Search for a Project.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->searchIndexingStatus()
+                ->get();
+```
 ## `withProjectKey("projectKey")->cartDiscounts()->get()`
 
 null

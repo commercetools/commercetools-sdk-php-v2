@@ -31,6 +31,7 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
      *
      */
     private static $discriminatorClasses = [
+       'changeBusinessUnitSearchStatus' => ProjectChangeBusinessUnitSearchStatusActionModel::class,
        'changeCartsConfiguration' => ProjectChangeCartsConfigurationActionModel::class,
        'changeCountries' => ProjectChangeCountriesActionModel::class,
        'changeCountryTaxRateFallbackEnabled' => ProjectChangeCountryTaxRateFallbackEnabledActionModel::class,

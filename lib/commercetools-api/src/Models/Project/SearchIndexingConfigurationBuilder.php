@@ -45,6 +45,12 @@ final class SearchIndexingConfigurationBuilder implements Builder
     private $customers;
 
     /**
+
+     * @var null|SearchIndexingConfigurationValues|SearchIndexingConfigurationValuesBuilder
+     */
+    private $businessUnits;
+
+    /**
      * <p>Configuration for the <a href="/../api/projects/products-search">Product Projection Search</a> and <a href="/../api/projects/products-suggestions">Product Suggestions</a> endpoints.</p>
      *
 
@@ -89,6 +95,17 @@ final class SearchIndexingConfigurationBuilder implements Builder
     }
 
     /**
+     * <p>Configuration for the <a href="/../api/projects/business-unit-search">Business Unit Search</a> feature.</p>
+     *
+
+     * @return null|SearchIndexingConfigurationValues
+     */
+    public function getBusinessUnits()
+    {
+        return $this->businessUnits instanceof SearchIndexingConfigurationValuesBuilder ? $this->businessUnits->build() : $this->businessUnits;
+    }
+
+    /**
      * @param ?SearchIndexingConfigurationValues $products
      * @return $this
      */
@@ -128,6 +145,17 @@ final class SearchIndexingConfigurationBuilder implements Builder
     public function withCustomers(?SearchIndexingConfigurationValues $customers)
     {
         $this->customers = $customers;
+
+        return $this;
+    }
+
+    /**
+     * @param ?SearchIndexingConfigurationValues $businessUnits
+     * @return $this
+     */
+    public function withBusinessUnits(?SearchIndexingConfigurationValues $businessUnits)
+    {
+        $this->businessUnits = $businessUnits;
 
         return $this;
     }
@@ -176,13 +204,25 @@ final class SearchIndexingConfigurationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withBusinessUnits() instead
+     * @return $this
+     */
+    public function withBusinessUnitsBuilder(?SearchIndexingConfigurationValuesBuilder $businessUnits)
+    {
+        $this->businessUnits = $businessUnits;
+
+        return $this;
+    }
+
     public function build(): SearchIndexingConfiguration
     {
         return new SearchIndexingConfigurationModel(
             $this->products instanceof SearchIndexingConfigurationValuesBuilder ? $this->products->build() : $this->products,
             $this->productsSearch instanceof SearchIndexingConfigurationValuesBuilder ? $this->productsSearch->build() : $this->productsSearch,
             $this->orders instanceof SearchIndexingConfigurationValuesBuilder ? $this->orders->build() : $this->orders,
-            $this->customers instanceof SearchIndexingConfigurationValuesBuilder ? $this->customers->build() : $this->customers
+            $this->customers instanceof SearchIndexingConfigurationValuesBuilder ? $this->customers->build() : $this->customers,
+            $this->businessUnits instanceof SearchIndexingConfigurationValuesBuilder ? $this->businessUnits->build() : $this->businessUnits
         );
     }
 
