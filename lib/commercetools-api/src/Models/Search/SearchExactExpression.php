@@ -17,12 +17,12 @@ interface SearchExactExpression extends SearchQueryExpression
 
     /**
 
-     * @return null|SearchAnyValue
+     * @return null|SearchExactValue
      */
     public function getExact();
 
     /**
-     * @param ?SearchAnyValue $exact
+     * @param ?SearchExactValue $exact
      */
-    public function setExact(?SearchAnyValue $exact): void;
+    public function setExact(?SearchExactValue $exact): void;
 }

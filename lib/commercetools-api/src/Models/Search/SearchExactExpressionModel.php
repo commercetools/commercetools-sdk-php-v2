@@ -21,7 +21,7 @@ final class SearchExactExpressionModel extends JsonObjectModel implements Search
 {
     /**
      *
-     * @var ?SearchAnyValue
+     * @var ?SearchExactValue
      */
     protected $exact;
 
@@ -30,14 +30,14 @@ final class SearchExactExpressionModel extends JsonObjectModel implements Search
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?SearchAnyValue $exact = null
+        ?SearchExactValue $exact = null
     ) {
         $this->exact = $exact;
     }
 
     /**
      *
-     * @return null|SearchAnyValue
+     * @return null|SearchExactValue
      */
     public function getExact()
     {
@@ -48,7 +48,7 @@ final class SearchExactExpressionModel extends JsonObjectModel implements Search
                 return null;
             }
 
-            $this->exact = SearchAnyValueModel::of($data);
+            $this->exact = SearchExactValueModel::of($data);
         }
 
         return $this->exact;
@@ -56,9 +56,9 @@ final class SearchExactExpressionModel extends JsonObjectModel implements Search
 
 
     /**
-     * @param ?SearchAnyValue $exact
+     * @param ?SearchExactValue $exact
      */
-    public function setExact(?SearchAnyValue $exact): void
+    public function setExact(?SearchExactValue $exact): void
     {
         $this->exact = $exact;
     }
