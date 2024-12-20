@@ -22,24 +22,24 @@ final class SearchExactExpressionBuilder implements Builder
 {
     /**
 
-     * @var null|SearchAnyValue|SearchAnyValueBuilder
+     * @var null|SearchExactValue|SearchExactValueBuilder
      */
     private $exact;
 
     /**
 
-     * @return null|SearchAnyValue
+     * @return null|SearchExactValue
      */
     public function getExact()
     {
-        return $this->exact instanceof SearchAnyValueBuilder ? $this->exact->build() : $this->exact;
+        return $this->exact instanceof SearchExactValueBuilder ? $this->exact->build() : $this->exact;
     }
 
     /**
-     * @param ?SearchAnyValue $exact
+     * @param ?SearchExactValue $exact
      * @return $this
      */
-    public function withExact(?SearchAnyValue $exact)
+    public function withExact(?SearchExactValue $exact)
     {
         $this->exact = $exact;
 
@@ -50,7 +50,7 @@ final class SearchExactExpressionBuilder implements Builder
      * @deprecated use withExact() instead
      * @return $this
      */
-    public function withExactBuilder(?SearchAnyValueBuilder $exact)
+    public function withExactBuilder(?SearchExactValueBuilder $exact)
     {
         $this->exact = $exact;
 
@@ -60,7 +60,7 @@ final class SearchExactExpressionBuilder implements Builder
     public function build(): SearchExactExpression
     {
         return new SearchExactExpressionModel(
-            $this->exact instanceof SearchAnyValueBuilder ? $this->exact->build() : $this->exact
+            $this->exact instanceof SearchExactValueBuilder ? $this->exact->build() : $this->exact
         );
     }
 

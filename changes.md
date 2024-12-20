@@ -1,6 +1,25 @@
 **Api changes**
 
 <details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `exact` of type `SearchExactExpression` from type `SearchAnyValue` to `SearchExactValue`
+</details>
+
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `applicationMode` to type `CartDiscountValueFixed`
+- added property `applicationMode` to type `CartDiscountValueFixedDraft`
+- added property `custom` to type `CartSetCustomShippingMethodAction`
+- added property `custom` to type `StagedOrderSetCustomShippingMethodAction`
+- added property `custom` to type `StagedOrderSetShippingAddressAndCustomShippingMethodAction`
+- added property `businessUnits` to type `SearchIndexingConfiguration`
+</details>
+
+
+<details>
 <summary>Added Resource(s)</summary>
 
 - added resource `/{projectKey}/business-units/search`
@@ -43,6 +62,7 @@
 - added type `ShoppingListMessagePayload`
 - added type `BusinessUnitSearchStatus`
 - added type `ProjectChangeBusinessUnitSearchStatusAction`
+- added type `SearchExactValue`
 </details>
 
 
@@ -51,18 +71,6 @@
 
 - added enum `Canceled` to type `ShipmentState`
 - added enum `shopping-list` to type `MessageSubscriptionResourceTypeId`
-</details>
-
-
-<details>
-<summary>Added Property(s)</summary>
-
-- added property `applicationMode` to type `CartDiscountValueFixed`
-- added property `applicationMode` to type `CartDiscountValueFixedDraft`
-- added property `custom` to type `CartSetCustomShippingMethodAction`
-- added property `custom` to type `StagedOrderSetCustomShippingMethodAction`
-- added property `custom` to type `StagedOrderSetShippingAddressAndCustomShippingMethodAction`
-- added property `businessUnits` to type `SearchIndexingConfiguration`
 </details>
 
 **History changes**
