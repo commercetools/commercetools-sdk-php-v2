@@ -48,6 +48,22 @@ class ResourceByProjectKeyBusinessUnits extends ApiResource
 
         return new ResourceByProjectKeyBusinessUnitsByID($args, $this->getClient());
     }
+    /**
+     */
+    public function search(): ResourceByProjectKeyBusinessUnitsSearch
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyBusinessUnitsSearch($args, $this->getClient());
+    }
+    /**
+     */
+    public function searchIndexingStatus(): ResourceByProjectKeyBusinessUnitsSearchIndexingStatus
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyBusinessUnitsSearchIndexingStatus($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

@@ -43,6 +43,12 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
      */
     protected $customers;
 
+    /**
+     *
+     * @var ?SearchIndexingConfigurationValues
+     */
+    protected $businessUnits;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -51,12 +57,14 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
         ?SearchIndexingConfigurationValues $products = null,
         ?SearchIndexingConfigurationValues $productsSearch = null,
         ?SearchIndexingConfigurationValues $orders = null,
-        ?SearchIndexingConfigurationValues $customers = null
+        ?SearchIndexingConfigurationValues $customers = null,
+        ?SearchIndexingConfigurationValues $businessUnits = null
     ) {
         $this->products = $products;
         $this->productsSearch = $productsSearch;
         $this->orders = $orders;
         $this->customers = $customers;
+        $this->businessUnits = $businessUnits;
     }
 
     /**
@@ -143,6 +151,27 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
         return $this->customers;
     }
 
+    /**
+     * <p>Configuration for the <a href="/../api/projects/business-unit-search">Business Unit Search</a> feature.</p>
+     *
+     *
+     * @return null|SearchIndexingConfigurationValues
+     */
+    public function getBusinessUnits()
+    {
+        if (is_null($this->businessUnits)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNITS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnits = SearchIndexingConfigurationValuesModel::of($data);
+        }
+
+        return $this->businessUnits;
+    }
+
 
     /**
      * @param ?SearchIndexingConfigurationValues $products
@@ -174,5 +203,13 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
     public function setCustomers(?SearchIndexingConfigurationValues $customers): void
     {
         $this->customers = $customers;
+    }
+
+    /**
+     * @param ?SearchIndexingConfigurationValues $businessUnits
+     */
+    public function setBusinessUnits(?SearchIndexingConfigurationValues $businessUnits): void
+    {
+        $this->businessUnits = $businessUnits;
     }
 }

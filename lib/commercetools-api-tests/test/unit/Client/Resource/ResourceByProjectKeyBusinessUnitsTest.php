@@ -11,6 +11,8 @@ namespace Commercetools\Api\Test\Client\Resource;
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsKeyByKey;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsSearch;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsSearchIndexingStatus;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -259,6 +261,28 @@ class ResourceByProjectKeyBusinessUnitsTest extends TestCase
                 ResourceByProjectKeyBusinessUnitsByID::class,
                 ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/business-units/{ID}'
+            ],
+            'ResourceByProjectKeyBusinessUnitsSearch' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyBusinessUnitsSearch {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->businessUnits()
+                        ->search();
+                },
+                ResourceByProjectKeyBusinessUnitsSearch::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/business-units/search'
+            ],
+            'ResourceByProjectKeyBusinessUnitsSearchIndexingStatus' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyBusinessUnitsSearchIndexingStatus {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->businessUnits()
+                        ->searchIndexingStatus();
+                },
+                ResourceByProjectKeyBusinessUnitsSearchIndexingStatus::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/business-units/search/indexing-status'
             ]
         ];
     }
