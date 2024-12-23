@@ -116,7 +116,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     }
 
     /**
-     * <p>User-defined name of the Attribute that is unique with the <a href="ctp:api:type:Project">Project</a>.</p>
+     * <p>User-defined name of the Attribute that is unique to the <a href="ctp:api:type:Project">Project</a>.</p>
      * <p>When using the same <code>name</code> for an Attribute in multiple ProductTypes, all fields of the AttributeDefinition of this Attribute must be the same across the ProductTypes, else an <a href="ctp:api:type:AttributeDefinitionAlreadyExistsError">AttributeDefinitionAlreadyExists</a> error is returned.
      * An exception to this are the values of an <code>enum</code> or <code>lenum</code> Type and sets thereof.</p>
      *
@@ -240,7 +240,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     }
 
     /**
-     * <p>Set to <code>true</code> if the Attribute's values should be available in the <a href="/../api/projects/products-search">Product Projections Search API</a> and can be used in full-text search queries, filters, and facets.
+     * <p>Set to <code>true</code> if the Attribute's values should be available in the <a href="/../api/projects/products-search">Product Projection Search</a> or the <a href="/../api/projects/product-search">Product Search</a> API and can be used in full-text search queries, filters, and facets.
      * Which exact features are available with this flag depends on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
      * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/../api/limits#field-content-size">Field content size limit</a>.
      * This constraint is enforced at both Product creation and Product update.
