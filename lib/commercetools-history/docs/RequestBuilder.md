@@ -50,3 +50,17 @@ $request = $builder
                 ->withIDValue("ID")
                 ->get();
 ```
+## `withProjectKeyValue("projectKey")->graphql()->post(null)`
+
+Execute a GraphQL request.
+
+### Example
+```php
+use Commercetools\History\Client\HistoryRequestBuilder;
+
+$builder =  new HistoryRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->graphql()
+                ->post(null);
+```

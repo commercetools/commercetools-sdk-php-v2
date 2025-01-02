@@ -19,6 +19,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Response;
+use Commercetools\History\Client\Resource\ResourceByProjectKeyGraphql;
 use Commercetools\History\Client\Resource\ResourceByProjectKeyByResourceType;
 
 /**
@@ -295,6 +296,16 @@ class ResourceByProjectKeyTest extends TestCase
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyGraphql' => [
+                function (HistoryRequestBuilder $builder): ResourceByProjectKeyGraphql {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->graphql();
+                },
+                ResourceByProjectKeyGraphql::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/graphql'
+            ],
             'ResourceByProjectKeyByResourceType' => [
                 function (HistoryRequestBuilder $builder): ResourceByProjectKeyByResourceType {
                     return $builder
