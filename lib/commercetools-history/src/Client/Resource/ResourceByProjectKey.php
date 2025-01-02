@@ -26,6 +26,14 @@ class ResourceByProjectKey extends ApiResource
 
     /**
      */
+    public function graphql(): ResourceByProjectKeyGraphql
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyGraphql($args, $this->getClient());
+    }
+    /**
+     */
     public function withResourceTypeValue(string $resourceType = null): ResourceByProjectKeyByResourceType
     {
         $args = $this->getArgs();
