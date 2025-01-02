@@ -24,7 +24,7 @@ interface ModifiedBy extends JsonObject
     public const FIELD_ASSOCIATE = 'associate';
 
     /**
-     * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
+     * <p><code>true</code> if the change was made using the Merchant Center.</p>
      *
 
      * @return null|bool

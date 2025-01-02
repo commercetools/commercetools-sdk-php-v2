@@ -89,7 +89,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     }
 
     /**
-     * <p><code>true</code> if the change was made using the Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
+     * <p><code>true</code> if the change was made using the Merchant Center.</p>
      *
      *
      * @return null|bool
