@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Error\GraphQLErrorObject;
-use Commercetools\History\Models\Error\GraphQLErrorObjectModel;
 
 /**
  * @internal
@@ -43,7 +41,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
 
     /**
      *
-     * @var ?GraphQLErrorObject
+     * @var ?mixed
      */
     protected $extensions;
 
@@ -55,7 +53,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
         ?string $message = null,
         ?GraphQLErrorLocationCollection $locations = null,
         ?array $path = null,
-        ?GraphQLErrorObject $extensions = null
+        ?JsonObject $extensions = null
     ) {
         $this->message = $message;
         $this->locations = $locations;
@@ -128,7 +126,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
      * <p>Dictionary with additional information where applicable.</p>
      *
      *
-     * @return null|GraphQLErrorObject
+     * @return null|mixed
      */
     public function getExtensions()
     {
@@ -138,8 +136,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
             if (is_null($data)) {
                 return null;
             }
-            $className = GraphQLErrorObjectModel::resolveDiscriminatorClass($data);
-            $this->extensions = $className::of($data);
+            $this->extensions = JsonObjectModel::of($data);
         }
 
         return $this->extensions;
@@ -171,9 +168,9 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     }
 
     /**
-     * @param ?GraphQLErrorObject $extensions
+     * @param ?JsonObject $extensions
      */
-    public function setExtensions(?GraphQLErrorObject $extensions): void
+    public function setExtensions(?JsonObject $extensions): void
     {
         $this->extensions = $extensions;
     }
