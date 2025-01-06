@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['composable_20commerce_20php_20sdk_31885',['Composable Commerce PHP SDK',['../index.html',1,'']]]
+  ['commerce_20php_20sdk_0',['Composable Commerce PHP SDK',['../index.html',1,'']]],
+  ['composable_20commerce_20php_20sdk_1',['Composable Commerce PHP SDK',['../index.html',1,'']]]
 ];
