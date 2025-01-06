@@ -20,13 +20,37 @@ use stdClass;
  */
 final class PatternComponentBuilder implements Builder
 {
+    /**
 
+     * @var ?string
+     */
+    private $type;
 
+    /**
+
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param ?string $type
+     * @return $this
+     */
+    public function withType(?string $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
 
 
     public function build(): PatternComponent
     {
         return new PatternComponentModel(
+            $this->type
         );
     }
 
