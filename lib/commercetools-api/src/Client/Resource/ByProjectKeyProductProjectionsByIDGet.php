@@ -186,6 +186,15 @@ class ByProjectKeyProductProjectionsByIDGet extends ApiRequest implements Projec
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceCustomerGroupAssignments
+     */
+    public function withPriceCustomerGroupAssignments($priceCustomerGroupAssignments): ByProjectKeyProductProjectionsByIDGet
+    {
+        return $this->withQueryParam('priceCustomerGroupAssignments', $priceCustomerGroupAssignments);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyProductProjectionsByIDGet

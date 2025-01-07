@@ -180,6 +180,15 @@ class ByProjectKeyProductsByIDDelete extends ApiRequest implements PriceSelectin
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceCustomerGroupAssignments
+     */
+    public function withPriceCustomerGroupAssignments($priceCustomerGroupAssignments): ByProjectKeyProductsByIDDelete
+    {
+        return $this->withQueryParam('priceCustomerGroupAssignments', $priceCustomerGroupAssignments);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyProductsByIDDelete

@@ -185,6 +185,15 @@ class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet extends ApiReque
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceCustomerGroupAssignments
+     */
+    public function withPriceCustomerGroupAssignments($priceCustomerGroupAssignments): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet
+    {
+        return $this->withQueryParam('priceCustomerGroupAssignments', $priceCustomerGroupAssignments);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet

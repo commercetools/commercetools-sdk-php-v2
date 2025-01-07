@@ -148,6 +148,17 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 'get',
                 'test_projectKey/products?priceCustomerGroup=priceCustomerGroup',
             ],
+            'ByProjectKeyProductsGet_withPriceCustomerGroupAssignments' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->get()
+                        ->withPriceCustomerGroupAssignments('priceCustomerGroupAssignments');
+                },
+                'get',
+                'test_projectKey/products?priceCustomerGroupAssignments=priceCustomerGroupAssignments',
+            ],
             'ByProjectKeyProductsGet_withPriceChannel' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -288,6 +299,17 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 },
                 'post',
                 'test_projectKey/products?priceCustomerGroup=priceCustomerGroup',
+            ],
+            'ByProjectKeyProductsPost_withPriceCustomerGroupAssignments' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->post(null)
+                        ->withPriceCustomerGroupAssignments('priceCustomerGroupAssignments');
+                },
+                'post',
+                'test_projectKey/products?priceCustomerGroupAssignments=priceCustomerGroupAssignments',
             ],
             'ByProjectKeyProductsPost_withPriceChannel' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

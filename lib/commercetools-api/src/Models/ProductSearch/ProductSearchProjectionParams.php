@@ -18,6 +18,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public const FIELD_PRICE_CURRENCY = 'priceCurrency';
     public const FIELD_PRICE_COUNTRY = 'priceCountry';
     public const FIELD_PRICE_CUSTOMER_GROUP = 'priceCustomerGroup';
+    public const FIELD_PRICE_CUSTOMER_GROUP_ASSIGNMENTS = 'priceCustomerGroupAssignments';
     public const FIELD_PRICE_CHANNEL = 'priceChannel';
     public const FIELD_LOCALE_PROJECTION = 'localeProjection';
     public const FIELD_STORE_PROJECTION = 'storeProjection';
@@ -62,6 +63,14 @@ interface ProductSearchProjectionParams extends JsonObject
      * @return null|string
      */
     public function getPriceCustomerGroup();
+
+    /**
+     * <p>IDs of existing <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, when using <a href="/../api/customers-overview#multiple-customer-groups">multiple Customer Groups</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     *
+
+     * @return null|array
+     */
+    public function getPriceCustomerGroupAssignments();
 
     /**
      * <p><code>id</code> of an existing <a href="ctp:api:type:Channel">Channel</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
@@ -115,6 +124,11 @@ interface ProductSearchProjectionParams extends JsonObject
      * @param ?string $priceCustomerGroup
      */
     public function setPriceCustomerGroup(?string $priceCustomerGroup): void;
+
+    /**
+     * @param ?array $priceCustomerGroupAssignments
+     */
+    public function setPriceCustomerGroupAssignments(?array $priceCustomerGroupAssignments): void;
 
     /**
      * @param ?string $priceChannel

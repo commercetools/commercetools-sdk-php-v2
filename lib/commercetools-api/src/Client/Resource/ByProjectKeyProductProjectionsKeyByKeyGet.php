@@ -186,6 +186,15 @@ class ByProjectKeyProductProjectionsKeyByKeyGet extends ApiRequest implements Pr
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceCustomerGroupAssignments
+     */
+    public function withPriceCustomerGroupAssignments($priceCustomerGroupAssignments): ByProjectKeyProductProjectionsKeyByKeyGet
+    {
+        return $this->withQueryParam('priceCustomerGroupAssignments', $priceCustomerGroupAssignments);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyProductProjectionsKeyByKeyGet

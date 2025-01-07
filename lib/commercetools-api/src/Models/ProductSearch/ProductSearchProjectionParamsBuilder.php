@@ -52,6 +52,12 @@ final class ProductSearchProjectionParamsBuilder implements Builder
 
     /**
 
+     * @var ?array
+     */
+    private $priceCustomerGroupAssignments;
+
+    /**
+
      * @var ?string
      */
     private $priceChannel;
@@ -122,6 +128,17 @@ final class ProductSearchProjectionParamsBuilder implements Builder
     public function getPriceCustomerGroup()
     {
         return $this->priceCustomerGroup;
+    }
+
+    /**
+     * <p>IDs of existing <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, when using <a href="/../api/customers-overview#multiple-customer-groups">multiple Customer Groups</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     *
+
+     * @return null|array
+     */
+    public function getPriceCustomerGroupAssignments()
+    {
+        return $this->priceCustomerGroupAssignments;
     }
 
     /**
@@ -217,6 +234,17 @@ final class ProductSearchProjectionParamsBuilder implements Builder
     }
 
     /**
+     * @param ?array $priceCustomerGroupAssignments
+     * @return $this
+     */
+    public function withPriceCustomerGroupAssignments(?array $priceCustomerGroupAssignments)
+    {
+        $this->priceCustomerGroupAssignments = $priceCustomerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $priceChannel
      * @return $this
      */
@@ -258,6 +286,7 @@ final class ProductSearchProjectionParamsBuilder implements Builder
             $this->priceCurrency,
             $this->priceCountry,
             $this->priceCustomerGroup,
+            $this->priceCustomerGroupAssignments,
             $this->priceChannel,
             $this->localeProjection,
             $this->storeProjection

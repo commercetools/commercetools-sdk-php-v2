@@ -185,6 +185,15 @@ class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet extends ApiR
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceCustomerGroupAssignments
+     */
+    public function withPriceCustomerGroupAssignments($priceCustomerGroupAssignments): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet
+    {
+        return $this->withQueryParam('priceCustomerGroupAssignments', $priceCustomerGroupAssignments);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet

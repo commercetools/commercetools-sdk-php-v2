@@ -139,6 +139,18 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/key=test_key?priceCustomerGroup=priceCustomerGroup',
             ],
+            'ByProjectKeyProductProjectionsKeyByKeyGet_withPriceCustomerGroupAssignments' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withPriceCustomerGroupAssignments('priceCustomerGroupAssignments');
+                },
+                'get',
+                'test_projectKey/product-projections/key=test_key?priceCustomerGroupAssignments=priceCustomerGroupAssignments',
+            ],
             'ByProjectKeyProductProjectionsKeyByKeyGet_withPriceChannel' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

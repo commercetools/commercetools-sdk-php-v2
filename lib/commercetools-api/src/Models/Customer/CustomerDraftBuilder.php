@@ -192,6 +192,12 @@ final class CustomerDraftBuilder implements Builder
     private $authenticationMode;
 
     /**
+
+     * @var ?CustomerGroupAssignmentDraftCollection
+     */
+    private $customerGroupAssignments;
+
+    /**
      * <p>User-defined unique identifier for the Customer.
      * The <code>key</code> field is preferred over <code>customerNumber</code> as it is mutable and provides more flexibility.</p>
      * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Customers with the <a href="/../import-export/overview">Import API</a>.</p>
@@ -508,6 +514,17 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Customer Groups to assign to the Customer.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        return $this->customerGroupAssignments;
+    }
+
+    /**
      * @param ?string $key
      * @return $this
      */
@@ -805,6 +822,17 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     * @return $this
+     */
+    public function withCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments)
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAnonymousCart() instead
      * @return $this
      */
@@ -866,7 +894,8 @@ final class CustomerDraftBuilder implements Builder
             $this->locale,
             $this->salutation,
             $this->stores,
-            $this->authenticationMode
+            $this->authenticationMode,
+            $this->customerGroupAssignments
         );
     }
 

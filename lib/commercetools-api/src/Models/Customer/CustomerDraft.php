@@ -46,6 +46,7 @@ interface CustomerDraft extends JsonObject
     public const FIELD_SALUTATION = 'salutation';
     public const FIELD_STORES = 'stores';
     public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
+    public const FIELD_CUSTOMER_GROUP_ASSIGNMENTS = 'customerGroupAssignments';
 
     /**
      * <p>User-defined unique identifier for the Customer.
@@ -283,6 +284,14 @@ interface CustomerDraft extends JsonObject
     public function getAuthenticationMode();
 
     /**
+     * <p>Customer Groups to assign to the Customer.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -416,4 +425,9 @@ interface CustomerDraft extends JsonObject
      * @param ?string $authenticationMode
      */
     public function setAuthenticationMode(?string $authenticationMode): void;
+
+    /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments): void;
 }
