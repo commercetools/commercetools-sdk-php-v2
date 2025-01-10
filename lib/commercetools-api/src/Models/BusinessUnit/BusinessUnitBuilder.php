@@ -87,6 +87,12 @@ final class BusinessUnitBuilder implements Builder
 
     /**
 
+     * @var ?StoreKeyReferenceCollection
+     */
+    private $inheritedStores;
+
+    /**
+
      * @var ?string
      */
     private $storeMode;
@@ -274,6 +280,17 @@ final class BusinessUnitBuilder implements Builder
     public function getStores()
     {
         return $this->stores;
+    }
+
+    /**
+     * <p>Stores that are inherited from a parent Business Unit. The value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>storeMode</code> is set to <code>FromParent</code>.</p>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getInheritedStores()
+    {
+        return $this->inheritedStores;
     }
 
     /**
@@ -542,6 +559,17 @@ final class BusinessUnitBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReferenceCollection $inheritedStores
+     * @return $this
+     */
+    public function withInheritedStores(?StoreKeyReferenceCollection $inheritedStores)
+    {
+        $this->inheritedStores = $inheritedStores;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $storeMode
      * @return $this
      */
@@ -773,6 +801,7 @@ final class BusinessUnitBuilder implements Builder
             $this->key,
             $this->status,
             $this->stores,
+            $this->inheritedStores,
             $this->storeMode,
             $this->name,
             $this->contactEmail,
