@@ -145,4 +145,12 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyQuotes($args, $this->getClient());
     }
+    /**
+     */
+    public function businessUnits(): ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnits
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnits($args, $this->getClient());
+    }
 }
