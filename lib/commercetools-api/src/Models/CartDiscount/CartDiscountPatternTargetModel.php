@@ -87,10 +87,10 @@ final class CartDiscountPatternTargetModel extends JsonObjectModel implements Ca
     }
 
     /**
-     * <p>Units of a (Custom) Line Item that trigger a discount application.</p>
-     * <p>Based on the availability of matching units, the <code>triggerPattern</code> can match multiple times, effecting the number of times the discount will be applied.
+     * <p>Defines the set of units of (Custom) Line Items in a Cart that trigger a discount application.</p>
+     * <p>Based on the availability of matching units, the <code>triggerPattern</code> can match multiple times, limiting the number of maximum times the discount will be applied.
      * To further limit the discount application, set the <code>maxOccurrence</code>.</p>
-     * <p>If empty or not set, the Discount will apply indefinitely.</p>
+     * <p>If empty, the Discount will apply indefinitely.</p>
      *
      *
      * @return null|PatternComponentCollection
@@ -110,8 +110,9 @@ final class CartDiscountPatternTargetModel extends JsonObjectModel implements Ca
     }
 
     /**
-     * <p>Units of (Custom) Line Items on which the Discount is applied.</p>
+     * <p>Defines the set of units of (Custom) Line Items in a Cart on which the Discount is applied.</p>
      * <p>Based on the availability of matching units and the limits from the <code>triggerPattern</code> or <code>maxOccurence</code>, the <code>targetPattern</code> can match multiple times.</p>
+     * <p>This array cannot be empty.</p>
      *
      *
      * @return null|PatternComponentCollection

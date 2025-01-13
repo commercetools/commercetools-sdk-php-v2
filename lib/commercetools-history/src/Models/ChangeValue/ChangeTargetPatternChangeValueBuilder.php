@@ -46,7 +46,7 @@ final class ChangeTargetPatternChangeValueBuilder implements Builder
     private $selectionMode;
 
     /**
-     * <p>Units of a (Custom) Line Item that triggered the discount application.</p>
+     * <p>Defines the set of units of (Custom) Line Items in a Cart that triggered the discount application.</p>
      *
 
      * @return null|PatternComponentCollection
@@ -57,7 +57,7 @@ final class ChangeTargetPatternChangeValueBuilder implements Builder
     }
 
     /**
-     * <p>Units of (Custom) Line Items on which the Discount is applied.</p>
+     * <p>Defines the set of units of (Custom) Line Items in a Cart on which the Discount is applied.</p>
      *
 
      * @return null|PatternComponentCollection
