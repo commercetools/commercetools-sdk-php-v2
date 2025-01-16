@@ -128,7 +128,9 @@ final class ProductTailoringSetExternalImagesActionModel extends JsonObjectModel
     }
 
     /**
-     * <p>Value to set to <code>images</code>.</p>
+     * <p>Images of the tailored ProductVariant.</p>
+     * <p>Don't provide this field if you want to remove all images from the tailored Product Variant.
+     * Set to <code>[]</code> (empty) if you want to hide all images of the original ProductVariant on the tailored ProductVariant.</p>
      *
      *
      * @return null|ImageCollection
