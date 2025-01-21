@@ -37,6 +37,7 @@ use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Api\Models\Type\TypeReferenceBuilder;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierBuilder;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
@@ -288,5 +289,12 @@ class MiscTest extends TestCase
             }',
             json_encode($cart)
         );
+    }
+
+
+    public function testCredentials()
+    {
+        $credentials = new ClientCredentials("clientId", "clientSecret");
+        $this->assertInstanceOf(ClientCredentials::class, $credentials);
     }
 }
