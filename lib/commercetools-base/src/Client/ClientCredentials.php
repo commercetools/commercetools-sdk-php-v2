@@ -38,12 +38,12 @@ class ClientCredentials
      *   Format: `<the scope name>:<the project key>`.
      *   Example: `manage_products:project1`.
      */
-    public function __construct(string $clientId, string $clientSecret, string $scope = null)
+    public function __construct(string $clientId, string $clientSecret, ?string $scope)
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->scope = $scope;
-        $this->cacheKey = sha1($clientId . (string)$scope);
+        $this->cacheKey = sha1($clientId . $scope);
     }
 
     public function getClientId(): string
