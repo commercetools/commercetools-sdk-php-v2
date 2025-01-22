@@ -57,7 +57,7 @@ final class OrderSearchQueryExpressionValueBuilder implements Builder
     }
 
     /**
-     * <p>Possible values for the <code>customType</code> property on <a href="/../api/projects/order-search#query-expressions">query expressions</a> indicating the data type of the <code>field</code>.</p>
+     * <p>Possible values for the <code>customType</code> property on <a href="/../api/projects/order-search#simple-expressions">simple expressions</a> indicating the data type of the <code>field</code>.</p>
      *
 
      * @return null|string

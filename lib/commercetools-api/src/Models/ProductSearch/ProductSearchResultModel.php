@@ -29,15 +29,15 @@ final class ProductSearchResultModel extends JsonObjectModel implements ProductS
 
     /**
      *
-     * @var ?ProductProjection
-     */
-    protected $productProjection;
-
-    /**
-     *
      * @var ?ProductSearchMatchingVariants
      */
     protected $matchingVariants;
+
+    /**
+     *
+     * @var ?ProductProjection
+     */
+    protected $productProjection;
 
 
     /**
@@ -45,16 +45,16 @@ final class ProductSearchResultModel extends JsonObjectModel implements ProductS
      */
     public function __construct(
         ?string $id = null,
-        ?ProductProjection $productProjection = null,
-        ?ProductSearchMatchingVariants $matchingVariants = null
+        ?ProductSearchMatchingVariants $matchingVariants = null,
+        ?ProductProjection $productProjection = null
     ) {
         $this->id = $id;
-        $this->productProjection = $productProjection;
         $this->matchingVariants = $matchingVariants;
+        $this->productProjection = $productProjection;
     }
 
     /**
-     * <p>Unique identifier of the Product.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a> that matches the search query.</p>
      *
      *
      * @return null|string
@@ -74,28 +74,8 @@ final class ProductSearchResultModel extends JsonObjectModel implements ProductS
     }
 
     /**
-     * <p>Contains Product Projection data for Products matching the <code>projection</code> field in the Search Products request.</p>
-     *
-     *
-     * @return null|ProductProjection
-     */
-    public function getProductProjection()
-    {
-        if (is_null($this->productProjection)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRODUCT_PROJECTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->productProjection = ProductProjectionModel::of($data);
-        }
-
-        return $this->productProjection;
-    }
-
-    /**
-     * <p>Describes the variants that matched the search criteria.</p>
+     * <p>Information about which Product Variants match the search query.
+     * Only present if <code>markMatchingVariants</code> is set to <code>true</code> in the <a href="ctp:api:type:ProductSearchRequest">ProductSearchRequest</a>.</p>
      *
      *
      * @return null|ProductSearchMatchingVariants
@@ -115,6 +95,28 @@ final class ProductSearchResultModel extends JsonObjectModel implements ProductS
         return $this->matchingVariants;
     }
 
+    /**
+     * <p>Projected data of the Product with <code>id</code>.
+     * Only present if data integration <a href="/../api/projects/product-search#with-product-projection-parameters">with Product Projection parameters</a> is requested.</p>
+     *
+     *
+     * @return null|ProductProjection
+     */
+    public function getProductProjection()
+    {
+        if (is_null($this->productProjection)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT_PROJECTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->productProjection = ProductProjectionModel::of($data);
+        }
+
+        return $this->productProjection;
+    }
+
 
     /**
      * @param ?string $id
@@ -125,18 +127,18 @@ final class ProductSearchResultModel extends JsonObjectModel implements ProductS
     }
 
     /**
-     * @param ?ProductProjection $productProjection
-     */
-    public function setProductProjection(?ProductProjection $productProjection): void
-    {
-        $this->productProjection = $productProjection;
-    }
-
-    /**
      * @param ?ProductSearchMatchingVariants $matchingVariants
      */
     public function setMatchingVariants(?ProductSearchMatchingVariants $matchingVariants): void
     {
         $this->matchingVariants = $matchingVariants;
+    }
+
+    /**
+     * @param ?ProductProjection $productProjection
+     */
+    public function setProductProjection(?ProductProjection $productProjection): void
+    {
+        $this->productProjection = $productProjection;
     }
 }
