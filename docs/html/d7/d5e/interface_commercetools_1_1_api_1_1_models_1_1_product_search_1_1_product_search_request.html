@@ -217,7 +217,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The search can return Products where not all Product Variants match the search criteria. If <code>true</code>, the response will include a field called <code>matchingVariants</code> that contains the <code>sku</code> of Product Variants that match the search query. If the query does not specify any variant-level criteria, <code>matchingVariants</code> will be null signifying that all Product Variants are a match.</p>
+<p>If <code>query</code> specifies an expression for a Product Variant field, set this to <code>true</code> to get additional information for each returned Product about which Product Variants match the search query. For details, see <a href="../..//../api/projects/product-search#matching-variants">matching variants</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d4d/class_commercetools_1_1_api_1_1_models_1_1_product_search_1_1_product_search_request_model.html#a17f29e259280803ff3dbb3b8e212b505">Commercetools\Api\Models\ProductSearch\ProductSearchRequestModel</a>.</p>

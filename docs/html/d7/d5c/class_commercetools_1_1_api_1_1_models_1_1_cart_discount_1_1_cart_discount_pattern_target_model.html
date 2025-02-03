@@ -243,7 +243,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/dd2/interface_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_pattern_target.html#ae4437f6285a6a0848ab6b3d2cb92cd17">Commercetools\Api\Models\CartDiscount\CartDiscountPatternTarget</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00140">140</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00141">141</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
 
 </div>
 </div>
@@ -267,7 +267,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/dd2/interface_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_pattern_target.html#a586d8d0ef4e3f6486abcb57a830b92ef">Commercetools\Api\Models\CartDiscount\CartDiscountPatternTarget</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00160">160</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00161">161</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
 
 </div>
 </div>
@@ -285,14 +285,15 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Units of (Custom) Line Items on which the Discount is applied.</p>
+<p>Defines the set of units of (Custom) Line Items in a Cart on which the Discount is applied.</p>
 <p>Based on the availability of matching units and the limits from the <code>triggerPattern</code> or <code>maxOccurence</code>, the <code>targetPattern</code> can match multiple times.</p>
+<p>This array cannot be empty.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PatternComponentCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../dc/dd2/interface_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_pattern_target.html#af846ea90ea5717b5de145afb218fcd3e">Commercetools\Api\Models\CartDiscount\CartDiscountPatternTarget</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00119">119</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00120">120</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
 
 </div>
 </div>
@@ -310,9 +311,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Units of a (Custom) Line Item that trigger a discount application.</p>
-<p>Based on the availability of matching units, the <code>triggerPattern</code> can match multiple times, effecting the number of times the discount will be applied. To further limit the discount application, set the <code>maxOccurrence</code>.</p>
-<p>If empty or not set, the Discount will apply indefinitely.</p>
+<p>Defines the set of units of (Custom) Line Items in a Cart that trigger a discount application.</p>
+<p>Based on the availability of matching units, the <code>triggerPattern</code> can match multiple times, limiting the number of maximum times the discount will be applied. To further limit the discount application, set the <code>maxOccurrence</code>.</p>
+<p>If empty, the Discount will apply indefinitely.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PatternComponentCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
@@ -369,7 +370,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/dd2/interface_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_pattern_target.html#a4c342a6209637617344fa01840e4e0cd">Commercetools\Api\Models\CartDiscount\CartDiscountPatternTarget</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00194">194</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00195">195</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
 
 </div>
 </div>
@@ -397,7 +398,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/dd2/interface_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_pattern_target.html#ad2bcad1f1b3431bdd69411fc2d8d14be">Commercetools\Api\Models\CartDiscount\CartDiscountPatternTarget</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00202">202</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00203">203</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
 
 </div>
 </div>
@@ -425,7 +426,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/dd2/interface_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_pattern_target.html#a6b3addade2afdaa3082c09250fede7cf">Commercetools\Api\Models\CartDiscount\CartDiscountPatternTarget</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00186">186</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00187">187</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
 
 </div>
 </div>
@@ -453,7 +454,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/dd2/interface_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_pattern_target.html#a5beee8d958cef2b55ba4858d1161c5b1">Commercetools\Api\Models\CartDiscount\CartDiscountPatternTarget</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00178">178</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html#l00179">179</a> of file <a class="el" href="../../d0/d83/_cart_discount_pattern_target_model_8php_source.html">CartDiscountPatternTargetModel.php</a>.</p>
 
 </div>
 </div>
