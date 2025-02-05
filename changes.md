@@ -22,6 +22,8 @@
 - added property `inheritedStores` to type `BusinessUnit`
 - added property `inheritedStores` to type `Company`
 - added property `inheritedStores` to type `Division`
+- added property `businessUnit` to type `ShoppingList`
+- added property `businessUnit` to type `ShoppingListDraft`
 </details>
 
 
@@ -47,6 +49,13 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->post()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->delete()`
+</details>
+
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `ShoppingListSetBusinessUnitAction`
 </details>
 
 **History changes**

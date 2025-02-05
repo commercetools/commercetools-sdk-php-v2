@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceBuilder;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -118,6 +120,12 @@ final class ShoppingListBuilder implements Builder
      * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
+
+    /**
+
+     * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
+     */
+    private $businessUnit;
 
     /**
 
@@ -291,6 +299,17 @@ final class ShoppingListBuilder implements Builder
     public function getStore()
     {
         return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Business Unit the Shopping List belongs to.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit;
     }
 
     /**
@@ -481,6 +500,17 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitKeyReference $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -569,6 +599,17 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustom() instead
      * @return $this
      */
@@ -618,6 +659,7 @@ final class ShoppingListBuilder implements Builder
             $this->deleteDaysAfterLastModification,
             $this->anonymousId,
             $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
+            $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy
