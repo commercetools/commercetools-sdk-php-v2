@@ -36,6 +36,20 @@
 
 
 <details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `ProductSearchFacetScope`
+</details>
+
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `ShoppingListSetBusinessUnitAction`
+</details>
+
+
+<details>
 <summary>Added Method(s)</summary>
 
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->get()`
@@ -49,13 +63,6 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->post()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->delete()`
-</details>
-
-
-<details>
-<summary>Added Type(s)</summary>
-
-- added type `ShoppingListSetBusinessUnitAction`
 </details>
 
 **History changes**
