@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -120,6 +122,12 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
 
     /**
      *
+     * @var ?BusinessUnitKeyReference
+     */
+    protected $businessUnit;
+
+    /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -155,6 +163,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         ?int $deleteDaysAfterLastModification = null,
         ?string $anonymousId = null,
         ?StoreKeyReference $store = null,
+        ?BusinessUnitKeyReference $businessUnit = null,
         ?CustomFields $custom = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null
@@ -173,6 +182,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->anonymousId = $anonymousId;
         $this->store = $store;
+        $this->businessUnit = $businessUnit;
         $this->custom = $custom;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
@@ -474,6 +484,27 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Business Unit the Shopping List belongs to.</p>
+     *
+     *
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitKeyReferenceModel::of($data);
+        }
+
+        return $this->businessUnit;
+    }
+
+    /**
      * <p>Custom Fields defined for the ShoppingList.</p>
      *
      *
@@ -647,6 +678,14 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     public function setStore(?StoreKeyReference $store): void
     {
         $this->store = $store;
+    }
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
     /**

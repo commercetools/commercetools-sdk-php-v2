@@ -42,6 +42,7 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
        'removeLineItem' => ShoppingListRemoveLineItemActionModel::class,
        'removeTextLineItem' => ShoppingListRemoveTextLineItemActionModel::class,
        'setAnonymousId' => ShoppingListSetAnonymousIdActionModel::class,
+       'setBusinessUnit' => ShoppingListSetBusinessUnitActionModel::class,
        'setCustomField' => ShoppingListSetCustomFieldActionModel::class,
        'setCustomType' => ShoppingListSetCustomTypeActionModel::class,
        'setCustomer' => ShoppingListSetCustomerActionModel::class,

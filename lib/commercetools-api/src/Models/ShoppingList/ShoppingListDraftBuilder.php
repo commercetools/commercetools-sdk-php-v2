@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
@@ -87,6 +89,12 @@ final class ShoppingListDraftBuilder implements Builder
      * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
+
+    /**
+
+     * @var null|BusinessUnitResourceIdentifier|BusinessUnitResourceIdentifierBuilder
+     */
+    private $businessUnit;
 
     /**
 
@@ -204,6 +212,17 @@ final class ShoppingListDraftBuilder implements Builder
     public function getStore()
     {
         return $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of the Business Unit the Shopping List should belong to. When the <code>customer</code> of the Shopping List is set, the <a href="ctp:api:type:Customer">Customer</a> must be an <a href="ctp:api:type:Associate">Associate</a> of the Business Unit.</p>
+     *
+
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit;
     }
 
     /**
@@ -328,6 +347,17 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFieldsDraft $custom
      * @return $this
      */
@@ -394,6 +424,17 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitResourceIdentifierBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustom() instead
      * @return $this
      */
@@ -417,6 +458,7 @@ final class ShoppingListDraftBuilder implements Builder
             $this->lineItems,
             $this->textLineItems,
             $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store,
+            $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }

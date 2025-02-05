@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -31,6 +32,7 @@ interface ShoppingList extends BaseResource
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_STORE = 'store';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
@@ -134,6 +136,14 @@ interface ShoppingList extends BaseResource
     public function getStore();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Business Unit the Shopping List belongs to.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit();
+
+    /**
      * <p>Custom Fields defined for the ShoppingList.</p>
      *
 
@@ -232,6 +242,11 @@ interface ShoppingList extends BaseResource
      * @param ?StoreKeyReference $store
      */
     public function setStore(?StoreKeyReference $store): void;
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
 
     /**
      * @param ?CustomFields $custom
