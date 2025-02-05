@@ -186,7 +186,7 @@ interface ProductDraftImport extends ImportResource
     public function getState();
 
     /**
-     * <p>Determines the published status and current/staged projection of the Product. For more information, see <a href="/import-export/best-practices#managing-the-published-state-of-products">Managing the published state of Products</a>.</p>
+     * <p>Determines the published status and current/staged projection of the Product. For more information, see <a href="/import-export/best-practices#manage-published-state-of-products">Managing the published state of Products</a>.</p>
      *
 
      * @return null|bool
