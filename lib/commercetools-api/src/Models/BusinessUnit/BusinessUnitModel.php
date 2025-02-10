@@ -87,6 +87,12 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
 
     /**
      *
+     * @var ?StoreKeyReferenceCollection
+     */
+    protected $inheritedStores;
+
+    /**
+     *
      * @var ?string
      */
     protected $storeMode;
@@ -203,6 +209,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
         ?string $key = null,
         ?string $status = null,
         ?StoreKeyReferenceCollection $stores = null,
+        ?StoreKeyReferenceCollection $inheritedStores = null,
         ?string $storeMode = null,
         ?string $name = null,
         ?string $contactEmail = null,
@@ -229,6 +236,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
         $this->key = $key;
         $this->status = $status;
         $this->stores = $stores;
+        $this->inheritedStores = $inheritedStores;
         $this->storeMode = $storeMode;
         $this->name = $name;
         $this->contactEmail = $contactEmail;
@@ -437,6 +445,26 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
         }
 
         return $this->stores;
+    }
+
+    /**
+     * <p>Stores that are inherited from a parent Business Unit. The value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>storeMode</code> is set to <code>FromParent</code>.</p>
+     *
+     *
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getInheritedStores()
+    {
+        if (is_null($this->inheritedStores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_INHERITED_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inheritedStores = StoreKeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->inheritedStores;
     }
 
     /**
@@ -834,6 +862,14 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
     public function setStores(?StoreKeyReferenceCollection $stores): void
     {
         $this->stores = $stores;
+    }
+
+    /**
+     * @param ?StoreKeyReferenceCollection $inheritedStores
+     */
+    public function setInheritedStores(?StoreKeyReferenceCollection $inheritedStores): void
+    {
+        $this->inheritedStores = $inheritedStores;
     }
 
     /**

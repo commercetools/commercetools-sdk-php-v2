@@ -26,6 +26,7 @@ interface BusinessUnit extends BaseResource
     public const FIELD_KEY = 'key';
     public const FIELD_STATUS = 'status';
     public const FIELD_STORES = 'stores';
+    public const FIELD_INHERITED_STORES = 'inheritedStores';
     public const FIELD_STORE_MODE = 'storeMode';
     public const FIELD_UNIT_TYPE = 'unitType';
     public const FIELD_NAME = 'name';
@@ -116,6 +117,14 @@ interface BusinessUnit extends BaseResource
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores();
+
+    /**
+     * <p>Stores that are inherited from a parent Business Unit. The value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>storeMode</code> is set to <code>FromParent</code>.</p>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getInheritedStores();
 
     /**
      * <p>Defines whether the Stores of the Business Unit are set directly on the Business Unit or are inherited from a parent.</p>
@@ -290,6 +299,11 @@ interface BusinessUnit extends BaseResource
      * @param ?StoreKeyReferenceCollection $stores
      */
     public function setStores(?StoreKeyReferenceCollection $stores): void;
+
+    /**
+     * @param ?StoreKeyReferenceCollection $inheritedStores
+     */
+    public function setInheritedStores(?StoreKeyReferenceCollection $inheritedStores): void;
 
     /**
      * @param ?string $storeMode

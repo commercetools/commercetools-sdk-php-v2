@@ -81,7 +81,7 @@ final class SearchExactValueBuilder implements Builder
     }
 
     /**
-     * <p>Possible values for the <code>fieldType</code> property on <a href="/../api/search-query-language#query-expressions">query expressions</a> indicating the data type of the <code>field</code>.</p>
+     * <p>Possible values for the <code>fieldType</code> property on <a href="/../api/search-query-language#simple-expressions">simple expressions</a> indicating the data type of the <code>field</code>.</p>
      *
 
      * @return null|string

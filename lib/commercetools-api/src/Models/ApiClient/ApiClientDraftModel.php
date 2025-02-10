@@ -88,7 +88,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     }
 
     /**
-     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtaining an access token</a>.</p>
+     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#request-an-access-token-using-the-composable-commerce-oauth-20-service">obtaining an access token</a>.</p>
      *
      *
      * @return null|string

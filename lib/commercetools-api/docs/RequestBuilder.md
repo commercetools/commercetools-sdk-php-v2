@@ -3402,6 +3402,179 @@ $request = $builder
                 ->customers()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->head()`
+
+Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withId("ID")->head()`
+
+Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withKey("key")->head()`
+
+Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->get()`
 
 null

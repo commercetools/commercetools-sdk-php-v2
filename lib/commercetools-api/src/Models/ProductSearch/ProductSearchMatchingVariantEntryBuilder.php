@@ -33,7 +33,7 @@ final class ProductSearchMatchingVariantEntryBuilder implements Builder
     private $sku;
 
     /**
-     * <p>Unique identifier of the variant.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> that matches the search query.</p>
      *
 
      * @return null|int
@@ -44,7 +44,7 @@ final class ProductSearchMatchingVariantEntryBuilder implements Builder
     }
 
     /**
-     * <p>SKU of the matching variant.</p>
+     * <p><code>sku</code> of the ProductVariant that matches the search query.</p>
      *
 
      * @return null|string

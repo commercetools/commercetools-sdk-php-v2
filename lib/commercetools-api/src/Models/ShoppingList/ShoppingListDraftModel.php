@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
@@ -89,6 +91,12 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
 
     /**
      *
+     * @var ?BusinessUnitResourceIdentifier
+     */
+    protected $businessUnit;
+
+    /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -108,6 +116,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
         ?ShoppingListLineItemDraftCollection $lineItems = null,
         ?TextLineItemDraftCollection $textLineItems = null,
         ?StoreResourceIdentifier $store = null,
+        ?BusinessUnitResourceIdentifier $businessUnit = null,
         ?CustomFieldsDraft $custom = null
     ) {
         $this->name = $name;
@@ -120,6 +129,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
         $this->lineItems = $lineItems;
         $this->textLineItems = $textLineItems;
         $this->store = $store;
+        $this->businessUnit = $businessUnit;
         $this->custom = $custom;
     }
 
@@ -331,6 +341,27 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of the Business Unit the Shopping List should belong to. When the <code>customer</code> of the Shopping List is set, the <a href="ctp:api:type:Customer">Customer</a> must be an <a href="ctp:api:type:Associate">Associate</a> of the Business Unit.</p>
+     *
+     *
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitResourceIdentifierModel::of($data);
+        }
+
+        return $this->businessUnit;
+    }
+
+    /**
      * <p>Custom Fields defined for the ShoppingList.</p>
      *
      *
@@ -430,6 +461,14 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     public function setStore(?StoreResourceIdentifier $store): void
     {
         $this->store = $store;
+    }
+
+    /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
     /**

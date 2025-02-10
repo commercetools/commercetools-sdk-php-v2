@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
@@ -27,6 +28,7 @@ interface ShoppingListDraft extends JsonObject
     public const FIELD_LINE_ITEMS = 'lineItems';
     public const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
     public const FIELD_STORE = 'store';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_CUSTOM = 'custom';
 
     /**
@@ -112,6 +114,14 @@ interface ShoppingListDraft extends JsonObject
     public function getStore();
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of the Business Unit the Shopping List should belong to. When the <code>customer</code> of the Shopping List is set, the <a href="ctp:api:type:Customer">Customer</a> must be an <a href="ctp:api:type:Associate">Associate</a> of the Business Unit.</p>
+     *
+
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit();
+
+    /**
      * <p>Custom Fields defined for the ShoppingList.</p>
      *
 
@@ -168,6 +178,11 @@ interface ShoppingListDraft extends JsonObject
      * @param ?StoreResourceIdentifier $store
      */
     public function setStore(?StoreResourceIdentifier $store): void;
+
+    /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit): void;
 
     /**
      * @param ?CustomFieldsDraft $custom

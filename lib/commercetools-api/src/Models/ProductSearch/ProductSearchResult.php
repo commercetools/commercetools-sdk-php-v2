@@ -15,11 +15,11 @@ use Commercetools\Base\JsonObject;
 interface ProductSearchResult extends JsonObject
 {
     public const FIELD_ID = 'id';
-    public const FIELD_PRODUCT_PROJECTION = 'productProjection';
     public const FIELD_MATCHING_VARIANTS = 'matchingVariants';
+    public const FIELD_PRODUCT_PROJECTION = 'productProjection';
 
     /**
-     * <p>Unique identifier of the Product.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a> that matches the search query.</p>
      *
 
      * @return null|string
@@ -27,15 +27,8 @@ interface ProductSearchResult extends JsonObject
     public function getId();
 
     /**
-     * <p>Contains Product Projection data for Products matching the <code>projection</code> field in the Search Products request.</p>
-     *
-
-     * @return null|ProductProjection
-     */
-    public function getProductProjection();
-
-    /**
-     * <p>Describes the variants that matched the search criteria.</p>
+     * <p>Information about which Product Variants match the search query.
+     * Only present if <code>markMatchingVariants</code> is set to <code>true</code> in the <a href="ctp:api:type:ProductSearchRequest">ProductSearchRequest</a>.</p>
      *
 
      * @return null|ProductSearchMatchingVariants
@@ -43,17 +36,26 @@ interface ProductSearchResult extends JsonObject
     public function getMatchingVariants();
 
     /**
+     * <p>Projected data of the Product with <code>id</code>.
+     * Only present if data integration <a href="/../api/projects/product-search#with-product-projection-parameters">with Product Projection parameters</a> is requested.</p>
+     *
+
+     * @return null|ProductProjection
+     */
+    public function getProductProjection();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
 
     /**
-     * @param ?ProductProjection $productProjection
-     */
-    public function setProductProjection(?ProductProjection $productProjection): void;
-
-    /**
      * @param ?ProductSearchMatchingVariants $matchingVariants
      */
     public function setMatchingVariants(?ProductSearchMatchingVariants $matchingVariants): void;
+
+    /**
+     * @param ?ProductProjection $productProjection
+     */
+    public function setProductProjection(?ProductProjection $productProjection): void;
 }

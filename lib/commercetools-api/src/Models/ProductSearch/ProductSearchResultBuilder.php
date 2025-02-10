@@ -30,18 +30,18 @@ final class ProductSearchResultBuilder implements Builder
 
     /**
 
-     * @var null|ProductProjection|ProductProjectionBuilder
-     */
-    private $productProjection;
-
-    /**
-
      * @var null|ProductSearchMatchingVariants|ProductSearchMatchingVariantsBuilder
      */
     private $matchingVariants;
 
     /**
-     * <p>Unique identifier of the Product.</p>
+
+     * @var null|ProductProjection|ProductProjectionBuilder
+     */
+    private $productProjection;
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Product">Product</a> that matches the search query.</p>
      *
 
      * @return null|string
@@ -52,18 +52,8 @@ final class ProductSearchResultBuilder implements Builder
     }
 
     /**
-     * <p>Contains Product Projection data for Products matching the <code>projection</code> field in the Search Products request.</p>
-     *
-
-     * @return null|ProductProjection
-     */
-    public function getProductProjection()
-    {
-        return $this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection;
-    }
-
-    /**
-     * <p>Describes the variants that matched the search criteria.</p>
+     * <p>Information about which Product Variants match the search query.
+     * Only present if <code>markMatchingVariants</code> is set to <code>true</code> in the <a href="ctp:api:type:ProductSearchRequest">ProductSearchRequest</a>.</p>
      *
 
      * @return null|ProductSearchMatchingVariants
@@ -74,23 +64,24 @@ final class ProductSearchResultBuilder implements Builder
     }
 
     /**
+     * <p>Projected data of the Product with <code>id</code>.
+     * Only present if data integration <a href="/../api/projects/product-search#with-product-projection-parameters">with Product Projection parameters</a> is requested.</p>
+     *
+
+     * @return null|ProductProjection
+     */
+    public function getProductProjection()
+    {
+        return $this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ProductProjection $productProjection
-     * @return $this
-     */
-    public function withProductProjection(?ProductProjection $productProjection)
-    {
-        $this->productProjection = $productProjection;
 
         return $this;
     }
@@ -107,10 +98,10 @@ final class ProductSearchResultBuilder implements Builder
     }
 
     /**
-     * @deprecated use withProductProjection() instead
+     * @param ?ProductProjection $productProjection
      * @return $this
      */
-    public function withProductProjectionBuilder(?ProductProjectionBuilder $productProjection)
+    public function withProductProjection(?ProductProjection $productProjection)
     {
         $this->productProjection = $productProjection;
 
@@ -128,12 +119,23 @@ final class ProductSearchResultBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withProductProjection() instead
+     * @return $this
+     */
+    public function withProductProjectionBuilder(?ProductProjectionBuilder $productProjection)
+    {
+        $this->productProjection = $productProjection;
+
+        return $this;
+    }
+
     public function build(): ProductSearchResult
     {
         return new ProductSearchResultModel(
             $this->id,
-            $this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection,
-            $this->matchingVariants instanceof ProductSearchMatchingVariantsBuilder ? $this->matchingVariants->build() : $this->matchingVariants
+            $this->matchingVariants instanceof ProductSearchMatchingVariantsBuilder ? $this->matchingVariants->build() : $this->matchingVariants,
+            $this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection
         );
     }
 

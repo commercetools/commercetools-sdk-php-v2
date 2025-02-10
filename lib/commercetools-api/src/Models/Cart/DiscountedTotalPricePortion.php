@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
+use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -19,10 +19,10 @@ interface DiscountedTotalPricePortion extends JsonObject
     public const FIELD_DISCOUNTED_AMOUNT = 'discountedAmount';
 
     /**
-     * <p>Cart Discount related to the discounted price.</p>
+     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> to the discount applied on the Cart <code>totalPrice</code>.</p>
      *
 
-     * @return null|CartDiscountReference
+     * @return null|Reference
      */
     public function getDiscount();
 
@@ -35,9 +35,9 @@ interface DiscountedTotalPricePortion extends JsonObject
     public function getDiscountedAmount();
 
     /**
-     * @param ?CartDiscountReference $discount
+     * @param ?Reference $discount
      */
-    public function setDiscount(?CartDiscountReference $discount): void;
+    public function setDiscount(?Reference $discount): void;
 
     /**
      * @param ?TypedMoney $discountedAmount

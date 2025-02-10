@@ -158,7 +158,7 @@ final class ProductSearchFacetDistinctValueModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Additional filtering expression to apply to the search result before calculating the facet.</p>
+     * <p>Additional filtering expression to apply to the facet result before calculating the facet.</p>
      *
      *
      * @return null|SearchQuery
