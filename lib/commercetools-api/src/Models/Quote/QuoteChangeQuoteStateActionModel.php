@@ -63,7 +63,7 @@ final class QuoteChangeQuoteStateActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>New state to be set for the Quote.</p>
+     * <p>New state to be set for the Quote, except <code>DeclinedForRenegotiation</code>. The <code>DeclinedForRenegotiation</code> state can be set only when performing a <a href="ctp:api:type:QuoteRequestQuoteRenegotiationAction">renegotiation request</a>.</p>
      *
      *
      * @return null|string

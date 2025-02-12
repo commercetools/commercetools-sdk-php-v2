@@ -25,8 +25,8 @@ interface OrderFromQuoteDraft extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Quote from which the Order is created.
-     * If the referenced <a href="ctp:api:type:Quote">Quote</a> has expired (<code>validTo</code> check) or its <code>quoteState</code> is <code>Accepted</code>, <code>Declined</code>, or <code>Withdrawn</code>, the Order creation will fail.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Quote from which the Order is created.</p>
+     * <p>The <a href="ctp:api:type:Quote">Quote</a> must have the <code>Pending</code> <a href="ctp:api:type:QuoteState">state</a> and must be valid (not past the <code>validTo</code> date).</p>
      *
 
      * @return null|QuoteResourceIdentifier

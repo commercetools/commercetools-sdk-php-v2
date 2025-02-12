@@ -271,7 +271,7 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
-     * <p>Expiration date for the Quote.</p>
+     * <p>Expiration date for the Quote. Once a Quote expires, it cannot be ordered.</p>
      *
 
      * @return null|DateTimeImmutable

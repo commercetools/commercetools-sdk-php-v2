@@ -16,7 +16,7 @@ interface QuoteChangeQuoteStateAction extends QuoteUpdateAction
     public const FIELD_QUOTE_STATE = 'quoteState';
 
     /**
-     * <p>New state to be set for the Quote.</p>
+     * <p>New state to be set for the Quote, except <code>DeclinedForRenegotiation</code>. The <code>DeclinedForRenegotiation</code> state can be set only when performing a <a href="ctp:api:type:QuoteRequestQuoteRenegotiationAction">renegotiation request</a>.</p>
      *
 
      * @return null|string
