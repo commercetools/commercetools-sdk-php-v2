@@ -115,7 +115,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'AssociateRoleBuyerAssignableChanged' => AssociateRoleBuyerAssignableChangedMessageModel::class,
        'AssociateRoleCreated' => AssociateRoleCreatedMessageModel::class,
        'AssociateRoleDeleted' => AssociateRoleDeletedMessageModel::class,
-       'AssociateRoleNameSet' => AssociateRoleNameChangedMessageModel::class,
+       'AssociateRoleNameSet' => AssociateRoleNameSetMessageModel::class,
        'AssociateRolePermissionAdded' => AssociateRolePermissionAddedMessageModel::class,
        'AssociateRolePermissionRemoved' => AssociateRolePermissionRemovedMessageModel::class,
        'AssociateRolePermissionsSet' => AssociateRolePermissionsSetMessageModel::class,
