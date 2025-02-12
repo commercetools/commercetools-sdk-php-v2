@@ -859,8 +859,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->orderQuote()->post(null)`
 
-Creates an Order from a [Quote](ctp:api:type:Cart) in a [BusinessUnit](ctp:api:type:BusinessUnit).
-Creating an Order fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Quote does not reference the same BusinessUnit as the `businessUnitKey` path parameter.
+
+Creates an Order from a [Quote](ctp:api:type:Quote) in a [BusinessUnit](ctp:api:type:BusinessUnit).
+
+The Quote must reference the same Business Unit as the `businessUnitKey` path parameter, must have the `Pending` [state](ctp:api:type:QuoteState), and must be valid (not past the `validTo` date). If these criteria are not met, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
 Specific Error Codes:
 
@@ -5326,12 +5328,14 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->orderQuote()->post(null)`
 
-Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+
+Creates an Order from a [Quote](ctp:api:type:Quote) in a [Store](ctp:api:type:Store). The referenced Quote must have the `Pending` [state](ctp:api:type:QuoteState) and must be valid (not past the `validTo` date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+
+Produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
 
 Specific Error Codes:
 
 - [OutOfStock](ctp:api:type:OutOfStockError)
-- [PriceChanged](ctp:api:type:PriceChangedError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
 - [InvalidOperation](ctp:api:type:InvalidOperationError)
 - [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
@@ -7154,14 +7158,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->orderQuote()->post(null)`
 
-When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyQuotes` [Permission](ctp:api:type:Permission).
 
-Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+Creates an Order from a [Quote](ctp:api:type:Quote). To create [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyQuotes` [Permission](ctp:api:type:Permission).
+
+The referenced Quote must have the `Pending` [state](ctp:api:type:QuoteState) and must be valid (not past the `validTo` date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+
+Produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
 
 Specific Error Codes:
 
 - [OutOfStock](ctp:api:type:OutOfStockError)
-- [PriceChanged](ctp:api:type:PriceChangedError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
 - [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
 - [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError)
@@ -8309,7 +8315,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->orderQuote()->post(null)`
 
-Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+
+Creates an Order from a Quote. The referenced Quote must have the `Pending` [state](ctp:api:type:QuoteState) and must be valid (not past the `validTo` date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+
+Produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
 
 Specific Error Codes:
 
@@ -8317,7 +8326,6 @@ Specific Error Codes:
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
 - [InvalidOperation](ctp:api:type:InvalidOperationError)
 - [OutOfStock](ctp:api:type:OutOfStockError)
-- [PriceChanged](ctp:api:type:PriceChangedError)
 
 
 ### Example
