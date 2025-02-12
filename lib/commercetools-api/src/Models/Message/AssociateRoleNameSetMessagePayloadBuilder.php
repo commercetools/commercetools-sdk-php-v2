@@ -16,9 +16,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<AssociateRoleNameChangedMessagePayload>
+ * @implements Builder<AssociateRoleNameSetMessagePayload>
  */
-final class AssociateRoleNameChangedMessagePayloadBuilder implements Builder
+final class AssociateRoleNameSetMessagePayloadBuilder implements Builder
 {
     /**
 
@@ -49,14 +49,14 @@ final class AssociateRoleNameChangedMessagePayloadBuilder implements Builder
     }
 
 
-    public function build(): AssociateRoleNameChangedMessagePayload
+    public function build(): AssociateRoleNameSetMessagePayload
     {
-        return new AssociateRoleNameChangedMessagePayloadModel(
+        return new AssociateRoleNameSetMessagePayloadModel(
             $this->name
         );
     }
 
-    public static function of(): AssociateRoleNameChangedMessagePayloadBuilder
+    public static function of(): AssociateRoleNameSetMessagePayloadBuilder
     {
         return new self();
     }

@@ -46,7 +46,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'AssociateRoleBuyerAssignableChanged' => AssociateRoleBuyerAssignableChangedMessagePayloadModel::class,
        'AssociateRoleCreated' => AssociateRoleCreatedMessagePayloadModel::class,
        'AssociateRoleDeleted' => AssociateRoleDeletedMessagePayloadModel::class,
-       'AssociateRoleNameSet' => AssociateRoleNameChangedMessagePayloadModel::class,
+       'AssociateRoleNameSet' => AssociateRoleNameSetMessagePayloadModel::class,
        'AssociateRolePermissionAdded' => AssociateRolePermissionAddedMessagePayloadModel::class,
        'AssociateRolePermissionRemoved' => AssociateRolePermissionRemovedMessagePayloadModel::class,
        'AssociateRolePermissionsSet' => AssociateRolePermissionsSetMessagePayloadModel::class,

@@ -40,7 +40,7 @@ use Commercetools\Api\Models\Message\ApprovalRuleStatusSetMessage;
 use Commercetools\Api\Models\Message\AssociateRoleBuyerAssignableChangedMessage;
 use Commercetools\Api\Models\Message\AssociateRoleCreatedMessage;
 use Commercetools\Api\Models\Message\AssociateRoleDeletedMessage;
-use Commercetools\Api\Models\Message\AssociateRoleNameChangedMessage;
+use Commercetools\Api\Models\Message\AssociateRoleNameSetMessage;
 use Commercetools\Api\Models\Message\AssociateRolePermissionAddedMessage;
 use Commercetools\Api\Models\Message\AssociateRolePermissionRemovedMessage;
 use Commercetools\Api\Models\Message\AssociateRolePermissionsSetMessage;

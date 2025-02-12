@@ -11,7 +11,7 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface AssociateRoleNameChangedMessagePayload extends MessagePayload
+interface AssociateRoleNameSetMessage extends Message
 {
     public const FIELD_NAME = 'name';
 

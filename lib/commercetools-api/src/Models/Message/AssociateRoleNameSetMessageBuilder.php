@@ -23,9 +23,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<AssociateRoleNameChangedMessage>
+ * @implements Builder<AssociateRoleNameSetMessage>
  */
-final class AssociateRoleNameChangedMessageBuilder implements Builder
+final class AssociateRoleNameSetMessageBuilder implements Builder
 {
     /**
 
@@ -380,9 +380,9 @@ final class AssociateRoleNameChangedMessageBuilder implements Builder
         return $this;
     }
 
-    public function build(): AssociateRoleNameChangedMessage
+    public function build(): AssociateRoleNameSetMessage
     {
-        return new AssociateRoleNameChangedMessageModel(
+        return new AssociateRoleNameSetMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -397,7 +397,7 @@ final class AssociateRoleNameChangedMessageBuilder implements Builder
         );
     }
 
-    public static function of(): AssociateRoleNameChangedMessageBuilder
+    public static function of(): AssociateRoleNameSetMessageBuilder
     {
         return new self();
     }

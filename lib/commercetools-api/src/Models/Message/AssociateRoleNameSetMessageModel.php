@@ -24,7 +24,7 @@ use stdClass;
 /**
  * @internal
  */
-final class AssociateRoleNameChangedMessageModel extends JsonObjectModel implements AssociateRoleNameChangedMessage
+final class AssociateRoleNameSetMessageModel extends JsonObjectModel implements AssociateRoleNameSetMessage
 {
     public const DISCRIMINATOR_VALUE = 'AssociateRoleNameSet';
     /**
