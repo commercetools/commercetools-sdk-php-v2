@@ -2821,6 +2821,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->emailConfirm()->post(null)`
 
+Use this method to verify a global Customer's email during their [email verification process](/../api/customers-overview#customer-email-verification).
+
 Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
 
 
@@ -2837,7 +2839,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->emailToken()->post(null)`
 
-Produces the [CustomerEmailTokenCreated](ctp:api:type:CustomerEmailTokenCreatedMessage) Message.
+Use this method to create an email token for a global Customer during their [email verification process](/../api/customers-overview#customer-email-verification).
+
+Creating an email token for the Customer produces the [CustomerEmailTokenCreated](ctp:api:type:CustomerEmailTokenCreatedMessage) Message.
+
 
 ### Example
 ```php
@@ -2852,7 +2857,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withEmailToken("emailToken")->get()`
 
-null
+Use this method to retrieve a global Customer's details by using the email token during their [email verification process](/../api/customers-overview#customer-email-verification).
+
 
 ### Example
 ```php
@@ -2944,6 +2950,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->passwordReset()->post(null)`
 
+Use this method to reset a global Customer's password during their [password reset process](/../api/customers-overview#customer-password-reset).
+
+After the password is reset, any previously issued access and/or refresh tokens created through the [password flow](/authorization#password-flow) or [refresh token flow](/authorization#refresh-token-flow) are invalidated.
+
 Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
 
 
@@ -2960,7 +2970,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->passwordToken()->post(null)`
 
-null
+Use this method to create a password reset token for a global Customer during their [password reset process](/../api/customers-overview#customer-password-reset).
+
+Creating a password reset token does not invalidate existing tokens.
+
 
 ### Example
 ```php
@@ -2975,7 +2988,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withPasswordToken("passwordToken")->get()`
 
-null
+Use this method to retrieve the details of a global Customer by using the password token during their [password reset process](/../api/customers-overview#customer-password-reset).
+
 
 ### Example
 ```php
@@ -4144,7 +4158,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailConfirm()->post(null)`
 
-The customer verifies the email using the token value.
+Use this method to verify a Store-specific Customer's email during their [email verification process](/../api/customers-overview#customer-email-verification).
+
 Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
@@ -4164,6 +4179,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailToken()->post(null)`
 
+Use this method to create an email token for a Store-specific Customer during their [email verification process](/../api/customers-overview#customer-email-verification).
+
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
@@ -4180,6 +4197,8 @@ $request = $builder
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withEmailToken("emailToken")->get()`
+
+Use this method to retrieve a Store-specific Customer's details by using the email token during their [email verification process](/../api/customers-overview#customer-email-verification).
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4286,9 +4305,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordReset()->post(null)`
 
+Use this method to reset a Store-specific Customer's password during their [password reset process](/../api/customers-overview#customer-password-reset).
+
+After the password is reset, any previously issued access and/or refresh tokens created through the [password flow](/authorization#password-flow) or [refresh token flow](/authorization#refresh-token-flow) are invalidated.
+
 Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
 
-If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), then this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -4304,6 +4327,10 @@ $request = $builder
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordToken()->post(null)`
+
+Use this method to create a password reset token for a Store-specific Customer during their [password reset process](/../api/customers-overview#customer-password-reset).
+
+Creating a password reset token does not invalidate existing tokens.
 
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4321,6 +4348,8 @@ $request = $builder
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withPasswordToken("passwordToken")->get()`
+
+Use this method to retrieve a Store-specific Customer's details by using the password reset token during their [password reset process](/../api/customers-overview#customer-password-reset).
 
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
