@@ -141,7 +141,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Note that you can not add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referencable by an <code>id</code>.</p>
+     * <p>Note that you can not add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referenceable by an <code>id</code>.</p>
      *
 
      * @return null|DeliveryCollection
