@@ -60,7 +60,7 @@ final class CartDiscountPatternTargetBuilder implements Builder
 
     /**
      * <p>Defines the set of units of (Custom) Line Items in a Cart on which the Discount is applied.</p>
-     * <p>Based on the availability of matching units and the limits from the <code>triggerPattern</code> or <code>maxOccurence</code>, the <code>targetPattern</code> can match multiple times.</p>
+     * <p>Based on the availability of matching units and the limits from the <code>triggerPattern</code> or <code>maxOccurrence</code>, the <code>targetPattern</code> can match multiple times.</p>
      * <p>This array cannot be empty.</p>
      *
 

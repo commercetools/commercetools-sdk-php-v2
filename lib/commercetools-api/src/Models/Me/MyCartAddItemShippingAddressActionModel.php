@@ -66,7 +66,7 @@ final class MyCartAddItemShippingAddressActionModel extends JsonObjectModel impl
 
     /**
      * <p>Address to append to <code>itemShippingAddresses</code>.</p>
-     * <p>The new address must have a key that is unique accross this Cart.</p>
+     * <p>The new address must have a key that is unique across this Cart.</p>
      *
      *
      * @return null|BaseAddress

@@ -524,7 +524,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
-     * <p>Company name of the Customer. When representing a company as a Customer, <a href="ctp:api:type:BusinessUnit">Business Units</a> provide extended funtionality.</p>
+     * <p>Company name of the Customer. When representing a company as a Customer, <a href="ctp:api:type:BusinessUnit">Business Units</a> provide extended functionality.</p>
      *
      *
      * @return null|string

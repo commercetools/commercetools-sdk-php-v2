@@ -120,7 +120,7 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
-     * <p>If suitable, assign predifined roles the State can fulfill in case the State's <code>type</code> is <code>LineItemState</code> or <code>ReviewState</code>.</p>
+     * <p>If suitable, assign predefined roles the State can fulfill in case the State's <code>type</code> is <code>LineItemState</code> or <code>ReviewState</code>.</p>
      *
 
      * @return null|array
