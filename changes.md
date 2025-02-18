@@ -1,18 +1,28 @@
 **Api changes**
 
 <details>
-<summary>Added Resource(s)</summary>
+<summary>Added Type(s)</summary>
 
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
+- added type `AssociateRoleNameSetMessage`
+- added type `AssociateRoleNameSetMessagePayload`
+- added type `ShoppingListSetBusinessUnitAction`
 </details>
 
 
 <details>
-<summary>Changed Property(s)</summary>
+<summary>Removed Type(s)</summary>
 
-- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
+- :warning: removed type `AssociateRoleNameChangedMessage`
+- :warning: removed type `AssociateRoleNameChangedMessagePayload`
+- :warning: removed type `ProductSearchFacetScope`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
+- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
 </details>
 
 
@@ -28,28 +38,9 @@
 
 
 <details>
-<summary>Required Property(s)</summary>
+<summary>Changed Property(s)</summary>
 
-- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
-- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
-</details>
-
-
-<details>
-<summary>Removed Type(s)</summary>
-
-- :warning: removed type `AssociateRoleNameChangedMessage`
-- :warning: removed type `AssociateRoleNameChangedMessagePayload`
-- :warning: removed type `ProductSearchFacetScope`
-</details>
-
-
-<details>
-<summary>Added Type(s)</summary>
-
-- added type `AssociateRoleNameSetMessage`
-- added type `AssociateRoleNameSetMessagePayload`
-- added type `ShoppingListSetBusinessUnitAction`
+- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
 </details>
 
 
@@ -69,14 +60,16 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->delete()`
 </details>
 
-**History changes**
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Added Resource(s)</summary>
 
-- added enum `setAssetKey` to type `UpdateType`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
 </details>
 
+**History changes**
 
 <details>
 <summary>Removed Enum(s)</summary>
@@ -86,9 +79,9 @@
 
 
 <details>
-<summary>Changed Property(s)</summary>
+<summary>Added Enum(s)</summary>
 
-- :warning: changed property `extensions` of type `GraphQLError` from type `GraphQLErrorObject` to `object`
+- added enum `setAssetKey` to type `UpdateType`
 </details>
 
 
@@ -96,6 +89,13 @@
 <summary>Required Property(s)</summary>
 
 - :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `extensions` of type `GraphQLError` from type `GraphQLErrorObject` to `object`
 </details>
 
 
