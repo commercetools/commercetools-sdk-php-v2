@@ -46,7 +46,7 @@ gen_import_sdk: generate_import composer_install test_bc generate_import_test
 gen_history_sdk: generate_history composer_install test_bc generate_history_test
 
 codegen_install:
-	#curl -o- -s https://raw.githubusercontent.com/commercetools/rmf-codegen/main/scripts/install.sh | bash
+	curl -o- -s https://raw.githubusercontent.com/commercetools/rmf-codegen/main/scripts/install.sh | bash
 
 composer_install:
 	composer install --no-ansi --no-interaction --no-progress --no-suggest
