@@ -51,7 +51,7 @@ codegen_install:
 composer_install:
 	composer install --no-ansi --no-interaction --no-progress --no-suggest
 
-psalm_install:
+psalm_install: install_deps
 	composer require --dev "vimeo/psalm:^6.8.5"
 
 generate_base: install_deps
