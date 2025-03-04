@@ -79,7 +79,7 @@ prettify: install_deps
 	php -dmemory_limit=-1 vendor/bin/ecs check --fix
 
 analyse: install_deps prettify psalm_install
-	vendor/bin/psalm --threads=$(CPUS)
+	vendor/bin/psalm --debug --threads=$(CPUS)
 
 test_bc: install_deps
 #	vendor/bin/phpunit --testsuite=unit
