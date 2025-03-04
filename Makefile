@@ -31,7 +31,7 @@ parallel_generate_history_test: install_deps parallel_test_sdks_bc
 parallel_prettify_sdks: install_deps parallel_gen_sdk_tests
 	php -dmemory_limit=-1 vendor/bin/ecs check --fix --no-progress-bar --no-diffs
 
-parallel_analyze_sdks: install_deps parallel_prettify_sdks
+parallel_analyze_sdks: install_deps parallel_prettify_sdks psalm_install
 	vendor/bin/psalm --debug --threads=$(CPUS)
 
 parallel_test_sdks: install_deps parallel_analyze_sdks
