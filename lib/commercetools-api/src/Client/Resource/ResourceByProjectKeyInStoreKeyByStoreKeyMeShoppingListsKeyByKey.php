@@ -21,7 +21,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingListsKeyByKey extends Ap
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/in-store/key={storeKey}/me/shopping-lists/key={key}', $args, $client);
     }

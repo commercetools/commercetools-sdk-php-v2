@@ -20,7 +20,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKey extends
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/in-store/key={storeKey}/product-projections/key={key}', $args, $client);
     }

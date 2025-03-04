@@ -21,7 +21,7 @@ class ResourceByProjectKeyCarts extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/carts', $args, $client);
     }
@@ -36,7 +36,7 @@ class ResourceByProjectKeyCarts extends ApiResource
     }
     /**
      */
-    public function withCustomerId(string $customerId = null): ResourceByProjectKeyCartsCustomerIdByCustomerId
+    public function withCustomerId(?string $customerId = null): ResourceByProjectKeyCartsCustomerIdByCustomerId
     {
         $args = $this->getArgs();
         if (!is_null($customerId)) {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyCarts extends ApiResource
     }
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyCartsKeyByKey
+    public function withKey(?string $key = null): ResourceByProjectKeyCartsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyCarts extends ApiResource
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyCartsByID
+    public function withId(?string $ID = null): ResourceByProjectKeyCartsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

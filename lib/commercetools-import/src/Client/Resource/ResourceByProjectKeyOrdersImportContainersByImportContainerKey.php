@@ -21,7 +21,7 @@ class ResourceByProjectKeyOrdersImportContainersByImportContainerKey extends Api
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/orders/import-containers/{importContainerKey}', $args, $client);
     }

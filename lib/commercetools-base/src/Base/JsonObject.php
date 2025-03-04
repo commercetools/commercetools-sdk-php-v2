@@ -34,10 +34,10 @@ interface JsonObject extends \JsonSerializable
      * @psalm-param ?stdClass $data
      * @return static
      */
-    public static function fromStdClass(stdClass $data = null);
+    public static function fromStdClass(?stdClass $data = null);
     
     /**
      * @return static|mixed
      */
-    public function with(callable $callable = null);
+    public function with(?callable $callable = null);
 }

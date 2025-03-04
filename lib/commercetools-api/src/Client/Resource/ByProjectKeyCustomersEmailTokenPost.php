@@ -38,7 +38,7 @@ class ByProjectKeyCustomersEmailTokenPost extends ApiRequest implements Errorabl
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/customers/email-token');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
@@ -49,7 +49,7 @@ class ByProjectKeyCustomersEmailTokenPost extends ApiRequest implements Errorabl
      * @psalm-param ?class-string<T> $resultType
      * @return CustomerToken|ErrorResponse|JsonObject|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -100,7 +100,7 @@ class ByProjectKeyCustomersEmailTokenPost extends ApiRequest implements Errorabl
      *
      * @return null|T|CustomerToken|ErrorResponse|JsonObject
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -123,7 +123,7 @@ class ByProjectKeyCustomersEmailTokenPost extends ApiRequest implements Errorabl
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {

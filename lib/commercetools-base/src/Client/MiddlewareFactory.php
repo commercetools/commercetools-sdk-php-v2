@@ -69,8 +69,8 @@ class MiddlewareFactory
             function (
                 int $retries,
                 RequestInterface $request,
-                ResponseInterface $response = null,
-                \Exception $error = null
+                ?ResponseInterface $response = null,
+                ?\Exception $error = null
             ) use ($maxRetries) {
                 if ($response instanceof ResponseInterface && $response->getStatusCode() < 500) {
                     return false;

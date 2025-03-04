@@ -41,7 +41,7 @@ class ByProjectKeyTaxCategoriesKeyByKeyPost extends ApiRequest implements Confli
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/tax-categories/key={key}');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
@@ -52,7 +52,7 @@ class ByProjectKeyTaxCategoriesKeyByKeyPost extends ApiRequest implements Confli
      * @psalm-param ?class-string<T> $resultType
      * @return ErrorResponse|JsonObject|TaxCategory|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -107,7 +107,7 @@ class ByProjectKeyTaxCategoriesKeyByKeyPost extends ApiRequest implements Confli
      *
      * @return null|T|ErrorResponse|JsonObject|TaxCategory
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -130,7 +130,7 @@ class ByProjectKeyTaxCategoriesKeyByKeyPost extends ApiRequest implements Confli
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {

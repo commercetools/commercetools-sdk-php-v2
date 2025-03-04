@@ -21,14 +21,14 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/custom-objects', $args, $client);
     }
 
     /**
      */
-    public function withContainerAndKey(string $container = null, string $key = null): ResourceByProjectKeyCustomObjectsByContainerByKey
+    public function withContainerAndKey(?string $container = null, ?string $key = null): ResourceByProjectKeyCustomObjectsByContainerByKey
     {
         $args = $this->getArgs();
         if (!is_null($container)) {
@@ -43,7 +43,7 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
     }
     /**
      */
-    public function withContainer(string $container = null): ResourceByProjectKeyCustomObjectsByContainer
+    public function withContainer(?string $container = null): ResourceByProjectKeyCustomObjectsByContainer
     {
         $args = $this->getArgs();
         if (!is_null($container)) {

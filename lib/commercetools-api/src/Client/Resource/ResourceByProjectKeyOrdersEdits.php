@@ -21,14 +21,14 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/orders/edits', $args, $client);
     }
 
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyOrdersEditsKeyByKey
+    public function withKey(?string $key = null): ResourceByProjectKeyOrdersEditsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyOrdersEditsByID
+    public function withId(?string $ID = null): ResourceByProjectKeyOrdersEditsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

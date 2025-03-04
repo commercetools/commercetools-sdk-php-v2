@@ -21,7 +21,7 @@ class ResourceByProjectKey extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}', $args, $client);
     }
@@ -332,7 +332,7 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
-    public function inStoreKeyWithStoreKeyValue(string $storeKey = null): ResourceByProjectKeyInStoreKeyByStoreKey
+    public function inStoreKeyWithStoreKeyValue(?string $storeKey = null): ResourceByProjectKeyInStoreKeyByStoreKey
     {
         $args = $this->getArgs();
         if (!is_null($storeKey)) {
@@ -351,7 +351,7 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
-    public function inBusinessUnitKeyWithBusinessUnitKeyValue(string $businessUnitKey = null): ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey
+    public function inBusinessUnitKeyWithBusinessUnitKeyValue(?string $businessUnitKey = null): ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey
     {
         $args = $this->getArgs();
         if (!is_null($businessUnitKey)) {

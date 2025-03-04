@@ -30,7 +30,7 @@ class ResourceByProjectKeyByResourceTypeTest extends TestCase
     /**
      * @dataProvider getRequests()
      */
-    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, ?string $body = null)
     {
         $builder = new HistoryRequestBuilder();
         $request = $builderFunction($builder);

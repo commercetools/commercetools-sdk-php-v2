@@ -20,14 +20,14 @@ class ResourceByProjectKeyImportOperations extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/import-operations', $args, $client);
     }
 
     /**
      */
-    public function withIdValue(string $id = null): ResourceByProjectKeyImportOperationsById
+    public function withIdValue(?string $id = null): ResourceByProjectKeyImportOperationsById
     {
         $args = $this->getArgs();
         if (!is_null($id)) {

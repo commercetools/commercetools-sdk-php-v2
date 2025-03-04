@@ -20,14 +20,14 @@ class ResourceByProjectKeyProductVariantPatchesImportContainers extends ApiResou
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/product-variant-patches/import-containers', $args, $client);
     }
 
     /**
      */
-    public function withImportContainerKeyValue(string $importContainerKey = null): ResourceByProjectKeyProductVariantPatchesImportContainersByImportContainerKey
+    public function withImportContainerKeyValue(?string $importContainerKey = null): ResourceByProjectKeyProductVariantPatchesImportContainersByImportContainerKey
     {
         $args = $this->getArgs();
         if (!is_null($importContainerKey)) {

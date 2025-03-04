@@ -22,7 +22,7 @@ class Config implements BaseConfig
     /** @psalm-var array */
     private $options;
 
-    public function __construct(array $clientOptions = [], string $baseUri = null)
+    public function __construct(array $clientOptions = [], ?string $baseUri = null)
     {
         /** @psalm-var string $apiUri */
         $apiUri = $baseUri ?? static::API_URI;

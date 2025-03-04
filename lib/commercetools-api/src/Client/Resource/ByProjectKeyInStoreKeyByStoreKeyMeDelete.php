@@ -39,7 +39,7 @@ class ByProjectKeyInStoreKeyByStoreKeyMeDelete extends ApiRequest implements Ver
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $storeKey, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $storeKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{storeKey}'], [$projectKey, $storeKey], '{projectKey}/in-store/key={storeKey}/me');
         parent::__construct($client, 'DELETE', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
@@ -50,7 +50,7 @@ class ByProjectKeyInStoreKeyByStoreKeyMeDelete extends ApiRequest implements Ver
      * @psalm-param ?class-string<T> $resultType
      * @return Customer|ErrorResponse|JsonObject|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -81,7 +81,7 @@ class ByProjectKeyInStoreKeyByStoreKeyMeDelete extends ApiRequest implements Ver
      *
      * @return null|T|Customer|ErrorResponse|JsonObject
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -104,7 +104,7 @@ class ByProjectKeyInStoreKeyByStoreKeyMeDelete extends ApiRequest implements Ver
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {

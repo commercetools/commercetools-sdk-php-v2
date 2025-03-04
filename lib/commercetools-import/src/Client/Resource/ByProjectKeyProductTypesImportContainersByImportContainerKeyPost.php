@@ -38,7 +38,7 @@ class ByProjectKeyProductTypesImportContainersByImportContainerKeyPost extends A
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $importContainerKey, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $importContainerKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{importContainerKey}'], [$projectKey, $importContainerKey], '{projectKey}/product-types/import-containers/{importContainerKey}');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
@@ -49,7 +49,7 @@ class ByProjectKeyProductTypesImportContainersByImportContainerKeyPost extends A
      * @psalm-param ?class-string<T> $resultType
      * @return ErrorResponse|ImportResponse|JsonObject|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -80,7 +80,7 @@ class ByProjectKeyProductTypesImportContainersByImportContainerKeyPost extends A
      *
      * @return null|T|ErrorResponse|ImportResponse|JsonObject
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -103,7 +103,7 @@ class ByProjectKeyProductTypesImportContainersByImportContainerKeyPost extends A
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {

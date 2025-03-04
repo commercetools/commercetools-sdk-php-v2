@@ -21,7 +21,7 @@ class ResourceByProjectKeyStagedQuotesByID extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/staged-quotes/{ID}', $args, $client);
     }
