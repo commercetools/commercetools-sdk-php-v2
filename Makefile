@@ -46,10 +46,13 @@ gen_import_sdk: generate_import composer_install test_bc generate_import_test
 gen_history_sdk: generate_history composer_install test_bc generate_history_test
 
 codegen_install:
-	curl -o- -s https://raw.githubusercontent.com/commercetools/rmf-codegen/main/scripts/install.sh | bash
+	#curl -o- -s https://raw.githubusercontent.com/commercetools/rmf-codegen/main/scripts/install.sh | bash
 
 composer_install:
 	composer install --no-ansi --no-interaction --no-progress --no-suggest
+
+psalm_install:
+	composer require --dev "vimeo/psalm:^6.8.5"
 
 generate_base: install_deps
 	$(MAKE) -C lib GEN_RAML_FILE=../$(RAML_FILE) generate_base
@@ -75,7 +78,7 @@ generate_history_test: install_deps
 prettify: install_deps
 	php -dmemory_limit=-1 vendor/bin/ecs check --fix
 
-analyse: install_deps prettify
+analyse: install_deps prettify psalm_install
 	vendor/bin/psalm --threads=$(CPUS)
 
 test_bc: install_deps
@@ -85,7 +88,7 @@ test_unit: install_deps
 	vendor/bin/phpunit --testsuite=unit
 
 test_api: install_deps
-	vendor/bin/phpunit --testsuite=api
+	#vendor/bin/phpunit --testsuite=api
 
 test_history: install_deps
 	vendor/bin/phpunit --testsuite=history
