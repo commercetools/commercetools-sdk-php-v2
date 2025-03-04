@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.1"
+          - "8.4"
         dependencies:
           - highest
 
@@ -57,7 +57,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.1"
+          - "8.4"
         dependencies:
           - highest
 
@@ -82,6 +82,12 @@ jobs:
 
       - name: Install dependencies with composer
         run: composer update --no-ansi --no-interaction --no-progress --no-suggest
+
+      - name: Install dependencies with composer
+        run: composer update --no-ansi --no-interaction --no-progress --no-suggest
+
+      - name: Install psalm
+        run: composer require --dev "vimeo/psalm:^6.8.5"
 
       - name: Run psalm
         run: php -dmemory_limit=-1 vendor/bin/psalm
