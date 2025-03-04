@@ -285,6 +285,12 @@ final class CartBuilder implements Builder
 
     /**
 
+     * @var null|DiscountTypeCombination|DiscountTypeCombinationBuilder
+     */
+    private $discountTypeCombination;
+
+    /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
@@ -752,6 +758,17 @@ final class CartBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Indicates if a combination of discount types can apply on a Cart.</p>
+     *
+
+     * @return null|DiscountTypeCombination
+     */
+    public function getDiscountTypeCombination()
+    {
+        return $this->discountTypeCombination instanceof DiscountTypeCombinationBuilder ? $this->discountTypeCombination->build() : $this->discountTypeCombination;
     }
 
     /**
@@ -1228,6 +1245,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountTypeCombination $discountTypeCombination
+     * @return $this
+     */
+    public function withDiscountTypeCombination(?DiscountTypeCombination $discountTypeCombination)
+    {
+        $this->discountTypeCombination = $discountTypeCombination;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
@@ -1415,6 +1443,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscountTypeCombination() instead
+     * @return $this
+     */
+    public function withDiscountTypeCombinationBuilder(?DiscountTypeCombinationBuilder $discountTypeCombination)
+    {
+        $this->discountTypeCombination = $discountTypeCombination;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -1479,6 +1518,7 @@ final class CartBuilder implements Builder
             $this->locale,
             $this->origin,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->discountTypeCombination instanceof DiscountTypeCombinationBuilder ? $this->discountTypeCombination->build() : $this->discountTypeCombination,
             $this->deleteDaysAfterLastModification,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy

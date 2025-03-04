@@ -62,6 +62,7 @@ interface Cart extends BaseResource
     public const FIELD_LOCALE = 'locale';
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DISCOUNT_TYPE_COMBINATION = 'discountTypeCombination';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
@@ -384,6 +385,14 @@ interface Cart extends BaseResource
     public function getCustom();
 
     /**
+     * <p>Indicates if a combination of discount types can apply on a Cart.</p>
+     *
+
+     * @return null|DiscountTypeCombination
+     */
+    public function getDiscountTypeCombination();
+
+    /**
      * <p>Number of days after which an active Cart is deleted since its last modification. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
 
@@ -612,6 +621,11 @@ interface Cart extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?DiscountTypeCombination $discountTypeCombination
+     */
+    public function setDiscountTypeCombination(?DiscountTypeCombination $discountTypeCombination): void;
 
     /**
      * @param ?int $deleteDaysAfterLastModification

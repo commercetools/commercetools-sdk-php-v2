@@ -3,6 +3,9 @@
 <details>
 <summary>Added Type(s)</summary>
 
+- added type `BestDeal`
+- added type `DiscountTypeCombination`
+- added type `Stacking`
 - added type `AssociateRoleNameSetMessage`
 - added type `AssociateRoleNameSetMessagePayload`
 - added type `ShoppingListSetBusinessUnitAction`
@@ -32,6 +35,9 @@
 - added property `inheritedStores` to type `BusinessUnit`
 - added property `inheritedStores` to type `Company`
 - added property `inheritedStores` to type `Division`
+- added property `discountTypeCombination` to type `Cart`
+- added property `discountTypeCombination` to type `StagedOrder`
+- added property `discountTypeCombination` to type `Order`
 - added property `businessUnit` to type `ShoppingList`
 - added property `businessUnit` to type `ShoppingListDraft`
 </details>
