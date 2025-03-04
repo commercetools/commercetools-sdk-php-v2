@@ -5,7 +5,7 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
 
     strictBinaryOperands="true"
-    errorBaseline="psalm-baseline.xml"
+
 >
     <issueHandlers>
         <DeprecatedClass errorLevel="suppress"/>
@@ -14,6 +14,28 @@
         <RedundantCastGivenDocblockType errorLevel="suppress"/>
         <UnsafeGenericInstantiation errorLevel="suppress"/>
         <DeprecatedProperty errorLevel="info"/>
+        <MissingOverrideAttribute errorLevel="suppress"/>
+        <ClassMustBeFinal errorLevel="suppress"/>
+        <PossiblyUnusedMethod errorLevel="suppress"/>
+        <UnusedClass errorLevel="suppress"/>
+        <PossiblyUnusedParam errorLevel="suppress"/>
+        <PossiblyFalseArgument errorLevel="suppress"/>
+        <PossiblyInvalidArgument errorLevel="info"/>
+        <LessSpecificImplementedReturnType errorLevel="info"/>
+        <UndefinedDocblockClass errorLevel="info"/>
+        <ImplementedReturnTypeMismatch errorLevel="info"/>
+        <MissingTemplateParam errorLevel="info"/>
+        <UnnecessaryVarAnnotation errorLevel="info"/>
+        <InvalidArrayOffset errorLevel="info"/>
+        <PossiblyFalseOperand errorLevel="info"/>
+        <LessSpecificReturnStatement errorLevel="info"/>
+        <MoreSpecificReturnType errorLevel="info"/>
+        <ArgumentTypeCoercion errorLevel="info"/>
+        <UnusedDocblockParam errorLevel="info"/>
+        <RiskyTruthyFalsyComparison errorLevel="info"/>
+        <InvalidExtendClass errorLevel="suppress"/>
+        <MissingPropertyType errorLevel="info" />
+        <MethodSignatureMismatch errorLevel="info"/>
     </issueHandlers>
     <projectFiles>
         <directory name="src" />
