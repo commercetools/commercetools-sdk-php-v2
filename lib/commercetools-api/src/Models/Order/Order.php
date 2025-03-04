@@ -14,6 +14,7 @@ use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\DiscountOnTotalPrice;
+use Commercetools\Api\Models\Cart\DiscountTypeCombination;
 use Commercetools\Api\Models\Cart\LineItemCollection;
 use Commercetools\Api\Models\Cart\ShippingCollection;
 use Commercetools\Api\Models\Cart\ShippingInfo;
@@ -80,6 +81,7 @@ interface Order extends BaseResource
     public const FIELD_STATE = 'state';
     public const FIELD_SYNC_INFO = 'syncInfo';
     public const FIELD_RETURN_INFO = 'returnInfo';
+    public const FIELD_DISCOUNT_TYPE_COMBINATION = 'discountTypeCombination';
     public const FIELD_LAST_MESSAGE_SEQUENCE_NUMBER = 'lastMessageSequenceNumber';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_COMPLETED_AT = 'completedAt';
@@ -463,6 +465,14 @@ interface Order extends BaseResource
     public function getReturnInfo();
 
     /**
+     * <p>Indicates if a combination of discount types can apply on an Order.</p>
+     *
+
+     * @return null|DiscountTypeCombination
+     */
+    public function getDiscountTypeCombination();
+
+    /**
      * <p>Internal-only field.</p>
      *
      * @deprecated
@@ -738,6 +748,11 @@ interface Order extends BaseResource
      * @param ?ReturnInfoCollection $returnInfo
      */
     public function setReturnInfo(?ReturnInfoCollection $returnInfo): void;
+
+    /**
+     * @param ?DiscountTypeCombination $discountTypeCombination
+     */
+    public function setDiscountTypeCombination(?DiscountTypeCombination $discountTypeCombination): void;
 
     /**
      * @param ?int $lastMessageSequenceNumber

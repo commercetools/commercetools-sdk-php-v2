@@ -17,6 +17,8 @@ use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\DiscountOnTotalPrice;
 use Commercetools\Api\Models\Cart\DiscountOnTotalPriceModel;
+use Commercetools\Api\Models\Cart\DiscountTypeCombination;
+use Commercetools\Api\Models\Cart\DiscountTypeCombinationModel;
 use Commercetools\Api\Models\Cart\LineItemCollection;
 use Commercetools\Api\Models\Cart\ShippingCollection;
 use Commercetools\Api\Models\Cart\ShippingInfo;
@@ -338,6 +340,12 @@ final class OrderModel extends JsonObjectModel implements Order
     protected $returnInfo;
 
     /**
+     *
+     * @var ?DiscountTypeCombination
+     */
+    protected $discountTypeCombination;
+
+    /**
      * @deprecated
      * @var ?int
      */
@@ -418,6 +426,7 @@ final class OrderModel extends JsonObjectModel implements Order
         ?StateReference $state = null,
         ?SyncInfoCollection $syncInfo = null,
         ?ReturnInfoCollection $returnInfo = null,
+        ?DiscountTypeCombination $discountTypeCombination = null,
         ?int $lastMessageSequenceNumber = null,
         ?CustomFields $custom = null,
         ?DateTimeImmutable $completedAt = null,
@@ -470,6 +479,7 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->state = $state;
         $this->syncInfo = $syncInfo;
         $this->returnInfo = $returnInfo;
+        $this->discountTypeCombination = $discountTypeCombination;
         $this->lastMessageSequenceNumber = $lastMessageSequenceNumber;
         $this->custom = $custom;
         $this->completedAt = $completedAt;
@@ -1446,6 +1456,27 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
+     * <p>Indicates if a combination of discount types can apply on an Order.</p>
+     *
+     *
+     * @return null|DiscountTypeCombination
+     */
+    public function getDiscountTypeCombination()
+    {
+        if (is_null($this->discountTypeCombination)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISCOUNT_TYPE_COMBINATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = DiscountTypeCombinationModel::resolveDiscriminatorClass($data);
+            $this->discountTypeCombination = $className::of($data);
+        }
+
+        return $this->discountTypeCombination;
+    }
+
+    /**
      * <p>Internal-only field.</p>
      *
      * @deprecated
@@ -1920,6 +1951,14 @@ final class OrderModel extends JsonObjectModel implements Order
     public function setReturnInfo(?ReturnInfoCollection $returnInfo): void
     {
         $this->returnInfo = $returnInfo;
+    }
+
+    /**
+     * @param ?DiscountTypeCombination $discountTypeCombination
+     */
+    public function setDiscountTypeCombination(?DiscountTypeCombination $discountTypeCombination): void
+    {
+        $this->discountTypeCombination = $discountTypeCombination;
     }
 
     /**

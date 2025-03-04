@@ -17,6 +17,8 @@ use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\DiscountOnTotalPrice;
 use Commercetools\Api\Models\Cart\DiscountOnTotalPriceBuilder;
+use Commercetools\Api\Models\Cart\DiscountTypeCombination;
+use Commercetools\Api\Models\Cart\DiscountTypeCombinationBuilder;
 use Commercetools\Api\Models\Cart\LineItemCollection;
 use Commercetools\Api\Models\Cart\ShippingCollection;
 use Commercetools\Api\Models\Cart\ShippingInfo;
@@ -339,6 +341,12 @@ final class StagedOrderBuilder implements Builder
      * @var ?ReturnInfoCollection
      */
     private $returnInfo;
+
+    /**
+
+     * @var null|DiscountTypeCombination|DiscountTypeCombinationBuilder
+     */
+    private $discountTypeCombination;
 
     /**
      * @deprecated
@@ -898,6 +906,17 @@ final class StagedOrderBuilder implements Builder
     public function getReturnInfo()
     {
         return $this->returnInfo;
+    }
+
+    /**
+     * <p>Indicates if a combination of discount types can apply on an Order.</p>
+     *
+
+     * @return null|DiscountTypeCombination
+     */
+    public function getDiscountTypeCombination()
+    {
+        return $this->discountTypeCombination instanceof DiscountTypeCombinationBuilder ? $this->discountTypeCombination->build() : $this->discountTypeCombination;
     }
 
     /**
@@ -1463,6 +1482,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountTypeCombination $discountTypeCombination
+     * @return $this
+     */
+    public function withDiscountTypeCombination(?DiscountTypeCombination $discountTypeCombination)
+    {
+        $this->discountTypeCombination = $discountTypeCombination;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $lastMessageSequenceNumber
      * @return $this
      */
@@ -1694,6 +1724,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscountTypeCombination() instead
+     * @return $this
+     */
+    public function withDiscountTypeCombinationBuilder(?DiscountTypeCombinationBuilder $discountTypeCombination)
+    {
+        $this->discountTypeCombination = $discountTypeCombination;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustom() instead
      * @return $this
      */
@@ -1775,6 +1816,7 @@ final class StagedOrderBuilder implements Builder
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
             $this->syncInfo,
             $this->returnInfo,
+            $this->discountTypeCombination instanceof DiscountTypeCombinationBuilder ? $this->discountTypeCombination->build() : $this->discountTypeCombination,
             $this->lastMessageSequenceNumber,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->completedAt,

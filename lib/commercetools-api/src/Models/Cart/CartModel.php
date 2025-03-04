@@ -284,6 +284,12 @@ final class CartModel extends JsonObjectModel implements Cart
 
     /**
      *
+     * @var ?DiscountTypeCombination
+     */
+    protected $discountTypeCombination;
+
+    /**
+     *
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
@@ -345,6 +351,7 @@ final class CartModel extends JsonObjectModel implements Cart
         ?string $locale = null,
         ?string $origin = null,
         ?CustomFields $custom = null,
+        ?DiscountTypeCombination $discountTypeCombination = null,
         ?int $deleteDaysAfterLastModification = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null
@@ -389,6 +396,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->locale = $locale;
         $this->origin = $origin;
         $this->custom = $custom;
+        $this->discountTypeCombination = $discountTypeCombination;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
@@ -1230,6 +1238,27 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * <p>Indicates if a combination of discount types can apply on a Cart.</p>
+     *
+     *
+     * @return null|DiscountTypeCombination
+     */
+    public function getDiscountTypeCombination()
+    {
+        if (is_null($this->discountTypeCombination)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISCOUNT_TYPE_COMBINATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = DiscountTypeCombinationModel::resolveDiscriminatorClass($data);
+            $this->discountTypeCombination = $className::of($data);
+        }
+
+        return $this->discountTypeCombination;
+    }
+
+    /**
      * <p>Number of days after which an active Cart is deleted since its last modification. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
      *
@@ -1610,6 +1639,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?DiscountTypeCombination $discountTypeCombination
+     */
+    public function setDiscountTypeCombination(?DiscountTypeCombination $discountTypeCombination): void
+    {
+        $this->discountTypeCombination = $discountTypeCombination;
     }
 
     /**
