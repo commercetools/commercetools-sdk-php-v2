@@ -10,6 +10,8 @@
 /lib/commercetools-base/test export-ignore
 /lib/commercetools-base/gen.properties export-ignore
 /lib/commercetools-base/psalm.xml export-ignore
+/lib/commercetools-history/docs export-ignore
+/lib/commercetools-history-tests export-ignore
 /lib/commercetools-import/docs export-ignore
 /lib/commercetools-import-tests export-ignore
 /lib/commercetools-import/gen.properties export-ignore
