@@ -818,7 +818,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-asassociate-withassociateidvalueassociateid-inbusinessunitkeywithbusinessunitkeyvaluebusinessunitkey-orders-orderquote-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;asAssociate()-&gt;withAssociateIdValue("associateId")-&gt;inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")-&gt;orders()-&gt;orderQuote()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates an Order from a [Quote](ctp:api:type:Cart) in a [BusinessUnit](ctp:api:type:BusinessUnit). Creating an Order fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Quote does not reference the same BusinessUnit as the <code>businessUnitKey</code> path parameter.</p>
+<p>Creates an Order from a [Quote](ctp:api:type:Quote) in a [BusinessUnit](ctp:api:type:BusinessUnit).</p>
+<p>The Quote must reference the same Business Unit as the <code>businessUnitKey</code> path parameter, must have the <code>Pending</code> [state](ctp:api:type:QuoteState), and must be valid (not past the <code>validTo</code> date). If these criteria are not met, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.</p>
 <p>Specific Error Codes:</p>
 <ul>
 <li>[InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)</li>
@@ -2484,6 +2485,7 @@ Example</h2>
 <div class="line">                -&gt;delete();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-customers-emailconfirm-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;customers()-&gt;emailConfirm()-&gt;post(null)&lt;/tt&gt;</h1>
+<p>Use this method to verify a global Customer's email during their <a href="../..//../api/customers-overview#customer-email-verification">email verification process</a>.</p>
 <p>Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.</p>
 <h2><a class="anchor" id="example-195"></a>
 Example</h2>
@@ -2497,7 +2499,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-customers-emailtoken-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;customers()-&gt;emailToken()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Produces the [CustomerEmailTokenCreated](ctp:api:type:CustomerEmailTokenCreatedMessage) Message.</p>
+<p>Use this method to create an email token for a global Customer during their <a href="../..//../api/customers-overview#customer-email-verification">email verification process</a>.</p>
+<p>Creating an email token for the Customer produces the [CustomerEmailTokenCreated](ctp:api:type:CustomerEmailTokenCreatedMessage) Message.</p>
 <h2><a class="anchor" id="example-196"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -2510,7 +2513,7 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-customers-withemailtokenemailtoken-get"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;customers()-&gt;withEmailToken("emailToken")-&gt;get()&lt;/tt&gt;</h1>
-<p>null</p>
+<p>Use this method to retrieve a global Customer's details by using the email token during their <a href="../..//../api/customers-overview#customer-email-verification">email verification process</a>.</p>
 <h2><a class="anchor" id="example-197"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -2588,6 +2591,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-customers-passwordreset-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;customers()-&gt;passwordReset()-&gt;post(null)&lt;/tt&gt;</h1>
+<p>Use this method to reset a global Customer's password during their <a href="../..//../api/customers-overview#customer-password-reset">password reset process</a>.</p>
+<p>After the password is reset, any previously issued access and/or refresh tokens created through the <a href="../..//authorization#password-flow">password flow</a> or <a href="../..//authorization#refresh-token-flow">refresh token flow</a> are invalidated.</p>
 <p>Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with <code>reset=true</code>.</p>
 <h2><a class="anchor" id="example-203"></a>
 Example</h2>
@@ -2601,7 +2606,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-customers-passwordtoken-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;customers()-&gt;passwordToken()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>null</p>
+<p>Use this method to create a password reset token for a global Customer during their <a href="../..//../api/customers-overview#customer-password-reset">password reset process</a>.</p>
+<p>Creating a password reset token does not invalidate existing tokens.</p>
 <h2><a class="anchor" id="example-204"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -2614,7 +2620,7 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-customers-withpasswordtokenpasswordtoken-get"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;customers()-&gt;withPasswordToken("passwordToken")-&gt;get()&lt;/tt&gt;</h1>
-<p>null</p>
+<p>Use this method to retrieve the details of a global Customer by using the password token during their <a href="../..//../api/customers-overview#customer-password-reset">password reset process</a>.</p>
 <h2><a class="anchor" id="example-205"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -3591,7 +3597,8 @@ Example</h2>
 <div class="line">                -&gt;delete();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-instorekeywithstorekeyvaluestorekey-customers-emailconfirm-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;inStoreKeyWithStoreKeyValue("storeKey")-&gt;customers()-&gt;emailConfirm()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>The customer verifies the email using the token value. Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.</p>
+<p>Use this method to verify a Store-specific Customer's email during their <a href="../..//../api/customers-overview#customer-email-verification">email verification process</a>.</p>
+<p>Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.</p>
 <p>If the Customer exists in the Project but the <code>stores</code> field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.</p>
 <h2><a class="anchor" id="example-276"></a>
 Example</h2>
@@ -3606,6 +3613,7 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-instorekeywithstorekeyvaluestorekey-customers-emailtoken-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;inStoreKeyWithStoreKeyValue("storeKey")-&gt;customers()-&gt;emailToken()-&gt;post(null)&lt;/tt&gt;</h1>
+<p>Use this method to create an email token for a Store-specific Customer during their <a href="../..//../api/customers-overview#customer-email-verification">email verification process</a>.</p>
 <p>If the Customer exists in the Project but the <code>stores</code> field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.</p>
 <h2><a class="anchor" id="example-277"></a>
 Example</h2>
@@ -3620,6 +3628,7 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-instorekeywithstorekeyvaluestorekey-customers-withemailtokenemailtoken-get"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;inStoreKeyWithStoreKeyValue("storeKey")-&gt;customers()-&gt;withEmailToken("emailToken")-&gt;get()&lt;/tt&gt;</h1>
+<p>Use this method to retrieve a Store-specific Customer's details by using the email token during their <a href="../..//../api/customers-overview#customer-email-verification">email verification process</a>.</p>
 <p>If the Customer exists in the Project but the <code>stores</code> field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.</p>
 <h2><a class="anchor" id="example-278"></a>
 Example</h2>
@@ -3706,8 +3715,10 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-instorekeywithstorekeyvaluestorekey-customers-passwordreset-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;inStoreKeyWithStoreKeyValue("storeKey")-&gt;customers()-&gt;passwordReset()-&gt;post(null)&lt;/tt&gt;</h1>
+<p>Use this method to reset a Store-specific Customer's password during their <a href="../..//../api/customers-overview#customer-password-reset">password reset process</a>.</p>
+<p>After the password is reset, any previously issued access and/or refresh tokens created through the <a href="../..//authorization#password-flow">password flow</a> or <a href="../..//authorization#refresh-token-flow">refresh token flow</a> are invalidated.</p>
 <p>Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with <code>reset=true</code>.</p>
-<p>If the Customer exists in the Project but the <code>stores</code> field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.</p>
+<p>If the Customer exists in the Project but the <code>stores</code> field references a different [Store](ctp:api:type:Store), then this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.</p>
 <h2><a class="anchor" id="example-284"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../d6/d67/class_commercetools_1_1_api_1_1_client_1_1_api_request_builder.html">Commercetools\Api\Client\ApiRequestBuilder</a>;</div>
@@ -3721,6 +3732,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-instorekeywithstorekeyvaluestorekey-customers-passwordtoken-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;inStoreKeyWithStoreKeyValue("storeKey")-&gt;customers()-&gt;passwordToken()-&gt;post(null)&lt;/tt&gt;</h1>
+<p>Use this method to create a password reset token for a Store-specific Customer during their <a href="../..//../api/customers-overview#customer-password-reset">password reset process</a>.</p>
+<p>Creating a password reset token does not invalidate existing tokens.</p>
 <p>If the Customer exists in the Project but the <code>stores</code> field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.</p>
 <h2><a class="anchor" id="example-285"></a>
 Example</h2>
@@ -3735,6 +3748,7 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-instorekeywithstorekeyvaluestorekey-customers-withpasswordtokenpasswordtoken-get"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;inStoreKeyWithStoreKeyValue("storeKey")-&gt;customers()-&gt;withPasswordToken("passwordToken")-&gt;get()&lt;/tt&gt;</h1>
+<p>Use this method to retrieve a Store-specific Customer's details by using the password reset token during their <a href="../..//../api/customers-overview#customer-password-reset">password reset process</a>.</p>
 <p>If the Customer exists in the Project but the <code>stores</code> field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.</p>
 <h2><a class="anchor" id="example-286"></a>
 Example</h2>
@@ -4581,11 +4595,11 @@ Example</h2>
 <div class="line">                -&gt;delete();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-instorekeywithstorekeyvaluestorekey-orders-orderquote-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;inStoreKeyWithStoreKeyValue("storeKey")-&gt;orders()-&gt;orderQuote()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.</p>
+<p>Creates an Order from a [Quote](ctp:api:type:Quote) in a [Store](ctp:api:type:Store). The referenced Quote must have the <code>Pending</code> [state](ctp:api:type:QuoteState) and must be valid (not past the <code>validTo</code> date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.</p>
+<p>Produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.</p>
 <p>Specific Error Codes:</p>
 <ul>
 <li>[OutOfStock](ctp:api:type:OutOfStockError)</li>
-<li>[PriceChanged](ctp:api:type:PriceChangedError)</li>
 <li>[InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)</li>
 <li>[InvalidOperation](ctp:api:type:InvalidOperationError)</li>
 <li>[CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)</li>
@@ -6095,12 +6109,12 @@ Example</h2>
 <div class="line">                -&gt;head();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-me-orders-orderquote-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;me()-&gt;orders()-&gt;orderQuote()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>When creating <a href="../..//associates-overview#b2b-resources">B2B Orders</a>, the Customer must have the <code>CreateMyOrdersFromMyQuotes</code> [Permission](ctp:api:type:Permission).</p>
-<p>Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.</p>
+<p>Creates an Order from a [Quote](ctp:api:type:Quote). To create <a href="../..//associates-overview#b2b-resources">B2B Orders</a>, the Customer must have the <code>CreateMyOrdersFromMyQuotes</code> [Permission](ctp:api:type:Permission).</p>
+<p>The referenced Quote must have the <code>Pending</code> [state](ctp:api:type:QuoteState) and must be valid (not past the <code>validTo</code> date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.</p>
+<p>Produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.</p>
 <p>Specific Error Codes:</p>
 <ul>
 <li>[OutOfStock](ctp:api:type:OutOfStockError)</li>
-<li>[PriceChanged](ctp:api:type:PriceChangedError)</li>
 <li>[InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)</li>
 <li>[CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)</li>
 <li>[AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError)</li>
@@ -7078,14 +7092,14 @@ Example</h2>
 <div class="line">                -&gt;delete();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyprojectkey-orders-orderquote-postnull"></a>
 &lt;tt&gt;withProjectKey("projectKey")-&gt;orders()-&gt;orderQuote()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.</p>
+<p>Creates an Order from a Quote. The referenced Quote must have the <code>Pending</code> [state](ctp:api:type:QuoteState) and must be valid (not past the <code>validTo</code> date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.</p>
+<p>Produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.</p>
 <p>Specific Error Codes:</p>
 <ul>
 <li>[CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)</li>
 <li>[InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)</li>
 <li>[InvalidOperation](ctp:api:type:InvalidOperationError)</li>
 <li>[OutOfStock](ctp:api:type:OutOfStockError)</li>
-<li>[PriceChanged](ctp:api:type:PriceChangedError)</li>
 </ul>
 <h2><a class="anchor" id="example-502"></a>
 Example</h2>

@@ -120,7 +120,7 @@ $(document).ready(function() { init_codefold(1); });
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../db/daa/class_commercetools_1_1_client_1_1_api_request.html#a30249c1f72c60e0731c697fd768d3981">   56</a></span>    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code hl_function" href="../../db/daa/class_commercetools_1_1_client_1_1_api_request.html#a30249c1f72c60e0731c697fd768d3981">ensureHeader</a>(array $headers, <span class="keywordtype">string</span> $header, $defaultValue): array</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        $normalizedHeader = strtolower($header);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">foreach</span> ($headers as $headerName =&gt; $value) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">foreach</span> (array_keys($headers) as $headerName) {</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            $normalized = strtolower($headerName);</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">if</span> ($normalized !== $normalizedHeader) {</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                <span class="keywordflow">continue</span>;</div>

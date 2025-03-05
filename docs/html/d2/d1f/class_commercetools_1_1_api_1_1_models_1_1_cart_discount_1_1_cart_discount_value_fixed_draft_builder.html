@@ -167,8 +167,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Money values provided either in <a href="../../ctp:api:type:Money">cent precision</a> or <a href="../../ctp:api:type:HighPrecisionMoneyDraft">high precision</a> for different currencies. A fixed Cart Discount will match a price only if the array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be discounted by 10€ and the matching $ price will be discounted to 15$. If the array has multiple values of the same currency, the API returns an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error.</p>
-<p>If the array is empty, the discount does not apply.</p>
+<p>Money values provided either in <a href="../../ctp:api:type:Money">cent precision</a> or <a href="../../ctp:api:type:HighPrecisionMoneyDraft">high precision</a> for different currencies. A fixed Cart Discount will match a price only if the array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be discounted by 10€ and the matching $ price will be discounted to 15$.</p>
+<p>If the array is empty or has multiple values of the same currency, the API returns an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|MoneyCollection </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d50/_cart_discount_value_fixed_draft_builder_8php_source.html#l00044">44</a> of file <a class="el" href="../../d1/d50/_cart_discount_value_fixed_draft_builder_8php_source.html">CartDiscountValueFixedDraftBuilder.php</a>.</p>

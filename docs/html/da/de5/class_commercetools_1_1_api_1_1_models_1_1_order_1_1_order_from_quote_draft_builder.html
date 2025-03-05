@@ -236,7 +236,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Quote from which the Order is created. If the referenced <a href="../../ctp:api:type:Quote">Quote</a> has expired (<code>validTo</code> check) or its <code>quoteState</code> is <code>Accepted</code>, <code>Declined</code>, or <code>Withdrawn</code>, the Order creation will fail.</p>
+<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Quote from which the Order is created.</p>
+<p>The <a href="../../ctp:api:type:Quote">Quote</a> must have the <code>Pending</code> <a href="../../ctp:api:type:QuoteState">state</a> and must be valid (not past the <code>validTo</code> date).</p>
 <dl class="section return"><dt>Returns</dt><dd>null|QuoteResourceIdentifier </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d0c/_order_from_quote_draft_builder_8php_source.html#l00082">82</a> of file <a class="el" href="../../d7/d0c/_order_from_quote_draft_builder_8php_source.html">OrderFromQuoteDraftBuilder.php</a>.</p>
@@ -477,7 +478,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002237">Deprecated:</a></b></dt><dd>use withQuote() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002239">Deprecated:</a></b></dt><dd>use withQuote() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d0c/_order_from_quote_draft_builder_8php_source.html#l00257">257</a> of file <a class="el" href="../../d7/d0c/_order_from_quote_draft_builder_8php_source.html">OrderFromQuoteDraftBuilder.php</a>.</p>
@@ -580,7 +581,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002238">Deprecated:</a></b></dt><dd>use withState() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002240">Deprecated:</a></b></dt><dd>use withState() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d0c/_order_from_quote_draft_builder_8php_source.html#l00268">268</a> of file <a class="el" href="../../d7/d0c/_order_from_quote_draft_builder_8php_source.html">OrderFromQuoteDraftBuilder.php</a>.</p>

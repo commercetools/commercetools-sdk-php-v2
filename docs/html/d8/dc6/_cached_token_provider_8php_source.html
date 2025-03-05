@@ -125,61 +125,59 @@ $(document).ready(function() { init_codefold(1); });
 <div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#a96d7d303a9c05f51e8ff861e741174d6">   55</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#a96d7d303a9c05f51e8ff861e741174d6">getToken</a>(): <a class="code hl_interface" href="../../d0/def/interface_commercetools_1_1_client_1_1_token.html">Token</a></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        $item = <span class="keyword">null</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        $token = $this-&gt;getCacheToken();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">if</span> (!is_null($token)) {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="../../d9/d36/class_commercetools_1_1_client_1_1_token_model.html">TokenModel</a>($token);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> $this-&gt;<a class="code hl_function" href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#ab994a83475c9280460126865d42206dd">refreshToken</a>();</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        $token = $this-&gt;getCacheToken();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">if</span> (!is_null($token)) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="../../d9/d36/class_commercetools_1_1_client_1_1_token_model.html">TokenModel</a>($token);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> $this-&gt;<a class="code hl_function" href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#ab994a83475c9280460126865d42206dd">refreshToken</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#ab994a83475c9280460126865d42206dd">   70</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#ab994a83475c9280460126865d42206dd">refreshToken</a>(): <a class="code hl_interface" href="../../d0/def/interface_commercetools_1_1_client_1_1_token.html">Token</a></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        $token = $this-&gt;provider-&gt;refreshToken();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">// ensure token to be invalidated in cache before TTL</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        $ttl = max(1, ($token-&gt;getExpiresIn() - 300));</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#ab994a83475c9280460126865d42206dd">   68</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#ab994a83475c9280460126865d42206dd">refreshToken</a>(): <a class="code hl_interface" href="../../d0/def/interface_commercetools_1_1_client_1_1_token.html">Token</a></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        $token = $this-&gt;provider-&gt;refreshToken();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="comment">// ensure token to be invalidated in cache before TTL</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        $ttl = max(1, ($token-&gt;getExpiresIn() - 300));</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        $this-&gt;cache($token, $ttl);</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        $this-&gt;cache($token, $ttl);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> $token;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">return</span> $token;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
 </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">private</span> <span class="keyword">function</span> getCacheToken(): ?string</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        $cache = $this-&gt;cache;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">if</span> ($cache instanceof CacheInterface) {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">return</span> $cache-&gt;get($this-&gt;cacheKey, <span class="keyword">null</span>);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        $item = $cache-&gt;getItem($this-&gt;cacheKey);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">if</span> ($item-&gt;isHit()) {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">return</span> (<span class="keywordtype">string</span>)$item-&gt;get();</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">private</span> <span class="keyword">function</span> cache(Token $token, <span class="keywordtype">int</span> $ttl): void</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        $cache = $this-&gt;cache;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">if</span> ($cache instanceof CacheInterface) {</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            $cache-&gt;set($this-&gt;cacheKey, $token-&gt;getValue(), $ttl);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            $item = $cache-&gt;getItem($this-&gt;cacheKey)-&gt;set($token-&gt;getValue())-&gt;expiresAfter($ttl);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            $cache-&gt;save($item);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">private</span> <span class="keyword">function</span> getCacheToken(): ?string</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        $cache = $this-&gt;cache;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">if</span> ($cache instanceof CacheInterface) {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> $cache-&gt;get($this-&gt;cacheKey, <span class="keyword">null</span>);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        $item = $cache-&gt;getItem($this-&gt;cacheKey);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">if</span> ($item-&gt;isHit()) {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">return</span> (<span class="keywordtype">string</span>)$item-&gt;get();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">private</span> <span class="keyword">function</span> cache(Token $token, <span class="keywordtype">int</span> $ttl): void</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        $cache = $this-&gt;cache;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">if</span> ($cache instanceof CacheInterface) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            $cache-&gt;set($this-&gt;cacheKey, $token-&gt;getValue(), $ttl);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            $item = $cache-&gt;getItem($this-&gt;cacheKey)-&gt;set($token-&gt;getValue())-&gt;expiresAfter($ttl);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            $cache-&gt;save($item);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
 </div>
 <div class="ttc" id="aclass_commercetools_1_1_client_1_1_cached_token_provider_html"><div class="ttname"><a href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html">Commercetools\Client\CachedTokenProvider</a></div><div class="ttdef"><b>Definition</b> <a href="../../d8/dc6/_cached_token_provider_8php_source.html#l00017">CachedTokenProvider.php:18</a></div></div>
 <div class="ttc" id="aclass_commercetools_1_1_client_1_1_cached_token_provider_html_a17a6ca14d096af3dcf94e60c432e6cc8"><div class="ttname"><a href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#a17a6ca14d096af3dcf94e60c432e6cc8">Commercetools\Client\CachedTokenProvider\TOKEN_CACHE_KEY</a></div><div class="ttdeci">const TOKEN_CACHE_KEY</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dc6/_cached_token_provider_8php_source.html#l00019">CachedTokenProvider.php:19</a></div></div>
 <div class="ttc" id="aclass_commercetools_1_1_client_1_1_cached_token_provider_html_a96d7d303a9c05f51e8ff861e741174d6"><div class="ttname"><a href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#a96d7d303a9c05f51e8ff861e741174d6">Commercetools\Client\CachedTokenProvider\getToken</a></div><div class="ttdeci">getToken()</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dc6/_cached_token_provider_8php_source.html#l00055">CachedTokenProvider.php:55</a></div></div>
-<div class="ttc" id="aclass_commercetools_1_1_client_1_1_cached_token_provider_html_ab994a83475c9280460126865d42206dd"><div class="ttname"><a href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#ab994a83475c9280460126865d42206dd">Commercetools\Client\CachedTokenProvider\refreshToken</a></div><div class="ttdeci">refreshToken()</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dc6/_cached_token_provider_8php_source.html#l00070">CachedTokenProvider.php:70</a></div></div>
+<div class="ttc" id="aclass_commercetools_1_1_client_1_1_cached_token_provider_html_ab994a83475c9280460126865d42206dd"><div class="ttname"><a href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#ab994a83475c9280460126865d42206dd">Commercetools\Client\CachedTokenProvider\refreshToken</a></div><div class="ttdeci">refreshToken()</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dc6/_cached_token_provider_8php_source.html#l00068">CachedTokenProvider.php:68</a></div></div>
 <div class="ttc" id="aclass_commercetools_1_1_client_1_1_cached_token_provider_html_ac9721cd97b62e1506e5ed0089203c3e2"><div class="ttname"><a href="../../d6/da1/class_commercetools_1_1_client_1_1_cached_token_provider.html#ac9721cd97b62e1506e5ed0089203c3e2">Commercetools\Client\CachedTokenProvider\__construct</a></div><div class="ttdeci">__construct(TokenProvider $provider, $cache, string $cacheKey=null)</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dc6/_cached_token_provider_8php_source.html#l00033">CachedTokenProvider.php:33</a></div></div>
 <div class="ttc" id="aclass_commercetools_1_1_client_1_1_token_model_html"><div class="ttname"><a href="../../d9/d36/class_commercetools_1_1_client_1_1_token_model.html">Commercetools\Client\TokenModel</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/dc3/_token_model_8php_source.html#l00015">TokenModel.php:16</a></div></div>
 <div class="ttc" id="aclass_commercetools_1_1_exception_1_1_invalid_argument_exception_html"><div class="ttname"><a href="../../da/dc8/class_commercetools_1_1_exception_1_1_invalid_argument_exception.html">Commercetools\Exception\InvalidArgumentException</a></div><div class="ttdef"><b>Definition</b> <a href="../../dd/ddb/_invalid_argument_exception_8php_source.html#l00014">InvalidArgumentException.php:15</a></div></div>

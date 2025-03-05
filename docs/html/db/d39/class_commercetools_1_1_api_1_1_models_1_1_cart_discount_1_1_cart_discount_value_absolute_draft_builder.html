@@ -167,8 +167,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Money values in different currencies. An absolute Cart Discount will match a price only if the array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$. If the array has multiple values of the same currency, the API returns an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error.</p>
-<p>If the array is empty, the discount does not apply.</p>
+<p>Money values in different currencies. An absolute Cart Discount will match a price only if the array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$.</p>
+<p>If the array is empty or has multiple values of the same currency, the API returns an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|MoneyCollection </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d50/_cart_discount_value_absolute_draft_builder_8php_source.html#l00044">44</a> of file <a class="el" href="../../da/d50/_cart_discount_value_absolute_draft_builder_8php_source.html">CartDiscountValueAbsoluteDraftBuilder.php</a>.</p>
