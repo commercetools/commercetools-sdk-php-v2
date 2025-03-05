@@ -28,7 +28,7 @@ abstract class MapperScalarSequence implements CSequence
      * @psalm-param ?array<int, TScalar|scalar> $data
      * @param array|null $data
      */
-    final public function __construct(array $data = null)
+    final public function __construct(?array $data = null)
     {
         if (!is_null($data)) {
             $this->index($data);

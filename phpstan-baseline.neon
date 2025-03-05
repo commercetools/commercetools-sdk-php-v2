@@ -1,0 +1,81 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: lib/commercetools-base/src/Base/BaseJsonObject.php
+
+		-
+			message: '#^Template type T of method Commercetools\\Base\\CMap\:\:of\(\) is not referenced in a parameter\.$#'
+			identifier: method.templateTypeNotInParameter
+			count: 1
+			path: lib/commercetools-base/src/Base/CMap.php
+
+
+		-
+			message: '#^Template type T of method Commercetools\\Base\\MapperMap\:\:of\(\) is not referenced in a parameter\.$#'
+			identifier: method.templateTypeNotInParameter
+			count: 1
+			path: lib/commercetools-base/src/Base/MapperMap.php
+
+		-
+			message: '#^@readonly property cannot have a default value\.$#'
+			identifier: property.readOnlyByPhpDocDefaultValue
+			count: 1
+			path: lib/commercetools-base/src/Client/ApiResource.php
+
+		-
+			message: '#^Class Commercetools\\Api\\Models\\Message\\MessageConfiguration not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: test/integration/MiscTest.php
+
+		-
+			message: '#^Undefined variable\: \$category$#'
+			identifier: variable.undefined
+			count: 2
+			path: test/integration/migration/GetById.php
+
+		-
+			message: '#^Undefined variable\: \$categoryDraft$#'
+			identifier: variable.undefined
+			count: 1
+			path: test/integration/migration/Headers.php
+
+		-
+			message: '#^Access to an undefined property Commercetools\\IntegrationTest\\migration\\MigrationService\:\:\$api\.$#'
+			identifier: property.notFound
+			count: 1
+			path: test/integration/migration/MigrationService.php
+
+		-
+			message: '#^Access to an undefined property Commercetools\\IntegrationTest\\migration\\MigrationService\:\:\$oAuth\.$#'
+			identifier: property.notFound
+			count: 1
+			path: test/integration/migration/MigrationService.php
+
+		-
+			message: '#^Undefined variable\: \$category$#'
+			identifier: variable.undefined
+			count: 2
+			path: test/integration/migration/Query.php
+
+		-
+			message: '#^Class Commercetools\\IntegrationTest\\migration\\ConnectException not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: test/integration/migration/Retry.php
+
+
+		-
+			message: '#^Parameter \$error of anonymous function has invalid type Commercetools\\IntegrationTest\\migration\\RequestException\.$#'
+			identifier: class.notFound
+			count: 1
+			path: test/integration/migration/Retry.php
+
+		-
+			message: '#^Undefined variable\: \$category$#'
+			identifier: variable.undefined
+			count: 3
+			path: test/integration/migration/UpdateCommand.php

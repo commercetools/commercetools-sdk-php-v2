@@ -18,7 +18,7 @@ class RefreshableTokenModel implements Token
     /** @var ?string */
     private $refreshToken;
 
-    public function __construct(string $value, int $expiresIn = null, ?string $refreshToken = null)
+    public function __construct(string $value, ?int $expiresIn = null, ?string $refreshToken = null)
     {
         $this->value = $value;
         $this->expiresIn = $expiresIn ?? 0;

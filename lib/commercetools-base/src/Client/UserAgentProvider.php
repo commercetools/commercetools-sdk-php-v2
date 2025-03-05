@@ -21,7 +21,7 @@ class UserAgentProvider
     private $userAgent;
     public const USER_AGENT = 'commercetools-sdk-php-v2';
 
-    public function __construct(string $suffix = null)
+    public function __construct(?string $suffix = null)
     {
         if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
             $clientVersion = (string) constant(ClientInterface::class . '::MAJOR_VERSION');

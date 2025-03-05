@@ -27,8 +27,8 @@ class MeConfig extends BaseAuthConfig implements BaseClientCredentialsConfig
         string $projectKey,
         ClientCredentials $credentials,
         array $clientOptions = [],
-        string $anonUri = null,
-        string $refreshUri = null,
+        ?string $anonUri = null,
+        ?string $refreshUri = null,
         string $authUri = self::AUTH_URI
     ) {
         parent::__construct($clientOptions, $authUri);

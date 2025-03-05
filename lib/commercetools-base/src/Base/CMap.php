@@ -38,7 +38,7 @@ interface CMap extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAgg
      * @psalm-param ?stdClass $data
      * @psalm-return static
      */
-    public static function fromStdClass(stdClass $data = null);
+    public static function fromStdClass(?stdClass $data = null);
 
     /**
      * @template T
@@ -62,7 +62,7 @@ interface CMap extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAgg
     /**
      * @return static|mixed
      */
-    public function with(string $key, callable $callable = null);
+    public function with(string $key, ?callable $callable = null);
 
     public function getIterator(): MapperIterator;
 

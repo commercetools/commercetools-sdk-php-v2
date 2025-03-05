@@ -30,7 +30,7 @@ class CachedTokenProvider implements TokenProvider
     /**
      * @psalm-param CacheItemPoolInterface|CacheInterface|mixed $cache
      */
-    public function __construct(TokenProvider $provider, $cache, string $cacheKey = null)
+    public function __construct(TokenProvider $provider, $cache, ?string $cacheKey = null)
     {
         $this->validateCache($cache);
         $this->cache = $cache;
