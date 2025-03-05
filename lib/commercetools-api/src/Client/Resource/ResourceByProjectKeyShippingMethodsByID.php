@@ -21,7 +21,7 @@ class ResourceByProjectKeyShippingMethodsByID extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/shipping-methods/{ID}', $args, $client);
     }

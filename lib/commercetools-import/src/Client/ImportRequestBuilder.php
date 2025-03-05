@@ -21,14 +21,14 @@ class ImportRequestBuilder extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(ClientInterface $client = null, array $args = [])
+    public function __construct(?ClientInterface $client = null, array $args = [])
     {
         parent::__construct('', $args, $client);
     }
 
     /**
      */
-    public function withProjectKeyValue(string $projectKey = null): ResourceByProjectKey
+    public function withProjectKeyValue(?string $projectKey = null): ResourceByProjectKey
     {
         $args = $this->getArgs();
         if (!is_null($projectKey)) {

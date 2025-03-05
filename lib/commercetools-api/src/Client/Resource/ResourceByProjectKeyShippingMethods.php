@@ -21,14 +21,14 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/shipping-methods', $args, $client);
     }
 
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyShippingMethodsKeyByKey
+    public function withKey(?string $key = null): ResourceByProjectKeyShippingMethodsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -71,7 +71,7 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyShippingMethodsByID
+    public function withId(?string $ID = null): ResourceByProjectKeyShippingMethodsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

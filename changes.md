@@ -1,6 +1,35 @@
 **Api changes**
 
 <details>
+<summary>Required Property(s)</summary>
+
+- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
+- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
+</details>
+
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `inheritedStores` to type `BusinessUnit`
+- added property `inheritedStores` to type `Company`
+- added property `inheritedStores` to type `Division`
+- added property `discountTypeCombination` to type `Cart`
+- added property `discountTypeCombination` to type `StagedOrder`
+- added property `discountTypeCombination` to type `Order`
+- added property `businessUnit` to type `ShoppingList`
+- added property `businessUnit` to type `ShoppingListDraft`
+</details>
+
+
+<details>
 <summary>Added Type(s)</summary>
 
 - added type `BestDeal`
@@ -22,31 +51,11 @@
 
 
 <details>
-<summary>Required Property(s)</summary>
+<summary>Added Resource(s)</summary>
 
-- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
-- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
-</details>
-
-
-<details>
-<summary>Added Property(s)</summary>
-
-- added property `inheritedStores` to type `BusinessUnit`
-- added property `inheritedStores` to type `Company`
-- added property `inheritedStores` to type `Division`
-- added property `discountTypeCombination` to type `Cart`
-- added property `discountTypeCombination` to type `StagedOrder`
-- added property `discountTypeCombination` to type `Order`
-- added property `businessUnit` to type `ShoppingList`
-- added property `businessUnit` to type `ShoppingListDraft`
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
 </details>
 
 
@@ -64,15 +73,6 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->post()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->delete()`
-</details>
-
-
-<details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
 </details>
 
 **History changes**

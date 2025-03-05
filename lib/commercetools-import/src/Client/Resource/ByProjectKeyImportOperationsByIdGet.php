@@ -38,7 +38,7 @@ class ByProjectKeyImportOperationsByIdGet extends ApiRequest implements SecuredB
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $id, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $id, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{id}'], [$projectKey, $id], '{projectKey}/import-operations/{id}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
@@ -49,7 +49,7 @@ class ByProjectKeyImportOperationsByIdGet extends ApiRequest implements SecuredB
      * @psalm-param ?class-string<T> $resultType
      * @return ErrorResponse|ImportOperation|JsonObject|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -84,7 +84,7 @@ class ByProjectKeyImportOperationsByIdGet extends ApiRequest implements SecuredB
      *
      * @return null|T|ErrorResponse|ImportOperation|JsonObject
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -107,7 +107,7 @@ class ByProjectKeyImportOperationsByIdGet extends ApiRequest implements SecuredB
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {

@@ -41,7 +41,7 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest implements PriceSelecti
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/products/key={key}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
@@ -52,7 +52,7 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest implements PriceSelecti
      * @psalm-param ?class-string<T> $resultType
      * @return ErrorResponse|JsonObject|Product|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -103,7 +103,7 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest implements PriceSelecti
      *
      * @return null|T|ErrorResponse|JsonObject|Product
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -126,7 +126,7 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest implements PriceSelecti
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {

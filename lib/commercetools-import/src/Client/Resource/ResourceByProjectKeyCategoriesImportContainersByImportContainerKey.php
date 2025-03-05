@@ -21,7 +21,7 @@ class ResourceByProjectKeyCategoriesImportContainersByImportContainerKey extends
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/categories/import-containers/{importContainerKey}', $args, $client);
     }

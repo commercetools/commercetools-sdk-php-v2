@@ -21,14 +21,14 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/quote-requests', $args, $client);
     }
 
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyQuoteRequestsKeyByKey
+    public function withKey(?string $key = null): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyQuoteRequestsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyQuoteRequestsByID
+    public function withId(?string $ID = null): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyQuoteRequestsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

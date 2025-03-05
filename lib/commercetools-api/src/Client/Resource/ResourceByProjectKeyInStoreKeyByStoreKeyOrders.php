@@ -21,7 +21,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/in-store/key={storeKey}/orders', $args, $client);
     }
@@ -36,7 +36,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
     }
     /**
      */
-    public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber
+    public function withOrderNumber(?string $orderNumber = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();
         if (!is_null($orderNumber)) {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID
+    public function withId(?string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

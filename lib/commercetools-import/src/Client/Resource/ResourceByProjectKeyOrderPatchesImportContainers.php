@@ -20,14 +20,14 @@ class ResourceByProjectKeyOrderPatchesImportContainers extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/order-patches/import-containers', $args, $client);
     }
 
     /**
      */
-    public function withImportContainerKeyValue(string $importContainerKey = null): ResourceByProjectKeyOrderPatchesImportContainersByImportContainerKey
+    public function withImportContainerKeyValue(?string $importContainerKey = null): ResourceByProjectKeyOrderPatchesImportContainersByImportContainerKey
     {
         $args = $this->getArgs();
         if (!is_null($importContainerKey)) {

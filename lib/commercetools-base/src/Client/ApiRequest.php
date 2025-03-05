@@ -56,7 +56,7 @@ class ApiRequest extends Request implements ApiRequestInterface
     protected function ensureHeader(array $headers, string $header, $defaultValue): array
     {
         $normalizedHeader = strtolower($header);
-        foreach ($headers as $headerName => $value) {
+        foreach (array_keys($headers) as $headerName) {
             $normalized = strtolower($headerName);
             if ($normalized !== $normalizedHeader) {
                 continue;
