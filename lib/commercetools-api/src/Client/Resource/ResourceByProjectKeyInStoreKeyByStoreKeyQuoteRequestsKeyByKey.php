@@ -21,7 +21,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyQuoteRequestsKeyByKey extends ApiR
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/in-store/key={storeKey}/quote-requests/key={key}', $args, $client);
     }

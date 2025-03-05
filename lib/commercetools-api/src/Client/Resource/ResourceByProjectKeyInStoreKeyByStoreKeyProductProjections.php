@@ -20,14 +20,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjections extends ApiReso
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/in-store/key={storeKey}/product-projections', $args, $client);
     }
 
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKey
+    public function withKey(?string $key = null): ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjections extends ApiReso
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByID
+    public function withId(?string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

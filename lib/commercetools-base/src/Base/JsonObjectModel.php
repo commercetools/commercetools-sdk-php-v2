@@ -48,7 +48,7 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
     /**
      * @return static|mixed
      */
-    public function with(callable $callable = null)
+    public function with(?callable $callable = null)
     {
         if (is_null($callable)) {
             return $this;

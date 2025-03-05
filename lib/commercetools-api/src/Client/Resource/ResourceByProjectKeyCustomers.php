@@ -21,14 +21,14 @@ class ResourceByProjectKeyCustomers extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/customers', $args, $client);
     }
 
     /**
      */
-    public function withPasswordToken(string $passwordToken = null): ResourceByProjectKeyCustomersPasswordTokenByPasswordToken
+    public function withPasswordToken(?string $passwordToken = null): ResourceByProjectKeyCustomersPasswordTokenByPasswordToken
     {
         $args = $this->getArgs();
         if (!is_null($passwordToken)) {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
     }
     /**
      */
-    public function withEmailToken(string $emailToken = null): ResourceByProjectKeyCustomersEmailTokenByEmailToken
+    public function withEmailToken(?string $emailToken = null): ResourceByProjectKeyCustomersEmailTokenByEmailToken
     {
         $args = $this->getArgs();
         if (!is_null($emailToken)) {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
     }
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyCustomersKeyByKey
+    public function withKey(?string $key = null): ResourceByProjectKeyCustomersKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyCustomersByID
+    public function withId(?string $ID = null): ResourceByProjectKeyCustomersByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

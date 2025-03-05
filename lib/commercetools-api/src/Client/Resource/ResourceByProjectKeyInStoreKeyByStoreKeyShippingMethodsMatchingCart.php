@@ -20,7 +20,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart extend
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/in-store/key={storeKey}/shipping-methods/matching-cart', $args, $client);
     }

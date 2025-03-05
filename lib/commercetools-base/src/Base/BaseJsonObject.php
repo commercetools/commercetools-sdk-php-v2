@@ -35,7 +35,7 @@ abstract class BaseJsonObject implements JsonObject
      * @psalm-param ?stdClass $data
      * @return static
      */
-    final public static function fromStdClass(stdClass $data = null)
+    final public static function fromStdClass(?stdClass $data = null)
     {
         $t = new static();
         $t->rawData = $data;

@@ -21,14 +21,14 @@ class ResourceByProjectKeyStagedQuotes extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/staged-quotes', $args, $client);
     }
 
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyStagedQuotesKeyByKey
+    public function withKey(?string $key = null): ResourceByProjectKeyStagedQuotesKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyStagedQuotes extends ApiResource
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyStagedQuotesByID
+    public function withId(?string $ID = null): ResourceByProjectKeyStagedQuotesByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

@@ -21,7 +21,7 @@ class ResourceByProjectKeyOrders extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/orders', $args, $client);
     }
@@ -44,7 +44,7 @@ class ResourceByProjectKeyOrders extends ApiResource
     }
     /**
      */
-    public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyOrdersOrderNumberByOrderNumber
+    public function withOrderNumber(?string $orderNumber = null): ResourceByProjectKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();
         if (!is_null($orderNumber)) {
@@ -63,7 +63,7 @@ class ResourceByProjectKeyOrders extends ApiResource
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyOrdersByID
+    public function withId(?string $ID = null): ResourceByProjectKeyOrdersByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

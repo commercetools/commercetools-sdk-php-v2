@@ -20,13 +20,13 @@ class ResourceByProjectKeyByResourceType extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null) {
+    public function __construct(array $args = [], ?ClientInterface $client = null) {
         parent::__construct('/{projectKey}/{resourceType}', $args, $client);
     }
 
     /**
      */
-    public function withIDValue(string $ID = null): ResourceByProjectKeyByResourceTypeByID
+    public function withIDValue(?string $ID = null): ResourceByProjectKeyByResourceTypeByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

@@ -37,7 +37,7 @@ class ByProjectKeyStagedQuotesKeyByKeyHead extends ApiRequest implements Errorab
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/staged-quotes/key={key}');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
@@ -48,7 +48,7 @@ class ByProjectKeyStagedQuotesKeyByKeyHead extends ApiRequest implements Errorab
      * @psalm-param ?class-string<T> $resultType
      * @return ErrorResponse|JsonObject|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -95,7 +95,7 @@ class ByProjectKeyStagedQuotesKeyByKeyHead extends ApiRequest implements Errorab
      *
      * @return null|T|ErrorResponse|JsonObject
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -118,7 +118,7 @@ class ByProjectKeyStagedQuotesKeyByKeyHead extends ApiRequest implements Errorab
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {

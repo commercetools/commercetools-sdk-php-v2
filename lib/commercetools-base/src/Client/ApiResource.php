@@ -35,7 +35,7 @@ class ApiResource
      * @param string $uri
      * @psalm-param array<string, string> $args
      */
-    public function __construct(string $uri = '', array $args = [], ClientInterface $client = null)
+    public function __construct(string $uri = '', array $args = [], ?ClientInterface $client = null)
     {
         $this->uri = $uri;
         $this->args = $args;

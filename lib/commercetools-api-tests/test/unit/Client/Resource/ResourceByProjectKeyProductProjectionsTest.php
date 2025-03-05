@@ -34,7 +34,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
     /**
      * @dataProvider getRequests()
      */
-    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, ?string $body = null)
     {
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);

@@ -21,14 +21,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/in-store/key={storeKey}/customers', $args, $client);
     }
 
     /**
      */
-    public function withPasswordToken(string $passwordToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken
+    public function withPasswordToken(?string $passwordToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken
     {
         $args = $this->getArgs();
         if (!is_null($passwordToken)) {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
     }
     /**
      */
-    public function withEmailToken(string $emailToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken
+    public function withEmailToken(?string $emailToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken
     {
         $args = $this->getArgs();
         if (!is_null($emailToken)) {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
     }
     /**
      */
-    public function withKey(string $key = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey
+    public function withKey(?string $key = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
     }
     /**
      */
-    public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID
+    public function withId(?string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {

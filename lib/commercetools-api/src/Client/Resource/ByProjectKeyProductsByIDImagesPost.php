@@ -36,7 +36,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
      * @param ?UploadedFileInterface  $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $ID, UploadedFileInterface $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $ID, ?UploadedFileInterface $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/products/{ID}/images');
         if (!is_null($body)) {
@@ -53,7 +53,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
      * @psalm-param ?class-string<T> $resultType
      * @return JsonObject|Product|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -84,7 +84,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
      *
      * @return null|T|JsonObject|Product
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -107,7 +107,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {

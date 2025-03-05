@@ -36,7 +36,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImagesP
      * @param ?UploadedFileInterface  $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $storeKey, string $productID, UploadedFileInterface $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $storeKey, string $productID, ?UploadedFileInterface $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{storeKey}', '{productID}'], [$projectKey, $storeKey, $productID], '{projectKey}/in-store/key={storeKey}/products/{productID}/product-tailoring/images');
         if (!is_null($body)) {
@@ -53,7 +53,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImagesP
      * @psalm-param ?class-string<T> $resultType
      * @return JsonObject|ProductTailoring|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -84,7 +84,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImagesP
      *
      * @return null|T|JsonObject|ProductTailoring
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -107,7 +107,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringImagesP
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {

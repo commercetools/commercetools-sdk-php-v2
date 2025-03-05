@@ -20,7 +20,7 @@ class ResourceByProjectKeyAsAssociateByAssociateId extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
+    public function __construct(array $args = [], ?ClientInterface $client = null)
     {
         parent::__construct('/{projectKey}/as-associate/{associateId}', $args, $client);
     }
@@ -35,7 +35,7 @@ class ResourceByProjectKeyAsAssociateByAssociateId extends ApiResource
     }
     /**
      */
-    public function inBusinessUnitKeyWithBusinessUnitKeyValue(string $businessUnitKey = null): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKey
+    public function inBusinessUnitKeyWithBusinessUnitKeyValue(?string $businessUnitKey = null): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKey
     {
         $args = $this->getArgs();
         if (!is_null($businessUnitKey)) {

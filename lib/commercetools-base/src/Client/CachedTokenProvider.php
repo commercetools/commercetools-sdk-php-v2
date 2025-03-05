@@ -54,8 +54,6 @@ class CachedTokenProvider implements TokenProvider
      */
     public function getToken(): Token
     {
-        $item = null;
-
         $token = $this->getCacheToken();
         if (!is_null($token)) {
             return new TokenModel($token);

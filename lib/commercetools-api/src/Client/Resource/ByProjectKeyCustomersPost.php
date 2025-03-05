@@ -40,7 +40,7 @@ class ByProjectKeyCustomersPost extends ApiRequest implements Expandable, Deprec
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/customers');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
@@ -51,7 +51,7 @@ class ByProjectKeyCustomersPost extends ApiRequest implements Expandable, Deprec
      * @psalm-param ?class-string<T> $resultType
      * @return CustomerSignInResult|ErrorResponse|JsonObject|T|null
      */
-    public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
+    public function mapFromResponse(?ResponseInterface $response, ?string $resultType = null)
     {
         if (is_null($response)) {
             return null;
@@ -102,7 +102,7 @@ class ByProjectKeyCustomersPost extends ApiRequest implements Expandable, Deprec
      *
      * @return null|T|CustomerSignInResult|ErrorResponse|JsonObject
      */
-    public function execute(array $options = [], string $resultType = null)
+    public function execute(array $options = [], ?string $resultType = null)
     {
         try {
             $response = $this->send($options);
@@ -125,7 +125,7 @@ class ByProjectKeyCustomersPost extends ApiRequest implements Expandable, Deprec
      *
      * @return PromiseInterface
      */
-    public function executeAsync(array $options = [], string $resultType = null)
+    public function executeAsync(array $options = [], ?string $resultType = null)
     {
         return $this->sendAsync($options)->then(
             function (ResponseInterface $response) use ($resultType) {
