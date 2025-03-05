@@ -26,7 +26,7 @@ class TokenModel implements Token
      */
     private $expiresIn;
 
-    public function __construct(string $value, int $expiresIn = null)
+    public function __construct(string $value, ?int $expiresIn = null)
     {
         $this->value = $value;
         $this->expiresIn = $expiresIn ?? 0;

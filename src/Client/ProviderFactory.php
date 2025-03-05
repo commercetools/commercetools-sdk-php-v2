@@ -14,7 +14,7 @@ class ProviderFactory
         ClientCredentials $credentials,
         Client $client,
         TokenStorage $storage,
-        AnonymousIdProvider $anonymousIdProvider = null
+        ?AnonymousIdProvider $anonymousIdProvider = null
     ): TokenStorageProvider {
         $refreshTokenProvider = $this->createRefreshFlowProvider($refreshTokenUrl, $credentials, $client, $storage);
         $anonProvider = $this->createAnonymousFlowProvider(
@@ -42,7 +42,7 @@ class ProviderFactory
         ClientCredentials $credentials,
         Client $client,
         RefreshFlowTokenProvider $refreshFlowTokenProvider,
-        AnonymousIdProvider $anonymousIdProvider = null
+        ?AnonymousIdProvider $anonymousIdProvider = null
     ): AnonymousFlowTokenProvider {
         return new AnonymousFlowTokenProvider(
             $client,

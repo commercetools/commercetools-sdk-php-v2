@@ -44,7 +44,7 @@ class AnonymousFlowTokenProvider implements TokenProvider
         string $accessTokenUrl,
         ClientCredentials $credentials,
         RefreshFlowTokenProvider $refreshTokenProvider,
-        AnonymousIdProvider $anonymousIdProvider = null
+        ?AnonymousIdProvider $anonymousIdProvider = null
     ) {
         $this->accessTokenUrl = $accessTokenUrl;
         $this->client = $client;
