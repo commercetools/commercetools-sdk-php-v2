@@ -1561,6 +1561,22 @@ $request = $builder
                 ->businessUnits()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue("businessUnitId", "associateId")->get()`
+
+Retrieves all roles and permissions of an Associate in a Business Unit.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withBusinessUnitIdValueAssociatesWithAssociateIdValue("businessUnitId", "associateId")
+                ->get();
+```
 ## `withProjectKey("projectKey")->businessUnits()->withId("ID")->get()`
 
 null
@@ -1680,6 +1696,22 @@ $request = $builder
                 ->businessUnits()
                 ->withKey("key")
                 ->delete();
+```
+## `withProjectKey("projectKey")->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue("key", "associateId")->get()`
+
+Retrieves all roles and permissions of an Associate in a Business Unit.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->keyWithKeyValueAssociatesWithAssociateIdValue("key", "associateId")
+                ->get();
 ```
 ## `withProjectKey("projectKey")->businessUnits()->search()->post(null)`
 
@@ -3463,6 +3495,23 @@ $request = $builder
                 ->businessUnits()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue("businessUnitId", "associateId")->get()`
+
+Retrieves all roles and permissions of an Associate in a Business Unit in a Store.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->withBusinessUnitIdValueAssociatesWithAssociateIdValue("businessUnitId", "associateId")
+                ->get();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withId("ID")->get()`
 
 null
@@ -3590,6 +3639,23 @@ $request = $builder
                 ->businessUnits()
                 ->withKey("key")
                 ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue("key", "associateId")->get()`
+
+Retrieves all roles and permissions of an Associate in a Business Unit in a Store.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->businessUnits()
+                ->keyWithKeyValueAssociatesWithAssociateIdValue("key", "associateId")
+                ->get();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->get()`
 
