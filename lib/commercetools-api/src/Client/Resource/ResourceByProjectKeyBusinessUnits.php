@@ -50,6 +50,36 @@ class ResourceByProjectKeyBusinessUnits extends ApiResource
     }
     /**
      */
+    public function keyWithKeyValueAssociatesWithAssociateIdValue(?string $key = null, ?string $associateId = null): ResourceByProjectKeyBusinessUnitsKeyByKeyAssociatesByAssociateId
+    {
+        $args = $this->getArgs();
+        if (!is_null($key)) {
+            $args['key'] = $key;
+        }
+
+        if (!is_null($associateId)) {
+            $args['associateId'] = $associateId;
+        }
+
+        return new ResourceByProjectKeyBusinessUnitsKeyByKeyAssociatesByAssociateId($args, $this->getClient());
+    }
+    /**
+     */
+    public function withBusinessUnitIdValueAssociatesWithAssociateIdValue(?string $businessUnitId = null, ?string $associateId = null): ResourceByProjectKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId
+    {
+        $args = $this->getArgs();
+        if (!is_null($businessUnitId)) {
+            $args['businessUnitId'] = $businessUnitId;
+        }
+
+        if (!is_null($associateId)) {
+            $args['associateId'] = $associateId;
+        }
+
+        return new ResourceByProjectKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId($args, $this->getClient());
+    }
+    /**
+     */
     public function search(): ResourceByProjectKeyBusinessUnitsSearch
     {
         $args = $this->getArgs();

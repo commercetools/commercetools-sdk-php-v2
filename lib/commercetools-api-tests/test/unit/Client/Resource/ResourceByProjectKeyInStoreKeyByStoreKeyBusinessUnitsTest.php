@@ -9,8 +9,10 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsKeyByKey;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsKeyByKeyAssociatesByAssociateId;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -273,6 +275,30 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsTest extends TestCase
                 ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByID::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'ID' => 'test_ID'],
                 '/{projectKey}/in-store/key={storeKey}/business-units/{ID}'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsKeyByKeyAssociatesByAssociateId' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsKeyByKeyAssociatesByAssociateId {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->businessUnits()
+                        ->keyWithKeyValueAssociatesWithAssociateIdValue("test_key", "test_associateId");
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsKeyByKeyAssociatesByAssociateId::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'key' => 'test_key', 'associateId' => 'test_associateId'],
+                '/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->businessUnits()
+                        ->withBusinessUnitIdValueAssociatesWithAssociateIdValue("test_businessUnitId", "test_associateId");
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'businessUnitId' => 'test_businessUnitId', 'associateId' => 'test_associateId'],
+                '/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}'
             ]
         ];
     }

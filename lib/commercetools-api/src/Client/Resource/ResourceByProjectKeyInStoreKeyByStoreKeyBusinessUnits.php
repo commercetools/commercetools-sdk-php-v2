@@ -48,6 +48,36 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnits extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByID($args, $this->getClient());
     }
+    /**
+     */
+    public function keyWithKeyValueAssociatesWithAssociateIdValue(?string $key = null, ?string $associateId = null): ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsKeyByKeyAssociatesByAssociateId
+    {
+        $args = $this->getArgs();
+        if (!is_null($key)) {
+            $args['key'] = $key;
+        }
+
+        if (!is_null($associateId)) {
+            $args['associateId'] = $associateId;
+        }
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsKeyByKeyAssociatesByAssociateId($args, $this->getClient());
+    }
+    /**
+     */
+    public function withBusinessUnitIdValueAssociatesWithAssociateIdValue(?string $businessUnitId = null, ?string $associateId = null): ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId
+    {
+        $args = $this->getArgs();
+        if (!is_null($businessUnitId)) {
+            $args['businessUnitId'] = $businessUnitId;
+        }
+
+        if (!is_null($associateId)) {
+            $args['associateId'] = $associateId;
+        }
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

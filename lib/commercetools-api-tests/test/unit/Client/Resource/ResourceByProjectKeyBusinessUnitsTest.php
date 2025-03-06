@@ -9,8 +9,10 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsKeyByKey;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsKeyByKeyAssociatesByAssociateId;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsSearch;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnitsSearchIndexingStatus;
 use Commercetools\Base\JsonObject;
@@ -261,6 +263,28 @@ class ResourceByProjectKeyBusinessUnitsTest extends TestCase
                 ResourceByProjectKeyBusinessUnitsByID::class,
                 ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/business-units/{ID}'
+            ],
+            'ResourceByProjectKeyBusinessUnitsKeyByKeyAssociatesByAssociateId' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyBusinessUnitsKeyByKeyAssociatesByAssociateId {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->businessUnits()
+                        ->keyWithKeyValueAssociatesWithAssociateIdValue("test_key", "test_associateId");
+                },
+                ResourceByProjectKeyBusinessUnitsKeyByKeyAssociatesByAssociateId::class,
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key', 'associateId' => 'test_associateId'],
+                '/{projectKey}/business-units/key={key}/associates/{associateId}'
+            ],
+            'ResourceByProjectKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->businessUnits()
+                        ->withBusinessUnitIdValueAssociatesWithAssociateIdValue("test_businessUnitId", "test_associateId");
+                },
+                ResourceByProjectKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateId::class,
+                ['projectKey' => 'test_projectKey', 'businessUnitId' => 'test_businessUnitId', 'associateId' => 'test_associateId'],
+                '/{projectKey}/business-units/{businessUnitId}/associates/{associateId}'
             ],
             'ResourceByProjectKeyBusinessUnitsSearch' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyBusinessUnitsSearch {
