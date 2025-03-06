@@ -52,7 +52,7 @@ interface CountOnLineItemUnits extends PatternComponent
      * The <code>minCount</code>and <code>maxCount</code> are considered only after the exclusion. Pattern components are matched only if any further units satisfying the pattern component exist.
      * For example, if 5 jeans are required but only 3 should be discounted, the <code>excludeCount</code> value must be 2.</p>
      *
-
+     * @deprecated
      * @return null|int
      */
     public function getExcludeCount();

@@ -30,6 +30,14 @@
 
 
 <details>
+<summary>MarkDeprecated Property(s)</summary>
+
+- marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
+- marked property `CountOnLineItemUnits::excludeCount` as deprecated
+</details>
+
+
+<details>
 <summary>Added Type(s)</summary>
 
 - added type `BusinessUnitAssociateResponse`
