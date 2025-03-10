@@ -68,6 +68,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomFieldAc
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomFieldActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomTypeActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetBusinessUnitAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetBusinessUnitActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;

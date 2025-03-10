@@ -210,6 +210,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'InventoryEntryQuantitySet' => InventoryEntryQuantitySetMessageModel::class,
        'LineItemStateTransition' => LineItemStateTransitionMessageModel::class,
        'OrderBillingAddressSet' => OrderBillingAddressSetMessageModel::class,
+       'OrderBusinessUnitSet' => OrderBusinessUnitSetMessageModel::class,
        'OrderCreated' => OrderCreatedMessageModel::class,
        'OrderCustomFieldAdded' => OrderCustomFieldAddedMessageModel::class,
        'OrderCustomFieldChanged' => OrderCustomFieldChangedMessageModel::class,

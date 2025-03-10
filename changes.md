@@ -45,7 +45,11 @@
 - added type `DiscountTypeCombination`
 - added type `Stacking`
 - added type `AssociateRoleNameSetMessage`
+- added type `OrderBusinessUnitSetMessage`
 - added type `AssociateRoleNameSetMessagePayload`
+- added type `OrderBusinessUnitSetMessagePayload`
+- added type `StagedOrderSetBusinessUnitAction`
+- added type `OrderSetBusinessUnitAction`
 - added type `ShoppingListSetBusinessUnitAction`
 </details>
 

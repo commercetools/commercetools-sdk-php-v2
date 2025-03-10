@@ -68,6 +68,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomFieldAc
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomFieldActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomTypeActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetBusinessUnitAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetBusinessUnitActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;
@@ -241,6 +243,7 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setBillingAddress' => StagedOrderSetBillingAddressActionModel::class,
        'setBillingAddressCustomField' => StagedOrderSetBillingAddressCustomFieldActionModel::class,
        'setBillingAddressCustomType' => StagedOrderSetBillingAddressCustomTypeActionModel::class,
+       'setBusinessUnit' => StagedOrderSetBusinessUnitActionModel::class,
        'setCountry' => StagedOrderSetCountryActionModel::class,
        'setCustomField' => StagedOrderSetCustomFieldActionModel::class,
        'setCustomLineItemCustomField' => StagedOrderSetCustomLineItemCustomFieldActionModel::class,

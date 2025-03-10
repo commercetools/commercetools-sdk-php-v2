@@ -48,6 +48,7 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
        'setBillingAddress' => OrderSetBillingAddressActionModel::class,
        'setBillingAddressCustomField' => OrderSetBillingAddressCustomFieldActionModel::class,
        'setBillingAddressCustomType' => OrderSetBillingAddressCustomTypeActionModel::class,
+       'setBusinessUnit' => OrderSetBusinessUnitActionModel::class,
        'setCustomField' => OrderSetCustomFieldActionModel::class,
        'setCustomLineItemCustomField' => OrderSetCustomLineItemCustomFieldActionModel::class,
        'setCustomLineItemCustomType' => OrderSetCustomLineItemCustomTypeActionModel::class,

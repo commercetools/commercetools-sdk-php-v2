@@ -38,6 +38,7 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderRemovePaymentAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetBusinessUnitAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupAction;
