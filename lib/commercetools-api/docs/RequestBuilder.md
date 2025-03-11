@@ -479,7 +479,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->post(null)`
 
-Creates a [Cart](ctp:api:type:Cart) in the [BusinessUnit](ctp:api:type:BusinessUnit) referenced by `businessUnitKey`. As such, the `businessUnit` field on [CartDraft](ctp:api:type:CartDraft) is ignored for this request.
+Creates a Cart in the [BusinessUnit](ctp:api:type:BusinessUnit) referenced by `businessUnitKey`. As such, the `businessUnit` field on [CartDraft](ctp:api:type:CartDraft) is ignored for this request.
 Creating a Cart can fail with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match the Cart.
 
 Specific Error Codes:
@@ -1926,7 +1926,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->get()`
 
-null
+Retrieves all Carts in the Project.
 
 ### Example
 ```php
@@ -1940,7 +1940,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->head()`
 
-Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate, or a `404 Not Found` otherwise.
+Checks if one or more Carts exist for the provided query predicate. Returns a `200 OK` status if any Carts match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1953,6 +1953,9 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->carts()->post(null)`
+
+
+Creates a Cart in the Project.
 
 If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, or if the Shipping Method is not active, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
@@ -1976,6 +1979,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->get()`
 
+Retrieves a Cart with the provided `id`.
 To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
 
@@ -1992,7 +1996,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->head()`
 
-Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+Checks if a Cart exists for the provided `id`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2007,7 +2011,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->post(null)`
 
-null
+Updates a Cart in the Project using one or more [update actions](/../projects/carts#update-actions).
 
 ### Example
 ```php
@@ -2022,7 +2026,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->delete()`
 
-null
+Deletes a Cart in the Project.
 
 ### Example
 ```php
@@ -2055,7 +2059,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withCustomerId("customerId")->head()`
 
-Checks if a Cart of a Customer exists. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+Checks if a Cart exists for a Customer. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2070,6 +2074,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->get()`
 
+Retrieves a Cart with the provided `key`.
 To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
 
 
@@ -2086,7 +2091,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->head()`
 
-Checks if a Cart exists for a given `key`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+Checks if a Cart exists for the provided `key`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2101,7 +2106,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->post(null)`
 
-null
+Updates a Cart in the Project using one or more [update actions](/../projects/carts#update-actions).
 
 ### Example
 ```php
@@ -2116,7 +2121,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->delete()`
 
-null
+Deletes a Cart in the Project.
 
 ### Example
 ```php
@@ -3843,7 +3848,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
 
-Queries Carts in a specific [Store](ctp:api:type:Store).
+Retrieves all Carts in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -3858,7 +3863,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->head()`
 
-Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more Carts exist for the provided query predicate in a [Store](ctp:api:type:Store). Returns a `200 OK` status if any Carts match the query predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -3873,7 +3878,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->post(null)`
 
-Creates a [Cart](ctp:api:type:Cart) in the [Store](ctp:api:type:Store) specified by `storeKey`.
+Creates a Cart in a [Store](ctp:api:type:Store).
 
 If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, or if the Shipping Method is not active, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
@@ -3899,6 +3904,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->get()`
 
+Retrieves a Cart with the provided `id` in a [Store](ctp:api:type:Store).
+
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 To ensure the Cart is up-to-date with current values (such as Prices and Discounts), use the [Recalculate](ctp:api:type:CartRecalculateAction) update action.
@@ -3918,7 +3925,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->head()`
 
-Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Cart exists for the provided `id` in a Store. Returns a `200 OK` status if the Cart exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -3934,7 +3941,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
-Updates a [Cart](ctp:api:type:Cart) in the [Store](ctp:api:type:Store) specified by `storeKey`.
+Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/../projects/carts#update-actions).
+
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
@@ -3951,6 +3959,8 @@ $request = $builder
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->delete()`
+
+Deletes a Cart in a [Store](ctp:api:type:Store).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -3990,7 +4000,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withCustomerId("customerId")->head()`
 
-Checks if a Cart of a Customer exists. Returns a `200 OK` status if the Cart exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more Carts exist for a Customer in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the Cart exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -4005,6 +4015,9 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
+
+
+Retrieves a Cart with the provided `key` in a [Store](ctp:api:type:Store).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4025,7 +4038,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->head()`
 
-Checks if a Cart exists for a given `key`. Returns a `200 OK` status if the Cart exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Cart exists for the provided `key` in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the Cart exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -4040,6 +4053,8 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->post(null)`
+
+Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/../projects/carts#update-actions).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4057,6 +4072,8 @@ $request = $builder
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->delete()`
+
+Deletes a Cart in a [Store](ctp:api:type:Store).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
