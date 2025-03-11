@@ -2011,7 +2011,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->post(null)`
 
-Updates a Cart in the Project using one or more [update actions](/../projects/carts#update-actions).
+Updates a Cart in the Project using one or more [update actions](/../api/projects/carts#update-actions).
 
 ### Example
 ```php
@@ -2106,7 +2106,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->post(null)`
 
-Updates a Cart in the Project using one or more [update actions](/../projects/carts#update-actions).
+Updates a Cart in the Project using one or more [update actions](/../api/projects/carts#update-actions).
 
 ### Example
 ```php
@@ -3941,7 +3941,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
-Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/../projects/carts#update-actions).
+Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/carts#update-actions).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4054,7 +4054,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->post(null)`
 
-Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/../projects/carts#update-actions).
+Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/carts#update-actions).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
