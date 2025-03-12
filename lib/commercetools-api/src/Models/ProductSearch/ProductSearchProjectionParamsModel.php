@@ -234,10 +234,11 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
 
     /**
      * <p><code>key</code> of an existing <a href="ctp:api:type:Store">Store</a>.
-     * If the Store has defined some languages, countries, distribution or supply Channels,
+     * If the Store has defined <code>languages</code>, <code>countries</code>, <code>distributionChannels</code>, or <code>supplyChannels</code>,
      * they are used for projections based on <a href="ctp:api:type:ProductProjectionLocales">locale</a>, <a href="ctp:api:type:ProductProjectionPrices">price</a>,
      * and <a href="ctp:api:type:ProductProjectionInventoryEntries">inventory</a>.
-     * If the Store has defined <a href="ctp:api:type:ProductSelection">Product Selections</a> or <a href="ctp:api:type:ProductTailoring">Product Tailoring</a>, they have no effect on the results of this query.</p>
+     * For Projects with active <a href="/../api/projects/product-selections">Product Selections</a>, the API does not take the <a href="/../api/projects/stores#products-available-in-store">availability of the Product in the specified Store</a> into account.
+     * <a href="/../api/projects/product-tailoring">Product Tailoring</a> modifies the product information returned in API responses, but evaluating <a href="/../api/search-query-language#simple-expressions">query expressions</a> is restricted to the original product information.</p>
      *
      *
      * @return null|string

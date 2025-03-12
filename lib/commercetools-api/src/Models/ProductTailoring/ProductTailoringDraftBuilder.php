@@ -193,7 +193,8 @@ final class ProductTailoringDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the ProductTailoring is published immediately.</p>
+     * <p>Set to <code>true</code> to <a href="/../api/projects/product-tailoring#stage-and-publish-tailored-product-information">publish</a> the ProductTailoring immediately.
+     * Otherwise, the tailored product information is just staged.</p>
      *
 
      * @return null|bool
