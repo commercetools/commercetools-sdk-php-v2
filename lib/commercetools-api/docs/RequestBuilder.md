@@ -5679,6 +5679,8 @@ and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
 
 If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/projects/stores#products-available-in-store) in the specified Store.
 
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `id` and the given Store, this endpoint returns the ProductProjection with tailored data.
+
 When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
 
 
@@ -5718,6 +5720,8 @@ they are used for projections based on [locale](ctp:api:type:ProductProjectionLo
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
 
 If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/projects/stores#products-available-in-store) in the specified Store.
+
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
 
 When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
 

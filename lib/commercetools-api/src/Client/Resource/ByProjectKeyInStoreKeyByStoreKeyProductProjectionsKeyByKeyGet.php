@@ -30,14 +30,14 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
- * @template-implements ProjectionSelecting<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
+ * @template-implements ProjectionSelectingTailoring<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  * @template-implements PriceSelecting<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  * @template-implements LocaleProjecting<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  * @template-implements Expandable<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  * @template-implements Errorable<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  * @template-implements Deprecatable200<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  */
-class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, Expandable, Errorable, Deprecatable200
+class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet extends ApiRequest implements ProjectionSelectingTailoring, PriceSelecting, LocaleProjecting, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body

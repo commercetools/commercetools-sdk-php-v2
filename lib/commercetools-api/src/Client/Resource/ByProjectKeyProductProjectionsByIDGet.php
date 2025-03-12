@@ -33,12 +33,12 @@ use Psr\Http\Message\ResponseInterface;
  * @template-implements ProjectionSelecting<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements PriceSelecting<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements LocaleProjecting<ByProjectKeyProductProjectionsByIDGet>
- * @template-implements StoreProjecting<ByProjectKeyProductProjectionsByIDGet>
+ * @template-implements StoreProjectingTailoring<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements Expandable<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements Errorable<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsByIDGet>
  */
-class ByProjectKeyProductProjectionsByIDGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjecting, Expandable, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsByIDGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjectingTailoring, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
