@@ -51,6 +51,14 @@ class ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUni
     }
     /**
      */
+    public function shoppingLists(): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyShoppingLists
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyShoppingLists($args, $this->getClient());
+    }
+    /**
+     */
     public function orders(): ResourceByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyOrders
     {
         $args = $this->getArgs();
