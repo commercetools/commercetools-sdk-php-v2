@@ -1193,6 +1193,211 @@ $request = $builder
                 ->withKey("key")
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->head()`
+
+Checks if a ShoppingList exists for a given Query Predicate. Returns a `200 OK` if any ShoppingLists match the Query Predicate; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->head();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->post(null)`
+
+Creates a ShoppingList in the [BusinessUnit](ctp:api:type:BusinessUnit) referenced by `businessUnitKey`. As such, the `businessUnit` field on [ShoppingListDraft](ctp:api:type:ShoppingListDraft) is ignored for this request.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->get()`
+
+If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->head()`
+
+Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` if the ShoppingList exists; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->post(null)`
+
+If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->delete()`
+
+If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->get()`
+
+If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->head()`
+
+Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` if the ShoppingList exists; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->post(null)`
+
+If the Shopping List exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->delete()`
+
+If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->asAssociate()
+                ->withAssociateIdValue("associateId")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->shoppingLists()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->associateRoles()->get()`
 
 null
