@@ -47,6 +47,7 @@ interface Customer extends BaseResource
     public const FIELD_SALUTATION = 'salutation';
     public const FIELD_STORES = 'stores';
     public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
+    public const FIELD_CUSTOMER_GROUP_ASSIGNMENTS = 'customerGroupAssignments';
 
     /**
      * <p>Unique identifier of the Customer.</p>
@@ -295,6 +296,14 @@ interface Customer extends BaseResource
     public function getAuthenticationMode();
 
     /**
+     * <p>Customer Groups that the Customer belongs to.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getCustomerGroupAssignments();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -443,4 +452,9 @@ interface Customer extends BaseResource
      * @param ?string $authenticationMode
      */
     public function setAuthenticationMode(?string $authenticationMode): void;
+
+    /**
+     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments): void;
 }

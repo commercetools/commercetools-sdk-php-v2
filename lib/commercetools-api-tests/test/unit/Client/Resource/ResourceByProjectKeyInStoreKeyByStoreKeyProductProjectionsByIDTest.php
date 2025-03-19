@@ -143,6 +143,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDTest extends
                 'get',
                 'test_projectKey/in-store/key=test_storeKey/product-projections/test_ID?priceCustomerGroup=priceCustomerGroup',
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet_withPriceCustomerGroupAssignments' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withId('test_ID')
+                        ->get()
+                        ->withPriceCustomerGroupAssignments('priceCustomerGroupAssignments');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/test_ID?priceCustomerGroupAssignments=priceCustomerGroupAssignments',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet_withPriceChannel' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

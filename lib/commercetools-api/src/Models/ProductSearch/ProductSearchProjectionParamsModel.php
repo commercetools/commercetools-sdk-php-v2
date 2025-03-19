@@ -51,6 +51,12 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
 
     /**
      *
+     * @var ?array
+     */
+    protected $priceCustomerGroupAssignments;
+
+    /**
+     *
      * @var ?string
      */
     protected $priceChannel;
@@ -77,6 +83,7 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
         ?string $priceCurrency = null,
         ?string $priceCountry = null,
         ?string $priceCustomerGroup = null,
+        ?array $priceCustomerGroupAssignments = null,
         ?string $priceChannel = null,
         ?array $localeProjection = null,
         ?string $storeProjection = null
@@ -86,6 +93,7 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
         $this->priceCurrency = $priceCurrency;
         $this->priceCountry = $priceCountry;
         $this->priceCustomerGroup = $priceCustomerGroup;
+        $this->priceCustomerGroupAssignments = $priceCustomerGroupAssignments;
         $this->priceChannel = $priceChannel;
         $this->localeProjection = $localeProjection;
         $this->storeProjection = $storeProjection;
@@ -153,7 +161,7 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>The country used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     * <p>The country used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
      *
      * @return null|string
@@ -173,7 +181,7 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
     }
 
     /**
-     * <p><code>id</code> of an existing <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
      *
      * @return null|string
@@ -193,7 +201,27 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
     }
 
     /**
-     * <p><code>id</code> of an existing <a href="ctp:api:type:Channel">Channel</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     * <p>IDs of existing <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, when using <a href="/../api/customers-overview#customer-groups">multiple Customer Groups</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
+     *
+     *
+     * @return null|array
+     */
+    public function getPriceCustomerGroupAssignments()
+    {
+        if (is_null($this->priceCustomerGroupAssignments)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_PRICE_CUSTOMER_GROUP_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceCustomerGroupAssignments = $data;
+        }
+
+        return $this->priceCustomerGroupAssignments;
+    }
+
+    /**
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Channel">Channel</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
      *
      * @return null|string
@@ -296,6 +324,14 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
     public function setPriceCustomerGroup(?string $priceCustomerGroup): void
     {
         $this->priceCustomerGroup = $priceCustomerGroup;
+    }
+
+    /**
+     * @param ?array $priceCustomerGroupAssignments
+     */
+    public function setPriceCustomerGroupAssignments(?array $priceCustomerGroupAssignments): void
+    {
+        $this->priceCustomerGroupAssignments = $priceCustomerGroupAssignments;
     }
 
     /**
