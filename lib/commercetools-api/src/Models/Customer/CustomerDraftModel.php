@@ -190,6 +190,12 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      */
     protected $authenticationMode;
 
+    /**
+     *
+     * @var ?CustomerGroupAssignmentDraftCollection
+     */
+    protected $customerGroupAssignments;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -221,7 +227,8 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         ?string $locale = null,
         ?string $salutation = null,
         ?StoreResourceIdentifierCollection $stores = null,
-        ?string $authenticationMode = null
+        ?string $authenticationMode = null,
+        ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments = null
     ) {
         $this->key = $key;
         $this->customerNumber = $customerNumber;
@@ -250,6 +257,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         $this->salutation = $salutation;
         $this->stores = $stores;
         $this->authenticationMode = $authenticationMode;
+        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
     /**
@@ -818,6 +826,26 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         return $this->authenticationMode;
     }
 
+    /**
+     * <p>Customer Groups to assign the Customer to.</p>
+     *
+     *
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        if (is_null($this->customerGroupAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerGroupAssignments = CustomerGroupAssignmentDraftCollection::fromArray($data);
+        }
+
+        return $this->customerGroupAssignments;
+    }
+
 
     /**
      * @param ?string $key
@@ -1033,6 +1061,14 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     public function setAuthenticationMode(?string $authenticationMode): void
     {
         $this->authenticationMode = $authenticationMode;
+    }
+
+    /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments): void
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
 

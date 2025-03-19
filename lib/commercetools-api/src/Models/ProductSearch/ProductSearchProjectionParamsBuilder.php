@@ -52,6 +52,12 @@ final class ProductSearchProjectionParamsBuilder implements Builder
 
     /**
 
+     * @var ?array
+     */
+    private $priceCustomerGroupAssignments;
+
+    /**
+
      * @var ?string
      */
     private $priceChannel;
@@ -103,7 +109,7 @@ final class ProductSearchProjectionParamsBuilder implements Builder
     }
 
     /**
-     * <p>The country used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     * <p>The country used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|string
@@ -114,7 +120,7 @@ final class ProductSearchProjectionParamsBuilder implements Builder
     }
 
     /**
-     * <p><code>id</code> of an existing <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|string
@@ -125,7 +131,18 @@ final class ProductSearchProjectionParamsBuilder implements Builder
     }
 
     /**
-     * <p><code>id</code> of an existing <a href="ctp:api:type:Channel">Channel</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can only be used <strong>in conjunction with</strong> the <code>priceCurrency</code> parameter.</p>
+     * <p>IDs of existing <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, when using <a href="/../api/customers-overview#customer-groups">multiple Customer Groups</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
+     *
+
+     * @return null|array
+     */
+    public function getPriceCustomerGroupAssignments()
+    {
+        return $this->priceCustomerGroupAssignments;
+    }
+
+    /**
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Channel">Channel</a> used for <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|string
@@ -218,6 +235,17 @@ final class ProductSearchProjectionParamsBuilder implements Builder
     }
 
     /**
+     * @param ?array $priceCustomerGroupAssignments
+     * @return $this
+     */
+    public function withPriceCustomerGroupAssignments(?array $priceCustomerGroupAssignments)
+    {
+        $this->priceCustomerGroupAssignments = $priceCustomerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $priceChannel
      * @return $this
      */
@@ -259,6 +287,7 @@ final class ProductSearchProjectionParamsBuilder implements Builder
             $this->priceCurrency,
             $this->priceCountry,
             $this->priceCustomerGroup,
+            $this->priceCustomerGroupAssignments,
             $this->priceChannel,
             $this->localeProjection,
             $this->storeProjection

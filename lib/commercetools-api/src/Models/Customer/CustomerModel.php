@@ -212,6 +212,12 @@ final class CustomerModel extends JsonObjectModel implements Customer
      */
     protected $authenticationMode;
 
+    /**
+     *
+     * @var ?CustomerGroupAssignmentCollection
+     */
+    protected $customerGroupAssignments;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -246,7 +252,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
         ?string $locale = null,
         ?string $salutation = null,
         ?StoreKeyReferenceCollection $stores = null,
-        ?string $authenticationMode = null
+        ?string $authenticationMode = null,
+        ?CustomerGroupAssignmentCollection $customerGroupAssignments = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -278,6 +285,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
         $this->salutation = $salutation;
         $this->stores = $stores;
         $this->authenticationMode = $authenticationMode;
+        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
     /**
@@ -902,6 +910,26 @@ final class CustomerModel extends JsonObjectModel implements Customer
         return $this->authenticationMode;
     }
 
+    /**
+     * <p>Customer Groups that the Customer belongs to.</p>
+     *
+     *
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        if (is_null($this->customerGroupAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerGroupAssignments = CustomerGroupAssignmentCollection::fromArray($data);
+        }
+
+        return $this->customerGroupAssignments;
+    }
+
 
     /**
      * @param ?string $id
@@ -1141,6 +1169,14 @@ final class CustomerModel extends JsonObjectModel implements Customer
     public function setAuthenticationMode(?string $authenticationMode): void
     {
         $this->authenticationMode = $authenticationMode;
+    }
+
+    /**
+     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments): void
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
 

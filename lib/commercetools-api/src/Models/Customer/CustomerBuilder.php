@@ -214,6 +214,12 @@ final class CustomerBuilder implements Builder
     private $authenticationMode;
 
     /**
+
+     * @var ?CustomerGroupAssignmentCollection
+     */
+    private $customerGroupAssignments;
+
+    /**
      * <p>Unique identifier of the Customer.</p>
      *
 
@@ -550,6 +556,17 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * <p>Customer Groups that the Customer belongs to.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        return $this->customerGroupAssignments;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -880,6 +897,17 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
+     * @return $this
+     */
+    public function withCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments)
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -955,7 +983,8 @@ final class CustomerBuilder implements Builder
             $this->locale,
             $this->salutation,
             $this->stores,
-            $this->authenticationMode
+            $this->authenticationMode,
+            $this->customerGroupAssignments
         );
     }
 

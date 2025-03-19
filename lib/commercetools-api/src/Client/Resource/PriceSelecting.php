@@ -38,5 +38,11 @@ interface PriceSelecting extends ApiRequestInterface
      * @return ApiRequestInterface
      * @psalm-return T
      */
+    public function withPriceCustomerGroupAssignments(string $priceCustomerGroupAssignments);
+
+    /**
+     * @return ApiRequestInterface
+     * @psalm-return T
+     */
     public function withPriceChannel(string $priceChannel);
 }
