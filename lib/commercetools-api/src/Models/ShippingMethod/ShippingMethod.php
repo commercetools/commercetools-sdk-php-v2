@@ -148,7 +148,7 @@ interface ShippingMethod extends BaseResource
     public function getActive();
 
     /**
-     * <p>If <code>true</code>, this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
+     * <p>If <code>true</code>, this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod. When retrieving <a href="/projects/shippingMethods#get-matching-shipping-methods">matching Shipping Methods</a>, it is returned as the first item in the array. This flag does not automatically apply the Shipping Method to Carts.</p>
      *
 
      * @return null|bool
