@@ -6325,6 +6325,7 @@ $request = $builder
 Retrieves all the active ShippingMethods that can ship to the shipping address of the given Cart in a given [Store](ctp:api:type:Store).
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 
 
 ### Example
@@ -10564,6 +10565,7 @@ $request = $builder
 Retrieves all the active ShippingMethods that can ship to the shipping address of the given Cart.
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 
 
 ### Example
@@ -10579,7 +10581,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->head()`
 
-Checks if an active ShippingMethod exists for the given Cart. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if an active ShippingMethod exists for the given Cart. If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10598,6 +10600,7 @@ Retrieves all the active ShippingMethods that can ship to the given [Location](c
 with a `predicate` that matches the given Cart.
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 
 
 ### Example
@@ -10633,6 +10636,7 @@ ShippingMethods that have a `predicate` defined are automatically disqualified.
 If the `currency` parameter is given, then the ShippingMethods must also have a rate defined in the specified currency.
 Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
 If the `currency` parameter is given, exactly one ShippingRate will contain it.
+If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 
 
 ### Example
@@ -10664,7 +10668,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
 Retrieves all the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
-
+If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 If the OrderEdit preview cannot be generated, an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is returned.
 
 
