@@ -149,6 +149,15 @@ class ByProjectKeyProductsByIDProductSelectionsGet extends ApiRequest implements
 
     /**
      *
+     * @psalm-param scalar|scalar[] $withTotal
+     */
+    public function withWithTotal($withTotal): ByProjectKeyProductsByIDProductSelectionsGet
+    {
+        return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductsByIDProductSelectionsGet
@@ -181,15 +190,6 @@ class ByProjectKeyProductsByIDProductSelectionsGet extends ApiRequest implements
     public function withOffset($offset): ByProjectKeyProductsByIDProductSelectionsGet
     {
         return $this->withQueryParam('offset', $offset);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $withTotal
-     */
-    public function withWithTotal($withTotal): ByProjectKeyProductsByIDProductSelectionsGet
-    {
-        return $this->withQueryParam('withTotal', $withTotal);
     }
 
     /**

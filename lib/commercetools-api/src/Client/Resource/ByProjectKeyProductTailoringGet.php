@@ -149,6 +149,15 @@ class ByProjectKeyProductTailoringGet extends ApiRequest implements Expandable, 
 
     /**
      *
+     * @psalm-param scalar|scalar[] $withTotal
+     */
+    public function withWithTotal($withTotal): ByProjectKeyProductTailoringGet
+    {
+        return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductTailoringGet
@@ -181,15 +190,6 @@ class ByProjectKeyProductTailoringGet extends ApiRequest implements Expandable, 
     public function withOffset($offset): ByProjectKeyProductTailoringGet
     {
         return $this->withQueryParam('offset', $offset);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $withTotal
-     */
-    public function withWithTotal($withTotal): ByProjectKeyProductTailoringGet
-    {
-        return $this->withQueryParam('withTotal', $withTotal);
     }
 
     /**

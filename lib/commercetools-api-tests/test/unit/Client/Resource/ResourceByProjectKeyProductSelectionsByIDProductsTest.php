@@ -103,6 +103,19 @@ class ResourceByProjectKeyProductSelectionsByIDProductsTest extends TestCase
                 'get',
                 'test_projectKey/product-selections/test_ID/products?where=where',
             ],
+            'ByProjectKeyProductSelectionsByIDProductsGet_withWithTotal' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productSelections()
+                        ->withId('test_ID')
+                        ->products()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                'test_projectKey/product-selections/test_ID/products?withTotal=withTotal',
+            ],
             'ByProjectKeyProductSelectionsByIDProductsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -141,19 +154,6 @@ class ResourceByProjectKeyProductSelectionsByIDProductsTest extends TestCase
                 },
                 'get',
                 'test_projectKey/product-selections/test_ID/products?offset=offset',
-            ],
-            'ByProjectKeyProductSelectionsByIDProductsGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productSelections()
-                        ->withId('test_ID')
-                        ->products()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/product-selections/test_ID/products?withTotal=withTotal',
             ],
             'ByProjectKeyProductSelectionsByIDProductsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

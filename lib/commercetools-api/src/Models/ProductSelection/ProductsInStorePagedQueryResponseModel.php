@@ -129,10 +129,9 @@ final class ProductsInStorePagedQueryResponseModel extends JsonObjectModel imple
 
     /**
      * <p>Total number of results matching the query.
-     * This number is an estimation that is not <a href="/general-concepts#strong-consistency">strongly consistent</a>.
-     * Unlike other endpoints, the Product Selection endpoint does not return this field by default.
-     * To get <code>total</code>, pass the query parameter <code>withTotal</code> set to <code>true</code>.
-     * When the results are filtered with a <a href="/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/limits#queries">limit</a>.</p>
+     * Present only when the <code>withTotal</code> query parameter is set to <code>true</code>.
+     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
+     * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
      *
      *
      * @return null|int
