@@ -103,6 +103,17 @@ class ResourceByProjectKeyProductTailoringTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyProductTailoringGet_withWithTotal' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productTailoring()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                'test_projectKey/product-tailoring?withTotal=withTotal',
+            ],
             'ByProjectKeyProductTailoringGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -146,17 +157,6 @@ class ResourceByProjectKeyProductTailoringTest extends TestCase
                 },
                 'get',
                 'test_projectKey/product-tailoring?offset=offset',
-            ],
-            'ByProjectKeyProductTailoringGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productTailoring()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/product-tailoring?withTotal=withTotal',
             ],
             'ByProjectKeyProductTailoringGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

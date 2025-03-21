@@ -103,6 +103,19 @@ class ResourceByProjectKeyProductSelectionsKeyByKeyProductsTest extends TestCase
                 'get',
                 'test_projectKey/product-selections/key=test_key/products?where=where',
             ],
+            'ByProjectKeyProductSelectionsKeyByKeyProductsGet_withWithTotal' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productSelections()
+                        ->withKey('test_key')
+                        ->products()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                'test_projectKey/product-selections/key=test_key/products?withTotal=withTotal',
+            ],
             'ByProjectKeyProductSelectionsKeyByKeyProductsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -141,19 +154,6 @@ class ResourceByProjectKeyProductSelectionsKeyByKeyProductsTest extends TestCase
                 },
                 'get',
                 'test_projectKey/product-selections/key=test_key/products?offset=offset',
-            ],
-            'ByProjectKeyProductSelectionsKeyByKeyProductsGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productSelections()
-                        ->withKey('test_key')
-                        ->products()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/product-selections/key=test_key/products?withTotal=withTotal',
             ],
             'ByProjectKeyProductSelectionsKeyByKeyProductsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

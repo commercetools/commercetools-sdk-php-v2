@@ -90,6 +90,19 @@ class ResourceByProjectKeyProductsKeyByKeyProductSelectionsTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyProductsKeyByKeyProductSelectionsGet_withWithTotal' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->withKey('test_key')
+                        ->productSelections()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                'test_projectKey/products/key=test_key/product-selections?withTotal=withTotal',
+            ],
             'ByProjectKeyProductsKeyByKeyProductSelectionsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -141,19 +154,6 @@ class ResourceByProjectKeyProductsKeyByKeyProductSelectionsTest extends TestCase
                 },
                 'get',
                 'test_projectKey/products/key=test_key/product-selections?offset=offset',
-            ],
-            'ByProjectKeyProductsKeyByKeyProductSelectionsGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->products()
-                        ->withKey('test_key')
-                        ->productSelections()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/products/key=test_key/product-selections?withTotal=withTotal',
             ],
             'ByProjectKeyProductsKeyByKeyProductSelectionsGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
