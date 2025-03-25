@@ -118,7 +118,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>Set to <code>true</code> if you want to <a href="ctp:api:type:OrderEditPreviewSuccess">peview</a> the edited Order first without persisting it (dry run).
+     * <p>Set to <code>true</code> if you want to <a href="ctp:api:type:OrderEditPreviewSuccess">preview</a> the edited Order first without persisting it (dry run).
      * A dry run allows checking for potential <a href="ctp:api:type:OrderEditPreviewFailure">errors</a> when trying to apply the <code>stagedActions</code>.</p>
      * <p>Order <a href="/../api/projects/api-extensions">API Extensions</a>, if any, are also called in dry runs.</p>
      *
