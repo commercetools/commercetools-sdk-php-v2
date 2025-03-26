@@ -1094,7 +1094,7 @@ final class QuoteModel extends JsonObjectModel implements Quote
     }
 
     /**
-     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote.</p>
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
      *
      *
      * @return null|BusinessUnitKeyReference
