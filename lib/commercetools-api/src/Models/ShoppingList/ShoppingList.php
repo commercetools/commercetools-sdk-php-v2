@@ -136,7 +136,7 @@ interface ShoppingList extends BaseResource
     public function getStore();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to the Business Unit the Shopping List belongs to.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Business Unit the Shopping List belongs to. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference

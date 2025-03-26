@@ -332,7 +332,7 @@ interface QuoteRequest extends BaseResource
     public function getCart();
 
     /**
-     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request.</p>
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference

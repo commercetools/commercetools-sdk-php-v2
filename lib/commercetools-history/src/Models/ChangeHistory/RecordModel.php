@@ -342,7 +342,7 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p>Reference to the <a href="ctp:api:type:BusinessUnit">Business Unit</a> associated with the <a href="ctp:history:type:Change">Change</a>.</p>
+     * <p>Reference to the <a href="ctp:api:type:BusinessUnit">Business Unit</a> associated with the <a href="ctp:history:type:Change">Change</a>. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
      *
      *
      * @return null|KeyReference

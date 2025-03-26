@@ -258,7 +258,7 @@ final class OrderImportDraftBuilder implements Builder
 
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Business Unit the Order should belong to.
-     * When the <code>customerId</code> of the Order is also set, the <a href="ctp:api:type:Customer">Customer</a> must be an <a href="ctp:api:type:Associate">Associate</a> of the Business Unit.</p>
+     * When the <code>customerId</code> of the Order is also set, the <a href="ctp:api:type:Customer">Customer</a> must be an <a href="ctp:api:type:Associate">Associate</a> of the Business Unit. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitResourceIdentifier

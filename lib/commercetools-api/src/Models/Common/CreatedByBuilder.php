@@ -103,7 +103,7 @@ final class CreatedByBuilder implements Builder
     }
 
     /**
-     * <p>Indicates the <a href="ctp:api:type:Customer">Customer</a> who created the resource in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only present when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
+     * <p>Indicates the <a href="ctp:api:type:Customer">Customer</a> who created the resource in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Project when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
      *
 
      * @return null|CustomerReference
