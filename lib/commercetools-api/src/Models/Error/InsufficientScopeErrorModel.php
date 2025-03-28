@@ -45,8 +45,6 @@ final class InsufficientScopeErrorModel extends JsonObjectModel implements Insuf
     }
 
     /**
-     * <p>Error identifier.</p>
-     *
      *
      * @return null|string
      */
@@ -65,7 +63,7 @@ final class InsufficientScopeErrorModel extends JsonObjectModel implements Insuf
     }
 
     /**
-     * <p>Plain text description of the cause of the error.</p>
+     * <p><code>&quot;Insufficient scope. One of the following scopes is missing:&quot;</code></p>
      *
      *
      * @return null|string

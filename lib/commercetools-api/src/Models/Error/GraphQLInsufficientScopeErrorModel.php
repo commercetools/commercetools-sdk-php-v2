@@ -37,8 +37,6 @@ final class GraphQLInsufficientScopeErrorModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>One of the error codes that is listed on the <a href="/errors">Errors</a> page.</p>
-     *
      *
      * @return null|string
      */

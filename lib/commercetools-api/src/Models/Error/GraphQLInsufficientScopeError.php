@@ -13,4 +13,9 @@ use Commercetools\Base\JsonObject;
 
 interface GraphQLInsufficientScopeError extends GraphQLErrorObject
 {
+    /**
+
+     * @return null|string
+     */
+    public function getCode();
 }

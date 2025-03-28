@@ -27,7 +27,7 @@ final class InsufficientScopeErrorBuilder implements Builder
     private $message;
 
     /**
-     * <p>Plain text description of the cause of the error.</p>
+     * <p><code>&quot;Insufficient scope. One of the following scopes is missing:&quot;</code></p>
      *
 
      * @return null|string

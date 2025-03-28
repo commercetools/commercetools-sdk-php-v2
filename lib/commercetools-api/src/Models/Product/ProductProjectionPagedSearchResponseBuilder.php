@@ -30,6 +30,12 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
 
      * @var ?int
      */
+    private $offset;
+
+    /**
+
+     * @var ?int
+     */
     private $count;
 
     /**
@@ -37,12 +43,6 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
      * @var ?int
      */
     private $total;
-
-    /**
-
-     * @var ?int
-     */
-    private $offset;
 
     /**
 
@@ -57,7 +57,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     private $facets;
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     * <p>The maximum number of results returned on a <a href="/../api/projects/products-search#pagination">page</a>.</p>
      *
 
      * @return null|int
@@ -68,25 +68,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     }
 
     /**
-
-     * @return null|int
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    /**
-
-     * @return null|int
-     */
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    /**
-     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     * <p>The starting point for the retrieved <a href="/../api/projects/products-search#pagination">paginated</a> result.</p>
      *
 
      * @return null|int
@@ -97,6 +79,31 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     }
 
     /**
+     * <p>Actual number of results returned.</p>
+     *
+
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    /**
+     * <p>Total number of results matching the query.</p>
+     *
+
+     * @return null|int
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:ProductProjection">ProductProjections</a> where at least one <a href="ctp:api:type:ProductVariant">ProductVariant</a> matches the search query, provided with the <code>text.{language}</code> and/or <code>filter.query</code> or <code>filter</code> query parameter.
+     * If the query parameter <code>markMatchingVariants=true</code> was provided with the request, the <a href="/../api/projects/products-search#matching-variants">matching variants</a> are marked as such.</p>
+     *
 
      * @return null|ProductProjectionCollection
      */
@@ -106,6 +113,9 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     }
 
     /**
+     * <p>Facet results for each <a href="/../api/projects/products-search#facets">facet expression</a> specified in the search request.</p>
+     * <p>Only present if at least one <code>facet</code> parameter was provided with the search request.</p>
+     *
 
      * @return null|FacetResults
      */
@@ -121,6 +131,17 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     public function withLimit(?int $limit)
     {
         $this->limit = $limit;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $offset
+     * @return $this
+     */
+    public function withOffset(?int $offset)
+    {
+        $this->offset = $offset;
 
         return $this;
     }
@@ -143,17 +164,6 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     public function withTotal(?int $total)
     {
         $this->total = $total;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $offset
-     * @return $this
-     */
-    public function withOffset(?int $offset)
-    {
-        $this->offset = $offset;
 
         return $this;
     }
@@ -195,9 +205,9 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     {
         return new ProductProjectionPagedSearchResponseModel(
             $this->limit,
+            $this->offset,
             $this->count,
             $this->total,
-            $this->offset,
             $this->results,
             $this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets
         );

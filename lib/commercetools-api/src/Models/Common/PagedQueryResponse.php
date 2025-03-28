@@ -57,12 +57,17 @@ interface PagedQueryResponse extends JsonObject
     public function getTotal();
 
     /**
+     * <p>The resources matching the query predicate.
+     * Each query endpoint returns resources of its specific type.</p>
+     *
 
      * @return null|BaseResourceCollection
      */
     public function getResults();
 
     /**
+     * <p>Object containing supplementary information about the results.</p>
+     *
 
      * @return null|mixed
      */
