@@ -102,6 +102,30 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 'post',
                 'test_projectKey/product-projections/search',
             ],
+            'ByProjectKeyProductProjectionsSearchGet_withMarkMatchingVariants' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productProjections()
+                        ->search()
+                        ->get()
+                        ->withMarkMatchingVariants('markMatchingVariants');
+                },
+                'get',
+                'test_projectKey/product-projections/search?markMatchingVariants=markMatchingVariants',
+            ],
+            'ByProjectKeyProductProjectionsSearchGet_withText' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productProjections()
+                        ->search()
+                        ->get()
+                        ->withText('locale', 'text.locale');
+                },
+                'get',
+                'test_projectKey/product-projections/search?text.locale=text.locale',
+            ],
             'ByProjectKeyProductProjectionsSearchGet_withFuzzy' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -126,17 +150,17 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/search?fuzzyLevel=fuzzyLevel',
             ],
-            'ByProjectKeyProductProjectionsSearchGet_withMarkMatchingVariants' => [
+            'ByProjectKeyProductProjectionsSearchGet_withFilterQuery' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
-                        ->withMarkMatchingVariants('markMatchingVariants');
+                        ->withFilterQuery('filter.query');
                 },
                 'get',
-                'test_projectKey/product-projections/search?markMatchingVariants=markMatchingVariants',
+                'test_projectKey/product-projections/search?filter.query=filter.query',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilter' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -150,30 +174,6 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/search?filter=filter',
             ],
-            'ByProjectKeyProductProjectionsSearchGet_withFilterFacets' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productProjections()
-                        ->search()
-                        ->get()
-                        ->withFilterFacets('filter.facets');
-                },
-                'get',
-                'test_projectKey/product-projections/search?filter.facets=filter.facets',
-            ],
-            'ByProjectKeyProductProjectionsSearchGet_withFilterQuery' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productProjections()
-                        ->search()
-                        ->get()
-                        ->withFilterQuery('filter.query');
-                },
-                'get',
-                'test_projectKey/product-projections/search?filter.query=filter.query',
-            ],
             'ByProjectKeyProductProjectionsSearchGet_withFacet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -186,17 +186,29 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/search?facet=facet',
             ],
-            'ByProjectKeyProductProjectionsSearchGet_withText' => [
+            'ByProjectKeyProductProjectionsSearchGet_withFilterFacets' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
-                        ->withText('locale', 'text.locale');
+                        ->withFilterFacets('filter.facets');
                 },
                 'get',
-                'test_projectKey/product-projections/search?text.locale=text.locale',
+                'test_projectKey/product-projections/search?filter.facets=filter.facets',
+            ],
+            'ByProjectKeyProductProjectionsSearchGet_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productProjections()
+                        ->search()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                'test_projectKey/product-projections/search?expand=expand',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -233,18 +245,6 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 },
                 'get',
                 'test_projectKey/product-projections/search?offset=offset',
-            ],
-            'ByProjectKeyProductProjectionsSearchGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productProjections()
-                        ->search()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/product-projections/search?withTotal=withTotal',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withStaged' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -341,18 +341,6 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 },
                 'get',
                 'test_projectKey/product-projections/search?storeProjection=storeProjection',
-            ],
-            'ByProjectKeyProductProjectionsSearchGet_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productProjections()
-                        ->search()
-                        ->get()
-                        ->withExpand('expand');
-                },
-                'get',
-                'test_projectKey/product-projections/search?expand=expand',
             ],
             'ByProjectKeyProductProjectionsSearchGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

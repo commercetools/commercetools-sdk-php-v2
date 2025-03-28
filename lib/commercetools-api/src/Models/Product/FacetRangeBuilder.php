@@ -81,6 +81,9 @@ final class FacetRangeBuilder implements Builder
     private $mean;
 
     /**
+     * <p>The range's lower endpoint.</p>
+     * <p><code>0</code> represents -∞.</p>
+     *
 
      * @return null|float
      */
@@ -90,6 +93,9 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+     * <p>The range's lower endpoint.</p>
+     * <p>An empty string represents -∞.</p>
+     *
 
      * @return null|string
      */
@@ -99,6 +105,9 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+     * <p>The range's upper endpoint.</p>
+     * <p><code>0</code> represents +∞.</p>
+     *
 
      * @return null|float
      */
@@ -108,6 +117,9 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+     * <p>The range's upper endpoint.</p>
+     * <p>An empty string represents +∞.</p>
+     *
 
      * @return null|string
      */
@@ -117,6 +129,8 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+     * <p>Number of <a href="ctp:api:type:ProductVariant">ProductVariants</a> for which the values in a field fall into the specified range.</p>
+     *
 
      * @return null|int
      */
@@ -126,6 +140,9 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+     * <p>Number of <a href="ctp:api:type:Product">Products</a> for which the values in a field fall into the specified range.</p>
+     * <p>Present only if the <code>counting products</code> <a href="/projects/products-search#counting-products">extension</a> is enabled.</p>
+     *
 
      * @return null|int
      */
@@ -135,6 +152,8 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+     * <p>Sum of all values contained in the range.</p>
+     *
 
      * @return null|float
      */
@@ -144,6 +163,8 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+     * <p>Minimum value within the range.</p>
+     *
 
      * @return null|float
      */
@@ -153,6 +174,8 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+     * <p>Maximum value within the range.</p>
+     *
 
      * @return null|float
      */
@@ -162,6 +185,8 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+     * <p>Arithmetic mean of the values within the range.</p>
+     *
 
      * @return null|float
      */

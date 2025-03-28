@@ -105,6 +105,9 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>The resources matching the query predicate.
+     * Each query endpoint returns resources of its specific type.</p>
+     *
 
      * @return null|BaseResourceCollection
      */
@@ -114,6 +117,8 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Object containing supplementary information about the results.</p>
+     *
 
      * @return null|JsonObject
      */

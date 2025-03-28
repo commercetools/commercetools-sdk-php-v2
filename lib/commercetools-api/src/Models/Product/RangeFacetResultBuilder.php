@@ -27,6 +27,8 @@ final class RangeFacetResultBuilder implements Builder
     private $ranges;
 
     /**
+     * <p>Statistical data over values for <code>date</code>, <code>time</code>, <code>datetime</code>, <code>number</code>, and <code>money</code> type fields.</p>
+     *
 
      * @return null|FacetRangeCollection
      */

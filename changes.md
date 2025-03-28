@@ -19,6 +19,7 @@
 
 - :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
 - changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
+- changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
 </details>
 
 
@@ -71,6 +72,13 @@
 - added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/{ID}`
 - added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
 - added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+</details>
+
+
+<details>
+<summary>Removed QueryParameter(s)</summary>
+
+- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
 </details>
 
 

@@ -33,6 +33,8 @@ final class FilteredFacetResultBuilder implements Builder
     private $productCount;
 
     /**
+     * <p>Number of <a href="ctp:api:type:ProductVariant">ProductVariants</a> matching the value specified in <a href="/../api/projects/products-search#filtered-facet-expression">filtered facet expression</a>.</p>
+     *
 
      * @return null|int
      */
@@ -42,6 +44,9 @@ final class FilteredFacetResultBuilder implements Builder
     }
 
     /**
+     * <p>Number of <a href="ctp:api:type:Product">Products</a> matching the value specified in <a href="/../api/projects/products-search#filtered-facet-expression">filtered facet expression</a>.</p>
+     * <p>Present only if the <code>counting products</code> <a href="/projects/products-search#counting-products">extension</a> is enabled.</p>
+     *
 
      * @return null|int
      */

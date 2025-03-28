@@ -30,17 +30,14 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
- * @template-implements Sortable<ByProjectKeyProductProjectionsSearchGet>
- * @template-implements Paging<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements ProjectionSelecting<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements PriceSelecting<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements LocaleProjecting<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements StoreProjectingTailoring<ByProjectKeyProductProjectionsSearchGet>
- * @template-implements Expandable<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements Errorable<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsSearchGet>
  */
-class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sortable, Paging, ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjectingTailoring, Expandable, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjectingTailoring, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -152,6 +149,24 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sort
 
     /**
      *
+     * @psalm-param scalar|scalar[] $markMatchingVariants
+     */
+    public function withMarkMatchingVariants($markMatchingVariants): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('markMatchingVariants', $markMatchingVariants);
+    }
+
+    /**
+     * @psalm-param string $locale
+     * @psalm-param scalar|scalar[] $text
+     */
+    public function withText(string $locale, $text): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam(sprintf('text.%s', $locale), $text);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $fuzzy
      */
     public function withFuzzy($fuzzy): ByProjectKeyProductProjectionsSearchGet
@@ -170,11 +185,11 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sort
 
     /**
      *
-     * @psalm-param scalar|scalar[] $markMatchingVariants
+     * @psalm-param scalar|scalar[] $filterQuery
      */
-    public function withMarkMatchingVariants($markMatchingVariants): ByProjectKeyProductProjectionsSearchGet
+    public function withFilterQuery($filterQuery): ByProjectKeyProductProjectionsSearchGet
     {
-        return $this->withQueryParam('markMatchingVariants', $markMatchingVariants);
+        return $this->withQueryParam('filter.query', $filterQuery);
     }
 
     /**
@@ -188,6 +203,15 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sort
 
     /**
      *
+     * @psalm-param scalar|scalar[] $facet
+     */
+    public function withFacet($facet): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('facet', $facet);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $filterFacets
      */
     public function withFilterFacets($filterFacets): ByProjectKeyProductProjectionsSearchGet
@@ -197,29 +221,11 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sort
 
     /**
      *
-     * @psalm-param scalar|scalar[] $filterQuery
+     * @psalm-param scalar|scalar[] $expand
      */
-    public function withFilterQuery($filterQuery): ByProjectKeyProductProjectionsSearchGet
+    public function withExpand($expand): ByProjectKeyProductProjectionsSearchGet
     {
-        return $this->withQueryParam('filter.query', $filterQuery);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $facet
-     */
-    public function withFacet($facet): ByProjectKeyProductProjectionsSearchGet
-    {
-        return $this->withQueryParam('facet', $facet);
-    }
-
-    /**
-     * @psalm-param string $locale
-     * @psalm-param scalar|scalar[] $text
-     */
-    public function withText(string $locale, $text): ByProjectKeyProductProjectionsSearchGet
-    {
-        return $this->withQueryParam(sprintf('text.%s', $locale), $text);
+        return $this->withQueryParam('expand', $expand);
     }
 
     /**
@@ -247,15 +253,6 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sort
     public function withOffset($offset): ByProjectKeyProductProjectionsSearchGet
     {
         return $this->withQueryParam('offset', $offset);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $withTotal
-     */
-    public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSearchGet
-    {
-        return $this->withQueryParam('withTotal', $withTotal);
     }
 
     /**
@@ -328,14 +325,5 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sort
     public function withStoreProjection($storeProjection): ByProjectKeyProductProjectionsSearchGet
     {
         return $this->withQueryParam('storeProjection', $storeProjection);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $expand
-     */
-    public function withExpand($expand): ByProjectKeyProductProjectionsSearchGet
-    {
-        return $this->withQueryParam('expand', $expand);
     }
 }

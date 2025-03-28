@@ -51,6 +51,8 @@ final class TermFacetResultBuilder implements Builder
     private $terms;
 
     /**
+     * <p>Data type to which the facet is applied.</p>
+     *
 
      * @return null|string
      */
@@ -60,6 +62,8 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+     * <p>Number of <a href="ctp:api:type:ProductVariant">ProductVariants</a> that have no value for the specified <a href="/../api/projects/products-search#term-facet-expression">term facet expression</a>.</p>
+     *
 
      * @return null|int
      */
@@ -69,6 +73,12 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+     * <p>Number of terms matching the <a href="/../api/projects/products-search#term-facet-expression">term facet expression</a>.</p>
+     * <ul>
+     * <li>If the expression refers to Product fields like <code>categories.id</code> and <code>reviewRatingStatistics.count</code>, the value represents the number of Products.</li>
+     * <li>If the expression is defined for fields specific to Product Variants, for example, <code>variants.attributes.{name}</code>, the value represents the number of Product Variants matching the expression.</li>
+     * </ul>
+     *
 
      * @return null|int
      */
@@ -78,6 +88,8 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+     * <p>Number of terms not represented in this object (such as the number of terms beyond the <a href="/limits#product-projection-search">limit</a>).</p>
+     *
 
      * @return null|int
      */
@@ -87,6 +99,10 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+     * <p>Values for the field specified in <a href="/../api/projects/products-search#term-facet-expression">term facet expression</a> for which at least one <a href="ctp:api:type:ProductVariant">ProductVariant</a> could be found.</p>
+     * <p>By default, facet terms are returned in a descending order of their <code>count</code>.</p>
+     * <p>If the term facet expression specifies to count <a href="ctp:api:type:Product">Products</a> through the <code>counting products</code> <a href="/projects/products-search#counting-products">extension</a>, then facet terms are returned in a descending order of their <code>productCount</code>.</p>
+     *
 
      * @return null|FacetTermCollection
      */
