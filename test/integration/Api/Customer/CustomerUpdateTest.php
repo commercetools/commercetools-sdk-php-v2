@@ -42,5 +42,4 @@ class CustomerUpdateTest extends ApiTestCase
             }
         );
     }
-
 }
