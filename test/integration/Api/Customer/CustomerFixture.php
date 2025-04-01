@@ -3,10 +3,14 @@
 
 namespace Commercetools\IntegrationTest\Api\Customer;
 
+use Commercetools\Api\Models\Common\AddressBuilder;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
+use Commercetools\Api\Models\Customer\Customer;
 use Commercetools\Api\Models\Customer\CustomerDraft;
 use Commercetools\Api\Models\Customer\CustomerDraftBuilder;
 use Commercetools\Api\Models\Customer\CustomerSignInResult;
 use Commercetools\Client\ApiRequestBuilder;
+use Commercetools\Import\Models\Customers\CustomerAddressCollection;
 use Ramsey\Uuid\Uuid;
 
 class CustomerFixture
@@ -18,12 +22,16 @@ class CustomerFixture
 
     final public static function defaultCustomerDraftFunction()
     {
+        $address = AddressBuilder::of()->withId(self::uniqueCustomerString())->withCountry('DE')->build();
+        $addressCollection = new BaseAddressCollection();
+        $addressCollection->add($address);
         $builder = CustomerDraftBuilder::of();
         $builder
             ->withFirstName('test-' . self::uniqueCustomerString() . '-name')
             ->withLastName('test-' . self::uniqueCustomerString() . '-lastName')
             ->withEmail('TEST-' . self::uniqueCustomerString() . '-em.ail+sphere@example.org')
-            ->withPassword('test-' . self::uniqueCustomerString() . '-password');
+            ->withPassword('test-' . self::uniqueCustomerString() . '-password')
+            ->withAddresses($addressCollection);
 
         return $builder;
     }
@@ -40,14 +48,22 @@ class CustomerFixture
         return $request->execute();
     }
 
-    final public static function defaultCustomerDeleteFunction(ApiRequestBuilder $builder, CustomerSignInResult $resource)
+    final public static function defaultCustomerDeleteFunction(ApiRequestBuilder $builder, $resource)
     {
+        if ($resource instanceof CustomerSignInResult) {
+            $customer = $resource->getCustomer();
+        } elseif ($resource instanceof Customer) {
+            $customer = $resource;
+        } else {
+            throw new \InvalidArgumentException('Expected CustomerSignInResult or CustomerModel, got ' . get_class($resource));
+        }
+
         $request = $builder
             ->with()
             ->customers()
-            ->withId($resource->getCustomer()->getId())
+            ->withId($customer->getId())
             ->delete()
-            ->withVersion($resource->getCustomer()->getVersion());
+            ->withVersion($customer->getVersion());
 
         return $request->execute();
     }
