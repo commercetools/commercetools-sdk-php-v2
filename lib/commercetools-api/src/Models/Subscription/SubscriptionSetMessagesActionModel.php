@@ -63,7 +63,7 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Value to set. Can only be unset if <code>changes</code> is set.</p>
+     * <p>Value to set. Can only be unset if either <code>changes</code> or <code>events</code> is set.</p>
      *
      *
      * @return null|MessageSubscriptionCollection

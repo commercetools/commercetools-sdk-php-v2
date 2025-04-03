@@ -295,7 +295,7 @@ final class CloudEventsPayloadModel extends JsonObjectModel implements CloudEven
     }
 
     /**
-     * <p><a href="ctp:api:type:MessageDeliveryPayload">MessageDeliveryPayload</a>, <a href="ctp:api:type:ResourceCreatedDeliveryPayload">ResourceCreatedDeliveryPayload</a>, <a href="ctp:api:type:ResourceUpdatedDeliveryPayload">ResourceUpdatedDeliveryPayload</a>, or <a href="ctp:api:type:ResourceDeletedDeliveryPayload">ResourceDeletedDeliveryPayload</a>.</p>
+     * <p><a href="ctp:api:type:MessageDeliveryPayload">MessageDeliveryPayload</a>, <a href="ctp:api:type:ResourceCreatedDeliveryPayload">ResourceCreatedDeliveryPayload</a>, <a href="ctp:api:type:ResourceUpdatedDeliveryPayload">ResourceUpdatedDeliveryPayload</a>, or <a href="ctp:api:type:ResourceDeletedDeliveryPayload">ResourceDeletedDeliveryPayload</a>, <a href="ctp:api:type:EventDeliveryPayload">EventDeliveryPayload</a>.</p>
      *
      *
      * @return null|DeliveryPayload
@@ -308,8 +308,8 @@ final class CloudEventsPayloadModel extends JsonObjectModel implements CloudEven
             if (is_null($data)) {
                 return null;
             }
-            $className = DeliveryPayloadModel::resolveDiscriminatorClass($data);
-            $this->data = $className::of($data);
+
+            $this->data = DeliveryPayloadModel::of($data);
         }
 
         return $this->data;

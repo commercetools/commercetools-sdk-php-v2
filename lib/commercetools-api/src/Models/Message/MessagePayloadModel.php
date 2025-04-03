@@ -85,6 +85,8 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'BusinessUnitStoreModeChanged' => BusinessUnitStoreModeChangedMessagePayloadModel::class,
        'BusinessUnitStoreRemoved' => BusinessUnitStoreRemovedMessagePayloadModel::class,
        'BusinessUnitStoresSet' => BusinessUnitStoresSetMessagePayloadModel::class,
+       'BusinessUnitTopLevelUnitSet' => BusinessUnitTopLevelUnitSetMessagePayloadModel::class,
+       'BusinessUnitTypeSet' => BusinessUnitTypeSetMessagePayloadModel::class,
        'CartDiscountCreated' => CartDiscountCreatedMessagePayloadModel::class,
        'CartDiscountDeleted' => CartDiscountDeletedMessagePayloadModel::class,
        'CartDiscountStoreAdded' => CartDiscountStoreAddedMessagePayloadModel::class,

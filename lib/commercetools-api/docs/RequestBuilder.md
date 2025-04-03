@@ -63,7 +63,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->apiClients()->head()`
 
-Checks if an API Client exists for a given Query Predicate. Returns a `200 OK` status if any API Clients match the Query Predicate or a `404 Not Found` otherwise.
+Checks if an API Client exists for the provided query predicate. Returns a `200 OK` status if any API Clients match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -106,7 +106,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->apiClients()->withId("ID")->head()`
 
-Checks if an API Client exists for a given `id`. Returns a `200 OK` status if the API Client exists or a `404 Not Found` otherwise.
+Checks if an API Client exists with the provided `id`. Returns a `200 OK` status if the API Client exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -152,7 +152,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->head()`
 
-Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more BusinessUnits exist for the provided query predicate. Returns a `200 OK` status if any BusinessUnits match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -201,7 +201,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withId("ID")->head()`
 
-Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+Checks if a BusinessUnit exists with the provided `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -252,7 +252,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->businessUnits()->withKey("key")->head()`
 
-Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+Checks if a BusinessUnit exists with the provided `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -462,7 +462,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->head()`
 
-Checks if a Cart exists for a given Query Predicate. Returns a `200 OK` status if any Carts match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Carts exist for the provided query predicate. Returns a `200 OK` status if any Carts match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -524,7 +524,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withId("ID")->head()`
 
-Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+Checks if a Cart exists with the provided `id`. Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -598,7 +598,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->withKey("key")->head()`
 
-Checks if a Cart exists for a given `key`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+Checks if a Cart exists with the provided `key`. Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -700,7 +700,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->head()`
 
-Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status if any Orders match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Orders exist for the provided query predicate. Returns a `200 OK` status if any Orders match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -766,7 +766,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->head()`
 
-Checks if an Order exists for a given `id`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+Checks if an Order exists with the provided `id`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -903,7 +903,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->head()`
 
-Checks if a QuoteRequest exists for a given Query Predicate. Returns a `200 OK` status if any QuoteRequests match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200 OK` status if any QuoteRequests match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -956,7 +956,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists for a given `id`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+Checks if a QuoteRequest exists with the provided `id`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1012,7 +1012,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists for a given `key`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+Checks if a QuoteRequest exists with the provided `key`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1066,7 +1066,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->head()`
 
-Checks if a Quote exists for a given Query Predicate. Returns a `200 OK` status if any Quotes match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Quotes exist for the provided query predicate. Returns a `200 OK` status if any Quotes match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1102,7 +1102,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists for a given `id`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+Checks if a Quote exists with the provided `id`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1158,7 +1158,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists for a given `key`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+Checks if a Quote exists with the provided `key`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1212,7 +1212,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->head()`
 
-Checks if a ShoppingList exists for a given Query Predicate. Returns a `200 OK` if any ShoppingLists match the Query Predicate; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+Checks if one or more ShoppingLists exist for the provided query predicate. Returns a `200 OK` if any ShoppingLists match the Query Predicate; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -1267,7 +1267,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` if the ShoppingList exists; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+Checks if a ShoppingList exists with the provided `id`. Returns a `200 OK` if the ShoppingList exists; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -1343,7 +1343,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` if the ShoppingList exists; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+Checks if a ShoppingList exists with the provided `key`. Returns a `200 OK` if the ShoppingList exists; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -1414,7 +1414,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->associateRoles()->head()`
 
-Checks if an AssociateRole exists for a given Query Predicate. Returns a `200 OK` status if any AssociateRole match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more AssociateRoles exist for the provided query predicate. Returns a `200 OK` status if any AssociateRole match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1458,7 +1458,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->associateRoles()->withId("ID")->head()`
 
-Checks if an AssociateRole exists for a given `id`. Returns a `200 OK` status if the AssociateRole exists or a `404 Not Found` otherwise.
+Checks if an AssociateRole exists with the provided `id`. Returns a `200 OK` status if the AssociateRole exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1518,7 +1518,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->associateRoles()->withKey("key")->head()`
 
-Checks if an AssociateRole exists for a given `key`. Returns a `200 OK` status if the AssociateRole exists or a `404 Not Found` otherwise.
+Checks if an AssociateRole exists with the provided `key`. Returns a `200 OK` status if the AssociateRole exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1578,7 +1578,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->attributeGroups()->head()`
 
-Checks if an AttributeGroup exists for a given Query Predicate. Returns `200 OK` status if any AttributeGroups match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more AttributeGroups exist for the provided query predicate. Returns `200 OK` status if any AttributeGroups match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1621,7 +1621,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->attributeGroups()->withId("ID")->head()`
 
-Checks if an AttributeGroup exists for a given `id`. Returns a `200 OK` status if the AttributeGroup exists or a `404 Not Found` otherwise.
+Checks if an AttributeGroup exists with the provided `id`. Returns a `200 OK` status if the AttributeGroup exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1681,7 +1681,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->attributeGroups()->withKey("key")->head()`
 
-Checks if an AttributeGroup exists for a given `key`. Returns `200 OK` status if the AttributeGroup exists or a `404 Not Found` otherwise.
+Checks if an AttributeGroup exists with the provided `key`. Returns `200 OK` status if the AttributeGroup exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1740,7 +1740,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->businessUnits()->head()`
 
-Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more BusinessUnits exist for the provided query predicate. Returns a `200 OK` status if any BusinessUnits match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1799,7 +1799,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->businessUnits()->withId("ID")->head()`
 
-Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+Checks if a BusinessUnit exists with the provided `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1859,7 +1859,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->businessUnits()->withKey("key")->head()`
 
-Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+Checks if a BusinessUnit exists with the provided `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -1983,7 +1983,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->head()`
 
-Checks if a CartDiscount exists for a given Query Predicate. Returns a `200 OK` status if any CartDiscounts match the Query Predicate, or a `404 Not Found` otherwise.
+Checks if one or more CartDiscounts exist for the provided query predicate. Returns a `200 OK` status if any CartDiscounts match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2026,7 +2026,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withId("ID")->head()`
 
-Checks if a CartDiscount exists for a given `id`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
+Checks if a CartDiscount exists with the provided `id`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2086,7 +2086,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withKey("key")->head()`
 
-Checks if a CartDiscount exists for a given `key`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
+Checks if a CartDiscount exists with the provided `key`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2145,7 +2145,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->head()`
 
-Checks if one or more Carts exist for the provided query predicate. Returns a `200 OK` status if any Carts match the query predicate, or a `404 Not Found` otherwise.
+Checks if one or more Carts exist for the provided query predicate. Returns a `200 OK` status if any Carts match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -2201,7 +2201,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->head()`
 
-Checks if a Cart exists for the provided `id`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+Checks if a Cart exists for the provided `id`. Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -2264,7 +2264,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withCustomerId("customerId")->head()`
 
-Checks if a Cart exists for a Customer. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+Checks if a Cart exists for a Customer. Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -2296,7 +2296,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->head()`
 
-Checks if a Cart exists for the provided `key`. Returns a `200 OK` status if the Cart exists or a `404 Not Found` otherwise.
+Checks if a Cart exists with the provided `key`. Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -2381,7 +2381,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->head()`
 
-Checks if a Category exists for on a given Query Predicate. Returns a `200 OK` status if any Categories match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Categories exist for the provided query predicate. Returns a `200 OK` status if any Categories match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2428,7 +2428,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->head()`
 
-Checks if a Category exists for a given `id`. Returns a `200 OK` status if the Category exists or a `404 Not Found` otherwise.
+Checks if a Category exists with the provided `id`. Returns a `200 OK` status if the Category exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2491,7 +2491,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->head()`
 
-Checks if a Category exists for a given `key`. Returns a `200 OK` status if the Category exists or a `404 Not Found` otherwise.
+Checks if a Category exists with the provided `key`. Returns a `200 OK` status if the Category exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2552,7 +2552,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->head()`
 
-Checks if a Channel exists for a given Query Predicate. Returns a `200 OK` status if any Channels match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Channels exist for the provided query predicate. Returns a `200 OK` status if any Channels match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2595,7 +2595,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withId("ID")->head()`
 
-Checks if a Channel exists for a given `id`. Returns a `200 OK` status if the Channel exists or a `404 Not Found` otherwise.
+Checks if a Channel exists with the provided `id`. Returns a `200 OK` status if the Channel exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2656,7 +2656,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withKey("key")->head()`
 
-Checks if a Channel exists for a given `key`. Returns a `200 OK` status if the Channel exists or a `404 Not Found` otherwise.
+Checks if a Channel exists with the provided `key`. Returns a `200 OK` status if the Channel exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2717,7 +2717,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->head()`
 
-Checks if a CustomObject exists for a given Query Predicate. Returns a `200 OK` status if any CustomObjects match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more CustomObjects exist for the provided query predicate. Returns a `200 OK` status if any CustomObjects match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2808,7 +2808,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->head()`
 
-Checks if a CustomerGroup exists for a given Query Predicate. Returns a `200 OK` status if any CustomerGroup match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more CustomerGroups exist for the provided query predicate. Returns a `200 OK` status if any CustomerGroup match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2851,7 +2851,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withId("ID")->head()`
 
-Checks if a CustomerGroup exists for a given `id`. Returns a `200 OK` status if the CustomerGroup exists or a `404 Not Found` otherwise.
+Checks if a CustomerGroup exists with the provided `id`. Returns a `200 OK` status if the CustomerGroup exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2911,7 +2911,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withKey("key")->head()`
 
-Checks if a CustomerGroup exists for a given `key`. Returns a `200 OK` status if the CustomerGroup exists or a `404 Not Found` otherwise.
+Checks if a CustomerGroup exists with the provided `key`. Returns a `200 OK` status if the CustomerGroup exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -2970,7 +2970,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->head()`
 
-Checks if a Customer exists for a given Query Predicate. Returns a `200 OK` status if any Customers match the Query Predicate, or a `404 Not Found` otherwise.
+Checks if one or more Customers exist for the provided query predicate. Returns a `200 OK` status if any Customers match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3017,7 +3017,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withId("ID")->head()`
 
-Checks if a Customer exists for a given `id`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
+Checks if a Customer exists with the provided `id`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3130,7 +3130,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withKey("key")->head()`
 
-Checks if a Customer exists for a given `key`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
+Checks if a Customer exists with the provided `key`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3310,7 +3310,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->head()`
 
-Checks if a DiscountCode exists for a given Query Predicate. Returns a `200 OK` status if any DiscountCodes match the Query Predicate, or a `404 Not Found` otherwise.
+Checks if one or more DiscountCodes exist for the provided query predicate. Returns a `200 OK` status if any DiscountCodes match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3356,7 +3356,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->head()`
 
-Checks if a DiscountCode exists for a given `id`. Returns a `200 OK` status if the DiscountCode exists or a `404 Not Found` otherwise.
+Checks if a DiscountCode exists with the provided `id`. Returns a `200 OK` status if the DiscountCode exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3419,7 +3419,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withKey("key")->head()`
 
-Checks if a DiscountCode exists for a given `key`. Returns a `200 OK` status if the DiscountCode exists or a `404 Not Found` otherwise.
+Checks if a DiscountCode exists with the provided `key`. Returns a `200 OK` status if the DiscountCode exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3481,7 +3481,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->head()`
 
-Checks if an Extension exists for a given Query Predicate. Returns a `200 OK` status if any Extensions match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Extensions exist for the provided query predicate. Returns a `200 OK` status if any Extensions match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3524,7 +3524,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withId("ID")->head()`
 
-Checks if an Extension exists for a given `id`. Returns a `200 OK` status if the Extension exists or a `404 Not Found` otherwise.
+Checks if an Extension exists with the provided `id`. Returns a `200 OK` status if the Extension exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3584,7 +3584,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withKey("key")->head()`
 
-Checks if an Extension exists for a given `key`. Returns a `200 OK` status if the Extension exists or a `404 Not Found` otherwise.
+Checks if an Extension exists with the provided `key`. Returns a `200 OK` status if the Extension exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3677,7 +3677,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->head()`
 
-Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more BusinessUnits exist for the provided query predicate. Returns a `200 OK` status if any BusinessUnits match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3740,7 +3740,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withId("ID")->head()`
 
-Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+Checks if a BusinessUnit exists with the provided `id`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3804,7 +3804,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withKey("key")->head()`
 
-Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
+Checks if a BusinessUnit exists with the provided `key`. Returns a `200 OK` status if the BusinessUnit exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3884,7 +3884,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->head()`
 
-Checks if a CartDiscount exists for a given Query Predicate. Returns a `200 OK` status if any CartDiscounts match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more CartDiscounts exist for the provided query predicate. Returns a `200 OK` status if any CartDiscounts match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -3933,7 +3933,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withId("ID")->head()`
 
-Checks if a CartDiscount exists for a given `id`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
+Checks if a CartDiscount exists with the provided `id`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4001,7 +4001,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->cartDiscounts()->withKey("key")->head()`
 
-Checks if a CartDiscount exists for a given `key`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
+Checks if a CartDiscount exists with the provided `key`. Returns a `200 OK` status if the CartDiscount exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4068,7 +4068,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->head()`
 
-Checks if one or more Carts exist for the provided query predicate in a [Store](ctp:api:type:Store). Returns a `200 OK` status if any Carts match the query predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more Carts exist for the provided query predicate in a [Store](ctp:api:type:Store). Returns a `200 OK` status if any Carts match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -4130,7 +4130,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->head()`
 
-Checks if a Cart exists for the provided `id` in a Store. Returns a `200 OK` status if the Cart exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Cart exists for the provided `id` in a Store. Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -4205,7 +4205,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withCustomerId("customerId")->head()`
 
-Checks if one or more Carts exist for a Customer in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the Cart exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more Carts exist for a Customer in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -4243,7 +4243,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->head()`
 
-Checks if a Cart exists for the provided `key` in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the Cart exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Cart exists with the provided `key` in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -4338,7 +4338,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->head()`
 
-Checks if a Customer exists for a given Query Predicate. Returns a `200 OK` status if any Customers match the Query Predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more Customers exist for the provided query predicate. Returns a `200 OK` status if any Customers match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -4392,7 +4392,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->head()`
 
-Checks if a Customer exists for a given `id`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
+Checks if a Customer exists with the provided `id`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4522,7 +4522,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->head()`
 
-Checks if a Customer exists for a given `key`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
+Checks if a Customer exists with the provided `key`. Returns a `200 OK` status if the Customer exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4807,7 +4807,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->head()`
 
-Checks if a Cart exists for a Store that matches the given Query Predicate, and contains a matching `customerId` or `anonymousId`. Returns a `200 OK` status if any Carts match these conditions, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Cart exists for a Store that matches the given Query Predicate, and contains a matching `customerId` or `anonymousId`. Returns a `200 OK` status if any Carts match these conditions, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 
 ### Example
@@ -5007,7 +5007,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->head()`
 
-Checks if an Order exists for a given Query Predicate in a Store. Returns a `200 OK` status if successful.
+Checks if one or more Orders exist for the provided query predicate in a Store. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -5090,7 +5090,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->withId("ID")->head()`
 
-Checks if an Order exists for a given `id` in a Store. Returns a `200 OK` status if successful.
+Checks if an Order exists with the provided `id` in a Store. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -5251,7 +5251,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists for a given `id` in a Store. Returns a `200 OK` status if successful.
+Checks if a ShoppingList exists with the provided `id` in a Store. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -5348,7 +5348,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists for a given `key` in a Store. Returns a `200 OK` status if successful.
+Checks if a ShoppingList exists with the provided `key` in a Store. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -5459,7 +5459,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->head()`
 
-Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status if any Orders match the Query Predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more Orders exist for the provided query predicate. Returns a `200 OK` status if any Orders match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -5524,7 +5524,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->head()`
 
-Checks if an Order exists for a given `id`. Returns a `200 OK` status if the Order exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if an Order exists with the provided `id`. Returns a `200 OK` status if the Order exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -5593,7 +5593,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->head()`
 
-Checks if an Order exists for a given `orderNumber`. Returns a `200 OK` status if the Order exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if an Order exists for a given `orderNumber`. Returns a `200 OK` status if the Order exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -5698,7 +5698,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->head()`
 
-Checks if the current or staged representations of a Product exists for a given `id` in the specified [Store](ctp:api:type:Store). Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
+Checks if the current or staged representations of a Product exists with the provided `id` in the specified [Store](ctp:api:type:Store). Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -5740,7 +5740,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->head()`
 
-Checks if the current or staged representations of a Product exists for a given `key` in the specified [Store](ctp:api:type:Store). Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
+Checks if the current or staged representations of a Product exists with the provided `key` in the specified [Store](ctp:api:type:Store). Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -5991,7 +5991,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->head()`
 
-Checks if a QuoteRequest exists for a given Query Predicate. Returns a `200 OK` status if any QuoteRequests match the Query Predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200 OK` status if any QuoteRequests match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6037,7 +6037,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists for a given `id`. Returns a `200 OK` status if the QuoteRequest exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a QuoteRequest exists with the provided `id`. Returns a `200 OK` status if the QuoteRequest exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6101,7 +6101,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists for a given `key`. Returns a `200 OK` status if the QuoteRequest exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a QuoteRequest exists with the provided `key`. Returns a `200 OK` status if the QuoteRequest exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6164,7 +6164,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->head()`
 
-Checks if a Quote exists for a given Query Predicate. Returns a `200 OK` status if any Quotes match the Query Predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more Quotes exist for the provided query predicate. Returns a `200 OK` status if any Quotes match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6210,7 +6210,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists for a given `id`. Returns a `200 OK` status if the Quote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Quote exists with the provided `id`. Returns a `200 OK` status if the Quote exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6274,7 +6274,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists for a given `key`. Returns a `200 OK` status if the Quote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Quote exists with the provided `key`. Returns a `200 OK` status if the Quote exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6373,7 +6373,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->head()`
 
-Checks if a ShoppingList exists for a given Query Predicate. Returns a `200 OK` status if any ShoppingLists match the Query Predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more ShoppingLists exist for the provided query predicate. Returns a `200 OK` status if any ShoppingLists match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6422,7 +6422,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` status if the ShoppingList exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a ShoppingList exists with the provided `id`. Returns a `200 OK` status if the ShoppingList exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6492,7 +6492,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` status if the ShoppingList exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a ShoppingList exists with the provided `key`. Returns a `200 OK` status if the ShoppingList exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6559,7 +6559,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->head()`
 
-Checks if a StagedQuote exists for a given Query Predicate. Returns a `200 OK` status if any StagedQuotes match the Query Predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more StagedQuotes exist for the provided query predicate. Returns a `200 OK` status if any StagedQuotes match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6605,7 +6605,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withId("ID")->head()`
 
-Checks if a StagedQuote exists for a given `id`. Returns a `200 OK` status if the StagedQuote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a StagedQuote exists with the provided `id`. Returns a `200 OK` status if the StagedQuote exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6669,7 +6669,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withKey("key")->head()`
 
-Checks if a StagedQuote exists for a given `key`. Returns a `200 OK` status if the StagedQuote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a StagedQuote exists with the provided `key`. Returns a `200 OK` status if the StagedQuote exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6731,7 +6731,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->head()`
 
-Checks if an InventoryEntry exists for a given Query Predicate. Returns a `200 OK` status if any Inventory Entries match the Query Predicate, a `404 Not Found` otherwise.
+Checks if one or more InventoryEntries exist for the provided query predicate. Returns a `200 OK` status if any Inventory Entries match the Query Predicate, a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -6774,7 +6774,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withId("ID")->head()`
 
-Checks if an InventoryEntry exists for a given `id`. Returns a `200 OK` status if the InventoryEntry exists or a `404 Not Found` otherwise.
+Checks if an InventoryEntry exists with the provided `id`. Returns a `200 OK` status if the InventoryEntry exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -6834,7 +6834,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withKey("key")->head()`
 
-Checks if an InventoryEntry exists for a given `key`. Returns a `200 OK` status if the InventoryEntry exists or a `404 Not Found` otherwise.
+Checks if an InventoryEntry exists with the provided `key`. Returns a `200 OK` status if the InventoryEntry exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -7011,7 +7011,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->head()`
 
-Checks if a BusinessUnit exists for a given Query Predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate and the Customer has access to them, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more BusinessUnits exist for the provided query predicate. Returns a `200 OK` status if any BusinessUnits match the Query Predicate and the Customer has access to them, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 
 ### Example
@@ -7060,7 +7060,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->head()`
 
-Checks if a BusinessUnit exists for a given `id`. Returns a `200 OK` status if the BusinessUnit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a BusinessUnit exists with the provided `id`. Returns a `200 OK` status if the BusinessUnit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -7109,7 +7109,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->head()`
 
-Checks if a BusinessUnit exists for a given `key`. Returns a `200 OK` status if the Business Unit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a BusinessUnit exists with the provided `key`. Returns a `200 OK` status if the Business Unit exists and the Customer has access to it, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -7201,7 +7201,7 @@ Returns a Cart for a given `id`. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Cart exists for a given `id`.
+- If no Cart exists with the provided `id`.
 - If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -7219,11 +7219,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->head()`
 
-Checks if a Cart exists for a given `id`. Returns a `200 OK` status if the Cart exists.
+Checks if a Cart exists with the provided `id`. Returns a `200 OK` status if the Cart exists.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Cart exists for a given `id`.
+- If no Cart exists with the provided `id`.
 - If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -7245,7 +7245,7 @@ Updates the Cart for a given `id`. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Cart exists for a given `id`.
+- If no Cart exists with the provided `id`.
 - If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -7267,7 +7267,7 @@ Deletes the Cart for a given `id`. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Cart exists for a given `id`.
+- If no Cart exists with the provided `id`.
 - If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -7379,7 +7379,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->head()`
 
-Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status if successful.
+Checks if one or more Orders exist for the provided query predicate. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -7458,7 +7458,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->withId("ID")->head()`
 
-Checks if an Order exists for a given `id`. Returns a `200 OK` status if successful.
+Checks if an Order exists with the provided `id`. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -7561,7 +7561,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->head()`
 
-Checks if a [Payment](/projects/me-payments#mypayment) exists for a given Query Predicate. Returns a `200 OK` status if any Payments match the Query Predicate or a `404 Not Found` otherwise.
+Checks if a [Payment](/projects/me-payments#mypayment) exists for the provided query predicate. Returns a `200 OK` status if any Payments match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -7609,7 +7609,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->head()`
 
-Checks if a [Payment](/projects/me-payments#mypayment) exists for a given `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+Checks if a [Payment](/projects/me-payments#mypayment) exists with the provided `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -7677,7 +7677,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->head()`
 
-Checks if a QuoteRequest exists for a given Query Predicate. Returns a `200 OK` status if any QuoteRequests match the Query Predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200 OK` status if any QuoteRequests match the query predicate, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 
 ### Example
@@ -7724,7 +7724,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists for a given `id`. Returns a `200 OK` status if the QuoteRequest exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a QuoteRequest exists with the provided `id`. Returns a `200 OK` status if the QuoteRequest exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -7772,7 +7772,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists for a given `key`. Returns a `200 OK` status if the QuoteRequest exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a QuoteRequest exists with the provided `key`. Returns a `200 OK` status if the QuoteRequest exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -7819,7 +7819,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->head()`
 
-Checks if a Quote exists for a given Query Predicate. Returns a `200 OK` status if any Quotes match the Query Predicate or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more Quotes exist for the provided query predicate. Returns a `200 OK` status if any Quotes match the query predicate, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -7850,7 +7850,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists for a given `id`. Returns a `200 OK` status if the Quote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Quote exists with the provided `id`. Returns a `200 OK` status if the Quote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -7898,7 +7898,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists for a given `key`. Returns a `200 OK` status if the Quote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Quote exists with the provided `key`. Returns a `200 OK` status if the Quote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 ### Example
 ```php
@@ -8010,7 +8010,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` status if successful.
+Checks if a ShoppingList exists with the provided `id`. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -8098,7 +8098,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` status if successful.
+Checks if a ShoppingList exists with the provided `key`. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -8196,7 +8196,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->head()`
 
-Checks if a Message exists for a given Query Predicate. Returns a `200 OK` status if any Messages match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Messages exist for the provided query predicate. Returns a `200 OK` status if any Messages match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8225,7 +8225,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->withId("ID")->head()`
 
-Checks if a Message exists for a given `id`. Returns a `200 OK` status if the Message exists or a `404 Not Found` otherwise.
+Checks if a Message exists with the provided `id`. Returns a `200 OK` status if the Message exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8254,7 +8254,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->head()`
 
-Checks if an Order exists for a given Query Predicate. Returns a `200 OK` status if any Orders match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Orders exist for the provided query predicate. Returns a `200 OK` status if any Orders match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8315,7 +8315,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->head()`
 
-Checks if an Order exists for a given `id`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+Checks if an Order exists with the provided `id`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8376,7 +8376,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->head()`
 
-Checks if an OrderEdit exists for a given Query Predicate. Returns a `200 OK` status if any OrderEdits match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more OrderEdits exist for the provided query predicate. Returns a `200 OK` status if any OrderEdits match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8425,7 +8425,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->head()`
 
-Checks if an OrderEdit exists for a given `id`. Returns a `200 OK` status if the OrderEdit exists or a `404 Not Found` otherwise.
+Checks if an OrderEdit exists with the provided `id`. Returns a `200 OK` status if the OrderEdit exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8507,7 +8507,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->head()`
 
-Checks if an OrderEdit exists for a given `key`. Returns a `200 OK` status if the OrderEdit exists or a `404 Not Found` otherwise.
+Checks if an OrderEdit exists with the provided `key`. Returns a `200 OK` status if the OrderEdit exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8709,7 +8709,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->head()`
 
-Checks if a Payment exists for a given Query Predicate. Returns a `200 OK` status if any Payments match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Payments exist for the provided query predicate. Returns a `200 OK` status if any Payments match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8753,7 +8753,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->head()`
 
-Checks if a Payment exists for a given `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+Checks if a Payment exists with the provided `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8813,7 +8813,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->head()`
 
-Checks if a Payment exists for a given `key`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+Checks if a Payment exists with the provided `key`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8872,7 +8872,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->head()`
 
-Checks if a ProductDiscount exists for a given Query Predicate. Returns a `200 OK` status if any ProductDiscounts match the Query Predicate, or a `404 Not Found` otherwise.
+Checks if one or more ProductDiscounts exist for the provided query predicate. Returns a `200 OK` status if any ProductDiscounts match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8915,7 +8915,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withId("ID")->head()`
 
-Checks if a ProductDiscount exists for a given `id`. Returns a `200 OK` status if the ProductDiscount exists or a `404 Not Found` otherwise.
+Checks if a ProductDiscount exists with the provided `id`. Returns a `200 OK` status if the ProductDiscount exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8975,7 +8975,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withKey("key")->head()`
 
-Checks if a ProductDiscount exists for a given `key`. Returns a `200 OK` status if the ProductDiscount exists or a `404 Not Found` otherwise.
+Checks if a ProductDiscount exists with the provided `key`. Returns a `200 OK` status if the ProductDiscount exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9056,7 +9056,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->head()`
 
-Checks if the current or staged representation of a Product exists for a given Query Predicate. Returns a `200 OK` status if any ProductProjections match the Query Predicate or a `404 Not Found` otherwise.
+Checks if the current or staged representation of a Product exists for the provided query predicate. Returns a `200 OK` status if any ProductProjections match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9086,7 +9086,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->withId("ID")->head()`
 
-Checks if the current or staged representation of a Product exists for a given `id`. Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
+Checks if the current or staged representation of a Product exists with the provided `id`. Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9119,7 +9119,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->withKey("key")->head()`
 
-Checks if the current or staged representation of a Product exists for a given `key`. Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
+Checks if the current or staged representation of a Product exists with the provided `key`. Returns a `200 OK` status if the ProductProjection exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9199,7 +9199,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productSelections()->head()`
 
-Checks if a ProductSelection exists for a given Query Predicate. Returns a `200 OK` status if any ProductSelections match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more ProductSelections exist for the provided query predicate. Returns a `200 OK` status if any ProductSelections match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9242,7 +9242,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productSelections()->withId("ID")->head()`
 
-Checks if a ProductSelection exists for a given `id`. Returns a `200 OK` status if the ProductSelection exists or a `404 Not Found` otherwise.
+Checks if a ProductSelection exists with the provided `id`. Returns a `200 OK` status if the ProductSelection exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9318,7 +9318,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productSelections()->withKey("key")->head()`
 
-Checks if a ProductSelection exists for a given `key`. Returns a `200 OK` status if the ProductSelection exists or a `404 Not Found` otherwise.
+Checks if a ProductSelection exists with the provided `key`. Returns a `200 OK` status if the ProductSelection exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9393,7 +9393,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTailoring()->head()`
 
-Checks if a ProductTailoring exists for a given Query Predicate. Returns a `200 OK` status if any ProductTailoring match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more ProductTailorings exist for the provided query predicate. Returns a `200 OK` status if any ProductTailoring match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9528,7 +9528,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->head()`
 
-Checks if a ProductType exists for a given Query Predicate. Returns a `200 OK` status if any ProductTypes match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more ProductTypes exist for the provided query predicate. Returns a `200 OK` status if any ProductTypes match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9571,7 +9571,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withId("ID")->head()`
 
-Checks if a ProductType exists for a given `id`. Returns a `200 OK` status if the ProductType exists or a `404 Not Found` otherwise.
+Checks if a ProductType exists with the provided `id`. Returns a `200 OK` status if the ProductType exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9631,7 +9631,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withKey("key")->head()`
 
-Checks if a ProductType exists for a given `key`. Returns a `200 OK` status if the ProductType exists or a `404 Not Found` otherwise.
+Checks if a ProductType exists with the provided `key`. Returns a `200 OK` status if the ProductType exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9690,7 +9690,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->head()`
 
-Checks if a Product exists for a given Query Predicate. Returns a `200 OK` status if any Products match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Products exist for the provided query predicate. Returns a `200 OK` status if any Products match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9736,7 +9736,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->head()`
 
-Checks if a Product exists for a given `id`. Returns a `200 OK` status if the Product exists or a `404 Not Found` otherwise.
+Checks if a Product exists with the provided `id`. Returns a `200 OK` status if the Product exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9841,7 +9841,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->head()`
 
-Checks if a Product exists for a given `key`. Returns a `200 OK` status if the Product exists or a `404 Not Found` otherwise.
+Checks if a Product exists with the provided `key`. Returns a `200 OK` status if the Product exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9934,7 +9934,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->head()`
 
-Checks if a QuoteRequest exists for a given Query Predicate. Returns a `200 OK` status if any QuoteRequests match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200 OK` status if any QuoteRequests match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -9977,7 +9977,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists for a given `id`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+Checks if a QuoteRequest exists with the provided `id`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10037,7 +10037,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists for a given `key`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
+Checks if a QuoteRequest exists with the provided `key`. Returns a `200 OK` status if the QuoteRequest exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10096,7 +10096,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->head()`
 
-Checks if a Quote exists for a given Query Predicate. Returns a `200 OK` status if any Quotes match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Quotes exist for the provided query predicate. Returns a `200 OK` status if any Quotes match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10139,7 +10139,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists for a given `id`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+Checks if a Quote exists with the provided `id`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10199,7 +10199,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists for a given `key`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
+Checks if a Quote exists with the provided `key`. Returns a `200 OK` status if the Quote exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10258,7 +10258,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->head()`
 
-Checks if a Review exists for a given Query Predicate. Returns a `200 OK` status if any Reviews match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Reviews exist for the provided query predicate. Returns a `200 OK` status if any Reviews match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10301,7 +10301,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->withId("ID")->head()`
 
-Checks if a Review exists for a given `id`. Returns a `200 OK` status if the Review exists or a `404 Not Found` otherwise.
+Checks if a Review exists with the provided `id`. Returns a `200 OK` status if the Review exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10361,7 +10361,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->withKey("key")->head()`
 
-Checks if a Review exists for a given `key`. Returns a `200 OK` status if the Review exists or a `404 Not Found` otherwise.
+Checks if a Review exists with the provided `key`. Returns a `200 OK` status if the Review exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10420,7 +10420,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->head()`
 
-Checks if a ShippingMethod exists for a given Query Predicate. Returns a `200 OK` status if any ShippingMethods match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more ShippingMethods exist for the provided query predicate. Returns a `200 OK` status if any ShippingMethods match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10463,7 +10463,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->head()`
 
-Checks if a ShippingMethod exists for a given `id`. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if a ShippingMethod exists with the provided `id`. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10523,7 +10523,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->head()`
 
-Checks if a ShippingMethod exists for a given `key`. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
+Checks if a ShippingMethod exists with the provided `key`. Returns a `200 OK` status if the ShippingMethod exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10720,7 +10720,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->head()`
 
-Checks if a ShoppingList exists for a given Query Predicate. Returns a `200 OK` status if any ShoppingLists match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more ShoppingLists exist for the provided query predicate. Returns a `200 OK` status if any ShoppingLists match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10763,7 +10763,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists for a given `id`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+Checks if a ShoppingList exists with the provided `id`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10823,7 +10823,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists for a given `key`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+Checks if a ShoppingList exists with the provided `key`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10882,7 +10882,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->head()`
 
-Checks if a StagedQuote exists for a given Query Predicate. Returns a `200 OK` status if any StagedQuotes match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more StagedQuotes exist for the provided query predicate. Returns a `200 OK` status if any StagedQuotes match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10925,7 +10925,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->head()`
 
-Checks if a StagedQuote exists for a given `id`. Returns a `200 OK` status if the StagedQuote exists or a `404 Not Found` otherwise.
+Checks if a StagedQuote exists with the provided `id`. Returns a `200 OK` status if the StagedQuote exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -10985,7 +10985,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->head()`
 
-Checks if a StagedQuote exists for a given `key`. Returns a `200 OK` status if the StagedQuote exists or a `404 Not Found` otherwise.
+Checks if a StagedQuote exists with the provided `key`. Returns a `200 OK` status if the StagedQuote exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11044,7 +11044,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->head()`
 
-Checks if a StandalonePrice exists for a given Query Predicate. Returns a `200 OK` status if any StandalonePrices match the Query Predicate, or a `404 Not Found` otherwise.
+Checks if one or more StandalonePrices exist for the provided query predicate. Returns a `200 OK` status if any StandalonePrices match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11091,7 +11091,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->head()`
 
-Checks if a StandalonePrice exists for a given `id`. Returns a `200 OK` status if the StandalonePrice exists or a `404 Not Found` otherwise.
+Checks if a StandalonePrice exists with the provided `id`. Returns a `200 OK` status if the StandalonePrice exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11152,7 +11152,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->head()`
 
-Checks if a StandalonePrice exists for a given `key`. Returns a `200 OK` status if the StandalonePrice exists or a `404 Not Found` otherwise.
+Checks if a StandalonePrice exists with the provided `key`. Returns a `200 OK` status if the StandalonePrice exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11212,7 +11212,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->head()`
 
-Checks if a State exists for a given Query Predicate. Returns a `200 OK` status if any States match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more States exist for the provided query predicate. Returns a `200 OK` status if any States match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11255,7 +11255,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withId("ID")->head()`
 
-Checks if a State exists for a given `id`. Returns a `200 OK` status if the State exists or a `404 Not Found` otherwise.
+Checks if a State exists with the provided `id`. Returns a `200 OK` status if the State exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11315,7 +11315,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withKey("key")->head()`
 
-Checks if a State exists for a given `key`. Returns a `200 OK` status if the State exists or a `404 Not Found` otherwise.
+Checks if a State exists with the provided `key`. Returns a `200 OK` status if the State exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11374,7 +11374,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->head()`
 
-Checks if a Store exists for a given Query Predicate. Returns a `200 OK` status if any Stores match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Stores exist for the provided query predicate. Returns a `200 OK` status if any Stores match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11417,7 +11417,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withId("ID")->head()`
 
-Checks if a Store exists for a given `id`. Returns a `200 OK` status if the Store exists or a `404 Not Found` otherwise.
+Checks if a Store exists with the provided `id`. Returns a `200 OK` status if the Store exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11477,7 +11477,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withKey("key")->head()`
 
-Checks if a Store exists for a given `key`. Returns a `200 OK` status if the Store exists or a `404 Not Found` otherwise.
+Checks if a Store exists with the provided `key`. Returns a `200 OK` status if the Store exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11536,7 +11536,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->head()`
 
-Checks if a Subscription exists for a given Query Predicate. Returns a `200 OK` status if any Subscriptions match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Subscriptions exist for the provided query predicate. Returns a `200 OK` status if any Subscriptions match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11580,7 +11580,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withId("ID")->head()`
 
-Checks if a Subscription exists for a given `id`. Returns a `200 OK` status if the Subscription exists or a `404 Not Found` otherwise.
+Checks if a Subscription exists with the provided `id`. Returns a `200 OK` status if the Subscription exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11657,7 +11657,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withKey("key")->head()`
 
-Checks if a Subscription exists for a given `key`. Returns a `200 OK` status if the Subscription exists or a `404 Not Found` otherwise.
+Checks if a Subscription exists with the provided `key`. Returns a `200 OK` status if the Subscription exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11716,7 +11716,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->head()`
 
-Checks if a TaxCategory exists for a given Query Predicate. Returns a `200 OK` status if any TaxCategories match the Query Predicate, or a `404 Not Found` otherwise.
+Checks if one or more Tax Categories exist for the provided query predicate. Returns a `200 OK` status if any TaxCategories match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11759,7 +11759,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withId("ID")->head()`
 
-Checks if a TaxCategory exists for a given `id`. Returns a `200 OK` status if the TaxCategory exists or a `404 Not Found` otherwise.
+Checks if a TaxCategory exists with the provided `id`. Returns a `200 OK` status if the TaxCategory exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11819,7 +11819,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withKey("key")->head()`
 
-Checks if a TaxCategory exists for a given `key`. Returns a `200 OK` status if the Tax Category exists or a `404 Not Found` otherwise.
+Checks if a TaxCategory exists with the provided `key`. Returns a `200 OK` status if the Tax Category exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11878,7 +11878,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->head()`
 
-Checks if a Type exists for a given Query Predicate. Returns a `200 OK` status if any Types match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Types exist for the provided query predicate. Returns a `200 OK` status if any Types match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11921,7 +11921,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->withId("ID")->head()`
 
-Checks if a Type exists for a given `id`. Returns a `200 OK` status if the Type exists or a `404 Not Found` otherwise.
+Checks if a Type exists with the provided `id`. Returns a `200 OK` status if the Type exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -11981,7 +11981,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->withKey("key")->head()`
 
-Checks if a Type exists for a given `key`. Returns a `200 OK` status if the Type exists or a `404 Not Found` otherwise.
+Checks if a Type exists with the provided `key`. Returns a `200 OK` status if the Type exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -12040,7 +12040,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->head()`
 
-Checks if a Zone exists for a given Query Predicate. Returns a `200 OK` status if any Zones match the Query Predicate or a `404 Not Found` otherwise.
+Checks if one or more Zones exist for the provided query predicate. Returns a `200 OK` status if any Zones match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -12083,7 +12083,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withId("ID")->head()`
 
-Checks if a Zone exists for a given `id`. Returns a `200 OK` status if the Zone exists or a `404 Not Found` otherwise.
+Checks if a Zone exists with the provided `id`. Returns a `200 OK` status if the Zone exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -12143,7 +12143,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->head()`
 
-Checks if a Zone exists for a given `key`. Returns a `200 OK` status if the Zone exists or a `404 Not Found` otherwise.
+Checks if a Zone exists with the provided `key`. Returns a `200 OK` status if the Zone exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php

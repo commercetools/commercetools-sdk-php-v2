@@ -17,6 +17,7 @@ interface SubscriptionDraft extends JsonObject
     public const FIELD_DESTINATION = 'destination';
     public const FIELD_KEY = 'key';
     public const FIELD_MESSAGES = 'messages';
+    public const FIELD_EVENTS = 'events';
     public const FIELD_FORMAT = 'format';
 
     /**
@@ -52,6 +53,14 @@ interface SubscriptionDraft extends JsonObject
     public function getMessages();
 
     /**
+     * <p>Events to be subscribed to.</p>
+     *
+
+     * @return null|EventSubscriptionCollection
+     */
+    public function getEvents();
+
+    /**
      * <p>Format in which the payload is delivered. When not provided, the <a href="ctp:api:type:PlatformFormat">PlatformFormat</a> is selected by default.</p>
      *
 
@@ -78,6 +87,11 @@ interface SubscriptionDraft extends JsonObject
      * @param ?MessageSubscriptionCollection $messages
      */
     public function setMessages(?MessageSubscriptionCollection $messages): void;
+
+    /**
+     * @param ?EventSubscriptionCollection $events
+     */
+    public function setEvents(?EventSubscriptionCollection $events): void;
 
     /**
      * @param ?DeliveryFormat $format

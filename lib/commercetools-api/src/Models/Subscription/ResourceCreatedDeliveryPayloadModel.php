@@ -29,13 +29,13 @@ final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implemen
      *
      * @var ?string
      */
-    protected $projectKey;
+    protected $notificationType;
 
     /**
      *
      * @var ?string
      */
-    protected $notificationType;
+    protected $projectKey;
 
     /**
      *
@@ -82,6 +82,26 @@ final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Identifies the payload.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getNotificationType()
+    {
+        if (is_null($this->notificationType)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_NOTIFICATION_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->notificationType = (string) $data;
+        }
+
+        return $this->notificationType;
+    }
+
+    /**
      * <p><code>key</code> of the <a href="ctp:api:type:Project">Project</a>.
      * Useful for processing notifications if the Destination receives them from multiple Projects.</p>
      *
@@ -100,26 +120,6 @@ final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implemen
         }
 
         return $this->projectKey;
-    }
-
-    /**
-     * <p>Identifies the payload.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getNotificationType()
-    {
-        if (is_null($this->notificationType)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NOTIFICATION_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->notificationType = (string) $data;
-        }
-
-        return $this->notificationType;
     }
 
     /**

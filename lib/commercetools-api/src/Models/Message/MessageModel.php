@@ -154,6 +154,8 @@ final class MessageModel extends JsonObjectModel implements Message
        'BusinessUnitStoreModeChanged' => BusinessUnitStoreModeChangedMessageModel::class,
        'BusinessUnitStoreRemoved' => BusinessUnitStoreRemovedMessageModel::class,
        'BusinessUnitStoresSet' => BusinessUnitStoresSetMessageModel::class,
+       'BusinessUnitTopLevelUnitSet' => BusinessUnitTopLevelUnitSetMessageModel::class,
+       'BusinessUnitTypeSet' => BusinessUnitTypeSetMessageModel::class,
        'CartDiscountCreated' => CartDiscountCreatedMessageModel::class,
        'CartDiscountDeleted' => CartDiscountDeletedMessageModel::class,
        'CartDiscountStoreAdded' => CartDiscountStoreAddedMessageModel::class,

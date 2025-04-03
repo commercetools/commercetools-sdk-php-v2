@@ -23,6 +23,7 @@ interface Subscription extends BaseResource
     public const FIELD_DESTINATION = 'destination';
     public const FIELD_KEY = 'key';
     public const FIELD_MESSAGES = 'messages';
+    public const FIELD_EVENTS = 'events';
     public const FIELD_FORMAT = 'format';
     public const FIELD_STATUS = 'status';
 
@@ -107,6 +108,14 @@ interface Subscription extends BaseResource
     public function getMessages();
 
     /**
+     * <p>Events subscribed to.</p>
+     *
+
+     * @return null|EventSubscriptionCollection
+     */
+    public function getEvents();
+
+    /**
      * <p>Format in which the payload is delivered.</p>
      *
 
@@ -171,6 +180,11 @@ interface Subscription extends BaseResource
      * @param ?MessageSubscriptionCollection $messages
      */
     public function setMessages(?MessageSubscriptionCollection $messages): void;
+
+    /**
+     * @param ?EventSubscriptionCollection $events
+     */
+    public function setEvents(?EventSubscriptionCollection $events): void;
 
     /**
      * @param ?DeliveryFormat $format
