@@ -15,6 +15,75 @@
 
 
 <details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
+</details>
+
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `BusinessUnitAssociateResponse`
+- added type `BusinessUnitSetUnitTypeAction`
+- added type `BestDeal`
+- added type `DiscountTypeCombination`
+- added type `Stacking`
+- added type `CustomerGroupAssignment`
+- added type `CustomerGroupAssignmentDraft`
+- added type `CustomerAddCustomerGroupAssignmentAction`
+- added type `CustomerRemoveCustomerGroupAssignmentAction`
+- added type `CustomerSetCustomerGroupAssignmentsAction`
+- added type `BaseEvent`
+- added type `Event`
+- added type `ImportContainerCreatedEvent`
+- added type `ImportContainerCreatedEventData`
+- added type `ImportContainerDeletedEvent`
+- added type `ImportContainerDeletedEventData`
+- added type `ImportOperationRejectedEvent`
+- added type `ImportOperationRejectedEventData`
+- added type `ImportUnresolvedEvent`
+- added type `ImportUnresolvedEventData`
+- added type `ImportValidationFailedEvent`
+- added type `ImportValidationFailedEventData`
+- added type `ImportWaitForMasterVariantEvent`
+- added type `ImportWaitForMasterVariantEventData`
+- added type `AssociateRoleNameSetMessage`
+- added type `BusinessUnitTopLevelUnitSetMessage`
+- added type `BusinessUnitTypeSetMessage`
+- added type `CustomerGroupAssignmentAddedMessage`
+- added type `CustomerGroupAssignmentRemovedMessage`
+- added type `CustomerGroupAssignmentsSetMessage`
+- added type `OrderBusinessUnitSetMessage`
+- added type `AssociateRoleNameSetMessagePayload`
+- added type `BusinessUnitTopLevelUnitSetMessagePayload`
+- added type `BusinessUnitTypeSetMessagePayload`
+- added type `CustomerGroupAssignmentAddedMessagePayload`
+- added type `CustomerGroupAssignmentRemovedMessagePayload`
+- added type `CustomerGroupAssignmentsSetMessagePayload`
+- added type `OrderBusinessUnitSetMessagePayload`
+- added type `StagedOrderSetBusinessUnitAction`
+- added type `OrderSetBusinessUnitAction`
+- added type `ShoppingListSetBusinessUnitAction`
+- added type `EventDeliveryPayload`
+- added type `EventSubscription`
+- added type `EventSubscriptionResourceTypeId`
+- added type `EventType`
+- added type `SubscriptionNotification`
+- added type `SubscriptionSetEventsAction`
+</details>
+
+
+<details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `AssociateRoleNameChangedMessage`
+- :warning: removed type `AssociateRoleNameChangedMessagePayload`
+- :warning: removed type `ProductSearchFacetScope`
+</details>
+
+
+<details>
 <summary>Required Property(s)</summary>
 
 - :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
@@ -44,6 +113,8 @@
 - added property `priceCustomerGroupAssignments` to type `ProductSearchProjectionParams`
 - added property `businessUnit` to type `ShoppingList`
 - added property `businessUnit` to type `ShoppingListDraft`
+- added property `events` to type `Subscription`
+- added property `events` to type `SubscriptionDraft`
 </details>
 
 
@@ -79,43 +150,6 @@
 <summary>Removed QueryParameter(s)</summary>
 
 - :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
-</details>
-
-
-<details>
-<summary>Added Type(s)</summary>
-
-- added type `BusinessUnitAssociateResponse`
-- added type `BestDeal`
-- added type `DiscountTypeCombination`
-- added type `Stacking`
-- added type `CustomerGroupAssignment`
-- added type `CustomerGroupAssignmentDraft`
-- added type `CustomerAddCustomerGroupAssignmentAction`
-- added type `CustomerRemoveCustomerGroupAssignmentAction`
-- added type `CustomerSetCustomerGroupAssignmentsAction`
-- added type `AssociateRoleNameSetMessage`
-- added type `CustomerGroupAssignmentAddedMessage`
-- added type `CustomerGroupAssignmentRemovedMessage`
-- added type `CustomerGroupAssignmentsSetMessage`
-- added type `OrderBusinessUnitSetMessage`
-- added type `AssociateRoleNameSetMessagePayload`
-- added type `CustomerGroupAssignmentAddedMessagePayload`
-- added type `CustomerGroupAssignmentRemovedMessagePayload`
-- added type `CustomerGroupAssignmentsSetMessagePayload`
-- added type `OrderBusinessUnitSetMessagePayload`
-- added type `StagedOrderSetBusinessUnitAction`
-- added type `OrderSetBusinessUnitAction`
-- added type `ShoppingListSetBusinessUnitAction`
-</details>
-
-
-<details>
-<summary>Removed Type(s)</summary>
-
-- :warning: removed type `AssociateRoleNameChangedMessage`
-- :warning: removed type `AssociateRoleNameChangedMessagePayload`
-- :warning: removed type `ProductSearchFacetScope`
 </details>
 
 

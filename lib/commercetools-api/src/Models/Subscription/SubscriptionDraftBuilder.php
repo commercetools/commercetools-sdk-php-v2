@@ -46,6 +46,12 @@ final class SubscriptionDraftBuilder implements Builder
 
     /**
 
+     * @var ?EventSubscriptionCollection
+     */
+    private $events;
+
+    /**
+
      * @var null|DeliveryFormat|DeliveryFormatBuilder
      */
     private $format;
@@ -92,6 +98,17 @@ final class SubscriptionDraftBuilder implements Builder
     public function getMessages()
     {
         return $this->messages;
+    }
+
+    /**
+     * <p>Events to be subscribed to.</p>
+     *
+
+     * @return null|EventSubscriptionCollection
+     */
+    public function getEvents()
+    {
+        return $this->events;
     }
 
     /**
@@ -150,6 +167,17 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?EventSubscriptionCollection $events
+     * @return $this
+     */
+    public function withEvents(?EventSubscriptionCollection $events)
+    {
+        $this->events = $events;
+
+        return $this;
+    }
+
+    /**
      * @param ?DeliveryFormat $format
      * @return $this
      */
@@ -189,6 +217,7 @@ final class SubscriptionDraftBuilder implements Builder
             $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination,
             $this->key,
             $this->messages,
+            $this->events,
             $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format
         );
     }

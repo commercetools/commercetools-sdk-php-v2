@@ -99,7 +99,7 @@ interface CloudEventsPayload extends JsonObject
     public function getDataref();
 
     /**
-     * <p><a href="ctp:api:type:MessageDeliveryPayload">MessageDeliveryPayload</a>, <a href="ctp:api:type:ResourceCreatedDeliveryPayload">ResourceCreatedDeliveryPayload</a>, <a href="ctp:api:type:ResourceUpdatedDeliveryPayload">ResourceUpdatedDeliveryPayload</a>, or <a href="ctp:api:type:ResourceDeletedDeliveryPayload">ResourceDeletedDeliveryPayload</a>.</p>
+     * <p><a href="ctp:api:type:MessageDeliveryPayload">MessageDeliveryPayload</a>, <a href="ctp:api:type:ResourceCreatedDeliveryPayload">ResourceCreatedDeliveryPayload</a>, <a href="ctp:api:type:ResourceUpdatedDeliveryPayload">ResourceUpdatedDeliveryPayload</a>, or <a href="ctp:api:type:ResourceDeletedDeliveryPayload">ResourceDeletedDeliveryPayload</a>, <a href="ctp:api:type:EventDeliveryPayload">EventDeliveryPayload</a>.</p>
      *
 
      * @return null|DeliveryPayload

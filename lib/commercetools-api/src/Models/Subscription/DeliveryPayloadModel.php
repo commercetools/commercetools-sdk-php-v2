@@ -23,18 +23,17 @@ use stdClass;
  */
 final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayload
 {
-    public const DISCRIMINATOR_VALUE = '';
-    /**
-     *
-     * @var ?string
-     */
-    protected $projectKey;
-
     /**
      *
      * @var ?string
      */
     protected $notificationType;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $projectKey;
 
     /**
      *
@@ -48,16 +47,6 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
      */
     protected $resourceUserProvidedIdentifiers;
 
-    /**
-     * @psalm-var array<string, class-string<DeliveryPayload> >
-     *
-     */
-    private static $discriminatorClasses = [
-       'Message' => MessageDeliveryPayloadModel::class,
-       'ResourceCreated' => ResourceCreatedDeliveryPayloadModel::class,
-       'ResourceDeleted' => ResourceDeletedDeliveryPayloadModel::class,
-       'ResourceUpdated' => ResourceUpdatedDeliveryPayloadModel::class,
-    ];
 
     /**
      * @psalm-suppress MissingParamType
@@ -72,6 +61,26 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->notificationType = $notificationType;
+    }
+
+    /**
+     * <p>Identifies the payload.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getNotificationType()
+    {
+        if (is_null($this->notificationType)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_NOTIFICATION_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->notificationType = (string) $data;
+        }
+
+        return $this->notificationType;
     }
 
     /**
@@ -93,26 +102,6 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
         }
 
         return $this->projectKey;
-    }
-
-    /**
-     * <p>Identifies the payload.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getNotificationType()
-    {
-        if (is_null($this->notificationType)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NOTIFICATION_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->notificationType = (string) $data;
-        }
-
-        return $this->notificationType;
     }
 
     /**
@@ -180,34 +169,5 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
-
-
-    /**
-     * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<DeliveryPayload>
-     */
-    public static function resolveDiscriminatorClass($value): string
-    {
-        $fieldName = DeliveryPayload::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-
-        /** @psalm-var class-string<DeliveryPayload> */
-        $type = DeliveryPayloadModel::class;
-        return $type;
     }
 }

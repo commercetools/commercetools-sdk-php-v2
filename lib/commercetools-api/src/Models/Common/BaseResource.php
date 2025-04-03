@@ -79,6 +79,8 @@ use Commercetools\Api\Models\Message\BusinessUnitStoreAddedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitStoreModeChangedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitStoreRemovedMessage;
 use Commercetools\Api\Models\Message\BusinessUnitStoresSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitTopLevelUnitSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitTypeSetMessage;
 use Commercetools\Api\Models\Message\CartDiscountCreatedMessage;
 use Commercetools\Api\Models\Message\CartDiscountDeletedMessage;
 use Commercetools\Api\Models\Message\CartDiscountStoreAddedMessage;

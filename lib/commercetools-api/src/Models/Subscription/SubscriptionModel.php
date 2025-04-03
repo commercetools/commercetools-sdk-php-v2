@@ -88,6 +88,12 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
 
     /**
      *
+     * @var ?EventSubscriptionCollection
+     */
+    protected $events;
+
+    /**
+     *
      * @var ?DeliveryFormat
      */
     protected $format;
@@ -113,6 +119,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
         ?Destination $destination = null,
         ?string $key = null,
         ?MessageSubscriptionCollection $messages = null,
+        ?EventSubscriptionCollection $events = null,
         ?DeliveryFormat $format = null,
         ?string $status = null
     ) {
@@ -126,6 +133,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
         $this->destination = $destination;
         $this->key = $key;
         $this->messages = $messages;
+        $this->events = $events;
         $this->format = $format;
         $this->status = $status;
     }
@@ -342,6 +350,26 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Events subscribed to.</p>
+     *
+     *
+     * @return null|EventSubscriptionCollection
+     */
+    public function getEvents()
+    {
+        if (is_null($this->events)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_EVENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->events = EventSubscriptionCollection::fromArray($data);
+        }
+
+        return $this->events;
+    }
+
+    /**
      * <p>Format in which the payload is delivered.</p>
      *
      *
@@ -461,6 +489,14 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     public function setMessages(?MessageSubscriptionCollection $messages): void
     {
         $this->messages = $messages;
+    }
+
+    /**
+     * @param ?EventSubscriptionCollection $events
+     */
+    public function setEvents(?EventSubscriptionCollection $events): void
+    {
+        $this->events = $events;
     }
 
     /**

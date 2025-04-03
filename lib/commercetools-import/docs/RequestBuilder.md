@@ -58,7 +58,10 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->post(null)`
 
-Creates a new import container.
+Creates a new Import Container.
+
+Generates the [ImportContainerCreated](/projects/events#import-container-created-event) Event.
+
 
 ### Example
 ```php
@@ -72,7 +75,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->get()`
 
-Retrieves all import containers of a given project key.
+Retrieves all Import Containers of a given project key.
 
 ### Example
 ```php
@@ -86,7 +89,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->put(null)`
 
-Updates the import container given by the key.
+Updates the Import Container given by the key.
 
 ### Example
 ```php
@@ -101,7 +104,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->get()`
 
-Retrieves the import container given by the key.
+Retrieves the Import Container given by the key.
 
 ### Example
 ```php
@@ -116,7 +119,10 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->delete()`
 
-Deletes the import container given by the key.
+Deletes the Import Container specified by the `importContainerKey`.
+
+Generates the [ImportContainerDeleted](/projects/events#import-container-deleted-event) Event.
+
 
 ### Example
 ```php
@@ -148,7 +154,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->importSummaries()->get()`
 
-Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the given import container. An [ImportSummary](ctp:import:type:ImportSummary) is calculated on demand.
+Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the given Import Container. An [ImportSummary](ctp:import:type:ImportSummary) is calculated on demand.
 
 
 ### Example

@@ -57,7 +57,7 @@ final class AssociateMissingPermissionErrorBuilder implements Builder
     /**
      * <ul>
      * <li>When an action is performed by an Associate: <code>&quot;Associate '$idOfAssociate' has no rights to $action in business-unit '$idOrKeyOfBusinessUnit'. Needs '$requiredPermission'.&quot;</code></li>
-     * <li>When an action is performed for another Associate, like <a href="/projects/associate-carts#get-cart-in-businessunit">viewing their Cart</a>: <code>&quot;Associate '$idOfAssociate' has no rights to $action for customer '$idOfCustomer' in business-unit '$idOrKeyOfBusinessUnit'. Needs '$requiredPermission'.&quot;</code></li>
+     * <li>When an action is performed for another Associate, like <a href="/projects/associate-carts#get-cart-in-businessunit-as-associate">viewing their Cart</a>: <code>&quot;Associate '$idOfAssociate' has no rights to $action for customer '$idOfCustomer' in business-unit '$idOrKeyOfBusinessUnit'. Needs '$requiredPermission'.&quot;</code></li>
      * <li>When viewing an entity: <code>&quot;Associate '$idOfAssociate' has no rights to $action in business-unit '$idOrKeyOfBusinessUnit'. Needs '$requiredViewMyPermission' or '$requiredViewOthersPermission'.&quot;</code></li>
      * </ul>
      *

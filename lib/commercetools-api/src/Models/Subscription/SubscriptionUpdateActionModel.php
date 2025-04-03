@@ -33,6 +33,7 @@ final class SubscriptionUpdateActionModel extends JsonObjectModel implements Sub
     private static $discriminatorClasses = [
        'changeDestination' => SubscriptionChangeDestinationActionModel::class,
        'setChanges' => SubscriptionSetChangesActionModel::class,
+       'setEvents' => SubscriptionSetEventsActionModel::class,
        'setKey' => SubscriptionSetKeyActionModel::class,
        'setMessages' => SubscriptionSetMessagesActionModel::class,
     ];

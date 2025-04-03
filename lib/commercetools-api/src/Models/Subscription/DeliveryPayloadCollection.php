@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\SubscriptionNotificationCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
  * @template T of DeliveryPayload
- * @extends MapperSequence<T>
+ * @extends SubscriptionNotificationCollection<T>
  * @psalm-method T current()
  * @psalm-method T end()
  * @psalm-method T at($offset)
@@ -22,7 +22,7 @@ use stdClass;
  * @method DeliveryPayload end()
  * @method DeliveryPayload at($offset)
  */
-class DeliveryPayloadCollection extends MapperSequence
+class DeliveryPayloadCollection extends SubscriptionNotificationCollection
 {
     /**
      * @psalm-assert T $value
