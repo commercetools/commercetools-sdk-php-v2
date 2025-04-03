@@ -7,13 +7,13 @@
         "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "commercetools/commercetools-sdk": "^9.1",
-        "symfony/console": "6.2.*",
-        "symfony/dotenv": "6.2.*",
+        "commercetools/commercetools-sdk": "10.*",
+        "symfony/console": "^7.0",
+        "symfony/dotenv": "^7.0",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "6.2.*",
-        "symfony/runtime": "^6.2",
-        "symfony/yaml": "6.2.*"
+        "symfony/framework-bundle": "^7.0",
+        "symfony/runtime": "^7.0",
+        "symfony/yaml": "^7.0"
     },
     "config": {
         "allow-plugins": {
