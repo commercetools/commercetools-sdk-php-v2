@@ -1199,7 +1199,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->get()`
 
-Retrieves all ShoppingLists in a [BusinessUnit](ctp:api:type:BusinessUnit).
+Retrieves ShoppingLists in a [BusinessUnit](ctp:api:type:BusinessUnit).
 
 ### Example
 ```php
@@ -1781,7 +1781,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue("businessUnitId", "associateId")->get()`
 
-Retrieves all roles and permissions of an Associate in a Business Unit.
+Retrieves roles and permissions of an Associate in a Business Unit.
 
 
 ### Example
@@ -1917,7 +1917,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue("key", "associateId")->get()`
 
-Retrieves all roles and permissions of an Associate in a Business Unit.
+Retrieves roles and permissions of an Associate in a Business Unit.
 
 
 ### Example
@@ -2144,7 +2144,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->get()`
 
-Retrieves all Carts in the Project.
+Retrieves Carts in the Project.
 
 ### Example
 ```php
@@ -3720,7 +3720,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue("businessUnitId", "associateId")->get()`
 
-Retrieves all roles and permissions of an Associate in a Business Unit in a Store.
+Retrieves roles and permissions of an Associate in a Business Unit in a Store.
 
 
 ### Example
@@ -3865,7 +3865,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue("key", "associateId")->get()`
 
-Retrieves all roles and permissions of an Associate in a Business Unit in a Store.
+Retrieves roles and permissions of an Associate in a Business Unit in a Store.
 
 
 ### Example
@@ -4066,7 +4066,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
 
-Retrieves all Carts in a [Store](ctp:api:type:Store).
+Retrieves Carts in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -4803,7 +4803,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->get()`
 
-Returns all Carts that match a given Query Predicate and contain either a matching `customerId` or `anonymousId` in a Store.
+Retrieves Carts for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store).
 
 
 ### Example
@@ -5179,7 +5179,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->get()`
 
-Retrieves all ShoppingLists for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns `200 OK` status if successful.
+Retrieves ShoppingLists for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -6347,7 +6347,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
-Retrieves all the active ShippingMethods that can ship to the shipping address of the given Cart in a given [Store](ctp:api:type:Store).
+Retrieves the active ShippingMethods that can ship to the shipping address of the given Cart in a given [Store](ctp:api:type:Store).
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
@@ -6383,7 +6383,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->get()`
 
-Retrieves all ShoppingLists in a [Store](ctp:api:type:Store).
+Retrieves ShoppingLists in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -7027,7 +7027,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->get()`
 
-Returns all of the authenticated Customer’s Business Units in a Project. Returns a `200 OK` status if successful, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Retrieves Business Units for the authenticated Customer. Returns a `200 OK` status if successful, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 
 ### Example
@@ -7173,7 +7173,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->get()`
 
-Returns all Carts that match a given Query Predicate and contain either a matching `customerId` or `anonymousId`.
+Retrieves Carts for the authenticated Customer or anonymous user.
 
 
 ### Example
@@ -7578,7 +7578,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->get()`
 
-Retrieves all [Payments](/projects/me-payments#mypayment) for the authenticated Customer or anonymous user.
+Retrieves [Payments](/projects/me-payments#mypayment) for the authenticated Customer or anonymous user.
 
 ### Example
 ```php
@@ -7693,7 +7693,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->get()`
 
-Returns all Quote Requests that match a given Query Predicate. Returns a `200 OK` status if successful.
+Retrieves Quote Requests for the authenticated Customer. Returns a `200 OK` status if successful.
 
 
 ### Example
@@ -7962,7 +7962,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->get()`
 
-Retrieves all ShoppingLists for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
+Retrieves ShoppingLists for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -8732,7 +8732,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->get()`
 
-Retrieves all Payments in the Project.
+Retrieves Payments in the Project.
 
 ### Example
 ```php
@@ -10606,7 +10606,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->get()`
 
-Retrieves all the active ShippingMethods that can ship to the shipping address of the given Cart.
+Retrieves the active ShippingMethods that can ship to the shipping address of the given Cart.
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
@@ -10640,7 +10640,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->get()`
 
-Retrieves all the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location)
+Retrieves the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location)
 with a `predicate` that matches the given Cart.
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
 This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
@@ -10675,7 +10675,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
-Retrieves all the active ShippingMethods that can ship to the given [Location](/projects/zones#location).
+Retrieves the active ShippingMethods that can ship to the given [Location](/projects/zones#location).
 ShippingMethods that have a `predicate` defined are automatically disqualified.
 If the `currency` parameter is given, then the ShippingMethods must also have a rate defined in the specified currency.
 Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
@@ -10711,7 +10711,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
-Retrieves all the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
+Retrieves the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 If the OrderEdit preview cannot be generated, an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is returned.
 
@@ -10744,7 +10744,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->get()`
 
-Retrieves all ShoppingLists in the Project.
+Retrieves ShoppingLists in the Project.
 
 ### Example
 ```php
