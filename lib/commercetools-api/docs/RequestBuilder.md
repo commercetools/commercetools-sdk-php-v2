@@ -683,7 +683,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->get()`
 
-null
+Retrieves Orders in a [BusinessUnit](ctp:api:type:BusinessUnit).
 
 ### Example
 ```php
@@ -700,7 +700,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->head()`
 
-Checks if one or more Orders exist for the provided query predicate. Returns a `200 OK` status if any Orders match the query predicate, or a `404 Not Found` otherwise.
+Checks if one or more Orders exist with provided query predicate in a [BusinessUnit](ctp:api:type:BusinessUnit). Returns a `200 OK` status if any Orders match the query predicate, or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -747,7 +747,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->get()`
 
-If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+Retrieves an Order with the provided `id` in a [BusinessUnit](ctp:api:type:BusinessUnit).
+If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested Business Unit, this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -766,7 +767,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->head()`
 
-Checks if an Order exists with the provided `id`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+Checks if an Order exists with the provided `id` in a [BusinessUnit](ctp:api:type:BusinessUnit). Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -784,7 +785,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->post(null)`
 
-If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+Updates an Order in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/../api/projects/orders#update-actions).
+If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested Business Unit, this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -803,6 +805,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withOrderNumber("orderNumber")->get()`
 
+Retrieves an Order with the provided `orderNumber` in a [BusinessUnit](ctp:api:type:BusinessUnit).
 If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -822,7 +825,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withOrderNumber("orderNumber")->head()`
 
-Checks if an Order exists for a given `orderNumber`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+Checks if an Order exists with the provided `orderNumber` in a [BusinessUnit](ctp:api:type:BusinessUnit). Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -840,7 +843,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+Updates an Order in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/../api/projects/orders#update-actions).
+If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested Business Unit, this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -4999,7 +5003,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->get()`
 
-Returns all Orders in a Store that match a given Query Predicate and contain either a `customerId` that matches the [customer_id:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Retrieves Orders in a [Store](ctp:api:type:Store) for the authenticated Customer or anonymous user.
+
+A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+
+- If no Orders exist that match the provided query predicate.
+- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -5016,9 +5025,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->head()`
 
-Checks if one or more Orders exist for the provided query predicate in a Store. Returns a `200 OK` status if successful.
+Checks if one or more Orders exist for the provided query predicate in a [Store](ctp:api:type:Store) for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no Orders exist in the Store that match the Query Predicate.
 - If an Order matches the Query Predicate, but no `store` is specified, or the `store` field references a different Store.
@@ -5040,7 +5049,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->post(null)`
 
 
-Creates an Order in a Store from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Creates an Order from a Cart in a [Store](ctp:api:type:Store) for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 The Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction) for taxes to be calculated. When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
 
@@ -5075,13 +5084,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->withId("ID")->get()`
 
-Returns an Order for a given `id` in a Store. Returns a `200 OK` status if successful.
+Retrieves an Order with the provided `id` in a [Store](ctp:api:type:Store) for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Order exists in the Store for the given `id`.
-- If the Order exists but does not have a `store` specified, or the `store` field references a different Store.
-- If the Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If no Orders exists in the Store with the provided `id`.
+- If an Order exists but does not have a `store` specified, or the `store` field references a different Store.
+- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -5099,13 +5108,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->withId("ID")->head()`
 
-Checks if an Order exists with the provided `id` in a Store. Returns a `200 OK` status if successful.
+Checks if an Order exists with the provided `id` in a [Store](ctp:api:type:Store) for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no Order exists in the Store for the given `id`.
-- If the Order exists but does not have a `store` specified, or the `store` field references a different Store.
-- If the Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If no Order exists in the Store with the provided `id`.
+- If an Order exists but does not have a `store` specified, or the `store` field references a different Store.
+- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -5453,7 +5462,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->get()`
 
-null
+Retrieves Orders in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -5468,7 +5477,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->head()`
 
-Checks if one or more Orders exist for the provided query predicate. Returns a `200 OK` status if any Orders match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
+Checks if one or more Orders exist for the provided query predicate in a [Store](ctp:api:type:Store). Returns a `200 OK` status if any Orders match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -5483,6 +5492,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->post(null)`
 
+Creates an Order from a Cart in a [Store](ctp:api:type:Store).
 Before you create an Order, the Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction).
 The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
 
@@ -5516,6 +5526,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->get()`
 
+Retrieves an Order with the provided `id` in a [Store](ctp:api:type:Store).
 If the Order exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
@@ -5533,7 +5544,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->head()`
 
-Checks if an Order exists with the provided `id`. Returns a `200 OK` status if the Order exists or [Not Found](/../api/errors#404-not-found) otherwise.
+Checks if an Order exists with the provided `id` in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the Order exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -5549,6 +5560,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->post(null)`
 
+Updates an Order in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/orders#update-actions).
 If the Order exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
@@ -5566,6 +5578,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->delete()`
 
+Deletes an Order in a [Store](ctp:api:type:Store).
 If the Order exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 Deleting an Order produces the [OrderDeleted](ctp:api:type:OrderDeletedMessage) Message.
@@ -5585,6 +5598,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->get()`
 
+Retrieves an Order with the provided `orderNumber` in a [Store](ctp:api:type:Store).
 If the Order exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
@@ -5602,7 +5616,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->head()`
 
-Checks if an Order exists for a given `orderNumber`. Returns a `200 OK` status if the Order exists or [Not Found](/../api/errors#404-not-found) otherwise.
+Checks if an Order exists with the provided `orderNumber` in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the Order exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -5618,6 +5632,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
+Updates an Order in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/orders#update-actions).
 If the Order exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
@@ -5635,6 +5650,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->delete()`
 
+Deletes an Order in a [Store](ctp:api:type:Store).
 If the Order exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 Deleting an Order produces the [OrderDeleted](ctp:api:type:OrderDeletedMessage) Message.
@@ -7374,12 +7390,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->get()`
 
-Returns all Orders that match a given Query Predicate.
+Retrieves Orders for the authenticated Customer or anonymous user.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Orders exist for a given Query Predicate.
-- If the Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If no Orders exist for the provided query predicate.
+- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7395,11 +7411,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->head()`
 
-Checks if one or more Orders exist for the provided query predicate. Returns a `200 OK` status if successful.
+Checks if one or more Orders exist for the provided query predicate for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no Order exists that matches the Query Predicate.
+- If no Orders exist that match the provided query predicate.
 - If one or more Orders exist but don't have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -7452,11 +7468,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->withId("ID")->get()`
 
-Returns an Order for a given `id`. Returns a `200 OK` status if successful.
+Retrieves an Order with the provided `id` for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Order exists for the given `id`.
+- If no Order exists for the provided `id`.
 - If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -7474,11 +7490,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->withId("ID")->head()`
 
-Checks if an Order exists with the provided `id`. Returns a `200 OK` status if successful.
+Checks if an Order exists with the provided `id` for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no Order exists for the given `id`.
+- If no Order exists for the provided `id`.
 - If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -7497,7 +7513,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->me()->orders()->orderQuote()->post(null)`
 
 
-Creates an Order from a [Quote](ctp:api:type:Quote). To create [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyQuotes` [Permission](ctp:api:type:Permission).
+Creates an Order from a [Quote](ctp:api:type:Quote) for the authenticated Customer. To create [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyQuotes` [Permission](ctp:api:type:Permission).
 
 The referenced Quote must have the `Pending` [state](ctp:api:type:QuoteState) and must be valid (not past the `validTo` date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
@@ -8256,7 +8272,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->get()`
 
-null
+Retrieves Orders in the Project.
 
 ### Example
 ```php
@@ -8284,6 +8300,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->post(null)`
 
+Creates an Order from a Cart.
 Before you create an Order, the Cart must have a [shipping address set](ctp:api:type:CartSetShippingAddressAction).
 The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
 
@@ -8316,7 +8333,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->get()`
 
-null
+Retrieves an Order with the provided `id`.
 
 ### Example
 ```php
@@ -8346,7 +8363,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->post(null)`
 
-null
+Updates an Order in the Project using one or more [update actions](/../api/projects/orders#update-actions).
 
 ### Example
 ```php
@@ -8361,6 +8378,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->delete()`
 
+Deletes an Order in the Project.
 Deleting an Order produces the [OrderDeleted](ctp:api:type:OrderDeletedMessage) Message.
 
 
@@ -8377,7 +8395,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->get()`
 
-null
+Retrieves OrderEdits in the Project.
 
 ### Example
 ```php
@@ -8407,6 +8425,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->post(null)`
 
+Creates an OrderEdit in the Project.
 You can either create multiple Order Edits for an Order and apply them sequentially to an Order, or create multiple Order Edits parallelly (as alternatives to each other) and apply one of them to the Order.
 
 You can only create an Order Edit if the [InventoryMode](/projects/carts#inventorymode) of the Order and its [LineItems](/projects/carts#lineitem) is `None`.
@@ -8425,7 +8444,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->get()`
 
-null
+Retrieves an OrderEdit with the provided `id`.
 
 ### Example
 ```php
@@ -8457,7 +8476,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->post(null)`
 
-null
+Updates an OrderEdit in the Project using one or more [update actions](/../api/projects/order-edits#update-actions).
 
 ### Example
 ```php
@@ -8473,7 +8492,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->delete()`
 
-null
+Deletes an OrderEdit in the Project.
 
 ### Example
 ```php
@@ -8507,7 +8526,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->get()`
 
-null
+Retrieves an OrderEdit with the provided `key`.
 
 ### Example
 ```php
@@ -8539,7 +8558,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->post(null)`
 
-null
+Updates an OrderEdit in the Project using one or more [update actions](/../api/projects/order-edits#update-actions).
 
 ### Example
 ```php
@@ -8555,7 +8574,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->delete()`
 
-null
+Deletes an OrderEdit in the Project.
 
 ### Example
 ```php
@@ -8571,6 +8590,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->importOrder()->post(null)`
 
+Creates an Order without needing to create a Cart first.
 Importing an Order produces the [Order Imported](ctp:api:type:OrderImportedMessage) Message.
 
 Specific Error Codes:
@@ -8592,7 +8612,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->get()`
 
-null
+Retrieves an Order with the provided `orderNumber`.
 
 ### Example
 ```php
@@ -8607,7 +8627,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->head()`
 
-Checks if an Order exists for a given `orderNumber`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
+Checks if an Order exists with the provided `orderNumber`. Returns a `200 OK` status if the Order exists or a `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -8622,7 +8642,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-null
+Updates an Order in the Project using one or more [update actions](/../api/projects/orders#update-actions).
 
 ### Example
 ```php
@@ -8637,6 +8657,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->delete()`
 
+Deletes an Order in the Project.
 Deleting an Order produces the [OrderDeleted](ctp:api:type:OrderDeletedMessage) Message.
 
 
