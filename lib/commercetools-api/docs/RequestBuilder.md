@@ -1195,7 +1195,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->get()`
 
-null
+Retrieves all ShoppingLists in a [BusinessUnit](ctp:api:type:BusinessUnit).
 
 ### Example
 ```php
@@ -1212,7 +1212,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->head()`
 
-Checks if one or more ShoppingLists exist for the provided query predicate. Returns a `200 OK` if any ShoppingLists match the Query Predicate; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+Checks if one or more ShoppingLists exist for the provided query predicate in a [BusinessUnit](ctp:api:type:BusinessUnit). Returns a `200 OK` if any ShoppingLists match the query predicate; otherwise, returns [Not Found](/../api/errors#404-not-found).
 
 
 ### Example
@@ -1248,6 +1248,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->get()`
 
+Retrieves a ShoppingList with the provided `key` in a [BusinessUnit](ctp:api:type:BusinessUnit).
+
 If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1267,7 +1269,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists with the provided `id`. Returns a `200 OK` if the ShoppingList exists; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+Checks if a ShoppingList exists with the provided `id` in a [BusinessUnit](ctp:api:type:BusinessUnit). Returns a `200 OK` if the ShoppingList exists; otherwise, returns [Not Found](/../api/errors#404-not-found).
 
 
 ### Example
@@ -1286,6 +1288,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->post(null)`
 
+Updates a ShoppingList in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/../api/projects/shoppingLists#update-actions).
 If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1304,6 +1307,8 @@ $request = $builder
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->delete()`
+
+Deletes a ShoppingList in a [BusinessUnit](ctp:api:type:BusinessUnit).
 
 If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
@@ -1324,6 +1329,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->get()`
 
+Retrieves a ShoppingList with the provided `key` in a [BusinessUnit](ctp:api:type:BusinessUnit).
 If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1343,7 +1349,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists with the provided `key`. Returns a `200 OK` if the ShoppingList exists; otherwise, returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+Checks if a ShoppingList exists with the provided `key` in a [BusinessUnit](ctp:api:type:BusinessUnit). Returns a `200 OK` if the ShoppingList exists; otherwise, returns [Not Found](/../api/errors#404-not-found).
 
 
 ### Example
@@ -1362,7 +1368,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->post(null)`
 
-If the Shopping List exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+Updates a ShoppingList in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/../api/projects/shoppingLists#update-actions).
+If the ShoppingList exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
 ### Example
@@ -1380,6 +1387,8 @@ $request = $builder
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->delete()`
+
+Deletes a ShoppingList in a [BusinessUnit](ctp:api:type:BusinessUnit).
 
 If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
@@ -4130,7 +4139,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->head()`
 
-Checks if a Cart exists for the provided `id` in a Store. Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
+Checks if a Cart exists with the provided `id` in a Store. Returns a `200 OK` status if the Cart exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -5161,7 +5170,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->get()`
 
-Returns ShoppingLists that match the given Query Predicate in a Store. Returns `200 OK` status if successful.
+Retrieves all ShoppingLists for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -5184,12 +5193,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->head()`
 
-Checks if a ShoppingList exists for the given Query Predicate in a Store. Returns `200 OK` status if successful.
+Checks if one or more ShoppingLists exist for the provided query predicate for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no ShoppingLists exist for a given Query Predicate in a Store.
-- If a ShoppingList matches the Query Predicate but does not have a `store` specified, or the `store` field references a different Store.
+- If no ShoppingLists exist for the provided query predicate in a Store.
+- If a ShoppingList matches the query predicate but does not have a `store` specified, or the `store` field references a different Store.
 - If a ShoppingList exists in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -5208,9 +5217,9 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
 
 
-Creates a ShoppingList in a Store for a Customer or anonymous user. The `customer` or `anonymousId` field on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Creates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). The `customer` or `anonymousId` field on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
-When using this endpoint, the `store` field of a ShoppingList is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
+When using this endpoint, the `store` field of a ShoppingList is always set to the Store specified in the path parameter.
 
 
 ### Example
@@ -5227,13 +5236,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->get()`
 
-Returns a ShoppingList for a given `id` in a Store. Returns `200 OK` status if successful.
+Retrieves a ShoppingList with the provided `id` for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList matches the given `id` in a Store.
-- If a ShoppingList matches the given `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no ShoppingList matches the provided `id` in a Store.
+- If a ShoppingList matches the provided `id` but does not have a `store` specified, or the `store` field references a different Store.
+- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -5251,13 +5260,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists with the provided `id` in a Store. Returns a `200 OK` status if successful.
+Checks if a ShoppingList exists with the provided `id` for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns a `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no ShoppingList matches the given `id` in a Store.
-- If a ShoppingList matches the given `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no ShoppingList matches the provided `id` in a Store.
+- If a ShoppingList matches the provided `id` but does not have a `store` specified, or the `store` field references a different Store.
+- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -5275,13 +5284,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
-Updates a ShoppingList for a given `id` in a Store. Returns a `200 OK` status if successful.
+Updates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/me-shoppingLists#update-actions). Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList matches the given `id` in a Store.
-- If a ShoppingList matches the given `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no ShoppingList matches the provided `id` in a Store.
+- If a ShoppingList matches the provided `id` but does not have a `store` specified, or the `store` field references a different Store.
+- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -5299,13 +5308,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->delete()`
 
-Deletes the ShoppingList for a given `id` in a Store. Returns a `200 OK` status if successful.
+Deletes a ShoppingList in a [Store](ctp:api:type:Store). Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList matches the given `id` in a Store.
-- If a ShoppingList matches the given `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no ShoppingList matches the provided `id` in a Store.
+- If a ShoppingList matches the provided `id` but does not have a `store` specified, or the `store` field references a different Store.
+- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -5323,13 +5332,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->get()`
 
-Returns a ShoppingList for a given `key` in a Store. Returns `200 OK` status if successful.
+Retrieves a ShoppingList with the provided `key` for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList matches the given `key` in a Store.
-- If a ShoppingList matches the given `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope,
+- If no ShoppingList matches the provided `key` in a Store.
+- If a ShoppingList matches the provided `key` but does not have a `store` specified, or the `store` field references a different Store.
+- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope,
    or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -5348,13 +5357,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists with the provided `key` in a Store. Returns a `200 OK` status if successful.
+Checks if a ShoppingList exists with the provided `key` for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns a `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no ShoppingList exists that matches the given `key` in a Store.
-- If a ShoppingList matches the given `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no ShoppingList exists that matches the provided `key` in a Store.
+- If a ShoppingList matches the provided `key` but does not have a `store` specified, or the `store` field references a different Store.
+- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -5372,13 +5381,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
-Updates a ShoppingList for a given `key` in a Store. Returns a `200 OK` status if successful.
+Updates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/me-shoppingLists#update-actions). Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList matches the given `key` in a Store.
-- If a ShoppingList matches the given `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no ShoppingList matches the provided `key` in a Store.
+- If a ShoppingList matches the provided `key` but does not have a `store` specified, or the `store` field references a different Store.
+- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -5396,13 +5405,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->delete()`
 
-Deletes the ShoppingList for a given `key` in a Store. Returns a `200 OK` status if successful.
+Deletes a ShoppingList in a [Store](ctp:api:type:Store). Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList matches the given `key` in a Store.
-- If a ShoppingList matches the given `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the given `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no ShoppingList matches the provided `key` in a Store.
+- If a ShoppingList matches the provided `key` but does not have a `store` specified, or the `store` field references a different Store.
+- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -6358,7 +6367,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->get()`
 
-null
+Retrieves all ShoppingLists in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6373,7 +6382,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->head()`
 
-Checks if one or more ShoppingLists exist for the provided query predicate. Returns a `200 OK` status if any ShoppingLists match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
+Checks if one or more ShoppingLists exist for the provided query predicate in a [Store](ctp:api:type:Store). Returns a `200 OK` status if any ShoppingLists match the query predicate or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6388,6 +6397,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->post(null)`
 
+Creates a ShoppingList in a [Store](ctp:api:type:Store).
 When using this endpoint, the `store` field of a ShoppingList is always set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
 
@@ -6404,7 +6414,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->get()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
+Retrieves a ShoppingList with the provided `id` in a [Store](ctp:api:type:Store).
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -6422,7 +6433,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists with the provided `id`. Returns a `200 OK` status if the ShoppingList exists or [Not Found](/../api/errors#404-not-found) otherwise.
+Checks if a ShoppingList exists with the provided `id` in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShoppingList exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6438,7 +6449,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->post(null)`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
+Updates a ShoppingList in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/shoppingLists#update-actions).
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -6456,7 +6468,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->delete()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
+Deletes a ShoppingList in a [Store](ctp:api:type:Store).
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -6474,7 +6487,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->get()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
+Retrieves a ShoppingList with the provided `key` in a [Store](ctp:api:type:Store).
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -6492,7 +6506,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists with the provided `key`. Returns a `200 OK` status if the ShoppingList exists or [Not Found](/../api/errors#404-not-found) otherwise.
+Checks if a ShoppingList exists with the provided `key` in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShoppingList exists or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -6508,7 +6522,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->post(null)`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
+Updates a ShoppingList in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/shoppingLists#update-actions).
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -6526,7 +6541,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->delete()`
 
-If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different [Store](ctp:api:type:Store),
+Deletes a ShoppingList in a [Store](ctp:api:type:Store).
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
 the [ResourceNotFound](/errors#404-not-found-1) error is returned.
 
 
@@ -7546,7 +7562,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->get()`
 
-Returns all [Payments](/projects/me-payments#mypayment) that match a given Query Predicate.
+Retrieves all [Payments](/projects/me-payments#mypayment) for the authenticated Customer or anonymous user.
 
 ### Example
 ```php
@@ -7561,7 +7577,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->head()`
 
-Checks if a [Payment](/projects/me-payments#mypayment) exists for the provided query predicate. Returns a `200 OK` status if any Payments match the query predicate, or a `404 Not Found` otherwise.
+Checks if one or more [Payments](/projects/me-payments#mypayment) exist for the provided query predicate for the authenticated Customer or anonymous user. Returns a `200 OK` status if any Payments match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -7576,7 +7592,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->post(null)`
 
-Creates a [Payment](/projects/me-payments#mypayment) for the Customer or an anonymous user.
+Creates a [Payment](/projects/me-payments#mypayment) for the authenticated Customer or anonymous user.
 Creating a Payment produces the [PaymentCreated](ctp:api:type:PaymentCreatedMessage) Message.
 
 
@@ -7593,7 +7609,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->get()`
 
-Returns a [Payment](/projects/me-payments#mypayment) for a given `id`.
+Retrieves a [Payment](/projects/me-payments#mypayment) with the provided `id` for the authenticated Customer or anonymous user.
 
 ### Example
 ```php
@@ -7609,7 +7625,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->head()`
 
-Checks if a [Payment](/projects/me-payments#mypayment) exists with the provided `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+Checks if a [Payment](/projects/me-payments#mypayment) exists with the provided `id` for the authenticated Customer or anonymous user. Returns a `200 OK` status if the Payment exists, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -7625,8 +7641,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->post(null)`
 
-Updates a [Payment](/projects/me-payments#mypayment) for a given `id`.
-You can only update a [Payment](/projects/me-payments#mypayment) if it has no [Transactions](ctp:api:type:Transaction).
+Updates a [Payment](/projects/me-payments#mypayment) for the authenticated Customer or anonymous user using one or more [update actions](/../api/projects/me-payments#update-actions).
+You can only update a Payment if it has no [Transactions](ctp:api:type:Transaction).
 
 
 ### Example
@@ -7643,8 +7659,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->delete()`
 
-Deletes the [Payment](/projects/me-payments#mypayment) for a given `id`.
-You can only delete a [Payment](/projects/me-payments#mypayment) if it has no [Transactions](ctp:api:type:Transaction).
+Deletes a [Payment](/projects/me-payments#mypayment) with the provided `id` for the authenticated Customer or anonymous user.
+You can only delete a Payment if it has no [Transactions](ctp:api:type:Transaction).
 
 
 ### Example
@@ -7930,11 +7946,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->get()`
 
-Returns all ShoppingLists that match the given Query Predicate. Returns a `200 OK` status if successful.
+Retrieves all ShoppingLists for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given Query Predicate.
+- If no ShoppingList exists for the provided query predicate.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -7951,11 +7967,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->head()`
 
-Checks if a ShoppingList matches the given Query Predicate. Returns a `200 OK` status if successful.
+Checks if one or more ShoppingLists exist for the provided query predicate for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given Query Predicate.
+- If no ShoppingList exists for the provided query predicate.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -7972,7 +7988,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->post(null)`
 
-Creates a ShoppingList for the Customer or anonymous user. The `customerId` or `anonymousId` on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Creates a ShoppingList for the authenticated Customer or anonymous user. The `customerId` or `anonymousId` on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
 
 ### Example
@@ -7988,11 +8004,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->get()`
 
-Returns a ShoppingList for a given `id`. Returns a `200 OK` status if successful.
+Retrieves a ShoppingList with the provided `id` for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given `id`.
+- If no ShoppingList exists with the provided `id`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -8010,11 +8026,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists with the provided `id`. Returns a `200 OK` status if successful.
+Checks if a ShoppingList exists with the provided `id` for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given `id`.
+- If no ShoppingList exists for the provided `id`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -8032,11 +8048,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
-Updates a ShoppingList for a given `id`. Returns a `200 OK` status if successful.
+Updates a ShoppingList for the authenticated Customer or anonymous user using one or more [update actions](/../api/projects/me-shoppingLists#update-actions).  Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given `id`.
+- If no ShoppingList exists for the provided `id`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -8054,11 +8070,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->delete()`
 
-Deletes the ShoppingList for a given `id`. Returns a `200 OK` status if successful.
+Deletes a ShoppingList for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given `id`.
+- If no ShoppingList exists with the provided `id`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -8076,11 +8092,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->get()`
 
-Returns a ShoppingList for a given `key`. Returns a `200 OK` status if successful.
+Retrieves a ShoppingList with the provided `key` for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given `key`.
+- If no ShoppingList exists with the provided `key`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -8098,11 +8114,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists with the provided `key`. Returns a `200 OK` status if successful.
+Checks if a ShoppingList exists with the provided `key` for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
-A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
+A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given `key`.
+- If no ShoppingList exists with the provided `key`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -8120,11 +8136,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
-Updates a ShoppingList for a given `key`. Returns a `200 OK` status if successful.
+Updates a ShoppingList for the authenticated Customer or anonymous user using one or more [update actions](/../api/projects/me-shoppingLists#update-actions).  Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given `key`.
+- If no ShoppingList exists for the provided `key`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -8142,11 +8158,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->delete()`
 
-Deletes the ShoppingList for a given `key`. Returns a `200 OK` status if successful.
+Deletes a ShoppingList for the authenticated Customer or anonymous user. Returns a `200 OK` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the given `key`.
+- If no ShoppingList exists for the provided `key`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -8695,7 +8711,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->get()`
 
-null
+Retrieves all Payments in the Project.
 
 ### Example
 ```php
@@ -8709,7 +8725,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->head()`
 
-Checks if one or more Payments exist for the provided query predicate. Returns a `200 OK` status if any Payments match the query predicate, or a `404 Not Found` otherwise.
+Checks if one or more Payments exist for the provided query predicate. Returns a `200 OK` status if any Payments match the query predicate, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -8723,6 +8739,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->post(null)`
 
+Creates a Payment in the Project.
 Creating a Payment produces the [PaymentCreated](ctp:api:type:PaymentCreatedMessage) Message.
 
 
@@ -8738,7 +8755,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->get()`
 
-null
+Retrieves a Payment with the provided `id`.
 
 ### Example
 ```php
@@ -8753,7 +8770,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->head()`
 
-Checks if a Payment exists with the provided `id`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+Checks if a Payment exists with the provided `id`. Returns a `200 OK` status if the Payment exists, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -8768,7 +8785,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->post(null)`
 
-null
+Updates a Payment in the Project using one or more [update actions](/../api/projects/payments#update-actions).
 
 ### Example
 ```php
@@ -8783,7 +8800,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->delete()`
 
-null
+Deletes a Payment in the Project.
 
 ### Example
 ```php
@@ -8798,7 +8815,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->get()`
 
-null
+Retrieves a Payment with the provided `key`.
 
 ### Example
 ```php
@@ -8813,7 +8830,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->head()`
 
-Checks if a Payment exists with the provided `key`. Returns a `200 OK` status if the Payment exists or a `404 Not Found` otherwise.
+Checks if a Payment exists with the provided `key`. Returns a `200 OK` status if the Payment exists, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -8828,7 +8845,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->post(null)`
 
-null
+Updates a Payment in the Project using one or more [update actions](/../api/projects/payments#update-actions).
 
 ### Example
 ```php
@@ -8843,7 +8860,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->delete()`
 
-null
+Deletes a Payment in the Project.
 
 ### Example
 ```php
@@ -10706,7 +10723,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->get()`
 
-null
+Retrieves all ShoppingLists in the Project.
 
 ### Example
 ```php
@@ -10734,7 +10751,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->post(null)`
 
-null
+Create a ShoppingList in the Project.
 
 ### Example
 ```php
@@ -10748,7 +10765,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->get()`
 
-null
+Retrieves a ShoppingList with the provided `id`.
 
 ### Example
 ```php
@@ -10763,7 +10780,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->head()`
 
-Checks if a ShoppingList exists with the provided `id`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+Checks if a ShoppingList exists with the provided `id`. Returns a `200 OK` status if the ShoppingList exists, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -10778,7 +10795,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->post(null)`
 
-null
+Updates a ShoppingList in the Project using one or more [update actions](/../api/projects/shoppingLists#update-actions).
 
 ### Example
 ```php
@@ -10793,7 +10810,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->delete()`
 
-null
+Deletes a ShoppingList in the Project.
 
 ### Example
 ```php
@@ -10808,7 +10825,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->get()`
 
-null
+Retrieves a ShoppingList with the provided `key`.
 
 ### Example
 ```php
@@ -10823,7 +10840,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->head()`
 
-Checks if a ShoppingList exists with the provided `key`. Returns a `200 OK` status if the ShoppingList exists or a `404 Not Found` otherwise.
+Checks if a ShoppingList exists with the provided `key`. Returns a `200 OK` status if the ShoppingList exists, or [Not Found](/../api/errors#404-not-found) otherwise.
 
 ### Example
 ```php
@@ -10838,7 +10855,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->post(null)`
 
-null
+Updates a ShoppingList in the Project using one or more [update actions](/../api/projects/shoppingLists#update-actions).
 
 ### Example
 ```php
@@ -10853,7 +10870,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->delete()`
 
-null
+Deletes a ShoppingList in the Project.
 
 ### Example
 ```php
