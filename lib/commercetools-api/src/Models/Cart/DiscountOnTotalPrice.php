@@ -36,7 +36,8 @@ interface DiscountOnTotalPrice extends JsonObject
     public function getIncludedDiscounts();
 
     /**
-     * <p>Money value of the discount on the total net price of the Cart or Order.
+     * <p>Money value of the discount on the total net price of the Cart or Order.</p>
+     * <p>The same percentage of discount applies as on the <code>discountedAmount</code>.
      * Present only when <code>taxedPrice</code> of the Cart or Order exists.</p>
      *
 
@@ -45,7 +46,8 @@ interface DiscountOnTotalPrice extends JsonObject
     public function getDiscountedNetAmount();
 
     /**
-     * <p>Money value of the discount on the total gross price of the Cart or Order.
+     * <p>Money value of the discount on the total gross price of the Cart or Order.</p>
+     * <p>The same percentage of discount applies as on the <code>discountedAmount</code>.
      * Present only when <code>taxedPrice</code> of the Cart or Order exists.</p>
      *
 

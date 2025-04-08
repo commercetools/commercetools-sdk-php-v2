@@ -103,7 +103,8 @@ final class DiscountOnTotalPriceModel extends JsonObjectModel implements Discoun
     }
 
     /**
-     * <p>Money value of the discount on the total net price of the Cart or Order.
+     * <p>Money value of the discount on the total net price of the Cart or Order.</p>
+     * <p>The same percentage of discount applies as on the <code>discountedAmount</code>.
      * Present only when <code>taxedPrice</code> of the Cart or Order exists.</p>
      *
      *
@@ -125,7 +126,8 @@ final class DiscountOnTotalPriceModel extends JsonObjectModel implements Discoun
     }
 
     /**
-     * <p>Money value of the discount on the total gross price of the Cart or Order.
+     * <p>Money value of the discount on the total gross price of the Cart or Order.</p>
+     * <p>The same percentage of discount applies as on the <code>discountedAmount</code>.
      * Present only when <code>taxedPrice</code> of the Cart or Order exists.</p>
      *
      *
