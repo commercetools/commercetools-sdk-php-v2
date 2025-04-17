@@ -9941,8 +9941,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->search()->post(null)`
 
-If the indexing is in progress or the feature is inactive, an [ObjectNotFound](ctp:api:type:ObjectNotFoundError) error is returned.
-If inactive, you can [reactivate](/../api/projects/product-search#activation-of-the-feature) it.
+If indexing is in progress or if Product Search is inactive, an [ObjectNotFound](ctp:api:type:ObjectNotFoundError) error is returned.
+If inactive, you can [reactivate](/../api/projects/product-search#activate-the-product-search-api) it.
 
 
 ### Example
