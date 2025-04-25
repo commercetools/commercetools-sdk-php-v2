@@ -145,7 +145,7 @@ interface ProductDraft extends JsonObject
     public function getTaxCategory();
 
     /**
-     * <p>Used by <a href="/projects/products-suggestions">Product Suggestions</a>, but is also considered for a <a href="/projects/products-search#full-text-search">full text search</a>.</p>
+     * <p>Used by <a href="/projects/products-suggestions">Product Suggestions</a>, but is also considered for a <a href="/projects/product-projection-search#full-text-search">full text search</a>.</p>
      *
 
      * @return null|SearchKeywords

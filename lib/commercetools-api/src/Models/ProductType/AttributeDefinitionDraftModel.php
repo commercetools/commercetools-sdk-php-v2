@@ -240,7 +240,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     }
 
     /**
-     * <p>Set to <code>true</code> if the Attribute's values should be available in the <a href="/../api/projects/product-search">Product Search</a> or the <a href="/../api/projects/products-search">Product Projection Search</a> API and can be used in full-text search queries, filters, and facets.
+     * <p>Set to <code>true</code> if the Attribute's values should be available in the <a href="/../api/projects/product-search">Product Search</a> or the <a href="/../api/projects/product-projection-search">Product Projection Search</a> API and can be used in full-text search queries, filters, and facets.
      * Which exact features are available with this flag depends on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
      * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/../api/limits#field-content-size">Field content size limit</a>.
      * This constraint is enforced at both Product creation and Product update.

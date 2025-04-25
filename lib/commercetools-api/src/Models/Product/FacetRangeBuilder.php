@@ -141,7 +141,7 @@ final class FacetRangeBuilder implements Builder
 
     /**
      * <p>Number of <a href="ctp:api:type:Product">Products</a> for which the values in a field fall into the specified range.</p>
-     * <p>Present only if the <code>counting products</code> <a href="/projects/products-search#counting-products">extension</a> is enabled.</p>
+     * <p>Present only if the <code>counting products</code> <a href="/projects/product-projection-search#counting-products">extension</a> is enabled.</p>
      *
 
      * @return null|int
