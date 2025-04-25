@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\BusinessUnit\BusinessUnitUpdateActionCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -29,7 +28,7 @@ final class MyBusinessUnitUpdateBuilder implements Builder
 
     /**
 
-     * @var ?BusinessUnitUpdateActionCollection
+     * @var ?MyBusinessUnitUpdateActionCollection
      */
     private $actions;
 
@@ -49,7 +48,7 @@ final class MyBusinessUnitUpdateBuilder implements Builder
      * <p>Update actions to be performed on the BusinessUnit.</p>
      *
 
-     * @return null|BusinessUnitUpdateActionCollection
+     * @return null|MyBusinessUnitUpdateActionCollection
      */
     public function getActions()
     {
@@ -68,10 +67,10 @@ final class MyBusinessUnitUpdateBuilder implements Builder
     }
 
     /**
-     * @param ?BusinessUnitUpdateActionCollection $actions
+     * @param ?MyBusinessUnitUpdateActionCollection $actions
      * @return $this
      */
-    public function withActions(?BusinessUnitUpdateActionCollection $actions)
+    public function withActions(?MyBusinessUnitUpdateActionCollection $actions)
     {
         $this->actions = $actions;
 
