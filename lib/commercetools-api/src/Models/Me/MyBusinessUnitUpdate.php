@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\BusinessUnit\BusinessUnitUpdateActionCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -30,7 +29,7 @@ interface MyBusinessUnitUpdate extends JsonObject
      * <p>Update actions to be performed on the BusinessUnit.</p>
      *
 
-     * @return null|BusinessUnitUpdateActionCollection
+     * @return null|MyBusinessUnitUpdateActionCollection
      */
     public function getActions();
 
@@ -40,7 +39,7 @@ interface MyBusinessUnitUpdate extends JsonObject
     public function setVersion(?int $version): void;
 
     /**
-     * @param ?BusinessUnitUpdateActionCollection $actions
+     * @param ?MyBusinessUnitUpdateActionCollection $actions
      */
-    public function setActions(?BusinessUnitUpdateActionCollection $actions): void;
+    public function setActions(?MyBusinessUnitUpdateActionCollection $actions): void;
 }

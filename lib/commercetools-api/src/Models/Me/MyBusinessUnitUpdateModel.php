@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\BusinessUnit\BusinessUnitUpdateActionCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -28,7 +27,7 @@ final class MyBusinessUnitUpdateModel extends JsonObjectModel implements MyBusin
 
     /**
      *
-     * @var ?BusinessUnitUpdateActionCollection
+     * @var ?MyBusinessUnitUpdateActionCollection
      */
     protected $actions;
 
@@ -38,7 +37,7 @@ final class MyBusinessUnitUpdateModel extends JsonObjectModel implements MyBusin
      */
     public function __construct(
         ?int $version = null,
-        ?BusinessUnitUpdateActionCollection $actions = null
+        ?MyBusinessUnitUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -69,7 +68,7 @@ final class MyBusinessUnitUpdateModel extends JsonObjectModel implements MyBusin
      * <p>Update actions to be performed on the BusinessUnit.</p>
      *
      *
-     * @return null|BusinessUnitUpdateActionCollection
+     * @return null|MyBusinessUnitUpdateActionCollection
      */
     public function getActions()
     {
@@ -79,7 +78,7 @@ final class MyBusinessUnitUpdateModel extends JsonObjectModel implements MyBusin
             if (is_null($data)) {
                 return null;
             }
-            $this->actions = BusinessUnitUpdateActionCollection::fromArray($data);
+            $this->actions = MyBusinessUnitUpdateActionCollection::fromArray($data);
         }
 
         return $this->actions;
@@ -95,9 +94,9 @@ final class MyBusinessUnitUpdateModel extends JsonObjectModel implements MyBusin
     }
 
     /**
-     * @param ?BusinessUnitUpdateActionCollection $actions
+     * @param ?MyBusinessUnitUpdateActionCollection $actions
      */
-    public function setActions(?BusinessUnitUpdateActionCollection $actions): void
+    public function setActions(?MyBusinessUnitUpdateActionCollection $actions): void
     {
         $this->actions = $actions;
     }
