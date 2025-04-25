@@ -76,7 +76,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     }
 
     /**
-     * <p>The maximum number of results returned on a <a href="/../api/projects/products-search#pagination">page</a>.</p>
+     * <p>The maximum number of results returned on a <a href="/../api/projects/product-projection-search#pagination">page</a>.</p>
      *
      *
      * @return null|int
@@ -96,7 +96,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     }
 
     /**
-     * <p>The starting point for the retrieved <a href="/../api/projects/products-search#pagination">paginated</a> result.</p>
+     * <p>The starting point for the retrieved <a href="/../api/projects/product-projection-search#pagination">paginated</a> result.</p>
      *
      *
      * @return null|int
@@ -157,7 +157,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
 
     /**
      * <p><a href="ctp:api:type:ProductProjection">ProductProjections</a> where at least one <a href="ctp:api:type:ProductVariant">ProductVariant</a> matches the search query, provided with the <code>text.{language}</code> and/or <code>filter.query</code> or <code>filter</code> query parameter.
-     * If the query parameter <code>markMatchingVariants=true</code> was provided with the request, the <a href="/../api/projects/products-search#matching-variants">matching variants</a> are marked as such.</p>
+     * If the query parameter <code>markMatchingVariants=true</code> was provided with the request, the <a href="/../api/projects/product-projection-search#matching-variants">matching variants</a> are marked as such.</p>
      *
      *
      * @return null|ProductProjectionCollection
@@ -177,7 +177,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     }
 
     /**
-     * <p>Facet results for each <a href="/../api/projects/products-search#facets">facet expression</a> specified in the search request.</p>
+     * <p>Facet results for each <a href="/../api/projects/product-projection-search#facets">facet expression</a> specified in the search request.</p>
      * <p>Only present if at least one <code>facet</code> parameter was provided with the search request.</p>
      *
      *
