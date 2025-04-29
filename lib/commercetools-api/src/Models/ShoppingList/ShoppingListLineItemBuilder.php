@@ -79,6 +79,12 @@ final class ShoppingListLineItemBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $published;
+
+    /**
+
      * @var ?int
      */
     private $quantity;
@@ -189,6 +195,18 @@ final class ShoppingListLineItemBuilder implements Builder
     public function getProductType()
     {
         return $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType;
+    }
+
+    /**
+     * <p>Whether the related <a href="ctp:api:type:Product">Product</a> is published or not.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product's published status changes.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getPublished()
+    {
+        return $this->published;
     }
 
     /**
@@ -326,6 +344,17 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?bool $published
+     * @return $this
+     */
+    public function withPublished(?bool $published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $quantity
      * @return $this
      */
@@ -435,6 +464,7 @@ final class ShoppingListLineItemBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->productId,
             $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType,
+            $this->published,
             $this->quantity,
             $this->variantId,
             $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant,

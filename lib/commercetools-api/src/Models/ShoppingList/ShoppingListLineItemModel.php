@@ -78,6 +78,12 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
 
     /**
      *
+     * @var ?bool
+     */
+    protected $published;
+
+    /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -113,6 +119,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         ?LocalizedString $name = null,
         ?string $productId = null,
         ?ProductTypeReference $productType = null,
+        ?bool $published = null,
         ?int $quantity = null,
         ?int $variantId = null,
         ?ProductVariant $variant = null,
@@ -126,6 +133,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         $this->name = $name;
         $this->productId = $productId;
         $this->productType = $productType;
+        $this->published = $published;
         $this->quantity = $quantity;
         $this->variantId = $variantId;
         $this->variant = $variant;
@@ -306,6 +314,27 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p>Whether the related <a href="ctp:api:type:Product">Product</a> is published or not.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product's published status changes.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getPublished()
+    {
+        if (is_null($this->published)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_PUBLISHED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->published = (bool) $data;
+        }
+
+        return $this->published;
+    }
+
+    /**
      * <p>Number of Products in the ShoppingListLineItem.</p>
      *
      *
@@ -452,6 +481,14 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     public function setProductType(?ProductTypeReference $productType): void
     {
         $this->productType = $productType;
+    }
+
+    /**
+     * @param ?bool $published
+     */
+    public function setPublished(?bool $published): void
+    {
+        $this->published = $published;
     }
 
     /**

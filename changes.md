@@ -114,6 +114,7 @@
 - added property `priceCustomerGroupAssignments` to type `ProductSearchProjectionParams`
 - added property `businessUnit` to type `ShoppingList`
 - added property `businessUnit` to type `ShoppingListDraft`
+- added property `published` to type `ShoppingListLineItem`
 - added property `events` to type `Subscription`
 - added property `events` to type `SubscriptionDraft`
 </details>
