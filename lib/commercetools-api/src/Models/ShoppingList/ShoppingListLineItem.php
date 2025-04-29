@@ -26,6 +26,7 @@ interface ShoppingListLineItem extends JsonObject
     public const FIELD_NAME = 'name';
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_PRODUCT_TYPE = 'productType';
+    public const FIELD_PUBLISHED = 'published';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_VARIANT = 'variant';
@@ -96,6 +97,15 @@ interface ShoppingListLineItem extends JsonObject
      * @return null|ProductTypeReference
      */
     public function getProductType();
+
+    /**
+     * <p>Whether the related <a href="ctp:api:type:Product">Product</a> is published or not.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product's published status changes.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getPublished();
 
     /**
      * <p>Number of Products in the ShoppingListLineItem.</p>
@@ -170,6 +180,11 @@ interface ShoppingListLineItem extends JsonObject
      * @param ?ProductTypeReference $productType
      */
     public function setProductType(?ProductTypeReference $productType): void;
+
+    /**
+     * @param ?bool $published
+     */
+    public function setPublished(?bool $published): void;
 
     /**
      * @param ?int $quantity
