@@ -39,7 +39,7 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>The <code>id</code> of the Category to add the <code>orderHint</code>.</p>
+     * <p>The <code>id</code> of the Category to add the <code>orderHint</code>. If this Category is not assigned to the Product, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|string
