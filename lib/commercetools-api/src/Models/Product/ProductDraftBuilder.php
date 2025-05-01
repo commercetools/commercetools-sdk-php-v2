@@ -202,7 +202,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>Numerical values to allow ordering of Products within a specified Category.</p>
+     * <p>Numerical values to allow ordering of Products within specified Categories. If the referenced Categories are not also assigned in the <code>categories</code> field, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|CategoryOrderHints
