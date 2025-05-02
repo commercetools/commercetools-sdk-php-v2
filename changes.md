@@ -1,16 +1,29 @@
 **Api changes**
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Removed QueryParameter(s)</summary>
 
-- added enum `ViewMyShoppingLists` to type `Permission`
-- added enum `ViewOthersShoppingLists` to type `Permission`
-- added enum `UpdateMyShoppingLists` to type `Permission`
-- added enum `UpdateOthersShoppingLists` to type `Permission`
-- added enum `CreateMyShoppingLists` to type `Permission`
-- added enum `CreateOthersShoppingLists` to type `Permission`
-- added enum `DeleteMyShoppingLists` to type `Permission`
-- added enum `DeleteOthersShoppingLists` to type `Permission`
+- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
+</details>
+
+
+<details>
+<summary>Added QueryParameter(s)</summary>
+
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/search`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
 </details>
 
 
@@ -18,6 +31,15 @@
 <summary>Changed Type(s)</summary>
 
 - :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
+</details>
+
+
+<details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `AssociateRoleNameChangedMessage`
+- :warning: removed type `AssociateRoleNameChangedMessagePayload`
+- :warning: removed type `ProductSearchFacetScope`
 </details>
 
 
@@ -75,32 +97,6 @@
 
 
 <details>
-<summary>Removed Type(s)</summary>
-
-- :warning: removed type `AssociateRoleNameChangedMessage`
-- :warning: removed type `AssociateRoleNameChangedMessagePayload`
-- :warning: removed type `ProductSearchFacetScope`
-</details>
-
-
-<details>
-<summary>Required Property(s)</summary>
-
-- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
-- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
-- changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
-- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
-</details>
-
-
-<details>
 <summary>Added Property(s)</summary>
 
 - added property `inheritedStores` to type `BusinessUnit`
@@ -121,6 +117,14 @@
 
 
 <details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
+- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
+</details>
+
+
+<details>
 <summary>MarkDeprecated Property(s)</summary>
 
 - marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
@@ -129,29 +133,25 @@
 
 
 <details>
-<summary>Added QueryParameter(s)</summary>
+<summary>Required Property(s)</summary>
 
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/search`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
+- changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
+- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
 </details>
 
 
 <details>
-<summary>Removed QueryParameter(s)</summary>
+<summary>Added Enum(s)</summary>
 
-- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
+- added enum `ViewMyShoppingLists` to type `Permission`
+- added enum `ViewOthersShoppingLists` to type `Permission`
+- added enum `UpdateMyShoppingLists` to type `Permission`
+- added enum `UpdateOthersShoppingLists` to type `Permission`
+- added enum `CreateMyShoppingLists` to type `Permission`
+- added enum `CreateOthersShoppingLists` to type `Permission`
+- added enum `DeleteMyShoppingLists` to type `Permission`
+- added enum `DeleteOthersShoppingLists` to type `Permission`
 </details>
 
 
@@ -205,13 +205,6 @@
 **History changes**
 
 <details>
-<summary>Removed Enum(s)</summary>
-
-- :warning: removed enum `setAsssetKey` from type `UpdateType`
-</details>
-
-
-<details>
 <summary>Added Enum(s)</summary>
 
 - added enum `setAssetKey` to type `UpdateType`
@@ -219,9 +212,9 @@
 
 
 <details>
-<summary>Required Property(s)</summary>
+<summary>Removed Enum(s)</summary>
 
-- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
+- :warning: removed enum `setAsssetKey` from type `UpdateType`
 </details>
 
 
@@ -229,6 +222,13 @@
 <summary>Changed Property(s)</summary>
 
 - :warning: changed property `extensions` of type `GraphQLError` from type `GraphQLErrorObject` to `object`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
 </details>
 
 
