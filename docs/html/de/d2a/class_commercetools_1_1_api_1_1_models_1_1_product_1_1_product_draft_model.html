@@ -421,7 +421,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Numerical values to allow ordering of Products within a specified Category.</p>
+<p>Numerical values to allow ordering of Products within specified Categories. If the referenced Categories are not also assigned in the <code>categories</code> field, an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CategoryOrderHints </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -687,7 +687,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used by <a href="../..//projects/products-suggestions">Product Suggestions</a>, but is also considered for a <a href="../..//projects/products-search#full-text-search">full text search</a>.</p>
+<p>Used by <a href="../..//projects/products-suggestions">Product Suggestions</a>, but is also considered for a <a href="../..//projects/product-projection-search#full-text-search">full text search</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|SearchKeywords </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 

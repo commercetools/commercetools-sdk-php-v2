@@ -313,7 +313,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Business Unit the Cart should belong to. When the <code>customerId</code> of the Cart is also set, the <a href="../../ctp:api:type:Customer">Customer</a> must be an <a href="../../ctp:api:type:Associate">Associate</a> of the Business Unit.</p>
+<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Business Unit the Cart should belong to. When the <code>customerId</code> of the Cart is also set, the <a href="../../ctp:api:type:Customer">Customer</a> must be an <a href="../../ctp:api:type:Associate">Associate</a> of the Business Unit. Only available for <a href="../..//../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|BusinessUnitResourceIdentifier </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00284">284</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -419,7 +419,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Customer Group of the Customer that the Cart belongs to. Used for <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
-<p>It is automatically set if the Customer referenced in <code>customerId</code> belongs to a Customer Group. It can also be set explicitly when no <code>customerId</code> is present.</p>
+<p>You can set either a <code>customerId</code> or a <code>customerGroup</code>. If the Customer referenced in <code>customerId</code> belongs to a Customer Group then <code>customerGroup</code> is set automatically.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupResourceIdentifier </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00262">262</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -978,7 +978,7 @@ If <code>CartValue</code>, it cannot be set. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000305">Deprecated:</a></b></dt><dd>use withBillingAddress() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000306">Deprecated:</a></b></dt><dd>use withBillingAddress() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00913">913</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -1027,7 +1027,7 @@ If <code>CartValue</code>, it cannot be set. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000302">Deprecated:</a></b></dt><dd>use withBusinessUnit() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000303">Deprecated:</a></b></dt><dd>use withBusinessUnit() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00880">880</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -1130,7 +1130,7 @@ If <code>CartValue</code>, it cannot be set. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000309">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000310">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00957">957</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -1206,7 +1206,7 @@ If <code>CartValue</code>, it cannot be set. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000301">Deprecated:</a></b></dt><dd>use withCustomerGroup() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000302">Deprecated:</a></b></dt><dd>use withCustomerGroup() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00869">869</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -1390,7 +1390,7 @@ If <code>CartValue</code>, it cannot be set. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000304">Deprecated:</a></b></dt><dd>use withExternalTaxRateForShippingMethod() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000305">Deprecated:</a></b></dt><dd>use withExternalTaxRateForShippingMethod() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00902">902</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -1628,7 +1628,7 @@ If <code>CartValue</code>, it cannot be set. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000306">Deprecated:</a></b></dt><dd>use withShippingAddress() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000307">Deprecated:</a></b></dt><dd>use withShippingAddress() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00924">924</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -1677,7 +1677,7 @@ If <code>CartValue</code>, it cannot be set. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000307">Deprecated:</a></b></dt><dd>use withShippingMethod() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000308">Deprecated:</a></b></dt><dd>use withShippingMethod() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00935">935</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -1753,7 +1753,7 @@ If <code>CartValue</code>, it cannot be set. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000308">Deprecated:</a></b></dt><dd>use withShippingRateInput() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000309">Deprecated:</a></b></dt><dd>use withShippingRateInput() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00946">946</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>
@@ -1802,7 +1802,7 @@ If <code>CartValue</code>, it cannot be set. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000303">Deprecated:</a></b></dt><dd>use withStore() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000304">Deprecated:</a></b></dt><dd>use withStore() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html#l00891">891</a> of file <a class="el" href="../../d8/d47/_cart_draft_builder_8php_source.html">CartDraftBuilder.php</a>.</p>

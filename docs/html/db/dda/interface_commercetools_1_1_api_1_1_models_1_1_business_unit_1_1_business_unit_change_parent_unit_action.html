@@ -141,7 +141,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>New parent unit of the <a href="../../ctp:api:type:BusinessUnit">Business Unit</a>. The new parent unit must have the same top-level unit as the old parent unit.</p>
+<p>New parent unit of the <a href="../../ctp:api:type:BusinessUnit">Business Unit</a>. It must be associated with the same Stores, as the old parent unit.</p>
+<p>The Business Unit <code>inheritedAssociates</code> and <code>inheritedStores</code> field values will be <a href="../..//../api/general-concepts#eventual-consistency">eventually consistent</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|BusinessUnitResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d8/dc2/class_commercetools_1_1_api_1_1_models_1_1_business_unit_1_1_business_unit_change_parent_unit_action_model.html#acd5c731faf07f8d679f43f66c6bc3a6d">Commercetools\Api\Models\BusinessUnit\BusinessUnitChangeParentUnitActionModel</a>.</p>

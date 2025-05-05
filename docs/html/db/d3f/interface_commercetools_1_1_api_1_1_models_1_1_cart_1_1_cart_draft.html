@@ -343,7 +343,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Business Unit the Cart should belong to. When the <code>customerId</code> of the Cart is also set, the <a href="../../ctp:api:type:Customer">Customer</a> must be an <a href="../../ctp:api:type:Associate">Associate</a> of the Business Unit.</p>
+<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Business Unit the Cart should belong to. When the <code>customerId</code> of the Cart is also set, the <a href="../../ctp:api:type:Customer">Customer</a> must be an <a href="../../ctp:api:type:Associate">Associate</a> of the Business Unit. Only available for <a href="../..//../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|BusinessUnitResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d1c/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_draft_model.html#a473c7b0823d27cd6e5ada1fb326a9f9c">Commercetools\Api\Models\Cart\CartDraftModel</a>.</p>
@@ -449,7 +449,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to the Customer Group of the Customer that the Cart belongs to. Used for <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
-<p>It is automatically set if the Customer referenced in <code>customerId</code> belongs to a Customer Group. It can also be set explicitly when no <code>customerId</code> is present.</p>
+<p>You can set either a <code>customerId</code> or a <code>customerGroup</code>. If the Customer referenced in <code>customerId</code> belongs to a Customer Group then <code>customerGroup</code> is set automatically.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d1c/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_cart_draft_model.html#aaa5fe293cf2a54af750ea3070a2991e1">Commercetools\Api\Models\Cart\CartDraftModel</a>.</p>

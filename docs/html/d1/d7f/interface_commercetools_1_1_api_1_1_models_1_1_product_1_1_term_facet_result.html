@@ -165,6 +165,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Data type to which the facet is applied.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/df5/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_term_facet_result_model.html#ad6841106e23e3114a686572f4889205d">Commercetools\Api\Models\Product\TermFacetResultModel</a>.</p>
@@ -185,6 +186,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of <a href="../../ctp:api:type:ProductVariant">ProductVariants</a> that have no value for the specified <a href="../..//../api/projects/product-projection-search#term-facet-expression">term facet expression</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/df5/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_term_facet_result_model.html#a7d072c25c4926a7f56751a14aab989df">Commercetools\Api\Models\Product\TermFacetResultModel</a>.</p>
@@ -205,6 +207,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of terms not represented in this object (such as the number of terms beyond the <a href="../..//limits#product-projection-search">limit</a>).</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/df5/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_term_facet_result_model.html#aed016f4cf7df9ff5c31511e4ba081a44">Commercetools\Api\Models\Product\TermFacetResultModel</a>.</p>
@@ -225,6 +228,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Values for the field specified in <a href="../..//../api/projects/product-projection-search#term-facet-expression">term facet expression</a> for which at least one <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> could be found.</p>
+<p>By default, facet terms are returned in a descending order of their <code>count</code>.</p>
+<p>If the term facet expression specifies to count <a href="../../ctp:api:type:Product">Products</a> through the <code>counting products</code> <a href="../..//projects/product-projection-search#counting-products">extension</a>, then facet terms are returned in a descending order of their <code>productCount</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|FacetTermCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/df5/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_term_facet_result_model.html#a6b442df422b8479e8019f86d5eb91acd">Commercetools\Api\Models\Product\TermFacetResultModel</a>.</p>
@@ -245,6 +251,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of terms matching the <a href="../..//../api/projects/product-projection-search#term-facet-expression">term facet expression</a>.</p>
+<ul>
+<li>
+If the expression refers to Product fields like <code>categories.id</code> and <code>reviewRatingStatistics.count</code>, the value represents the number of Products. </li>
+<li>
+If the expression is defined for fields specific to Product Variants, for example, <code>variants.attributes.{name}</code>, the value represents the number of Product Variants matching the expression. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/df5/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_term_facet_result_model.html#a69788c907c6f4f8593065dfb05b3d1fb">Commercetools\Api\Models\Product\TermFacetResultModel</a>.</p>
