@@ -65,12 +65,6 @@ final class SubscriptionBuilder implements Builder
 
     /**
 
-     * @var ?ChangeSubscriptionCollection
-     */
-    private $changes;
-
-    /**
-
      * @var null|Destination|DestinationBuilder
      */
     private $destination;
@@ -86,6 +80,12 @@ final class SubscriptionBuilder implements Builder
      * @var ?MessageSubscriptionCollection
      */
     private $messages;
+
+    /**
+
+     * @var ?ChangeSubscriptionCollection
+     */
+    private $changes;
 
     /**
 
@@ -172,17 +172,6 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * <p>Changes subscribed to.</p>
-     *
-
-     * @return null|ChangeSubscriptionCollection
-     */
-    public function getChanges()
-    {
-        return $this->changes;
-    }
-
-    /**
      * <p>Messaging service to which the notifications are sent.</p>
      *
 
@@ -213,6 +202,17 @@ final class SubscriptionBuilder implements Builder
     public function getMessages()
     {
         return $this->messages;
+    }
+
+    /**
+     * <p>Changes subscribed to.</p>
+     *
+
+     * @return null|ChangeSubscriptionCollection
+     */
+    public function getChanges()
+    {
+        return $this->changes;
     }
 
     /**
@@ -315,17 +315,6 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * @param ?ChangeSubscriptionCollection $changes
-     * @return $this
-     */
-    public function withChanges(?ChangeSubscriptionCollection $changes)
-    {
-        $this->changes = $changes;
-
-        return $this;
-    }
-
-    /**
      * @param ?Destination $destination
      * @return $this
      */
@@ -354,6 +343,17 @@ final class SubscriptionBuilder implements Builder
     public function withMessages(?MessageSubscriptionCollection $messages)
     {
         $this->messages = $messages;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     * @return $this
+     */
+    public function withChanges(?ChangeSubscriptionCollection $changes)
+    {
+        $this->changes = $changes;
 
         return $this;
     }
@@ -444,10 +444,10 @@ final class SubscriptionBuilder implements Builder
             $this->lastModifiedAt,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
-            $this->changes,
             $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination,
             $this->key,
             $this->messages,
+            $this->changes,
             $this->events,
             $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format,
             $this->status

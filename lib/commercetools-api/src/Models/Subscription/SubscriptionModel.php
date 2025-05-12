@@ -64,12 +64,6 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
 
     /**
      *
-     * @var ?ChangeSubscriptionCollection
-     */
-    protected $changes;
-
-    /**
-     *
      * @var ?Destination
      */
     protected $destination;
@@ -85,6 +79,12 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
      * @var ?MessageSubscriptionCollection
      */
     protected $messages;
+
+    /**
+     *
+     * @var ?ChangeSubscriptionCollection
+     */
+    protected $changes;
 
     /**
      *
@@ -115,10 +115,10 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
         ?DateTimeImmutable $lastModifiedAt = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null,
-        ?ChangeSubscriptionCollection $changes = null,
         ?Destination $destination = null,
         ?string $key = null,
         ?MessageSubscriptionCollection $messages = null,
+        ?ChangeSubscriptionCollection $changes = null,
         ?EventSubscriptionCollection $events = null,
         ?DeliveryFormat $format = null,
         ?string $status = null
@@ -129,10 +129,10 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
         $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
-        $this->changes = $changes;
         $this->destination = $destination;
         $this->key = $key;
         $this->messages = $messages;
+        $this->changes = $changes;
         $this->events = $events;
         $this->format = $format;
         $this->status = $status;
@@ -269,26 +269,6 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
-     * <p>Changes subscribed to.</p>
-     *
-     *
-     * @return null|ChangeSubscriptionCollection
-     */
-    public function getChanges()
-    {
-        if (is_null($this->changes)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_CHANGES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->changes = ChangeSubscriptionCollection::fromArray($data);
-        }
-
-        return $this->changes;
-    }
-
-    /**
      * <p>Messaging service to which the notifications are sent.</p>
      *
      *
@@ -347,6 +327,26 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
         }
 
         return $this->messages;
+    }
+
+    /**
+     * <p>Changes subscribed to.</p>
+     *
+     *
+     * @return null|ChangeSubscriptionCollection
+     */
+    public function getChanges()
+    {
+        if (is_null($this->changes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CHANGES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->changes = ChangeSubscriptionCollection::fromArray($data);
+        }
+
+        return $this->changes;
     }
 
     /**
@@ -460,14 +460,6 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
-     * @param ?ChangeSubscriptionCollection $changes
-     */
-    public function setChanges(?ChangeSubscriptionCollection $changes): void
-    {
-        $this->changes = $changes;
-    }
-
-    /**
      * @param ?Destination $destination
      */
     public function setDestination(?Destination $destination): void
@@ -489,6 +481,14 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     public function setMessages(?MessageSubscriptionCollection $messages): void
     {
         $this->messages = $messages;
+    }
+
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
+    public function setChanges(?ChangeSubscriptionCollection $changes): void
+    {
+        $this->changes = $changes;
     }
 
     /**
