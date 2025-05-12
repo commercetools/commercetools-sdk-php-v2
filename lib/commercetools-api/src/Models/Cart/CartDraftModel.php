@@ -836,7 +836,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
-     * <p>Number of days after which an active Cart is deleted since its last modification.
+     * <p>Number of days after the last modification before a Cart is deleted.
      * If not provided, the default value for this field configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a> is assigned.</p>
      * <p>Create a <a href="ctp:api:type:ChangeSubscription">ChangeSubscription</a> for Carts to receive a <a href="ctp:api:type:ResourceDeletedDeliveryPayload">ResourceDeletedDeliveryPayload</a> upon deletion of the Cart.</p>
      *
