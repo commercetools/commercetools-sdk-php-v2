@@ -772,7 +772,7 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>Number of days after which an active Cart is deleted since its last modification. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
+     * <p>Number of days after the last modification before a Cart is deleted. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
 
      * @return null|int
