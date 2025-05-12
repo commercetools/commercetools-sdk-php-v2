@@ -22,12 +22,6 @@ final class SubscriptionDraftBuilder implements Builder
 {
     /**
 
-     * @var ?ChangeSubscriptionCollection
-     */
-    private $changes;
-
-    /**
-
      * @var null|Destination|DestinationBuilder
      */
     private $destination;
@@ -46,6 +40,12 @@ final class SubscriptionDraftBuilder implements Builder
 
     /**
 
+     * @var ?ChangeSubscriptionCollection
+     */
+    private $changes;
+
+    /**
+
      * @var ?EventSubscriptionCollection
      */
     private $events;
@@ -55,17 +55,6 @@ final class SubscriptionDraftBuilder implements Builder
      * @var null|DeliveryFormat|DeliveryFormatBuilder
      */
     private $format;
-
-    /**
-     * <p>Changes to be subscribed to.</p>
-     *
-
-     * @return null|ChangeSubscriptionCollection
-     */
-    public function getChanges()
-    {
-        return $this->changes;
-    }
 
     /**
      * <p>Messaging service to which the notifications are sent.</p>
@@ -101,6 +90,17 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * <p>Changes to be subscribed to.</p>
+     *
+
+     * @return null|ChangeSubscriptionCollection
+     */
+    public function getChanges()
+    {
+        return $this->changes;
+    }
+
+    /**
      * <p>Events to be subscribed to.</p>
      *
 
@@ -120,17 +120,6 @@ final class SubscriptionDraftBuilder implements Builder
     public function getFormat()
     {
         return $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format;
-    }
-
-    /**
-     * @param ?ChangeSubscriptionCollection $changes
-     * @return $this
-     */
-    public function withChanges(?ChangeSubscriptionCollection $changes)
-    {
-        $this->changes = $changes;
-
-        return $this;
     }
 
     /**
@@ -162,6 +151,17 @@ final class SubscriptionDraftBuilder implements Builder
     public function withMessages(?MessageSubscriptionCollection $messages)
     {
         $this->messages = $messages;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     * @return $this
+     */
+    public function withChanges(?ChangeSubscriptionCollection $changes)
+    {
+        $this->changes = $changes;
 
         return $this;
     }
@@ -213,10 +213,10 @@ final class SubscriptionDraftBuilder implements Builder
     public function build(): SubscriptionDraft
     {
         return new SubscriptionDraftModel(
-            $this->changes,
             $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination,
             $this->key,
             $this->messages,
+            $this->changes,
             $this->events,
             $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format
         );

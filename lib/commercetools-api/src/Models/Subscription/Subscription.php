@@ -19,10 +19,10 @@ interface Subscription extends BaseResource
 {
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
-    public const FIELD_CHANGES = 'changes';
     public const FIELD_DESTINATION = 'destination';
     public const FIELD_KEY = 'key';
     public const FIELD_MESSAGES = 'messages';
+    public const FIELD_CHANGES = 'changes';
     public const FIELD_EVENTS = 'events';
     public const FIELD_FORMAT = 'format';
     public const FIELD_STATUS = 'status';
@@ -76,14 +76,6 @@ interface Subscription extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>Changes subscribed to.</p>
-     *
-
-     * @return null|ChangeSubscriptionCollection
-     */
-    public function getChanges();
-
-    /**
      * <p>Messaging service to which the notifications are sent.</p>
      *
 
@@ -106,6 +98,14 @@ interface Subscription extends BaseResource
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages();
+
+    /**
+     * <p>Changes subscribed to.</p>
+     *
+
+     * @return null|ChangeSubscriptionCollection
+     */
+    public function getChanges();
 
     /**
      * <p>Events subscribed to.</p>
@@ -162,11 +162,6 @@ interface Subscription extends BaseResource
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
     /**
-     * @param ?ChangeSubscriptionCollection $changes
-     */
-    public function setChanges(?ChangeSubscriptionCollection $changes): void;
-
-    /**
      * @param ?Destination $destination
      */
     public function setDestination(?Destination $destination): void;
@@ -180,6 +175,11 @@ interface Subscription extends BaseResource
      * @param ?MessageSubscriptionCollection $messages
      */
     public function setMessages(?MessageSubscriptionCollection $messages): void;
+
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
+    public function setChanges(?ChangeSubscriptionCollection $changes): void;
 
     /**
      * @param ?EventSubscriptionCollection $events

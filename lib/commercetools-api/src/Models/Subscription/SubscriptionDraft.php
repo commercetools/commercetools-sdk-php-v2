@@ -13,20 +13,12 @@ use Commercetools\Base\JsonObject;
 
 interface SubscriptionDraft extends JsonObject
 {
-    public const FIELD_CHANGES = 'changes';
     public const FIELD_DESTINATION = 'destination';
     public const FIELD_KEY = 'key';
     public const FIELD_MESSAGES = 'messages';
+    public const FIELD_CHANGES = 'changes';
     public const FIELD_EVENTS = 'events';
     public const FIELD_FORMAT = 'format';
-
-    /**
-     * <p>Changes to be subscribed to.</p>
-     *
-
-     * @return null|ChangeSubscriptionCollection
-     */
-    public function getChanges();
 
     /**
      * <p>Messaging service to which the notifications are sent.</p>
@@ -53,6 +45,14 @@ interface SubscriptionDraft extends JsonObject
     public function getMessages();
 
     /**
+     * <p>Changes to be subscribed to.</p>
+     *
+
+     * @return null|ChangeSubscriptionCollection
+     */
+    public function getChanges();
+
+    /**
      * <p>Events to be subscribed to.</p>
      *
 
@@ -69,11 +69,6 @@ interface SubscriptionDraft extends JsonObject
     public function getFormat();
 
     /**
-     * @param ?ChangeSubscriptionCollection $changes
-     */
-    public function setChanges(?ChangeSubscriptionCollection $changes): void;
-
-    /**
      * @param ?Destination $destination
      */
     public function setDestination(?Destination $destination): void;
@@ -87,6 +82,11 @@ interface SubscriptionDraft extends JsonObject
      * @param ?MessageSubscriptionCollection $messages
      */
     public function setMessages(?MessageSubscriptionCollection $messages): void;
+
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
+    public function setChanges(?ChangeSubscriptionCollection $changes): void;
 
     /**
      * @param ?EventSubscriptionCollection $events

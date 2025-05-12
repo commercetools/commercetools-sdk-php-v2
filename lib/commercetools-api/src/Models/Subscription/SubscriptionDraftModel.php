@@ -21,12 +21,6 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
 {
     /**
      *
-     * @var ?ChangeSubscriptionCollection
-     */
-    protected $changes;
-
-    /**
-     *
      * @var ?Destination
      */
     protected $destination;
@@ -45,6 +39,12 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
 
     /**
      *
+     * @var ?ChangeSubscriptionCollection
+     */
+    protected $changes;
+
+    /**
+     *
      * @var ?EventSubscriptionCollection
      */
     protected $events;
@@ -60,39 +60,19 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ChangeSubscriptionCollection $changes = null,
         ?Destination $destination = null,
         ?string $key = null,
         ?MessageSubscriptionCollection $messages = null,
+        ?ChangeSubscriptionCollection $changes = null,
         ?EventSubscriptionCollection $events = null,
         ?DeliveryFormat $format = null
     ) {
-        $this->changes = $changes;
         $this->destination = $destination;
         $this->key = $key;
         $this->messages = $messages;
+        $this->changes = $changes;
         $this->events = $events;
         $this->format = $format;
-    }
-
-    /**
-     * <p>Changes to be subscribed to.</p>
-     *
-     *
-     * @return null|ChangeSubscriptionCollection
-     */
-    public function getChanges()
-    {
-        if (is_null($this->changes)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_CHANGES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->changes = ChangeSubscriptionCollection::fromArray($data);
-        }
-
-        return $this->changes;
     }
 
     /**
@@ -157,6 +137,26 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Changes to be subscribed to.</p>
+     *
+     *
+     * @return null|ChangeSubscriptionCollection
+     */
+    public function getChanges()
+    {
+        if (is_null($this->changes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CHANGES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->changes = ChangeSubscriptionCollection::fromArray($data);
+        }
+
+        return $this->changes;
+    }
+
+    /**
      * <p>Events to be subscribed to.</p>
      *
      *
@@ -199,14 +199,6 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
 
 
     /**
-     * @param ?ChangeSubscriptionCollection $changes
-     */
-    public function setChanges(?ChangeSubscriptionCollection $changes): void
-    {
-        $this->changes = $changes;
-    }
-
-    /**
      * @param ?Destination $destination
      */
     public function setDestination(?Destination $destination): void
@@ -228,6 +220,14 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     public function setMessages(?MessageSubscriptionCollection $messages): void
     {
         $this->messages = $messages;
+    }
+
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
+    public function setChanges(?ChangeSubscriptionCollection $changes): void
+    {
+        $this->changes = $changes;
     }
 
     /**
