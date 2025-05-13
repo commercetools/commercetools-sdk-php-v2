@@ -13,5 +13,5 @@ use Commercetools\Base\JsonObject;
 
 interface SearchKeywords extends JsonObject
 {
-    public const FIELD_PATTERN0 = '/^[a-z]{2}(-[A-Z]{2})?$/';
+    public const FIELD_PATTERN0 = '/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|d{3}))?$/';
 }
