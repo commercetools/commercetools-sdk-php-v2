@@ -37,6 +37,8 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
     }
 
     /**
+     * <p>A list of the ID's and validation statuses of new <a href="#importoperation">ImportOperations</a>.</p>
+     *
      *
      * @return null|ImportOperationStatusCollection
      */
