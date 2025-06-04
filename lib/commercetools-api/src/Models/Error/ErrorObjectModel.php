@@ -61,6 +61,8 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'EnumKeyDoesNotExist' => EnumKeyDoesNotExistErrorModel::class,
        'EnumValueIsUsed' => EnumValueIsUsedErrorModel::class,
        'EnumValuesMustMatch' => EnumValuesMustMatchErrorModel::class,
+       'ExpiredCustomerEmailToken' => ExpiredCustomerEmailTokenErrorModel::class,
+       'ExpiredCustomerPasswordToken' => ExpiredCustomerPasswordTokenErrorModel::class,
        'ExtensionBadResponse' => ExtensionBadResponseErrorModel::class,
        'ExtensionNoResponse' => ExtensionNoResponseErrorModel::class,
        'ExtensionPredicateEvaluationFailed' => ExtensionPredicateEvaluationFailedErrorModel::class,

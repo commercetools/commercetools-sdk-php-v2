@@ -39,6 +39,12 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     private $ttlMinutes;
 
     /**
+
+     * @var ?bool
+     */
+    private $invalidateOlderTokens;
+
+    /**
      * <p>Unique identifier of the Customer.</p>
      *
 
@@ -69,6 +75,17 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     public function getTtlMinutes()
     {
         return $this->ttlMinutes;
+    }
+
+    /**
+     * <p>If set to <code>true</code>, all email tokens issued previously for the Customer will be invalidated.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens()
+    {
+        return $this->invalidateOlderTokens;
     }
 
     /**
@@ -104,13 +121,25 @@ final class CustomerCreateEmailTokenBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?bool $invalidateOlderTokens
+     * @return $this
+     */
+    public function withInvalidateOlderTokens(?bool $invalidateOlderTokens)
+    {
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
+
+        return $this;
+    }
+
 
     public function build(): CustomerCreateEmailToken
     {
         return new CustomerCreateEmailTokenModel(
             $this->id,
             $this->version,
-            $this->ttlMinutes
+            $this->ttlMinutes,
+            $this->invalidateOlderTokens
         );
     }
 

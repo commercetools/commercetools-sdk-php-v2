@@ -152,6 +152,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                 },
                 400
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->emailConfirm()
+                        ->post(null);
+                },
+                404
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -173,17 +184,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->post(null);
                 },
                 403
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->customers()
-                        ->emailConfirm()
-                        ->post(null);
-                },
-                404
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

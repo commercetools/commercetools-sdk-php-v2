@@ -55,6 +55,8 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'EnumKeyDoesNotExist' => GraphQLEnumKeyDoesNotExistErrorModel::class,
        'EnumValueIsUsed' => GraphQLEnumValueIsUsedErrorModel::class,
        'EnumValuesMustMatch' => GraphQLEnumValuesMustMatchErrorModel::class,
+       'ExpiredCustomerEmailToken' => GraphQLExpiredCustomerEmailTokenErrorModel::class,
+       'ExpiredCustomerPasswordToken' => GraphQLExpiredCustomerPasswordTokenErrorModel::class,
        'ExtensionBadResponse' => GraphQLExtensionBadResponseErrorModel::class,
        'ExtensionNoResponse' => GraphQLExtensionNoResponseErrorModel::class,
        'ExtensionPredicateEvaluationFailed' => GraphQLExtensionPredicateEvaluationFailedErrorModel::class,

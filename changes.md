@@ -13,6 +13,10 @@
 - added type `CustomerAddCustomerGroupAssignmentAction`
 - added type `CustomerRemoveCustomerGroupAssignmentAction`
 - added type `CustomerSetCustomerGroupAssignmentsAction`
+- added type `ExpiredCustomerEmailTokenError`
+- added type `ExpiredCustomerPasswordTokenError`
+- added type `GraphQLExpiredCustomerEmailTokenError`
+- added type `GraphQLExpiredCustomerPasswordTokenError`
 - added type `BaseEvent`
 - added type `CheckoutOrderCreationFailedEvent`
 - added type `CheckoutPaymentAuthorizationCancelledEvent`
@@ -129,7 +133,18 @@
 - added property `inheritedStores` to type `Division`
 - added property `discountTypeCombination` to type `Cart`
 - added property `customerGroupAssignments` to type `Customer`
+- added property `invalidateOlderTokens` to type `CustomerCreateEmailToken`
+- added property `invalidateOlderTokens` to type `CustomerCreatePasswordResetToken`
 - added property `customerGroupAssignments` to type `CustomerDraft`
+- added property `invalidateOlderTokens` to type `CustomerToken`
+- added property `value` to type `CustomerEmailTokenCreatedMessage`
+- added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessage`
+- added property `value` to type `CustomerPasswordTokenCreatedMessage`
+- added property `invalidateOlderTokens` to type `CustomerPasswordTokenCreatedMessage`
+- added property `value` to type `CustomerEmailTokenCreatedMessagePayload`
+- added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessagePayload`
+- added property `value` to type `CustomerPasswordTokenCreatedMessagePayload`
+- added property `invalidateOlderTokens` to type `CustomerPasswordTokenCreatedMessagePayload`
 - added property `discountTypeCombination` to type `StagedOrder`
 - added property `discountTypeCombination` to type `Order`
 - added property `priceCustomerGroupAssignments` to type `ProductSearchProjectionParams`

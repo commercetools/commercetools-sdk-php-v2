@@ -152,6 +152,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordResetTest extends
                 },
                 400
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordResetPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->passwordReset()
+                        ->post(null);
+                },
+                404
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordResetPost_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -173,17 +184,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordResetTest extends
                         ->post(null);
                 },
                 403
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordResetPost_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->customers()
-                        ->passwordReset()
-                        ->post(null);
-                },
-                404
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordResetPost_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

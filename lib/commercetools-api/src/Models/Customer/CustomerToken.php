@@ -18,6 +18,7 @@ interface CustomerToken extends JsonObject
     public const FIELD_CUSTOMER_ID = 'customerId';
     public const FIELD_VALUE = 'value';
     public const FIELD_EXPIRES_AT = 'expiresAt';
+    public const FIELD_INVALIDATE_OLDER_TOKENS = 'invalidateOlderTokens';
     public const FIELD_CREATED_AT = 'createdAt';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
@@ -54,6 +55,14 @@ interface CustomerToken extends JsonObject
     public function getExpiresAt();
 
     /**
+     * <p>If <code>true</code>, all tokens issued previously for the Customer will be invalidated.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens();
+
+    /**
      * <p>Date and time (UTC) the token was initially created.</p>
      *
 
@@ -88,6 +97,11 @@ interface CustomerToken extends JsonObject
      * @param ?DateTimeImmutable $expiresAt
      */
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
+
+    /**
+     * @param ?bool $invalidateOlderTokens
+     */
+    public function setInvalidateOlderTokens(?bool $invalidateOlderTokens): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt

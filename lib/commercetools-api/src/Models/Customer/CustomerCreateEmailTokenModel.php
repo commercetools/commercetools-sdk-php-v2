@@ -37,6 +37,12 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
      */
     protected $ttlMinutes;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $invalidateOlderTokens;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -44,11 +50,13 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     public function __construct(
         ?string $id = null,
         ?int $version = null,
-        ?int $ttlMinutes = null
+        ?int $ttlMinutes = null,
+        ?bool $invalidateOlderTokens = null
     ) {
         $this->id = $id;
         $this->version = $version;
         $this->ttlMinutes = $ttlMinutes;
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
     }
 
     /**
@@ -111,6 +119,26 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
         return $this->ttlMinutes;
     }
 
+    /**
+     * <p>If set to <code>true</code>, all email tokens issued previously for the Customer will be invalidated.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens()
+    {
+        if (is_null($this->invalidateOlderTokens)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_INVALIDATE_OLDER_TOKENS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->invalidateOlderTokens = (bool) $data;
+        }
+
+        return $this->invalidateOlderTokens;
+    }
+
 
     /**
      * @param ?string $id
@@ -134,5 +162,13 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     public function setTtlMinutes(?int $ttlMinutes): void
     {
         $this->ttlMinutes = $ttlMinutes;
+    }
+
+    /**
+     * @param ?bool $invalidateOlderTokens
+     */
+    public function setInvalidateOlderTokens(?bool $invalidateOlderTokens): void
+    {
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
     }
 }

@@ -46,6 +46,12 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
 
     /**
      *
+     * @var ?bool
+     */
+    protected $invalidateOlderTokens;
+
+    /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
@@ -65,6 +71,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
         ?string $customerId = null,
         ?string $value = null,
         ?DateTimeImmutable $expiresAt = null,
+        ?bool $invalidateOlderTokens = null,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $lastModifiedAt = null
     ) {
@@ -72,6 +79,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
         $this->customerId = $customerId;
         $this->value = $value;
         $this->expiresAt = $expiresAt;
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
     }
@@ -161,6 +169,26 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
+     * <p>If <code>true</code>, all tokens issued previously for the Customer will be invalidated.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens()
+    {
+        if (is_null($this->invalidateOlderTokens)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_INVALIDATE_OLDER_TOKENS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->invalidateOlderTokens = (bool) $data;
+        }
+
+        return $this->invalidateOlderTokens;
+    }
+
+    /**
      * <p>Date and time (UTC) the token was initially created.</p>
      *
      *
@@ -239,6 +267,14 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void
     {
         $this->expiresAt = $expiresAt;
+    }
+
+    /**
+     * @param ?bool $invalidateOlderTokens
+     */
+    public function setInvalidateOlderTokens(?bool $invalidateOlderTokens): void
+    {
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
     }
 
     /**

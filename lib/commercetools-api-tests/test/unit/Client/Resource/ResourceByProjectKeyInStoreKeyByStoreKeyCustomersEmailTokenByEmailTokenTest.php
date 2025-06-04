@@ -165,6 +165,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenTes
                 },
                 400
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withEmailToken("emailToken")
+                        ->get();
+                },
+                404
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -186,17 +197,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenTes
                         ->get();
                 },
                 403
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->customers()
-                        ->withEmailToken("emailToken")
-                        ->get();
-                },
-                404
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

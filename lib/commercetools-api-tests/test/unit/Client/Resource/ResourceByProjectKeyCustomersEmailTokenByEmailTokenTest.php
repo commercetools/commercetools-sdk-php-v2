@@ -160,6 +160,16 @@ class ResourceByProjectKeyCustomersEmailTokenByEmailTokenTest extends TestCase
                 },
                 400
             ],
+            'ByProjectKeyCustomersEmailTokenByEmailTokenGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withEmailToken("emailToken")
+                        ->get();
+                },
+                404
+            ],
             'ByProjectKeyCustomersEmailTokenByEmailTokenGet_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -179,16 +189,6 @@ class ResourceByProjectKeyCustomersEmailTokenByEmailTokenTest extends TestCase
                         ->get();
                 },
                 403
-            ],
-            'ByProjectKeyCustomersEmailTokenByEmailTokenGet_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->customers()
-                        ->withEmailToken("emailToken")
-                        ->get();
-                },
-                404
             ],
             'ByProjectKeyCustomersEmailTokenByEmailTokenGet_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

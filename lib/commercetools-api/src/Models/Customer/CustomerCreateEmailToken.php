@@ -16,6 +16,7 @@ interface CustomerCreateEmailToken extends JsonObject
     public const FIELD_ID = 'id';
     public const FIELD_VERSION = 'version';
     public const FIELD_TTL_MINUTES = 'ttlMinutes';
+    public const FIELD_INVALIDATE_OLDER_TOKENS = 'invalidateOlderTokens';
 
     /**
      * <p>Unique identifier of the Customer.</p>
@@ -42,6 +43,14 @@ interface CustomerCreateEmailToken extends JsonObject
     public function getTtlMinutes();
 
     /**
+     * <p>If set to <code>true</code>, all email tokens issued previously for the Customer will be invalidated.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -55,4 +64,9 @@ interface CustomerCreateEmailToken extends JsonObject
      * @param ?int $ttlMinutes
      */
     public function setTtlMinutes(?int $ttlMinutes): void;
+
+    /**
+     * @param ?bool $invalidateOlderTokens
+     */
+    public function setInvalidateOlderTokens(?bool $invalidateOlderTokens): void;
 }

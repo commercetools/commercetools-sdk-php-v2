@@ -16,6 +16,8 @@ interface CustomerPasswordTokenCreatedMessagePayload extends MessagePayload
 {
     public const FIELD_CUSTOMER_ID = 'customerId';
     public const FIELD_EXPIRES_AT = 'expiresAt';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_INVALIDATE_OLDER_TOKENS = 'invalidateOlderTokens';
 
     /**
      * <p>Unique identifier of the Customer.</p>
@@ -34,6 +36,22 @@ interface CustomerPasswordTokenCreatedMessagePayload extends MessagePayload
     public function getExpiresAt();
 
     /**
+     * <p>Value of the token, present only if the token's validity is 60 minutes or less.</p>
+     *
+
+     * @return null|string
+     */
+    public function getValue();
+
+    /**
+     * <p>If <code>true</code>, all password tokens issued previously for the Customer are invalidated.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens();
+
+    /**
      * @param ?string $customerId
      */
     public function setCustomerId(?string $customerId): void;
@@ -42,4 +60,14 @@ interface CustomerPasswordTokenCreatedMessagePayload extends MessagePayload
      * @param ?DateTimeImmutable $expiresAt
      */
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
+
+    /**
+     * @param ?string $value
+     */
+    public function setValue(?string $value): void;
+
+    /**
+     * @param ?bool $invalidateOlderTokens
+     */
+    public function setInvalidateOlderTokens(?bool $invalidateOlderTokens): void;
 }

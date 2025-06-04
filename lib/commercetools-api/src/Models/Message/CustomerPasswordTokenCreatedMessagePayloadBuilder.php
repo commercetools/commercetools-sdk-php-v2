@@ -34,6 +34,18 @@ final class CustomerPasswordTokenCreatedMessagePayloadBuilder implements Builder
     private $expiresAt;
 
     /**
+
+     * @var ?string
+     */
+    private $value;
+
+    /**
+
+     * @var ?bool
+     */
+    private $invalidateOlderTokens;
+
+    /**
      * <p>Unique identifier of the Customer.</p>
      *
 
@@ -53,6 +65,28 @@ final class CustomerPasswordTokenCreatedMessagePayloadBuilder implements Builder
     public function getExpiresAt()
     {
         return $this->expiresAt;
+    }
+
+    /**
+     * <p>Value of the token, present only if the token's validity is 60 minutes or less.</p>
+     *
+
+     * @return null|string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * <p>If <code>true</code>, all password tokens issued previously for the Customer are invalidated.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens()
+    {
+        return $this->invalidateOlderTokens;
     }
 
     /**
@@ -77,12 +111,36 @@ final class CustomerPasswordTokenCreatedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $value
+     * @return $this
+     */
+    public function withValue(?string $value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $invalidateOlderTokens
+     * @return $this
+     */
+    public function withInvalidateOlderTokens(?bool $invalidateOlderTokens)
+    {
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
+
+        return $this;
+    }
+
 
     public function build(): CustomerPasswordTokenCreatedMessagePayload
     {
         return new CustomerPasswordTokenCreatedMessagePayloadModel(
             $this->customerId,
-            $this->expiresAt
+            $this->expiresAt,
+            $this->value,
+            $this->invalidateOlderTokens
         );
     }
 
