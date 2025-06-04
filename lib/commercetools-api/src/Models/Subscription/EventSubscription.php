@@ -17,7 +17,7 @@ interface EventSubscription extends JsonObject
     public const FIELD_TYPES = 'types';
 
     /**
-     * <p>Unique identifier for the type of resource, for example, <code>import-api</code>.</p>
+     * <p>Unique identifier for the type of resource.</p>
      *
 
      * @return null|string
@@ -27,7 +27,7 @@ interface EventSubscription extends JsonObject
     /**
      * <p>Must contain valid event types for the resource.
      * For example, for resource type <code>import-api</code> the event type <code>ImportContainerCreated</code> is valid.
-     * If no <code>types</code> are given, the Subscription will receive all events for this resource.</p>
+     * If no <code>types</code> are given, the Subscription will receive all events for the defined resource type.</p>
      *
 
      * @return null|array

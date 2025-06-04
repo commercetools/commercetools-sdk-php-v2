@@ -18,9 +18,9 @@ use stdClass;
 /**
  * @internal
  */
-final class EventModel extends JsonObjectModel implements Event
+final class CheckoutOrderCreationFailedEventModel extends JsonObjectModel implements CheckoutOrderCreationFailedEvent
 {
-    public const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = 'CheckoutOrderCreationFailed';
     /**
      *
      * @var ?string
@@ -52,26 +52,11 @@ final class EventModel extends JsonObjectModel implements Event
     protected $createdAt;
 
     /**
-     * @psalm-var array<string, class-string<Event> >
      *
+     * @var ?CheckoutMessageOrderPayloadBaseData
      */
-    private static $discriminatorClasses = [
-       'CheckoutOrderCreationFailed' => CheckoutOrderCreationFailedEventModel::class,
-       'CheckoutPaymentAuthorizationCancelled' => CheckoutPaymentAuthorizationCancelledEventModel::class,
-       'CheckoutPaymentAuthorizationFailed' => CheckoutPaymentAuthorizationFailedEventModel::class,
-       'CheckoutPaymentAuthorized' => CheckoutPaymentAuthorizedEventModel::class,
-       'CheckoutPaymentCancelAuthorizationFailed' => CheckoutPaymentCancelAuthorizationFailedEventModel::class,
-       'CheckoutPaymentChargeFailed' => CheckoutPaymentChargeFailedEventModel::class,
-       'CheckoutPaymentCharged' => CheckoutPaymentChargedEventModel::class,
-       'CheckoutPaymentRefundFailed' => CheckoutPaymentRefundFailedEventModel::class,
-       'CheckoutPaymentRefunded' => CheckoutPaymentRefundedEventModel::class,
-       'ImportContainerCreated' => ImportContainerCreatedEventModel::class,
-       'ImportContainerDeleted' => ImportContainerDeletedEventModel::class,
-       'ImportOperationRejected' => ImportOperationRejectedEventModel::class,
-       'ImportUnresolved' => ImportUnresolvedEventModel::class,
-       'ImportValidationFailed' => ImportValidationFailedEventModel::class,
-       'ImportWaitForMasterVariant' => ImportWaitForMasterVariantEventModel::class,
-    ];
+    protected $data;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -81,13 +66,15 @@ final class EventModel extends JsonObjectModel implements Event
         ?string $notificationType = null,
         ?string $resourceType = null,
         ?DateTimeImmutable $createdAt = null,
+        ?CheckoutMessageOrderPayloadBaseData $data = null,
         ?string $type = null
     ) {
         $this->id = $id;
         $this->notificationType = $notificationType;
         $this->resourceType = $resourceType;
         $this->createdAt = $createdAt;
-        $this->type = $type;
+        $this->data = $data;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -129,8 +116,6 @@ final class EventModel extends JsonObjectModel implements Event
     }
 
     /**
-     * <p>The type of resource targeted by the Event.</p>
-     *
      *
      * @return null|string
      */
@@ -192,6 +177,27 @@ final class EventModel extends JsonObjectModel implements Event
         return $this->createdAt;
     }
 
+    /**
+     * <p>An object containing details of the order which could not be created.</p>
+     *
+     *
+     * @return null|CheckoutMessageOrderPayloadBaseData
+     */
+    public function getData()
+    {
+        if (is_null($this->data)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->data = CheckoutMessageOrderPayloadBaseDataModel::of($data);
+        }
+
+        return $this->data;
+    }
+
 
     /**
      * @param ?string $id
@@ -225,6 +231,14 @@ final class EventModel extends JsonObjectModel implements Event
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?CheckoutMessageOrderPayloadBaseData $data
+     */
+    public function setData(?CheckoutMessageOrderPayloadBaseData $data): void
+    {
+        $this->data = $data;
+    }
+
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
@@ -234,32 +248,5 @@ final class EventModel extends JsonObjectModel implements Event
             $data[Event::FIELD_CREATED_AT] = $data[Event::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
-    }
-
-    /**
-     * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<Event>
-     */
-    public static function resolveDiscriminatorClass($value): string
-    {
-        $fieldName = Event::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-
-        /** @psalm-var class-string<Event> */
-        $type = EventModel::class;
-        return $type;
     }
 }
