@@ -47,6 +47,12 @@ final class CustomerTokenBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $invalidateOlderTokens;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
@@ -99,6 +105,17 @@ final class CustomerTokenBuilder implements Builder
     public function getExpiresAt()
     {
         return $this->expiresAt;
+    }
+
+    /**
+     * <p>If <code>true</code>, all tokens issued previously for the Customer will be invalidated.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens()
+    {
+        return $this->invalidateOlderTokens;
     }
 
     /**
@@ -168,6 +185,17 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * @param ?bool $invalidateOlderTokens
+     * @return $this
+     */
+    public function withInvalidateOlderTokens(?bool $invalidateOlderTokens)
+    {
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
+
+        return $this;
+    }
+
+    /**
      * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
@@ -197,6 +225,7 @@ final class CustomerTokenBuilder implements Builder
             $this->customerId,
             $this->value,
             $this->expiresAt,
+            $this->invalidateOlderTokens,
             $this->createdAt,
             $this->lastModifiedAt
         );

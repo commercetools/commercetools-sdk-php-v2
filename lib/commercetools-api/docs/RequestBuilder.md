@@ -3080,6 +3080,8 @@ Use this method to verify a global Customer's email during their [email verifica
 
 Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
 
+After the email is verified, all email tokens issued previously through the [email verification flow](/../api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+
 
 ### Example
 ```php
@@ -3097,6 +3099,7 @@ $request = $builder
 Use this method to create an email token for a global Customer during their [email verification process](/../api/customers-overview#customer-email-verification).
 
 Creating an email token for the Customer produces the [CustomerEmailTokenCreated](ctp:api:type:CustomerEmailTokenCreatedMessage) Message.
+The Message will include the token's value, if the token's validity is 60 minutes or less.
 
 
 ### Example
@@ -3207,9 +3210,9 @@ $request = $builder
 
 Use this method to reset a global Customer's password during their [password reset process](/../api/customers-overview#customer-password-reset).
 
-After the password is reset, any previously issued access and/or refresh tokens created through the [password flow](/authorization#password-flow) or [refresh token flow](/authorization#refresh-token-flow) are invalidated.
-
 Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+
+After the password is reset, all password tokens issued previously through the [password reset flow](/../api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/../api/authorization#password-flow) and [refresh token flow](/../api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
 
 
 ### Example
@@ -3227,7 +3230,8 @@ $request = $builder
 
 Use this method to create a password reset token for a global Customer during their [password reset process](/../api/customers-overview#customer-password-reset).
 
-Creating a password reset token does not invalidate existing tokens.
+Creating a password reset token for the Customer produces the [CustomerPasswordTokenCreated](ctp:api:type:CustomerPasswordTokenCreatedMessage) Message.
+The Message will include the token's value, if the token's validity is 60 minutes or less.
 
 
 ### Example
@@ -4465,6 +4469,8 @@ Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
+After the email is verified, all email tokens issued previously through the [email verification flow](/../api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+
 
 ### Example
 ```php
@@ -4483,6 +4489,9 @@ $request = $builder
 Use this method to create an email token for a Store-specific Customer during their [email verification process](/../api/customers-overview#customer-email-verification).
 
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+Creating an email token for the Customer produces the [CustomerEmailTokenCreated](ctp:api:type:CustomerEmailTokenCreatedMessage) Message.
+The Message will include the token's value, if the token's validity is 60 minutes or less.
 
 
 ### Example
@@ -4608,9 +4617,9 @@ $request = $builder
 
 Use this method to reset a Store-specific Customer's password during their [password reset process](/../api/customers-overview#customer-password-reset).
 
-After the password is reset, any previously issued access and/or refresh tokens created through the [password flow](/authorization#password-flow) or [refresh token flow](/authorization#refresh-token-flow) are invalidated.
-
 Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+
+After the password is reset, all password tokens issued previously through the [password reset flow](/../api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/../api/authorization#password-flow) and [refresh token flow](/../api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), then this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4631,9 +4640,10 @@ $request = $builder
 
 Use this method to create a password reset token for a Store-specific Customer during their [password reset process](/../api/customers-overview#customer-password-reset).
 
-Creating a password reset token does not invalidate existing tokens.
-
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
+Creating a password reset token for the Customer produces the [CustomerPasswordTokenCreated](ctp:api:type:CustomerPasswordTokenCreatedMessage) Message.
+The Message will include the token's value, if the token's validity is 60 minutes or less.
 
 
 ### Example
@@ -4956,6 +4966,8 @@ $request = $builder
 
 This is the last step in the [email verification process of a Customer](/../api/projects/customers#email-verification-of-customer-in-store). Returns a `200 OK` status if successful.
 
+After the email is verified, all email tokens issued previously through the [email verification flow](/../api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
@@ -5157,6 +5169,8 @@ $request = $builder
 This is the last step in the [password reset process of the authenticated Customer](/../api/projects/customers#password-reset-of-customer-in-store).
 
 Resetting a password produces the Customer [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+
+After the password is reset, all password tokens issued previously through the [password reset flow](/../api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/../api/authorization#password-flow) and [refresh token flow](/../api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
@@ -7351,6 +7365,8 @@ $request = $builder
 
 This is the last step in the [email verification process of a Customer](/../api/projects/customers#email-verification-of-customer).
 
+After the email is verified, all email tokens issued previously through the [email verification flow](/../api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+
 
 ### Example
 ```php
@@ -7562,6 +7578,8 @@ $request = $builder
 This is the last step in the [password reset process of a Customer](/../api/projects/customers#password-reset-of-customer).
 
 Resetting a password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+
+After the password is reset, all password tokens issued previously through the [password reset flow](/../api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/../api/authorization#password-flow) and [refresh token flow](/../api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
 
 
 ### Example

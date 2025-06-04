@@ -33,6 +33,12 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     private $ttlMinutes;
 
     /**
+
+     * @var ?bool
+     */
+    private $invalidateOlderTokens;
+
+    /**
      * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
      *
 
@@ -52,6 +58,17 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     public function getTtlMinutes()
     {
         return $this->ttlMinutes;
+    }
+
+    /**
+     * <p>If set to <code>true</code>, all password tokens issued previously for the Customer will be invalidated.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens()
+    {
+        return $this->invalidateOlderTokens;
     }
 
     /**
@@ -76,12 +93,24 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?bool $invalidateOlderTokens
+     * @return $this
+     */
+    public function withInvalidateOlderTokens(?bool $invalidateOlderTokens)
+    {
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
+
+        return $this;
+    }
+
 
     public function build(): CustomerCreatePasswordResetToken
     {
         return new CustomerCreatePasswordResetTokenModel(
             $this->email,
-            $this->ttlMinutes
+            $this->ttlMinutes,
+            $this->invalidateOlderTokens
         );
     }
 

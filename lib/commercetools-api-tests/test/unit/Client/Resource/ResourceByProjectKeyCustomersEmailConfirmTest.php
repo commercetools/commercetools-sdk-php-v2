@@ -148,6 +148,16 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                 },
                 400
             ],
+            'ByProjectKeyCustomersEmailConfirmPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->emailConfirm()
+                        ->post(null);
+                },
+                404
+            ],
             'ByProjectKeyCustomersEmailConfirmPost_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -167,16 +177,6 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                         ->post(null);
                 },
                 403
-            ],
-            'ByProjectKeyCustomersEmailConfirmPost_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->customers()
-                        ->emailConfirm()
-                        ->post(null);
-                },
-                404
             ],
             'ByProjectKeyCustomersEmailConfirmPost_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

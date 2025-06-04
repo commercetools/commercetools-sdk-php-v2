@@ -165,6 +165,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
                 },
                 400
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withPasswordToken("passwordToken")
+                        ->get();
+                },
+                404
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -186,17 +197,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
                         ->get();
                 },
                 403
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->customers()
-                        ->withPasswordToken("passwordToken")
-                        ->get();
-                },
-                404
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

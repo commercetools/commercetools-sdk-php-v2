@@ -31,16 +31,24 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
      */
     protected $ttlMinutes;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $invalidateOlderTokens;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $email = null,
-        ?int $ttlMinutes = null
+        ?int $ttlMinutes = null,
+        ?bool $invalidateOlderTokens = null
     ) {
         $this->email = $email;
         $this->ttlMinutes = $ttlMinutes;
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
     }
 
     /**
@@ -83,6 +91,26 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
         return $this->ttlMinutes;
     }
 
+    /**
+     * <p>If set to <code>true</code>, all password tokens issued previously for the Customer will be invalidated.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens()
+    {
+        if (is_null($this->invalidateOlderTokens)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_INVALIDATE_OLDER_TOKENS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->invalidateOlderTokens = (bool) $data;
+        }
+
+        return $this->invalidateOlderTokens;
+    }
+
 
     /**
      * @param ?string $email
@@ -98,5 +126,13 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     public function setTtlMinutes(?int $ttlMinutes): void
     {
         $this->ttlMinutes = $ttlMinutes;
+    }
+
+    /**
+     * @param ?bool $invalidateOlderTokens
+     */
+    public function setInvalidateOlderTokens(?bool $invalidateOlderTokens): void
+    {
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
     }
 }

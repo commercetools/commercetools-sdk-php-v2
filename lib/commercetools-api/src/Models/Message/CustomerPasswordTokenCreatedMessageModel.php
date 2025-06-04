@@ -105,6 +105,18 @@ final class CustomerPasswordTokenCreatedMessageModel extends JsonObjectModel imp
      */
     protected $expiresAt;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $value;
+
+    /**
+     *
+     * @var ?bool
+     */
+    protected $invalidateOlderTokens;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -122,6 +134,8 @@ final class CustomerPasswordTokenCreatedMessageModel extends JsonObjectModel imp
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $customerId = null,
         ?DateTimeImmutable $expiresAt = null,
+        ?string $value = null,
+        ?bool $invalidateOlderTokens = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -136,6 +150,8 @@ final class CustomerPasswordTokenCreatedMessageModel extends JsonObjectModel imp
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->customerId = $customerId;
         $this->expiresAt = $expiresAt;
+        $this->value = $value;
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -416,6 +432,46 @@ final class CustomerPasswordTokenCreatedMessageModel extends JsonObjectModel imp
         return $this->expiresAt;
     }
 
+    /**
+     * <p>Value of the token, present only if the token's validity is 60 minutes or less.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getValue()
+    {
+        if (is_null($this->value)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->value = (string) $data;
+        }
+
+        return $this->value;
+    }
+
+    /**
+     * <p>If <code>true</code>, all password tokens issued previously for the Customer are invalidated.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getInvalidateOlderTokens()
+    {
+        if (is_null($this->invalidateOlderTokens)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_INVALIDATE_OLDER_TOKENS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->invalidateOlderTokens = (bool) $data;
+        }
+
+        return $this->invalidateOlderTokens;
+    }
+
 
     /**
      * @param ?string $id
@@ -511,6 +567,22 @@ final class CustomerPasswordTokenCreatedMessageModel extends JsonObjectModel imp
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void
     {
         $this->expiresAt = $expiresAt;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setValue(?string $value): void
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @param ?bool $invalidateOlderTokens
+     */
+    public function setInvalidateOlderTokens(?bool $invalidateOlderTokens): void
+    {
+        $this->invalidateOlderTokens = $invalidateOlderTokens;
     }
 
 

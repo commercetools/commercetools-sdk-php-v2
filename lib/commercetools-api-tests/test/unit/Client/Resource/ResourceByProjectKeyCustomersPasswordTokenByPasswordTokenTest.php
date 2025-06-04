@@ -160,6 +160,16 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordTokenTest extends Test
                 },
                 400
             ],
+            'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withPasswordToken("passwordToken")
+                        ->get();
+                },
+                404
+            ],
             'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -179,16 +189,6 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordTokenTest extends Test
                         ->get();
                 },
                 403
-            ],
-            'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->customers()
-                        ->withPasswordToken("passwordToken")
-                        ->get();
-                },
-                404
             ],
             'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

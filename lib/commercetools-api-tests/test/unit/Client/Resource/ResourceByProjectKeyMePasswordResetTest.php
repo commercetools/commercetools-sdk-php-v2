@@ -152,6 +152,17 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                 },
                 400
             ],
+            'ByProjectKeyMePasswordResetPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->password()
+                        ->reset()
+                        ->post(null);
+                },
+                404
+            ],
             'ByProjectKeyMePasswordResetPost_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -173,17 +184,6 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->post(null);
                 },
                 403
-            ],
-            'ByProjectKeyMePasswordResetPost_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->password()
-                        ->reset()
-                        ->post(null);
-                },
-                404
             ],
             'ByProjectKeyMePasswordResetPost_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
