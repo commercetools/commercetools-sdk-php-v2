@@ -373,7 +373,7 @@ final class ApprovalRuleKeySetMessageModel extends JsonObjectModel implements Ap
     }
 
     /**
-     * <p>Description of the <a href="ctp:api:type:ApprovalRule">ApprovalRule</a> after the <a href="ctp:api:type:ApprovalRuleSetKeyAction">Set Key</a> update action.</p>
+     * <p><code>key</code> value of the <a href="ctp:api:type:ApprovalRule">ApprovalRule</a> after the <a href="ctp:api:type:ApprovalRuleSetKeyAction">Set Key</a> update action.</p>
      *
      *
      * @return null|string
@@ -393,7 +393,7 @@ final class ApprovalRuleKeySetMessageModel extends JsonObjectModel implements Ap
     }
 
     /**
-     * <p>Description of the <a href="ctp:api:type:ApprovalRule">ApprovalRule</a> before the <a href="ctp:api:type:ApprovalRuleSetKeyAction">Set Key</a> update action.</p>
+     * <p><code>key</code> value of the <a href="ctp:api:type:ApprovalRule">ApprovalRule</a> before the <a href="ctp:api:type:ApprovalRuleSetKeyAction">Set Key</a> update action.</p>
      *
      *
      * @return null|string
