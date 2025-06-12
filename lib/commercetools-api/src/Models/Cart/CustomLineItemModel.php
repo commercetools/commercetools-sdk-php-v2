@@ -365,7 +365,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * <p>State of the Custom Line Item in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
+     * <p>Tracks specific quantities of the Custom Line Item within a given State. When a Custom Line Item is added to a Cart, its full quantity is set to the built-in &quot;Initial&quot; state. State transitions for Custom Line Items are managed on the <a href="ctp:api:type:Order">Order</a>.</p>
      *
      *
      * @return null|ItemStateCollection
