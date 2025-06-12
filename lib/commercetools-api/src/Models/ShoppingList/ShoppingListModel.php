@@ -423,7 +423,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>Number of days after which the ShoppingList will be automatically deleted if it has not been modified.</p>
+     * <p>Number of days after the last modification before a ShoppingList is deleted. If not set, the <a href="ctp:api:type:ShoppingListsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
      *
      *
      * @return null|int

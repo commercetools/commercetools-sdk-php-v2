@@ -27,7 +27,7 @@ final class ShoppingListSetDeleteDaysAfterLastModificationActionBuilder implemen
     private $deleteDaysAfterLastModification;
 
     /**
-     * <p>Value to set. If empty, any existing value will be removed.</p>
+     * <p>Value to set. If not provided, the default value for this field configured in <a href="ctp:api:type:ShoppingListsConfiguration">Project settings</a> is assigned.</p>
      *
 
      * @return null|int
