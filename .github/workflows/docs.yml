@@ -6,6 +6,8 @@ on:
     tags:
       - '[0-9]+.[0-9]+.[0-9]+*'
 
+permissions: {}
+
 jobs:
   update_ref:
     runs-on: ubuntu-latest

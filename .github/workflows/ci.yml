@@ -11,6 +11,8 @@ on:
 
 name: CI
 
+permissions: {}
+
 jobs:
   coding-guidelines:
     name: Coding Guidelines
