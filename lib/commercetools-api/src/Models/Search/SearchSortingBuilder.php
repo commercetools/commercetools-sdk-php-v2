@@ -52,7 +52,7 @@ final class SearchSortingBuilder implements Builder
 
     /**
 
-     * @var null|SearchQueryExpression|SearchQueryExpressionBuilder
+     * @var null|SearchQuery|SearchQueryBuilder
      */
     private $filter;
 
@@ -116,11 +116,11 @@ final class SearchSortingBuilder implements Builder
      * <p>Allows you to apply a <a href="/../api/search-query-language#sort-filter">sort filter</a>.</p>
      *
 
-     * @return null|SearchQueryExpression
+     * @return null|SearchQuery
      */
     public function getFilter()
     {
-        return $this->filter instanceof SearchQueryExpressionBuilder ? $this->filter->build() : $this->filter;
+        return $this->filter instanceof SearchQueryBuilder ? $this->filter->build() : $this->filter;
     }
 
     /**
@@ -179,10 +179,10 @@ final class SearchSortingBuilder implements Builder
     }
 
     /**
-     * @param ?SearchQueryExpression $filter
+     * @param ?SearchQuery $filter
      * @return $this
      */
-    public function withFilter(?SearchQueryExpression $filter)
+    public function withFilter(?SearchQuery $filter)
     {
         $this->filter = $filter;
 
@@ -193,7 +193,7 @@ final class SearchSortingBuilder implements Builder
      * @deprecated use withFilter() instead
      * @return $this
      */
-    public function withFilterBuilder(?SearchQueryExpressionBuilder $filter)
+    public function withFilterBuilder(?SearchQueryBuilder $filter)
     {
         $this->filter = $filter;
 
@@ -208,7 +208,7 @@ final class SearchSortingBuilder implements Builder
             $this->order,
             $this->mode,
             $this->fieldType,
-            $this->filter instanceof SearchQueryExpressionBuilder ? $this->filter->build() : $this->filter
+            $this->filter instanceof SearchQueryBuilder ? $this->filter->build() : $this->filter
         );
     }
 

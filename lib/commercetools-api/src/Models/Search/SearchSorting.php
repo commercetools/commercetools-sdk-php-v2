@@ -65,7 +65,7 @@ interface SearchSorting extends JsonObject
      * <p>Allows you to apply a <a href="/../api/search-query-language#sort-filter">sort filter</a>.</p>
      *
 
-     * @return null|SearchQueryExpression
+     * @return null|SearchQuery
      */
     public function getFilter();
 
@@ -95,7 +95,7 @@ interface SearchSorting extends JsonObject
     public function setFieldType(?string $fieldType): void;
 
     /**
-     * @param ?SearchQueryExpression $filter
+     * @param ?SearchQuery $filter
      */
-    public function setFilter(?SearchQueryExpression $filter): void;
+    public function setFilter(?SearchQuery $filter): void;
 }
