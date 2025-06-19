@@ -51,7 +51,7 @@ final class SearchSortingModel extends JsonObjectModel implements SearchSorting
 
     /**
      *
-     * @var ?SearchQueryExpression
+     * @var ?SearchQuery
      */
     protected $filter;
 
@@ -65,7 +65,7 @@ final class SearchSortingModel extends JsonObjectModel implements SearchSorting
         ?string $order = null,
         ?string $mode = null,
         ?string $fieldType = null,
-        ?SearchQueryExpression $filter = null
+        ?SearchQuery $filter = null
     ) {
         $this->field = $field;
         $this->language = $language;
@@ -180,7 +180,7 @@ final class SearchSortingModel extends JsonObjectModel implements SearchSorting
      * <p>Allows you to apply a <a href="/../api/search-query-language#sort-filter">sort filter</a>.</p>
      *
      *
-     * @return null|SearchQueryExpression
+     * @return null|SearchQuery
      */
     public function getFilter()
     {
@@ -191,7 +191,7 @@ final class SearchSortingModel extends JsonObjectModel implements SearchSorting
                 return null;
             }
 
-            $this->filter = SearchQueryExpressionModel::of($data);
+            $this->filter = SearchQueryModel::of($data);
         }
 
         return $this->filter;
@@ -239,9 +239,9 @@ final class SearchSortingModel extends JsonObjectModel implements SearchSorting
     }
 
     /**
-     * @param ?SearchQueryExpression $filter
+     * @param ?SearchQuery $filter
      */
-    public function setFilter(?SearchQueryExpression $filter): void
+    public function setFilter(?SearchQuery $filter): void
     {
         $this->filter = $filter;
     }
