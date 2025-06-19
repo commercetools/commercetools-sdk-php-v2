@@ -44,7 +44,7 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     }
 
     /**
-     * <p>The import status of an <a href="ctp:import:type:ImportContainer">ImportContainer</a> given by the number of resources in each <a href="ctp:import:type:ProcessingState">Processing State</a>.</p>
+     * <p>The import status of an <a href="ctp:import:type:ImportContainer">ImportContainer</a> given by the number of resources in each <a href="ctp:import:type:ProcessingState">ProcessingState</a>.</p>
      *
      *
      * @return null|OperationStates
