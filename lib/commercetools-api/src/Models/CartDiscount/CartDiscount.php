@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -38,6 +39,7 @@ interface CartDiscount extends BaseResource
     public const FIELD_REFERENCES = 'references';
     public const FIELD_STACKING_MODE = 'stackingMode';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DISCOUNT_GROUP = 'discountGroup';
 
     /**
      * <p>Unique identifier of the CartDiscount.</p>
@@ -137,10 +139,9 @@ interface CartDiscount extends BaseResource
     public function getTarget();
 
     /**
-     * <p>Value between <code>0</code> and <code>1</code>.
-     * All matching CartDiscounts are applied to a Cart in the order defined by this field.
-     * A Discount with a higher sortOrder is prioritized.
-     * The sort order is unambiguous among all CartDiscounts.</p>
+     * <p>Value between <code>0</code> and <code>1</code> that determines the order in which the CartDiscounts are applied; a CartDiscount with a higher value is prioritized.</p>
+     * <p>It is unique among all CartDiscounts and DiscountGroups.</p>
+     * <p>If the CartDiscount is part of a DiscountGroup, it uses the sort order of the DiscountGroup.</p>
      *
 
      * @return null|string
@@ -214,6 +215,14 @@ interface CartDiscount extends BaseResource
      * @return null|CustomFields
      */
     public function getCustom();
+
+    /**
+     * <p>Reference to a DiscountGroup that the CartDiscount belongs to.</p>
+     *
+
+     * @return null|DiscountGroupReference
+     */
+    public function getDiscountGroup();
 
     /**
      * @param ?string $id
@@ -319,4 +328,9 @@ interface CartDiscount extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?DiscountGroupReference $discountGroup
+     */
+    public function setDiscountGroup(?DiscountGroupReference $discountGroup): void;
 }

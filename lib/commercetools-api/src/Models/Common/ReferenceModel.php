@@ -36,6 +36,8 @@ use Commercetools\Api\Models\CustomObject\CustomObjectReference;
 use Commercetools\Api\Models\CustomObject\CustomObjectReferenceModel;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReferenceModel;
 use Commercetools\Api\Models\Inventory\InventoryEntryReference;
 use Commercetools\Api\Models\Inventory\InventoryEntryReferenceModel;
 use Commercetools\Api\Models\Order\OrderReference;
@@ -120,6 +122,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'customer-password-token' => CustomerPasswordTokenReferenceModel::class,
        'direct-discount' => DirectDiscountReferenceModel::class,
        'discount-code' => DiscountCodeReferenceModel::class,
+       'discount-group' => DiscountGroupReferenceModel::class,
        'inventory-entry' => InventoryEntryReferenceModel::class,
        'key-value-document' => CustomObjectReferenceModel::class,
        'order' => OrderReferenceModel::class,

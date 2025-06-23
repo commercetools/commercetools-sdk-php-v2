@@ -22,6 +22,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomerGroups;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomers;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomObjects;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyDiscountCodes;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyDiscountGroups;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyExtensions;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyGraphql;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey;
@@ -285,6 +286,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyDiscountCodes::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/discount-codes'
+            ],
+            'ResourceByProjectKeyDiscountGroups' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyDiscountGroups {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->discountGroups();
+                },
+                ResourceByProjectKeyDiscountGroups::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/discount-groups'
             ],
             'ResourceByProjectKeyGraphql' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyGraphql {

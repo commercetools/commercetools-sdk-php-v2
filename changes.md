@@ -5,6 +5,7 @@
 
 - added type `BusinessUnitAssociateResponse`
 - added type `BusinessUnitSetUnitTypeAction`
+- added type `CartDiscountSetDiscountGroupAction`
 - added type `BestDeal`
 - added type `DiscountTypeCombination`
 - added type `Stacking`
@@ -13,6 +14,17 @@
 - added type `CustomerAddCustomerGroupAssignmentAction`
 - added type `CustomerRemoveCustomerGroupAssignmentAction`
 - added type `CustomerSetCustomerGroupAssignmentsAction`
+- added type `DiscountGroup`
+- added type `DiscountGroupDraft`
+- added type `DiscountGroupPagedQueryResponse`
+- added type `DiscountGroupReference`
+- added type `DiscountGroupResourceIdentifier`
+- added type `DiscountGroupUpdate`
+- added type `DiscountGroupUpdateAction`
+- added type `DiscountGroupSetDescriptionAction`
+- added type `DiscountGroupSetKeyAction`
+- added type `DiscountGroupSetNameAction`
+- added type `DiscountGroupSetSortOrderAction`
 - added type `ExpiredCustomerEmailTokenError`
 - added type `ExpiredCustomerPasswordTokenError`
 - added type `GraphQLExpiredCustomerEmailTokenError`
@@ -48,6 +60,10 @@
 - added type `CustomerGroupAssignmentAddedMessage`
 - added type `CustomerGroupAssignmentRemovedMessage`
 - added type `CustomerGroupAssignmentsSetMessage`
+- added type `DiscountGroupCreatedMessage`
+- added type `DiscountGroupDeletedMessage`
+- added type `DiscountGroupKeySetMessage`
+- added type `DiscountGroupSortOrderSetMessage`
 - added type `OrderBusinessUnitSetMessage`
 - added type `AssociateRoleNameSetMessagePayload`
 - added type `BusinessUnitTopLevelUnitSetMessagePayload`
@@ -55,6 +71,10 @@
 - added type `CustomerGroupAssignmentAddedMessagePayload`
 - added type `CustomerGroupAssignmentRemovedMessagePayload`
 - added type `CustomerGroupAssignmentsSetMessagePayload`
+- added type `DiscountGroupCreatedMessagePayload`
+- added type `DiscountGroupDeletedMessagePayload`
+- added type `DiscountGroupKeySetMessagePayload`
+- added type `DiscountGroupSortOrderSetMessagePayload`
 - added type `OrderBusinessUnitSetMessagePayload`
 - added type `StagedOrderSetBusinessUnitAction`
 - added type `OrderSetBusinessUnitAction`
@@ -87,11 +107,14 @@
 <details>
 <summary>Added Resource(s)</summary>
 
+- added resource `/{projectKey}/discount-groups`
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
 - added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
 - added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/discount-groups/key={key}`
+- added resource `/{projectKey}/discount-groups/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
@@ -120,6 +143,7 @@
 <details>
 <summary>Required Property(s)</summary>
 
+- changed property `sortOrder` of type `CartDiscountDraft` to be optional
 - changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
 - changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
 - :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
@@ -140,6 +164,8 @@
 - added property `inheritedStores` to type `BusinessUnit`
 - added property `inheritedStores` to type `Company`
 - added property `inheritedStores` to type `Division`
+- added property `discountGroup` to type `CartDiscount`
+- added property `discountGroup` to type `CartDiscountDraft`
 - added property `discountTypeCombination` to type `Cart`
 - added property `customerGroupAssignments` to type `Customer`
 - added property `invalidateOlderTokens` to type `CustomerCreateEmailToken`
@@ -197,6 +223,9 @@
 <details>
 <summary>Added Method(s)</summary>
 
+- added method `$apiRoot->withProjectKey()->discountGroups()->get()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->head()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->post()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->get()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->head()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->post()`
@@ -210,6 +239,14 @@
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->delete()`
 - added method `$apiRoot->withProjectKey()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->delete()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->post()`
@@ -237,6 +274,8 @@
 - added enum `CreateOthersShoppingLists` to type `Permission`
 - added enum `DeleteMyShoppingLists` to type `Permission`
 - added enum `DeleteOthersShoppingLists` to type `Permission`
+- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
+- added enum `discount-group` to type `ReferenceTypeId`
 </details>
 
 **Import changes**
@@ -269,6 +308,7 @@
 <summary>Added Enum(s)</summary>
 
 - added enum `setAssetKey` to type `UpdateType`
+- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
 </details>
 
 

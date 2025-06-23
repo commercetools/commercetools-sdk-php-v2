@@ -22,6 +22,7 @@ use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomObject\CustomObjectReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
 use Commercetools\Api\Models\Inventory\InventoryEntryReference;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReference;

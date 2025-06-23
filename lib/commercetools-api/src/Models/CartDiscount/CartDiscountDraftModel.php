@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifier;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifierModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
@@ -109,6 +111,12 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?DiscountGroupResourceIdentifier
+     */
+    protected $discountGroup;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -127,7 +135,8 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         ?DateTimeImmutable $validUntil = null,
         ?bool $requiresDiscountCode = null,
         ?string $stackingMode = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?DiscountGroupResourceIdentifier $discountGroup = null
     ) {
         $this->name = $name;
         $this->key = $key;
@@ -143,6 +152,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         $this->requiresDiscountCode = $requiresDiscountCode;
         $this->stackingMode = $stackingMode;
         $this->custom = $custom;
+        $this->discountGroup = $discountGroup;
     }
 
     /**
@@ -271,9 +281,9 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * <p>Value between <code>0</code> and <code>1</code>.
-     * A Discount with a higher sortOrder is prioritized.
-     * The sort order must be unambiguous among all CartDiscounts.</p>
+     * <p>Value between <code>0</code> and <code>1</code> that determines the order in which the CartDiscounts will be applied; a CartDiscount with a higher value will be prioritized.</p>
+     * <p>It must be unique among all CartDiscounts and DiscountGroups.</p>
+     * <p>If the CartDiscount is part of a DiscountGroup, it will use the sort order of the DiscountGroup.</p>
      *
      *
      * @return null|string
@@ -447,6 +457,27 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         return $this->custom;
     }
 
+    /**
+     * <p>Reference to a DiscountGroup that the CartDiscount must belong to.</p>
+     *
+     *
+     * @return null|DiscountGroupResourceIdentifier
+     */
+    public function getDiscountGroup()
+    {
+        if (is_null($this->discountGroup)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISCOUNT_GROUP);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discountGroup = DiscountGroupResourceIdentifierModel::of($data);
+        }
+
+        return $this->discountGroup;
+    }
+
 
     /**
      * @param ?LocalizedString $name
@@ -558,6 +589,14 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?DiscountGroupResourceIdentifier $discountGroup
+     */
+    public function setDiscountGroup(?DiscountGroupResourceIdentifier $discountGroup): void
+    {
+        $this->discountGroup = $discountGroup;
     }
 
 
