@@ -19,9 +19,11 @@ class RequestBuilder
         $clientId = $_ENV['APP_CTP_CLIENT_ID'];
         $clientSecret = $_ENV['APP_CTP_CLIENT_SECRET'];
         $this->projectKey = $_ENV['APP_CTP_PROJECT_KEY'];
+        $apiUri = $_ENV['APP_CTP_API_URI'] ?? Config::API_URI;
+        $authUri = $_ENV['APP_CTP_AUTH_URI'] ?? ClientCredentialsConfig::AUTH_URI;
 
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
-        $this->client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3]), $authConfig);
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret), [], $authUri);
+        $this->client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3], $apiUri), $authConfig);
 
     }
 
