@@ -17,6 +17,8 @@ use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReferenceModel;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
@@ -158,6 +160,12 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?DiscountGroupReference
+     */
+    protected $discountGroup;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -183,7 +191,8 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         ?bool $requiresDiscountCode = null,
         ?ReferenceCollection $references = null,
         ?string $stackingMode = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?DiscountGroupReference $discountGroup = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -206,6 +215,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         $this->references = $references;
         $this->stackingMode = $stackingMode;
         $this->custom = $custom;
+        $this->discountGroup = $discountGroup;
     }
 
     /**
@@ -464,10 +474,9 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Value between <code>0</code> and <code>1</code>.
-     * All matching CartDiscounts are applied to a Cart in the order defined by this field.
-     * A Discount with a higher sortOrder is prioritized.
-     * The sort order is unambiguous among all CartDiscounts.</p>
+     * <p>Value between <code>0</code> and <code>1</code> that determines the order in which the CartDiscounts are applied; a CartDiscount with a higher value is prioritized.</p>
+     * <p>It is unique among all CartDiscounts and DiscountGroups.</p>
+     * <p>If the CartDiscount is part of a DiscountGroup, it uses the sort order of the DiscountGroup.</p>
      *
      *
      * @return null|string
@@ -659,6 +668,27 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         return $this->custom;
     }
 
+    /**
+     * <p>Reference to a DiscountGroup that the CartDiscount belongs to.</p>
+     *
+     *
+     * @return null|DiscountGroupReference
+     */
+    public function getDiscountGroup()
+    {
+        if (is_null($this->discountGroup)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISCOUNT_GROUP);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discountGroup = DiscountGroupReferenceModel::of($data);
+        }
+
+        return $this->discountGroup;
+    }
+
 
     /**
      * @param ?string $id
@@ -826,6 +856,14 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?DiscountGroupReference $discountGroup
+     */
+    public function setDiscountGroup(?DiscountGroupReference $discountGroup): void
+    {
+        $this->discountGroup = $discountGroup;
     }
 
 

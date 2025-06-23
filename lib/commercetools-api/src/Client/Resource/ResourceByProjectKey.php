@@ -116,6 +116,14 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function discountGroups(): ResourceByProjectKeyDiscountGroups
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyDiscountGroups($args, $this->getClient());
+    }
+    /**
+     */
     public function graphql(): ResourceByProjectKeyGraphql
     {
         $args = $this->getArgs();

@@ -28,6 +28,8 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeResourceIdentifier;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeResourceIdentifierBuilder;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifier;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifierBuilder;
 use Commercetools\Api\Models\Inventory\InventoryEntryResourceIdentifier;
 use Commercetools\Api\Models\Inventory\InventoryEntryResourceIdentifierBuilder;
 use Commercetools\Api\Models\OrderEdit\OrderEditResourceIdentifier;

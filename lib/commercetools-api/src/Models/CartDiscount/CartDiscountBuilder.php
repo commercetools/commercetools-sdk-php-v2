@@ -17,6 +17,8 @@ use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReferenceBuilder;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
@@ -160,6 +162,12 @@ final class CartDiscountBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var null|DiscountGroupReference|DiscountGroupReferenceBuilder
+     */
+    private $discountGroup;
+
+    /**
      * <p>Unique identifier of the CartDiscount.</p>
      *
 
@@ -293,10 +301,9 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Value between <code>0</code> and <code>1</code>.
-     * All matching CartDiscounts are applied to a Cart in the order defined by this field.
-     * A Discount with a higher sortOrder is prioritized.
-     * The sort order is unambiguous among all CartDiscounts.</p>
+     * <p>Value between <code>0</code> and <code>1</code> that determines the order in which the CartDiscounts are applied; a CartDiscount with a higher value is prioritized.</p>
+     * <p>It is unique among all CartDiscounts and DiscountGroups.</p>
+     * <p>If the CartDiscount is part of a DiscountGroup, it uses the sort order of the DiscountGroup.</p>
      *
 
      * @return null|string
@@ -396,6 +403,17 @@ final class CartDiscountBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Reference to a DiscountGroup that the CartDiscount belongs to.</p>
+     *
+
+     * @return null|DiscountGroupReference
+     */
+    public function getDiscountGroup()
+    {
+        return $this->discountGroup instanceof DiscountGroupReferenceBuilder ? $this->discountGroup->build() : $this->discountGroup;
     }
 
     /**
@@ -630,6 +648,17 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountGroupReference $discountGroup
+     * @return $this
+     */
+    public function withDiscountGroup(?DiscountGroupReference $discountGroup)
+    {
+        $this->discountGroup = $discountGroup;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -706,6 +735,17 @@ final class CartDiscountBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withDiscountGroup() instead
+     * @return $this
+     */
+    public function withDiscountGroupBuilder(?DiscountGroupReferenceBuilder $discountGroup)
+    {
+        $this->discountGroup = $discountGroup;
+
+        return $this;
+    }
+
     public function build(): CartDiscount
     {
         return new CartDiscountModel(
@@ -729,7 +769,8 @@ final class CartDiscountBuilder implements Builder
             $this->requiresDiscountCode,
             $this->references,
             $this->stackingMode,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->discountGroup instanceof DiscountGroupReferenceBuilder ? $this->discountGroup->build() : $this->discountGroup
         );
     }
 

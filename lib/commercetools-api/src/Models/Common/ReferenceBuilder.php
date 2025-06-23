@@ -36,6 +36,8 @@ use Commercetools\Api\Models\CustomObject\CustomObjectReference;
 use Commercetools\Api\Models\CustomObject\CustomObjectReferenceBuilder;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceBuilder;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupReferenceBuilder;
 use Commercetools\Api\Models\Inventory\InventoryEntryReference;
 use Commercetools\Api\Models\Inventory\InventoryEntryReferenceBuilder;
 use Commercetools\Api\Models\Order\OrderReference;

@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifier;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifierBuilder;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
@@ -111,6 +113,12 @@ final class CartDiscountDraftBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var null|DiscountGroupResourceIdentifier|DiscountGroupResourceIdentifierBuilder
+     */
+    private $discountGroup;
+
+    /**
      * <p>Name of the CartDiscount.</p>
      *
 
@@ -178,9 +186,9 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
-     * <p>Value between <code>0</code> and <code>1</code>.
-     * A Discount with a higher sortOrder is prioritized.
-     * The sort order must be unambiguous among all CartDiscounts.</p>
+     * <p>Value between <code>0</code> and <code>1</code> that determines the order in which the CartDiscounts will be applied; a CartDiscount with a higher value will be prioritized.</p>
+     * <p>It must be unique among all CartDiscounts and DiscountGroups.</p>
+     * <p>If the CartDiscount is part of a DiscountGroup, it will use the sort order of the DiscountGroup.</p>
      *
 
      * @return null|string
@@ -271,6 +279,17 @@ final class CartDiscountDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Reference to a DiscountGroup that the CartDiscount must belong to.</p>
+     *
+
+     * @return null|DiscountGroupResourceIdentifier
+     */
+    public function getDiscountGroup()
+    {
+        return $this->discountGroup instanceof DiscountGroupResourceIdentifierBuilder ? $this->discountGroup->build() : $this->discountGroup;
     }
 
     /**
@@ -428,6 +447,17 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountGroupResourceIdentifier $discountGroup
+     * @return $this
+     */
+    public function withDiscountGroup(?DiscountGroupResourceIdentifier $discountGroup)
+    {
+        $this->discountGroup = $discountGroup;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -482,6 +512,17 @@ final class CartDiscountDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withDiscountGroup() instead
+     * @return $this
+     */
+    public function withDiscountGroupBuilder(?DiscountGroupResourceIdentifierBuilder $discountGroup)
+    {
+        $this->discountGroup = $discountGroup;
+
+        return $this;
+    }
+
     public function build(): CartDiscountDraft
     {
         return new CartDiscountDraftModel(
@@ -498,7 +539,8 @@ final class CartDiscountDraftBuilder implements Builder
             $this->validUntil,
             $this->requiresDiscountCode,
             $this->stackingMode,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->discountGroup instanceof DiscountGroupResourceIdentifierBuilder ? $this->discountGroup->build() : $this->discountGroup
         );
     }
 

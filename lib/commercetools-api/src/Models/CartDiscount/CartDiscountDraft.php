@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -31,6 +32,7 @@ interface CartDiscountDraft extends JsonObject
     public const FIELD_REQUIRES_DISCOUNT_CODE = 'requiresDiscountCode';
     public const FIELD_STACKING_MODE = 'stackingMode';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DISCOUNT_GROUP = 'discountGroup';
 
     /**
      * <p>Name of the CartDiscount.</p>
@@ -82,9 +84,9 @@ interface CartDiscountDraft extends JsonObject
     public function getTarget();
 
     /**
-     * <p>Value between <code>0</code> and <code>1</code>.
-     * A Discount with a higher sortOrder is prioritized.
-     * The sort order must be unambiguous among all CartDiscounts.</p>
+     * <p>Value between <code>0</code> and <code>1</code> that determines the order in which the CartDiscounts will be applied; a CartDiscount with a higher value will be prioritized.</p>
+     * <p>It must be unique among all CartDiscounts and DiscountGroups.</p>
+     * <p>If the CartDiscount is part of a DiscountGroup, it will use the sort order of the DiscountGroup.</p>
      *
 
      * @return null|string
@@ -152,6 +154,14 @@ interface CartDiscountDraft extends JsonObject
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * <p>Reference to a DiscountGroup that the CartDiscount must belong to.</p>
+     *
+
+     * @return null|DiscountGroupResourceIdentifier
+     */
+    public function getDiscountGroup();
 
     /**
      * @param ?LocalizedString $name
@@ -222,4 +232,9 @@ interface CartDiscountDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?DiscountGroupResourceIdentifier $discountGroup
+     */
+    public function setDiscountGroup(?DiscountGroupResourceIdentifier $discountGroup): void;
 }

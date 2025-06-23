@@ -3484,6 +3484,189 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->discountGroups()->get()`
+
+Retrieves all DiscountGroups in the Project.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->get();
+```
+## `withProjectKey("projectKey")->discountGroups()->head()`
+
+Checks if one or more DiscountGroups exist for the provided query predicate.
+Returns a `200 OK` status if any DiscountGroups match the query predicate; otherwise, returns a [Not Found](/../api/errors#404-not-found).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->head();
+```
+## `withProjectKey("projectKey")->discountGroups()->post(null)`
+
+Creates a DiscountGroup in the Project.
+This request generates the [DiscountGroupCreated](ctp:api:type:DiscountGroupCreatedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->discountGroups()->withId("ID")->get()`
+
+Retrieves a DiscountGroup with the provided `id`.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->discountGroups()->withId("ID")->head()`
+
+Checks if a DiscountGroup exists with the provided `id`.
+Returns a `200 OK` status if a DiscountGroup exists; otherwise, returns a [Not Found](/../api/errors#404-not-found).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->discountGroups()->withId("ID")->post(null)`
+
+Updates a DiscountGroup in the Project using one or more [update actions](/../api/projects/discount-groups#update-actions).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->discountGroups()->withId("ID")->delete()`
+
+Deletes a DiscountGroup in the Project.
+This request generates the [DiscountGroupDeleted](ctp:api:type:DiscountGroupDeletedMessage) Message.
+
+If the DiscountGroup is referenced by a CartDiscount, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->discountGroups()->withKey("key")->get()`
+
+Retrieves a DiscountGroup with the provided `key`.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->discountGroups()->withKey("key")->head()`
+
+Checks if a DiscountGroup exists with the provided `key`.
+Returns a `200 OK` status if a DiscountGroup exists; otherwise, returns a [Not Found](/../api/errors#404-not-found).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->discountGroups()->withKey("key")->post(null)`
+
+Updates a DiscountGroup in the Project using one or more [update actions](/../api/projects/discount-groups#update-actions).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->discountGroups()->withKey("key")->delete()`
+
+Deletes a DiscountGroup in the Project.
+This request generates the [DiscountGroupDeleted](ctp:api:type:DiscountGroupDeletedMessage) Message.
+
+If the DiscountGroup is referenced by a CartDiscount, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->discountGroups()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->extensions()->get()`
 
 null
