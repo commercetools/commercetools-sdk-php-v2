@@ -162,6 +162,12 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
 
     /**
      *
+     * @var ?CustomerGroupAssignmentDraftCollection
+     */
+    protected $customerGroupAssignments;
+
+    /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -190,12 +196,6 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      */
     protected $authenticationMode;
 
-    /**
-     *
-     * @var ?CustomerGroupAssignmentDraftCollection
-     */
-    protected $customerGroupAssignments;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -223,12 +223,12 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         ?array $billingAddresses = null,
         ?bool $isEmailVerified = null,
         ?CustomerGroupResourceIdentifier $customerGroup = null,
+        ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments = null,
         ?CustomFieldsDraft $custom = null,
         ?string $locale = null,
         ?string $salutation = null,
         ?StoreResourceIdentifierCollection $stores = null,
-        ?string $authenticationMode = null,
-        ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments = null
+        ?string $authenticationMode = null
     ) {
         $this->key = $key;
         $this->customerNumber = $customerNumber;
@@ -252,12 +252,12 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         $this->billingAddresses = $billingAddresses;
         $this->isEmailVerified = $isEmailVerified;
         $this->customerGroup = $customerGroup;
+        $this->customerGroupAssignments = $customerGroupAssignments;
         $this->custom = $custom;
         $this->locale = $locale;
         $this->salutation = $salutation;
         $this->stores = $stores;
         $this->authenticationMode = $authenticationMode;
-        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
     /**
@@ -698,6 +698,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
 
     /**
      * <p>Sets the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for the Customer.</p>
+     * <p>For new projects, use <code>customerGroupAssignments</code> instead. It supports assigning Customers to multiple Customer Groups and provides greater flexibility in complex pricing scenarios.</p>
      *
      *
      * @return null|CustomerGroupResourceIdentifier
@@ -715,6 +716,27 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         }
 
         return $this->customerGroup;
+    }
+
+    /**
+     * <p>Customer Groups to assign the Customer to.</p>
+     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     *
+     *
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        if (is_null($this->customerGroupAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerGroupAssignments = CustomerGroupAssignmentDraftCollection::fromArray($data);
+        }
+
+        return $this->customerGroupAssignments;
     }
 
     /**
@@ -824,26 +846,6 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         }
 
         return $this->authenticationMode;
-    }
-
-    /**
-     * <p>Customer Groups to assign the Customer to.</p>
-     *
-     *
-     * @return null|CustomerGroupAssignmentDraftCollection
-     */
-    public function getCustomerGroupAssignments()
-    {
-        if (is_null($this->customerGroupAssignments)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_CUSTOMER_GROUP_ASSIGNMENTS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customerGroupAssignments = CustomerGroupAssignmentDraftCollection::fromArray($data);
-        }
-
-        return $this->customerGroupAssignments;
     }
 
 
@@ -1024,6 +1026,14 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments): void
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
+    }
+
+    /**
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void
@@ -1061,14 +1071,6 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     public function setAuthenticationMode(?string $authenticationMode): void
     {
         $this->authenticationMode = $authenticationMode;
-    }
-
-    /**
-     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
-     */
-    public function setCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments): void
-    {
-        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
 

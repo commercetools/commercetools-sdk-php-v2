@@ -184,6 +184,12 @@ final class CustomerModel extends JsonObjectModel implements Customer
 
     /**
      *
+     * @var ?CustomerGroupAssignmentCollection
+     */
+    protected $customerGroupAssignments;
+
+    /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -211,12 +217,6 @@ final class CustomerModel extends JsonObjectModel implements Customer
      * @var ?string
      */
     protected $authenticationMode;
-
-    /**
-     *
-     * @var ?CustomerGroupAssignmentCollection
-     */
-    protected $customerGroupAssignments;
 
 
     /**
@@ -248,12 +248,12 @@ final class CustomerModel extends JsonObjectModel implements Customer
         ?array $billingAddressIds = null,
         ?bool $isEmailVerified = null,
         ?CustomerGroupReference $customerGroup = null,
+        ?CustomerGroupAssignmentCollection $customerGroupAssignments = null,
         ?CustomFields $custom = null,
         ?string $locale = null,
         ?string $salutation = null,
         ?StoreKeyReferenceCollection $stores = null,
-        ?string $authenticationMode = null,
-        ?CustomerGroupAssignmentCollection $customerGroupAssignments = null
+        ?string $authenticationMode = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -280,12 +280,12 @@ final class CustomerModel extends JsonObjectModel implements Customer
         $this->billingAddressIds = $billingAddressIds;
         $this->isEmailVerified = $isEmailVerified;
         $this->customerGroup = $customerGroup;
+        $this->customerGroupAssignments = $customerGroupAssignments;
         $this->custom = $custom;
         $this->locale = $locale;
         $this->salutation = $salutation;
         $this->stores = $stores;
         $this->authenticationMode = $authenticationMode;
-        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
     /**
@@ -806,6 +806,27 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Customer Groups that the Customer belongs to.</p>
+     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     *
+     *
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        if (is_null($this->customerGroupAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerGroupAssignments = CustomerGroupAssignmentCollection::fromArray($data);
+        }
+
+        return $this->customerGroupAssignments;
+    }
+
+    /**
      * <p>Custom Fields for the Customer.</p>
      *
      *
@@ -908,26 +929,6 @@ final class CustomerModel extends JsonObjectModel implements Customer
         }
 
         return $this->authenticationMode;
-    }
-
-    /**
-     * <p>Customer Groups that the Customer belongs to.</p>
-     *
-     *
-     * @return null|CustomerGroupAssignmentCollection
-     */
-    public function getCustomerGroupAssignments()
-    {
-        if (is_null($this->customerGroupAssignments)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_CUSTOMER_GROUP_ASSIGNMENTS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customerGroupAssignments = CustomerGroupAssignmentCollection::fromArray($data);
-        }
-
-        return $this->customerGroupAssignments;
     }
 
 
@@ -1132,6 +1133,14 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments): void
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
+    }
+
+    /**
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void
@@ -1169,14 +1178,6 @@ final class CustomerModel extends JsonObjectModel implements Customer
     public function setAuthenticationMode(?string $authenticationMode): void
     {
         $this->authenticationMode = $authenticationMode;
-    }
-
-    /**
-     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
-     */
-    public function setCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments): void
-    {
-        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
 
