@@ -163,6 +163,12 @@ final class CustomerDraftBuilder implements Builder
 
     /**
 
+     * @var ?CustomerGroupAssignmentDraftCollection
+     */
+    private $customerGroupAssignments;
+
+    /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -190,12 +196,6 @@ final class CustomerDraftBuilder implements Builder
      * @var ?string
      */
     private $authenticationMode;
-
-    /**
-
-     * @var ?CustomerGroupAssignmentDraftCollection
-     */
-    private $customerGroupAssignments;
 
     /**
      * <p>User-defined unique identifier for the Customer.
@@ -441,6 +441,7 @@ final class CustomerDraftBuilder implements Builder
 
     /**
      * <p>Sets the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for the Customer.</p>
+     * <p>For new projects, use <code>customerGroupAssignments</code> instead. It supports assigning Customers to multiple Customer Groups and provides greater flexibility in complex pricing scenarios.</p>
      *
 
      * @return null|CustomerGroupResourceIdentifier
@@ -448,6 +449,18 @@ final class CustomerDraftBuilder implements Builder
     public function getCustomerGroup()
     {
         return $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup;
+    }
+
+    /**
+     * <p>Customer Groups to assign the Customer to.</p>
+     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        return $this->customerGroupAssignments;
     }
 
     /**
@@ -511,17 +524,6 @@ final class CustomerDraftBuilder implements Builder
     public function getAuthenticationMode()
     {
         return $this->authenticationMode;
-    }
-
-    /**
-     * <p>Customer Groups to assign the Customer to.</p>
-     *
-
-     * @return null|CustomerGroupAssignmentDraftCollection
-     */
-    public function getCustomerGroupAssignments()
-    {
-        return $this->customerGroupAssignments;
     }
 
     /**
@@ -767,6 +769,17 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     * @return $this
+     */
+    public function withCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments)
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFieldsDraft $custom
      * @return $this
      */
@@ -817,17 +830,6 @@ final class CustomerDraftBuilder implements Builder
     public function withAuthenticationMode(?string $authenticationMode)
     {
         $this->authenticationMode = $authenticationMode;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
-     * @return $this
-     */
-    public function withCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments)
-    {
-        $this->customerGroupAssignments = $customerGroupAssignments;
 
         return $this;
     }
@@ -890,12 +892,12 @@ final class CustomerDraftBuilder implements Builder
             $this->billingAddresses,
             $this->isEmailVerified,
             $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->customerGroupAssignments,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->locale,
             $this->salutation,
             $this->stores,
-            $this->authenticationMode,
-            $this->customerGroupAssignments
+            $this->authenticationMode
         );
     }
 

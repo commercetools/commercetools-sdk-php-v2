@@ -42,12 +42,12 @@ interface Customer extends BaseResource
     public const FIELD_BILLING_ADDRESS_IDS = 'billingAddressIds';
     public const FIELD_IS_EMAIL_VERIFIED = 'isEmailVerified';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CUSTOMER_GROUP_ASSIGNMENTS = 'customerGroupAssignments';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_LOCALE = 'locale';
     public const FIELD_SALUTATION = 'salutation';
     public const FIELD_STORES = 'stores';
     public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
-    public const FIELD_CUSTOMER_GROUP_ASSIGNMENTS = 'customerGroupAssignments';
 
     /**
      * <p>Unique identifier of the Customer.</p>
@@ -252,6 +252,15 @@ interface Customer extends BaseResource
     public function getCustomerGroup();
 
     /**
+     * <p>Customer Groups that the Customer belongs to.</p>
+     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getCustomerGroupAssignments();
+
+    /**
      * <p>Custom Fields for the Customer.</p>
      *
 
@@ -294,14 +303,6 @@ interface Customer extends BaseResource
      * @return null|string
      */
     public function getAuthenticationMode();
-
-    /**
-     * <p>Customer Groups that the Customer belongs to.</p>
-     *
-
-     * @return null|CustomerGroupAssignmentCollection
-     */
-    public function getCustomerGroupAssignments();
 
     /**
      * @param ?string $id
@@ -429,6 +430,11 @@ interface Customer extends BaseResource
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
 
     /**
+     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments): void;
+
+    /**
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
@@ -452,9 +458,4 @@ interface Customer extends BaseResource
      * @param ?string $authenticationMode
      */
     public function setAuthenticationMode(?string $authenticationMode): void;
-
-    /**
-     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
-     */
-    public function setCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments): void;
 }

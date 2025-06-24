@@ -41,12 +41,12 @@ interface CustomerDraft extends JsonObject
     public const FIELD_BILLING_ADDRESSES = 'billingAddresses';
     public const FIELD_IS_EMAIL_VERIFIED = 'isEmailVerified';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CUSTOMER_GROUP_ASSIGNMENTS = 'customerGroupAssignments';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_LOCALE = 'locale';
     public const FIELD_SALUTATION = 'salutation';
     public const FIELD_STORES = 'stores';
     public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
-    public const FIELD_CUSTOMER_GROUP_ASSIGNMENTS = 'customerGroupAssignments';
 
     /**
      * <p>User-defined unique identifier for the Customer.
@@ -229,11 +229,21 @@ interface CustomerDraft extends JsonObject
 
     /**
      * <p>Sets the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for the Customer.</p>
+     * <p>For new projects, use <code>customerGroupAssignments</code> instead. It supports assigning Customers to multiple Customer Groups and provides greater flexibility in complex pricing scenarios.</p>
      *
 
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
+
+    /**
+     * <p>Customer Groups to assign the Customer to.</p>
+     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments();
 
     /**
      * <p>Custom Fields for the Customer.</p>
@@ -282,14 +292,6 @@ interface CustomerDraft extends JsonObject
      * @return null|string
      */
     public function getAuthenticationMode();
-
-    /**
-     * <p>Customer Groups to assign the Customer to.</p>
-     *
-
-     * @return null|CustomerGroupAssignmentDraftCollection
-     */
-    public function getCustomerGroupAssignments();
 
     /**
      * @param ?string $key
@@ -402,6 +404,11 @@ interface CustomerDraft extends JsonObject
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
 
     /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments): void;
+
+    /**
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
@@ -425,9 +432,4 @@ interface CustomerDraft extends JsonObject
      * @param ?string $authenticationMode
      */
     public function setAuthenticationMode(?string $authenticationMode): void;
-
-    /**
-     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
-     */
-    public function setCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments): void;
 }

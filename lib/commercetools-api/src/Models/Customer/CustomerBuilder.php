@@ -185,6 +185,12 @@ final class CustomerBuilder implements Builder
 
     /**
 
+     * @var ?CustomerGroupAssignmentCollection
+     */
+    private $customerGroupAssignments;
+
+    /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -212,12 +218,6 @@ final class CustomerBuilder implements Builder
      * @var ?string
      */
     private $authenticationMode;
-
-    /**
-
-     * @var ?CustomerGroupAssignmentCollection
-     */
-    private $customerGroupAssignments;
 
     /**
      * <p>Unique identifier of the Customer.</p>
@@ -497,6 +497,18 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * <p>Customer Groups that the Customer belongs to.</p>
+     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        return $this->customerGroupAssignments;
+    }
+
+    /**
      * <p>Custom Fields for the Customer.</p>
      *
 
@@ -553,17 +565,6 @@ final class CustomerBuilder implements Builder
     public function getAuthenticationMode()
     {
         return $this->authenticationMode;
-    }
-
-    /**
-     * <p>Customer Groups that the Customer belongs to.</p>
-     *
-
-     * @return null|CustomerGroupAssignmentCollection
-     */
-    public function getCustomerGroupAssignments()
-    {
-        return $this->customerGroupAssignments;
     }
 
     /**
@@ -842,6 +843,17 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
+     * @return $this
+     */
+    public function withCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments)
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -892,17 +904,6 @@ final class CustomerBuilder implements Builder
     public function withAuthenticationMode(?string $authenticationMode)
     {
         $this->authenticationMode = $authenticationMode;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
-     * @return $this
-     */
-    public function withCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments)
-    {
-        $this->customerGroupAssignments = $customerGroupAssignments;
 
         return $this;
     }
@@ -979,12 +980,12 @@ final class CustomerBuilder implements Builder
             $this->billingAddressIds,
             $this->isEmailVerified,
             $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->customerGroupAssignments,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->locale,
             $this->salutation,
             $this->stores,
-            $this->authenticationMode,
-            $this->customerGroupAssignments
+            $this->authenticationMode
         );
     }
 
