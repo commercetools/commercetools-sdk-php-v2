@@ -90,6 +90,12 @@ final class ProductDataBuilder implements Builder
     private $searchKeywords;
 
     /**
+
+     * @var ?AttributeCollection
+     */
+    private $attributes;
+
+    /**
      * <p>Name of the Product.</p>
      *
 
@@ -210,6 +216,17 @@ final class ProductDataBuilder implements Builder
     public function getSearchKeywords()
     {
         return $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords;
+    }
+
+    /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
     /**
@@ -334,6 +351,17 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCollection $attributes
+     * @return $this
+     */
+    public function withAttributes(?AttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -445,7 +473,8 @@ final class ProductDataBuilder implements Builder
             $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
             $this->masterVariant instanceof ProductVariantBuilder ? $this->masterVariant->build() : $this->masterVariant,
             $this->variants,
-            $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords
+            $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
+            $this->attributes
         );
     }
 

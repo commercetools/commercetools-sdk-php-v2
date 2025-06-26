@@ -26,6 +26,7 @@ use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceBuilder;
 use Commercetools\Import\Models\Products\SearchKeywords;
 use Commercetools\Import\Models\Products\SearchKeywordsBuilder;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
@@ -68,6 +69,12 @@ final class ProductDraftImportBuilder implements Builder
      * @var ?CategoryKeyReferenceCollection
      */
     private $categories;
+
+    /**
+
+     * @var ?AttributeCollection
+     */
+    private $attributes;
 
     /**
 
@@ -196,6 +203,15 @@ final class ProductDraftImportBuilder implements Builder
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
     /**
@@ -404,6 +420,17 @@ final class ProductDraftImportBuilder implements Builder
     public function withCategories(?CategoryKeyReferenceCollection $categories)
     {
         $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * @param ?AttributeCollection $attributes
+     * @return $this
+     */
+    public function withAttributes(?AttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
 
         return $this;
     }
@@ -648,6 +675,7 @@ final class ProductDraftImportBuilder implements Builder
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->categories,
+            $this->attributes,
             $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
             $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
             $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,

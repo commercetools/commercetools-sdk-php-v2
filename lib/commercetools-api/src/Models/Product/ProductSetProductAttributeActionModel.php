@@ -17,26 +17,14 @@ use stdClass;
 /**
  * @internal
  */
-final class ProductSetAttributeActionModel extends JsonObjectModel implements ProductSetAttributeAction
+final class ProductSetProductAttributeActionModel extends JsonObjectModel implements ProductSetProductAttributeAction
 {
-    public const DISCRIMINATOR_VALUE = 'setAttribute';
+    public const DISCRIMINATOR_VALUE = 'setProductAttribute';
     /**
      *
      * @var ?string
      */
     protected $action;
-
-    /**
-     *
-     * @var ?int
-     */
-    protected $variantId;
-
-    /**
-     *
-     * @var ?string
-     */
-    protected $sku;
 
     /**
      *
@@ -61,15 +49,11 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $variantId = null,
-        ?string $sku = null,
         ?string $name = null,
         $value = null,
         ?bool $staged = null,
         ?string $action = null
     ) {
-        $this->variantId = $variantId;
-        $this->sku = $sku;
         $this->name = $name;
         $this->value = $value;
         $this->staged = $staged;
@@ -95,47 +79,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * <p>The <code>id</code> of the ProductVariant to update.</p>
-     *
-     *
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
-    }
-
-    /**
-     * <p>The <code>sku</code> of the ProductVariant to update.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getSku()
-    {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
-    }
-
-    /**
-     * <p>Name of the Attribute to set.</p>
+     * <p>Name of the Product Attribute to set.</p>
      *
      *
      * @return null|string
@@ -203,22 +147,6 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
         return $this->staged;
     }
 
-
-    /**
-     * @param ?int $variantId
-     */
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
-    }
-
-    /**
-     * @param ?string $sku
-     */
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
-    }
 
     /**
      * @param ?string $name

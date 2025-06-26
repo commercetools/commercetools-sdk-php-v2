@@ -50,6 +50,12 @@ final class AttributeDefinitionDraftBuilder implements Builder
 
      * @var ?string
      */
+    private $level;
+
+    /**
+
+     * @var ?string
+     */
     private $attributeConstraint;
 
     /**
@@ -118,7 +124,19 @@ final class AttributeDefinitionDraftBuilder implements Builder
     }
 
     /**
-     * <p>Specifies how an Attribute or a combination of Attributes should be validated across all variants of a Product.</p>
+     * <p>Specifies whether the Attribute is defined at the Product or Variant level.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * <p>Specifies how an Attribute or a combination of Attributes should be validated across all variants of a Product.
+     * If the Attribute is defined at Product level, then <code>attributeConstraint</code> must be <code>None</code>. Otherwise, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|string
@@ -210,6 +228,17 @@ final class AttributeDefinitionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $level
+     * @return $this
+     */
+    public function withLevel(?string $level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $attributeConstraint
      * @return $this
      */
@@ -293,6 +322,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
             $this->name,
             $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
             $this->isRequired,
+            $this->level,
             $this->attributeConstraint,
             $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip,
             $this->inputHint,

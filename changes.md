@@ -78,6 +78,9 @@
 - added type `OrderBusinessUnitSetMessagePayload`
 - added type `StagedOrderSetBusinessUnitAction`
 - added type `OrderSetBusinessUnitAction`
+- added type `ProductTailoringSetProductAttributeAction`
+- added type `AttributeLevelEnum`
+- added type `ProductSetProductAttributeAction`
 - added type `ShoppingListSetBusinessUnitAction`
 - added type `EventDeliveryPayload`
 - added type `EventSubscription`
@@ -176,14 +179,24 @@
 - added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessage`
 - added property `value` to type `CustomerPasswordTokenCreatedMessage`
 - added property `invalidateOlderTokens` to type `CustomerPasswordTokenCreatedMessage`
+- added property `attributes` to type `ProductTailoringCreatedMessage`
 - added property `value` to type `CustomerEmailTokenCreatedMessagePayload`
 - added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessagePayload`
 - added property `value` to type `CustomerPasswordTokenCreatedMessagePayload`
 - added property `invalidateOlderTokens` to type `CustomerPasswordTokenCreatedMessagePayload`
+- added property `attributes` to type `ProductTailoringCreatedMessagePayload`
 - added property `discountTypeCombination` to type `StagedOrder`
 - added property `discountTypeCombination` to type `Order`
 - added property `priceCustomerGroupAssignments` to type `ProductSearchProjectionParams`
+- added property `attributes` to type `ProductTailoringData`
+- added property `attributes` to type `ProductTailoringDraft`
+- added property `attributes` to type `ProductTailoringInStoreDraft`
+- added property `level` to type `AttributeDefinition`
+- added property `level` to type `AttributeDefinitionDraft`
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `CategoryOrderHints`
+- added property `attributes` to type `ProductData`
+- added property `attributes` to type `ProductDraft`
+- added property `attributes` to type `ProductProjection`
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `ProductVariantChannelAvailabilityMap`
 - added property `businessUnit` to type `ShoppingList`
 - added property `businessUnit` to type `ShoppingListDraft`
@@ -281,6 +294,13 @@
 **Import changes**
 
 <details>
+<summary>Added Type(s)</summary>
+
+- added type `AttributeLevel`
+</details>
+
+
+<details>
 <summary>Removed Property(s)</summary>
 
 - :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
@@ -292,6 +312,9 @@
 <summary>Added Property(s)</summary>
 
 - added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
+- added property `attributes` to type `ProductImport`
+- added property `attributes` to type `ProductDraftImport`
+- added property `level` to type `AttributeDefinition`
 - added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
 </details>
 

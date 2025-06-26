@@ -132,6 +132,12 @@ final class ProductDraftBuilder implements Builder
     private $priceMode;
 
     /**
+
+     * @var ?AttributeCollection
+     */
+    private $attributes;
+
+    /**
      * <p>The Product Type defining the Attributes for the Product. Cannot be changed later.</p>
      *
 
@@ -323,6 +329,17 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinitionDraft">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
      * @param ?ProductTypeResourceIdentifier $productType
      * @return $this
      */
@@ -510,6 +527,17 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCollection $attributes
+     * @return $this
+     */
+    public function withAttributes(?AttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withProductType() instead
      * @return $this
      */
@@ -660,7 +688,8 @@ final class ProductDraftBuilder implements Builder
             $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
             $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state,
             $this->publish,
-            $this->priceMode
+            $this->priceMode,
+            $this->attributes
         );
     }
 

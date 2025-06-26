@@ -49,6 +49,12 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
      *
      * @var ?string
      */
+    protected $level;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $attributeConstraint;
 
     /**
@@ -78,6 +84,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
         ?string $name = null,
         ?LocalizedString $label = null,
         ?bool $isRequired = null,
+        ?string $level = null,
         ?string $attributeConstraint = null,
         ?LocalizedString $inputTip = null,
         ?string $inputHint = null,
@@ -87,6 +94,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
         $this->name = $name;
         $this->label = $label;
         $this->isRequired = $isRequired;
+        $this->level = $level;
         $this->attributeConstraint = $attributeConstraint;
         $this->inputTip = $inputTip;
         $this->inputHint = $inputHint;
@@ -179,7 +187,28 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     }
 
     /**
-     * <p>Specifies how an Attribute or a combination of Attributes should be validated across all variants of a Product.</p>
+     * <p>Specifies whether the Attribute is defined at the Product or Variant level.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLevel()
+    {
+        if (is_null($this->level)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LEVEL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->level = (string) $data;
+        }
+
+        return $this->level;
+    }
+
+    /**
+     * <p>Specifies how an Attribute or a combination of Attributes should be validated across all variants of a Product.
+     * If the Attribute is defined at Product level, then <code>attributeConstraint</code> must be <code>None</code>. Otherwise, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
      *
      * @return null|string
@@ -294,6 +323,14 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     public function setIsRequired(?bool $isRequired): void
     {
         $this->isRequired = $isRequired;
+    }
+
+    /**
+     * @param ?string $level
+     */
+    public function setLevel(?string $level): void
+    {
+        $this->level = $level;
     }
 
     /**

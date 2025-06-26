@@ -88,6 +88,12 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
      */
     protected $searchKeywords;
 
+    /**
+     *
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -103,7 +109,8 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
         ?LocalizedString $metaKeywords = null,
         ?ProductVariant $masterVariant = null,
         ?ProductVariantCollection $variants = null,
-        ?SearchKeywords $searchKeywords = null
+        ?SearchKeywords $searchKeywords = null,
+        ?AttributeCollection $attributes = null
     ) {
         $this->name = $name;
         $this->categories = $categories;
@@ -116,6 +123,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
         $this->masterVariant = $masterVariant;
         $this->variants = $variants;
         $this->searchKeywords = $searchKeywords;
+        $this->attributes = $attributes;
     }
 
     /**
@@ -349,6 +357,26 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
         return $this->searchKeywords;
     }
 
+    /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+     *
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
+    }
+
 
     /**
      * @param ?LocalizedString $name
@@ -436,5 +464,13 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void
     {
         $this->searchKeywords = $searchKeywords;
+    }
+
+    /**
+     * @param ?AttributeCollection $attributes
+     */
+    public function setAttributes(?AttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 }

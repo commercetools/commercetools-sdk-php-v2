@@ -93,6 +93,12 @@ final class ProductTailoringDraftBuilder implements Builder
     private $variants;
 
     /**
+
+     * @var ?ProductTailoringAttributeCollection
+     */
+    private $attributes;
+
+    /**
      * <p>User-defined unique identifier of the ProductTailoring.</p>
      *
 
@@ -213,6 +219,18 @@ final class ProductTailoringDraftBuilder implements Builder
     public function getVariants()
     {
         return $this->variants;
+    }
+
+    /**
+     * <p>Attributes of the tailored Product.
+     * If provided, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:Product">Product</a>. If the Product contains an Attribute with the same <code>name</code>, then its <code>value</code> is overwritten. Otherwise, the Attribute and its <code>value</code> are added to the Product.</p>
+     *
+
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
     /**
@@ -337,6 +355,17 @@ final class ProductTailoringDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     * @return $this
+     */
+    public function withAttributes(?ProductTailoringAttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withStore() instead
      * @return $this
      */
@@ -437,7 +466,8 @@ final class ProductTailoringDraftBuilder implements Builder
             $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->publish,
-            $this->variants
+            $this->variants,
+            $this->attributes
         );
     }
 

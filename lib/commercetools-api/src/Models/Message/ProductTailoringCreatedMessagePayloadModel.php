@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringAttributeCollection;
 use Commercetools\Api\Models\ProductTailoring\ProductVariantTailoringCollection;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
@@ -101,6 +102,12 @@ final class ProductTailoringCreatedMessagePayloadModel extends JsonObjectModel i
 
     /**
      *
+     * @var ?ProductTailoringAttributeCollection
+     */
+    protected $attributes;
+
+    /**
+     *
      * @var ?bool
      */
     protected $published;
@@ -121,6 +128,7 @@ final class ProductTailoringCreatedMessagePayloadModel extends JsonObjectModel i
         ?LocalizedString $metaDescription = null,
         ?LocalizedString $metaKeywords = null,
         ?ProductVariantTailoringCollection $variants = null,
+        ?ProductTailoringAttributeCollection $attributes = null,
         ?bool $published = null,
         ?string $type = null
     ) {
@@ -135,6 +143,7 @@ final class ProductTailoringCreatedMessagePayloadModel extends JsonObjectModel i
         $this->metaDescription = $metaDescription;
         $this->metaKeywords = $metaKeywords;
         $this->variants = $variants;
+        $this->attributes = $attributes;
         $this->published = $published;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -386,6 +395,27 @@ final class ProductTailoringCreatedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Attributes of the tailored Product.
+     * If available, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:Product">Product</a>. If the Product contains an Attribute with the same <code>name</code>, then its <code>value</code> is overwritten. Otherwise, the Attribute and its <code>value</code> are added to the Product.</p>
+     *
+     *
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = ProductTailoringAttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
+    }
+
+    /**
      * <p><code>true</code> if the ProductTailoring is published.</p>
      *
      *
@@ -492,6 +522,14 @@ final class ProductTailoringCreatedMessagePayloadModel extends JsonObjectModel i
     public function setVariants(?ProductVariantTailoringCollection $variants): void
     {
         $this->variants = $variants;
+    }
+
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     */
+    public function setAttributes(?ProductTailoringAttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 
     /**

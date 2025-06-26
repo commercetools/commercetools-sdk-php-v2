@@ -40,6 +40,7 @@ interface ProductProjection extends BaseResource
     public const FIELD_STATE = 'state';
     public const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
     public const FIELD_PRICE_MODE = 'priceMode';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Product">Product</a>.</p>
@@ -229,6 +230,14 @@ interface ProductProjection extends BaseResource
     public function getPriceMode();
 
     /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinitionDraft">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|AttributeCollection
+     */
+    public function getAttributes();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -342,4 +351,9 @@ interface ProductProjection extends BaseResource
      * @param ?string $priceMode
      */
     public function setPriceMode(?string $priceMode): void;
+
+    /**
+     * @param ?AttributeCollection $attributes
+     */
+    public function setAttributes(?AttributeCollection $attributes): void;
 }

@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Product;
+namespace Commercetools\Api\Models\ProductTailoring;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -16,22 +16,10 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<ProductSetAttributeAction>
+ * @implements Builder<ProductTailoringSetProductAttributeAction>
  */
-final class ProductSetAttributeActionBuilder implements Builder
+final class ProductTailoringSetProductAttributeActionBuilder implements Builder
 {
-    /**
-
-     * @var ?int
-     */
-    private $variantId;
-
-    /**
-
-     * @var ?string
-     */
-    private $sku;
-
     /**
 
      * @var ?string
@@ -51,28 +39,6 @@ final class ProductSetAttributeActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>The <code>id</code> of the ProductVariant to update.</p>
-     *
-
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        return $this->variantId;
-    }
-
-    /**
-     * <p>The <code>sku</code> of the ProductVariant to update.</p>
-     *
-
-     * @return null|string
-     */
-    public function getSku()
-    {
-        return $this->sku;
-    }
-
-    /**
      * <p>Name of the Attribute to set.</p>
      *
 
@@ -84,16 +50,17 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
-     * <p>Value to set for the Attribute. If empty, any existing value will be removed.</p>
-     * <p>The <a href="ctp:api:type:AttributeType">AttributeType</a> determines the format of the Attribute <code>value</code> to be provided:</p>
+     * <p>Value to set for the Attribute. If empty, then any existing value will be removed.</p>
+     * <p><a href="ctp:api:type:AttributeType">AttributeType</a> determines the format of the Attribute <code>value</code> to be provided:</p>
      * <ul>
-     * <li>For <a href="ctp:api:type:AttributeEnumType">Enum Type</a> and <a href="ctp:api:type:AttributeLocalizedEnumType">Localized Enum Type</a>, use the <code>key</code> of the <a href="ctp:api:type:AttributePlainEnumValue">Plain Enum Value</a> or <a href="ctp:api:type:AttributeLocalizedEnumValue">Localized Enum Value</a> object or the complete object as <code>value</code>.</li>
+     * <li>For <a href="ctp:api:type:AttributeEnumType">Enum Type</a> and <a href="ctp:api:type:AttributeLocalizedEnumType">Localized Enum Type</a>,
+     * use either the <code>key</code> of the <a href="ctp:api:type:AttributePlainEnumValue">Plain Enum Value</a> or <a href="ctp:api:type:AttributeLocalizedEnumValue">Localized Enum Value</a> object or the complete object as <code>value</code>.</li>
      * <li>For <a href="ctp:api:type:AttributeLocalizableTextType">Localizable Text Type</a>, use the <a href="ctp:api:type:LocalizedString">LocalizedString</a> object as <code>value</code>.</li>
      * <li>For <a href="ctp:api:type:AttributeMoneyType">Money Type</a> Attributes, use the <a href="ctp:api:type:Money">Money</a> object as <code>value</code>.</li>
      * <li>For <a href="ctp:api:type:AttributeSetType">Set Type</a> Attributes, use the entire <code>set</code> object  as <code>value</code>.</li>
-     * <li>For <a href="ctp:api:type:AttributeNestedType">Nested Type</a> Attributes, use the list of values of all Attributes of the nested Product as <code>value</code>.</li>
      * <li>For <a href="ctp:api:type:AttributeReferenceType">Reference Type</a> Attributes, use the <a href="ctp:api:type:Reference">Reference</a> object as <code>value</code>.</li>
      * </ul>
+     * <p>Tailoring of <a href="ctp:api:type:AttributeNestedType">Nested Type</a> Attributes is <strong>not supported</strong>.</p>
      *
 
      * @return null|mixed
@@ -104,7 +71,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, only the staged Attribute is set. If <code>false</code>, both the current and staged Attributes are set.</p>
+     * <p>If <code>true</code>, then only the staged Attribute is set. If <code>false</code>, then both the current and staged Attributes are set.</p>
      *
 
      * @return null|bool
@@ -112,28 +79,6 @@ final class ProductSetAttributeActionBuilder implements Builder
     public function getStaged()
     {
         return $this->staged;
-    }
-
-    /**
-     * @param ?int $variantId
-     * @return $this
-     */
-    public function withVariantId(?int $variantId)
-    {
-        $this->variantId = $variantId;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $sku
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
-
-        return $this;
     }
 
     /**
@@ -170,18 +115,16 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
 
-    public function build(): ProductSetAttributeAction
+    public function build(): ProductTailoringSetProductAttributeAction
     {
-        return new ProductSetAttributeActionModel(
-            $this->variantId,
-            $this->sku,
+        return new ProductTailoringSetProductAttributeActionModel(
             $this->name,
             $this->value,
             $this->staged
         );
     }
 
-    public static function of(): ProductSetAttributeActionBuilder
+    public static function of(): ProductTailoringSetProductAttributeActionBuilder
     {
         return new self();
     }

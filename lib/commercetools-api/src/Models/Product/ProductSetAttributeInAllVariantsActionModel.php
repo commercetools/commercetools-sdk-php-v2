@@ -79,7 +79,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>The name of the Attribute to set.</p>
+     * <p>Name of the Attribute to set.</p>
      *
      *
      * @return null|string

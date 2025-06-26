@@ -91,6 +91,12 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
      */
     protected $variants;
 
+    /**
+     *
+     * @var ?ProductTailoringAttributeCollection
+     */
+    protected $attributes;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -106,7 +112,8 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
         ?LocalizedString $metaKeywords = null,
         ?LocalizedString $slug = null,
         ?bool $publish = null,
-        ?ProductVariantTailoringDraftCollection $variants = null
+        ?ProductVariantTailoringDraftCollection $variants = null,
+        ?ProductTailoringAttributeCollection $attributes = null
     ) {
         $this->key = $key;
         $this->store = $store;
@@ -119,6 +126,7 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
         $this->slug = $slug;
         $this->publish = $publish;
         $this->variants = $variants;
+        $this->attributes = $attributes;
     }
 
     /**
@@ -351,6 +359,27 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
         return $this->variants;
     }
 
+    /**
+     * <p>Attributes of the tailored Product.
+     * If provided, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:Product">Product</a>. If the Product contains an Attribute with the same <code>name</code>, then its <code>value</code> is overwritten. Otherwise, the Attribute and its <code>value</code> are added to the Product.</p>
+     *
+     *
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = ProductTailoringAttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
+    }
+
 
     /**
      * @param ?string $key
@@ -438,5 +467,13 @@ final class ProductTailoringDraftModel extends JsonObjectModel implements Produc
     public function setVariants(?ProductVariantTailoringDraftCollection $variants): void
     {
         $this->variants = $variants;
+    }
+
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     */
+    public function setAttributes(?ProductTailoringAttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 }

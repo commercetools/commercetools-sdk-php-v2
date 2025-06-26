@@ -25,6 +25,7 @@ interface ProductTailoringInStoreDraft extends JsonObject
     public const FIELD_SLUG = 'slug';
     public const FIELD_PUBLISH = 'publish';
     public const FIELD_VARIANTS = 'variants';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * <p>User-defined unique identifier of the ProductTailoring.</p>
@@ -108,6 +109,15 @@ interface ProductTailoringInStoreDraft extends JsonObject
     public function getVariants();
 
     /**
+     * <p>Attributes of the tailored Product.
+     * If provided, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:Product">Product</a>. If the Product contains an Attribute with the same <code>name</code>, then its <code>value</code> is overwritten. Otherwise, the Attribute and its <code>value</code> are added to the Product.</p>
+     *
+
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -156,4 +166,9 @@ interface ProductTailoringInStoreDraft extends JsonObject
      * @param ?ProductVariantTailoringDraftCollection $variants
      */
     public function setVariants(?ProductVariantTailoringDraftCollection $variants): void;
+
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     */
+    public function setAttributes(?ProductTailoringAttributeCollection $attributes): void;
 }

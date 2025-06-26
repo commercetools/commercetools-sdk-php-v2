@@ -35,6 +35,7 @@ interface ProductDraft extends JsonObject
     public const FIELD_STATE = 'state';
     public const FIELD_PUBLISH = 'publish';
     public const FIELD_PRICE_MODE = 'priceMode';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * <p>The Product Type defining the Attributes for the Product. Cannot be changed later.</p>
@@ -177,6 +178,14 @@ interface ProductDraft extends JsonObject
     public function getPriceMode();
 
     /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinitionDraft">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|AttributeCollection
+     */
+    public function getAttributes();
+
+    /**
      * @param ?ProductTypeResourceIdentifier $productType
      */
     public function setProductType(?ProductTypeResourceIdentifier $productType): void;
@@ -260,4 +269,9 @@ interface ProductDraft extends JsonObject
      * @param ?string $priceMode
      */
     public function setPriceMode(?string $priceMode): void;
+
+    /**
+     * @param ?AttributeCollection $attributes
+     */
+    public function setAttributes(?AttributeCollection $attributes): void;
 }
