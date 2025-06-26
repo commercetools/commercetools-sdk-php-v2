@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringAttributeCollection;
 use Commercetools\Api\Models\ProductTailoring\ProductVariantTailoringCollection;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
@@ -92,6 +93,12 @@ final class ProductTailoringCreatedMessagePayloadBuilder implements Builder
      * @var ?ProductVariantTailoringCollection
      */
     private $variants;
+
+    /**
+
+     * @var ?ProductTailoringAttributeCollection
+     */
+    private $attributes;
 
     /**
 
@@ -218,6 +225,18 @@ final class ProductTailoringCreatedMessagePayloadBuilder implements Builder
     public function getVariants()
     {
         return $this->variants;
+    }
+
+    /**
+     * <p>Attributes of the tailored Product.
+     * If available, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:Product">Product</a>. If the Product contains an Attribute with the same <code>name</code>, then its <code>value</code> is overwritten. Otherwise, the Attribute and its <code>value</code> are added to the Product.</p>
+     *
+
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
     /**
@@ -353,6 +372,17 @@ final class ProductTailoringCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     * @return $this
+     */
+    public function withAttributes(?ProductTailoringAttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $published
      * @return $this
      */
@@ -465,6 +495,7 @@ final class ProductTailoringCreatedMessagePayloadBuilder implements Builder
             $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
             $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
             $this->variants,
+            $this->attributes,
             $this->published
         );
     }

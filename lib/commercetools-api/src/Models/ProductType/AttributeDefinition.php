@@ -18,6 +18,7 @@ interface AttributeDefinition extends JsonObject
     public const FIELD_NAME = 'name';
     public const FIELD_LABEL = 'label';
     public const FIELD_IS_REQUIRED = 'isRequired';
+    public const FIELD_LEVEL = 'level';
     public const FIELD_ATTRIBUTE_CONSTRAINT = 'attributeConstraint';
     public const FIELD_INPUT_TIP = 'inputTip';
     public const FIELD_INPUT_HINT = 'inputHint';
@@ -54,6 +55,14 @@ interface AttributeDefinition extends JsonObject
      * @return null|bool
      */
     public function getIsRequired();
+
+    /**
+     * <p>Specifies whether the Attribute is defined at the Product or Variant level.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLevel();
 
     /**
      * <p>Specifies how Attributes are validated across all variants of a Product.</p>
@@ -110,6 +119,11 @@ interface AttributeDefinition extends JsonObject
      * @param ?bool $isRequired
      */
     public function setIsRequired(?bool $isRequired): void;
+
+    /**
+     * @param ?string $level
+     */
+    public function setLevel(?string $level): void;
 
     /**
      * @param ?string $attributeConstraint

@@ -18,6 +18,7 @@ interface AttributeDefinitionDraft extends JsonObject
     public const FIELD_NAME = 'name';
     public const FIELD_LABEL = 'label';
     public const FIELD_IS_REQUIRED = 'isRequired';
+    public const FIELD_LEVEL = 'level';
     public const FIELD_ATTRIBUTE_CONSTRAINT = 'attributeConstraint';
     public const FIELD_INPUT_TIP = 'inputTip';
     public const FIELD_INPUT_HINT = 'inputHint';
@@ -59,7 +60,16 @@ interface AttributeDefinitionDraft extends JsonObject
     public function getIsRequired();
 
     /**
-     * <p>Specifies how an Attribute or a combination of Attributes should be validated across all variants of a Product.</p>
+     * <p>Specifies whether the Attribute is defined at the Product or Variant level.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLevel();
+
+    /**
+     * <p>Specifies how an Attribute or a combination of Attributes should be validated across all variants of a Product.
+     * If the Attribute is defined at Product level, then <code>attributeConstraint</code> must be <code>None</code>. Otherwise, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|string
@@ -113,6 +123,11 @@ interface AttributeDefinitionDraft extends JsonObject
      * @param ?bool $isRequired
      */
     public function setIsRequired(?bool $isRequired): void;
+
+    /**
+     * @param ?string $level
+     */
+    public function setLevel(?string $level): void;
 
     /**
      * @param ?string $attributeConstraint

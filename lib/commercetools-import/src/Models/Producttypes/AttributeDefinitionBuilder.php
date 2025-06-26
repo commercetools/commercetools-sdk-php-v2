@@ -72,6 +72,12 @@ final class AttributeDefinitionBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $level;
+
+    /**
+
      * @return null|AttributeType
      */
     public function getType()
@@ -154,6 +160,15 @@ final class AttributeDefinitionBuilder implements Builder
     public function getIsSearchable()
     {
         return $this->isSearchable;
+    }
+
+    /**
+
+     * @return null|string
+     */
+    public function getLevel()
+    {
+        return $this->level;
     }
 
     /**
@@ -245,6 +260,17 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?string $level
+     * @return $this
+     */
+    public function withLevel(?string $level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withType() instead
      * @return $this
      */
@@ -287,7 +313,8 @@ final class AttributeDefinitionBuilder implements Builder
             $this->attributeConstraint,
             $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip,
             $this->inputHint,
-            $this->isSearchable
+            $this->isSearchable,
+            $this->level
         );
     }
 

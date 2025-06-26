@@ -25,6 +25,7 @@ use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceModel;
 use Commercetools\Import\Models\Products\SearchKeywords;
 use Commercetools\Import\Models\Products\SearchKeywordsModel;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
@@ -67,6 +68,12 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
      * @var ?CategoryKeyReferenceCollection
      */
     protected $categories;
+
+    /**
+     *
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
 
     /**
      *
@@ -139,6 +146,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         ?LocalizedString $slug = null,
         ?LocalizedString $description = null,
         ?CategoryKeyReferenceCollection $categories = null,
+        ?AttributeCollection $attributes = null,
         ?LocalizedString $metaTitle = null,
         ?LocalizedString $metaDescription = null,
         ?LocalizedString $metaKeywords = null,
@@ -156,6 +164,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         $this->slug = $slug;
         $this->description = $description;
         $this->categories = $categories;
+        $this->attributes = $attributes;
         $this->metaTitle = $metaTitle;
         $this->metaDescription = $metaDescription;
         $this->metaKeywords = $metaKeywords;
@@ -293,6 +302,24 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         }
 
         return $this->categories;
+    }
+
+    /**
+     *
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
     }
 
     /**
@@ -583,6 +610,14 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     public function setCategories(?CategoryKeyReferenceCollection $categories): void
     {
         $this->categories = $categories;
+    }
+
+    /**
+     * @param ?AttributeCollection $attributes
+     */
+    public function setAttributes(?AttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 
     /**

@@ -50,6 +50,12 @@ final class AttributeDefinitionBuilder implements Builder
 
      * @var ?string
      */
+    private $level;
+
+    /**
+
+     * @var ?string
+     */
     private $attributeConstraint;
 
     /**
@@ -112,6 +118,17 @@ final class AttributeDefinitionBuilder implements Builder
     public function getIsRequired()
     {
         return $this->isRequired;
+    }
+
+    /**
+     * <p>Specifies whether the Attribute is defined at the Product or Variant level.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLevel()
+    {
+        return $this->level;
     }
 
     /**
@@ -207,6 +224,17 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?string $level
+     * @return $this
+     */
+    public function withLevel(?string $level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $attributeConstraint
      * @return $this
      */
@@ -290,6 +318,7 @@ final class AttributeDefinitionBuilder implements Builder
             $this->name,
             $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
             $this->isRequired,
+            $this->level,
             $this->attributeConstraint,
             $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip,
             $this->inputHint,

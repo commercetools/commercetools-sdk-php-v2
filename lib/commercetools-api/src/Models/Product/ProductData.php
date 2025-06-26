@@ -26,6 +26,7 @@ interface ProductData extends JsonObject
     public const FIELD_MASTER_VARIANT = 'masterVariant';
     public const FIELD_VARIANTS = 'variants';
     public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * <p>Name of the Product.</p>
@@ -118,6 +119,14 @@ interface ProductData extends JsonObject
     public function getSearchKeywords();
 
     /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|AttributeCollection
+     */
+    public function getAttributes();
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -171,4 +180,9 @@ interface ProductData extends JsonObject
      * @param ?SearchKeywords $searchKeywords
      */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
+
+    /**
+     * @param ?AttributeCollection $attributes
+     */
+    public function setAttributes(?AttributeCollection $attributes): void;
 }

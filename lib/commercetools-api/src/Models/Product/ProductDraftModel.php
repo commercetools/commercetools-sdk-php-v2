@@ -130,6 +130,12 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
      */
     protected $priceMode;
 
+    /**
+     *
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -151,7 +157,8 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
         ?SearchKeywords $searchKeywords = null,
         ?StateResourceIdentifier $state = null,
         ?bool $publish = null,
-        ?string $priceMode = null
+        ?string $priceMode = null,
+        ?AttributeCollection $attributes = null
     ) {
         $this->productType = $productType;
         $this->name = $name;
@@ -170,6 +177,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
         $this->state = $state;
         $this->publish = $publish;
         $this->priceMode = $priceMode;
+        $this->attributes = $attributes;
     }
 
     /**
@@ -528,6 +536,26 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
         return $this->priceMode;
     }
 
+    /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinitionDraft">AttributeDefinition</a>.</p>
+     *
+     *
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
+    }
+
 
     /**
      * @param ?ProductTypeResourceIdentifier $productType
@@ -663,5 +691,13 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     public function setPriceMode(?string $priceMode): void
     {
         $this->priceMode = $priceMode;
+    }
+
+    /**
+     * @param ?AttributeCollection $attributes
+     */
+    public function setAttributes(?AttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 }

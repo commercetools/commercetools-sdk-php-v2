@@ -232,7 +232,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Data of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Data of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.  This data includes all the Product Attributes and Variant Attributes to ensure the full Attribute context of the Product Variant.</p>
      * <p>Returned when expanded using <code>expand=lineItems[*].variant</code>. You cannot expand only a single element of the array.</p>
      *
 

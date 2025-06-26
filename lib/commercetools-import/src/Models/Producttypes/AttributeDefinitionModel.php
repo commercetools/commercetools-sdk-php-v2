@@ -69,6 +69,12 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
      */
     protected $isSearchable;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $level;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -81,7 +87,8 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         ?string $attributeConstraint = null,
         ?LocalizedString $inputTip = null,
         ?string $inputHint = null,
-        ?bool $isSearchable = null
+        ?bool $isSearchable = null,
+        ?string $level = null
     ) {
         $this->type = $type;
         $this->name = $name;
@@ -91,6 +98,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         $this->inputTip = $inputTip;
         $this->inputHint = $inputHint;
         $this->isSearchable = $isSearchable;
+        $this->level = $level;
     }
 
     /**
@@ -254,6 +262,24 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         return $this->isSearchable;
     }
 
+    /**
+     *
+     * @return null|string
+     */
+    public function getLevel()
+    {
+        if (is_null($this->level)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LEVEL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->level = (string) $data;
+        }
+
+        return $this->level;
+    }
+
 
     /**
      * @param ?AttributeType $type
@@ -317,5 +343,13 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     public function setIsSearchable(?bool $isSearchable): void
     {
         $this->isSearchable = $isSearchable;
+    }
+
+    /**
+     * @param ?string $level
+     */
+    public function setLevel(?string $level): void
+    {
+        $this->level = $level;
     }
 }

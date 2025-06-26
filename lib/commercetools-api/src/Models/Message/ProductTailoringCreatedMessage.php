@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\ProductTailoring\ProductTailoringAttributeCollection;
 use Commercetools\Api\Models\ProductTailoring\ProductVariantTailoringCollection;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -28,6 +29,7 @@ interface ProductTailoringCreatedMessage extends Message
     public const FIELD_META_DESCRIPTION = 'metaDescription';
     public const FIELD_META_KEYWORDS = 'metaKeywords';
     public const FIELD_VARIANTS = 'variants';
+    public const FIELD_ATTRIBUTES = 'attributes';
     public const FIELD_PUBLISHED = 'published';
 
     /**
@@ -119,6 +121,15 @@ interface ProductTailoringCreatedMessage extends Message
     public function getVariants();
 
     /**
+     * <p>Attributes of the tailored Product.
+     * If available, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:Product">Product</a>. If the Product contains an Attribute with the same <code>name</code>, then its <code>value</code> is overwritten. Otherwise, the Attribute and its <code>value</code> are added to the Product.</p>
+     *
+
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes();
+
+    /**
      * <p><code>true</code> if the ProductTailoring is published.</p>
      *
 
@@ -180,6 +191,11 @@ interface ProductTailoringCreatedMessage extends Message
      * @param ?ProductVariantTailoringCollection $variants
      */
     public function setVariants(?ProductVariantTailoringCollection $variants): void;
+
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     */
+    public function setAttributes(?ProductTailoringAttributeCollection $attributes): void;
 
     /**
      * @param ?bool $published

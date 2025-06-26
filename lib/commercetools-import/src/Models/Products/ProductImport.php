@@ -16,6 +16,7 @@ use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
 use Commercetools\Import\Models\Common\StateKeyReference;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 
 interface ProductImport extends ImportResource
 {
@@ -24,6 +25,7 @@ interface ProductImport extends ImportResource
     public const FIELD_SLUG = 'slug';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_CATEGORIES = 'categories';
+    public const FIELD_ATTRIBUTES = 'attributes';
     public const FIELD_META_TITLE = 'metaTitle';
     public const FIELD_META_DESCRIPTION = 'metaDescription';
     public const FIELD_META_KEYWORDS = 'metaKeywords';
@@ -86,6 +88,12 @@ interface ProductImport extends ImportResource
      * @return null|CategoryKeyReferenceCollection
      */
     public function getCategories();
+
+    /**
+
+     * @return null|AttributeCollection
+     */
+    public function getAttributes();
 
     /**
      * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
@@ -213,6 +221,11 @@ interface ProductImport extends ImportResource
      * @param ?CategoryKeyReferenceCollection $categories
      */
     public function setCategories(?CategoryKeyReferenceCollection $categories): void;
+
+    /**
+     * @param ?AttributeCollection $attributes
+     */
+    public function setAttributes(?AttributeCollection $attributes): void;
 
     /**
      * @param ?LocalizedString $metaTitle

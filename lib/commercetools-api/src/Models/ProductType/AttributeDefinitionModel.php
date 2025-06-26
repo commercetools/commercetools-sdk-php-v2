@@ -49,6 +49,12 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
      *
      * @var ?string
      */
+    protected $level;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $attributeConstraint;
 
     /**
@@ -78,6 +84,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         ?string $name = null,
         ?LocalizedString $label = null,
         ?bool $isRequired = null,
+        ?string $level = null,
         ?string $attributeConstraint = null,
         ?LocalizedString $inputTip = null,
         ?string $inputHint = null,
@@ -87,6 +94,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         $this->name = $name;
         $this->label = $label;
         $this->isRequired = $isRequired;
+        $this->level = $level;
         $this->attributeConstraint = $attributeConstraint;
         $this->inputTip = $inputTip;
         $this->inputHint = $inputHint;
@@ -173,6 +181,26 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         }
 
         return $this->isRequired;
+    }
+
+    /**
+     * <p>Specifies whether the Attribute is defined at the Product or Variant level.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLevel()
+    {
+        if (is_null($this->level)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LEVEL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->level = (string) $data;
+        }
+
+        return $this->level;
     }
 
     /**
@@ -291,6 +319,14 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     public function setIsRequired(?bool $isRequired): void
     {
         $this->isRequired = $isRequired;
+    }
+
+    /**
+     * @param ?string $level
+     */
+    public function setLevel(?string $level): void
+    {
+        $this->level = $level;
     }
 
     /**

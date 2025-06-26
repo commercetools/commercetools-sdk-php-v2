@@ -23,6 +23,7 @@ use Commercetools\Import\Models\Common\StateKeyReference;
 use Commercetools\Import\Models\Common\StateKeyReferenceModel;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceModel;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
@@ -65,6 +66,12 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * @var ?CategoryKeyReferenceCollection
      */
     protected $categories;
+
+    /**
+     *
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
 
     /**
      *
@@ -125,6 +132,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         ?LocalizedString $slug = null,
         ?LocalizedString $description = null,
         ?CategoryKeyReferenceCollection $categories = null,
+        ?AttributeCollection $attributes = null,
         ?LocalizedString $metaTitle = null,
         ?LocalizedString $metaDescription = null,
         ?LocalizedString $metaKeywords = null,
@@ -140,6 +148,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         $this->slug = $slug;
         $this->description = $description;
         $this->categories = $categories;
+        $this->attributes = $attributes;
         $this->metaTitle = $metaTitle;
         $this->metaDescription = $metaDescription;
         $this->metaKeywords = $metaKeywords;
@@ -278,6 +287,24 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         }
 
         return $this->categories;
+    }
+
+    /**
+     *
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
     }
 
     /**
@@ -526,6 +553,14 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     public function setCategories(?CategoryKeyReferenceCollection $categories): void
     {
         $this->categories = $categories;
+    }
+
+    /**
+     * @param ?AttributeCollection $attributes
+     */
+    public function setAttributes(?AttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 
     /**

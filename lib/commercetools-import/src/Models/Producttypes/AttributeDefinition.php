@@ -22,6 +22,7 @@ interface AttributeDefinition extends JsonObject
     public const FIELD_INPUT_TIP = 'inputTip';
     public const FIELD_INPUT_HINT = 'inputHint';
     public const FIELD_IS_SEARCHABLE = 'isSearchable';
+    public const FIELD_LEVEL = 'level';
 
     /**
 
@@ -86,6 +87,12 @@ interface AttributeDefinition extends JsonObject
     public function getIsSearchable();
 
     /**
+
+     * @return null|string
+     */
+    public function getLevel();
+
+    /**
      * @param ?AttributeType $type
      */
     public function setType(?AttributeType $type): void;
@@ -124,4 +131,9 @@ interface AttributeDefinition extends JsonObject
      * @param ?bool $isSearchable
      */
     public function setIsSearchable(?bool $isSearchable): void;
+
+    /**
+     * @param ?string $level
+     */
+    public function setLevel(?string $level): void;
 }

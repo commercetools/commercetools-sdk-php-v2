@@ -11,32 +11,14 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface ProductSetAttributeAction extends ProductUpdateAction
+interface ProductSetProductAttributeAction extends ProductUpdateAction
 {
-    public const FIELD_VARIANT_ID = 'variantId';
-    public const FIELD_SKU = 'sku';
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
     public const FIELD_STAGED = 'staged';
 
     /**
-     * <p>The <code>id</code> of the ProductVariant to update.</p>
-     *
-
-     * @return null|int
-     */
-    public function getVariantId();
-
-    /**
-     * <p>The <code>sku</code> of the ProductVariant to update.</p>
-     *
-
-     * @return null|string
-     */
-    public function getSku();
-
-    /**
-     * <p>Name of the Attribute to set.</p>
+     * <p>Name of the Product Attribute to set.</p>
      *
 
      * @return null|string
@@ -67,16 +49,6 @@ interface ProductSetAttributeAction extends ProductUpdateAction
      * @return null|bool
      */
     public function getStaged();
-
-    /**
-     * @param ?int $variantId
-     */
-    public function setVariantId(?int $variantId): void;
-
-    /**
-     * @param ?string $sku
-     */
-    public function setSku(?string $sku): void;
 
     /**
      * @param ?string $name

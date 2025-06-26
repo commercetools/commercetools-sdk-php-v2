@@ -173,6 +173,12 @@ final class ProductProjectionBuilder implements Builder
     private $priceMode;
 
     /**
+
+     * @var ?AttributeCollection
+     */
+    private $attributes;
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Product">Product</a>.</p>
      *
 
@@ -429,6 +435,17 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinitionDraft">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -682,6 +699,17 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCollection $attributes
+     * @return $this
+     */
+    public function withAttributes(?AttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withProductType() instead
      * @return $this
      */
@@ -849,7 +877,8 @@ final class ProductProjectionBuilder implements Builder
             $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
             $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics,
-            $this->priceMode
+            $this->priceMode,
+            $this->attributes
         );
     }
 

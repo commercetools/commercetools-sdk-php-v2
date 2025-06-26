@@ -21,6 +21,7 @@ interface ProductTailoringData extends JsonObject
     public const FIELD_META_KEYWORDS = 'metaKeywords';
     public const FIELD_SLUG = 'slug';
     public const FIELD_VARIANTS = 'variants';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * <p>Tailored name of the Product.</p>
@@ -80,6 +81,15 @@ interface ProductTailoringData extends JsonObject
     public function getVariants();
 
     /**
+     * <p>Attributes of the tailored Product.
+     * If available, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:Product">Product</a>. If the Product contains an Attribute with the same <code>name</code>, then its <code>value</code> is overwritten. Otherwise, the Attribute and its <code>value</code> are added to the Product.</p>
+     *
+
+     * @return null|ProductTailoringAttributeCollection
+     */
+    public function getAttributes();
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -113,4 +123,9 @@ interface ProductTailoringData extends JsonObject
      * @param ?ProductVariantTailoringCollection $variants
      */
     public function setVariants(?ProductVariantTailoringCollection $variants): void;
+
+    /**
+     * @param ?ProductTailoringAttributeCollection $attributes
+     */
+    public function setAttributes(?ProductTailoringAttributeCollection $attributes): void;
 }

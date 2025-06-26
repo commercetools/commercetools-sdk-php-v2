@@ -16,22 +16,10 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<ProductSetAttributeAction>
+ * @implements Builder<ProductSetProductAttributeAction>
  */
-final class ProductSetAttributeActionBuilder implements Builder
+final class ProductSetProductAttributeActionBuilder implements Builder
 {
-    /**
-
-     * @var ?int
-     */
-    private $variantId;
-
-    /**
-
-     * @var ?string
-     */
-    private $sku;
-
     /**
 
      * @var ?string
@@ -51,29 +39,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>The <code>id</code> of the ProductVariant to update.</p>
-     *
-
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        return $this->variantId;
-    }
-
-    /**
-     * <p>The <code>sku</code> of the ProductVariant to update.</p>
-     *
-
-     * @return null|string
-     */
-    public function getSku()
-    {
-        return $this->sku;
-    }
-
-    /**
-     * <p>Name of the Attribute to set.</p>
+     * <p>Name of the Product Attribute to set.</p>
      *
 
      * @return null|string
@@ -115,28 +81,6 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
-     * @param ?int $variantId
-     * @return $this
-     */
-    public function withVariantId(?int $variantId)
-    {
-        $this->variantId = $variantId;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $sku
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $name
      * @return $this
      */
@@ -170,18 +114,16 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
 
-    public function build(): ProductSetAttributeAction
+    public function build(): ProductSetProductAttributeAction
     {
-        return new ProductSetAttributeActionModel(
-            $this->variantId,
-            $this->sku,
+        return new ProductSetProductAttributeActionModel(
             $this->name,
             $this->value,
             $this->staged
         );
     }
 
-    public static function of(): ProductSetAttributeActionBuilder
+    public static function of(): ProductSetProductAttributeActionBuilder
     {
         return new self();
     }

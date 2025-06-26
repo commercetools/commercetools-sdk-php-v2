@@ -39,7 +39,7 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>The name of the Attribute to set.</p>
+     * <p>Name of the Attribute to set.</p>
      *
 
      * @return null|string
