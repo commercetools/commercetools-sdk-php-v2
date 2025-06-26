@@ -42,7 +42,7 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
-     * <p>The tokenizer defines the tokens that are used to match against the <a href="/../products-suggestions#query-suggestions">Suggest Query</a> input.</p>
+     * <p>The tokenizer defines the tokens that are used for <a href="/projects/search-term-suggestions">search term suggestions</a>.</p>
      *
 
      * @return null|SuggestTokenizer

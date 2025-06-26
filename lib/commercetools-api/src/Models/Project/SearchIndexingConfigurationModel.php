@@ -68,7 +68,7 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/product-projection-search">Product Projection Search</a> and <a href="/../api/projects/products-suggestions">Product Suggestions</a> endpoints.</p>
+     * <p>Configuration for the <a href="/../api/projects/product-projection-search">Product Projection Search</a> and <a href="/../api/projects/search-term-suggestions">Search Term Suggestions</a> APIs.</p>
      *
      *
      * @return null|SearchIndexingConfigurationValues
