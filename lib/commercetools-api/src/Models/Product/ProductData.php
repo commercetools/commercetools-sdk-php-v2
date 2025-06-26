@@ -111,7 +111,7 @@ interface ProductData extends JsonObject
     public function getVariants();
 
     /**
-     * <p>Used by <a href="/projects/products-suggestions">Product Suggestions</a>, but is also considered for a <a href="/projects/product-projection-search#full-text-search">full text search</a>.</p>
+     * <p>Used by <a href="/projects/search-term-suggestions">Search Term Suggestions</a>, but is also considered for a <a href="/projects/product-projection-search#full-text-search">full text search</a> in the Product Projection Search API.</p>
      *
 
      * @return null|SearchKeywords
