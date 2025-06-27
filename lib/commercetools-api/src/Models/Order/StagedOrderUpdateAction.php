@@ -22,6 +22,7 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderChangeCustomLineItemQuantityAc
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeLineItemQuantityAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeOrderStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangePaymentStateAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderChangePriceRoundingModeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeShipmentStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeTaxCalculationModeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeTaxModeAction;

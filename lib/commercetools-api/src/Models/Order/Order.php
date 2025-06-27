@@ -53,6 +53,7 @@ interface Order extends BaseResource
     public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_TAXED_SHIPPING_PRICE = 'taxedShippingPrice';
     public const FIELD_DISCOUNT_ON_TOTAL_PRICE = 'discountOnTotalPrice';
+    public const FIELD_PRICE_ROUNDING_MODE = 'priceRoundingMode';
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
@@ -223,6 +224,14 @@ interface Order extends BaseResource
      * @return null|DiscountOnTotalPrice
      */
     public function getDiscountOnTotalPrice();
+
+    /**
+     * <p>Indicates how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceRoundingMode();
 
     /**
      * <p>Indicates how Tax Rates are set.</p>
@@ -608,6 +617,11 @@ interface Order extends BaseResource
      * @param ?DiscountOnTotalPrice $discountOnTotalPrice
      */
     public function setDiscountOnTotalPrice(?DiscountOnTotalPrice $discountOnTotalPrice): void;
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void;
 
     /**
      * @param ?string $taxMode

@@ -161,6 +161,12 @@ final class CartBuilder implements Builder
 
      * @var ?string
      */
+    private $priceRoundingMode;
+
+    /**
+
+     * @var ?string
+     */
     private $taxRoundingMode;
 
     /**
@@ -523,7 +529,18 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>Indicates how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     * <p>Indicates how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        return $this->priceRoundingMode;
+    }
+
+    /**
+     * <p>Indicates how monetary values are rounded when calculating taxes for <code>taxedPrice</code>. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
 
      * @return null|string
@@ -1014,6 +1031,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceRoundingMode
+     * @return $this
+     */
+    public function withPriceRoundingMode(?string $priceRoundingMode)
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $taxRoundingMode
      * @return $this
      */
@@ -1497,6 +1525,7 @@ final class CartBuilder implements Builder
             $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice,
             $this->discountOnTotalPrice instanceof DiscountOnTotalPriceBuilder ? $this->discountOnTotalPrice->build() : $this->discountOnTotalPrice,
             $this->taxMode,
+            $this->priceRoundingMode,
             $this->taxRoundingMode,
             $this->taxCalculationMode,
             $this->inventoryMode,

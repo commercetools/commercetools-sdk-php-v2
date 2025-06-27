@@ -201,6 +201,12 @@ final class QuoteBuilder implements Builder
 
      * @var ?string
      */
+    private $priceRoundingMode;
+
+    /**
+
+     * @var ?string
+     */
     private $taxRoundingMode;
 
     /**
@@ -532,6 +538,17 @@ final class QuoteBuilder implements Builder
     public function getTaxMode()
     {
         return $this->taxMode;
+    }
+
+    /**
+     * <p>When calculating total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, the selected mode is used for rounding.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        return $this->priceRoundingMode;
     }
 
     /**
@@ -936,6 +953,17 @@ final class QuoteBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceRoundingMode
+     * @return $this
+     */
+    public function withPriceRoundingMode(?string $priceRoundingMode)
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $taxRoundingMode
      * @return $this
      */
@@ -1291,6 +1319,7 @@ final class QuoteBuilder implements Builder
             $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
             $this->inventoryMode,
             $this->taxMode,
+            $this->priceRoundingMode,
             $this->taxRoundingMode,
             $this->taxCalculationMode,
             $this->country,

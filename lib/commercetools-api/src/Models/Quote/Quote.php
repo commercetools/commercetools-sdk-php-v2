@@ -54,6 +54,7 @@ interface Quote extends BaseResource
     public const FIELD_BILLING_ADDRESS = 'billingAddress';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_TAX_MODE = 'taxMode';
+    public const FIELD_PRICE_ROUNDING_MODE = 'priceRoundingMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
     public const FIELD_COUNTRY = 'country';
@@ -257,6 +258,14 @@ interface Quote extends BaseResource
      * @return null|string
      */
     public function getTaxMode();
+
+    /**
+     * <p>When calculating total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, the selected mode is used for rounding.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceRoundingMode();
 
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>
@@ -481,6 +490,11 @@ interface Quote extends BaseResource
      * @param ?string $taxMode
      */
     public function setTaxMode(?string $taxMode): void;
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void;
 
     /**
      * @param ?string $taxRoundingMode

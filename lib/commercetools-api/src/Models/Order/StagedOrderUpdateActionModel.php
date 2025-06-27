@@ -36,6 +36,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderChangeOrderStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeOrderStateActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangePaymentStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangePaymentStateActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderChangePriceRoundingModeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderChangePriceRoundingModeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeShipmentStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeShipmentStateActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeTaxCalculationModeAction;
@@ -227,6 +229,7 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'changeLineItemQuantity' => StagedOrderChangeLineItemQuantityActionModel::class,
        'changeOrderState' => StagedOrderChangeOrderStateActionModel::class,
        'changePaymentState' => StagedOrderChangePaymentStateActionModel::class,
+       'changePriceRoundingMode' => StagedOrderChangePriceRoundingModeActionModel::class,
        'changeShipmentState' => StagedOrderChangeShipmentStateActionModel::class,
        'changeTaxCalculationMode' => StagedOrderChangeTaxCalculationModeActionModel::class,
        'changeTaxMode' => StagedOrderChangeTaxModeActionModel::class,

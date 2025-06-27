@@ -108,6 +108,12 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      *
      * @var ?string
      */
+    protected $priceRoundingMode;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $taxRoundingMode;
 
     /**
@@ -223,6 +229,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         ?CustomLineItemDraftCollection $customLineItems = null,
         ?string $taxMode = null,
         ?ExternalTaxRateDraft $externalTaxRateForShippingMethod = null,
+        ?string $priceRoundingMode = null,
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
         ?string $inventoryMode = null,
@@ -253,6 +260,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         $this->customLineItems = $customLineItems;
         $this->taxMode = $taxMode;
         $this->externalTaxRateForShippingMethod = $externalTaxRateForShippingMethod;
+        $this->priceRoundingMode = $priceRoundingMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->taxCalculationMode = $taxCalculationMode;
         $this->inventoryMode = $inventoryMode;
@@ -519,7 +527,27 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
-     * <p>Determines how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     * <p>Determines how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated. If not set, the <a href="ctp:api:type:CartsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        if (is_null($this->priceRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceRoundingMode = (string) $data;
+        }
+
+        return $this->priceRoundingMode;
+    }
+
+    /**
+     * <p>Determines how monetary values are rounded when calculating taxes for <code>taxedPrice</code>. If not set, the <a href="ctp:api:type:CartsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
      *
      *
      * @return null|string
@@ -973,6 +1001,14 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     public function setExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod): void
     {
         $this->externalTaxRateForShippingMethod = $externalTaxRateForShippingMethod;
+    }
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
     }
 
     /**

@@ -200,6 +200,12 @@ final class QuoteModel extends JsonObjectModel implements Quote
      *
      * @var ?string
      */
+    protected $priceRoundingMode;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $taxRoundingMode;
 
     /**
@@ -302,6 +308,7 @@ final class QuoteModel extends JsonObjectModel implements Quote
         ?Address $billingAddress = null,
         ?string $inventoryMode = null,
         ?string $taxMode = null,
+        ?string $priceRoundingMode = null,
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
         ?string $country = null,
@@ -339,6 +346,7 @@ final class QuoteModel extends JsonObjectModel implements Quote
         $this->billingAddress = $billingAddress;
         $this->inventoryMode = $inventoryMode;
         $this->taxMode = $taxMode;
+        $this->priceRoundingMode = $priceRoundingMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->taxCalculationMode = $taxCalculationMode;
         $this->country = $country;
@@ -844,6 +852,26 @@ final class QuoteModel extends JsonObjectModel implements Quote
     }
 
     /**
+     * <p>When calculating total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, the selected mode is used for rounding.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        if (is_null($this->priceRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceRoundingMode = (string) $data;
+        }
+
+        return $this->priceRoundingMode;
+    }
+
+    /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>
      *
      *
@@ -1297,6 +1325,14 @@ final class QuoteModel extends JsonObjectModel implements Quote
     public function setTaxMode(?string $taxMode): void
     {
         $this->taxMode = $taxMode;
+    }
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
     }
 
     /**

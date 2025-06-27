@@ -36,6 +36,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderChangeOrderStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeOrderStateActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangePaymentStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangePaymentStateActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderChangePriceRoundingModeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderChangePriceRoundingModeActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeShipmentStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeShipmentStateActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderChangeTaxCalculationModeAction;
