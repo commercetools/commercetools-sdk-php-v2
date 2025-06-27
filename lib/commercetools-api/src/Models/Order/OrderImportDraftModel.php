@@ -107,6 +107,12 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
      *
      * @var ?string
      */
+    protected $priceRoundingMode;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $taxRoundingMode;
 
     /**
@@ -215,6 +221,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         ?CustomLineItemImportDraftCollection $customLineItems = null,
         ?Money $totalPrice = null,
         ?TaxedPriceDraft $taxedPrice = null,
+        ?string $priceRoundingMode = null,
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
         ?string $inventoryMode = null,
@@ -243,6 +250,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->customLineItems = $customLineItems;
         $this->totalPrice = $totalPrice;
         $this->taxedPrice = $taxedPrice;
+        $this->priceRoundingMode = $priceRoundingMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->taxCalculationMode = $taxCalculationMode;
         $this->inventoryMode = $inventoryMode;
@@ -491,6 +499,26 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         }
 
         return $this->taxedPrice;
+    }
+
+    /**
+     * <p>Determines how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        if (is_null($this->priceRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceRoundingMode = (string) $data;
+        }
+
+        return $this->priceRoundingMode;
     }
 
     /**
@@ -910,6 +938,14 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
+    }
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
     }
 
     /**

@@ -180,6 +180,12 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
      *
      * @var ?string
      */
+    protected $priceRoundingMode;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $taxRoundingMode;
 
     /**
@@ -279,6 +285,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         ?Address $billingAddress = null,
         ?string $inventoryMode = null,
         ?string $taxMode = null,
+        ?string $priceRoundingMode = null,
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
         ?string $country = null,
@@ -313,6 +320,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         $this->billingAddress = $billingAddress;
         $this->inventoryMode = $inventoryMode;
         $this->taxMode = $taxMode;
+        $this->priceRoundingMode = $priceRoundingMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->taxCalculationMode = $taxCalculationMode;
         $this->country = $country;
@@ -752,6 +760,26 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     }
 
     /**
+     * <p>When calculating total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, the selected mode is used for rounding.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        if (is_null($this->priceRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceRoundingMode = (string) $data;
+        }
+
+        return $this->priceRoundingMode;
+    }
+
+    /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>
      *
      *
@@ -1182,6 +1210,14 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     public function setTaxMode(?string $taxMode): void
     {
         $this->taxMode = $taxMode;
+    }
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
     }
 
     /**

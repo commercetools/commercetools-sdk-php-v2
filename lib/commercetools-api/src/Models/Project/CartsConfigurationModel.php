@@ -31,16 +31,32 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
      */
     protected $countryTaxRateFallbackEnabled;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $priceRoundingMode;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $taxRoundingMode;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?int $deleteDaysAfterLastModification = null,
-        ?bool $countryTaxRateFallbackEnabled = null
+        ?bool $countryTaxRateFallbackEnabled = null,
+        ?string $priceRoundingMode = null,
+        ?string $taxRoundingMode = null
     ) {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
+        $this->priceRoundingMode = $priceRoundingMode;
+        $this->taxRoundingMode = $taxRoundingMode;
     }
 
     /**
@@ -85,6 +101,48 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
         return $this->countryTaxRateFallbackEnabled;
     }
 
+    /**
+     * <p>Default value for the <code>priceRoundingMode</code> parameter of the <a href="ctp:api:type:CartDraft">CartDraft</a>.
+     * Indicates how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        if (is_null($this->priceRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceRoundingMode = (string) $data;
+        }
+
+        return $this->priceRoundingMode;
+    }
+
+    /**
+     * <p>Default value for the <code>taxRoundingMode</code> parameter of the <a href="ctp:api:type:CartDraft">CartDraft</a>.
+     * Indicates how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getTaxRoundingMode()
+    {
+        if (is_null($this->taxRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxRoundingMode = (string) $data;
+        }
+
+        return $this->taxRoundingMode;
+    }
+
 
     /**
      * @param ?int $deleteDaysAfterLastModification
@@ -100,5 +158,21 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
     public function setCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled): void
     {
         $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
+    }
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
+    }
+
+    /**
+     * @param ?string $taxRoundingMode
+     */
+    public function setTaxRoundingMode(?string $taxRoundingMode): void
+    {
+        $this->taxRoundingMode = $taxRoundingMode;
     }
 }

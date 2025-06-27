@@ -109,6 +109,12 @@ final class CartDraftBuilder implements Builder
 
      * @var ?string
      */
+    private $priceRoundingMode;
+
+    /**
+
+     * @var ?string
+     */
     private $taxRoundingMode;
 
     /**
@@ -342,7 +348,18 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Determines how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     * <p>Determines how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated. If not set, the <a href="ctp:api:type:CartsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        return $this->priceRoundingMode;
+    }
+
+    /**
+     * <p>Determines how monetary values are rounded when calculating taxes for <code>taxedPrice</code>. If not set, the <a href="ctp:api:type:CartsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
      *
 
      * @return null|string
@@ -676,6 +693,17 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceRoundingMode
+     * @return $this
+     */
+    public function withPriceRoundingMode(?string $priceRoundingMode)
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $taxRoundingMode
      * @return $this
      */
@@ -976,6 +1004,7 @@ final class CartDraftBuilder implements Builder
             $this->customLineItems,
             $this->taxMode,
             $this->externalTaxRateForShippingMethod instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRateForShippingMethod->build() : $this->externalTaxRateForShippingMethod,
+            $this->priceRoundingMode,
             $this->taxRoundingMode,
             $this->taxCalculationMode,
             $this->inventoryMode,

@@ -175,6 +175,12 @@ final class OrderModel extends JsonObjectModel implements Order
      *
      * @var ?string
      */
+    protected $priceRoundingMode;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $taxMode;
 
     /**
@@ -398,6 +404,7 @@ final class OrderModel extends JsonObjectModel implements Order
         ?TaxedPrice $taxedPrice = null,
         ?TaxedPrice $taxedShippingPrice = null,
         ?DiscountOnTotalPrice $discountOnTotalPrice = null,
+        ?string $priceRoundingMode = null,
         ?string $taxMode = null,
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
@@ -451,6 +458,7 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->taxedPrice = $taxedPrice;
         $this->taxedShippingPrice = $taxedShippingPrice;
         $this->discountOnTotalPrice = $discountOnTotalPrice;
+        $this->priceRoundingMode = $priceRoundingMode;
         $this->taxMode = $taxMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->taxCalculationMode = $taxCalculationMode;
@@ -868,6 +876,26 @@ final class OrderModel extends JsonObjectModel implements Order
         }
 
         return $this->discountOnTotalPrice;
+    }
+
+    /**
+     * <p>Indicates how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        if (is_null($this->priceRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceRoundingMode = (string) $data;
+        }
+
+        return $this->priceRoundingMode;
     }
 
     /**
@@ -1727,6 +1755,14 @@ final class OrderModel extends JsonObjectModel implements Order
     public function setDiscountOnTotalPrice(?DiscountOnTotalPrice $discountOnTotalPrice): void
     {
         $this->discountOnTotalPrice = $discountOnTotalPrice;
+    }
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
     }
 
     /**

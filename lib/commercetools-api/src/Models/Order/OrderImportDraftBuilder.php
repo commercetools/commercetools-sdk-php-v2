@@ -108,6 +108,12 @@ final class OrderImportDraftBuilder implements Builder
 
      * @var ?string
      */
+    private $priceRoundingMode;
+
+    /**
+
+     * @var ?string
+     */
     private $taxRoundingMode;
 
     /**
@@ -326,6 +332,17 @@ final class OrderImportDraftBuilder implements Builder
     public function getTaxedPrice()
     {
         return $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
+    }
+
+    /**
+     * <p>Determines how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        return $this->priceRoundingMode;
     }
 
     /**
@@ -621,6 +638,17 @@ final class OrderImportDraftBuilder implements Builder
     public function withTaxedPrice(?TaxedPriceDraft $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $priceRoundingMode
+     * @return $this
+     */
+    public function withPriceRoundingMode(?string $priceRoundingMode)
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
 
         return $this;
     }
@@ -936,6 +964,7 @@ final class OrderImportDraftBuilder implements Builder
             $this->customLineItems,
             $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->priceRoundingMode,
             $this->taxRoundingMode,
             $this->taxCalculationMode,
             $this->inventoryMode,

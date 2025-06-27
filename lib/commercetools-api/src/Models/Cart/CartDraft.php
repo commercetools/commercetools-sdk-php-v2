@@ -32,6 +32,7 @@ interface CartDraft extends JsonObject
     public const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_EXTERNAL_TAX_RATE_FOR_SHIPPING_METHOD = 'externalTaxRateForShippingMethod';
+    public const FIELD_PRICE_ROUNDING_MODE = 'priceRoundingMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
@@ -149,7 +150,15 @@ interface CartDraft extends JsonObject
     public function getExternalTaxRateForShippingMethod();
 
     /**
-     * <p>Determines how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     * <p>Determines how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated. If not set, the <a href="ctp:api:type:CartsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceRoundingMode();
+
+    /**
+     * <p>Determines how monetary values are rounded when calculating taxes for <code>taxedPrice</code>. If not set, the <a href="ctp:api:type:CartsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
      *
 
      * @return null|string
@@ -358,6 +367,11 @@ interface CartDraft extends JsonObject
      * @param ?ExternalTaxRateDraft $externalTaxRateForShippingMethod
      */
     public function setExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod): void;
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void;
 
     /**
      * @param ?string $taxRoundingMode

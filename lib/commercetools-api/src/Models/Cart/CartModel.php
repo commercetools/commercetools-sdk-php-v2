@@ -160,6 +160,12 @@ final class CartModel extends JsonObjectModel implements Cart
      *
      * @var ?string
      */
+    protected $priceRoundingMode;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $taxRoundingMode;
 
     /**
@@ -330,6 +336,7 @@ final class CartModel extends JsonObjectModel implements Cart
         ?TaxedPrice $taxedShippingPrice = null,
         ?DiscountOnTotalPrice $discountOnTotalPrice = null,
         ?string $taxMode = null,
+        ?string $priceRoundingMode = null,
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
         ?string $inventoryMode = null,
@@ -375,6 +382,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->taxedShippingPrice = $taxedShippingPrice;
         $this->discountOnTotalPrice = $discountOnTotalPrice;
         $this->taxMode = $taxMode;
+        $this->priceRoundingMode = $priceRoundingMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->taxCalculationMode = $taxCalculationMode;
         $this->inventoryMode = $inventoryMode;
@@ -804,7 +812,27 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
-     * <p>Indicates how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
+     * <p>Indicates how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        if (is_null($this->priceRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceRoundingMode = (string) $data;
+        }
+
+        return $this->priceRoundingMode;
+    }
+
+    /**
+     * <p>Indicates how monetary values are rounded when calculating taxes for <code>taxedPrice</code>. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
      *
      * @return null|string
@@ -1471,6 +1499,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setTaxMode(?string $taxMode): void
     {
         $this->taxMode = $taxMode;
+    }
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
     }
 
     /**

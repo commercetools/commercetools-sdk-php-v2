@@ -9,6 +9,7 @@
 - added type `BestDeal`
 - added type `DiscountTypeCombination`
 - added type `Stacking`
+- added type `CartChangePriceRoundingModeAction`
 - added type `CustomerGroupAssignment`
 - added type `CustomerGroupAssignmentDraft`
 - added type `CustomerAddCustomerGroupAssignmentAction`
@@ -76,11 +77,14 @@
 - added type `DiscountGroupKeySetMessagePayload`
 - added type `DiscountGroupSortOrderSetMessagePayload`
 - added type `OrderBusinessUnitSetMessagePayload`
+- added type `StagedOrderChangePriceRoundingModeAction`
 - added type `StagedOrderSetBusinessUnitAction`
 - added type `OrderSetBusinessUnitAction`
 - added type `ProductTailoringSetProductAttributeAction`
 - added type `AttributeLevelEnum`
 - added type `ProductSetProductAttributeAction`
+- added type `ProjectChangePriceRoundingModeAction`
+- added type `ProjectChangeTaxRoundingModeAction`
 - added type `ShoppingListSetBusinessUnitAction`
 - added type `EventDeliveryPayload`
 - added type `EventSubscription`
@@ -169,7 +173,9 @@
 - added property `inheritedStores` to type `Division`
 - added property `discountGroup` to type `CartDiscount`
 - added property `discountGroup` to type `CartDiscountDraft`
+- added property `priceRoundingMode` to type `Cart`
 - added property `discountTypeCombination` to type `Cart`
+- added property `priceRoundingMode` to type `CartDraft`
 - added property `customerGroupAssignments` to type `Customer`
 - added property `invalidateOlderTokens` to type `CustomerCreateEmailToken`
 - added property `invalidateOlderTokens` to type `CustomerCreatePasswordResetToken`
@@ -185,8 +191,11 @@
 - added property `value` to type `CustomerPasswordTokenCreatedMessagePayload`
 - added property `invalidateOlderTokens` to type `CustomerPasswordTokenCreatedMessagePayload`
 - added property `attributes` to type `ProductTailoringCreatedMessagePayload`
+- added property `priceRoundingMode` to type `StagedOrder`
 - added property `discountTypeCombination` to type `StagedOrder`
+- added property `priceRoundingMode` to type `Order`
 - added property `discountTypeCombination` to type `Order`
+- added property `priceRoundingMode` to type `OrderImportDraft`
 - added property `priceCustomerGroupAssignments` to type `ProductSearchProjectionParams`
 - added property `attributes` to type `ProductTailoringData`
 - added property `attributes` to type `ProductTailoringDraft`
@@ -198,6 +207,10 @@
 - added property `attributes` to type `ProductDraft`
 - added property `attributes` to type `ProductProjection`
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `ProductVariantChannelAvailabilityMap`
+- added property `priceRoundingMode` to type `CartsConfiguration`
+- added property `taxRoundingMode` to type `CartsConfiguration`
+- added property `priceRoundingMode` to type `QuoteRequest`
+- added property `priceRoundingMode` to type `Quote`
 - added property `businessUnit` to type `ShoppingList`
 - added property `businessUnit` to type `ShoppingListDraft`
 - added property `published` to type `ShoppingListLineItem`

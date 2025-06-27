@@ -176,6 +176,12 @@ final class OrderBuilder implements Builder
 
      * @var ?string
      */
+    private $priceRoundingMode;
+
+    /**
+
+     * @var ?string
+     */
     private $taxMode;
 
     /**
@@ -580,6 +586,17 @@ final class OrderBuilder implements Builder
     public function getDiscountOnTotalPrice()
     {
         return $this->discountOnTotalPrice instanceof DiscountOnTotalPriceBuilder ? $this->discountOnTotalPrice->build() : $this->discountOnTotalPrice;
+    }
+
+    /**
+     * <p>Indicates how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceRoundingMode()
+    {
+        return $this->priceRoundingMode;
     }
 
     /**
@@ -1167,6 +1184,17 @@ final class OrderBuilder implements Builder
     public function withDiscountOnTotalPrice(?DiscountOnTotalPrice $discountOnTotalPrice)
     {
         $this->discountOnTotalPrice = $discountOnTotalPrice;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $priceRoundingMode
+     * @return $this
+     */
+    public function withPriceRoundingMode(?string $priceRoundingMode)
+    {
+        $this->priceRoundingMode = $priceRoundingMode;
 
         return $this;
     }
@@ -1786,6 +1814,7 @@ final class OrderBuilder implements Builder
             $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice,
             $this->discountOnTotalPrice instanceof DiscountOnTotalPriceBuilder ? $this->discountOnTotalPrice->build() : $this->discountOnTotalPrice,
+            $this->priceRoundingMode,
             $this->taxMode,
             $this->taxRoundingMode,
             $this->taxCalculationMode,

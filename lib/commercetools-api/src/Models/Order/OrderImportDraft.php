@@ -34,6 +34,7 @@ interface OrderImportDraft extends JsonObject
     public const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_PRICE_ROUNDING_MODE = 'priceRoundingMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
@@ -145,6 +146,14 @@ interface OrderImportDraft extends JsonObject
      * @return null|TaxedPriceDraft
      */
     public function getTaxedPrice();
+
+    /**
+     * <p>Determines how the total prices on <a href="ctp:api:type:LineItem">LineItems</a> and <a href="ctp:api:type:CustomLineItem">CustomLineItems</a> are rounded when calculated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceRoundingMode();
 
     /**
      * <p>Determines how monetary values are rounded when calculating taxes for <code>taxedPrice</code>.</p>
@@ -328,6 +337,11 @@ interface OrderImportDraft extends JsonObject
      * @param ?TaxedPriceDraft $taxedPrice
      */
     public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void;
+
+    /**
+     * @param ?string $priceRoundingMode
+     */
+    public function setPriceRoundingMode(?string $priceRoundingMode): void;
 
     /**
      * @param ?string $taxRoundingMode
