@@ -30,17 +30,17 @@ final class SubscriptionSetEventsActionModel extends JsonObjectModel implements 
      *
      * @var ?EventSubscriptionCollection
      */
-    protected $messages;
+    protected $events;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?EventSubscriptionCollection $messages = null,
+        ?EventSubscriptionCollection $events = null,
         ?string $action = null
     ) {
-        $this->messages = $messages;
+        $this->events = $events;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -68,26 +68,26 @@ final class SubscriptionSetEventsActionModel extends JsonObjectModel implements 
      *
      * @return null|EventSubscriptionCollection
      */
-    public function getMessages()
+    public function getEvents()
     {
-        if (is_null($this->messages)) {
+        if (is_null($this->events)) {
             /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_MESSAGES);
+            $data = $this->raw(self::FIELD_EVENTS);
             if (is_null($data)) {
                 return null;
             }
-            $this->messages = EventSubscriptionCollection::fromArray($data);
+            $this->events = EventSubscriptionCollection::fromArray($data);
         }
 
-        return $this->messages;
+        return $this->events;
     }
 
 
     /**
-     * @param ?EventSubscriptionCollection $messages
+     * @param ?EventSubscriptionCollection $events
      */
-    public function setMessages(?EventSubscriptionCollection $messages): void
+    public function setEvents(?EventSubscriptionCollection $events): void
     {
-        $this->messages = $messages;
+        $this->events = $events;
     }
 }
