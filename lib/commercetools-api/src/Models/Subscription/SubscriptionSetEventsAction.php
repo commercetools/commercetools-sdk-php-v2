@@ -13,7 +13,7 @@ use Commercetools\Base\JsonObject;
 
 interface SubscriptionSetEventsAction extends SubscriptionUpdateAction
 {
-    public const FIELD_MESSAGES = 'messages';
+    public const FIELD_EVENTS = 'events';
 
     /**
      * <p>Value to set. Can only be unset if either <code>messages</code> or <code>changes</code> is set.</p>
@@ -21,10 +21,10 @@ interface SubscriptionSetEventsAction extends SubscriptionUpdateAction
 
      * @return null|EventSubscriptionCollection
      */
-    public function getMessages();
+    public function getEvents();
 
     /**
-     * @param ?EventSubscriptionCollection $messages
+     * @param ?EventSubscriptionCollection $events
      */
-    public function setMessages(?EventSubscriptionCollection $messages): void;
+    public function setEvents(?EventSubscriptionCollection $events): void;
 }

@@ -24,7 +24,7 @@ final class SubscriptionSetEventsActionBuilder implements Builder
 
      * @var ?EventSubscriptionCollection
      */
-    private $messages;
+    private $events;
 
     /**
      * <p>Value to set. Can only be unset if either <code>messages</code> or <code>changes</code> is set.</p>
@@ -32,18 +32,18 @@ final class SubscriptionSetEventsActionBuilder implements Builder
 
      * @return null|EventSubscriptionCollection
      */
-    public function getMessages()
+    public function getEvents()
     {
-        return $this->messages;
+        return $this->events;
     }
 
     /**
-     * @param ?EventSubscriptionCollection $messages
+     * @param ?EventSubscriptionCollection $events
      * @return $this
      */
-    public function withMessages(?EventSubscriptionCollection $messages)
+    public function withEvents(?EventSubscriptionCollection $events)
     {
-        $this->messages = $messages;
+        $this->events = $events;
 
         return $this;
     }
@@ -52,7 +52,7 @@ final class SubscriptionSetEventsActionBuilder implements Builder
     public function build(): SubscriptionSetEventsAction
     {
         return new SubscriptionSetEventsActionModel(
-            $this->messages
+            $this->events
         );
     }
 
