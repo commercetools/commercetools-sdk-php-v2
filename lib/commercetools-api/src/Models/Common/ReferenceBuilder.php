@@ -46,6 +46,8 @@ use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReferenceBuilder;
 use Commercetools\Api\Models\Payment\PaymentReference;
 use Commercetools\Api\Models\Payment\PaymentReferenceBuilder;
+use Commercetools\Api\Models\PaymentMethod\PaymentMethodReference;
+use Commercetools\Api\Models\PaymentMethod\PaymentMethodReferenceBuilder;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;

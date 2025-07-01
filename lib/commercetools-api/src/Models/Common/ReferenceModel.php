@@ -46,6 +46,8 @@ use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
 use Commercetools\Api\Models\Payment\PaymentReference;
 use Commercetools\Api\Models\Payment\PaymentReferenceModel;
+use Commercetools\Api\Models\PaymentMethod\PaymentMethodReference;
+use Commercetools\Api\Models\PaymentMethod\PaymentMethodReferenceModel;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
@@ -128,6 +130,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'order' => OrderReferenceModel::class,
        'order-edit' => OrderEditReferenceModel::class,
        'payment' => PaymentReferenceModel::class,
+       'payment-method' => PaymentMethodReferenceModel::class,
        'product' => ProductReferenceModel::class,
        'product-discount' => ProductDiscountReferenceModel::class,
        'product-selection' => ProductSelectionReferenceModel::class,

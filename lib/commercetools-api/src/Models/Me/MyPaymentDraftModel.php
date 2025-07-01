@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
-use Commercetools\Api\Models\Payment\PaymentMethodInfo;
-use Commercetools\Api\Models\Payment\PaymentMethodInfoModel;
+use Commercetools\Api\Models\Payment\PaymentMethodInfoDraft;
+use Commercetools\Api\Models\Payment\PaymentMethodInfoDraftModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -33,7 +33,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
 
     /**
      *
-     * @var ?PaymentMethodInfo
+     * @var ?PaymentMethodInfoDraft
      */
     protected $paymentMethodInfo;
 
@@ -55,7 +55,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
      */
     public function __construct(
         ?Money $amountPlanned = null,
-        ?PaymentMethodInfo $paymentMethodInfo = null,
+        ?PaymentMethodInfoDraft $paymentMethodInfo = null,
         ?CustomFieldsDraft $custom = null,
         ?MyTransactionDraft $transaction = null
     ) {
@@ -91,7 +91,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
      * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
      *
      *
-     * @return null|PaymentMethodInfo
+     * @return null|PaymentMethodInfoDraft
      */
     public function getPaymentMethodInfo()
     {
@@ -102,7 +102,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
                 return null;
             }
 
-            $this->paymentMethodInfo = PaymentMethodInfoModel::of($data);
+            $this->paymentMethodInfo = PaymentMethodInfoDraftModel::of($data);
         }
 
         return $this->paymentMethodInfo;
@@ -160,9 +160,9 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     }
 
     /**
-     * @param ?PaymentMethodInfo $paymentMethodInfo
+     * @param ?PaymentMethodInfoDraft $paymentMethodInfo
      */
-    public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
+    public function setPaymentMethodInfo(?PaymentMethodInfoDraft $paymentMethodInfo): void
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
     }

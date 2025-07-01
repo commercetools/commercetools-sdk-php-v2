@@ -52,7 +52,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
 
     /**
      *
-     * @var ?PaymentMethodInfo
+     * @var ?PaymentMethodInfoDraft
      */
     protected $paymentMethodInfo;
 
@@ -95,7 +95,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
         ?string $anonymousId = null,
         ?string $interfaceId = null,
         ?Money $amountPlanned = null,
-        ?PaymentMethodInfo $paymentMethodInfo = null,
+        ?PaymentMethodInfoDraft $paymentMethodInfo = null,
         ?PaymentStatusDraft $paymentStatus = null,
         ?TransactionDraftCollection $transactions = null,
         ?CustomFieldsDraftCollection $interfaceInteractions = null,
@@ -203,7 +203,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
      *
      *
-     * @return null|PaymentMethodInfo
+     * @return null|PaymentMethodInfoDraft
      */
     public function getPaymentMethodInfo()
     {
@@ -214,7 +214,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
                 return null;
             }
 
-            $this->paymentMethodInfo = PaymentMethodInfoModel::of($data);
+            $this->paymentMethodInfo = PaymentMethodInfoDraftModel::of($data);
         }
 
         return $this->paymentMethodInfo;
@@ -356,9 +356,9 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
     /**
-     * @param ?PaymentMethodInfo $paymentMethodInfo
+     * @param ?PaymentMethodInfoDraft $paymentMethodInfo
      */
-    public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
+    public function setPaymentMethodInfo(?PaymentMethodInfoDraft $paymentMethodInfo): void
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
     }

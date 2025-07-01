@@ -164,6 +164,14 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function paymentMethods(): ResourceByProjectKeyPaymentMethods
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyPaymentMethods($args, $this->getClient());
+    }
+    /**
+     */
     public function payments(): ResourceByProjectKeyPayments
     {
         $args = $this->getArgs();

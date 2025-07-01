@@ -10,6 +10,10 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\PaymentMethod\PaymentMethodToken;
+use Commercetools\Api\Models\PaymentMethod\PaymentMethodTokenModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -39,6 +43,24 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
      */
     protected $name;
 
+    /**
+     *
+     * @var ?PaymentMethodToken
+     */
+    protected $token;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $interfaceAccount;
+
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -46,17 +68,22 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     public function __construct(
         ?string $paymentInterface = null,
         ?string $method = null,
-        ?LocalizedString $name = null
+        ?LocalizedString $name = null,
+        ?PaymentMethodToken $token = null,
+        ?string $interfaceAccount = null,
+        ?CustomFields $custom = null
     ) {
         $this->paymentInterface = $paymentInterface;
         $this->method = $method;
         $this->name = $name;
+        $this->token = $token;
+        $this->interfaceAccount = $interfaceAccount;
+        $this->custom = $custom;
     }
 
     /**
-     * <p>Payment service that processes the Payment (for example, a PSP).
-     * Once set, it cannot be changed.
-     * The combination of <code>paymentInterface</code> and the <code>interfaceId</code> of a <a href="ctp:api:type:Payment">Payment</a> must be unique.</p>
+     * <p>Payment service that processes the Payment—for example, a PSP.
+     * The combination of <code>paymentInterface</code> and the <code>interfaceId</code> of a Payment is unique.</p>
      *
      *
      * @return null|string
@@ -76,7 +103,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     }
 
     /**
-     * <p>Payment method used, for example, credit card, or cash advance.</p>
+     * <p>Payment method used—for example, a credit card or cash advance.</p>
      *
      *
      * @return null|string
@@ -96,7 +123,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     }
 
     /**
-     * <p>Localizable name of the payment method.</p>
+     * <p>Name of the Payment Method.</p>
      *
      *
      * @return null|LocalizedString
@@ -114,6 +141,68 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
         }
 
         return $this->name;
+    }
+
+    /**
+     * <p>Tokenized representation of the Payment Method used by the payment interface.</p>
+     *
+     *
+     * @return null|PaymentMethodToken
+     */
+    public function getToken()
+    {
+        if (is_null($this->token)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TOKEN);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->token = PaymentMethodTokenModel::of($data);
+        }
+
+        return $this->token;
+    }
+
+    /**
+     * <p>Account or instance of the payment interface when multiple accounts are used (per interface).</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getInterfaceAccount()
+    {
+        if (is_null($this->interfaceAccount)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INTERFACE_ACCOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->interfaceAccount = (string) $data;
+        }
+
+        return $this->interfaceAccount;
+    }
+
+    /**
+     * <p>Custom Fields of the PaymentMethodInfo.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
     }
 
 
@@ -139,5 +228,29 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?PaymentMethodToken $token
+     */
+    public function setToken(?PaymentMethodToken $token): void
+    {
+        $this->token = $token;
+    }
+
+    /**
+     * @param ?string $interfaceAccount
+     */
+    public function setInterfaceAccount(?string $interfaceAccount): void
+    {
+        $this->interfaceAccount = $interfaceAccount;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 }

@@ -27,6 +27,7 @@ use Commercetools\Api\Models\Inventory\InventoryEntryReference;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\Payment\PaymentReference;
+use Commercetools\Api\Models\PaymentMethod\PaymentMethodReference;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionReference;

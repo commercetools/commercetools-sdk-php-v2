@@ -32,6 +32,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyLogin;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMe;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMessages;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrders;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyPaymentMethods;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyPayments;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductDiscounts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductProjections;
@@ -346,6 +347,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyOrders::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/orders'
+            ],
+            'ResourceByProjectKeyPaymentMethods' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyPaymentMethods {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->paymentMethods();
+                },
+                ResourceByProjectKeyPaymentMethods::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/payment-methods'
             ],
             'ResourceByProjectKeyPayments' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyPayments {
