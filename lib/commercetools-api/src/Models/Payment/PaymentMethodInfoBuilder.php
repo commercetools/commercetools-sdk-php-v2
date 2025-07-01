@@ -10,6 +10,10 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\PaymentMethod\PaymentMethodToken;
+use Commercetools\Api\Models\PaymentMethod\PaymentMethodTokenBuilder;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -41,9 +45,26 @@ final class PaymentMethodInfoBuilder implements Builder
     private $name;
 
     /**
-     * <p>Payment service that processes the Payment (for example, a PSP).
-     * Once set, it cannot be changed.
-     * The combination of <code>paymentInterface</code> and the <code>interfaceId</code> of a <a href="ctp:api:type:Payment">Payment</a> must be unique.</p>
+
+     * @var null|PaymentMethodToken|PaymentMethodTokenBuilder
+     */
+    private $token;
+
+    /**
+
+     * @var ?string
+     */
+    private $interfaceAccount;
+
+    /**
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>Payment service that processes the Payment—for example, a PSP.
+     * The combination of <code>paymentInterface</code> and the <code>interfaceId</code> of a Payment is unique.</p>
      *
 
      * @return null|string
@@ -54,7 +75,7 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
-     * <p>Payment method used, for example, credit card, or cash advance.</p>
+     * <p>Payment method used—for example, a credit card or cash advance.</p>
      *
 
      * @return null|string
@@ -65,7 +86,7 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
-     * <p>Localizable name of the payment method.</p>
+     * <p>Name of the Payment Method.</p>
      *
 
      * @return null|LocalizedString
@@ -73,6 +94,39 @@ final class PaymentMethodInfoBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>Tokenized representation of the Payment Method used by the payment interface.</p>
+     *
+
+     * @return null|PaymentMethodToken
+     */
+    public function getToken()
+    {
+        return $this->token instanceof PaymentMethodTokenBuilder ? $this->token->build() : $this->token;
+    }
+
+    /**
+     * <p>Account or instance of the payment interface when multiple accounts are used (per interface).</p>
+     *
+
+     * @return null|string
+     */
+    public function getInterfaceAccount()
+    {
+        return $this->interfaceAccount;
+    }
+
+    /**
+     * <p>Custom Fields of the PaymentMethodInfo.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -109,6 +163,39 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentMethodToken $token
+     * @return $this
+     */
+    public function withToken(?PaymentMethodToken $token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $interfaceAccount
+     * @return $this
+     */
+    public function withInterfaceAccount(?string $interfaceAccount)
+    {
+        $this->interfaceAccount = $interfaceAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -119,12 +206,37 @@ final class PaymentMethodInfoBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withToken() instead
+     * @return $this
+     */
+    public function withTokenBuilder(?PaymentMethodTokenBuilder $token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): PaymentMethodInfo
     {
         return new PaymentMethodInfoModel(
             $this->paymentInterface,
             $this->method,
-            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->token instanceof PaymentMethodTokenBuilder ? $this->token->build() : $this->token,
+            $this->interfaceAccount,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

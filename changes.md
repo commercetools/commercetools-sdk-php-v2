@@ -55,6 +55,9 @@
 - added type `ImportUnresolvedEventData`
 - added type `ImportValidationFailedEventData`
 - added type `ImportWaitForMasterVariantEventData`
+- added type `MyPaymentSetMethodInfoCustomFieldAction`
+- added type `MyPaymentSetMethodInfoCustomTypeAction`
+- added type `MyPaymentSetMethodInfoInterfaceAccountAction`
 - added type `AssociateRoleNameSetMessage`
 - added type `BusinessUnitTopLevelUnitSetMessage`
 - added type `BusinessUnitTypeSetMessage`
@@ -66,6 +69,31 @@
 - added type `DiscountGroupKeySetMessage`
 - added type `DiscountGroupSortOrderSetMessage`
 - added type `OrderBusinessUnitSetMessage`
+- added type `PaymentInterfaceIdSetMessage`
+- added type `PaymentMethodCreatedMessage`
+- added type `PaymentMethodCustomFieldAddedMessage`
+- added type `PaymentMethodCustomFieldChangedMessage`
+- added type `PaymentMethodCustomFieldRemovedMessage`
+- added type `PaymentMethodCustomTypeRemovedMessage`
+- added type `PaymentMethodCustomTypeSetMessage`
+- added type `PaymentMethodDefaultSetMessage`
+- added type `PaymentMethodDeletedMessage`
+- added type `PaymentMethodInfoCustomFieldAddedMessage`
+- added type `PaymentMethodInfoCustomFieldChangedMessage`
+- added type `PaymentMethodInfoCustomFieldRemovedMessage`
+- added type `PaymentMethodInfoCustomTypeRemovedMessage`
+- added type `PaymentMethodInfoCustomTypeSetMessage`
+- added type `PaymentMethodInfoInterfaceAccountSetMessage`
+- added type `PaymentMethodInfoInterfaceSetMessage`
+- added type `PaymentMethodInfoMethodSetMessage`
+- added type `PaymentMethodInfoNameSetMessage`
+- added type `PaymentMethodInfoTokenSetMessage`
+- added type `PaymentMethodInterfaceAccountSetMessage`
+- added type `PaymentMethodKeySetMessage`
+- added type `PaymentMethodMethodSetMessage`
+- added type `PaymentMethodNameSetMessage`
+- added type `PaymentMethodPaymentInterfaceSetMessage`
+- added type `PaymentMethodPaymentMethodStatusSetMessage`
 - added type `AssociateRoleNameSetMessagePayload`
 - added type `BusinessUnitTopLevelUnitSetMessagePayload`
 - added type `BusinessUnitTypeSetMessagePayload`
@@ -77,9 +105,57 @@
 - added type `DiscountGroupKeySetMessagePayload`
 - added type `DiscountGroupSortOrderSetMessagePayload`
 - added type `OrderBusinessUnitSetMessagePayload`
+- added type `PaymentInterfaceIdSetMessagePayload`
+- added type `PaymentMethodCreatedMessagePayload`
+- added type `PaymentMethodCustomFieldAddedMessagePayload`
+- added type `PaymentMethodCustomFieldChangedMessagePayload`
+- added type `PaymentMethodCustomFieldRemovedMessagePayload`
+- added type `PaymentMethodCustomTypeRemovedMessagePayload`
+- added type `PaymentMethodCustomTypeSetMessagePayload`
+- added type `PaymentMethodDefaultSetMessagePayload`
+- added type `PaymentMethodDeletedMessagePayload`
+- added type `PaymentMethodInfoCustomFieldAddedMessagePayload`
+- added type `PaymentMethodInfoCustomFieldChangedMessagePayload`
+- added type `PaymentMethodInfoCustomFieldRemovedMessagePayload`
+- added type `PaymentMethodInfoCustomTypeRemovedMessagePayload`
+- added type `PaymentMethodInfoCustomTypeSetMessagePayload`
+- added type `PaymentMethodInfoInterfaceAccountSetMessagePayload`
+- added type `PaymentMethodInfoInterfaceSetMessagePayload`
+- added type `PaymentMethodInfoMethodSetMessagePayload`
+- added type `PaymentMethodInfoNameSetMessagePayload`
+- added type `PaymentMethodInfoTokenSetMessagePayload`
+- added type `PaymentMethodInterfaceAccountSetMessagePayload`
+- added type `PaymentMethodKeySetMessagePayload`
+- added type `PaymentMethodMethodSetMessagePayload`
+- added type `PaymentMethodNameSetMessagePayload`
+- added type `PaymentMethodPaymentInterfaceSetMessagePayload`
+- added type `PaymentMethodPaymentMethodStatusSetMessagePayload`
 - added type `StagedOrderChangePriceRoundingModeAction`
 - added type `StagedOrderSetBusinessUnitAction`
 - added type `OrderSetBusinessUnitAction`
+- added type `PaymentMethod`
+- added type `PaymentMethodDraft`
+- added type `PaymentMethodPagedQueryResponse`
+- added type `PaymentMethodReference`
+- added type `PaymentMethodStatus`
+- added type `PaymentMethodToken`
+- added type `PaymentMethodUpdate`
+- added type `PaymentMethodUpdateAction`
+- added type `PaymentMethodSetCustomFieldAction`
+- added type `PaymentMethodSetCustomTypeAction`
+- added type `PaymentMethodSetDefaultAction`
+- added type `PaymentMethodSetInterfaceAccountAction`
+- added type `PaymentMethodSetKeyAction`
+- added type `PaymentMethodSetMethodAction`
+- added type `PaymentMethodSetNameAction`
+- added type `PaymentMethodSetPaymentInterfaceAction`
+- added type `PaymentMethodSetPaymentMethodStatusAction`
+- added type `PaymentMethodInfoDraft`
+- added type `PaymentSetMethodInfoAction`
+- added type `PaymentSetMethodInfoCustomFieldAction`
+- added type `PaymentSetMethodInfoCustomTypeAction`
+- added type `PaymentSetMethodInfoInterfaceAccountAction`
+- added type `PaymentSetMethodInfoTokenAction`
 - added type `ProductTailoringSetProductAttributeAction`
 - added type `AttributeLevelEnum`
 - added type `ProductSetProductAttributeAction`
@@ -115,6 +191,7 @@
 <summary>Added Resource(s)</summary>
 
 - added resource `/{projectKey}/discount-groups`
+- added resource `/{projectKey}/payment-methods`
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
@@ -122,6 +199,8 @@
 - added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
 - added resource `/{projectKey}/discount-groups/key={key}`
 - added resource `/{projectKey}/discount-groups/{ID}`
+- added resource `/{projectKey}/payment-methods/key={key}`
+- added resource `/{projectKey}/payment-methods/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
@@ -143,6 +222,8 @@
 
 - :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
 - :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
+- :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
+- :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
 - :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
 </details>
 
@@ -196,6 +277,9 @@
 - added property `priceRoundingMode` to type `Order`
 - added property `discountTypeCombination` to type `Order`
 - added property `priceRoundingMode` to type `OrderImportDraft`
+- added property `token` to type `PaymentMethodInfo`
+- added property `interfaceAccount` to type `PaymentMethodInfo`
+- added property `custom` to type `PaymentMethodInfo`
 - added property `priceCustomerGroupAssignments` to type `ProductSearchProjectionParams`
 - added property `attributes` to type `ProductTailoringData`
 - added property `attributes` to type `ProductTailoringDraft`
@@ -252,6 +336,9 @@
 - added method `$apiRoot->withProjectKey()->discountGroups()->get()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->head()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->post()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->get()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->head()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->post()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->get()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->head()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->post()`
@@ -273,6 +360,14 @@
 - added method `$apiRoot->withProjectKey()->discountGroups()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->withId()->post()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->delete()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->post()`
@@ -302,6 +397,8 @@
 - added enum `DeleteOthersShoppingLists` to type `Permission`
 - added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
 - added enum `discount-group` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ExtensionResourceTypeId`
 </details>
 
 **Import changes**
@@ -345,6 +442,7 @@
 
 - added enum `setAssetKey` to type `UpdateType`
 - added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
+- added enum `payment-method` to type `ReferenceTypeId`
 </details>
 
 

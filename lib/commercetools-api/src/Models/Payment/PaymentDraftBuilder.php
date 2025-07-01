@@ -53,7 +53,7 @@ final class PaymentDraftBuilder implements Builder
 
     /**
 
-     * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
+     * @var null|PaymentMethodInfoDraft|PaymentMethodInfoDraftBuilder
      */
     private $paymentMethodInfo;
 
@@ -138,11 +138,11 @@ final class PaymentDraftBuilder implements Builder
      * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
      *
 
-     * @return null|PaymentMethodInfo
+     * @return null|PaymentMethodInfoDraft
      */
     public function getPaymentMethodInfo()
     {
-        return $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo;
+        return $this->paymentMethodInfo instanceof PaymentMethodInfoDraftBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo;
     }
 
     /**
@@ -245,10 +245,10 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * @param ?PaymentMethodInfo $paymentMethodInfo
+     * @param ?PaymentMethodInfoDraft $paymentMethodInfo
      * @return $this
      */
-    public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
+    public function withPaymentMethodInfo(?PaymentMethodInfoDraft $paymentMethodInfo)
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
 
@@ -336,7 +336,7 @@ final class PaymentDraftBuilder implements Builder
      * @deprecated use withPaymentMethodInfo() instead
      * @return $this
      */
-    public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
+    public function withPaymentMethodInfoBuilder(?PaymentMethodInfoDraftBuilder $paymentMethodInfo)
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
 
@@ -372,7 +372,7 @@ final class PaymentDraftBuilder implements Builder
             $this->anonymousId,
             $this->interfaceId,
             $this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
-            $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
+            $this->paymentMethodInfo instanceof PaymentMethodInfoDraftBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
             $this->paymentStatus instanceof PaymentStatusDraftBuilder ? $this->paymentStatus->build() : $this->paymentStatus,
             $this->transactions,
             $this->interfaceInteractions,

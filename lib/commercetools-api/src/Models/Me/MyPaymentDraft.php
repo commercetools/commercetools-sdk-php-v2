@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Payment\PaymentMethodInfo;
+use Commercetools\Api\Models\Payment\PaymentMethodInfoDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -34,7 +34,7 @@ interface MyPaymentDraft extends JsonObject
      * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
      *
 
-     * @return null|PaymentMethodInfo
+     * @return null|PaymentMethodInfoDraft
      */
     public function getPaymentMethodInfo();
 
@@ -60,9 +60,9 @@ interface MyPaymentDraft extends JsonObject
     public function setAmountPlanned(?Money $amountPlanned): void;
 
     /**
-     * @param ?PaymentMethodInfo $paymentMethodInfo
+     * @param ?PaymentMethodInfoDraft $paymentMethodInfo
      */
-    public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void;
+    public function setPaymentMethodInfo(?PaymentMethodInfoDraft $paymentMethodInfo): void;
 
     /**
      * @param ?CustomFieldsDraft $custom

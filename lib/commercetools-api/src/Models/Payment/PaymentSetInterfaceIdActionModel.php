@@ -64,7 +64,8 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
 
     /**
      * <p>Value to set.
-     * Once set, the <code>interfaceId</code> cannot be changed.</p>
+     * The combination of <code>interfaceId</code> and <code>paymentInterface</code> of a PaymentMethodInfo must be unique.</p>
+     * <p>The value cannot be modified after it is set.</p>
      *
      *
      * @return null|string

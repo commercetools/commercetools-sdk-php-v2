@@ -8954,6 +8954,185 @@ $request = $builder
                 ->search()
                 ->head();
 ```
+## `withProjectKey("projectKey")->paymentMethods()->get()`
+
+Retrieves all PaymentMethods in the Project.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->get();
+```
+## `withProjectKey("projectKey")->paymentMethods()->head()`
+
+Checks if one or more PaymentMethods exist for the provided query predicate.
+Returns a `200 OK` status if any PaymentMethods match the query predicate; otherwise, returns a [Not Found](/../api/errors#404-not-found).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->head();
+```
+## `withProjectKey("projectKey")->paymentMethods()->post(null)`
+
+Creates a PaymentMethod in the Project.
+This request generates the [PaymentMethodCreated](ctp:api:type:PaymentMethodCreatedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->paymentMethods()->withId("ID")->get()`
+
+Retrieves a PaymentMethod with the provided `id`.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->paymentMethods()->withId("ID")->head()`
+
+Checks if a PaymentMethod exists with the provided `id`.
+Returns a `200 OK` status if the PaymentMethod exists; otherwise, returns a [Not Found](/../api/errors#404-not-found).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->paymentMethods()->withId("ID")->post(null)`
+
+Updates a PaymentMethod in the Project using one or more [update actions](/../api/projects/payment-methods#update-actions).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->paymentMethods()->withId("ID")->delete()`
+
+Deletes a PaymentMethod in the Project.
+This request generates the [PaymentMethodDeleted](ctp:api:type:PaymentMethodDeletedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->paymentMethods()->withKey("key")->get()`
+
+Retrieves a PaymentMethod with the provided `key`.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->paymentMethods()->withKey("key")->head()`
+
+Checks if a PaymentMethod exists with the provided `key`.
+Returns a `200 OK` status if the PaymentMethod exists; otherwise, returns a [Not Found](/../api/errors#404-not-found).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->paymentMethods()->withKey("key")->post(null)`
+
+Updates a PaymentMethod in the Project using one or more [update actions](/../api/projects/payment-methods#update-actions).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->paymentMethods()->withKey("key")->delete()`
+
+Deletes a PaymentMethod in the Project.
+This request generates the [PaymentMethodDeleted](ctp:api:type:PaymentMethodDeletedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->paymentMethods()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->payments()->get()`
 
 Retrieves Payments in the Project.

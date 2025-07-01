@@ -67,7 +67,7 @@ interface PaymentDraft extends JsonObject
      * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
      *
 
-     * @return null|PaymentMethodInfo
+     * @return null|PaymentMethodInfoDraft
      */
     public function getPaymentMethodInfo();
 
@@ -132,9 +132,9 @@ interface PaymentDraft extends JsonObject
     public function setAmountPlanned(?Money $amountPlanned): void;
 
     /**
-     * @param ?PaymentMethodInfo $paymentMethodInfo
+     * @param ?PaymentMethodInfoDraft $paymentMethodInfo
      */
-    public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void;
+    public function setPaymentMethodInfo(?PaymentMethodInfoDraft $paymentMethodInfo): void;
 
     /**
      * @param ?PaymentStatusDraft $paymentStatus
