@@ -32,15 +32,23 @@ final class BusinessUnitChangeAssociateModeActionModel extends JsonObjectModel i
      */
     protected $associateMode;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $makeInheritedAssociatesExplicit;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $associateMode = null,
+        ?bool $makeInheritedAssociatesExplicit = null,
         ?string $action = null
     ) {
         $this->associateMode = $associateMode;
+        $this->makeInheritedAssociatesExplicit = $makeInheritedAssociatesExplicit;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,6 +90,26 @@ final class BusinessUnitChangeAssociateModeActionModel extends JsonObjectModel i
         return $this->associateMode;
     }
 
+    /**
+     * <p>If set to <code>true</code> during a change to <code>associateMode=&quot;Explicit&quot;</code>, all inherited Associates will be converted to explicit Associates.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getMakeInheritedAssociatesExplicit()
+    {
+        if (is_null($this->makeInheritedAssociatesExplicit)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_MAKE_INHERITED_ASSOCIATES_EXPLICIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->makeInheritedAssociatesExplicit = (bool) $data;
+        }
+
+        return $this->makeInheritedAssociatesExplicit;
+    }
+
 
     /**
      * @param ?string $associateMode
@@ -89,5 +117,13 @@ final class BusinessUnitChangeAssociateModeActionModel extends JsonObjectModel i
     public function setAssociateMode(?string $associateMode): void
     {
         $this->associateMode = $associateMode;
+    }
+
+    /**
+     * @param ?bool $makeInheritedAssociatesExplicit
+     */
+    public function setMakeInheritedAssociatesExplicit(?bool $makeInheritedAssociatesExplicit): void
+    {
+        $this->makeInheritedAssociatesExplicit = $makeInheritedAssociatesExplicit;
     }
 }

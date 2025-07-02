@@ -27,6 +27,12 @@ final class BusinessUnitChangeAssociateModeActionBuilder implements Builder
     private $associateMode;
 
     /**
+
+     * @var ?bool
+     */
+    private $makeInheritedAssociatesExplicit;
+
+    /**
      * <p>The new value for <code>associateMode</code>.</p>
      *
 
@@ -35,6 +41,17 @@ final class BusinessUnitChangeAssociateModeActionBuilder implements Builder
     public function getAssociateMode()
     {
         return $this->associateMode;
+    }
+
+    /**
+     * <p>If set to <code>true</code> during a change to <code>associateMode=&quot;Explicit&quot;</code>, all inherited Associates will be converted to explicit Associates.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getMakeInheritedAssociatesExplicit()
+    {
+        return $this->makeInheritedAssociatesExplicit;
     }
 
     /**
@@ -48,11 +65,23 @@ final class BusinessUnitChangeAssociateModeActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?bool $makeInheritedAssociatesExplicit
+     * @return $this
+     */
+    public function withMakeInheritedAssociatesExplicit(?bool $makeInheritedAssociatesExplicit)
+    {
+        $this->makeInheritedAssociatesExplicit = $makeInheritedAssociatesExplicit;
+
+        return $this;
+    }
+
 
     public function build(): BusinessUnitChangeAssociateModeAction
     {
         return new BusinessUnitChangeAssociateModeActionModel(
-            $this->associateMode
+            $this->associateMode,
+            $this->makeInheritedAssociatesExplicit
         );
     }
 
