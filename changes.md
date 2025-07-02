@@ -238,6 +238,7 @@
 - added property `inheritedStores` to type `BusinessUnit`
 - added property `inheritedStores` to type `Company`
 - added property `inheritedStores` to type `Division`
+- added property `makeInheritedAssociatesExplicit` to type `BusinessUnitChangeAssociateModeAction`
 - added property `discountGroup` to type `CartDiscount`
 - added property `discountGroup` to type `CartDiscountDraft`
 - added property `priceRoundingMode` to type `Cart`
