@@ -202,7 +202,7 @@ interface Order extends BaseResource
      * <li>For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when a <a href="ctp:api:type:OrderSetShippingAddressAction">shipping address is set</a>.</li>
      * <li>For <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is automatically set when <code>shippingAddress</code> and external Tax Rates for all Line Items, Custom Line Items, and Shipping Methods in the Cart are set.</li>
      * </ul>
-     * <p>If a discount applies on <code>totalPrice</code>, this field holds the discounted values.</p>
+     * <p>If a discount applies on <code>totalPrice</code>, this field holds the proportionally discounted value.</p>
      *
 
      * @return null|TaxedPrice
@@ -211,6 +211,7 @@ interface Order extends BaseResource
 
     /**
      * <p>Sum of the <code>taxedPrice</code> field of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.</p>
+     * <p>If a discount applies on <code>totalPrice</code>, this field holds the proportionally discounted value.</p>
      *
 
      * @return null|TaxedPrice
