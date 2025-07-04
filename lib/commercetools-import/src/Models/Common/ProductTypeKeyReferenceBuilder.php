@@ -27,6 +27,8 @@ final class ProductTypeKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced ProductType.</p>
+     *
 
      * @return null|string
      */

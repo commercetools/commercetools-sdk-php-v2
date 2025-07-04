@@ -405,6 +405,13 @@
 **Import changes**
 
 <details>
+<summary>Added Enum(s)</summary>
+
+- added enum `product-selection` to type `ImportResourceType`
+</details>
+
+
+<details>
 <summary>Added Property(s)</summary>
 
 - added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
@@ -412,6 +419,16 @@
 - added property `attributes` to type `ProductDraftImport`
 - added property `level` to type `AttributeDefinition`
 - added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `value` of type `MoneyAttribute` from type `TypedMoney` to `Money`
+- :warning: changed property `value` of type `MoneySetAttribute` from type `TypedMoney[]` to `Money[]`
+- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
+- :warning: changed property `value` of type `MoneyField` from type `TypedMoney` to `Money`
 </details>
 
 
@@ -424,9 +441,32 @@
 
 
 <details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
+</details>
+
+
+<details>
 <summary>Added Type(s)</summary>
 
+- added type `ProductSelectionImportRequest`
 - added type `AttributeLevel`
+- added type `VariantSelectionType`
+- added type `VariantSelection`
+- added type `VariantExclusion`
+- added type `ProductSelectionAssignment`
+- added type `ProductSelectionMode`
+- added type `ProductSelectionImport`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/product-selections`
+- added resource `/{projectKey}/product-selections/import-containers`
+- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
 </details>
 
 **History changes**

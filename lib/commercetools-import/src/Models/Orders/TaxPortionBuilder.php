@@ -41,6 +41,8 @@ final class TaxPortionBuilder implements Builder
     private $amount;
 
     /**
+     * <p>Name of the tax portion.</p>
+     *
 
      * @return null|string
      */
@@ -50,6 +52,8 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
+     * <p>A number in the range 0-1.</p>
+     *
 
      * @return null|float
      */
@@ -59,6 +63,8 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
+     * <p>Money value of the tax portion.</p>
+     *
 
      * @return null|TypedMoney
      */

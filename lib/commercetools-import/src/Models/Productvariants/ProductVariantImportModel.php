@@ -98,7 +98,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>User-defined unique identifier. If a <a href="ctp:api:type:ProductVariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:ProductVariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it is updated with the imported data.</p>
      *
      *
      * @return null|string
@@ -223,7 +223,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
 
     /**
      * <ul>
-     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Product Variant data.</li>
+     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="ctp:api:type:Product">Product</a> with the new Product Variant data.</li>
      * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
      * </ul>
      *
@@ -245,9 +245,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The <a href="ctp:api:type:ProductVariant">Product</a> to which this Product Variant belongs. Maps to <code>ProductVariant.product</code>.
-     * The Reference to the <a href="ctp:api:type:Product">Product</a> with which the ProductVariant is associated.
-     * If referenced Product does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
+     * <p>The <a href="ctp:api:type:ProductVariant">Product</a> containing this ProductVariant. If the referenced Product does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Product is created.</p>
      *
      *
      * @return null|ProductKeyReference

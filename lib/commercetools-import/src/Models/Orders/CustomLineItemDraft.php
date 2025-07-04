@@ -31,12 +31,7 @@ interface CustomLineItemDraft extends JsonObject
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
-     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;de&quot;: &quot;Hundefutter&quot;,
-     *   &quot;en&quot;: &quot;dog food&quot;
-     * }
-     * </code></pre>
+     * <p>Maps to <code>CustomLineItem.name</code>.</p>
      *
 
      * @return null|LocalizedString
@@ -44,43 +39,55 @@ interface CustomLineItemDraft extends JsonObject
     public function getName();
 
     /**
+     * <p>Maps to <code>CustomLineItem.money</code>.</p>
+     *
 
      * @return null|TypedMoney
      */
     public function getMoney();
 
     /**
+     * <p>Maps to <code>CustomLineItem.taxedPrice</code>.</p>
+     *
 
      * @return null|CustomLineItemTaxedPrice
      */
     public function getTaxedPrice();
 
     /**
+     * <p>Maps to <code>CustomLineItem.totalPrice</code>.</p>
+     *
 
      * @return null|TypedMoney
      */
     public function getTotalPrice();
 
     /**
+     * <p>Maps to <code>CustomLineItem.slug</code>.</p>
+     *
 
      * @return null|string
      */
     public function getSlug();
 
     /**
+     * <p>Maps to <code>CustomLineItem.quantity</code>.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
+     * <p>Maps to <code>CustomLineItem.state</code>.</p>
+     *
 
      * @return null|ItemStateCollection
      */
     public function getState();
 
     /**
-     * <p>References a tax category by key.</p>
+     * <p>Maps to <code>CustomLineItem.taxCategory</code>. References a tax category by key. If the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced TaxCategory is created.</p>
      *
 
      * @return null|TaxCategoryKeyReference
@@ -88,24 +95,32 @@ interface CustomLineItemDraft extends JsonObject
     public function getTaxCategory();
 
     /**
+     * <p>Maps to <code>CustomLineItem.taxRate</code>.</p>
+     *
 
      * @return null|TaxRate
      */
     public function getTaxRate();
 
     /**
+     * <p>External Tax Rate for the Custom Line Item if the Cart has the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
 
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
 
     /**
+     * <p>Maps to <code>CustomLineItem.discountedPricePerQuantity</code>.</p>
+     *
 
      * @return null|DiscountedLineItemPriceDraftCollection
      */
     public function getDiscountedPricePerQuantity();
 
     /**
+     * <p>Maps to <code>CustomLineItem.shippingDetails</code>.</p>
+     *
 
      * @return null|ItemShippingDetailsDraft
      */

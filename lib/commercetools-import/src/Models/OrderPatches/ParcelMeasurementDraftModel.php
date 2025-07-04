@@ -46,6 +46,8 @@ final class ParcelMeasurementDraftModel extends JsonObjectModel implements Parce
     }
 
     /**
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -64,6 +66,8 @@ final class ParcelMeasurementDraftModel extends JsonObjectModel implements Parce
     }
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
      *
      * @return null|ParcelMeasurements
      */

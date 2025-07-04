@@ -28,6 +28,9 @@ final class MoneySetFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p>JSON array of money values in cent precision format.
+     * The order of items in the array is not fixed.</p>
+     *
 
      * @return null|MoneyCollection
      */

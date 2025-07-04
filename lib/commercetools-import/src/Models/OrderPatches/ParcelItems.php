@@ -18,12 +18,16 @@ interface ParcelItems extends JsonObject
     public const FIELD_ITEMS = 'items';
 
     /**
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
     public function getParcelId();
 
     /**
+     * <p>Items in the Parcel.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */

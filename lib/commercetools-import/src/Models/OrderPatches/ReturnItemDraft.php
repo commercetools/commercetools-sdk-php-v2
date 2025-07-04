@@ -20,31 +20,41 @@ interface ReturnItemDraft extends JsonObject
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**
+     * <p>Number of Line Items or Custom Line Items to return.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> to return.</p>
+     * <p>Required if Line Items are returned, to create a <a href="ctp:api:type:LineItemReturnItem">LineItemReturnItem</a>.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> to return.</p>
+     * <p>Required if Custom Line Items are returned, to create a <a href="ctp:api:type:CustomLineItemReturnItem">CustomLineItemReturnItem</a>.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+     * <p>User-defined description for the return.</p>
+     *
 
      * @return null|string
      */
     public function getComment();
 
     /**
-     * <p>Maps to <code>ReturnItem.shipmentState</code></p>
+     * <p>Shipment status of the item to be returned.</p>
      *
 
      * @return null|string

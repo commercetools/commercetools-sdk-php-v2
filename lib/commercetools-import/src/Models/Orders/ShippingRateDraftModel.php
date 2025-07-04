@@ -54,6 +54,8 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     }
 
     /**
+     * <p>Currency amount of the ShippingRate.</p>
+     *
      *
      * @return null|Money
      */
@@ -73,6 +75,8 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     }
 
     /**
+     * <p>Free shipping is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
+     *
      *
      * @return null|Money
      */
@@ -92,6 +96,8 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     }
 
     /**
+     * <p>Price tiers for the ShippingRate.</p>
+     *
      *
      * @return null|ShippingRatePriceTierCollection
      */

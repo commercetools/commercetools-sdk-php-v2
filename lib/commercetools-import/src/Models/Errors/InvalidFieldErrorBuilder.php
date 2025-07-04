@@ -95,6 +95,8 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>The index of the resource in the import request that contains the invalid field.</p>
+     *
 
      * @return null|int
      */

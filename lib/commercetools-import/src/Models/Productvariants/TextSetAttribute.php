@@ -16,6 +16,8 @@ interface TextSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A set of text values.</p>
+     *
 
      * @return null|array
      */

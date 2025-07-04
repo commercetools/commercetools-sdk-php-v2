@@ -16,6 +16,8 @@ interface BooleanSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A set of boolean values.</p>
+     *
 
      * @return null|array
      */

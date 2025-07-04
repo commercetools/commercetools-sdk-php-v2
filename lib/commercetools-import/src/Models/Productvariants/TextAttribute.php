@@ -16,6 +16,8 @@ interface TextAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A text value.</p>
+     *
 
      * @return null|string
      */

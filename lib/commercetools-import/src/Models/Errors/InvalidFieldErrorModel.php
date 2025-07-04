@@ -177,6 +177,8 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+     * <p>The index of the resource in the import request that contains the invalid field.</p>
+     *
      *
      * @return null|int
      */

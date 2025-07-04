@@ -13,8 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\TypedMoney;
-use Commercetools\Import\Models\Common\TypedMoneyBuilder;
+use Commercetools\Import\Models\Common\Money;
+use Commercetools\Import\Models\Common\MoneyBuilder;
 use stdClass;
 
 /**
@@ -30,14 +30,14 @@ final class MoneyAttributeBuilder implements Builder
 
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $value;
 
     /**
-     * <p>The name of this attribute must match a name of the product types attribute definitions.
-     * The name is required if this type is used in a product variant and must not be set when
-     * used in a product variant patch.</p>
+     * <p>Required if used for <a href="ctp:import:type:ProductVariantImport">ProductVariantImport</a>.
+     * Must not be set if used for <a href="ctp:import:type:ProductVariantPatch">ProductVariantPatch</a>.</p>
+     * <p>Must match <code>name</code> of an <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> of the Product Type.</p>
      *
 
      * @return null|string
@@ -48,12 +48,14 @@ final class MoneyAttributeBuilder implements Builder
     }
 
     /**
+     * <p>A money value in cent precision format.</p>
+     *
 
-     * @return null|TypedMoney
+     * @return null|Money
      */
     public function getValue()
     {
-        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -68,10 +70,10 @@ final class MoneyAttributeBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $value
+     * @param ?Money $value
      * @return $this
      */
-    public function withValue(?TypedMoney $value)
+    public function withValue(?Money $value)
     {
         $this->value = $value;
 
@@ -82,7 +84,7 @@ final class MoneyAttributeBuilder implements Builder
      * @deprecated use withValue() instead
      * @return $this
      */
-    public function withValueBuilder(?TypedMoneyBuilder $value)
+    public function withValueBuilder(?MoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -93,7 +95,7 @@ final class MoneyAttributeBuilder implements Builder
     {
         return new MoneyAttributeModel(
             $this->name,
-            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value
         );
     }
 

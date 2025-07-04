@@ -45,6 +45,8 @@ final class CartKeyReferenceModel extends JsonObjectModel implements CartKeyRefe
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced Cart.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class CartKeyReferenceModel extends JsonObjectModel implements CartKeyRefe
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

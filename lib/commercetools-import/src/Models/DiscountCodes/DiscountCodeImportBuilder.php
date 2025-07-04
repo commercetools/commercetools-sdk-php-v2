@@ -107,7 +107,7 @@ final class DiscountCodeImportBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-defined unique identifier. If a <a href="/../api/projects/discountCodes#discountcode">Discount Code</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:DiscountCode">DiscountCode</a> with this <code>key</code> exists, it is updated with the imported data.</p>
      *
 
      * @return null|string
@@ -140,8 +140,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the DiscountCode that is used by the customer to apply the discount.</p>
-     * <p>The value cannot be updated. Attempting to update the value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Maps to <code>DiscountCode.code</code>. This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|string
@@ -152,7 +151,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>Reference to CartDiscounts that can be applied to the Cart once the DiscountCode is applied.</p>
+     * <p>Maps to <code>DiscountCode.cartDiscounts</code>. If the referenced <a href="ctp:api:type:CartDiscount">CartDiscounts</a> do not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CartDiscounts are created.</p>
      *
 
      * @return null|CartDiscountKeyReferenceCollection
@@ -163,7 +162,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>DiscountCode can only be applied to Carts that match this predicate.</p>
+     * <p>Maps to <code>DiscountCode.cartPredicate</code>.</p>
      *
 
      * @return null|string
@@ -174,7 +173,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>Indicates if the DiscountCode is active and can be applied to the Cart.</p>
+     * <p>Maps to <code>DiscountCode.isActive</code>.</p>
      *
 
      * @return null|bool
@@ -185,7 +184,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>Number of times the DiscountCode can be applied. DiscountCode application is counted at the time of Order creation or update. However, Order cancellation or deletion does not decrement the count.</p>
+     * <p>Maps to <code>DiscountCode.maxApplications</code>.</p>
      *
 
      * @return null|int
@@ -196,7 +195,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>Number of times the DiscountCode can be applied per Customer (anonymous Carts are not supported). DiscountCode application is counted at the time of Order creation or update. However, Order cancellation or deletion does not decrement the count.</p>
+     * <p>Maps to <code>DiscountCode.maxApplicationsPerCustomer</code>.</p>
      *
 
      * @return null|int
@@ -207,7 +206,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>Groups to which the DiscountCode belongs.</p>
+     * <p>Maps to <code>DiscountCode.groups</code>.</p>
      *
 
      * @return null|array
@@ -218,7 +217,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>Date and time (UTC) from which the DiscountCode is effective.</p>
+     * <p>Maps to <code>DiscountCode.validFrom</code>.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -229,7 +228,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>Date and time (UTC) until which the DiscountCode is effective.</p>
+     * <p>Maps to <code>DiscountCode.validUntil</code>.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -240,7 +239,7 @@ final class DiscountCodeImportBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of the DiscountCode.</p>
+     * <p>Maps to <code>DiscountCode.custom</code>.</p>
      *
 
      * @return null|Custom

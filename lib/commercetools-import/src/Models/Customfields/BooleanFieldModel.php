@@ -65,6 +65,8 @@ final class BooleanFieldModel extends JsonObjectModel implements BooleanField
     }
 
     /**
+     * <p><code>true</code> or <code>false</code></p>
+     *
      *
      * @return null|bool
      */

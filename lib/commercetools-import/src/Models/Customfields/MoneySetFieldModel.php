@@ -66,6 +66,9 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
     }
 
     /**
+     * <p>JSON array of money values in cent precision format.
+     * The order of items in the array is not fixed.</p>
+     *
      *
      * @return null|MoneyCollection
      */

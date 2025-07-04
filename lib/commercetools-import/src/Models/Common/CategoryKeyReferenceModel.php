@@ -45,6 +45,8 @@ final class CategoryKeyReferenceModel extends JsonObjectModel implements Categor
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced Category.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class CategoryKeyReferenceModel extends JsonObjectModel implements Categor
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

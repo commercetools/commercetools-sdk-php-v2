@@ -17,6 +17,9 @@ interface MoneySetField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>JSON array of money values in cent precision format.
+     * The order of items in the array is not fixed.</p>
+     *
 
      * @return null|MoneyCollection
      */

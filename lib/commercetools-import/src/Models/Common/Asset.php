@@ -37,12 +37,7 @@ interface Asset extends JsonObject
     public function getSources();
 
     /**
-     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;de&quot;: &quot;Hundefutter&quot;,
-     *   &quot;en&quot;: &quot;dog food&quot;
-     * }
-     * </code></pre>
+     * <p>Name of the Asset.</p>
      *
 
      * @return null|LocalizedString
@@ -50,12 +45,7 @@ interface Asset extends JsonObject
     public function getName();
 
     /**
-     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;de&quot;: &quot;Hundefutter&quot;,
-     *   &quot;en&quot;: &quot;dog food&quot;
-     * }
-     * </code></pre>
+     * <p>Description of the Asset.</p>
      *
 
      * @return null|LocalizedString
@@ -63,13 +53,15 @@ interface Asset extends JsonObject
     public function getDescription();
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
 
      * @return null|array
      */
     public function getTags();
 
     /**
-     * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
+     * <p>Custom Fields defined for the Asset.</p>
      *
 
      * @return null|Custom

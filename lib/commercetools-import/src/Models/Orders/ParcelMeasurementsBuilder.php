@@ -45,6 +45,8 @@ final class ParcelMeasurementsBuilder implements Builder
     private $weightInGram;
 
     /**
+     * <p>Height of the Parcel.</p>
+     *
 
      * @return null|int
      */
@@ -54,6 +56,8 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+     * <p>Length of the Parcel.</p>
+     *
 
      * @return null|int
      */
@@ -63,6 +67,8 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+     * <p>Width of the Parcel.</p>
+     *
 
      * @return null|int
      */
@@ -72,6 +78,8 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+     * <p>Weight of the Parcel.</p>
+     *
 
      * @return null|int
      */

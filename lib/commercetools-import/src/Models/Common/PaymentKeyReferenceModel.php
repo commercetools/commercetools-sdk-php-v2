@@ -45,6 +45,8 @@ final class PaymentKeyReferenceModel extends JsonObjectModel implements PaymentK
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced Payment.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class PaymentKeyReferenceModel extends JsonObjectModel implements PaymentK
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

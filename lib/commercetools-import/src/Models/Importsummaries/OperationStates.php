@@ -22,7 +22,7 @@ interface OperationStates extends JsonObject
     public const FIELD_CANCELED = 'canceled';
 
     /**
-     * <p>The number of resources in the <code>processing</code> state.</p>
+     * <p>The number of ImportOperations in the <code>processing</code> state.</p>
      *
 
      * @return null|int
@@ -30,7 +30,7 @@ interface OperationStates extends JsonObject
     public function getProcessing();
 
     /**
-     * <p>The number of resources in the <code>validationFailed</code> state.</p>
+     * <p>The number of ImportOperations in the <code>validationFailed</code> state.</p>
      *
 
      * @return null|int
@@ -38,7 +38,7 @@ interface OperationStates extends JsonObject
     public function getValidationFailed();
 
     /**
-     * <p>The number of resources in the <code>unresolved</code> state.</p>
+     * <p>The number of ImportOperations in the <code>unresolved</code> state.</p>
      *
 
      * @return null|int
@@ -46,7 +46,7 @@ interface OperationStates extends JsonObject
     public function getUnresolved();
 
     /**
-     * <p>The number of resources in the <code>waitForMasterVariant</code> state.</p>
+     * <p>The number of ImportOperations in the <code>waitForMasterVariant</code> state.</p>
      *
 
      * @return null|int
@@ -54,7 +54,7 @@ interface OperationStates extends JsonObject
     public function getWaitForMasterVariant();
 
     /**
-     * <p>The number of resources in the <code>imported</code> state.</p>
+     * <p>The number of ImportOperations in the <code>imported</code> state.</p>
      *
 
      * @return null|int
@@ -62,7 +62,7 @@ interface OperationStates extends JsonObject
     public function getImported();
 
     /**
-     * <p>The number of resources in the <code>rejected</code> state.</p>
+     * <p>The number of ImportOperations in the <code>rejected</code> state.</p>
      *
 
      * @return null|int
@@ -70,7 +70,7 @@ interface OperationStates extends JsonObject
     public function getRejected();
 
     /**
-     * <p>The number of resources in the <code>canceled</code> state.</p>
+     * <p>The number of ImportOperations in the <code>canceled</code> state.</p>
      *
 
      * @return null|int

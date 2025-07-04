@@ -34,9 +34,9 @@ final class DateTimeAttributeBuilder implements Builder
     private $value;
 
     /**
-     * <p>The name of this attribute must match a name of the product types attribute definitions.
-     * The name is required if this type is used in a product variant and must not be set when
-     * used in a product variant patch.</p>
+     * <p>Required if used for <a href="ctp:import:type:ProductVariantImport">ProductVariantImport</a>.
+     * Must not be set if used for <a href="ctp:import:type:ProductVariantPatch">ProductVariantPatch</a>.</p>
+     * <p>Must match <code>name</code> of an <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> of the Product Type.</p>
      *
 
      * @return null|string
@@ -47,6 +47,10 @@ final class DateTimeAttributeBuilder implements Builder
     }
 
     /**
+     * <p>A date with time in the format <code>YYYY-MM-DDTHH:mm:ss.SSSZ</code>.
+     * The time zone is optional and defaults to UTC if not specified.
+     * If the time zone is specified, it must be in the format <code>±HH:mm</code> or <code>Z</code> for UTC.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

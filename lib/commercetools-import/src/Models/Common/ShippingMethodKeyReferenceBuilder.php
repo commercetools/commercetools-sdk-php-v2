@@ -27,6 +27,8 @@ final class ShippingMethodKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced ShippingMethod.</p>
+     *
 
      * @return null|string
      */

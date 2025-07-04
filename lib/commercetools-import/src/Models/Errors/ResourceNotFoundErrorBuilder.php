@@ -44,6 +44,8 @@ final class ResourceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * <p>The resource that was not found.</p>
+     *
 
      * @return null|mixed
      */

@@ -65,6 +65,9 @@ final class NumberFieldModel extends JsonObjectModel implements NumberField
     }
 
     /**
+     * <p>A number value.
+     * Can be an integer or a floating-point number.</p>
+     *
      *
      * @return null|float
      */

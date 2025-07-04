@@ -45,6 +45,8 @@ final class ProductTypeKeyReferenceModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced ProductType.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class ProductTypeKeyReferenceModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

@@ -65,6 +65,9 @@ final class DateSetFieldModel extends JsonObjectModel implements DateSetField
     }
 
     /**
+     * <p>JSON array of date values in the format <code>YYYY-MM-DD</code> without duplicates.
+     * The order of items in the array is not fixed.</p>
+     *
      *
      * @return null|DateTimeImmutableCollection
      */

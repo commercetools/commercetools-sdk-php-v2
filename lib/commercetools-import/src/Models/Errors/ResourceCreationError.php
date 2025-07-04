@@ -16,6 +16,8 @@ interface ResourceCreationError extends ErrorObject
     public const FIELD_RESOURCE = 'resource';
 
     /**
+     * <p>The resource that was created.</p>
+     *
 
      * @return null|mixed
      */

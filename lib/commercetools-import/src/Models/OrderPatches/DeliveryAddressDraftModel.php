@@ -46,6 +46,8 @@ final class DeliveryAddressDraftModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
      *
      * @return null|string
      */
@@ -64,6 +66,8 @@ final class DeliveryAddressDraftModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p>Address to which Parcels are delivered.</p>
+     *
      *
      * @return null|Address
      */

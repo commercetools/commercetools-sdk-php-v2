@@ -16,6 +16,9 @@ interface NumberAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A number value.
+     * Can be an integer or a floating-point number.</p>
+     *
 
      * @return null|float
      */

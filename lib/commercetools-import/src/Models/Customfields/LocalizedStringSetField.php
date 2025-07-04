@@ -17,6 +17,9 @@ interface LocalizedStringSetField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>JSON array of localized strings.
+     * The order of items in the array is not fixed.</p>
+     *
 
      * @return null|LocalizedStringCollection
      */

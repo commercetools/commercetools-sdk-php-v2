@@ -71,6 +71,9 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced resource.
+     * If the referenced resource does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced resource is created.</p>
+     *
      *
      * @return null|string
      */
@@ -89,7 +92,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

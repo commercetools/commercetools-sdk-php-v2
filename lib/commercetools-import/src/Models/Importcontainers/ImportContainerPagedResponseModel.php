@@ -108,7 +108,7 @@ final class ImportContainerPagedResponseModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The actual number of results returned.</p>
+     * <p>Actual number of results returned.</p>
      *
      *
      * @return null|int
@@ -128,7 +128,7 @@ final class ImportContainerPagedResponseModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The total number of results matching the query.</p>
+     * <p>Total number of results matching the query.</p>
      *
      *
      * @return null|int
@@ -148,7 +148,7 @@ final class ImportContainerPagedResponseModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The array of Import Containers matching the query.</p>
+     * <p><a href="ctp:import:type:ImportContainer">ImportContainers</a> matching the query.</p>
      *
      *
      * @return null|ImportContainerCollection

@@ -41,6 +41,8 @@ final class VariantValuesBuilder implements Builder
     private $attributes;
 
     /**
+     * <p>The SKU of the Product Variant.</p>
+     *
 
      * @return null|string
      */

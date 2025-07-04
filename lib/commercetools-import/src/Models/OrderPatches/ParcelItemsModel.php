@@ -45,6 +45,8 @@ final class ParcelItemsModel extends JsonObjectModel implements ParcelItems
     }
 
     /**
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -63,6 +65,8 @@ final class ParcelItemsModel extends JsonObjectModel implements ParcelItems
     }
 
     /**
+     * <p>Items in the Parcel.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */

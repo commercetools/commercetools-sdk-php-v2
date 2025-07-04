@@ -46,7 +46,7 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
     }
 
     /**
-     * <p>References a discount code by key.</p>
+     * <p>References a DiscountCode by key. If the referenced <a href="ctp:api:type:DiscountCode">DiscountCode</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced DiscountCode is created.</p>
      *
      *
      * @return null|DiscountCodeKeyReference

@@ -93,6 +93,8 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
+     * <p>The resource that was created.</p>
+     *
      *
      * @return null|mixed
      */

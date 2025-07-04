@@ -13,4 +13,16 @@ use Commercetools\Base\JsonObject;
 
 interface ProductKeyReference extends KeyReference
 {
+    /**
+     * <p>User-defined unique identifier of the referenced Product.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 }

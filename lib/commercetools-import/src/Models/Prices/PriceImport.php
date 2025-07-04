@@ -37,7 +37,7 @@ interface PriceImport extends ImportResource
     public const FIELD_PRODUCT = 'product';
 
     /**
-     * <p>User-defined unique identifier for the Embedded Price. If a <a href="/../api/types#price">Price</a> with this <code>key</code> exists on the specified <code>productVariant</code>, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier for the Embedded Price. If a <a href="/../api/types#price">Price</a> with this <code>key</code> exists on the specified <code>productVariant</code>, it is updated with the imported data.</p>
      *
 
      * @return null|string
@@ -77,8 +77,7 @@ interface PriceImport extends ImportResource
     public function getValidUntil();
 
     /**
-     * <p>The Reference to the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> with which the <a href="/../api/types#price">Price</a> is associated.
-     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
+     * <p>Maps to <code>Price.customerGroup</code>. If the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
      *
 
      * @return null|CustomerGroupKeyReference
@@ -86,8 +85,7 @@ interface PriceImport extends ImportResource
     public function getCustomerGroup();
 
     /**
-     * <p>The Reference to the <a href="ctp:api:type:Channel">Channel</a> with which the <a href="/../api/types#price">Price</a> is associated.
-     * If referenced Channel does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Channel is created.</p>
+     * <p>Maps to <code>Price.channel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
      *
 
      * @return null|ChannelKeyReference
@@ -104,7 +102,7 @@ interface PriceImport extends ImportResource
 
     /**
      * <ul>
-     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="/../api/projects/products#product">Product</a> with the new Price data.</li>
+     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="ctp:api:type:Product">Product</a> with the new Price data.</li>
      * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
      * </ul>
      *
@@ -122,7 +120,7 @@ interface PriceImport extends ImportResource
     public function getTiers();
 
     /**
-     * <p>The custom fields for this price.</p>
+     * <p>Maps to <code>Price.custom</code>.</p>
      *
 
      * @return null|Custom
@@ -130,9 +128,7 @@ interface PriceImport extends ImportResource
     public function getCustom();
 
     /**
-     * <p>The ProductVariant in which this <a href="/types#price">Embedded Price</a> is contained.
-     * The Reference to the <a href="/projects/products#productvariant">ProductVariant</a> with which the <a href="/types#price">Price</a> is associated.
-     * If the referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-export/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
+     * <p>The <a href="ctp:api:type:ProductVariant">ProductVariant</a> which contains this Embedded Price. If the referenced ProductVariant does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced ProductVariant is created.</p>
      *
 
      * @return null|ProductVariantKeyReference
@@ -140,9 +136,7 @@ interface PriceImport extends ImportResource
     public function getProductVariant();
 
     /**
-     * <p>The Product in which the Product Variant containing this <a href="/types#price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>.
-     * The Reference to the <a href="/projects/products#product">Product</a> with which the <a href="/types#price">Price</a> is associated.
-     * If referenced Product does not exist, the <code>state</code> of the <a href="/import-export/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
+     * <p>The <a href="ctp:api:type:Product">Product</a> which contains the <code>productVariant</code>. If the referenced Product does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Product is created.</p>
      *
 
      * @return null|ProductKeyReference

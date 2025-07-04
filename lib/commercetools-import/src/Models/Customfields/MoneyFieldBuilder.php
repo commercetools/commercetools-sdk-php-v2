@@ -13,8 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\TypedMoney;
-use Commercetools\Import\Models\Common\TypedMoneyBuilder;
+use Commercetools\Import\Models\Common\Money;
+use Commercetools\Import\Models\Common\MoneyBuilder;
 use stdClass;
 
 /**
@@ -24,24 +24,26 @@ final class MoneyFieldBuilder implements Builder
 {
     /**
 
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $value;
 
     /**
+     * <p>A money value in cent precision format.</p>
+     *
 
-     * @return null|TypedMoney
+     * @return null|Money
      */
     public function getValue()
     {
-        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
-     * @param ?TypedMoney $value
+     * @param ?Money $value
      * @return $this
      */
-    public function withValue(?TypedMoney $value)
+    public function withValue(?Money $value)
     {
         $this->value = $value;
 
@@ -52,7 +54,7 @@ final class MoneyFieldBuilder implements Builder
      * @deprecated use withValue() instead
      * @return $this
      */
-    public function withValueBuilder(?TypedMoneyBuilder $value)
+    public function withValueBuilder(?MoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -62,7 +64,7 @@ final class MoneyFieldBuilder implements Builder
     public function build(): MoneyField
     {
         return new MoneyFieldModel(
-            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value
         );
     }
 

@@ -84,7 +84,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
     /**
-     * <p>The number of resources in the <code>processing</code> state.</p>
+     * <p>The number of ImportOperations in the <code>processing</code> state.</p>
      *
      *
      * @return null|int
@@ -104,7 +104,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
     /**
-     * <p>The number of resources in the <code>validationFailed</code> state.</p>
+     * <p>The number of ImportOperations in the <code>validationFailed</code> state.</p>
      *
      *
      * @return null|int
@@ -124,7 +124,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
     /**
-     * <p>The number of resources in the <code>unresolved</code> state.</p>
+     * <p>The number of ImportOperations in the <code>unresolved</code> state.</p>
      *
      *
      * @return null|int
@@ -144,7 +144,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
     /**
-     * <p>The number of resources in the <code>waitForMasterVariant</code> state.</p>
+     * <p>The number of ImportOperations in the <code>waitForMasterVariant</code> state.</p>
      *
      *
      * @return null|int
@@ -164,7 +164,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
     /**
-     * <p>The number of resources in the <code>imported</code> state.</p>
+     * <p>The number of ImportOperations in the <code>imported</code> state.</p>
      *
      *
      * @return null|int
@@ -184,7 +184,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
     /**
-     * <p>The number of resources in the <code>rejected</code> state.</p>
+     * <p>The number of ImportOperations in the <code>rejected</code> state.</p>
      *
      *
      * @return null|int
@@ -204,7 +204,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
     /**
-     * <p>The number of resources in the <code>canceled</code> state.</p>
+     * <p>The number of ImportOperations in the <code>canceled</code> state.</p>
      *
      *
      * @return null|int

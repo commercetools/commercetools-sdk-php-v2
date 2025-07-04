@@ -17,7 +17,7 @@ interface AttributeNestedType extends AttributeType
     public const FIELD_TYPE_REFERENCE = 'typeReference';
 
     /**
-     * <p>References a product type by key.</p>
+     * <p>References a ProductType by <code>key</code>.</p>
      *
 
      * @return null|ProductTypeKeyReference

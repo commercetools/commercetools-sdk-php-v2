@@ -27,6 +27,8 @@ final class ChannelKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced Channel.</p>
+     *
 
      * @return null|string
      */

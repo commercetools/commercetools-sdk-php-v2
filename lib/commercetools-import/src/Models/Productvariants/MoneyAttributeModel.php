@@ -12,8 +12,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\TypedMoney;
-use Commercetools\Import\Models\Common\TypedMoneyModel;
+use Commercetools\Import\Models\Common\Money;
+use Commercetools\Import\Models\Common\MoneyModel;
 use stdClass;
 
 /**
@@ -36,7 +36,7 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?Money
      */
     protected $value;
 
@@ -46,7 +46,7 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
      */
     public function __construct(
         ?string $name = null,
-        ?TypedMoney $value = null,
+        ?Money $value = null,
         ?string $type = null
     ) {
         $this->name = $name;
@@ -55,9 +55,9 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     }
 
     /**
-     * <p>The name of this attribute must match a name of the product types attribute definitions.
-     * The name is required if this type is used in a product variant and must not be set when
-     * used in a product variant patch.</p>
+     * <p>Required if used for <a href="ctp:import:type:ProductVariantImport">ProductVariantImport</a>.
+     * Must not be set if used for <a href="ctp:import:type:ProductVariantPatch">ProductVariantPatch</a>.</p>
+     * <p>Must match <code>name</code> of an <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> of the Product Type.</p>
      *
      *
      * @return null|string
@@ -77,6 +77,10 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     }
 
     /**
+     * <p>Must match <code>type</code> of an <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> of the Product Type.
+     * The type is required if this type is used in a product variant and must not be set when
+     * used in a product variant patch.</p>
+     *
      *
      * @return null|string
      */
@@ -95,8 +99,10 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     }
 
     /**
+     * <p>A money value in cent precision format.</p>
      *
-     * @return null|TypedMoney
+     *
+     * @return null|Money
      */
     public function getValue()
     {
@@ -106,8 +112,8 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
+
+            $this->value = MoneyModel::of($data);
         }
 
         return $this->value;
@@ -123,9 +129,9 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     }
 
     /**
-     * @param ?TypedMoney $value
+     * @param ?Money $value
      */
-    public function setValue(?TypedMoney $value): void
+    public function setValue(?Money $value): void
     {
         $this->value = $value;
     }

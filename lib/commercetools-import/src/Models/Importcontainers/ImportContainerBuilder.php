@@ -52,8 +52,7 @@ final class ImportContainerBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * <p>User-defined unique identifier for the ImportContainer.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+     * <p>User-defined unique identifier of the ImportContainer.</p>
      *
 
      * @return null|string
@@ -64,8 +63,7 @@ final class ImportContainerBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="#importresourcetype">resource type</a> the ImportContainer is able to handle.
-     * If not present, the ImportContainer is able to import all of the supported <a href="#importresourcetype">ImportResourceTypes</a>.</p>
+     * <p>The <a href="ctp:import:type:ImportResourceType">resource type</a> the ImportContainer supports. If not present, the ImportContainer can import all of the supported <a href="ctp:import:type:ImportResourceType">ImportResourceTypes</a>.</p>
      *
 
      * @return null|string
@@ -76,7 +74,7 @@ final class ImportContainerBuilder implements Builder
     }
 
     /**
-     * <p>The version of the ImportContainer.</p>
+     * <p>Current version of the ImportContainer.</p>
      *
 
      * @return null|int
@@ -87,7 +85,7 @@ final class ImportContainerBuilder implements Builder
     }
 
     /**
-     * <p>The time when the ImportContainer was created.</p>
+     * <p>Date and time (UTC) the ImportContainer was created.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -98,7 +96,7 @@ final class ImportContainerBuilder implements Builder
     }
 
     /**
-     * <p>The last time when the ImportContainer was modified.</p>
+     * <p>Date and time (UTC) the ImportContainer was last updated.</p>
      *
 
      * @return null|DateTimeImmutable

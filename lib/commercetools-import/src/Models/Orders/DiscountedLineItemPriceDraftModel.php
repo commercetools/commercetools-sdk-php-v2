@@ -46,6 +46,8 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Discounted money value.</p>
+     *
      *
      * @return null|Money
      */
@@ -65,6 +67,8 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Discounts to be applied.</p>
+     *
      *
      * @return null|DiscountedLineItemPortionCollection
      */

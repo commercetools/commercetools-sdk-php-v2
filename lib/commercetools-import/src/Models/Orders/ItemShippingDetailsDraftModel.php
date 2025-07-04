@@ -36,7 +36,7 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
     }
 
     /**
-     * <p>Maps to <code>ItemShippingDetailsDraft.targets</code>.</p>
+     * <p>Holds information on the quantity of Line Items or Custom Line Items and the address it is shipped.</p>
      *
      *
      * @return null|ItemShippingTargetCollection

@@ -42,6 +42,8 @@ final class DeliveryDraftBuilder implements Builder
     private $parcels;
 
     /**
+     * <p>Line Items or Custom Line Items to deliver. It can also be specified individually for each <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
@@ -51,6 +53,8 @@ final class DeliveryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Address to which the Parcels are delivered.</p>
+     *
 
      * @return null|Address
      */
@@ -60,6 +64,8 @@ final class DeliveryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Information regarding the appearance, content, and shipment of a parcel.</p>
+     *
 
      * @return null|DeliveryParcelDraftCollection
      */

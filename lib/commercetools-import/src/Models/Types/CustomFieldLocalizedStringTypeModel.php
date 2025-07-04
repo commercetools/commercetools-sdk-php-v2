@@ -37,6 +37,8 @@ final class CustomFieldLocalizedStringTypeModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Name of the field type. Must be unique for a given <a href="ctp:import:type:ResourceTypeId">ResourceTypeId</a>. In case there is a FieldDefinition with the same <code>name</code> in another Type, both FieldDefinitions must have the same <code>type</code>. This value cannot be changed after the Type is imported.</p>
+     *
      *
      * @return null|string
      */

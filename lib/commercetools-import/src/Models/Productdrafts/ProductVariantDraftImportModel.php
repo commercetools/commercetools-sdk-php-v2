@@ -79,6 +79,8 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>User-defined unique SKU of the Product Variant.</p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +99,8 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>User-defined unique identifier for the ProductVariant.</p>
+     *
      *
      * @return null|string
      */
@@ -115,6 +119,9 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>The Embedded Prices for the Product Variant.
+     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
      *
      * @return null|PriceDraftImportCollection
      */
@@ -133,6 +140,8 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>Attributes according to the respective AttributeDefinition.</p>
+     *
      *
      * @return null|AttributeCollection
      */
@@ -151,6 +160,8 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
      *
      * @return null|ImageCollection
      */
@@ -169,6 +180,8 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
      *
      * @return null|AssetCollection
      */

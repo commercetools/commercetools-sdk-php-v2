@@ -17,7 +17,7 @@ interface UnresolvedReferences extends JsonObject
     public const FIELD_TYPE_ID = 'typeId';
 
     /**
-     * <p>The <code>key</code> of the resource.</p>
+     * <p><code>key</code> of the unresolved resource.</p>
      *
 
      * @return null|string
@@ -25,7 +25,7 @@ interface UnresolvedReferences extends JsonObject
     public function getKey();
 
     /**
-     * <p>The type of resource.</p>
+     * <p>Type of the unresolved resource.</p>
      *
 
      * @return null|string

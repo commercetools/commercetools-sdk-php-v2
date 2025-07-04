@@ -45,6 +45,8 @@ final class TypeKeyReferenceModel extends JsonObjectModel implements TypeKeyRefe
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced Type.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class TypeKeyReferenceModel extends JsonObjectModel implements TypeKeyRefe
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

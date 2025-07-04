@@ -37,7 +37,7 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
     }
 
     /**
-     * <p>A list of the ID's and validation statuses of new <a href="#importoperation">ImportOperations</a>.</p>
+     * <p>The identifiers and status of the <a href="ctp:import:type:ImportOperation">ImportOperations</a> created by the ImportRequest.</p>
      *
      *
      * @return null|ImportOperationStatusCollection

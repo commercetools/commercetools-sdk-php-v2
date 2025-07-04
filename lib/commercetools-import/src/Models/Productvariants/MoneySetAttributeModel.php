@@ -12,7 +12,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\TypedMoneyCollection;
+use Commercetools\Import\Models\Common\MoneyCollection;
 use stdClass;
 
 /**
@@ -35,7 +35,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
 
     /**
      *
-     * @var ?TypedMoneyCollection
+     * @var ?MoneyCollection
      */
     protected $value;
 
@@ -45,7 +45,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
      */
     public function __construct(
         ?string $name = null,
-        ?TypedMoneyCollection $value = null,
+        ?MoneyCollection $value = null,
         ?string $type = null
     ) {
         $this->name = $name;
@@ -54,9 +54,9 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     }
 
     /**
-     * <p>The name of this attribute must match a name of the product types attribute definitions.
-     * The name is required if this type is used in a product variant and must not be set when
-     * used in a product variant patch.</p>
+     * <p>Required if used for <a href="ctp:import:type:ProductVariantImport">ProductVariantImport</a>.
+     * Must not be set if used for <a href="ctp:import:type:ProductVariantPatch">ProductVariantPatch</a>.</p>
+     * <p>Must match <code>name</code> of an <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> of the Product Type.</p>
      *
      *
      * @return null|string
@@ -76,6 +76,10 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     }
 
     /**
+     * <p>Must match <code>type</code> of an <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> of the Product Type.
+     * The type is required if this type is used in a product variant and must not be set when
+     * used in a product variant patch.</p>
+     *
      *
      * @return null|string
      */
@@ -94,8 +98,10 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     }
 
     /**
+     * <p>A set of money values in cent precision format.</p>
      *
-     * @return null|TypedMoneyCollection
+     *
+     * @return null|MoneyCollection
      */
     public function getValue()
     {
@@ -105,7 +111,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
             if (is_null($data)) {
                 return null;
             }
-            $this->value = TypedMoneyCollection::fromArray($data);
+            $this->value = MoneyCollection::fromArray($data);
         }
 
         return $this->value;
@@ -121,9 +127,9 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     }
 
     /**
-     * @param ?TypedMoneyCollection $value
+     * @param ?MoneyCollection $value
      */
-    public function setValue(?TypedMoneyCollection $value): void
+    public function setValue(?MoneyCollection $value): void
     {
         $this->value = $value;
     }
