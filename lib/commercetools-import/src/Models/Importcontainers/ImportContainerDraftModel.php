@@ -31,21 +31,28 @@ final class ImportContainerDraftModel extends JsonObjectModel implements ImportC
      */
     protected $resourceType;
 
+    /**
+     *
+     * @var ?RetentionPolicy
+     */
+    protected $retentionPolicy;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $key = null,
-        ?string $resourceType = null
+        ?string $resourceType = null,
+        ?RetentionPolicy $retentionPolicy = null
     ) {
         $this->key = $key;
         $this->resourceType = $resourceType;
+        $this->retentionPolicy = $retentionPolicy;
     }
 
     /**
-     * <p>User-defined unique identifier of the ImportContainer.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+     * <p>User-defined unique identifier of the ImportContainer.</p>
      *
      *
      * @return null|string
@@ -85,6 +92,27 @@ final class ImportContainerDraftModel extends JsonObjectModel implements ImportC
         return $this->resourceType;
     }
 
+    /**
+     * <p>Set a retention policy to automatically delete the ImportContainer after a defined period.</p>
+     *
+     *
+     * @return null|RetentionPolicy
+     */
+    public function getRetentionPolicy()
+    {
+        if (is_null($this->retentionPolicy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RETENTION_POLICY);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = RetentionPolicyModel::resolveDiscriminatorClass($data);
+            $this->retentionPolicy = $className::of($data);
+        }
+
+        return $this->retentionPolicy;
+    }
+
 
     /**
      * @param ?string $key
@@ -100,5 +128,13 @@ final class ImportContainerDraftModel extends JsonObjectModel implements ImportC
     public function setResourceType(?string $resourceType): void
     {
         $this->resourceType = $resourceType;
+    }
+
+    /**
+     * @param ?RetentionPolicy $retentionPolicy
+     */
+    public function setRetentionPolicy(?RetentionPolicy $retentionPolicy): void
+    {
+        $this->retentionPolicy = $retentionPolicy;
     }
 }

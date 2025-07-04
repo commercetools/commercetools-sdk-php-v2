@@ -407,6 +407,9 @@
 <details>
 <summary>Added Property(s)</summary>
 
+- added property `retentionPolicy` to type `ImportContainer`
+- added property `expiresAt` to type `ImportContainer`
+- added property `retentionPolicy` to type `ImportContainerDraft`
 - added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
 - added property `attributes` to type `ProductImport`
 - added property `attributes` to type `ProductDraftImport`
@@ -426,6 +429,10 @@
 <details>
 <summary>Added Type(s)</summary>
 
+- added type `StrategyEnum`
+- added type `RetentionPolicy`
+- added type `TimeToLiveConfig`
+- added type `TimeToLiveRetentionPolicy`
 - added type `AttributeLevel`
 </details>
 

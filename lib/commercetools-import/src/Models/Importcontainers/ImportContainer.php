@@ -17,12 +17,13 @@ interface ImportContainer extends JsonObject
     public const FIELD_KEY = 'key';
     public const FIELD_RESOURCE_TYPE = 'resourceType';
     public const FIELD_VERSION = 'version';
+    public const FIELD_RETENTION_POLICY = 'retentionPolicy';
     public const FIELD_CREATED_AT = 'createdAt';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
+    public const FIELD_EXPIRES_AT = 'expiresAt';
 
     /**
-     * <p>User-defined unique identifier for the ImportContainer.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+     * <p>User-defined unique identifier for the ImportContainer.</p>
      *
 
      * @return null|string
@@ -47,7 +48,15 @@ interface ImportContainer extends JsonObject
     public function getVersion();
 
     /**
-     * <p>The time when the ImportContainer was created.</p>
+     * <p>The retention policy of the ImportContainer.</p>
+     *
+
+     * @return null|RetentionPolicy
+     */
+    public function getRetentionPolicy();
+
+    /**
+     * <p>Date and time (UTC) the ImportContainer was initially created.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -55,12 +64,20 @@ interface ImportContainer extends JsonObject
     public function getCreatedAt();
 
     /**
-     * <p>The last time when the ImportContainer was modified.</p>
+     * <p>Date and time (UTC) the ImportContainer was last updated.</p>
      *
 
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
+
+    /**
+     * <p>Date and time (UTC) the ImportContainer is automatically deleted. Only present if a <code>retentionPolicy</code> is set. ImportContainers without <code>expiresAt</code> are permanent until <a href="#delete-importcontainer">manually deleted</a>.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt();
 
     /**
      * @param ?string $key
@@ -78,6 +95,11 @@ interface ImportContainer extends JsonObject
     public function setVersion(?int $version): void;
 
     /**
+     * @param ?RetentionPolicy $retentionPolicy
+     */
+    public function setRetentionPolicy(?RetentionPolicy $retentionPolicy): void;
+
+    /**
      * @param ?DateTimeImmutable $createdAt
      */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
@@ -86,4 +108,9 @@ interface ImportContainer extends JsonObject
      * @param ?DateTimeImmutable $lastModifiedAt
      */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     */
+    public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
 }
