@@ -41,6 +41,12 @@ final class ImportContainerBuilder implements Builder
 
     /**
 
+     * @var null|RetentionPolicy|RetentionPolicyBuilder
+     */
+    private $retentionPolicy;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
@@ -52,8 +58,13 @@ final class ImportContainerBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * <p>User-defined unique identifier for the ImportContainer.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+
+     * @var ?DateTimeImmutable
+     */
+    private $expiresAt;
+
+    /**
+     * <p>User-defined unique identifier for the ImportContainer.</p>
      *
 
      * @return null|string
@@ -87,7 +98,18 @@ final class ImportContainerBuilder implements Builder
     }
 
     /**
-     * <p>The time when the ImportContainer was created.</p>
+     * <p>The retention policy of the ImportContainer.</p>
+     *
+
+     * @return null|RetentionPolicy
+     */
+    public function getRetentionPolicy()
+    {
+        return $this->retentionPolicy instanceof RetentionPolicyBuilder ? $this->retentionPolicy->build() : $this->retentionPolicy;
+    }
+
+    /**
+     * <p>Date and time (UTC) the ImportContainer was initially created.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -98,7 +120,7 @@ final class ImportContainerBuilder implements Builder
     }
 
     /**
-     * <p>The last time when the ImportContainer was modified.</p>
+     * <p>Date and time (UTC) the ImportContainer was last updated.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -106,6 +128,17 @@ final class ImportContainerBuilder implements Builder
     public function getLastModifiedAt()
     {
         return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>Date and time (UTC) the ImportContainer is automatically deleted. Only present if a <code>retentionPolicy</code> is set. ImportContainers without <code>expiresAt</code> are permanent until <a href="#delete-importcontainer">manually deleted</a>.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
     }
 
     /**
@@ -142,6 +175,17 @@ final class ImportContainerBuilder implements Builder
     }
 
     /**
+     * @param ?RetentionPolicy $retentionPolicy
+     * @return $this
+     */
+    public function withRetentionPolicy(?RetentionPolicy $retentionPolicy)
+    {
+        $this->retentionPolicy = $retentionPolicy;
+
+        return $this;
+    }
+
+    /**
      * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
@@ -163,6 +207,27 @@ final class ImportContainerBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     * @return $this
+     */
+    public function withExpiresAt(?DateTimeImmutable $expiresAt)
+    {
+        $this->expiresAt = $expiresAt;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withRetentionPolicy() instead
+     * @return $this
+     */
+    public function withRetentionPolicyBuilder(?RetentionPolicyBuilder $retentionPolicy)
+    {
+        $this->retentionPolicy = $retentionPolicy;
+
+        return $this;
+    }
 
     public function build(): ImportContainer
     {
@@ -170,8 +235,10 @@ final class ImportContainerBuilder implements Builder
             $this->key,
             $this->resourceType,
             $this->version,
+            $this->retentionPolicy instanceof RetentionPolicyBuilder ? $this->retentionPolicy->build() : $this->retentionPolicy,
             $this->createdAt,
-            $this->lastModifiedAt
+            $this->lastModifiedAt,
+            $this->expiresAt
         );
     }
 

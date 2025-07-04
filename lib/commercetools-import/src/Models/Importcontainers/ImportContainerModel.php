@@ -40,6 +40,12 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
 
     /**
      *
+     * @var ?RetentionPolicy
+     */
+    protected $retentionPolicy;
+
+    /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
@@ -50,6 +56,12 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
      */
     protected $lastModifiedAt;
 
+    /**
+     *
+     * @var ?DateTimeImmutable
+     */
+    protected $expiresAt;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -58,19 +70,22 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
         ?string $key = null,
         ?string $resourceType = null,
         ?int $version = null,
+        ?RetentionPolicy $retentionPolicy = null,
         ?DateTimeImmutable $createdAt = null,
-        ?DateTimeImmutable $lastModifiedAt = null
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?DateTimeImmutable $expiresAt = null
     ) {
         $this->key = $key;
         $this->resourceType = $resourceType;
         $this->version = $version;
+        $this->retentionPolicy = $retentionPolicy;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
+        $this->expiresAt = $expiresAt;
     }
 
     /**
-     * <p>User-defined unique identifier for the ImportContainer.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+     * <p>User-defined unique identifier for the ImportContainer.</p>
      *
      *
      * @return null|string
@@ -131,7 +146,28 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
     }
 
     /**
-     * <p>The time when the ImportContainer was created.</p>
+     * <p>The retention policy of the ImportContainer.</p>
+     *
+     *
+     * @return null|RetentionPolicy
+     */
+    public function getRetentionPolicy()
+    {
+        if (is_null($this->retentionPolicy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RETENTION_POLICY);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = RetentionPolicyModel::resolveDiscriminatorClass($data);
+            $this->retentionPolicy = $className::of($data);
+        }
+
+        return $this->retentionPolicy;
+    }
+
+    /**
+     * <p>Date and time (UTC) the ImportContainer was initially created.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -155,7 +191,7 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
     }
 
     /**
-     * <p>The last time when the ImportContainer was modified.</p>
+     * <p>Date and time (UTC) the ImportContainer was last updated.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -176,6 +212,30 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
         }
 
         return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>Date and time (UTC) the ImportContainer is automatically deleted. Only present if a <code>retentionPolicy</code> is set. ImportContainers without <code>expiresAt</code> are permanent until <a href="#delete-importcontainer">manually deleted</a>.</p>
+     *
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt()
+    {
+        if (is_null($this->expiresAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXPIRES_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->expiresAt = $data;
+        }
+
+        return $this->expiresAt;
     }
 
 
@@ -204,6 +264,14 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
     }
 
     /**
+     * @param ?RetentionPolicy $retentionPolicy
+     */
+    public function setRetentionPolicy(?RetentionPolicy $retentionPolicy): void
+    {
+        $this->retentionPolicy = $retentionPolicy;
+    }
+
+    /**
      * @param ?DateTimeImmutable $createdAt
      */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -219,6 +287,14 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     */
+    public function setExpiresAt(?DateTimeImmutable $expiresAt): void
+    {
+        $this->expiresAt = $expiresAt;
+    }
+
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
@@ -230,6 +306,10 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
 
         if (isset($data[ImportContainer::FIELD_LAST_MODIFIED_AT]) && $data[ImportContainer::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[ImportContainer::FIELD_LAST_MODIFIED_AT] = $data[ImportContainer::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[ImportContainer::FIELD_EXPIRES_AT]) && $data[ImportContainer::FIELD_EXPIRES_AT] instanceof \DateTimeImmutable) {
+            $data[ImportContainer::FIELD_EXPIRES_AT] = $data[ImportContainer::FIELD_EXPIRES_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
     }

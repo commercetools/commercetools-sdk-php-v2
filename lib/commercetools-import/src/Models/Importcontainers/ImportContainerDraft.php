@@ -15,10 +15,10 @@ interface ImportContainerDraft extends JsonObject
 {
     public const FIELD_KEY = 'key';
     public const FIELD_RESOURCE_TYPE = 'resourceType';
+    public const FIELD_RETENTION_POLICY = 'retentionPolicy';
 
     /**
-     * <p>User-defined unique identifier of the ImportContainer.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+     * <p>User-defined unique identifier of the ImportContainer.</p>
      *
 
      * @return null|string
@@ -35,6 +35,14 @@ interface ImportContainerDraft extends JsonObject
     public function getResourceType();
 
     /**
+     * <p>Set a retention policy to automatically delete the ImportContainer after a defined period.</p>
+     *
+
+     * @return null|RetentionPolicy
+     */
+    public function getRetentionPolicy();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -43,4 +51,9 @@ interface ImportContainerDraft extends JsonObject
      * @param ?string $resourceType
      */
     public function setResourceType(?string $resourceType): void;
+
+    /**
+     * @param ?RetentionPolicy $retentionPolicy
+     */
+    public function setRetentionPolicy(?RetentionPolicy $retentionPolicy): void;
 }

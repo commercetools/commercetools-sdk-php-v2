@@ -33,8 +33,13 @@ final class ImportContainerDraftBuilder implements Builder
     private $resourceType;
 
     /**
-     * <p>User-defined unique identifier of the ImportContainer.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+
+     * @var null|RetentionPolicy|RetentionPolicyBuilder
+     */
+    private $retentionPolicy;
+
+    /**
+     * <p>User-defined unique identifier of the ImportContainer.</p>
      *
 
      * @return null|string
@@ -54,6 +59,17 @@ final class ImportContainerDraftBuilder implements Builder
     public function getResourceType()
     {
         return $this->resourceType;
+    }
+
+    /**
+     * <p>Set a retention policy to automatically delete the ImportContainer after a defined period.</p>
+     *
+
+     * @return null|RetentionPolicy
+     */
+    public function getRetentionPolicy()
+    {
+        return $this->retentionPolicy instanceof RetentionPolicyBuilder ? $this->retentionPolicy->build() : $this->retentionPolicy;
     }
 
     /**
@@ -78,12 +94,34 @@ final class ImportContainerDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?RetentionPolicy $retentionPolicy
+     * @return $this
+     */
+    public function withRetentionPolicy(?RetentionPolicy $retentionPolicy)
+    {
+        $this->retentionPolicy = $retentionPolicy;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withRetentionPolicy() instead
+     * @return $this
+     */
+    public function withRetentionPolicyBuilder(?RetentionPolicyBuilder $retentionPolicy)
+    {
+        $this->retentionPolicy = $retentionPolicy;
+
+        return $this;
+    }
 
     public function build(): ImportContainerDraft
     {
         return new ImportContainerDraftModel(
             $this->key,
-            $this->resourceType
+            $this->resourceType,
+            $this->retentionPolicy instanceof RetentionPolicyBuilder ? $this->retentionPolicy->build() : $this->retentionPolicy
         );
     }
 
