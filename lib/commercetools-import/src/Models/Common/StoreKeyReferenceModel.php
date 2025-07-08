@@ -45,6 +45,8 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced Store.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

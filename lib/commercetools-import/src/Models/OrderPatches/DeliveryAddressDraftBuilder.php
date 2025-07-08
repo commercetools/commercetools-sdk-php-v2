@@ -35,6 +35,8 @@ final class DeliveryAddressDraftBuilder implements Builder
     private $address;
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class DeliveryAddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Address to which Parcels are delivered.</p>
+     *
 
      * @return null|Address
      */

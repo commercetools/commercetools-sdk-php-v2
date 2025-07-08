@@ -10,7 +10,7 @@ $root = new ImportRequestBuilder();
 
 ## `withProjectKeyValue("projectKey")->categories()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Categories or updating existing ones.
+Creates an Import Request for Categories.
 
 ### Example
 ```php
@@ -26,7 +26,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->customers()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Customers or updating existing ones.
+Creates an Import Request for Customers.
 
 ### Example
 ```php
@@ -42,7 +42,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->discountCodes()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Discount Codes or updating existing ones.
+Creates an Import Request for Discount Codes.
 
 ### Example
 ```php
@@ -58,7 +58,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->post(null)`
 
-Creates a new Import Container.
+Creates an Import Container in the Project.
 
 Generates the [ImportContainerCreated](/projects/events#import-container-created-event) Event.
 
@@ -75,7 +75,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->get()`
 
-Retrieves all Import Containers of a given project key.
+Retrieves all ImportContainers in the Project.
 
 ### Example
 ```php
@@ -89,7 +89,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->put(null)`
 
-Updates the Import Container given by the key.
+Updates an [ImportContainer](ctp:import:type:ImportContainer) in the Project.
 
 ### Example
 ```php
@@ -104,7 +104,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->get()`
 
-Retrieves the Import Container given by the key.
+Retrieves an [ImportContainer](ctp:import:type:ImportContainer) with the provided `importContainerKey`.
 
 ### Example
 ```php
@@ -119,7 +119,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->delete()`
 
-Deletes the Import Container specified by the `importContainerKey`.
+Deletes an Import Container in the Project.
 
 Generates the [ImportContainerDeleted](/projects/events#import-container-deleted-event) Event.
 
@@ -137,7 +137,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->importOperations()->get()`
 
-Retrieves all [ImportOperations](ctp:import:type:ImportOperation) of a given ImportContainer key.
+Retrieves all ImportOperations within an [ImportContainer](ctp:import:type:ImportContainer).
 
 
 ### Example
@@ -154,7 +154,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->importSummaries()->get()`
 
-Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the given Import Container. An [ImportSummary](ctp:import:type:ImportSummary) is calculated on demand.
+Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the [ImportContainer](ctp:import:type:ImportContainer) with the provided `importContainerKey`.
 
 
 ### Example
@@ -171,7 +171,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importOperations()->withIdValue("id")->get()`
 
-Retrieves the [ImportOperation](ctp:import:type:ImportOperation) of a given ID.
+Retrieves an ImportOperation with the provided `id`.
 
 
 ### Example
@@ -187,7 +187,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->inventories()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Inventories or updating existing ones.
+Creates an Import Request for InventoryEntries.
 
 ### Example
 ```php
@@ -203,7 +203,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->orderPatches()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a new import request for order patches
+Creates an Import Request for updating Orders.
 
 ### Example
 ```php
@@ -219,7 +219,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->orders()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Orders.
+Creates an Import Request for creating Orders.
 
 ### Example
 ```php
@@ -235,7 +235,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->prices()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Prices or updating existing ones.
+Creates an Import Request for Prices.
 
 ### Example
 ```php
@@ -251,7 +251,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->productDrafts()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new ProductDrafts or updating existing ones.
+Creates an Import Request for Products.
 
 
 ### Example
@@ -266,9 +266,25 @@ $request = $builder
                 ->withImportContainerKeyValue("importContainerKey")
                 ->post(null);
 ```
+## `withProjectKeyValue("projectKey")->productSelections()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
+
+Creates an Import Request for Product Selections.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->productSelections()
+                ->importContainers()
+                ->withImportContainerKeyValue("importContainerKey")
+                ->post(null);
+```
 ## `withProjectKeyValue("projectKey")->productTypes()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new ProductTypes or updating existing ones.
+Creates an Import Request for ProductTypes.
 
 ### Example
 ```php
@@ -284,7 +300,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->productVariantPatches()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a new import request for Product Variant Patches.
+Creates an Import Request for updating Product Variants.
 Returns an [InvalidField](ctp:import:type:InvalidFieldError) error if the [ProductVariantPatchRequest](ctp:import:type:ProductVariantPatchRequest) contains patches with and without the `product` field set.
 
 
@@ -302,7 +318,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->productVariants()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new ProductVariants or updating existing ones.
+Creates an Import Request for ProductVariants.
 
 ### Example
 ```php
@@ -318,7 +334,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->products()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Products or updating existing ones.
+Creates an Import Request for Products.
 
 ### Example
 ```php
@@ -334,7 +350,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->standalonePrices()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Standalone Prices or updating existing ones.
+Creates an Import Request for Standalone Prices.
 
 ### Example
 ```php
@@ -350,7 +366,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->types()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates a request for creating new Type or updating existing ones.
+Creates an Import Request for Types.
 
 ### Example
 ```php

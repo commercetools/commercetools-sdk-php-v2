@@ -33,6 +33,8 @@ final class CustomObjectKeyReferenceBuilder implements Builder
     private $container;
 
     /**
+     * <p>User-defined unique identifier of the referenced CustomObject.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class CustomObjectKeyReferenceBuilder implements Builder
     }
 
     /**
+     * <p>The <code>container</code> of the referenced CustomObject.</p>
+     *
 
      * @return null|string
      */

@@ -102,7 +102,7 @@ final class CategoryImportBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-defined unique identifier. If a <a href="ctp:api:type:Category">Category</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:Category">Category</a> with this <code>key</code> exists, it is updated with the imported data.</p>
      *
 
      * @return null|string
@@ -124,8 +124,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.slug</code>.
-     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>
+     * <p>Maps to <code>Category.slug</code>. Must match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.</p>
      *
 
      * @return null|LocalizedString
@@ -147,9 +146,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.parent</code>.
-     * The Reference to the parent <a href="ctp:api:type:Category">Category</a> with which the Category is associated.
-     * If referenced Category does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Category is created.</p>
+     * <p>Maps to <code>Category.parent</code>. If the referenced <a href="ctp:api:type:Category">Category</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Category is created.</p>
      *
 
      * @return null|CategoryKeyReference
@@ -226,7 +223,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields for this Category.</p>
+     * <p>Maps to <code>Category.custom</code>.</p>
      *
 
      * @return null|Custom

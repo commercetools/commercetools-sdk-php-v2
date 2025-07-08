@@ -33,6 +33,8 @@ final class DeliveryItemBuilder implements Builder
     private $quantity;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:LineItem">LineItem</a> or <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> delivered.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class DeliveryItemBuilder implements Builder
     }
 
     /**
+     * <p>Number of Line Items or Custom Line Items delivered.</p>
+     *
 
      * @return null|int
      */

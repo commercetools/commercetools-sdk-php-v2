@@ -45,6 +45,8 @@ final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyRe
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced Embedded Price.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyRe
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

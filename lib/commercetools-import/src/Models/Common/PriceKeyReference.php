@@ -13,4 +13,16 @@ use Commercetools\Base\JsonObject;
 
 interface PriceKeyReference extends KeyReference
 {
+    /**
+     * <p>User-defined unique identifier of the referenced Embedded Price.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 }

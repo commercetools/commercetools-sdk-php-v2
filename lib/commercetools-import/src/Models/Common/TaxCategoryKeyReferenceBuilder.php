@@ -27,6 +27,8 @@ final class TaxCategoryKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced TaxCategory.</p>
+     *
 
      * @return null|string
      */

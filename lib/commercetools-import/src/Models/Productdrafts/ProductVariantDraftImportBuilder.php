@@ -60,6 +60,8 @@ final class ProductVariantDraftImportBuilder implements Builder
     private $assets;
 
     /**
+     * <p>User-defined unique SKU of the Product Variant.</p>
+     *
 
      * @return null|string
      */
@@ -69,6 +71,8 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier for the ProductVariant.</p>
+     *
 
      * @return null|string
      */
@@ -78,6 +82,9 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+     * <p>The Embedded Prices for the Product Variant.
+     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
 
      * @return null|PriceDraftImportCollection
      */
@@ -87,6 +94,8 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+     * <p>Attributes according to the respective AttributeDefinition.</p>
+     *
 
      * @return null|AttributeCollection
      */
@@ -96,6 +105,8 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
 
      * @return null|ImageCollection
      */
@@ -105,6 +116,8 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
 
      * @return null|AssetCollection
      */

@@ -16,6 +16,9 @@ interface BooleanSetField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>JSON array of boolean values without duplicates.
+     * The order of items in the array is not fixed.</p>
+     *
 
      * @return null|array
      */

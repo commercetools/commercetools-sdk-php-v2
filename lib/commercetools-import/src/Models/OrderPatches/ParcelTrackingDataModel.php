@@ -46,6 +46,8 @@ final class ParcelTrackingDataModel extends JsonObjectModel implements ParcelTra
     }
 
     /**
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -64,6 +66,8 @@ final class ParcelTrackingDataModel extends JsonObjectModel implements ParcelTra
     }
 
     /**
+     * <p>Information that helps track a Parcel.</p>
+     *
      *
      * @return null|TrackingData
      */

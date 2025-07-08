@@ -25,7 +25,7 @@ interface DiscountedPrice extends JsonObject
     public function getValue();
 
     /**
-     * <p>Reference to a ProductDiscount.</p>
+     * <p>Reference to a ProductDiscount. If the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced ProductDiscount is created.</p>
      *
 
      * @return null|ProductDiscountKeyReference

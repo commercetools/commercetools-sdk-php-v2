@@ -130,7 +130,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>User-defined unique identifier for the Standalone Price. If a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>) with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier for the StandalonePrice. If a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>) with this <code>key</code> exists, it is updated with the imported data.</p>
      *
      *
      * @return null|string
@@ -150,7 +150,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Identifies the ProductVariant to which this Standalone Price is associated. This value is not validated to exist in Product Variants.</p>
+     * <p>Maps to <code>StandalonePrice.sku</code>. This value is not validated to exist in Product Variants.</p>
      *
      *
      * @return null|string
@@ -170,7 +170,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets the money value of this Price.</p>
+     * <p>Maps to <code>StandalonePrice.value</code>.</p>
      *
      *
      * @return null|TypedMoney
@@ -191,8 +191,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets the country for this Price, if the Price does not yet have a country.</p>
-     * <p>The country cannot be updated. Attempting to update the an existing country will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Maps to <code>StandalonePrice.country</code>. This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|string
@@ -212,8 +211,8 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets the CustomerGroup for this Price, if the Price does not yet have a CustomerGroup.</p>
-     * <p>The CustomerGroup cannot be updated. Attempting to update an existing CustomerGroup will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Maps to <code>StandalonePrice.customerGroup</code>. If the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
+     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|CustomerGroupKeyReference
@@ -234,8 +233,8 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets the product distribution Channel for this Price, if the Price does not yet have a Channel.</p>
-     * <p>The Channel cannot be updated. Attempting to update an existing Channel will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Maps to <code>StandalonePrice.channel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
+     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|ChannelKeyReference
@@ -256,7 +255,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets the date from which the Price is valid.</p>
+     * <p>Maps to <code>StandalonePrice.validFrom</code>.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -280,7 +279,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets the date until the Price is valid.</p>
+     * <p>Maps to <code>StandalonePrice.validUntil</code>.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -304,7 +303,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Sets price tiers.</p>
+     * <p>Maps to <code>StandalonePrice.tiers</code>.</p>
      *
      *
      * @return null|PriceTierCollection
@@ -345,7 +344,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Custom Fields for the StandalonePrice.</p>
+     * <p>Maps to <code>StandalonePrice.custom</code>.</p>
      *
      *
      * @return null|Custom

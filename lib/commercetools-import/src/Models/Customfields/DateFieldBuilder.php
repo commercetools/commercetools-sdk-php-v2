@@ -28,6 +28,8 @@ final class DateFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p>A date in the format <code>YYYY-MM-DD</code>.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

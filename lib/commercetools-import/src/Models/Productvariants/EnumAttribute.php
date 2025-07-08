@@ -16,6 +16,9 @@ interface EnumAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>The key of the enum value.
+     * Must match the key of an <a href="ctp:api:type:AttributePlainEnumValue">AttributePlainEnumValue</a> in the Product Type.</p>
+     *
 
      * @return null|string
      */

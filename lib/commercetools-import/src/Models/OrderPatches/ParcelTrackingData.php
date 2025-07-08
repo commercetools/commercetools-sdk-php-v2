@@ -18,12 +18,16 @@ interface ParcelTrackingData extends JsonObject
     public const FIELD_TRACKING_DATA = 'trackingData';
 
     /**
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
     public function getParcelId();
 
     /**
+     * <p>Information that helps track a Parcel.</p>
+     *
 
      * @return null|TrackingData
      */

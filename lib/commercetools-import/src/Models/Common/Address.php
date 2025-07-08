@@ -42,85 +42,113 @@ interface Address extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>Unique identifier of the Address.</p>
+     * <p>It is not recommended to set it manually since the API overwrites this ID when creating an Address for a <a href="ctp:api:type:Customer">Customer</a>.
+     * Use <code>key</code> instead and omit this field from the request to let the API generate the ID for the Address.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>User-defined identifier of the Address that must be unique when multiple addresses are referenced in <a href="ctp:api:type:BusinessUnit">BusinessUnits</a>, <a href="ctp:api:type:Customer">Customers</a>, and <code>itemShippingAddresses</code> (LineItem-specific addresses) of a <a href="ctp:api:type:Cart">Cart</a>, <a href="ctp:api:type:Order">Order</a>, <a href="ctp:api:type:QuoteRequest">QuoteRequest</a>, or <a href="ctp:api:type:Quote">Quote</a>.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Title of the contact, for example 'Dr.'</p>
+     *
 
      * @return null|string
      */
     public function getTitle();
 
     /**
+     * <p>Salutation of the contact, for example 'Mr.' or 'Ms.'</p>
+     *
 
      * @return null|string
      */
     public function getSalutation();
 
     /**
+     * <p>Given name (first name) of the contact.</p>
+     *
 
      * @return null|string
      */
     public function getFirstName();
 
     /**
+     * <p>Family name (last name) of the contact.</p>
+     *
 
      * @return null|string
      */
     public function getLastName();
 
     /**
+     * <p>Name of the street.</p>
+     *
 
      * @return null|string
      */
     public function getStreetName();
 
     /**
+     * <p>Street number.</p>
+     *
 
      * @return null|string
      */
     public function getStreetNumber();
 
     /**
+     * <p>Further information on the street address.</p>
+     *
 
      * @return null|string
      */
     public function getAdditionalStreetInfo();
 
     /**
+     * <p>Postal code.</p>
+     *
 
      * @return null|string
      */
     public function getPostalCode();
 
     /**
+     * <p>Name of the city.</p>
+     *
 
      * @return null|string
      */
     public function getCity();
 
     /**
+     * <p>Name of the region.</p>
+     *
 
      * @return null|string
      */
     public function getRegion();
 
     /**
+     * <p>Name of the state, for example, Colorado.</p>
+     *
 
      * @return null|string
      */
     public function getState();
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Name of the country.</p>
      *
 
      * @return null|string
@@ -128,73 +156,95 @@ interface Address extends JsonObject
     public function getCountry();
 
     /**
+     * <p>Name of the company.</p>
+     *
 
      * @return null|string
      */
     public function getCompany();
 
     /**
+     * <p>Name of the department.</p>
+     *
 
      * @return null|string
      */
     public function getDepartment();
 
     /**
+     * <p>Number or name of the building.</p>
+     *
 
      * @return null|string
      */
     public function getBuilding();
 
     /**
+     * <p>Number or name of the apartment.</p>
+     *
 
      * @return null|string
      */
     public function getApartment();
 
     /**
+     * <p>Post office box number.</p>
+     *
 
      * @return null|string
      */
     public function getPOBox();
 
     /**
+     * <p>Phone number of the contact.</p>
+     *
 
      * @return null|string
      */
     public function getPhone();
 
     /**
+     * <p>Mobile phone number of the contact.</p>
+     *
 
      * @return null|string
      */
     public function getMobile();
 
     /**
+     * <p>Email address of the contact.</p>
+     *
 
      * @return null|string
      */
     public function getEmail();
 
     /**
+     * <p>Fax number of the contact.</p>
+     *
 
      * @return null|string
      */
     public function getFax();
 
     /**
+     * <p>Further information on the Address.</p>
+     *
 
      * @return null|string
      */
     public function getAdditionalAddressInfo();
 
     /**
+     * <p>ID for the contact used in an external system.</p>
+     *
 
      * @return null|string
      */
     public function getExternalId();
 
     /**
-     * <p>Custom Fields defined for the Address. Custom Fields can only be applied to <code>shippingAddress</code>.</p>
+     * <p>Custom Fields defined for the Address.</p>
      *
 
      * @return null|Custom

@@ -66,6 +66,9 @@ final class ReferenceSetFieldModel extends JsonObjectModel implements ReferenceS
     }
 
     /**
+     * <p>JSON array of references, each referencing an existing resource by key.
+     * The order of items in the array is not fixed.</p>
+     *
      *
      * @return null|KeyReferenceCollection
      */

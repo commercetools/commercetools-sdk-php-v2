@@ -45,6 +45,8 @@ final class ChannelKeyReferenceModel extends JsonObjectModel implements ChannelK
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced Channel.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class ChannelKeyReferenceModel extends JsonObjectModel implements ChannelK
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

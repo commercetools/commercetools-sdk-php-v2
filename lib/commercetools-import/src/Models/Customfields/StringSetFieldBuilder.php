@@ -27,6 +27,9 @@ final class StringSetFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p>JSON array of strings.
+     * The order of items in the array is not fixed.</p>
+     *
 
      * @return null|array
      */

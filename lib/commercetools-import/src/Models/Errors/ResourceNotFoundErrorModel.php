@@ -93,6 +93,8 @@ final class ResourceNotFoundErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
+     * <p>The resource that was not found.</p>
+     *
      *
      * @return null|mixed
      */

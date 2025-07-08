@@ -131,7 +131,7 @@ final class LineItemPriceBuilder implements Builder
     }
 
     /**
-     * <p>References a customer group by key.</p>
+     * <p>Maps to <code>Price.customerGroup</code>. References a customer group by key. If the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
      *
 
      * @return null|CustomerGroupKeyReference
@@ -142,7 +142,7 @@ final class LineItemPriceBuilder implements Builder
     }
 
     /**
-     * <p>References a channel by key.</p>
+     * <p>Maps to <code>Price.channel</code>. References a channel by key. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
      *
 
      * @return null|ChannelKeyReference
@@ -164,7 +164,7 @@ final class LineItemPriceBuilder implements Builder
     }
 
     /**
-     * <p>The tiered prices for this price.</p>
+     * <p>Maps to <code>Price.tiers</code>.</p>
      *
 
      * @return null|PriceTierCollection

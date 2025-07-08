@@ -25,8 +25,8 @@ interface ImportContainerUpdateDraft extends JsonObject
     public function getVersion();
 
     /**
-     * <p>The <a href="#importresourcetype">resource type</a> to be imported.
-     * If not given, the ImportContainer is able to import all of the supported <a href="#importresourcetype">ImportResourceTypes</a>.</p>
+     * <p>The <a href="ctp:import:type:ImportResourceType">resource type</a> to be imported.
+     * If not given, the ImportContainer is able to import all of the supported <a href="ctp:import:type:ImportResourceType">ImportResourceTypes</a>.</p>
      *
 
      * @return null|string

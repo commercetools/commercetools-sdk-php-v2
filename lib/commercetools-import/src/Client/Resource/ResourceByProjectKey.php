@@ -153,4 +153,12 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeyDiscountCodes($args, $this->getClient());
     }
+    /**
+     */
+    public function productSelections(): ResourceByProjectKeyProductSelections
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductSelections($args, $this->getClient());
+    }
 }

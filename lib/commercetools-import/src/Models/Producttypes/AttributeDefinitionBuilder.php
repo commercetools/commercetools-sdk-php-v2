@@ -77,6 +77,8 @@ final class AttributeDefinitionBuilder implements Builder
     private $level;
 
     /**
+     * <p>Describes the Type of the Attribute.</p>
+     *
 
      * @return null|AttributeType
      */
@@ -86,6 +88,8 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>User-defined name of the Attribute that is unique within the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
 
      * @return null|string
      */
@@ -95,12 +99,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;de&quot;: &quot;Hundefutter&quot;,
-     *   &quot;en&quot;: &quot;dog food&quot;
-     * }
-     * </code></pre>
+     * <p>Human-readable label for the Attribute.</p>
      *
 
      * @return null|LocalizedString
@@ -111,6 +110,8 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|bool
      */
@@ -120,6 +121,8 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>Specifies how Attributes are validated across all variants of a Product.</p>
+     *
 
      * @return null|string
      */
@@ -129,12 +132,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;de&quot;: &quot;Hundefutter&quot;,
-     *   &quot;en&quot;: &quot;dog food&quot;
-     * }
-     * </code></pre>
+     * <p>Provides additional Attribute information to aid content managers configure Product details.</p>
      *
 
      * @return null|LocalizedString
@@ -145,6 +143,8 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>Provides a visual representation directive for values of this Attribute (only relevant for <a href="ctp:api:type:AttributeTextType">AttributeTextType</a> and <a href="ctp:api:type:AttributeLocalizableTextType">AttributeLocalizableTextType</a>).</p>
+     *
 
      * @return null|string
      */
@@ -154,6 +154,8 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, the Attribute's values are available in the <a href="/../api/projects/product-search">Product Search</a> or the <a href="/../api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.</p>
+     *
 
      * @return null|bool
      */

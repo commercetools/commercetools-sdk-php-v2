@@ -44,6 +44,8 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     }
 
     /**
+     * <p>Name of the SubRate.</p>
+     *
      *
      * @return null|string
      */

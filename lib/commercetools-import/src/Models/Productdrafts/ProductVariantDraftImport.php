@@ -24,36 +24,49 @@ interface ProductVariantDraftImport extends JsonObject
     public const FIELD_ASSETS = 'assets';
 
     /**
+     * <p>User-defined unique SKU of the Product Variant.</p>
+     *
 
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>User-defined unique identifier for the ProductVariant.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>The Embedded Prices for the Product Variant.
+     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
 
      * @return null|PriceDraftImportCollection
      */
     public function getPrices();
 
     /**
+     * <p>Attributes according to the respective AttributeDefinition.</p>
+     *
 
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
 
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
 
      * @return null|AssetCollection
      */

@@ -65,6 +65,8 @@ final class DeliveryParcelModel extends JsonObjectModel implements DeliveryParce
     }
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
      *
      * @return null|string
      */
@@ -83,6 +85,8 @@ final class DeliveryParcelModel extends JsonObjectModel implements DeliveryParce
     }
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
      *
      * @return null|ParcelMeasurements
      */
@@ -102,6 +106,8 @@ final class DeliveryParcelModel extends JsonObjectModel implements DeliveryParce
     }
 
     /**
+     * <p>Shipment tracking information of the Parcel.</p>
+     *
      *
      * @return null|TrackingData
      */
@@ -121,6 +127,8 @@ final class DeliveryParcelModel extends JsonObjectModel implements DeliveryParce
     }
 
     /**
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */

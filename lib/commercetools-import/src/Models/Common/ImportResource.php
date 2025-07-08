@@ -17,6 +17,7 @@ use Commercetools\Import\Models\Inventories\InventoryImport;
 use Commercetools\Import\Models\Prices\PriceImport;
 use Commercetools\Import\Models\Productdrafts\ProductDraftImport;
 use Commercetools\Import\Models\Products\ProductImport;
+use Commercetools\Import\Models\ProductSelections\ProductSelectionImport;
 use Commercetools\Import\Models\Producttypes\ProductTypeImport;
 use Commercetools\Import\Models\Productvariants\ProductVariantImport;
 use Commercetools\Import\Models\StandalonePrices\StandalonePriceImport;

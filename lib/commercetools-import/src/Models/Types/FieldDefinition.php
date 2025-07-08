@@ -53,7 +53,7 @@ interface FieldDefinition extends JsonObject
     public function getRequired();
 
     /**
-     * <p>Provides a visual representation type for this field. It is only relevant for string-based field types like <a href="ctp:import:type:CustomFieldStringType">CustomFieldStringType</a> and <a href="ctp:import:type:CustomFieldLocalizedStringType">CustomFieldLocalizedStringType</a>.</p>
+     * <p>Provides a visual representation type for this field. It is only relevant for string-based field types like <a href="ctp:api:type:CustomFieldStringType">CustomFieldStringType</a> and <a href="ctp:api:type:CustomFieldLocalizedStringType">CustomFieldLocalizedStringType</a>.</p>
      *
 
      * @return null|string

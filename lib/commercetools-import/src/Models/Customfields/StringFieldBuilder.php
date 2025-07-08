@@ -27,6 +27,8 @@ final class StringFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p>A text value.</p>
+     *
 
      * @return null|string
      */

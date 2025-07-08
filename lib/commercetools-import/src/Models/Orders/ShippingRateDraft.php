@@ -19,18 +19,24 @@ interface ShippingRateDraft extends JsonObject
     public const FIELD_TIERS = 'tiers';
 
     /**
+     * <p>Currency amount of the ShippingRate.</p>
+     *
 
      * @return null|Money
      */
     public function getPrice();
 
     /**
+     * <p>Free shipping is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
+     *
 
      * @return null|Money
      */
     public function getFreeAbove();
 
     /**
+     * <p>Price tiers for the ShippingRate.</p>
+     *
 
      * @return null|ShippingRatePriceTierCollection
      */

@@ -16,6 +16,9 @@ interface EnumField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>The key of the enum value.
+     * Must be a <code>key</code> of one of the <a href="ctp:api:type:CustomFieldEnumValue">CustomFieldEnumValues</a> defined in the <a href="ctp:api:type:CustomFieldEnumType">CustomFieldEnumType</a>.</p>
+     *
 
      * @return null|string
      */

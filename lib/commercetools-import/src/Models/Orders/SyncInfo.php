@@ -20,7 +20,7 @@ interface SyncInfo extends JsonObject
     public const FIELD_SYNCED_AT = 'syncedAt';
 
     /**
-     * <p>Maps to <code>SyncInfo.channel</code></p>
+     * <p>Maps to <code>SyncInfo.channel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
      *
 
      * @return null|ChannelKeyReference

@@ -29,7 +29,7 @@ final class AttributeNestedTypeBuilder implements Builder
     private $typeReference;
 
     /**
-     * <p>References a product type by key.</p>
+     * <p>References a ProductType by <code>key</code>.</p>
      *
 
      * @return null|ProductTypeKeyReference

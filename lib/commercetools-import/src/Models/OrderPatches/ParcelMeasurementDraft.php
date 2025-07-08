@@ -18,12 +18,16 @@ interface ParcelMeasurementDraft extends JsonObject
     public const FIELD_MEASUREMENTS = 'measurements';
 
     /**
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
     public function getParcelId();
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */

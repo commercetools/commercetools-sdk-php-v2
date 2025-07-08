@@ -27,6 +27,8 @@ final class CategoryKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced Category.</p>
+     *
 
      * @return null|string
      */

@@ -23,37 +23,47 @@ interface Parcel extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>Unique identifier of the Parcel.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Date and time (UTC) the Parcel was created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();
 
     /**
+     * <p>Shipment tracking information of the Parcel.</p>
+     *
 
      * @return null|TrackingData
      */
     public function getTrackingData();
 
     /**
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
-     * <p>The representation to be sent to the server when creating a resource with Custom Fields.</p>
+     * <p>Custom Fields of the Parcel.</p>
      *
 
      * @return null|Custom

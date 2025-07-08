@@ -27,6 +27,8 @@ final class DiscountCodeKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced DiscountCode.</p>
+     *
 
      * @return null|string
      */

@@ -46,7 +46,7 @@ final class CustomModel extends JsonObjectModel implements Custom
     }
 
     /**
-     * <p>The type that provides the field definitions for this object.</p>
+     * <p>The <a href="ctp:api:type:Type">Type</a> that provides the field definitions for this object. If the referenced Type does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Type is created.</p>
      *
      *
      * @return null|TypeKeyReference

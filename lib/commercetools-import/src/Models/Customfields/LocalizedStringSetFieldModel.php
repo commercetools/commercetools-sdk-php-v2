@@ -66,6 +66,9 @@ final class LocalizedStringSetFieldModel extends JsonObjectModel implements Loca
     }
 
     /**
+     * <p>JSON array of localized strings.
+     * The order of items in the array is not fixed.</p>
+     *
      *
      * @return null|LocalizedStringCollection
      */

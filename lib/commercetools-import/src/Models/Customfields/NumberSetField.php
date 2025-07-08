@@ -16,6 +16,9 @@ interface NumberSetField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>JSON array of integer or floating-point number values.
+     * The order of items in the array is not fixed.</p>
+     *
 
      * @return null|array
      */

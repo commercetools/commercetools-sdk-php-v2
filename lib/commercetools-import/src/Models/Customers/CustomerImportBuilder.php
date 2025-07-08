@@ -173,7 +173,7 @@ final class CustomerImportBuilder implements Builder
     private $authenticationMode;
 
     /**
-     * <p>User-defined unique identifier. If a <a href="ctp:api:type:Customer">Customer</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:Customer">Customer</a> with this <code>key</code> exists, it is updated with the imported data.</p>
      *
 
      * @return null|string
@@ -206,7 +206,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>Required when <code>authenticationMode</code> is set to <code>Password</code>. Maps to <code>Customer.password</code>.</p>
+     * <p>Maps to <code>Customer.password</code>. Required when <code>authenticationMode</code> is set to <code>Password</code>.</p>
      *
 
      * @return null|string
@@ -217,7 +217,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>The References to the Stores with which the Customer is associated. If referenced Stores do not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Stores are created.</p>
+     * <p>Maps to <code>Customer.stores</code>. If the referenced <a href="ctp:api:type:Store">Stores</a> do not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Stores are created.</p>
      *
 
      * @return null|StoreKeyReferenceCollection
@@ -338,8 +338,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>The Reference to the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> with which the Customer is associated.
-     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
+     * <p>Maps to <code>Customer.customerGroup</code>. If the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
      *
 
      * @return null|CustomerGroupKeyReference
@@ -361,7 +360,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>The index of the address in the addresses array. The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
+     * <p>Index of the address in the <code>addresses</code> array to use as the default billing address. The <code>defaultBillingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
      *
 
      * @return null|int
@@ -372,7 +371,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>The indices of the billing addresses in the addresses array. The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
+     * <p>Indices of the billing addresses in the <code>addresses</code> array. The <code>billingAddressIds</code> of the Customer will be set to the <code>id</code> of these addresses.</p>
      *
 
      * @return null|array
@@ -383,7 +382,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>The index of the address in the addresses array. The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
+     * <p>The index of the address in the <code>addresses</code> array. The <code>defaultShippingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
      *
 
      * @return null|int
@@ -394,7 +393,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>The indices of the shipping addresses in the addresses array. The <code>shippingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
+     * <p>Indices of the shipping addresses in the <code>addresses</code> array. The <code>shippingAddressIds</code> of the Customer will be set to the <code>id</code> of these addresses.</p>
      *
 
      * @return null|array
@@ -416,7 +415,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>The Custom Fields for this Customer.</p>
+     * <p>Maps to <code>Customer.custom</code>.</p>
      *
 
      * @return null|Custom

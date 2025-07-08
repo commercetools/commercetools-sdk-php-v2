@@ -27,6 +27,8 @@ final class PriceKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced Embedded Price.</p>
+     *
 
      * @return null|string
      */

@@ -65,6 +65,11 @@ final class DateTimeSetFieldModel extends JsonObjectModel implements DateTimeSet
     }
 
     /**
+     * <p>JSON array of date time values in the format <code>YYYY-MM-DDTHH:mm:ss.SSSZ</code> without duplicates.
+     * The time zone is optional and defaults to UTC if not specified.
+     * If the time zone is specified, it must be in the format <code>±HH:mm</code> or <code>Z</code> for UTC.
+     * The order of items in the array is not fixed.</p>
+     *
      *
      * @return null|DateTimeImmutableCollection
      */

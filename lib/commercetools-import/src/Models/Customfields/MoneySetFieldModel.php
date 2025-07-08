@@ -12,7 +12,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\MoneyCollection;
+use Commercetools\Import\Models\Common\TypedMoneyCollection;
 use stdClass;
 
 /**
@@ -29,7 +29,7 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
 
     /**
      *
-     * @var ?MoneyCollection
+     * @var ?TypedMoneyCollection
      */
     protected $value;
 
@@ -38,7 +38,7 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?MoneyCollection $value = null,
+        ?TypedMoneyCollection $value = null,
         ?string $type = null
     ) {
         $this->value = $value;
@@ -66,8 +66,11 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
     }
 
     /**
+     * <p>JSON array of money values in cent precision format.
+     * The order of items in the array is not fixed.</p>
      *
-     * @return null|MoneyCollection
+     *
+     * @return null|TypedMoneyCollection
      */
     public function getValue()
     {
@@ -77,7 +80,7 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
             if (is_null($data)) {
                 return null;
             }
-            $this->value = MoneyCollection::fromArray($data);
+            $this->value = TypedMoneyCollection::fromArray($data);
         }
 
         return $this->value;
@@ -85,9 +88,9 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
 
 
     /**
-     * @param ?MoneyCollection $value
+     * @param ?TypedMoneyCollection $value
      */
-    public function setValue(?MoneyCollection $value): void
+    public function setValue(?TypedMoneyCollection $value): void
     {
         $this->value = $value;
     }

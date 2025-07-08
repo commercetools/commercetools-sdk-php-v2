@@ -44,6 +44,8 @@ final class ResourceUpdateErrorBuilder implements Builder
     }
 
     /**
+     * <p>The resource that was updated.</p>
+     *
 
      * @return null|mixed
      */

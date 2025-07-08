@@ -55,6 +55,8 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
     }
 
     /**
+     * <p>Line Items or Custom Line Items to deliver. It can also be specified individually for each <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */
@@ -73,6 +75,8 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
     }
 
     /**
+     * <p>Address to which the Parcels are delivered.</p>
+     *
      *
      * @return null|Address
      */
@@ -92,6 +96,8 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
     }
 
     /**
+     * <p>Information regarding the appearance, content, and shipment of a parcel.</p>
+     *
      *
      * @return null|DeliveryParcelDraftCollection
      */

@@ -27,6 +27,8 @@ final class ProductVariantKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced ProductVariant.</p>
+     *
 
      * @return null|string
      */

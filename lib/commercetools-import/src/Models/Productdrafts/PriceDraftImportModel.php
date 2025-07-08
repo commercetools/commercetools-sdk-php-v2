@@ -120,6 +120,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
+     * <p>Money value of this Price.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -139,7 +141,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Set this field if this Price is only valid for the specified country.</p>
      *
      *
      * @return null|string
@@ -159,7 +161,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-     * <p>References a customer group by key.</p>
+     * <p>Set this field if this Price is only valid for the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>. If the referenced CustomerGroup does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
      *
      *
      * @return null|CustomerGroupKeyReference
@@ -180,7 +182,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-     * <p>References a channel by key.</p>
+     * <p>Set this field if this Price is only valid for the referenced <code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a>. If the referenced Channel does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
      *
      *
      * @return null|ChannelKeyReference
@@ -201,6 +203,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
+     * <p>Set this field if this Price is only valid from the specified date and time. Must be at least 1 ms earlier than <code>validUntil</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -223,6 +227,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
+     * <p>Set this field if this Price is only valid until the specified date and time. Must be at least 1 ms later than <code>validFrom</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -245,7 +251,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-     * <p>The custom fields for this category.</p>
+     * <p>Custom Fields for the Embedded Price.</p>
      *
      *
      * @return null|Custom
@@ -266,7 +272,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-     * <p>Sets a discounted price from an external service.</p>
+     * <p>Set this field to add a DiscountedPrice from an <strong>external service</strong>.</p>
      *
      *
      * @return null|DiscountedPrice

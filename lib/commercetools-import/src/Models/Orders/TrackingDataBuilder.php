@@ -51,6 +51,8 @@ final class TrackingDataBuilder implements Builder
     private $isReturn;
 
     /**
+     * <p>Identifier to track the Parcel.</p>
+     *
 
      * @return null|string
      */
@@ -60,6 +62,8 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+     * <p>Name of the carrier that delivers the Parcel.</p>
+     *
 
      * @return null|string
      */
@@ -69,6 +73,8 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+     * <p>Name of the provider that serves as facade to several carriers.</p>
+     *
 
      * @return null|string
      */
@@ -78,6 +84,8 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+     * <p>Transaction identifier with the <code>provider</code>.</p>
+     *
 
      * @return null|string
      */
@@ -87,6 +95,11 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+     * <ul>
+     * <li>If <code>true</code>, the Parcel is being returned.</li>
+     * <li>If <code>false</code>, the Parcel is being delivered to the customer.</li>
+     * </ul>
+     *
 
      * @return null|bool
      */

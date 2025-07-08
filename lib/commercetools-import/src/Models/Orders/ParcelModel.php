@@ -79,6 +79,8 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+     * <p>Unique identifier of the Parcel.</p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +99,8 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+     * <p>Date and time (UTC) the Parcel was created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -119,6 +123,8 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
      *
      * @return null|ParcelMeasurements
      */
@@ -138,6 +144,8 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+     * <p>Shipment tracking information of the Parcel.</p>
+     *
      *
      * @return null|TrackingData
      */
@@ -157,6 +165,8 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */
@@ -175,7 +185,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
-     * <p>The representation to be sent to the server when creating a resource with Custom Fields.</p>
+     * <p>Custom Fields of the Parcel.</p>
      *
      *
      * @return null|Custom

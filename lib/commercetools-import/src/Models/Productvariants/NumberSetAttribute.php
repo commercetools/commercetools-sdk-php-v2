@@ -16,6 +16,9 @@ interface NumberSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A set of number values.
+     * Each value can be an integer or a floating-point number.</p>
+     *
 
      * @return null|array
      */

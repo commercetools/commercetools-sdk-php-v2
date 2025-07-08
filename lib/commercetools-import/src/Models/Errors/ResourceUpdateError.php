@@ -16,6 +16,8 @@ interface ResourceUpdateError extends ErrorObject
     public const FIELD_RESOURCE = 'resource';
 
     /**
+     * <p>The resource that was updated.</p>
+     *
 
      * @return null|mixed
      */

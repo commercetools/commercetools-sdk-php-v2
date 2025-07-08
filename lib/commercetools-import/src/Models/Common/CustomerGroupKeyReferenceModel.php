@@ -45,6 +45,8 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced CustomerGroup.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

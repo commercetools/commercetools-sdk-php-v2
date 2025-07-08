@@ -16,6 +16,8 @@ interface ResourceNotFoundError extends ErrorObject
     public const FIELD_RESOURCE = 'resource';
 
     /**
+     * <p>The resource that was not found.</p>
+     *
 
      * @return null|mixed
      */

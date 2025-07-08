@@ -65,6 +65,9 @@ final class StringSetFieldModel extends JsonObjectModel implements StringSetFiel
     }
 
     /**
+     * <p>JSON array of strings.
+     * The order of items in the array is not fixed.</p>
+     *
      *
      * @return null|array
      */

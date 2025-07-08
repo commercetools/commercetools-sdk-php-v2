@@ -54,6 +54,8 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
+     * <p>Name of the tax portion.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +74,8 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
+     * <p>A number in the range 0-1.</p>
+     *
      *
      * @return null|float
      */
@@ -90,6 +94,8 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
+     * <p>Money value of the tax portion.</p>
+     *
      *
      * @return null|TypedMoney
      */

@@ -22,24 +22,32 @@ interface DeliveryParcel extends JsonObject
     public const FIELD_ITEMS = 'items';
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();
 
     /**
+     * <p>Shipment tracking information of the Parcel.</p>
+     *
 
      * @return null|TrackingData
      */
     public function getTrackingData();
 
     /**
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */

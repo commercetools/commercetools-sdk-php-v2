@@ -27,6 +27,8 @@ final class TypeKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced Type.</p>
+     *
 
      * @return null|string
      */

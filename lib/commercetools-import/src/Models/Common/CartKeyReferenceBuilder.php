@@ -27,6 +27,8 @@ final class CartKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced Cart.</p>
+     *
 
      * @return null|string
      */

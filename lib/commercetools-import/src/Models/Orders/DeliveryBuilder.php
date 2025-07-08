@@ -54,6 +54,8 @@ final class DeliveryBuilder implements Builder
     private $address;
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
 
      * @return null|string
      */
@@ -63,6 +65,8 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Delivery was created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -72,6 +76,8 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * <p>Line Items or Custom Line Items that are delivered.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
@@ -81,6 +87,8 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * <p>Information regarding the appearance, content, and shipment of a Parcel.</p>
+     *
 
      * @return null|ParcelCollection
      */
@@ -90,6 +98,8 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * <p>Address to which Parcels are delivered.</p>
+     *
 
      * @return null|Address
      */
