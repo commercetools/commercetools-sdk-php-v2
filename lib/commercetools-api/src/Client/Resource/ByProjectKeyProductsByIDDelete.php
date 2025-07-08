@@ -198,6 +198,15 @@ class ByProjectKeyProductsByIDDelete extends ApiRequest implements PriceSelectin
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceRecurrencePolicy
+     */
+    public function withPriceRecurrencePolicy($priceRecurrencePolicy): ByProjectKeyProductsByIDDelete
+    {
+        return $this->withQueryParam('priceRecurrencePolicy', $priceRecurrencePolicy);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $version
      */
     public function withVersion($version): ByProjectKeyProductsByIDDelete

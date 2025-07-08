@@ -20,6 +20,8 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoDraft;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoDraftBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -118,6 +120,12 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+
+     * @var null|LineItemRecurrenceInfoDraft|LineItemRecurrenceInfoDraftBuilder
+     */
+    private $recurrenceInfo;
 
     /**
      * <p>User-defined unique identifier of the LineItem.</p>
@@ -284,6 +292,17 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|LineItemRecurrenceInfoDraft
+     */
+    public function getRecurrenceInfo()
+    {
+        return $this->recurrenceInfo instanceof LineItemRecurrenceInfoDraftBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo;
+    }
+
+    /**
      * @param ?string $key
      * @return $this
      */
@@ -438,6 +457,17 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?LineItemRecurrenceInfoDraft $recurrenceInfo
+     * @return $this
+     */
+    public function withRecurrenceInfo(?LineItemRecurrenceInfoDraft $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withDistributionChannel() instead
      * @return $this
      */
@@ -514,6 +544,17 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withRecurrenceInfo() instead
+     * @return $this
+     */
+    public function withRecurrenceInfoBuilder(?LineItemRecurrenceInfoDraftBuilder $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
+
+        return $this;
+    }
+
     public function build(): StagedOrderAddLineItemAction
     {
         return new StagedOrderAddLineItemActionModel(
@@ -530,7 +571,8 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->inventoryMode,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->recurrenceInfo instanceof LineItemRecurrenceInfoDraftBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo
         );
     }
 

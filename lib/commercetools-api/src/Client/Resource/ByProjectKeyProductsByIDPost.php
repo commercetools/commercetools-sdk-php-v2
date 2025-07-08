@@ -197,6 +197,15 @@ class ByProjectKeyProductsByIDPost extends ApiRequest implements PriceSelecting,
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceRecurrencePolicy
+     */
+    public function withPriceRecurrencePolicy($priceRecurrencePolicy): ByProjectKeyProductsByIDPost
+    {
+        return $this->withQueryParam('priceRecurrencePolicy', $priceRecurrencePolicy);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductsByIDPost

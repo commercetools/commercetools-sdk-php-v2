@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifier;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -86,6 +88,12 @@ final class PriceDraftBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+
+     * @var null|RecurrencePolicyResourceIdentifier|RecurrencePolicyResourceIdentifierBuilder
+     */
+    private $recurrencePolicy;
 
     /**
      * <p>User-defined identifier for the Price. It must be unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
@@ -207,6 +215,17 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">RecurrencePolicy</a> for which this Price is valid.</p>
+     *
+
+     * @return null|RecurrencePolicyResourceIdentifier
+     */
+    public function getRecurrencePolicy()
+    {
+        return $this->recurrencePolicy instanceof RecurrencePolicyResourceIdentifierBuilder ? $this->recurrencePolicy->build() : $this->recurrencePolicy;
+    }
+
+    /**
      * @param ?string $key
      * @return $this
      */
@@ -317,6 +336,17 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?RecurrencePolicyResourceIdentifier $recurrencePolicy
+     * @return $this
+     */
+    public function withRecurrencePolicy(?RecurrencePolicyResourceIdentifier $recurrencePolicy)
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withValue() instead
      * @return $this
      */
@@ -371,6 +401,17 @@ final class PriceDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withRecurrencePolicy() instead
+     * @return $this
+     */
+    public function withRecurrencePolicyBuilder(?RecurrencePolicyResourceIdentifierBuilder $recurrencePolicy)
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
+
+        return $this;
+    }
+
     public function build(): PriceDraft
     {
         return new PriceDraftModel(
@@ -383,7 +424,8 @@ final class PriceDraftBuilder implements Builder
             $this->validUntil,
             $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted,
             $this->tiers,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->recurrencePolicy instanceof RecurrencePolicyResourceIdentifierBuilder ? $this->recurrencePolicy->build() : $this->recurrencePolicy
         );
     }
 

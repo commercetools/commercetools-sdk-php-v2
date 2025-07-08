@@ -23,6 +23,8 @@ use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReference;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -151,6 +153,12 @@ final class StandalonePriceBuilder implements Builder
      * @var ?bool
      */
     private $active;
+
+    /**
+
+     * @var null|RecurrencePolicyReference|RecurrencePolicyReferenceBuilder
+     */
+    private $recurrencePolicy;
 
     /**
      * <p>Unique identifier of the StandalonePrice.</p>
@@ -365,6 +373,17 @@ final class StandalonePriceBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">RecurrencePolicy</a> for which this Price is valid.</p>
+     *
+
+     * @return null|RecurrencePolicyReference
+     */
+    public function getRecurrencePolicy()
+    {
+        return $this->recurrencePolicy instanceof RecurrencePolicyReferenceBuilder ? $this->recurrencePolicy->build() : $this->recurrencePolicy;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -574,6 +593,17 @@ final class StandalonePriceBuilder implements Builder
     }
 
     /**
+     * @param ?RecurrencePolicyReference $recurrencePolicy
+     * @return $this
+     */
+    public function withRecurrencePolicy(?RecurrencePolicyReference $recurrencePolicy)
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -661,6 +691,17 @@ final class StandalonePriceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withRecurrencePolicy() instead
+     * @return $this
+     */
+    public function withRecurrencePolicyBuilder(?RecurrencePolicyReferenceBuilder $recurrencePolicy)
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
+
+        return $this;
+    }
+
     public function build(): StandalonePrice
     {
         return new StandalonePriceModel(
@@ -682,7 +723,8 @@ final class StandalonePriceBuilder implements Builder
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->staged instanceof StagedStandalonePriceBuilder ? $this->staged->build() : $this->staged,
-            $this->active
+            $this->active,
+            $this->recurrencePolicy instanceof RecurrencePolicyReferenceBuilder ? $this->recurrencePolicy->build() : $this->recurrencePolicy
         );
     }
 

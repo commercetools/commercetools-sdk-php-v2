@@ -50,6 +50,10 @@ use Commercetools\Api\Models\Quote\QuoteResourceIdentifier;
 use Commercetools\Api\Models\Quote\QuoteResourceIdentifierModel;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestResourceIdentifier;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestResourceIdentifierModel;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifier;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifierModel;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderResourceIdentifier;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderResourceIdentifierModel;
 use Commercetools\Api\Models\Review\ReviewResourceIdentifier;
 use Commercetools\Api\Models\Review\ReviewResourceIdentifierModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
@@ -126,6 +130,8 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'product-type' => ProductTypeResourceIdentifierModel::class,
        'quote' => QuoteResourceIdentifierModel::class,
        'quote-request' => QuoteRequestResourceIdentifierModel::class,
+       'recurrence-policy' => RecurrencePolicyResourceIdentifierModel::class,
+       'recurring-order' => RecurringOrderResourceIdentifierModel::class,
        'review' => ReviewResourceIdentifierModel::class,
        'shipping-method' => ShippingMethodResourceIdentifierModel::class,
        'shopping-list' => ShoppingListResourceIdentifierModel::class,

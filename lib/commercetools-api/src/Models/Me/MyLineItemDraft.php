@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -26,6 +27,7 @@ interface MyLineItemDraft extends JsonObject
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_RECURRENCE_INFO = 'recurrenceInfo';
     public const FIELD_CUSTOM = 'custom';
 
     /**
@@ -108,6 +110,14 @@ interface MyLineItemDraft extends JsonObject
     public function getShippingDetails();
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|LineItemRecurrenceInfoDraft
+     */
+    public function getRecurrenceInfo();
+
+    /**
      * <p>Custom Fields for the Cart.</p>
      *
 
@@ -159,6 +169,11 @@ interface MyLineItemDraft extends JsonObject
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?LineItemRecurrenceInfoDraft $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?LineItemRecurrenceInfoDraft $recurrenceInfo): void;
 
     /**
      * @param ?CustomFieldsDraft $custom

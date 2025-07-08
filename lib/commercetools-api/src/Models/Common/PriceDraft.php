@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -27,6 +28,7 @@ interface PriceDraft extends JsonObject
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_TIERS = 'tiers';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_RECURRENCE_POLICY = 'recurrencePolicy';
 
     /**
      * <p>User-defined identifier for the Price. It must be unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
@@ -118,6 +120,14 @@ interface PriceDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">RecurrencePolicy</a> for which this Price is valid.</p>
+     *
+
+     * @return null|RecurrencePolicyResourceIdentifier
+     */
+    public function getRecurrencePolicy();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -166,4 +176,9 @@ interface PriceDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?RecurrencePolicyResourceIdentifier $recurrencePolicy
+     */
+    public function setRecurrencePolicy(?RecurrencePolicyResourceIdentifier $recurrencePolicy): void;
 }

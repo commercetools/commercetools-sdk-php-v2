@@ -14,6 +14,7 @@ use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -35,6 +36,7 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_RECURRENCE_INFO = 'recurrenceInfo';
 
     /**
      * <p>User-defined unique identifier of the LineItem.</p>
@@ -159,6 +161,14 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public function getCustom();
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|LineItemRecurrenceInfoDraft
+     */
+    public function getRecurrenceInfo();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -227,4 +237,9 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?LineItemRecurrenceInfoDraft $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?LineItemRecurrenceInfoDraft $recurrenceInfo): void;
 }

@@ -42,6 +42,8 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductTailoring;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductTypes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyQuoteRequests;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyQuotes;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyRecurrencePolicies;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyRecurringOrders;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyReviews;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethods;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShoppingLists;
@@ -457,6 +459,26 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyStagedQuotes::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/staged-quotes'
+            ],
+            'ResourceByProjectKeyRecurringOrders' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyRecurringOrders {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->recurringOrders();
+                },
+                ResourceByProjectKeyRecurringOrders::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/recurring-orders'
+            ],
+            'ResourceByProjectKeyRecurrencePolicies' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyRecurrencePolicies {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->recurrencePolicies();
+                },
+                ResourceByProjectKeyRecurrencePolicies::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/recurrence-policies'
             ],
             'ResourceByProjectKeyReviews' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyReviews {

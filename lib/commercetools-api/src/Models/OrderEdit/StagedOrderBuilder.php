@@ -47,6 +47,8 @@ use Commercetools\Api\Models\Order\ReturnInfoCollection;
 use Commercetools\Api\Models\Order\SyncInfoCollection;
 use Commercetools\Api\Models\Quote\QuoteReference;
 use Commercetools\Api\Models\Quote\QuoteReferenceBuilder;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderReference;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderReferenceBuilder;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Store\StoreKeyReference;
@@ -311,6 +313,12 @@ final class StagedOrderBuilder implements Builder
      * @var null|QuoteReference|QuoteReferenceBuilder
      */
     private $quote;
+
+    /**
+
+     * @var null|RecurringOrderReference|RecurringOrderReferenceBuilder
+     */
+    private $recurringOrder;
 
     /**
 
@@ -856,6 +864,17 @@ final class StagedOrderBuilder implements Builder
     public function getQuote()
     {
         return $this->quote instanceof QuoteReferenceBuilder ? $this->quote->build() : $this->quote;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the RecurringOrder that generated this Order.</p>
+     *
+
+     * @return null|RecurringOrderReference
+     */
+    public function getRecurringOrder()
+    {
+        return $this->recurringOrder instanceof RecurringOrderReferenceBuilder ? $this->recurringOrder->build() : $this->recurringOrder;
     }
 
     /**
@@ -1445,6 +1464,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @param ?RecurringOrderReference $recurringOrder
+     * @return $this
+     */
+    public function withRecurringOrder(?RecurringOrderReference $recurringOrder)
+    {
+        $this->recurringOrder = $recurringOrder;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $orderState
      * @return $this
      */
@@ -1742,6 +1772,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withRecurringOrder() instead
+     * @return $this
+     */
+    public function withRecurringOrderBuilder(?RecurringOrderReferenceBuilder $recurringOrder)
+    {
+        $this->recurringOrder = $recurringOrder;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withState() instead
      * @return $this
      */
@@ -1840,6 +1881,7 @@ final class StagedOrderBuilder implements Builder
             $this->origin,
             $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart,
             $this->quote instanceof QuoteReferenceBuilder ? $this->quote->build() : $this->quote,
+            $this->recurringOrder instanceof RecurringOrderReferenceBuilder ? $this->recurringOrder->build() : $this->recurringOrder,
             $this->orderState,
             $this->shipmentState,
             $this->paymentState,

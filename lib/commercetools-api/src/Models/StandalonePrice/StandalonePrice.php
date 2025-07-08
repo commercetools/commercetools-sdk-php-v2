@@ -16,6 +16,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\PriceTierCollection;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -38,6 +39,7 @@ interface StandalonePrice extends BaseResource
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STAGED = 'staged';
     public const FIELD_ACTIVE = 'active';
+    public const FIELD_RECURRENCE_POLICY = 'recurrencePolicy';
 
     /**
      * <p>Unique identifier of the StandalonePrice.</p>
@@ -195,6 +197,14 @@ interface StandalonePrice extends BaseResource
     public function getActive();
 
     /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">RecurrencePolicy</a> for which this Price is valid.</p>
+     *
+
+     * @return null|RecurrencePolicyReference
+     */
+    public function getRecurrencePolicy();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -288,4 +298,9 @@ interface StandalonePrice extends BaseResource
      * @param ?bool $active
      */
     public function setActive(?bool $active): void;
+
+    /**
+     * @param ?RecurrencePolicyReference $recurrencePolicy
+     */
+    public function setRecurrencePolicy(?RecurrencePolicyReference $recurrencePolicy): void;
 }

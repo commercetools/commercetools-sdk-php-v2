@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfoDraft;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfoDraftBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
@@ -87,6 +89,12 @@ final class CartAddCustomLineItemActionBuilder implements Builder
      * @var ?string
      */
     private $priceMode;
+
+    /**
+
+     * @var null|CustomLineItemRecurrenceInfoDraft|CustomLineItemRecurrenceInfoDraftBuilder
+     */
+    private $recurrenceInfo;
 
     /**
      * <p>Money value of the Custom Line Item.
@@ -205,6 +213,17 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|CustomLineItemRecurrenceInfoDraft
+     */
+    public function getRecurrenceInfo()
+    {
+        return $this->recurrenceInfo instanceof CustomLineItemRecurrenceInfoDraftBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo;
+    }
+
+    /**
      * @param ?Money $money
      * @return $this
      */
@@ -315,6 +334,17 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomLineItemRecurrenceInfoDraft $recurrenceInfo
+     * @return $this
+     */
+    public function withRecurrenceInfo(?CustomLineItemRecurrenceInfoDraft $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMoney() instead
      * @return $this
      */
@@ -380,6 +410,17 @@ final class CartAddCustomLineItemActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withRecurrenceInfo() instead
+     * @return $this
+     */
+    public function withRecurrenceInfoBuilder(?CustomLineItemRecurrenceInfoDraftBuilder $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
+
+        return $this;
+    }
+
     public function build(): CartAddCustomLineItemAction
     {
         return new CartAddCustomLineItemActionModel(
@@ -392,7 +433,8 @@ final class CartAddCustomLineItemActionBuilder implements Builder
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->priceMode
+            $this->priceMode,
+            $this->recurrenceInfo instanceof CustomLineItemRecurrenceInfoDraftBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo
         );
     }
 

@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\DiscountedPriceDraft;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\PriceTierDraftCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -31,6 +32,7 @@ interface StandalonePriceDraft extends JsonObject
     public const FIELD_TIERS = 'tiers';
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_RECURRENCE_POLICY = 'recurrencePolicy';
     public const FIELD_STAGED = 'staged';
     public const FIELD_ACTIVE = 'active';
 
@@ -126,6 +128,14 @@ interface StandalonePriceDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">RecurrencePolicy</a> for which this Price is valid.</p>
+     *
+
+     * @return null|RecurrencePolicyResourceIdentifier
+     */
+    public function getRecurrencePolicy();
+
+    /**
      * <p>Staged changes for the StandalonePrice.</p>
      *
 
@@ -195,6 +205,11 @@ interface StandalonePriceDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?RecurrencePolicyResourceIdentifier $recurrencePolicy
+     */
+    public function setRecurrencePolicy(?RecurrencePolicyResourceIdentifier $recurrencePolicy): void;
 
     /**
      * @param ?StagedPriceDraft $staged

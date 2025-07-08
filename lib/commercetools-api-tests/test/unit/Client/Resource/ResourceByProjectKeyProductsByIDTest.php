@@ -164,6 +164,18 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                 'get',
                 'test_projectKey/products/test_ID?priceChannel=priceChannel',
             ],
+            'ByProjectKeyProductsByIDGet_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->withId('test_ID')
+                        ->get()
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'get',
+                'test_projectKey/products/test_ID?priceRecurrencePolicy=priceRecurrencePolicy',
+            ],
             'ByProjectKeyProductsByIDGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -258,6 +270,18 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                 'post',
                 'test_projectKey/products/test_ID?priceChannel=priceChannel',
             ],
+            'ByProjectKeyProductsByIDPost_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->withId('test_ID')
+                        ->post(null)
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'post',
+                'test_projectKey/products/test_ID?priceRecurrencePolicy=priceRecurrencePolicy',
+            ],
             'ByProjectKeyProductsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -340,6 +364,18 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                 },
                 'delete',
                 'test_projectKey/products/test_ID?priceChannel=priceChannel',
+            ],
+            'ByProjectKeyProductsByIDDelete_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->withId('test_ID')
+                        ->delete()
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'delete',
+                'test_projectKey/products/test_ID?priceRecurrencePolicy=priceRecurrencePolicy',
             ],
             'ByProjectKeyProductsByIDDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -98,6 +98,12 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
      */
     protected $scopedPriceDiscounted;
 
+    /**
+     *
+     * @var ?PriceCollection
+     */
+    protected $recurrencePrices;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -114,7 +120,8 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
         ?ProductVariantAvailability $availability = null,
         ?bool $isMatchingVariant = null,
         ?ScopedPrice $scopedPrice = null,
-        ?bool $scopedPriceDiscounted = null
+        ?bool $scopedPriceDiscounted = null,
+        ?PriceCollection $recurrencePrices = null
     ) {
         $this->id = $id;
         $this->sku = $sku;
@@ -128,6 +135,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
         $this->isMatchingVariant = $isMatchingVariant;
         $this->scopedPrice = $scopedPrice;
         $this->scopedPriceDiscounted = $scopedPriceDiscounted;
+        $this->recurrencePrices = $recurrencePrices;
     }
 
     /**
@@ -382,6 +390,27 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
         return $this->scopedPriceDiscounted;
     }
 
+    /**
+     * <p>Only available when <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> is used.
+     * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+     *
+     *
+     * @return null|PriceCollection
+     */
+    public function getRecurrencePrices()
+    {
+        if (is_null($this->recurrencePrices)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_PRICES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->recurrencePrices = PriceCollection::fromArray($data);
+        }
+
+        return $this->recurrencePrices;
+    }
+
 
     /**
      * @param ?int $id
@@ -477,5 +506,13 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     public function setScopedPriceDiscounted(?bool $scopedPriceDiscounted): void
     {
         $this->scopedPriceDiscounted = $scopedPriceDiscounted;
+    }
+
+    /**
+     * @param ?PriceCollection $recurrencePrices
+     */
+    public function setRecurrencePrices(?PriceCollection $recurrencePrices): void
+    {
+        $this->recurrencePrices = $recurrencePrices;
     }
 }

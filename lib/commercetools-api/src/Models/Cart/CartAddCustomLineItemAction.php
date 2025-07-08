@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfoDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -27,6 +28,7 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_PRICE_MODE = 'priceMode';
+    public const FIELD_RECURRENCE_INFO = 'recurrenceInfo';
 
     /**
      * <p>Money value of the Custom Line Item.
@@ -115,6 +117,14 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
     public function getPriceMode();
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|CustomLineItemRecurrenceInfoDraft
+     */
+    public function getRecurrenceInfo();
+
+    /**
      * @param ?Money $money
      */
     public function setMoney(?Money $money): void;
@@ -163,4 +173,9 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
      * @param ?string $priceMode
      */
     public function setPriceMode(?string $priceMode): void;
+
+    /**
+     * @param ?CustomLineItemRecurrenceInfoDraft $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?CustomLineItemRecurrenceInfoDraft $recurrenceInfo): void;
 }

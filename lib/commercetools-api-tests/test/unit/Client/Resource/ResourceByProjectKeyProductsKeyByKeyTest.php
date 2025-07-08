@@ -163,6 +163,18 @@ class ResourceByProjectKeyProductsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/products/key=test_key?priceChannel=priceChannel',
             ],
+            'ByProjectKeyProductsKeyByKeyGet_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'get',
+                'test_projectKey/products/key=test_key?priceRecurrencePolicy=priceRecurrencePolicy',
+            ],
             'ByProjectKeyProductsKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -257,6 +269,18 @@ class ResourceByProjectKeyProductsKeyByKeyTest extends TestCase
                 'post',
                 'test_projectKey/products/key=test_key?priceChannel=priceChannel',
             ],
+            'ByProjectKeyProductsKeyByKeyPost_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->withKey('test_key')
+                        ->post(null)
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'post',
+                'test_projectKey/products/key=test_key?priceRecurrencePolicy=priceRecurrencePolicy',
+            ],
             'ByProjectKeyProductsKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -339,6 +363,18 @@ class ResourceByProjectKeyProductsKeyByKeyTest extends TestCase
                 },
                 'delete',
                 'test_projectKey/products/key=test_key?priceChannel=priceChannel',
+            ],
+            'ByProjectKeyProductsKeyByKeyDelete_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'delete',
+                'test_projectKey/products/key=test_key?priceRecurrencePolicy=priceRecurrencePolicy',
             ],
             'ByProjectKeyProductsKeyByKeyDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

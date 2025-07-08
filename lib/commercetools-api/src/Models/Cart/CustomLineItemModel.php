@@ -15,6 +15,8 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\ItemStateCollection;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfo;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfoModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
@@ -134,6 +136,12 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      */
     protected $priceMode;
 
+    /**
+     *
+     * @var ?CustomLineItemRecurrenceInfo
+     */
+    protected $recurrenceInfo;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -155,7 +163,8 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?CustomFields $custom = null,
         ?ItemShippingDetails $shippingDetails = null,
-        ?string $priceMode = null
+        ?string $priceMode = null,
+        ?CustomLineItemRecurrenceInfo $recurrenceInfo = null
     ) {
         $this->id = $id;
         $this->key = $key;
@@ -174,6 +183,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
         $this->priceMode = $priceMode;
+        $this->recurrenceInfo = $recurrenceInfo;
     }
 
     /**
@@ -532,6 +542,27 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         return $this->priceMode;
     }
 
+    /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+     *
+     * @return null|CustomLineItemRecurrenceInfo
+     */
+    public function getRecurrenceInfo()
+    {
+        if (is_null($this->recurrenceInfo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurrenceInfo = CustomLineItemRecurrenceInfoModel::of($data);
+        }
+
+        return $this->recurrenceInfo;
+    }
+
 
     /**
      * @param ?string $id
@@ -667,5 +698,13 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function setPriceMode(?string $priceMode): void
     {
         $this->priceMode = $priceMode;
+    }
+
+    /**
+     * @param ?CustomLineItemRecurrenceInfo $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?CustomLineItemRecurrenceInfo $recurrenceInfo): void
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
     }
 }

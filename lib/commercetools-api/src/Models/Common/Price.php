@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -28,6 +29,7 @@ interface Price extends JsonObject
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_TIERS = 'tiers';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_RECURRENCE_POLICY = 'recurrencePolicy';
 
     /**
      * <p>Unique identifier of this Price.</p>
@@ -121,6 +123,14 @@ interface Price extends JsonObject
     public function getCustom();
 
     /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">Recurrence Policy</a> for which this Price is valid.</p>
+     *
+
+     * @return null|RecurrencePolicyReference
+     */
+    public function getRecurrencePolicy();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -174,4 +184,9 @@ interface Price extends JsonObject
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?RecurrencePolicyReference $recurrencePolicy
+     */
+    public function setRecurrencePolicy(?RecurrencePolicyReference $recurrencePolicy): void;
 }

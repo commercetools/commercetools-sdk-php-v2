@@ -252,6 +252,22 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function recurringOrders(): ResourceByProjectKeyRecurringOrders
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyRecurringOrders($args, $this->getClient());
+    }
+    /**
+     */
+    public function recurrencePolicies(): ResourceByProjectKeyRecurrencePolicies
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyRecurrencePolicies($args, $this->getClient());
+    }
+    /**
+     */
     public function reviews(): ResourceByProjectKeyReviews
     {
         $args = $this->getArgs();

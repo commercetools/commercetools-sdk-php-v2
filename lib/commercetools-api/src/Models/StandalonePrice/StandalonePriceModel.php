@@ -23,6 +23,8 @@ use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReference;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -151,6 +153,12 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
      */
     protected $active;
 
+    /**
+     *
+     * @var ?RecurrencePolicyReference
+     */
+    protected $recurrencePolicy;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -174,7 +182,8 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
         ?DiscountedPrice $discounted = null,
         ?CustomFields $custom = null,
         ?StagedStandalonePrice $staged = null,
-        ?bool $active = null
+        ?bool $active = null,
+        ?RecurrencePolicyReference $recurrencePolicy = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -195,6 +204,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
         $this->custom = $custom;
         $this->staged = $staged;
         $this->active = $active;
+        $this->recurrencePolicy = $recurrencePolicy;
     }
 
     /**
@@ -604,6 +614,27 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
         return $this->active;
     }
 
+    /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">RecurrencePolicy</a> for which this Price is valid.</p>
+     *
+     *
+     * @return null|RecurrencePolicyReference
+     */
+    public function getRecurrencePolicy()
+    {
+        if (is_null($this->recurrencePolicy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_POLICY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurrencePolicy = RecurrencePolicyReferenceModel::of($data);
+        }
+
+        return $this->recurrencePolicy;
+    }
+
 
     /**
      * @param ?string $id
@@ -755,6 +786,14 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     public function setActive(?bool $active): void
     {
         $this->active = $active;
+    }
+
+    /**
+     * @param ?RecurrencePolicyReference $recurrencePolicy
+     */
+    public function setRecurrencePolicy(?RecurrencePolicyReference $recurrencePolicy): void
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
     }
 
 

@@ -15,6 +15,7 @@ use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfo;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -49,6 +50,7 @@ interface LineItem extends JsonObject
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
+    public const FIELD_RECURRENCE_INFO = 'recurrenceInfo';
 
     /**
      * <p>Unique identifier of the LineItem.</p>
@@ -276,6 +278,14 @@ interface LineItem extends JsonObject
     public function getLastModifiedAt();
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|LineItemRecurrenceInfo
+     */
+    public function getRecurrenceInfo();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -404,4 +414,9 @@ interface LineItem extends JsonObject
      * @param ?DateTimeImmutable $lastModifiedAt
      */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    /**
+     * @param ?LineItemRecurrenceInfo $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?LineItemRecurrenceInfo $recurrenceInfo): void;
 }

@@ -204,6 +204,15 @@ class ByProjectKeyProductProjectionsKeyByKeyGet extends ApiRequest implements Pr
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceRecurrencePolicy
+     */
+    public function withPriceRecurrencePolicy($priceRecurrencePolicy): ByProjectKeyProductProjectionsKeyByKeyGet
+    {
+        return $this->withQueryParam('priceRecurrencePolicy', $priceRecurrencePolicy);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $localeProjection
      */
     public function withLocaleProjection($localeProjection): ByProjectKeyProductProjectionsKeyByKeyGet
