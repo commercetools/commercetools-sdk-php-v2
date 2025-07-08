@@ -16,6 +16,9 @@ interface EnumSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A set of enum values, each represented by its key.
+     * Each key must match the key of an <a href="ctp:api:type:AttributePlainEnumValue">AttributePlainEnumValue</a> in the Product Type.</p>
+     *
 
      * @return null|array
      */

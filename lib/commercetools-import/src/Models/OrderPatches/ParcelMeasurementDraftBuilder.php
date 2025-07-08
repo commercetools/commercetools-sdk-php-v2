@@ -35,6 +35,8 @@ final class ParcelMeasurementDraftBuilder implements Builder
     private $measurements;
 
     /**
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class ParcelMeasurementDraftBuilder implements Builder
     }
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */

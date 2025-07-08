@@ -28,31 +28,39 @@ interface ShippingInfoImportDraft extends JsonObject
     public const FIELD_SHIPPING_METHOD_STATE = 'shippingMethodState';
 
     /**
+     * <p>Maps to <code>shippingInfo.shippingMethodName</code>.</p>
+     *
 
      * @return null|string
      */
     public function getShippingMethodName();
 
     /**
+     * <p>Maps to <code>shippingInfo.price</code>.</p>
+     *
 
      * @return null|TypedMoney
      */
     public function getPrice();
 
     /**
+     * <p>Used to determine the price.</p>
+     *
 
      * @return null|ShippingRateDraft
      */
     public function getShippingRate();
 
     /**
+     * <p>Maps to <code>shippingInfo.taxRate</code>.</p>
+     *
 
      * @return null|TaxRate
      */
     public function getTaxRate();
 
     /**
-     * <p>References a tax category by key.</p>
+     * <p>Maps to <code>shippingInfo.taxCategory</code>. If the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced TaxCategory is created.</p>
      *
 
      * @return null|TaxCategoryKeyReference
@@ -60,7 +68,7 @@ interface ShippingInfoImportDraft extends JsonObject
     public function getTaxCategory();
 
     /**
-     * <p>References a shipping method by key.</p>
+     * <p>Maps to <code>shippingInfo.shippingMethod</code>. If the referenced <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced ShippingMethod is created.</p>
      *
 
      * @return null|ShippingMethodKeyReference
@@ -68,7 +76,7 @@ interface ShippingInfoImportDraft extends JsonObject
     public function getShippingMethod();
 
     /**
-     * <p>Note that you can not add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referenceable by an <code>id</code>.</p>
+     * <p>Maps to <code>shippingInfo.deliveries</code>. You cannot add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referenceable by an <code>id</code>.</p>
      *
 
      * @return null|DeliveryCollection
@@ -76,12 +84,16 @@ interface ShippingInfoImportDraft extends JsonObject
     public function getDeliveries();
 
     /**
+     * <p>Maps to <code>shippingInfo.discountedPrice</code>.</p>
+     *
 
      * @return null|DiscountedLineItemPriceDraft
      */
     public function getDiscountedPrice();
 
     /**
+     * <p>Maps to <code>shippingInfo.shippingMethodState</code>.</p>
+     *
 
      * @return null|string
      */

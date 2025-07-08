@@ -27,6 +27,9 @@ final class LocalizedEnumFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p>The key of the localized enum value.
+     * Must match the key of a <a href="ctp:api:type:CustomFieldLocalizedEnumValue">CustomFieldLocalizedEnumValue</a> in the <a href="ctp:api:type:CustomFieldLocalizedEnumType">CustomFieldLocalizedEnumType</a>.</p>
+     *
 
      * @return null|string
      */

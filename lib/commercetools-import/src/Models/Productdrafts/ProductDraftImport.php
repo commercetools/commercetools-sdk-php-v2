@@ -39,7 +39,7 @@ interface ProductDraftImport extends ImportResource
     public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
-     * <p>User-defined unique identifier. If a <a href="ctp:api:type:Product">Product</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:Product">Product</a> with this <code>key</code> exists, it is updated with the imported data.</p>
      *
 
      * @return null|string
@@ -47,10 +47,7 @@ interface ProductDraftImport extends ImportResource
     public function getKey();
 
     /**
-     * <p>The <code>productType</code> of a <a href="ctp:api:type:Product">Product</a>.
-     * Maps to <code>Product.productType</code>.
-     * The Reference to the <a href="ctp:api:type:ProductType">ProductType</a> with which the ProductDraft is associated.
-     * If referenced ProductType does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductType is created.</p>
+     * <p>Maps to <code>Product.productType</code>. If the referenced <a href="ctp:api:type:ProductType">ProductType</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced ProductType is created.</p>
      *
 
      * @return null|ProductTypeKeyReference
@@ -58,14 +55,15 @@ interface ProductDraftImport extends ImportResource
     public function getProductType();
 
     /**
+     * <p>Maps to <code>ProductData.name</code>.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
-     * <p>Human-readable identifiers usually used as deep-link URL to the related product. Each slug must be unique across a project,
-     * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>
+     * <p>Maps to <code>ProductData.slug</code>.</p>
      *
 
      * @return null|LocalizedString
@@ -73,7 +71,7 @@ interface ProductDraftImport extends ImportResource
     public function getSlug();
 
     /**
-     * <p>Maps to <code>Product.description</code>.</p>
+     * <p>Maps to <code>ProductData.description</code>.</p>
      *
 
      * @return null|LocalizedString
@@ -81,8 +79,7 @@ interface ProductDraftImport extends ImportResource
     public function getDescription();
 
     /**
-     * <p>The Reference to the <a href="ctp:api:type:Category">Categories</a> with which the ProductDraft is associated.
-     * If referenced Categories do not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Categories are created.</p>
+     * <p>Maps to <code>ProductData.categories</code>. If the referenced <a href="ctp:api:type:Category">Categories</a> do not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Categories are created.</p>
      *
 
      * @return null|CategoryKeyReferenceCollection
@@ -96,12 +93,7 @@ interface ProductDraftImport extends ImportResource
     public function getAttributes();
 
     /**
-     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;de&quot;: &quot;Hundefutter&quot;,
-     *   &quot;en&quot;: &quot;dog food&quot;
-     * }
-     * </code></pre>
+     * <p>Maps to <code>ProductData.metaTitle</code>.</p>
      *
 
      * @return null|LocalizedString
@@ -109,12 +101,7 @@ interface ProductDraftImport extends ImportResource
     public function getMetaTitle();
 
     /**
-     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;de&quot;: &quot;Hundefutter&quot;,
-     *   &quot;en&quot;: &quot;dog food&quot;
-     * }
-     * </code></pre>
+     * <p>Maps to <code>ProductData.metaDescription</code>.</p>
      *
 
      * @return null|LocalizedString
@@ -122,12 +109,7 @@ interface ProductDraftImport extends ImportResource
     public function getMetaDescription();
 
     /**
-     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;de&quot;: &quot;Hundefutter&quot;,
-     *   &quot;en&quot;: &quot;dog food&quot;
-     * }
-     * </code></pre>
+     * <p>Maps to <code>ProductData.metaKeywords</code>.</p>
      *
 
      * @return null|LocalizedString
@@ -135,8 +117,8 @@ interface ProductDraftImport extends ImportResource
     public function getMetaKeywords();
 
     /**
-     * <p>The master Product variant.
-     * Required if the <code>variants</code> array contains a Product Variant.</p>
+     * <p>The master ProductVariant.
+     * Required if <code>variants</code> contains at least one ProductVariant.</p>
      *
 
      * @return null|ProductVariantDraftImport
@@ -144,7 +126,7 @@ interface ProductDraftImport extends ImportResource
     public function getMasterVariant();
 
     /**
-     * <p>An array of related Product Variants.</p>
+     * <p>An array of related ProductVariants.</p>
      *
 
      * @return null|ProductVariantDraftImportCollection
@@ -152,8 +134,7 @@ interface ProductDraftImport extends ImportResource
     public function getVariants();
 
     /**
-     * <p>The Reference to the <a href="/projects/taxCategories#taxcategory">TaxCategory</a> with which the ProductDraft is associated.
-     * If referenced TaxCategory does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary TaxCategory is created.</p>
+     * <p>Maps to <code>Product.taxCategory</code>. If the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced TaxCategory is created.</p>
      *
 
      * @return null|TaxCategoryKeyReference
@@ -161,23 +142,7 @@ interface ProductDraftImport extends ImportResource
     public function getTaxCategory();
 
     /**
-     * <p>Search keywords are primarily used by the suggester but are also considered for the full-text search. SearchKeywords is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>. The value to a language tag key is an array of SearchKeyword for the specific language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;en&quot;: [
-     *     { &quot;text&quot;: &quot;Multi tool&quot; },
-     *     { &quot;text&quot;: &quot;Swiss Army Knife&quot;, &quot;suggestTokenizer&quot;: { &quot;type&quot;: &quot;whitespace&quot; } }
-     *   ],
-     *   &quot;de&quot;: [
-     *     {
-     *       &quot;text&quot;: &quot;Schweizer Messer&quot;,
-     *       &quot;suggestTokenizer&quot;: {
-     *         &quot;type&quot;: &quot;custom&quot;,
-     *         &quot;inputs&quot;: [&quot;schweizer messer&quot;, &quot;offiziersmesser&quot;, &quot;sackmesser&quot;]
-     *       }
-     *     }
-     *   ]
-     * }
-     * </code></pre>
+     * <p>Maps to <code>ProductData.searchKeywords</code>.</p>
      *
 
      * @return null|SearchKeywords
@@ -185,8 +150,7 @@ interface ProductDraftImport extends ImportResource
     public function getSearchKeywords();
 
     /**
-     * <p>The Reference to the <a href="/projects/states#state">State</a> with which the ProductDraft is associated.
-     * If referenced State does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary State is created.</p>
+     * <p>Maps to <code>Product.state</code>. If the referenced <a href="ctp:api:type:State">State</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced State is created.</p>
      *
 
      * @return null|StateKeyReference
@@ -202,7 +166,7 @@ interface ProductDraftImport extends ImportResource
     public function getPublish();
 
     /**
-     * <p>Determines the type of Prices the API uses. If not provided, the existing <code>Product.priceMode</code> is not changed.</p>
+     * <p>Maps to <code>Product.priceMode</code>. If not provided, the existing <code>Product.priceMode</code> is not changed.</p>
      *
 
      * @return null|string

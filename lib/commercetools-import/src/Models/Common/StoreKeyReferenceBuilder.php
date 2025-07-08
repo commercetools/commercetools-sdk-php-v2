@@ -27,6 +27,8 @@ final class StoreKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced Store.</p>
+     *
 
      * @return null|string
      */

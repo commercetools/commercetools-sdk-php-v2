@@ -54,6 +54,8 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     }
 
     /**
+     * <p>The SKU of the Product Variant.</p>
+     *
      *
      * @return null|string
      */

@@ -27,6 +27,8 @@ final class StateKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced State.</p>
+     *
 
      * @return null|string
      */

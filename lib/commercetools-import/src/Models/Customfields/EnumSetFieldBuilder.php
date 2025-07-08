@@ -27,6 +27,10 @@ final class EnumSetFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p>JSON array of enum values, each represented by its key.
+     * Each key must match the key of a <a href="ctp:api:type:CustomFieldEnumValue">CustomFieldLocalizedEnumValue</a> in the <a href="ctp:api:type:CustomFieldEnumType">CustomFieldEnumType</a>.
+     * The order of items in the array is not fixed.</p>
+     *
 
      * @return null|array
      */

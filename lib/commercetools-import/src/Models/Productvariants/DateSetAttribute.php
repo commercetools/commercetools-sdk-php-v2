@@ -16,6 +16,8 @@ interface DateSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A set of dates in the format <code>YYYY-MM-DD</code>.</p>
+     *
 
      * @return null|DateTimeImmutableCollection
      */

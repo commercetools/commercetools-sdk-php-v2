@@ -17,6 +17,8 @@ interface DateAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A date in the format <code>YYYY-MM-DD</code>.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

@@ -19,7 +19,7 @@ interface ProductTypeImport extends ImportResource
     public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
-     * <p>User-defined unique identifier. If a <a href="ctp:api:type:ProductType">ProductType</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If a <a href="ctp:api:type:ProductType">ProductType</a> with this <code>key</code> exists, it is updated with the imported data.</p>
      *
 
      * @return null|string

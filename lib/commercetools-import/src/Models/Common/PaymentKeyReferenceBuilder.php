@@ -27,6 +27,8 @@ final class PaymentKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced Payment.</p>
+     *
 
      * @return null|string
      */

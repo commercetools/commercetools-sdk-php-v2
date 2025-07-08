@@ -29,6 +29,8 @@ final class MoneyFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p>A money value in cent precision format.</p>
+     *
 
      * @return null|TypedMoney
      */

@@ -44,6 +44,8 @@ final class ResourceDeletionErrorBuilder implements Builder
     }
 
     /**
+     * <p>The resource that was deleted.</p>
+     *
 
      * @return null|mixed
      */

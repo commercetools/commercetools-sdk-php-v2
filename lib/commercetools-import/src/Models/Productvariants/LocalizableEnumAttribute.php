@@ -16,6 +16,9 @@ interface LocalizableEnumAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>The key of the localized enum value.
+     * Must match the key of an <a href="ctp:api:type:AttributeLocalizedEnumValue">AttributeLocalizedEnumValue</a> in the Product Type.</p>
+     *
 
      * @return null|string
      */

@@ -71,6 +71,8 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Date and time (UTC) the Delivery was created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -111,6 +115,8 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Line Items or Custom Line Items that are delivered.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */
@@ -129,6 +135,8 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Information regarding the appearance, content, and shipment of a Parcel.</p>
+     *
      *
      * @return null|ParcelCollection
      */
@@ -147,6 +155,8 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Address to which Parcels are delivered.</p>
+     *
      *
      * @return null|Address
      */

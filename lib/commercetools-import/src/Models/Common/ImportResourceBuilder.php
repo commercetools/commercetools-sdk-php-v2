@@ -27,6 +27,8 @@ use Commercetools\Import\Models\Productdrafts\ProductDraftImport;
 use Commercetools\Import\Models\Productdrafts\ProductDraftImportBuilder;
 use Commercetools\Import\Models\Products\ProductImport;
 use Commercetools\Import\Models\Products\ProductImportBuilder;
+use Commercetools\Import\Models\ProductSelections\ProductSelectionImport;
+use Commercetools\Import\Models\ProductSelections\ProductSelectionImportBuilder;
 use Commercetools\Import\Models\Producttypes\ProductTypeImport;
 use Commercetools\Import\Models\Producttypes\ProductTypeImportBuilder;
 use Commercetools\Import\Models\Productvariants\ProductVariantImport;

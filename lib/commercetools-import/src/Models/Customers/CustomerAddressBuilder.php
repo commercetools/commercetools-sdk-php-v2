@@ -174,7 +174,7 @@ final class CustomerAddressBuilder implements Builder
 
     /**
      * <p>User-defined identifier for the address.
-     * Must follow the pattern <code>[a-zA-Z0-9_-]{2,256}</code> and must be unique per customer.</p>
+     * Must be unique per customer.</p>
      *
 
      * @return null|string

@@ -73,9 +73,9 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     }
 
     /**
-     * <p>The name of this attribute must match a name of the product types attribute definitions.
-     * The name is required if this type is used in a product variant and must not be set when
-     * used in a product variant patch.</p>
+     * <p>Required if used for <a href="ctp:import:type:ProductVariantImport">ProductVariantImport</a>.
+     * Must not be set if used for <a href="ctp:import:type:ProductVariantPatch">ProductVariantPatch</a>.</p>
+     * <p>Must match <code>name</code> of an <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> of the Product Type.</p>
      *
      *
      * @return null|string
@@ -95,6 +95,10 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     }
 
     /**
+     * <p>Must match <code>type</code> of an <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> of the Product Type.
+     * The type is required if this type is used in a product variant and must not be set when
+     * used in a product variant patch.</p>
+     *
      *
      * @return null|string
      */

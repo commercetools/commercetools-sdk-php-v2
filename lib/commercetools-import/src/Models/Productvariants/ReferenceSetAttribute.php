@@ -17,6 +17,9 @@ interface ReferenceSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A set of references, each referencing a resource by key.
+     * Each reference must match the key of an existing resource in the project.</p>
+     *
 
      * @return null|KeyReferenceCollection
      */

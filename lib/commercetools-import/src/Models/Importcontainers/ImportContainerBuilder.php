@@ -64,7 +64,7 @@ final class ImportContainerBuilder implements Builder
     private $expiresAt;
 
     /**
-     * <p>User-defined unique identifier for the ImportContainer.</p>
+     * <p>User-defined unique identifier of the ImportContainer.</p>
      *
 
      * @return null|string
@@ -75,8 +75,7 @@ final class ImportContainerBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="#importresourcetype">resource type</a> the ImportContainer is able to handle.
-     * If not present, the ImportContainer is able to import all of the supported <a href="#importresourcetype">ImportResourceTypes</a>.</p>
+     * <p>The <a href="ctp:import:type:ImportResourceType">resource type</a> the ImportContainer supports. If not present, the ImportContainer can import all of the supported <a href="ctp:import:type:ImportResourceType">ImportResourceTypes</a>.</p>
      *
 
      * @return null|string
@@ -87,7 +86,7 @@ final class ImportContainerBuilder implements Builder
     }
 
     /**
-     * <p>The version of the ImportContainer.</p>
+     * <p>Current version of the ImportContainer.</p>
      *
 
      * @return null|int

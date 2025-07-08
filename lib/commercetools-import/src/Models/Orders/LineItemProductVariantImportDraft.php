@@ -23,7 +23,7 @@ interface LineItemProductVariantImportDraft extends JsonObject
     public const FIELD_IMAGES = 'images';
 
     /**
-     * <p>Maps to <code>ProductVariant.product</code>.</p>
+     * <p>Maps to <code>ProductVariant.product</code>. If the referenced <a href="ctp:api:type:ProductVariant">ProductVariant</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced ProductVariant is created.</p>
      *
 
      * @return null|ProductVariantKeyReference

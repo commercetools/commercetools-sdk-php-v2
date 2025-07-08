@@ -93,6 +93,8 @@ final class ResourceUpdateErrorModel extends JsonObjectModel implements Resource
     }
 
     /**
+     * <p>The resource that was updated.</p>
+     *
      *
      * @return null|mixed
      */

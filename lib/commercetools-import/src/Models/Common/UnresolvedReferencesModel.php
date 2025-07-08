@@ -44,7 +44,7 @@ final class UnresolvedReferencesModel extends JsonObjectModel implements Unresol
     }
 
     /**
-     * <p>The <code>key</code> of the resource.</p>
+     * <p><code>key</code> of the unresolved resource.</p>
      *
      *
      * @return null|string
@@ -64,7 +64,7 @@ final class UnresolvedReferencesModel extends JsonObjectModel implements Unresol
     }
 
     /**
-     * <p>The type of resource.</p>
+     * <p>Type of the unresolved resource.</p>
      *
      *
      * @return null|string

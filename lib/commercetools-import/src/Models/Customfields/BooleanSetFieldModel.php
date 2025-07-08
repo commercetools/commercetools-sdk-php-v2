@@ -65,6 +65,9 @@ final class BooleanSetFieldModel extends JsonObjectModel implements BooleanSetFi
     }
 
     /**
+     * <p>JSON array of boolean values without duplicates.
+     * The order of items in the array is not fixed.</p>
+     *
      *
      * @return null|array
      */

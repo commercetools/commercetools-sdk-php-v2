@@ -27,6 +27,8 @@ final class CustomerKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique identifier of the referenced Customer.</p>
+     *
 
      * @return null|string
      */

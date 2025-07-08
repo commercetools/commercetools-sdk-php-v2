@@ -17,6 +17,8 @@ interface SubRate extends JsonObject
     public const FIELD_AMOUNT = 'amount';
 
     /**
+     * <p>Name of the SubRate.</p>
+     *
 
      * @return null|string
      */

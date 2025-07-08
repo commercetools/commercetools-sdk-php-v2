@@ -17,7 +17,7 @@ interface OrderPatchImport extends JsonObject
     public const FIELD_FIELDS = 'fields';
 
     /**
-     * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order, unique across a project.</p>
+     * <p>User-defined unique identifier. If an <a href="ctp:api:type:Order">Order</a> with this <code>orderNumber</code> exists, it is updated with the imported data.</p>
      *
 
      * @return null|string
@@ -25,7 +25,7 @@ interface OrderPatchImport extends JsonObject
     public function getOrderNumber();
 
     /**
-     * <p>Each field referenced must be defined in an already existing order in the project or the import operation state is set to <code>validationFailed</code>.</p>
+     * <p>Each field referenced must be defined in an existing <a href="ctp:api:type:Order">Order</a> or the <a href="ctp:import:type:ImportOperationState">ImportOperationState</a> is set to <code>validationFailed</code>.</p>
      *
 
      * @return null|OrderField

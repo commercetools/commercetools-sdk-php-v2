@@ -45,6 +45,8 @@ final class TaxCategoryKeyReferenceModel extends JsonObjectModel implements TaxC
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced TaxCategory.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class TaxCategoryKeyReferenceModel extends JsonObjectModel implements TaxC
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

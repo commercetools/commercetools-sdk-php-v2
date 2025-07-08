@@ -91,7 +91,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
-     * <p>User-defined unique identifier. If an <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+     * <p>User-defined unique identifier. If an <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> with this <code>key</code> exists, it is updated with the imported data.</p>
      *
      *
      * @return null|string
@@ -111,7 +111,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
-     * <p>Maps to <code>Inventory.sku</code></p>
+     * <p>Maps to <code>InventoryEntry.sku</code></p>
      *
      *
      * @return null|string
@@ -131,7 +131,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
-     * <p>Maps to <code>Inventory.quantityOnStock</code></p>
+     * <p>Maps to <code>InventoryEntry.quantityOnStock</code></p>
      *
      *
      * @return null|int
@@ -151,7 +151,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
-     * <p>Maps to <code>Inventory.restockableInDays</code></p>
+     * <p>Maps to <code>InventoryEntry.restockableInDays</code></p>
      *
      *
      * @return null|int
@@ -171,7 +171,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
-     * <p>Maps to <code>Inventory.expectedDelivery</code></p>
+     * <p>Maps to <code>InventoryEntry.expectedDelivery</code></p>
      *
      *
      * @return null|DateTimeImmutable
@@ -195,7 +195,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
-     * <p>Maps to <code>Inventory.supplyChannel</code></p>
+     * <p>Maps to <code>InventoryEntry.supplyChannel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
      *
      *
      * @return null|ChannelKeyReference
@@ -216,7 +216,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
-     * <p>Maps to <code>Inventory.custom</code>.</p>
+     * <p>Maps to <code>InventoryEntry.custom</code>.</p>
      *
      *
      * @return null|Custom

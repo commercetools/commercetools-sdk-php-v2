@@ -17,6 +17,8 @@ interface MoneyField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A money value in cent precision format.</p>
+     *
 
      * @return null|TypedMoney
      */

@@ -37,7 +37,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     private $discountedAmount;
 
     /**
-     * <p>References a cart discount by key.</p>
+     * <p>References a cart discount by key. If the referenced <a href="ctp:api:type:CartDiscount">CartDiscount</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CartDiscount is created.</p>
      *
 
      * @return null|CartDiscountKeyReference
@@ -48,6 +48,8 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
+     * <p>Money value for the discount applicable.</p>
+     *
 
      * @return null|Money
      */

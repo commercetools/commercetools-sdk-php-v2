@@ -67,12 +67,7 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
     }
 
     /**
-     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-     * <pre><code class="language-json">{
-     *   &quot;de&quot;: &quot;Hundefutter&quot;,
-     *   &quot;en&quot;: &quot;dog food&quot;
-     * }
-     * </code></pre>
+     * <p>A localized string.</p>
      *
      *
      * @return null|LocalizedString

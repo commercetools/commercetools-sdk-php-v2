@@ -53,6 +53,8 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced CustomObject.</p>
+     *
      *
      * @return null|string
      */
@@ -71,7 +73,7 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string
@@ -91,6 +93,8 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>The <code>container</code> of the referenced CustomObject.</p>
+     *
      *
      * @return null|string
      */

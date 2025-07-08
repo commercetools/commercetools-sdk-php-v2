@@ -16,6 +16,8 @@ interface RemoveParcelFromDeliveryDraft extends JsonObject
     public const FIELD_PARCEL_ID = 'parcelId';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Parcel">Parcel</a> to be removed from the Delivery.</p>
+     *
 
      * @return null|string
      */

@@ -13,7 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\MoneyCollection;
+use Commercetools\Import\Models\Common\TypedMoneyCollection;
 use stdClass;
 
 /**
@@ -23,13 +23,16 @@ final class MoneySetFieldBuilder implements Builder
 {
     /**
 
-     * @var ?MoneyCollection
+     * @var ?TypedMoneyCollection
      */
     private $value;
 
     /**
+     * <p>JSON array of money values in cent precision format.
+     * The order of items in the array is not fixed.</p>
+     *
 
-     * @return null|MoneyCollection
+     * @return null|TypedMoneyCollection
      */
     public function getValue()
     {
@@ -37,10 +40,10 @@ final class MoneySetFieldBuilder implements Builder
     }
 
     /**
-     * @param ?MoneyCollection $value
+     * @param ?TypedMoneyCollection $value
      * @return $this
      */
-    public function withValue(?MoneyCollection $value)
+    public function withValue(?TypedMoneyCollection $value)
     {
         $this->value = $value;
 

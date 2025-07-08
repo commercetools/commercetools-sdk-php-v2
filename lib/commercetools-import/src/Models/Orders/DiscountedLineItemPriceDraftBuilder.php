@@ -35,6 +35,8 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
     private $includedDiscounts;
 
     /**
+     * <p>Discounted money value.</p>
+     *
 
      * @return null|Money
      */
@@ -44,6 +46,8 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
     }
 
     /**
+     * <p>Discounts to be applied.</p>
+     *
 
      * @return null|DiscountedLineItemPortionCollection
      */

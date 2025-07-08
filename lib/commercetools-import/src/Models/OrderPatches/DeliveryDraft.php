@@ -20,18 +20,24 @@ interface DeliveryDraft extends JsonObject
     public const FIELD_PARCELS = 'parcels';
 
     /**
+     * <p>Line Items or Custom Line Items to deliver. It can also be specified individually for each <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+     * <p>Address to which the Parcels are delivered.</p>
+     *
 
      * @return null|Address
      */
     public function getAddress();
 
     /**
+     * <p>Information regarding the appearance, content, and shipment of a parcel.</p>
+     *
 
      * @return null|DeliveryParcelDraftCollection
      */

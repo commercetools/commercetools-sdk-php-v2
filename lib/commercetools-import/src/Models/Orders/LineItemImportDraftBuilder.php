@@ -97,7 +97,7 @@ final class LineItemImportDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p>Maps to <code>LineItem.productId</code>.</p>
+     * <p>Maps to <code>LineItem.productId</code>. If the referenced <a href="ctp:api:type:Product">Product</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Product is created.</p>
      *
 
      * @return null|ProductKeyReference
@@ -152,6 +152,8 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>LineItem.state</code>.</p>
+     *
 
      * @return null|ItemStateCollection
      */
@@ -161,9 +163,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>LineItem.supplyChannel</code>.
-     * The Reference to the Supply <a href="ctp:api:type:Channel">Channel</a> with which the LineItem is associated.
-     * If referenced Supply Channel does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Supply Channel is created.</p>
+     * <p>Maps to <code>LineItem.supplyChannel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
      *
 
      * @return null|ChannelKeyReference
@@ -174,9 +174,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>LineItem.distributionChannel</code>.
-     * The Reference to the Distribution <a href="ctp:api:type:Channel">Channel</a> with which the LineItem is associated.
-     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Distribution Channel is created.</p>
+     * <p>Maps to <code>LineItem.distributionChannel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
      *
 
      * @return null|ChannelKeyReference
@@ -198,7 +196,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Maps to LineItem.shippingDetails.</p>
+     * <p>Maps to <code>LineItem.shippingDetails</code>.</p>
      *
 
      * @return null|ItemShippingDetailsDraft
@@ -209,7 +207,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for this Line Item.</p>
+     * <p>Maps to <code>LineItem.custom</code>.</p>
      *
 
      * @return null|Custom

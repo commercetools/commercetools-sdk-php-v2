@@ -65,6 +65,8 @@ final class StringFieldModel extends JsonObjectModel implements StringField
     }
 
     /**
+     * <p>A text value.</p>
+     *
      *
      * @return null|string
      */

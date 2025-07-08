@@ -20,6 +20,8 @@ interface VariantValues extends JsonObject
     public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
+     * <p>The SKU of the Product Variant.</p>
+     *
 
      * @return null|string
      */

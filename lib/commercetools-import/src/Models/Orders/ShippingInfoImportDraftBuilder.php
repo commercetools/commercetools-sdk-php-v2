@@ -83,6 +83,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     private $shippingMethodState;
 
     /**
+     * <p>Maps to <code>shippingInfo.shippingMethodName</code>.</p>
+     *
 
      * @return null|string
      */
@@ -92,6 +94,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>shippingInfo.price</code>.</p>
+     *
 
      * @return null|TypedMoney
      */
@@ -101,6 +105,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Used to determine the price.</p>
+     *
 
      * @return null|ShippingRateDraft
      */
@@ -110,6 +116,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>shippingInfo.taxRate</code>.</p>
+     *
 
      * @return null|TaxRate
      */
@@ -119,7 +127,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>References a tax category by key.</p>
+     * <p>Maps to <code>shippingInfo.taxCategory</code>. If the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced TaxCategory is created.</p>
      *
 
      * @return null|TaxCategoryKeyReference
@@ -130,7 +138,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>References a shipping method by key.</p>
+     * <p>Maps to <code>shippingInfo.shippingMethod</code>. If the referenced <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced ShippingMethod is created.</p>
      *
 
      * @return null|ShippingMethodKeyReference
@@ -141,7 +149,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Note that you can not add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referenceable by an <code>id</code>.</p>
+     * <p>Maps to <code>shippingInfo.deliveries</code>. You cannot add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referenceable by an <code>id</code>.</p>
      *
 
      * @return null|DeliveryCollection
@@ -152,6 +160,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>shippingInfo.discountedPrice</code>.</p>
+     *
 
      * @return null|DiscountedLineItemPriceDraft
      */
@@ -161,6 +171,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>shippingInfo.shippingMethodState</code>.</p>
+     *
 
      * @return null|string
      */

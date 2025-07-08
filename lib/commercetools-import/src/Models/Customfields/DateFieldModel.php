@@ -66,6 +66,8 @@ final class DateFieldModel extends JsonObjectModel implements DateField
     }
 
     /**
+     * <p>A date in the format <code>YYYY-MM-DD</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

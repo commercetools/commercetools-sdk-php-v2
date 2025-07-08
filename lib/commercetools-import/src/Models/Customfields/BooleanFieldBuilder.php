@@ -27,6 +27,8 @@ final class BooleanFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p><code>true</code> or <code>false</code></p>
+     *
 
      * @return null|bool
      */

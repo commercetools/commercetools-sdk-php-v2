@@ -17,6 +17,8 @@ interface MoneySetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A set of money values in cent precision format.</p>
+     *
 
      * @return null|TypedMoneyCollection
      */

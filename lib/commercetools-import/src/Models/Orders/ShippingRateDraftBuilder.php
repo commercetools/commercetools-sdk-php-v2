@@ -41,6 +41,8 @@ final class ShippingRateDraftBuilder implements Builder
     private $tiers;
 
     /**
+     * <p>Currency amount of the ShippingRate.</p>
+     *
 
      * @return null|Money
      */
@@ -50,6 +52,8 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>Free shipping is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
+     *
 
      * @return null|Money
      */
@@ -59,6 +63,8 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>Price tiers for the ShippingRate.</p>
+     *
 
      * @return null|ShippingRatePriceTierCollection
      */

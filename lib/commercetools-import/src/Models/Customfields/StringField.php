@@ -16,6 +16,8 @@ interface StringField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>A text value.</p>
+     *
 
      * @return null|string
      */

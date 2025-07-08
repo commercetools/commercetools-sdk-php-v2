@@ -35,6 +35,8 @@ final class ItemStateBuilder implements Builder
     private $state;
 
     /**
+     * <p>Number of Line Items or Custom Line Items in this State.</p>
+     *
 
      * @return null|int
      */
@@ -44,7 +46,7 @@ final class ItemStateBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>ItemState.state</code>.</p>
+     * <p>State of the Line Items or Custom Line Items in a custom workflow. If the referenced <a href="ctp:api:type:State">State</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced State is created.</p>
      *
 
      * @return null|StateKeyReference

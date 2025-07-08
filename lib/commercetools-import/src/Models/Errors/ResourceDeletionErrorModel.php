@@ -93,6 +93,8 @@ final class ResourceDeletionErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
+     * <p>The resource that was deleted.</p>
+     *
      *
      * @return null|mixed
      */

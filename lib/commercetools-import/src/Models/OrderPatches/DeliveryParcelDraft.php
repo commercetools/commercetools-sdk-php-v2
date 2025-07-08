@@ -21,18 +21,24 @@ interface DeliveryParcelDraft extends JsonObject
     public const FIELD_ITEMS = 'items';
 
     /**
+     * <p>Information about the dimensions for the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();
 
     /**
+     * <p>Shipment tracking information for the Parcel.</p>
+     *
 
      * @return null|TrackingData
      */
     public function getTrackingData();
 
     /**
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */

@@ -56,6 +56,8 @@ interface OrderImport extends JsonObject
     public function getOrderNumber();
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Customer">Customer</a> that the Order belongs to. If the referenced Customer does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Customer is created.</p>
+     *
 
      * @return null|CustomerKeyReference
      */
@@ -118,7 +120,7 @@ interface OrderImport extends JsonObject
     public function getBillingAddress();
 
     /**
-     * <p>Maps to <code>Order.customerGroup</code>.</p>
+     * <p>Maps to <code>Order.customerGroup</code>. If the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
      *
 
      * @return null|CustomerGroupKeyReference
@@ -222,7 +224,7 @@ interface OrderImport extends JsonObject
     public function getItemShippingAddresses();
 
     /**
-     * <p>Reference to the Store in which the Order is associated. If referenced Store does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Store exists.</p>
+     * <p>Maps to <code>Order.store</code>. If the referenced <a href="ctp:api:type:Store">Store</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Store is created.</p>
      *
 
      * @return null|StoreKeyReference
@@ -230,7 +232,7 @@ interface OrderImport extends JsonObject
     public function getStore();
 
     /**
-     * <p>Reference to a State in a custom workflow.</p>
+     * <p>Maps to <code>Order.state</code>. If the referenced <a href="ctp:api:type:State">State</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced State is created.</p>
      *
 
      * @return null|StateKeyReference

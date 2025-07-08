@@ -27,6 +27,8 @@ final class RemoveParcelFromDeliveryDraftBuilder implements Builder
     private $parcelId;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Parcel">Parcel</a> to be removed from the Delivery.</p>
+     *
 
      * @return null|string
      */

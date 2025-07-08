@@ -27,6 +27,9 @@ final class NumberFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p>A number value.
+     * Can be an integer or a floating-point number.</p>
+     *
 
      * @return null|float
      */

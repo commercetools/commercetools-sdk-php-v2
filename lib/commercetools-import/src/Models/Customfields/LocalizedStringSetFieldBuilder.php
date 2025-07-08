@@ -28,6 +28,9 @@ final class LocalizedStringSetFieldBuilder implements Builder
     private $value;
 
     /**
+     * <p>JSON array of localized strings.
+     * The order of items in the array is not fixed.</p>
+     *
 
      * @return null|LocalizedStringCollection
      */

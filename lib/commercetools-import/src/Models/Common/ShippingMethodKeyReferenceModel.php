@@ -45,6 +45,8 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced ShippingMethod.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

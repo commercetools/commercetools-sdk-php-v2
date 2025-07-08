@@ -67,6 +67,8 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
     }
 
     /**
+     * <p>A money value in cent precision format.</p>
+     *
      *
      * @return null|TypedMoney
      */

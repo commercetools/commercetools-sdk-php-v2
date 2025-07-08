@@ -65,7 +65,7 @@ final class AssetBuilder implements Builder
     private $key;
 
     /**
-     * <p>Unique identifier of the Asset.</p>
+     * <p>Unique identifier of the Asset. Not required when importing Assets using the <a href="/import-export/import-resources">Import API</a>.</p>
      *
 
      * @return null|string

@@ -43,6 +43,8 @@ interface InvalidFieldError extends ErrorObject
     public function getAllowedValues();
 
     /**
+     * <p>The index of the resource in the import request that contains the invalid field.</p>
+     *
 
      * @return null|int
      */

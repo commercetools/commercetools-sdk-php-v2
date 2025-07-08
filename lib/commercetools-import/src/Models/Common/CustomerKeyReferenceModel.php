@@ -45,6 +45,8 @@ final class CustomerKeyReferenceModel extends JsonObjectModel implements Custome
     }
 
     /**
+     * <p>User-defined unique identifier of the referenced Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -63,7 +65,7 @@ final class CustomerKeyReferenceModel extends JsonObjectModel implements Custome
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
+     * <p>Type of referenced resource.</p>
      *
      *
      * @return null|string

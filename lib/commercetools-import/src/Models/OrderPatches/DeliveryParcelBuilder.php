@@ -50,6 +50,8 @@ final class DeliveryParcelBuilder implements Builder
     private $items;
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
 
      * @return null|string
      */
@@ -59,6 +61,8 @@ final class DeliveryParcelBuilder implements Builder
     }
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
@@ -68,6 +72,8 @@ final class DeliveryParcelBuilder implements Builder
     }
 
     /**
+     * <p>Shipment tracking information of the Parcel.</p>
+     *
 
      * @return null|TrackingData
      */
@@ -77,6 +83,8 @@ final class DeliveryParcelBuilder implements Builder
     }
 
     /**
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */

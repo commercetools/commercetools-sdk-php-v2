@@ -44,6 +44,8 @@ final class ResourceCreationErrorBuilder implements Builder
     }
 
     /**
+     * <p>The resource that was created.</p>
+     *
 
      * @return null|mixed
      */
