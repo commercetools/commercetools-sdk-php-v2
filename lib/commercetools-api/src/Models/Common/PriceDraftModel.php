@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifier;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -86,6 +88,12 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?RecurrencePolicyResourceIdentifier
+     */
+    protected $recurrencePolicy;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -100,7 +108,8 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         ?DateTimeImmutable $validUntil = null,
         ?DiscountedPriceDraft $discounted = null,
         ?PriceTierDraftCollection $tiers = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?RecurrencePolicyResourceIdentifier $recurrencePolicy = null
     ) {
         $this->key = $key;
         $this->value = $value;
@@ -112,6 +121,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         $this->discounted = $discounted;
         $this->tiers = $tiers;
         $this->custom = $custom;
+        $this->recurrencePolicy = $recurrencePolicy;
     }
 
     /**
@@ -336,6 +346,27 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         return $this->custom;
     }
 
+    /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">RecurrencePolicy</a> for which this Price is valid.</p>
+     *
+     *
+     * @return null|RecurrencePolicyResourceIdentifier
+     */
+    public function getRecurrencePolicy()
+    {
+        if (is_null($this->recurrencePolicy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_POLICY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurrencePolicy = RecurrencePolicyResourceIdentifierModel::of($data);
+        }
+
+        return $this->recurrencePolicy;
+    }
+
 
     /**
      * @param ?string $key
@@ -415,6 +446,14 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?RecurrencePolicyResourceIdentifier $recurrencePolicy
+     */
+    public function setRecurrencePolicy(?RecurrencePolicyResourceIdentifier $recurrencePolicy): void
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
     }
 
 

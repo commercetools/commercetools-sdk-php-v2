@@ -21,6 +21,8 @@ use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfo;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -193,6 +195,12 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      */
     protected $lastModifiedAt;
 
+    /**
+     *
+     * @var ?LineItemRecurrenceInfo
+     */
+    protected $recurrenceInfo;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -223,7 +231,8 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         ?ItemShippingDetails $shippingDetails = null,
         ?CustomFields $custom = null,
         ?DateTimeImmutable $addedAt = null,
-        ?DateTimeImmutable $lastModifiedAt = null
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LineItemRecurrenceInfo $recurrenceInfo = null
     ) {
         $this->id = $id;
         $this->key = $key;
@@ -251,6 +260,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         $this->custom = $custom;
         $this->addedAt = $addedAt;
         $this->lastModifiedAt = $lastModifiedAt;
+        $this->recurrenceInfo = $recurrenceInfo;
     }
 
     /**
@@ -810,6 +820,27 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         return $this->lastModifiedAt;
     }
 
+    /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+     *
+     * @return null|LineItemRecurrenceInfo
+     */
+    public function getRecurrenceInfo()
+    {
+        if (is_null($this->recurrenceInfo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurrenceInfo = LineItemRecurrenceInfoModel::of($data);
+        }
+
+        return $this->recurrenceInfo;
+    }
+
 
     /**
      * @param ?string $id
@@ -1017,6 +1048,14 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
+    }
+
+    /**
+     * @param ?LineItemRecurrenceInfo $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?LineItemRecurrenceInfo $recurrenceInfo): void
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
     }
 
 

@@ -169,6 +169,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDTest extends
                 'get',
                 'test_projectKey/in-store/key=test_storeKey/product-projections/test_ID?priceChannel=priceChannel',
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withId('test_ID')
+                        ->get()
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/test_ID?priceRecurrencePolicy=priceRecurrencePolicy',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet_withLocaleProjection' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

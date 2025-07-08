@@ -100,6 +100,12 @@ final class ProductVariantBuilder implements Builder
     private $scopedPriceDiscounted;
 
     /**
+
+     * @var ?PriceCollection
+     */
+    private $recurrencePrices;
+
+    /**
      * <p>A unique, sequential identifier of the Product Variant within the Product.</p>
      *
 
@@ -241,6 +247,18 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>Only available when <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> is used.
+     * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+     *
+
+     * @return null|PriceCollection
+     */
+    public function getRecurrencePrices()
+    {
+        return $this->recurrencePrices;
+    }
+
+    /**
      * @param ?int $id
      * @return $this
      */
@@ -373,6 +391,17 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?PriceCollection $recurrencePrices
+     * @return $this
+     */
+    public function withRecurrencePrices(?PriceCollection $recurrencePrices)
+    {
+        $this->recurrencePrices = $recurrencePrices;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPrice() instead
      * @return $this
      */
@@ -419,7 +448,8 @@ final class ProductVariantBuilder implements Builder
             $this->availability instanceof ProductVariantAvailabilityBuilder ? $this->availability->build() : $this->availability,
             $this->isMatchingVariant,
             $this->scopedPrice instanceof ScopedPriceBuilder ? $this->scopedPrice->build() : $this->scopedPrice,
-            $this->scopedPriceDiscounted
+            $this->scopedPriceDiscounted,
+            $this->recurrencePrices
         );
     }
 

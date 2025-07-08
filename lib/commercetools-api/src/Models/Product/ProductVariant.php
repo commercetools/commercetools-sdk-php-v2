@@ -30,6 +30,7 @@ interface ProductVariant extends JsonObject
     public const FIELD_IS_MATCHING_VARIANT = 'isMatchingVariant';
     public const FIELD_SCOPED_PRICE = 'scopedPrice';
     public const FIELD_SCOPED_PRICE_DISCOUNTED = 'scopedPriceDiscounted';
+    public const FIELD_RECURRENCE_PRICES = 'recurrencePrices';
 
     /**
      * <p>A unique, sequential identifier of the Product Variant within the Product.</p>
@@ -137,6 +138,15 @@ interface ProductVariant extends JsonObject
     public function getScopedPriceDiscounted();
 
     /**
+     * <p>Only available when <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> is used.
+     * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+     *
+
+     * @return null|PriceCollection
+     */
+    public function getRecurrencePrices();
+
+    /**
      * @param ?int $id
      */
     public function setId(?int $id): void;
@@ -195,4 +205,9 @@ interface ProductVariant extends JsonObject
      * @param ?bool $scopedPriceDiscounted
      */
     public function setScopedPriceDiscounted(?bool $scopedPriceDiscounted): void;
+
+    /**
+     * @param ?PriceCollection $recurrencePrices
+     */
+    public function setRecurrencePrices(?PriceCollection $recurrencePrices): void;
 }

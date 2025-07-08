@@ -62,6 +62,10 @@ use Commercetools\Api\Models\Quote\QuoteReference;
 use Commercetools\Api\Models\Quote\QuoteReferenceModel;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReferenceModel;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReference;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReferenceModel;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderReference;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderReferenceModel;
 use Commercetools\Api\Models\Review\ReviewReference;
 use Commercetools\Api\Models\Review\ReviewReferenceModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
@@ -138,6 +142,8 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'product-type' => ProductTypeReferenceModel::class,
        'quote' => QuoteReferenceModel::class,
        'quote-request' => QuoteRequestReferenceModel::class,
+       'recurrence-policy' => RecurrencePolicyReferenceModel::class,
+       'recurring-order' => RecurringOrderReferenceModel::class,
        'review' => ReviewReferenceModel::class,
        'shipping-method' => ShippingMethodReferenceModel::class,
        'shopping-list' => ShoppingListReferenceModel::class,

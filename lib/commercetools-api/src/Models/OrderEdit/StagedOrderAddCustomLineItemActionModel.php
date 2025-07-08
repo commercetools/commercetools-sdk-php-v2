@@ -18,6 +18,8 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfoDraft;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfoDraftModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
@@ -100,6 +102,12 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?CustomLineItemRecurrenceInfoDraft
+     */
+    protected $recurrenceInfo;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -115,6 +123,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         ?ItemShippingDetailsDraft $shippingDetails = null,
         ?string $priceMode = null,
         ?CustomFieldsDraft $custom = null,
+        ?CustomLineItemRecurrenceInfoDraft $recurrenceInfo = null,
         ?string $action = null
     ) {
         $this->money = $money;
@@ -127,6 +136,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         $this->shippingDetails = $shippingDetails;
         $this->priceMode = $priceMode;
         $this->custom = $custom;
+        $this->recurrenceInfo = $recurrenceInfo;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -358,6 +368,27 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         return $this->custom;
     }
 
+    /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+     *
+     * @return null|CustomLineItemRecurrenceInfoDraft
+     */
+    public function getRecurrenceInfo()
+    {
+        if (is_null($this->recurrenceInfo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurrenceInfo = CustomLineItemRecurrenceInfoDraftModel::of($data);
+        }
+
+        return $this->recurrenceInfo;
+    }
+
 
     /**
      * @param ?Money $money
@@ -437,5 +468,13 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?CustomLineItemRecurrenceInfoDraft $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?CustomLineItemRecurrenceInfoDraft $recurrenceInfo): void
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
     }
 }

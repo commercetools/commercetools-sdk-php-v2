@@ -170,6 +170,17 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 'get',
                 'test_projectKey/products?priceChannel=priceChannel',
             ],
+            'ByProjectKeyProductsGet_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->get()
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'get',
+                'test_projectKey/products?priceRecurrencePolicy=priceRecurrencePolicy',
+            ],
             'ByProjectKeyProductsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -321,6 +332,17 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 },
                 'post',
                 'test_projectKey/products?priceChannel=priceChannel',
+            ],
+            'ByProjectKeyProductsPost_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->post(null)
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'post',
+                'test_projectKey/products?priceRecurrencePolicy=priceRecurrencePolicy',
             ],
             'ByProjectKeyProductsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

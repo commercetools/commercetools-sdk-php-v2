@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfoDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -30,6 +31,7 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
     public const FIELD_PRICE_MODE = 'priceMode';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_RECURRENCE_INFO = 'recurrenceInfo';
 
     /**
      * <p>Money value of the Custom Line Item. The value can be negative.</p>
@@ -116,6 +118,14 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
     public function getCustom();
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|CustomLineItemRecurrenceInfoDraft
+     */
+    public function getRecurrenceInfo();
+
+    /**
      * @param ?Money $money
      */
     public function setMoney(?Money $money): void;
@@ -164,4 +174,9 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?CustomLineItemRecurrenceInfoDraft $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?CustomLineItemRecurrenceInfoDraft $recurrenceInfo): void;
 }

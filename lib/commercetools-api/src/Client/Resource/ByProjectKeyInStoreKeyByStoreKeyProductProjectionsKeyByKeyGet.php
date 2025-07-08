@@ -203,6 +203,15 @@ class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet extends ApiR
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceRecurrencePolicy
+     */
+    public function withPriceRecurrencePolicy($priceRecurrencePolicy): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet
+    {
+        return $this->withQueryParam('priceRecurrencePolicy', $priceRecurrencePolicy);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $localeProjection
      */
     public function withLocaleProjection($localeProjection): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet

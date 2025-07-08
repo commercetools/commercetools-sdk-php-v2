@@ -163,6 +163,18 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/key=test_key?priceChannel=priceChannel',
             ],
+            'ByProjectKeyProductProjectionsKeyByKeyGet_withPriceRecurrencePolicy' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withPriceRecurrencePolicy('priceRecurrencePolicy');
+                },
+                'get',
+                'test_projectKey/product-projections/key=test_key?priceRecurrencePolicy=priceRecurrencePolicy',
+            ],
             'ByProjectKeyProductProjectionsKeyByKeyGet_withLocaleProjection' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

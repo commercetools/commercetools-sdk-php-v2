@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoDraft;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoDraftModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -89,6 +91,12 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
 
     /**
      *
+     * @var ?LineItemRecurrenceInfoDraft
+     */
+    protected $recurrenceInfo;
+
+    /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -107,6 +115,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         ?ChannelResourceIdentifier $distributionChannel = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?LineItemRecurrenceInfoDraft $recurrenceInfo = null,
         ?CustomFieldsDraft $custom = null,
         ?string $action = null
     ) {
@@ -119,6 +128,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         $this->distributionChannel = $distributionChannel;
         $this->supplyChannel = $supplyChannel;
         $this->shippingDetails = $shippingDetails;
+        $this->recurrenceInfo = $recurrenceInfo;
         $this->custom = $custom;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -338,6 +348,27 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+     *
+     * @return null|LineItemRecurrenceInfoDraft
+     */
+    public function getRecurrenceInfo()
+    {
+        if (is_null($this->recurrenceInfo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurrenceInfo = LineItemRecurrenceInfoDraftModel::of($data);
+        }
+
+        return $this->recurrenceInfo;
+    }
+
+    /**
      * <p>Custom Fields for the Line Item.</p>
      *
      *
@@ -429,6 +460,14 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?LineItemRecurrenceInfoDraft $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?LineItemRecurrenceInfoDraft $recurrenceInfo): void
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
     }
 
     /**

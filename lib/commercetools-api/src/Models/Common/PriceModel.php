@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReference;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -92,6 +94,12 @@ final class PriceModel extends JsonObjectModel implements Price
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?RecurrencePolicyReference
+     */
+    protected $recurrencePolicy;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -107,7 +115,8 @@ final class PriceModel extends JsonObjectModel implements Price
         ?DateTimeImmutable $validUntil = null,
         ?DiscountedPrice $discounted = null,
         ?PriceTierCollection $tiers = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?RecurrencePolicyReference $recurrencePolicy = null
     ) {
         $this->id = $id;
         $this->key = $key;
@@ -120,6 +129,7 @@ final class PriceModel extends JsonObjectModel implements Price
         $this->discounted = $discounted;
         $this->tiers = $tiers;
         $this->custom = $custom;
+        $this->recurrencePolicy = $recurrencePolicy;
     }
 
     /**
@@ -358,6 +368,27 @@ final class PriceModel extends JsonObjectModel implements Price
         return $this->custom;
     }
 
+    /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">Recurrence Policy</a> for which this Price is valid.</p>
+     *
+     *
+     * @return null|RecurrencePolicyReference
+     */
+    public function getRecurrencePolicy()
+    {
+        if (is_null($this->recurrencePolicy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_POLICY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurrencePolicy = RecurrencePolicyReferenceModel::of($data);
+        }
+
+        return $this->recurrencePolicy;
+    }
+
 
     /**
      * @param ?string $id
@@ -445,6 +476,14 @@ final class PriceModel extends JsonObjectModel implements Price
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?RecurrencePolicyReference $recurrencePolicy
+     */
+    public function setRecurrencePolicy(?RecurrencePolicyReference $recurrencePolicy): void
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
     }
 
 

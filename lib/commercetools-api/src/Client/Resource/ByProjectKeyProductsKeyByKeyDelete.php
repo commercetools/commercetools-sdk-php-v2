@@ -198,6 +198,15 @@ class ByProjectKeyProductsKeyByKeyDelete extends ApiRequest implements PriceSele
 
     /**
      *
+     * @psalm-param scalar|scalar[] $priceRecurrencePolicy
+     */
+    public function withPriceRecurrencePolicy($priceRecurrencePolicy): ByProjectKeyProductsKeyByKeyDelete
+    {
+        return $this->withQueryParam('priceRecurrencePolicy', $priceRecurrencePolicy);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $version
      */
     public function withVersion($version): ByProjectKeyProductsKeyByKeyDelete

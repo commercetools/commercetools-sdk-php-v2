@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReference;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -92,6 +94,12 @@ final class PriceBuilder implements Builder
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
+
+    /**
+
+     * @var null|RecurrencePolicyReference|RecurrencePolicyReferenceBuilder
+     */
+    private $recurrencePolicy;
 
     /**
      * <p>Unique identifier of this Price.</p>
@@ -218,6 +226,17 @@ final class PriceBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">Recurrence Policy</a> for which this Price is valid.</p>
+     *
+
+     * @return null|RecurrencePolicyReference
+     */
+    public function getRecurrencePolicy()
+    {
+        return $this->recurrencePolicy instanceof RecurrencePolicyReferenceBuilder ? $this->recurrencePolicy->build() : $this->recurrencePolicy;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -339,6 +358,17 @@ final class PriceBuilder implements Builder
     }
 
     /**
+     * @param ?RecurrencePolicyReference $recurrencePolicy
+     * @return $this
+     */
+    public function withRecurrencePolicy(?RecurrencePolicyReference $recurrencePolicy)
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withValue() instead
      * @return $this
      */
@@ -393,6 +423,17 @@ final class PriceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withRecurrencePolicy() instead
+     * @return $this
+     */
+    public function withRecurrencePolicyBuilder(?RecurrencePolicyReferenceBuilder $recurrencePolicy)
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
+
+        return $this;
+    }
+
     public function build(): Price
     {
         return new PriceModel(
@@ -406,7 +447,8 @@ final class PriceBuilder implements Builder
             $this->validUntil,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
             $this->tiers,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->recurrencePolicy instanceof RecurrencePolicyReferenceBuilder ? $this->recurrencePolicy->build() : $this->recurrencePolicy
         );
     }
 

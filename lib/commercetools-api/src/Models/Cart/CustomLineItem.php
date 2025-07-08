@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Order\ItemStateCollection;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfo;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -37,6 +38,7 @@ interface CustomLineItem extends JsonObject
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
     public const FIELD_PRICE_MODE = 'priceMode';
+    public const FIELD_RECURRENCE_INFO = 'recurrenceInfo';
 
     /**
      * <p>Unique identifier of the Custom Line Item.</p>
@@ -183,6 +185,14 @@ interface CustomLineItem extends JsonObject
     public function getPriceMode();
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|CustomLineItemRecurrenceInfo
+     */
+    public function getRecurrenceInfo();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -266,4 +276,9 @@ interface CustomLineItem extends JsonObject
      * @param ?string $priceMode
      */
     public function setPriceMode(?string $priceMode): void;
+
+    /**
+     * @param ?CustomLineItemRecurrenceInfo $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?CustomLineItemRecurrenceInfo $recurrenceInfo): void;
 }

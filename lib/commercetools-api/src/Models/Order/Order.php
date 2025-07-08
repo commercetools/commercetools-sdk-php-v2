@@ -30,6 +30,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\OrderEdit\StagedOrder;
 use Commercetools\Api\Models\Quote\QuoteReference;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderReference;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -76,6 +77,7 @@ interface Order extends BaseResource
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_CART = 'cart';
     public const FIELD_QUOTE = 'quote';
+    public const FIELD_RECURRING_ORDER = 'recurringOrder';
     public const FIELD_ORDER_STATE = 'orderState';
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
     public const FIELD_PAYMENT_STATE = 'paymentState';
@@ -425,6 +427,14 @@ interface Order extends BaseResource
     public function getQuote();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the RecurringOrder that generated this Order.</p>
+     *
+
+     * @return null|RecurringOrderReference
+     */
+    public function getRecurringOrder();
+
+    /**
      * <p>Current status of the Order.</p>
      *
 
@@ -733,6 +743,11 @@ interface Order extends BaseResource
      * @param ?QuoteReference $quote
      */
     public function setQuote(?QuoteReference $quote): void;
+
+    /**
+     * @param ?RecurringOrderReference $recurringOrder
+     */
+    public function setRecurringOrder(?RecurringOrderReference $recurringOrder): void;
 
     /**
      * @param ?string $orderState

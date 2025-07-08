@@ -29,6 +29,8 @@ use Commercetools\Api\Models\ProductTailoring\ProductTailoringResourceIdentifier
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\Quote\QuoteResourceIdentifier;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestResourceIdentifier;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifier;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderResourceIdentifier;
 use Commercetools\Api\Models\Review\ReviewResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;

@@ -21,6 +21,8 @@ use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceBuilder;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfo;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -193,6 +195,12 @@ final class LineItemBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
+
+    /**
+
+     * @var null|LineItemRecurrenceInfo|LineItemRecurrenceInfoBuilder
+     */
+    private $recurrenceInfo;
 
     /**
      * <p>Unique identifier of the LineItem.</p>
@@ -498,6 +506,17 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|LineItemRecurrenceInfo
+     */
+    public function getRecurrenceInfo()
+    {
+        return $this->recurrenceInfo instanceof LineItemRecurrenceInfoBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -784,6 +803,17 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?LineItemRecurrenceInfo $recurrenceInfo
+     * @return $this
+     */
+    public function withRecurrenceInfo(?LineItemRecurrenceInfo $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -915,6 +945,17 @@ final class LineItemBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withRecurrenceInfo() instead
+     * @return $this
+     */
+    public function withRecurrenceInfoBuilder(?LineItemRecurrenceInfoBuilder $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
+
+        return $this;
+    }
+
     public function build(): LineItem
     {
         return new LineItemModel(
@@ -943,7 +984,8 @@ final class LineItemBuilder implements Builder
             $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->addedAt,
-            $this->lastModifiedAt
+            $this->lastModifiedAt,
+            $this->recurrenceInfo instanceof LineItemRecurrenceInfoBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo
         );
     }
 

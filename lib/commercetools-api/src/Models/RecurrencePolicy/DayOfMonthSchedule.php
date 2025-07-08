@@ -1,0 +1,37 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\RecurrencePolicy;
+
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
+interface DayOfMonthSchedule extends RecurrencePolicySchedule
+{
+    public const FIELD_DAY = 'day';
+
+    /**
+
+     * @return null|string
+     */
+    public function getType();
+
+    /**
+     * <p>The day of the month when the <a href="ctp:api:type:RecurringOrder">Recurring Order</a> is created.
+     * If the value is greater than the number of days in a given month, the order is created on the last day of the month.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDay();
+
+    /**
+     * @param ?int $day
+     */
+    public function setDay(?int $day): void;
+}

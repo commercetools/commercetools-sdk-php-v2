@@ -15,6 +15,8 @@ use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\Order\ItemStateCollection;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfo;
+use Commercetools\Api\Models\RecurringOrder\CustomLineItemRecurrenceInfoBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
@@ -134,6 +136,12 @@ final class CustomLineItemBuilder implements Builder
      * @var ?string
      */
     private $priceMode;
+
+    /**
+
+     * @var null|CustomLineItemRecurrenceInfo|CustomLineItemRecurrenceInfoBuilder
+     */
+    private $recurrenceInfo;
 
     /**
      * <p>Unique identifier of the Custom Line Item.</p>
@@ -331,6 +339,17 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|CustomLineItemRecurrenceInfo
+     */
+    public function getRecurrenceInfo()
+    {
+        return $this->recurrenceInfo instanceof CustomLineItemRecurrenceInfoBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -518,6 +537,17 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?CustomLineItemRecurrenceInfo $recurrenceInfo
+     * @return $this
+     */
+    public function withRecurrenceInfo(?CustomLineItemRecurrenceInfo $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -605,6 +635,17 @@ final class CustomLineItemBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withRecurrenceInfo() instead
+     * @return $this
+     */
+    public function withRecurrenceInfoBuilder(?CustomLineItemRecurrenceInfoBuilder $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
+
+        return $this;
+    }
+
     public function build(): CustomLineItem
     {
         return new CustomLineItemModel(
@@ -624,7 +665,8 @@ final class CustomLineItemBuilder implements Builder
             $this->discountedPricePerQuantity,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
-            $this->priceMode
+            $this->priceMode,
+            $this->recurrenceInfo instanceof CustomLineItemRecurrenceInfoBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo
         );
     }
 

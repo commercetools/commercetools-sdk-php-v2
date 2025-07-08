@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -31,6 +32,7 @@ interface CartAddLineItemAction extends CartUpdateAction
     public const FIELD_PER_METHOD_EXTERNAL_TAX_RATE = 'perMethodExternalTaxRate';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_RECURRENCE_INFO = 'recurrenceInfo';
     public const FIELD_CUSTOM = 'custom';
 
     /**
@@ -156,6 +158,14 @@ interface CartAddLineItemAction extends CartUpdateAction
     public function getShippingDetails();
 
     /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|LineItemRecurrenceInfoDraft
+     */
+    public function getRecurrenceInfo();
+
+    /**
      * <p>Custom Fields for the Line Item.</p>
      *
 
@@ -232,6 +242,11 @@ interface CartAddLineItemAction extends CartUpdateAction
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?LineItemRecurrenceInfoDraft $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?LineItemRecurrenceInfoDraft $recurrenceInfo): void;
 
     /**
      * @param ?CustomFieldsDraft $custom

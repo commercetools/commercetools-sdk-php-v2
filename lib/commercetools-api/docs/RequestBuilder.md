@@ -8528,7 +8528,7 @@ The Cart must have a shipping address and an active Shipping Method set.
 
 The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
 
-Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
+Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message. If the Order is created from a Recurring Order schedule, the [OrderCreatedFromRecurringOrder](ctp:api:type:OrderCreatedFromRecurringOrderMessage) Message is generated.
 
 If a server-side problem occurs, indicated by a 500 Internal Server Error HTTP response, the Order creation may still successfully complete after the error is returned.
 If you receive this error, you should verify the status of the Order by querying a unique identifier supplied during the creation request, such as the Order number.
@@ -10682,6 +10682,294 @@ $request = $builder
                 ->quotes()
                 ->withKey("key")
                 ->delete();
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->get()`
+
+Retrieves Recurrence Policies in the Project.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->get();
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->head()`
+
+Checks if one or more Recurrence Policies exist for the provided query predicate. Returns a `200 OK` status if any Recurrence Policies match the query predicate, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->head();
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->post(null)`
+
+Creates a Recurrence Policy in the Project.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->get()`
+
+Retrieves a Recurrence Policy with the provided `id`.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->head()`
+
+Checks if a Recurrence Policy exists with the provided `id`. Returns a `200 OK` status if the Recurrence Policy exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->post(null)`
+
+Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->get()`
+
+Retrieves a Recurrence Policy with the provided `key`.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->head()`
+
+Checks if a Recurrence Policy exists with the provided `key`. Returns a `200 OK` status if the Recurrence Policy exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->post(null)`
+
+Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->recurringOrders()->get()`
+
+Retrieves Recurring Orders in the Project.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->get();
+```
+## `withProjectKey("projectKey")->recurringOrders()->head()`
+
+Checks if one or more Recurring Orders exist for the provided query predicate. Returns a `200 OK` status if any Recurring Orders match the query predicate, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->head();
+```
+## `withProjectKey("projectKey")->recurringOrders()->post(null)`
+
+Creates a Recurring Order in the Project.
+The Cart is validated to ensure that it is convertible to an [Order](ctp:api:type:Order). If validation fails, an error is returned.
+
+Produces the [RecurringOrderCreated](ctp:api:type:RecurringOrderCreatedMessage) message.
+
+If a server-side problem occurs, indicated by a 500 Internal Server Error HTTP response, the Recurring Order creation may still successfully complete after the error is returned.
+If you receive this error, you should verify the status of the Recurring Order by querying a unique identifier supplied during the creation request, such as the key.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->recurringOrders()->withId("ID")->get()`
+
+Retrieves a Recurring Order with the provided `id`.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->recurringOrders()->withId("ID")->head()`
+
+Checks if a Recurring Order exists with the provided `id`. Returns a `200 OK` status if the Recurring Order exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->recurringOrders()->withId("ID")->post(null)`
+
+Updates a Recurring Order using one or more [update actions](/../api/projects/recurring-orders#update-actions).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->recurringOrders()->withKey("key")->get()`
+
+Retrieves a Recurring Order with the provided `key`.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->recurringOrders()->withKey("key")->head()`
+
+Checks if a Recurring Order exists with the provided `key`. Returns a `200 OK` status if the Recurring Order exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->recurringOrders()->withKey("key")->post(null)`
+
+Updates a Recurring Order using one or more [update actions](/../api/projects/recurring-orders#update-actions).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->withKey("key")
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->reviews()->get()`
 

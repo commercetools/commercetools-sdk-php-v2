@@ -35,6 +35,8 @@ use Commercetools\Api\Models\ProductTailoring\ProductTailoringReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Quote\QuoteReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReference;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderReference;
 use Commercetools\Api\Models\Review\ReviewReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReference;

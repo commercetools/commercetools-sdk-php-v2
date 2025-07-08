@@ -17,6 +17,8 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Common\PriceTierDraftCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifier;
+use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -99,6 +101,12 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
 
     /**
      *
+     * @var ?RecurrencePolicyResourceIdentifier
+     */
+    protected $recurrencePolicy;
+
+    /**
+     *
      * @var ?StagedPriceDraft
      */
     protected $staged;
@@ -125,6 +133,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         ?PriceTierDraftCollection $tiers = null,
         ?DiscountedPriceDraft $discounted = null,
         ?CustomFieldsDraft $custom = null,
+        ?RecurrencePolicyResourceIdentifier $recurrencePolicy = null,
         ?StagedPriceDraft $staged = null,
         ?bool $active = null
     ) {
@@ -139,6 +148,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         $this->tiers = $tiers;
         $this->discounted = $discounted;
         $this->custom = $custom;
+        $this->recurrencePolicy = $recurrencePolicy;
         $this->staged = $staged;
         $this->active = $active;
     }
@@ -380,6 +390,27 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     }
 
     /**
+     * <p><a href="ctp:api:type:RecurrencePolicy">RecurrencePolicy</a> for which this Price is valid.</p>
+     *
+     *
+     * @return null|RecurrencePolicyResourceIdentifier
+     */
+    public function getRecurrencePolicy()
+    {
+        if (is_null($this->recurrencePolicy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_POLICY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurrencePolicy = RecurrencePolicyResourceIdentifierModel::of($data);
+        }
+
+        return $this->recurrencePolicy;
+    }
+
+    /**
      * <p>Staged changes for the StandalonePrice.</p>
      *
      *
@@ -507,6 +538,14 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?RecurrencePolicyResourceIdentifier $recurrencePolicy
+     */
+    public function setRecurrencePolicy(?RecurrencePolicyResourceIdentifier $recurrencePolicy): void
+    {
+        $this->recurrencePolicy = $recurrencePolicy;
     }
 
     /**

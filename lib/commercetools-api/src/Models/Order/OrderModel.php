@@ -45,6 +45,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderModel;
 use Commercetools\Api\Models\Quote\QuoteReference;
 use Commercetools\Api\Models\Quote\QuoteReferenceModel;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderReference;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Store\StoreKeyReference;
@@ -311,6 +313,12 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      *
+     * @var ?RecurringOrderReference
+     */
+    protected $recurringOrder;
+
+    /**
+     *
      * @var ?string
      */
     protected $orderState;
@@ -427,6 +435,7 @@ final class OrderModel extends JsonObjectModel implements Order
         ?string $origin = null,
         ?CartReference $cart = null,
         ?QuoteReference $quote = null,
+        ?RecurringOrderReference $recurringOrder = null,
         ?string $orderState = null,
         ?string $shipmentState = null,
         ?string $paymentState = null,
@@ -481,6 +490,7 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->origin = $origin;
         $this->cart = $cart;
         $this->quote = $quote;
+        $this->recurringOrder = $recurringOrder;
         $this->orderState = $orderState;
         $this->shipmentState = $shipmentState;
         $this->paymentState = $paymentState;
@@ -1362,6 +1372,27 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the RecurringOrder that generated this Order.</p>
+     *
+     *
+     * @return null|RecurringOrderReference
+     */
+    public function getRecurringOrder()
+    {
+        if (is_null($this->recurringOrder)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRING_ORDER);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurringOrder = RecurringOrderReferenceModel::of($data);
+        }
+
+        return $this->recurringOrder;
+    }
+
+    /**
      * <p>Current status of the Order.</p>
      *
      *
@@ -1940,6 +1971,14 @@ final class OrderModel extends JsonObjectModel implements Order
     public function setQuote(?QuoteReference $quote): void
     {
         $this->quote = $quote;
+    }
+
+    /**
+     * @param ?RecurringOrderReference $recurringOrder
+     */
+    public function setRecurringOrder(?RecurringOrderReference $recurringOrder): void
+    {
+        $this->recurringOrder = $recurringOrder;
     }
 
     /**
