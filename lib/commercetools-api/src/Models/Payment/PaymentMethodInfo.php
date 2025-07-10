@@ -33,7 +33,7 @@ interface PaymentMethodInfo extends JsonObject
     public function getPaymentInterface();
 
     /**
-     * <p>Payment method used—for example, a credit card or cash advance.</p>
+     * <p>Payment method used—for example, a credit card or direct debit.</p>
      *
 
      * @return null|string

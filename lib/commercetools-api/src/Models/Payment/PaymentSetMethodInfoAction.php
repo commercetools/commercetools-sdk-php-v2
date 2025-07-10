@@ -35,7 +35,7 @@ interface PaymentSetMethodInfoAction extends PaymentUpdateAction
     public function getPaymentInterface();
 
     /**
-     * <p>Payment method to use—for example, a credit card or cash advance.
+     * <p>Payment method to use—for example, a credit card or direct debit.
      * If empty, any existing value will be removed.</p>
      * <p>Setting this field is equivalent to the <code>setMethodInfoMethod</code> action and will generate the <a href="ctp:api:type:PaymentMethodInfoMethodSetMessage">PaymentMethodInfoMethodSet</a> Message.</p>
      *

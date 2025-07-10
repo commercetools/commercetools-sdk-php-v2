@@ -27,7 +27,7 @@ final class PaymentMethodSetMethodActionBuilder implements Builder
     private $method;
 
     /**
-     * <p>New payment method—for example, a credit card or cash advance.
+     * <p>New payment method—for example, a credit card or direct debit.
      * If empty, any existing value will be removed.</p>
      *
 
