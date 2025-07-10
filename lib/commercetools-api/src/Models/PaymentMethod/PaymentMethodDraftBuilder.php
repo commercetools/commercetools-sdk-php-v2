@@ -141,7 +141,7 @@ final class PaymentMethodDraftBuilder implements Builder
     }
 
     /**
-     * <p>Payment method to use for the Payment—for example, a credit card or cash advance.</p>
+     * <p>Payment method to use for the Payment—for example, a credit card or direct debit.</p>
      *
 
      * @return null|string

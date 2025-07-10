@@ -16,7 +16,7 @@ interface PaymentMethodSetMethodAction extends PaymentMethodUpdateAction
     public const FIELD_METHOD = 'method';
 
     /**
-     * <p>New payment method—for example, a credit card or cash advance.
+     * <p>New payment method—for example, a credit card or direct debit.
      * If empty, any existing value will be removed.</p>
      *
 

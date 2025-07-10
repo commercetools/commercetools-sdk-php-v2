@@ -228,7 +228,7 @@ final class PaymentMethodBuilder implements Builder
     }
 
     /**
-     * <p>Payment Method used for the Payment—for example, a credit card or cash advance.</p>
+     * <p>Payment Method used for the Payment—for example, a credit card or direct debit.</p>
      *
 
      * @return null|string

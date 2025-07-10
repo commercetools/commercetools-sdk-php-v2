@@ -75,7 +75,7 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
-     * <p>Payment method used—for example, a credit card or cash advance.</p>
+     * <p>Payment method used—for example, a credit card or direct debit.</p>
      *
 
      * @return null|string
