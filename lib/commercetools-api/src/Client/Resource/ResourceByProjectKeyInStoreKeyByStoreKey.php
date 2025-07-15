@@ -27,27 +27,27 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
 
     /**
      */
+    public function businessUnits(): ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnits
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnits($args, $this->getClient());
+    }
+    /**
+     */
+    public function cartDiscounts(): ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts($args, $this->getClient());
+    }
+    /**
+     */
     public function carts(): ResourceByProjectKeyInStoreKeyByStoreKeyCarts
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCarts($args, $this->getClient());
-    }
-    /**
-     */
-    public function orders(): ResourceByProjectKeyInStoreKeyByStoreKeyOrders
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyOrders($args, $this->getClient());
-    }
-    /**
-     */
-    public function me(): ResourceByProjectKeyInStoreKeyByStoreKeyMe
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyMe($args, $this->getClient());
     }
     /**
      */
@@ -59,27 +59,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
     }
     /**
      */
-    public function login(): ResourceByProjectKeyInStoreKeyByStoreKeyLogin
+    public function me(): ResourceByProjectKeyInStoreKeyByStoreKeyMe
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyLogin($args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyMe($args, $this->getClient());
     }
     /**
      */
-    public function shippingMethods(): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods
+    public function orders(): ResourceByProjectKeyInStoreKeyByStoreKeyOrders
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods($args, $this->getClient());
-    }
-    /**
-     */
-    public function shoppingLists(): ResourceByProjectKeyInStoreKeyByStoreKeyShoppingLists
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyShoppingLists($args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyOrders($args, $this->getClient());
     }
     /**
      */
@@ -96,14 +88,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignments($args, $this->getClient());
-    }
-    /**
-     */
-    public function cartDiscounts(): ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts($args, $this->getClient());
     }
     /**
      */
@@ -131,14 +115,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
     }
     /**
      */
-    public function stagedQuotes(): ResourceByProjectKeyInStoreKeyByStoreKeyStagedQuotes
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyStagedQuotes($args, $this->getClient());
-    }
-    /**
-     */
     public function quotes(): ResourceByProjectKeyInStoreKeyByStoreKeyQuotes
     {
         $args = $this->getArgs();
@@ -147,10 +123,34 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
     }
     /**
      */
-    public function businessUnits(): ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnits
+    public function shippingMethods(): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnits($args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods($args, $this->getClient());
+    }
+    /**
+     */
+    public function shoppingLists(): ResourceByProjectKeyInStoreKeyByStoreKeyShoppingLists
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyShoppingLists($args, $this->getClient());
+    }
+    /**
+     */
+    public function stagedQuotes(): ResourceByProjectKeyInStoreKeyByStoreKeyStagedQuotes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyStagedQuotes($args, $this->getClient());
+    }
+    /**
+     */
+    public function login(): ResourceByProjectKeyInStoreKeyByStoreKeyLogin
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyLogin($args, $this->getClient());
     }
 }
