@@ -16,12 +16,6 @@ interface DayOfMonthScheduleDraft extends RecurrencePolicyScheduleDraft
     public const FIELD_DAY = 'day';
 
     /**
-
-     * @return null|string
-     */
-    public function getType();
-
-    /**
      * <p>The day of the month when the <a href="ctp:api:type:RecurringOrder">Recurring Order</a> should be created.
      * If the value is greater than the number of days in a given month, the order will be created on the last day of the month.</p>
      *

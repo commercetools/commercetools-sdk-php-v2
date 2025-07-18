@@ -19,6 +19,7 @@ use stdClass;
  */
 final class DayOfMonthScheduleDraftModel extends JsonObjectModel implements DayOfMonthScheduleDraft
 {
+    public const DISCRIMINATOR_VALUE = 'dayOfMonth';
     /**
      *
      * @var ?string
@@ -40,7 +41,7 @@ final class DayOfMonthScheduleDraftModel extends JsonObjectModel implements DayO
         ?string $type = null
     ) {
         $this->day = $day;
-        $this->type = $type;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**

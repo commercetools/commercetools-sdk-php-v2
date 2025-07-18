@@ -31,6 +31,7 @@ final class RecurrencePolicyScheduleDraftModel extends JsonObjectModel implement
      *
      */
     private static $discriminatorClasses = [
+       'dayOfMonth' => DayOfMonthScheduleDraftModel::class,
        'standard' => StandardScheduleDraftModel::class,
     ];
 
