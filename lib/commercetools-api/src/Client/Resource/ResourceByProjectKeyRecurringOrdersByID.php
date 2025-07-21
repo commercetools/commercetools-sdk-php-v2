@@ -56,4 +56,14 @@ class ResourceByProjectKeyRecurringOrdersByID extends ApiResource
 
         return new ByProjectKeyRecurringOrdersByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function delete($body = null, array $headers = []): ByProjectKeyRecurringOrdersByIDDelete
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyRecurringOrdersByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
 }

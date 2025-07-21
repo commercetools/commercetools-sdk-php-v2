@@ -446,6 +446,8 @@ use Commercetools\Api\Models\Message\RecurringOrderCustomTypeRemovedMessage;
 use Commercetools\Api\Models\Message\RecurringOrderCustomTypeRemovedMessageModel;
 use Commercetools\Api\Models\Message\RecurringOrderCustomTypeSetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderCustomTypeSetMessageModel;
+use Commercetools\Api\Models\Message\RecurringOrderDeletedMessage;
+use Commercetools\Api\Models\Message\RecurringOrderDeletedMessageModel;
 use Commercetools\Api\Models\Message\RecurringOrderKeySetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderKeySetMessageModel;
 use Commercetools\Api\Models\Message\RecurringOrderScheduleSetMessage;
