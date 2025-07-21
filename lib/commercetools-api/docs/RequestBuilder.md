@@ -10923,6 +10923,22 @@ $request = $builder
                 ->withId("ID")
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->recurringOrders()->withId("ID")->delete()`
+
+Deletes a Recurring Order in the Project.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->withId("ID")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->recurringOrders()->withKey("key")->get()`
 
 Retrieves a Recurring Order with the provided `key`.
@@ -10970,6 +10986,22 @@ $request = $builder
                 ->recurringOrders()
                 ->withKey("key")
                 ->post(null);
+```
+## `withProjectKey("projectKey")->recurringOrders()->withKey("key")->delete()`
+
+Deletes a Recurring Order in the Project.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurringOrders()
+                ->withKey("key")
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->reviews()->get()`
 

@@ -351,6 +351,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'RecurringOrderCustomFieldRemoved' => RecurringOrderCustomFieldRemovedMessageModel::class,
        'RecurringOrderCustomTypeRemoved' => RecurringOrderCustomTypeRemovedMessageModel::class,
        'RecurringOrderCustomTypeSet' => RecurringOrderCustomTypeSetMessageModel::class,
+       'RecurringOrderDeleted' => RecurringOrderDeletedMessageModel::class,
        'RecurringOrderKeySet' => RecurringOrderKeySetMessageModel::class,
        'RecurringOrderScheduleSet' => RecurringOrderScheduleSetMessageModel::class,
        'RecurringOrderStartsAtSet' => RecurringOrderStartsAtSetMessageModel::class,

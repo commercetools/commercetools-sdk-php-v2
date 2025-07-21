@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyRecurringOrdersKeyByKeyGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyRecurringOrdersKeyByKeyHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyRecurringOrdersKeyByKeyPost
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyRecurringOrdersKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyRecurringOrdersKeyByKey
  */
 class ResourceByProjectKeyRecurringOrdersKeyByKeyTest extends TestCase
@@ -148,6 +149,53 @@ class ResourceByProjectKeyRecurringOrdersKeyByKeyTest extends TestCase
                 },
                 'post',
                 'test_projectKey/recurring-orders/key=test_key',
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_withDataErasure' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->recurringOrders()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                'test_projectKey/recurring-orders/key=test_key?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_withVersion' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->recurringOrders()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                'test_projectKey/recurring-orders/key=test_key?version=version',
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->recurringOrders()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                'test_projectKey/recurring-orders/key=test_key?expand=expand',
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->recurringOrders()
+                        ->withKey("test_key")
+                        ->delete();
+                },
+                'delete',
+                'test_projectKey/recurring-orders/key=test_key',
             ]
         ];
     }
@@ -186,6 +234,15 @@ class ResourceByProjectKeyRecurringOrdersKeyByKeyTest extends TestCase
                         ->recurringOrders()
                         ->withKey("key")
                         ->post(null);
+                }
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
                 }
             ]
         ];
@@ -471,6 +528,106 @@ class ResourceByProjectKeyRecurringOrdersKeyByKeyTest extends TestCase
                         ->recurringOrders()
                         ->withKey("key")
                         ->post(null);
+                },
+                599
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
+                },
+                200
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_409' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
+                },
+                409
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
+                },
+                400
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
+                },
+                401
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
+                },
+                403
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
+                },
+                404
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
+                },
+                500
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
+                },
+                503
+            ],
+            'ByProjectKeyRecurringOrdersKeyByKeyDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurringOrders()
+                        ->withKey("key")
+                        ->delete();
                 },
                 599
             ]
