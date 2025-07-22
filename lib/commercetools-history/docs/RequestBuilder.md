@@ -12,6 +12,9 @@ $root = new HistoryRequestBuilder();
 
 The `view_audit_log:{projectKey}` scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.
 
+If the request exceeds the rate limit, a [TooManyRequests](ctp:history:type:TooManyRequestsError) error is returned.
+
+
 ### Example
 ```php
 use Commercetools\History\Client\HistoryRequestBuilder;
@@ -24,6 +27,9 @@ $request = $builder
 ## `withProjectKeyValue("projectKey")->withResourceTypeValue("resourceType")->get()`
 
 The `view_audit_log:{projectKey}` scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.
+
+If the request exceeds the rate limit, a [TooManyRequests](ctp:history:type:TooManyRequestsError) error is returned.
+
 
 ### Example
 ```php
@@ -38,6 +44,9 @@ $request = $builder
 ## `withProjectKeyValue("projectKey")->withResourceTypeValue("resourceType")->withIDValue("ID")->get()`
 
 The `view_audit_log:{projectKey}` scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.
+
+If the request exceeds the rate limit, a [TooManyRequests](ctp:history:type:TooManyRequestsError) error is returned.
+
 
 ### Example
 ```php

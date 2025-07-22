@@ -72,6 +72,10 @@ class ByProjectKeyGet extends ApiRequest
                     $resultType = ErrorResponseModel::class;
 
                     break;
+                case '429':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 case '500':
                     $resultType = ErrorResponseModel::class;
 

@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models\ChangeHistory;
+namespace Commercetools\History\Models\Error;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -14,13 +14,13 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Error\TooManyRequestsError;
-use Commercetools\History\Models\Error\TooManyRequestsErrorBuilder;
+use Commercetools\History\Models\ChangeHistory\ErrorObject;
+use Commercetools\History\Models\ChangeHistory\ErrorObjectBuilder;
 
 /**
- * @implements Builder<ErrorObject>
+ * @implements Builder<TooManyRequestsError>
  */
-final class ErrorObjectBuilder implements Builder
+final class TooManyRequestsErrorBuilder implements Builder
 {
     /**
 
@@ -35,6 +35,8 @@ final class ErrorObjectBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;TooManyRequests&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class ErrorObjectBuilder implements Builder
     }
 
     /**
+     * <p><code>&quot;You have made too many requests. Please try again later.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -75,15 +79,15 @@ final class ErrorObjectBuilder implements Builder
     }
 
 
-    public function build(): ErrorObject
+    public function build(): TooManyRequestsError
     {
-        return new ErrorObjectModel(
+        return new TooManyRequestsErrorModel(
             $this->code,
             $this->message
         );
     }
 
-    public static function of(): ErrorObjectBuilder
+    public static function of(): TooManyRequestsErrorBuilder
     {
         return new self();
     }

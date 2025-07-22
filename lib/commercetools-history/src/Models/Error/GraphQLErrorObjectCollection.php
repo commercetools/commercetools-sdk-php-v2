@@ -6,34 +6,34 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models\ChangeHistory;
+namespace Commercetools\History\Models\Error;
 
 use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @template T of ErrorObject
+ * @template T of GraphQLErrorObject
  * @extends MapperSequence<T>
  * @psalm-method T current()
  * @psalm-method T end()
  * @psalm-method T at($offset)
- * @method ErrorObject current()
- * @method ErrorObject end()
- * @method ErrorObject at($offset)
+ * @method GraphQLErrorObject current()
+ * @method GraphQLErrorObject end()
+ * @method GraphQLErrorObject at($offset)
  */
-class ErrorObjectCollection extends MapperSequence
+class GraphQLErrorObjectCollection extends MapperSequence
 {
     /**
      * @psalm-assert T $value
      * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
-     * @return ErrorObjectCollection
+     * @return GraphQLErrorObjectCollection
      */
     public function add($value)
     {
-        if (!$value instanceof ErrorObject) {
+        if (!$value instanceof GraphQLErrorObject) {
             throw new InvalidArgumentException();
         }
         $this->store($value);
@@ -46,11 +46,11 @@ class ErrorObjectCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (?int $index): ?ErrorObject {
+        return function (?int $index): ?GraphQLErrorObject {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */
-                $data = ErrorObjectModel::of($data);
+                $data = GraphQLErrorObjectModel::of($data);
                 $this->set($data, $index);
             }
 

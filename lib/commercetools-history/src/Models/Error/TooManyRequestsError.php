@@ -6,25 +6,27 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models\ChangeHistory;
+namespace Commercetools\History\Models\Error;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Error\TooManyRequestsError;
+use Commercetools\History\Models\ChangeHistory\ErrorObject;
 
-interface ErrorObject extends JsonObject
+interface TooManyRequestsError extends ErrorObject
 {
 
-    public const FIELD_CODE = 'code';
-    public const FIELD_MESSAGE = 'message';
 
     /**
+     * <p><code>&quot;TooManyRequests&quot;</code></p>
+     *
 
      * @return null|string
      */
     public function getCode();
 
     /**
+     * <p><code>&quot;You have made too many requests. Please try again later.&quot;</code></p>
+     *
 
      * @return null|string
      */
