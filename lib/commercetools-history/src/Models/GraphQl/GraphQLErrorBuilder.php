@@ -14,6 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\Error\GraphQLErrorObject;
+use Commercetools\History\Models\Error\GraphQLErrorObjectBuilder;
 
 /**
  * @implements Builder<GraphQLError>
@@ -40,7 +42,7 @@ final class GraphQLErrorBuilder implements Builder
 
     /**
 
-     * @var ?JsonObject
+     * @var null|GraphQLErrorObject|GraphQLErrorObjectBuilder
      */
     private $extensions;
 
@@ -81,11 +83,11 @@ final class GraphQLErrorBuilder implements Builder
      * <p>Dictionary with additional information where applicable.</p>
      *
 
-     * @return null|JsonObject
+     * @return null|GraphQLErrorObject
      */
     public function getExtensions()
     {
-        return $this->extensions;
+        return $this->extensions instanceof GraphQLErrorObjectBuilder ? $this->extensions->build() : $this->extensions;
     }
 
     /**
@@ -122,16 +124,26 @@ final class GraphQLErrorBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $extensions
+     * @param ?GraphQLErrorObject $extensions
      * @return $this
      */
-    public function withExtensions(?JsonObject $extensions)
+    public function withExtensions(?GraphQLErrorObject $extensions)
     {
         $this->extensions = $extensions;
 
         return $this;
     }
 
+    /**
+     * @deprecated use withExtensions() instead
+     * @return $this
+     */
+    public function withExtensionsBuilder(?GraphQLErrorObjectBuilder $extensions)
+    {
+        $this->extensions = $extensions;
+
+        return $this;
+    }
 
     public function build(): GraphQLError
     {
@@ -139,7 +151,7 @@ final class GraphQLErrorBuilder implements Builder
             $this->message,
             $this->locations,
             $this->path,
-            $this->extensions
+            $this->extensions instanceof GraphQLErrorObjectBuilder ? $this->extensions->build() : $this->extensions
         );
     }
 

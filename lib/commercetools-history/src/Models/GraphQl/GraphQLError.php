@@ -10,6 +10,7 @@ namespace Commercetools\History\Models\GraphQl;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\History\Models\Error\GraphQLErrorObject;
 
 interface GraphQLError extends JsonObject
 {
@@ -47,7 +48,7 @@ interface GraphQLError extends JsonObject
      * <p>Dictionary with additional information where applicable.</p>
      *
 
-     * @return null|mixed
+     * @return null|GraphQLErrorObject
      */
     public function getExtensions();
 
@@ -67,7 +68,7 @@ interface GraphQLError extends JsonObject
     public function setPath(?array $path): void;
 
     /**
-     * @param ?JsonObject $extensions
+     * @param ?GraphQLErrorObject $extensions
      */
-    public function setExtensions(?JsonObject $extensions): void;
+    public function setExtensions(?GraphQLErrorObject $extensions): void;
 }

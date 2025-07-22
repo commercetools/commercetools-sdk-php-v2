@@ -622,16 +622,10 @@
 **History changes**
 
 <details>
-<summary>Changed Property(s)</summary>
+<summary>Added Type(s)</summary>
 
-- :warning: changed property `extensions` of type `GraphQLError` from type `GraphQLErrorObject` to `object`
-</details>
-
-
-<details>
-<summary>Required Property(s)</summary>
-
-- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
+- added type `TooManyRequestsError`
+- added type `GraphQLTooManyRequestsError`
 </details>
 
 
@@ -653,8 +647,8 @@
 
 
 <details>
-<summary>Removed Type(s)</summary>
+<summary>Required Property(s)</summary>
 
-- :warning: removed type `GraphQLErrorObject`
+- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
 </details>
 

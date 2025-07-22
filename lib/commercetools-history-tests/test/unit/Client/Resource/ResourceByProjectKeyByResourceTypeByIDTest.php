@@ -348,6 +348,16 @@ class ResourceByProjectKeyByResourceTypeByIDTest extends TestCase
                 },
                 403
             ],
+            'ByProjectKeyByResourceTypeByIDGet_429' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->withResourceTypeValue("resourceType")
+                        ->withIDValue("ID")
+                        ->get();
+                },
+                429
+            ],
             'ByProjectKeyByResourceTypeByIDGet_500' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder
