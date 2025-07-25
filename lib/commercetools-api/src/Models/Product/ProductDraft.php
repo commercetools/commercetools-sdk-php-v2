@@ -178,7 +178,8 @@ interface ProductDraft extends JsonObject
     public function getPriceMode();
 
     /**
-     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinitionDraft">AttributeDefinition</a>.</p>
+     * <p>Product Attributes according to the respective <a href="ctp:api:type:AttributeDefinitionDraft">AttributeDefinition</a>.
+     * <strong>Not supported</strong> by <a href="/projects/product-projection-search">Product Projection Search</a>.</p>
      *
 
      * @return null|AttributeCollection

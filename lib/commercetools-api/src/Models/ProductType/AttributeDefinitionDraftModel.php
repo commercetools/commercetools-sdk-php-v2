@@ -269,11 +269,12 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     }
 
     /**
-     * <p>Set to <code>true</code> if the Attribute's values should be available in the <a href="/../api/projects/product-search">Product Search</a> or the <a href="/../api/projects/product-projection-search">Product Projection Search</a> API and can be used in full-text search queries, filters, and facets.
-     * Which exact features are available with this flag depends on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
+     * <p>Set as <code>true</code> if you want the Attribute's values to be available in the <a href="/../api/projects/product-search">Product Search</a> or the <a href="/../api/projects/product-projection-search">Product Projection Search</a> API and can be used in full-text search queries, filters, and facets.
+     * If an Attribute's <code>level</code> is set as <code>Product</code>, then Product Projection Search does <strong>not support</strong> the Attribute.</p>
+     * <p>Which exact features are available with this flag depends on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
      * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/../api/limits#field-content-size">Field content size limit</a>.
      * This constraint is enforced at both Product creation and Product update.
-     * If the length of the input exceeds the maximum size, an InvalidField error is returned.</p>
+     * If the length of the input exceeds the maximum size, an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> error is returned.</p>
      *
      *
      * @return null|bool

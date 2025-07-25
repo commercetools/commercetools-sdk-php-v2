@@ -49,7 +49,7 @@ interface ProductVariantDraft extends JsonObject
     public function getPrices();
 
     /**
-     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     * <p>Variant Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|AttributeCollection

@@ -140,7 +140,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
-     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     * <p>Variant Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
      *
      * @return null|AttributeCollection

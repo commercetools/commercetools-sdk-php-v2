@@ -152,7 +152,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>Attributes of the Product Variant.</p>
+     * <p>Variant Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
 
      * @return null|AttributeCollection

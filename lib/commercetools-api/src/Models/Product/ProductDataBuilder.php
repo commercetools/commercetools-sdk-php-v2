@@ -219,7 +219,8 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
-     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     * <p>Product Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.
+     * <strong>Not supported</strong> by <a href="/projects/product-projection-search">Product Projection Search</a>.</p>
      *
 
      * @return null|AttributeCollection
