@@ -6564,9 +6564,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
-Retrieves the active ShippingMethods that can ship to the shipping address of the given Cart in a given [Store](ctp:api:type:Store).
-Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
-This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+Retrieves the active ShippingMethods that can ship to the shipping address of the provided Cart in a [Store](ctp:api:type:Store).
+
+Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`. This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 
 
@@ -6584,7 +6585,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->head()`
 
-Checks if an active ShippingMethod that can ship to the shipping address of the given Cart exists in the given [Store](ctp:api:type:Store). Returns a `200` status if the ShippingMethod exists, or a `404` status otherwise.
+Checks if an active ShippingMethod that can ship to the shipping address of the provided Cart exists in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11167,7 +11168,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->get()`
 
-null
+Retrieves all ShippingMethods in the Project.
 
 ### Example
 ```php
@@ -11181,7 +11182,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->head()`
 
-Checks if one or more ShippingMethods exist for the provided query predicate. Returns a `200` status if any ShippingMethods match the query predicate, or a `404` status otherwise.
+Checks if one or more ShippingMethods exist for the provided query predicate. Returns a `200 OK` status if any ShippingMethods match the query predicate or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11195,7 +11196,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->post(null)`
 
-null
+Creates a ShippingMethod in the Project.
 
 ### Example
 ```php
@@ -11209,7 +11210,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->get()`
 
-null
+Retrieves a ShippingMethod with the provided `id`.
 
 ### Example
 ```php
@@ -11224,7 +11225,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->head()`
 
-Checks if a ShippingMethod exists with the provided `id`. Returns a `200` status if the ShippingMethod exists, or a `404` status otherwise.
+Checks if a ShippingMethod exists with the provided `id`. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11239,7 +11240,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->post(null)`
 
-null
+Updates a ShippingMethod in the Project using one or more [update actions](/../api/projects/shippingMethods#update-actions).
 
 ### Example
 ```php
@@ -11254,7 +11255,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->delete()`
 
-null
+Deletes a ShippingMethod in the Project.
 
 ### Example
 ```php
@@ -11269,7 +11270,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->get()`
 
-null
+Retrieves a ShippingMethod with the provided `key`.
 
 ### Example
 ```php
@@ -11284,7 +11285,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->head()`
 
-Checks if a ShippingMethod exists with the provided `key`. Returns a `200` status if the ShippingMethod exists, or a `404` status otherwise.
+Checks if a ShippingMethod exists with the provided `key`. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11299,7 +11300,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->post(null)`
 
-null
+Updates a ShippingMethod in the Project using one or more [update actions](/../api/projects/shippingMethods#update-actions).
 
 ### Example
 ```php
@@ -11314,7 +11315,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->delete()`
 
-null
+Deletes a ShippingMethod in the Project.
 
 ### Example
 ```php
@@ -11329,9 +11330,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->get()`
 
-Retrieves the active ShippingMethods that can ship to the shipping address of the given Cart.
-Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
-This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+Retrieves the active ShippingMethods that can ship to the shipping address of the provided Cart.
+
+Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`. This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 
 
@@ -11348,7 +11350,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->head()`
 
-Checks if an active ShippingMethod exists for the given Cart. If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array. Returns a `200` status if the ShippingMethod exists, or a `404` status otherwise.
+Checks if an active ShippingMethod exists for the provided Cart. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11363,10 +11365,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->get()`
 
-Retrieves the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location)
-with a `predicate` that matches the given Cart.
-Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
-This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+Retrieves the active ShippingMethods that can ship to the provided [Location](ctp:api:type:Location)
+with a `predicate` that matches the provided Cart.
+
+Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`. This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 
 
@@ -11383,7 +11386,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->head()`
 
-Checks if an active ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given Cart. Returns a `200` status if the ShippingMethod exists, or a `404` status otherwise.
+Checks if an active ShippingMethod that can ship to the provided [Location](ctp:api:type:Location) exists for the provided Cart. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11398,12 +11401,15 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
-Retrieves the active ShippingMethods that can ship to the given [Location](/projects/zones#location).
-ShippingMethods that have a `predicate` defined are automatically disqualified.
-If the `currency` parameter is given, then the ShippingMethods must also have a rate defined in the specified currency.
-Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
-If the `currency` parameter is given, exactly one ShippingRate will contain it.
-If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
+Retrieves the active ShippingMethods that can ship to the provided [Location](/projects/zones#location).
+
+The following applies:
+
+- ShippingMethods that have a `predicate` defined are automatically disqualified.
+- If the `currency` parameter is provided, then the ShippingMethods must also have a rate defined in the specified currency.
+- Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
+- If the `currency` parameter is provided, exactly one ShippingRate will contain it.
+- If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 
 
 ### Example
@@ -11419,7 +11425,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->head()`
 
-Checks if an active ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists. Returns a `200` status if the ShippingMethod exists, or a `404` status otherwise.
+Checks if an active ShippingMethod that can ship to the provided [Location](ctp:api:type:Location) exists. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11434,8 +11440,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
-Retrieves the active ShippingMethods that can ship to the given [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
+Retrieves the active ShippingMethods that can ship to the provided [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
+
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
+
 If the OrderEdit preview cannot be generated, an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is returned.
 
 
@@ -11452,7 +11460,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->head()`
 
-Checks if an active ShippingMethod that can ship to the given [Location](ctp:api:type:Location) exists for the given [OrderEdit](ctp:api:type:OrderEdit). Returns a `200` status if the ShippingMethod exists, or a `404` status otherwise.
+Checks if an active ShippingMethod that can ship to the provided [Location](ctp:api:type:Location) exists for the provided [OrderEdit](ctp:api:type:OrderEdit). Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -12787,7 +12795,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->get()`
 
-null
+Retrieves all Zones in the Project.
 
 ### Example
 ```php
@@ -12801,7 +12809,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->head()`
 
-Checks if one or more Zones exist for the provided query predicate. Returns a `200` status if any Zones match the query predicate, or a `404` status otherwise.
+Checks if one or more Zones exist for the provided query predicate. Returns a `200 OK` status if any Zones match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -12815,7 +12823,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->post(null)`
 
-null
+Creates a Zone in the Project.
 
 ### Example
 ```php
@@ -12829,7 +12837,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withId("ID")->get()`
 
-null
+Retrieves a Zone with the provided `id`.
 
 ### Example
 ```php
@@ -12844,7 +12852,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withId("ID")->head()`
 
-Checks if a Zone exists with the provided `id`. Returns a `200` status if the Zone exists, or a `404` status otherwise.
+Checks if a Zone exists with the provided `id`. Returns a `200 OK` status if the Zone exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -12874,7 +12882,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withId("ID")->delete()`
 
-null
+Deletes a Zone in the Project.
 
 ### Example
 ```php
@@ -12889,7 +12897,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->get()`
 
-null
+Retrieves a Zone with the provided `key`.
 
 ### Example
 ```php
@@ -12904,7 +12912,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->head()`
 
-Checks if a Zone exists with the provided `key`. Returns a `200` status if the Zone exists, or a `404` status otherwise.
+Checks if a Zone exists with the provided `key`. Returns a `200 OK` status if the Zone exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -12919,7 +12927,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->post(null)`
 
-null
+Updates a Zone in the Project using one or more [update actions](/../api/projects/zones#update-actions).
 
 ### Example
 ```php
@@ -12934,7 +12942,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->delete()`
 
-null
+Deletes a Zone in the Project.
 
 ### Example
 ```php
