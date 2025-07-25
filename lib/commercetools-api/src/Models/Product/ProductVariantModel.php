@@ -221,7 +221,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>Attributes of the Product Variant.</p>
+     * <p>Variant Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
      *
      * @return null|AttributeCollection
