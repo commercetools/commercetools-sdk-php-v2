@@ -52,6 +52,12 @@ final class RecurringOrderDraftModel extends JsonObjectModel implements Recurrin
 
     /**
      *
+     * @var ?DateTimeImmutable
+     */
+    protected $expiresAt;
+
+    /**
+     *
      * @var ?StateResourceIdentifier
      */
     protected $state;
@@ -71,6 +77,7 @@ final class RecurringOrderDraftModel extends JsonObjectModel implements Recurrin
         ?CartResourceIdentifier $cart = null,
         ?int $cartVersion = null,
         ?DateTimeImmutable $startsAt = null,
+        ?DateTimeImmutable $expiresAt = null,
         ?StateResourceIdentifier $state = null,
         ?CustomFieldsDraft $custom = null
     ) {
@@ -78,6 +85,7 @@ final class RecurringOrderDraftModel extends JsonObjectModel implements Recurrin
         $this->cart = $cart;
         $this->cartVersion = $cartVersion;
         $this->startsAt = $startsAt;
+        $this->expiresAt = $expiresAt;
         $this->state = $state;
         $this->custom = $custom;
     }
@@ -168,6 +176,30 @@ final class RecurringOrderDraftModel extends JsonObjectModel implements Recurrin
     }
 
     /**
+     * <p>Date and time (UTC) when the RecurringOrder will expire.</p>
+     *
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt()
+    {
+        if (is_null($this->expiresAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXPIRES_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->expiresAt = $data;
+        }
+
+        return $this->expiresAt;
+    }
+
+    /**
      * <p>State for the RecurringOrder in a custom workflow.</p>
      *
      *
@@ -243,6 +275,14 @@ final class RecurringOrderDraftModel extends JsonObjectModel implements Recurrin
     }
 
     /**
+     * @param ?DateTimeImmutable $expiresAt
+     */
+    public function setExpiresAt(?DateTimeImmutable $expiresAt): void
+    {
+        $this->expiresAt = $expiresAt;
+    }
+
+    /**
      * @param ?StateResourceIdentifier $state
      */
     public function setState(?StateResourceIdentifier $state): void
@@ -265,6 +305,10 @@ final class RecurringOrderDraftModel extends JsonObjectModel implements Recurrin
         $data = $this->toArray();
         if (isset($data[RecurringOrderDraft::FIELD_STARTS_AT]) && $data[RecurringOrderDraft::FIELD_STARTS_AT] instanceof \DateTimeImmutable) {
             $data[RecurringOrderDraft::FIELD_STARTS_AT] = $data[RecurringOrderDraft::FIELD_STARTS_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[RecurringOrderDraft::FIELD_EXPIRES_AT]) && $data[RecurringOrderDraft::FIELD_EXPIRES_AT] instanceof \DateTimeImmutable) {
+            $data[RecurringOrderDraft::FIELD_EXPIRES_AT] = $data[RecurringOrderDraft::FIELD_EXPIRES_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
     }

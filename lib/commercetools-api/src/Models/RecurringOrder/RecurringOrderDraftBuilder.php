@@ -53,6 +53,12 @@ final class RecurringOrderDraftBuilder implements Builder
 
     /**
 
+     * @var ?DateTimeImmutable
+     */
+    private $expiresAt;
+
+    /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
@@ -105,6 +111,17 @@ final class RecurringOrderDraftBuilder implements Builder
     public function getStartsAt()
     {
         return $this->startsAt;
+    }
+
+    /**
+     * <p>Date and time (UTC) when the RecurringOrder will expire.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
     }
 
     /**
@@ -174,6 +191,17 @@ final class RecurringOrderDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $expiresAt
+     * @return $this
+     */
+    public function withExpiresAt(?DateTimeImmutable $expiresAt)
+    {
+        $this->expiresAt = $expiresAt;
+
+        return $this;
+    }
+
+    /**
      * @param ?StateResourceIdentifier $state
      * @return $this
      */
@@ -235,6 +263,7 @@ final class RecurringOrderDraftBuilder implements Builder
             $this->cart instanceof CartResourceIdentifierBuilder ? $this->cart->build() : $this->cart,
             $this->cartVersion,
             $this->startsAt,
+            $this->expiresAt,
             $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
