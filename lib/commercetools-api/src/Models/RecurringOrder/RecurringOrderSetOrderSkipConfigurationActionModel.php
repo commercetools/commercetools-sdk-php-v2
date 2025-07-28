@@ -93,7 +93,7 @@ final class RecurringOrderSetOrderSkipConfigurationActionModel extends JsonObjec
     }
 
     /**
-     * <p>Date and time (UTC) the Recurring Order will resume and start to generate new orders.</p>
+     * <p>Date and time (UTC) the Recurring Order will expire and stop generating new orders.</p>
      *
      *
      * @return null|DateTimeImmutable

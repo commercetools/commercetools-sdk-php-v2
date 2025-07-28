@@ -33,6 +33,7 @@ final class RecurringOrderUpdateActionModel extends JsonObjectModel implements R
     private static $discriminatorClasses = [
        'setCustomField' => RecurringOrderSetCustomFieldActionModel::class,
        'setCustomType' => RecurringOrderSetCustomTypeActionModel::class,
+       'setExpiresAt' => RecurringOrderSetExpiresAtActionModel::class,
        'setKey' => RecurringOrderSetKeyActionModel::class,
        'setOrderSkipConfiguration' => RecurringOrderSetOrderSkipConfigurationActionModel::class,
        'setRecurringOrderState' => RecurringOrderSetStateActionModel::class,

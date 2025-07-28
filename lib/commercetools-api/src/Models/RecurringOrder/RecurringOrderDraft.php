@@ -21,6 +21,7 @@ interface RecurringOrderDraft extends JsonObject
     public const FIELD_CART = 'cart';
     public const FIELD_CART_VERSION = 'cartVersion';
     public const FIELD_STARTS_AT = 'startsAt';
+    public const FIELD_EXPIRES_AT = 'expiresAt';
     public const FIELD_STATE = 'state';
     public const FIELD_CUSTOM = 'custom';
 
@@ -57,6 +58,14 @@ interface RecurringOrderDraft extends JsonObject
     public function getStartsAt();
 
     /**
+     * <p>Date and time (UTC) when the RecurringOrder will expire.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt();
+
+    /**
      * <p>State for the RecurringOrder in a custom workflow.</p>
      *
 
@@ -91,6 +100,11 @@ interface RecurringOrderDraft extends JsonObject
      * @param ?DateTimeImmutable $startsAt
      */
     public function setStartsAt(?DateTimeImmutable $startsAt): void;
+
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     */
+    public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
 
     /**
      * @param ?StateResourceIdentifier $state

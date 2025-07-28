@@ -228,6 +228,7 @@ use Commercetools\Api\Models\Message\RecurringOrderCustomFieldRemovedMessage;
 use Commercetools\Api\Models\Message\RecurringOrderCustomTypeRemovedMessage;
 use Commercetools\Api\Models\Message\RecurringOrderCustomTypeSetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderDeletedMessage;
+use Commercetools\Api\Models\Message\RecurringOrderExpiresAtSetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderKeySetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderScheduleSetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderStartsAtSetMessage;
