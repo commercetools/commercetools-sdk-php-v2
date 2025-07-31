@@ -206,7 +206,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Customer.password</code>. Required when <code>authenticationMode</code> is set to <code>Password</code>.</p>
+     * <p>Maps to <code>Customer.password</code>. Required when <code>authenticationMode</code> is set to <code>Password</code>. This field is only used when creating new Customers, and is ignored when updating Customers. However, due to the Import API's <a href="/../import-export/overview#how-are-resources-created-or-updated">upsert behavior</a>, a non-empty value must still be provided when updating Customers.</p>
      *
 
      * @return null|string
