@@ -100,6 +100,18 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
      *
      * @var ?int
      */
+    protected $minCartQuantity;
+
+    /**
+     *
+     * @var ?int
+     */
+    protected $maxCartQuantity;
+
+    /**
+     *
+     * @var ?int
+     */
     protected $restockableInDays;
 
     /**
@@ -130,6 +142,8 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         ?ChannelReference $supplyChannel = null,
         ?int $quantityOnStock = null,
         ?int $availableQuantity = null,
+        ?int $minCartQuantity = null,
+        ?int $maxCartQuantity = null,
         ?int $restockableInDays = null,
         ?DateTimeImmutable $expectedDelivery = null,
         ?CustomFields $custom = null
@@ -145,6 +159,8 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         $this->supplyChannel = $supplyChannel;
         $this->quantityOnStock = $quantityOnStock;
         $this->availableQuantity = $availableQuantity;
+        $this->minCartQuantity = $minCartQuantity;
+        $this->maxCartQuantity = $maxCartQuantity;
         $this->restockableInDays = $restockableInDays;
         $this->expectedDelivery = $expectedDelivery;
         $this->custom = $custom;
@@ -382,6 +398,46 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
+     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getMinCartQuantity()
+    {
+        if (is_null($this->minCartQuantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_MIN_CART_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->minCartQuantity = (int) $data;
+        }
+
+        return $this->minCartQuantity;
+    }
+
+    /**
+     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getMaxCartQuantity()
+    {
+        if (is_null($this->maxCartQuantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_MAX_CART_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->maxCartQuantity = (int) $data;
+        }
+
+        return $this->maxCartQuantity;
+    }
+
+    /**
      * <p>How often the InventoryEntry is restocked (in days).</p>
      *
      *
@@ -533,6 +589,22 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     public function setAvailableQuantity(?int $availableQuantity): void
     {
         $this->availableQuantity = $availableQuantity;
+    }
+
+    /**
+     * @param ?int $minCartQuantity
+     */
+    public function setMinCartQuantity(?int $minCartQuantity): void
+    {
+        $this->minCartQuantity = $minCartQuantity;
+    }
+
+    /**
+     * @param ?int $maxCartQuantity
+     */
+    public function setMaxCartQuantity(?int $maxCartQuantity): void
+    {
+        $this->maxCartQuantity = $maxCartQuantity;
     }
 
     /**

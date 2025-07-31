@@ -6995,7 +6995,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->post(null)`
 
+Creates an InventoryEntry in the Project.
+
+If quantity limits are provided, existing Line Items that reference a Product Variant with an SKU that matches the Inventory Entry can be affected. For more information, see [Quantity limits](/../api/carts-orders-overview#quantity-limits).
+
 Produces the [InventoryEntryCreated](ctp:api:type:InventoryEntryCreatedMessage) Message.
+
 
 ### Example
 ```php
