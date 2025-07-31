@@ -54,6 +54,10 @@
 - added property `invalidateOlderTokens` to type `CustomerCreatePasswordResetToken`
 - added property `customerGroupAssignments` to type `CustomerDraft`
 - added property `invalidateOlderTokens` to type `CustomerToken`
+- added property `minCartQuantity` to type `InventoryEntry`
+- added property `maxCartQuantity` to type `InventoryEntry`
+- added property `minCartQuantity` to type `InventoryEntryDraft`
+- added property `maxCartQuantity` to type `InventoryEntryDraft`
 - added property `recurrenceInfo` to type `MyLineItemDraft`
 - added property `recurrenceInfo` to type `MyCartAddLineItemAction`
 - added property `value` to type `CustomerEmailTokenCreatedMessage`
@@ -169,6 +173,7 @@
 - added type `ImportUnresolvedEventData`
 - added type `ImportValidationFailedEventData`
 - added type `ImportWaitForMasterVariantEventData`
+- added type `InventoryEntrySetInventoryLimitsAction`
 - added type `MyCartSetCustomLineItemRecurrenceInfoAction`
 - added type `MyCartSetLineItemRecurrenceInfoAction`
 - added type `MyPaymentSetMethodInfoCustomFieldAction`

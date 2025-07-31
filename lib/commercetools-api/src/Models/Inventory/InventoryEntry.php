@@ -26,6 +26,8 @@ interface InventoryEntry extends BaseResource
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';
     public const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
+    public const FIELD_MIN_CART_QUANTITY = 'minCartQuantity';
+    public const FIELD_MAX_CART_QUANTITY = 'maxCartQuantity';
     public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
     public const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
     public const FIELD_CUSTOM = 'custom';
@@ -119,6 +121,22 @@ interface InventoryEntry extends BaseResource
     public function getAvailableQuantity();
 
     /**
+     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     *
+
+     * @return null|int
+     */
+    public function getMinCartQuantity();
+
+    /**
+     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     *
+
+     * @return null|int
+     */
+    public function getMaxCartQuantity();
+
+    /**
      * <p>How often the InventoryEntry is restocked (in days).</p>
      *
 
@@ -196,6 +214,16 @@ interface InventoryEntry extends BaseResource
      * @param ?int $availableQuantity
      */
     public function setAvailableQuantity(?int $availableQuantity): void;
+
+    /**
+     * @param ?int $minCartQuantity
+     */
+    public function setMinCartQuantity(?int $minCartQuantity): void;
+
+    /**
+     * @param ?int $maxCartQuantity
+     */
+    public function setMaxCartQuantity(?int $maxCartQuantity): void;
 
     /**
      * @param ?int $restockableInDays

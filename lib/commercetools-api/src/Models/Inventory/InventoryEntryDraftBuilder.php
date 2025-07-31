@@ -53,6 +53,18 @@ final class InventoryEntryDraftBuilder implements Builder
 
      * @var ?int
      */
+    private $minCartQuantity;
+
+    /**
+
+     * @var ?int
+     */
+    private $maxCartQuantity;
+
+    /**
+
+     * @var ?int
+     */
     private $restockableInDays;
 
     /**
@@ -110,6 +122,28 @@ final class InventoryEntryDraftBuilder implements Builder
     public function getQuantityOnStock()
     {
         return $this->quantityOnStock;
+    }
+
+    /**
+     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     *
+
+     * @return null|int
+     */
+    public function getMinCartQuantity()
+    {
+        return $this->minCartQuantity;
+    }
+
+    /**
+     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     *
+
+     * @return null|int
+     */
+    public function getMaxCartQuantity()
+    {
+        return $this->maxCartQuantity;
     }
 
     /**
@@ -190,6 +224,28 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $minCartQuantity
+     * @return $this
+     */
+    public function withMinCartQuantity(?int $minCartQuantity)
+    {
+        $this->minCartQuantity = $minCartQuantity;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $maxCartQuantity
+     * @return $this
+     */
+    public function withMaxCartQuantity(?int $maxCartQuantity)
+    {
+        $this->maxCartQuantity = $maxCartQuantity;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $restockableInDays
      * @return $this
      */
@@ -251,6 +307,8 @@ final class InventoryEntryDraftBuilder implements Builder
             $this->key,
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->quantityOnStock,
+            $this->minCartQuantity,
+            $this->maxCartQuantity,
             $this->restockableInDays,
             $this->expectedDelivery,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
