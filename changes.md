@@ -550,6 +550,7 @@
 - added enum `recurring-order` to type `ReferenceTypeId`
 - added enum `payment-method` to type `ExtensionResourceTypeId`
 - added enum `RecurringOrderState` to type `StateTypeEnum`
+- added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
 - added enum `recurrence-policy` to type `ChangeSubscriptionResourceTypeId`
 - added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
 - added enum `recurring-order` to type `ResourceTypeId`
