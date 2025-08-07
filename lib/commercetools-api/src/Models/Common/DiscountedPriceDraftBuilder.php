@@ -35,8 +35,8 @@ final class DiscountedPriceDraftBuilder implements Builder
     private $discount;
 
     /**
-     * <p>Sets the money value for the discounted price.</p>
-     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
+     * <p>Sets the money value for the discounted price.
+     * To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
 
      * @return null|Money

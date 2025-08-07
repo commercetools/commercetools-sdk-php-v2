@@ -210,6 +210,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
 
     /**
      * <p>The cost of individual items in the Custom Line Item. The amount can be negative.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
      *
      * @return null|Money

@@ -90,6 +90,7 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
      * <p>Required when the Line Item uses <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.
      * Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when changing the quantity of a Line Item.</p>
      * <p>The LineItem price is updated as described in Line Item price selection.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
 
      * @return null|Money
