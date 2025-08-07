@@ -173,6 +173,7 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
 
     /**
      * <p>Sets the <a href="ctp:api:type:LineItem">LineItem</a> <code>price</code> to the given value when decreasing the quantity of a Line Item with the <code>ExternalPrice</code> <a href="ctp:api:type:LineItemPriceMode">LineItemPriceMode</a>.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
      *
      * @return null|Money

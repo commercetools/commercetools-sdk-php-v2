@@ -36,6 +36,7 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
 
     /**
      * <p>Price of the Line Item.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
 
      * @return null|Money

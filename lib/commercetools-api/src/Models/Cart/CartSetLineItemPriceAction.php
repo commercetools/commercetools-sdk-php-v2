@@ -37,6 +37,7 @@ interface CartSetLineItemPriceAction extends CartUpdateAction
     /**
      * <p>Value to set.
      * If <code>externalPrice</code> is not given and the <code>priceMode</code> is <code>ExternalPrice</code>, the external price is unset and the <code>priceMode</code> is set to <code>Platform</code>.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
 
      * @return null|Money

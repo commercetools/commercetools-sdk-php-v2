@@ -36,6 +36,7 @@ interface CartChangeCustomLineItemMoneyAction extends CartUpdateAction
 
     /**
      * <p>Value to set. Must not be empty. Can be a negative amount.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
 
      * @return null|Money

@@ -104,6 +104,7 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
 
     /**
      * <p>Money value of the Custom Line Item. The value can be negative.</p>
+     * <p>To set the money value in high precision, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a>.</p>
      *
 
      * @return null|Money
