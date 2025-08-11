@@ -16,7 +16,7 @@ interface ChangeSubscription extends JsonObject
     public const FIELD_RESOURCE_TYPE_ID = 'resourceTypeId';
 
     /**
-     * <p>Unique identifier for the type of resource, for example, <code>cart</code>.</p>
+     * <p>Unique identifier for the type of resource, for example, <code>order</code>.</p>
      *
 
      * @return null|string
