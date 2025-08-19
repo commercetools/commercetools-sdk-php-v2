@@ -567,18 +567,32 @@
 <details>
 <summary>Added Type(s)</summary>
 
+- added type `AssociateRoleKeyReference`
+- added type `BusinessUnitKeyReference`
 - added type `StrategyEnum`
 - added type `RetentionPolicy`
 - added type `TimeToLiveConfig`
 - added type `TimeToLiveRetentionPolicy`
 - added type `ProductSelectionImportRequest`
-- added type `AttributeLevel`
+- added type `BusinessUnitImportRequest`
+- added type `AssociateRoleInheritanceMode`
+- added type `BusinessUnitStatus`
+- added type `BusinessUnitAssociateMode`
+- added type `BusinessUnitApprovalRuleMode`
+- added type `BusinessUnitStoreMode`
+- added type `BusinessUnitType`
+- added type `AssociateRoleAssignmentDraft`
+- added type `AssociateDraft`
+- added type `BusinessUnitImport`
+- added type `CompanyBusinessUnitImport`
+- added type `DivisionBusinessUnitImport`
 - added type `VariantSelectionType`
 - added type `VariantSelection`
 - added type `VariantExclusion`
 - added type `ProductSelectionAssignment`
 - added type `ProductSelectionMode`
 - added type `ProductSelectionImport`
+- added type `AttributeLevel`
 </details>
 
 
@@ -586,6 +600,7 @@
 <summary>Added Method(s)</summary>
 
 - added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
 </details>
 
 
@@ -593,30 +608,33 @@
 <summary>Added Resource(s)</summary>
 
 - added resource `/{projectKey}/product-selections`
+- added resource `/{projectKey}/business-units`
 - added resource `/{projectKey}/product-selections/import-containers`
 - added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/business-units/import-containers`
+- added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
 </details>
 
 
 <details>
 <summary>Changed Property(s)</summary>
 
-- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
 - :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
+- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
 </details>
 
 
 <details>
 <summary>Added Property(s)</summary>
 
+- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
 - added property `retentionPolicy` to type `ImportContainer`
 - added property `expiresAt` to type `ImportContainer`
 - added property `retentionPolicy` to type `ImportContainerDraft`
+- added property `attributes` to type `ProductDraftImport`
 - added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
 - added property `attributes` to type `ProductImport`
-- added property `attributes` to type `ProductDraftImport`
 - added property `level` to type `AttributeDefinition`
-- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
 </details>
 
 
@@ -631,7 +649,10 @@
 <details>
 <summary>Added Enum(s)</summary>
 
+- added enum `business-unit` to type `ImportResourceType`
 - added enum `product-selection` to type `ImportResourceType`
+- added enum `associate-role` to type `ReferenceType`
+- added enum `business-unit` to type `ReferenceType`
 </details>
 
 **History changes**

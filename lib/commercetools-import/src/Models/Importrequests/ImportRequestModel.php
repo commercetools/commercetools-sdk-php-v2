@@ -31,6 +31,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
      *
      */
     private static $discriminatorClasses = [
+       'business-unit' => BusinessUnitImportRequestModel::class,
        'category' => CategoryImportRequestModel::class,
        'customer' => CustomerImportRequestModel::class,
        'discount-code' => DiscountCodeImportRequestModel::class,
@@ -58,7 +59,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
     }
 
     /**
-     * <p>The resource types that can be imported.</p>
+     * <p>The resource type that can be imported.</p>
      *
      *
      * @return null|string

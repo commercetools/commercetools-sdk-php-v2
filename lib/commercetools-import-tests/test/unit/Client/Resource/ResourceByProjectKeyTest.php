@@ -13,6 +13,7 @@ use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Import\Client\ImportRequestBuilder;
+use Commercetools\Import\Client\Resource\ResourceByProjectKeyBusinessUnits;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCategories;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCustomers;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyDiscountCodes;
@@ -237,6 +238,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyProductSelections::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-selections'
+            ],
+            'ResourceByProjectKeyBusinessUnits' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyBusinessUnits {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->businessUnits();
+                },
+                ResourceByProjectKeyBusinessUnits::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/business-units'
             ]
         ];
     }
