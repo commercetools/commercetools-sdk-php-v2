@@ -12,15 +12,15 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\DiscountCodes\DiscountCodeImportCollection;
+use Commercetools\Import\Models\BusinessUnits\BusinessUnitImportCollection;
 use stdClass;
 
 /**
  * @internal
  */
-final class DiscountCodeImportRequestModel extends JsonObjectModel implements DiscountCodeImportRequest
+final class BusinessUnitImportRequestModel extends JsonObjectModel implements BusinessUnitImportRequest
 {
-    public const DISCRIMINATOR_VALUE = 'discount-code';
+    public const DISCRIMINATOR_VALUE = 'business-unit';
     /**
      *
      * @var ?string
@@ -29,7 +29,7 @@ final class DiscountCodeImportRequestModel extends JsonObjectModel implements Di
 
     /**
      *
-     * @var ?DiscountCodeImportCollection
+     * @var ?BusinessUnitImportCollection
      */
     protected $resources;
 
@@ -38,7 +38,7 @@ final class DiscountCodeImportRequestModel extends JsonObjectModel implements Di
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?DiscountCodeImportCollection $resources = null,
+        ?BusinessUnitImportCollection $resources = null,
         ?string $type = null
     ) {
         $this->resources = $resources;
@@ -66,10 +66,10 @@ final class DiscountCodeImportRequestModel extends JsonObjectModel implements Di
     }
 
     /**
-     * <p>The Discount Code import resources of this request.</p>
+     * <p>The Business Unit import resources of this request. Can contain <a href="ctp:import:type:CompanyBusinessUnitImport">CompanyBusinessUnitImport</a> or <a href="ctp:import:type:DivisionBusinessUnitImport">DivisionBusinessUnitImport</a>.</p>
      *
      *
-     * @return null|DiscountCodeImportCollection
+     * @return null|BusinessUnitImportCollection
      */
     public function getResources()
     {
@@ -79,7 +79,7 @@ final class DiscountCodeImportRequestModel extends JsonObjectModel implements Di
             if (is_null($data)) {
                 return null;
             }
-            $this->resources = DiscountCodeImportCollection::fromArray($data);
+            $this->resources = BusinessUnitImportCollection::fromArray($data);
         }
 
         return $this->resources;
@@ -87,9 +87,9 @@ final class DiscountCodeImportRequestModel extends JsonObjectModel implements Di
 
 
     /**
-     * @param ?DiscountCodeImportCollection $resources
+     * @param ?BusinessUnitImportCollection $resources
      */
-    public function setResources(?DiscountCodeImportCollection $resources): void
+    public function setResources(?BusinessUnitImportCollection $resources): void
     {
         $this->resources = $resources;
     }

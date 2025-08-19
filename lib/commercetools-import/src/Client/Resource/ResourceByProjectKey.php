@@ -161,4 +161,12 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeyProductSelections($args, $this->getClient());
     }
+    /**
+     */
+    public function businessUnits(): ResourceByProjectKeyBusinessUnits
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyBusinessUnits($args, $this->getClient());
+    }
 }

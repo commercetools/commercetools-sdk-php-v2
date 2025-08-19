@@ -8,6 +8,22 @@ use Commercetools\Import\Client\ImportRequestBuilder;
 $root = new ImportRequestBuilder();
 ```
 
+## `withProjectKeyValue("projectKey")->businessUnits()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
+
+Creates an Import Request for Business Units.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->businessUnits()
+                ->importContainers()
+                ->withImportContainerKeyValue("importContainerKey")
+                ->post(null);
+```
 ## `withProjectKeyValue("projectKey")->categories()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
 Creates an Import Request for Categories.
