@@ -24,6 +24,7 @@ use Psr\Http\Message\RequestInterface;
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyRecurrencePoliciesByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyRecurrencePoliciesByIDHead
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyRecurrencePoliciesByIDPost
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyRecurrencePoliciesByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyRecurrencePoliciesByID
  */
 class ResourceByProjectKeyRecurrencePoliciesByIDTest extends TestCase
@@ -148,6 +149,41 @@ class ResourceByProjectKeyRecurrencePoliciesByIDTest extends TestCase
                 },
                 'post',
                 'test_projectKey/recurrence-policies/test_ID',
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_withVersion' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->recurrencePolicies()
+                        ->withId('test_ID')
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                'test_projectKey/recurrence-policies/test_ID?version=version',
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->recurrencePolicies()
+                        ->withId('test_ID')
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                'test_projectKey/recurrence-policies/test_ID?expand=expand',
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->recurrencePolicies()
+                        ->withId("test_ID")
+                        ->delete();
+                },
+                'delete',
+                'test_projectKey/recurrence-policies/test_ID',
             ]
         ];
     }
@@ -186,6 +222,15 @@ class ResourceByProjectKeyRecurrencePoliciesByIDTest extends TestCase
                         ->recurrencePolicies()
                         ->withId("ID")
                         ->post(null);
+                }
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
                 }
             ]
         ];
@@ -471,6 +516,106 @@ class ResourceByProjectKeyRecurrencePoliciesByIDTest extends TestCase
                         ->recurrencePolicies()
                         ->withId("ID")
                         ->post(null);
+                },
+                599
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
+                },
+                200
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_409' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
+                },
+                409
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
+                },
+                400
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
+                },
+                401
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
+                },
+                403
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
+                },
+                404
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
+                },
+                500
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
+                },
+                503
+            ],
+            'ByProjectKeyRecurrencePoliciesByIDDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->recurrencePolicies()
+                        ->withId("ID")
+                        ->delete();
                 },
                 599
             ]
