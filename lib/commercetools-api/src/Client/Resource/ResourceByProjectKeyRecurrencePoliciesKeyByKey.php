@@ -56,4 +56,14 @@ class ResourceByProjectKeyRecurrencePoliciesKeyByKey extends ApiResource
 
         return new ByProjectKeyRecurrencePoliciesKeyByKeyPost($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function delete($body = null, array $headers = []): ByProjectKeyRecurrencePoliciesKeyByKeyDelete
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyRecurrencePoliciesKeyByKeyDelete($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+    }
 }

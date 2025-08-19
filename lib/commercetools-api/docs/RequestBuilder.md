@@ -10782,6 +10782,24 @@ $request = $builder
                 ->withId("ID")
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->delete()`
+
+Deletes a Recurrence Policy in the Project.
+
+A Recurrence Policy can be deleted only if it is not referenced by any Embedded Price, Standalone Price, or (Custom) Line Item, otherwise a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->withId("ID")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->get()`
 
 Retrieves a Recurrence Policy with the provided `key`.
@@ -10829,6 +10847,24 @@ $request = $builder
                 ->recurrencePolicies()
                 ->withKey("key")
                 ->post(null);
+```
+## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->delete()`
+
+Deletes a Recurrence Policy in the Project.
+
+A Recurrence Policy can be deleted only if it is not referenced by any Embedded Price, Standalone Price, or (Custom) Line Item, otherwise a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->recurrencePolicies()
+                ->withKey("key")
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->recurringOrders()->get()`
 
