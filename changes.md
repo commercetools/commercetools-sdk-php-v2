@@ -1,35 +1,6 @@
 **Api changes**
 
 <details>
-<summary>Required Property(s)</summary>
-
-- changed property `sortOrder` of type `CartDiscountDraft` to be optional
-- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
-- changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
-- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
-</details>
-
-
-<details>
-<summary>MarkDeprecated Property(s)</summary>
-
-- marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
-- marked property `CountOnLineItemUnits::excludeCount` as deprecated
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
-- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
-- :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
-- :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
-- :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
-</details>
-
-
-<details>
 <summary>Added Property(s)</summary>
 
 - added property `inheritedStores` to type `BusinessUnit`
@@ -109,10 +80,80 @@
 
 
 <details>
+<summary>Required Property(s)</summary>
+
+- changed property `sortOrder` of type `CartDiscountDraft` to be optional
+- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
+- changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
+- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
+</details>
+
+
+<details>
+<summary>MarkDeprecated Property(s)</summary>
+
+- marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
+- marked property `CountOnLineItemUnits::excludeCount` as deprecated
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
+- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
+- :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
+- :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
+- :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
+</details>
+
+
+<details>
 <summary>Removed Property(s)</summary>
 
 - :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
 - :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
+</details>
+
+
+<details>
+<summary>Removed QueryParameter(s)</summary>
+
+- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
+</details>
+
+
+<details>
+<summary>Added QueryParameter(s)</summary>
+
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products`
+- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/search`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/search`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
 </details>
 
 
@@ -395,43 +436,30 @@
 
 
 <details>
-<summary>Removed QueryParameter(s)</summary>
+<summary>Added Resource(s)</summary>
 
-- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
-</details>
-
-
-<details>
-<summary>Added QueryParameter(s)</summary>
-
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products`
-- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/search`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/search`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+- added resource `/{projectKey}/discount-groups`
+- added resource `/{projectKey}/payment-methods`
+- added resource `/{projectKey}/recurring-orders`
+- added resource `/{projectKey}/recurrence-policies`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
+- added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
+- added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/discount-groups/key={key}`
+- added resource `/{projectKey}/discount-groups/{ID}`
+- added resource `/{projectKey}/payment-methods/key={key}`
+- added resource `/{projectKey}/payment-methods/{ID}`
+- added resource `/{projectKey}/recurring-orders/{ID}`
+- added resource `/{projectKey}/recurring-orders/key={key}`
+- added resource `/{projectKey}/recurrence-policies/key={key}`
+- added resource `/{projectKey}/recurrence-policies/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
 </details>
 
 
@@ -512,34 +540,6 @@
 
 
 <details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/discount-groups`
-- added resource `/{projectKey}/payment-methods`
-- added resource `/{projectKey}/recurring-orders`
-- added resource `/{projectKey}/recurrence-policies`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
-- added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
-- added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
-- added resource `/{projectKey}/discount-groups/key={key}`
-- added resource `/{projectKey}/discount-groups/{ID}`
-- added resource `/{projectKey}/payment-methods/key={key}`
-- added resource `/{projectKey}/payment-methods/{ID}`
-- added resource `/{projectKey}/recurring-orders/{ID}`
-- added resource `/{projectKey}/recurring-orders/key={key}`
-- added resource `/{projectKey}/recurrence-policies/key={key}`
-- added resource `/{projectKey}/recurrence-policies/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
-</details>
-
-
-<details>
 <summary>Added Enum(s)</summary>
 
 - added enum `ViewMyShoppingLists` to type `Permission`
@@ -565,6 +565,36 @@
 </details>
 
 **Import changes**
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
+- added property `retentionPolicy` to type `ImportContainer`
+- added property `expiresAt` to type `ImportContainer`
+- added property `retentionPolicy` to type `ImportContainerDraft`
+- added property `attributes` to type `ProductDraftImport`
+- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
+- added property `attributes` to type `ProductImport`
+- added property `level` to type `AttributeDefinition`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
+- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
+- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `LocalizedString`
+</details>
+
 
 <details>
 <summary>Added Type(s)</summary>
@@ -599,14 +629,6 @@
 
 
 <details>
-<summary>Added Method(s)</summary>
-
-- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
-</details>
-
-
-<details>
 <summary>Added Resource(s)</summary>
 
 - added resource `/{projectKey}/product-selections`
@@ -619,32 +641,10 @@
 
 
 <details>
-<summary>Changed Property(s)</summary>
+<summary>Added Method(s)</summary>
 
-- :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
-- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
-</details>
-
-
-<details>
-<summary>Added Property(s)</summary>
-
-- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
-- added property `retentionPolicy` to type `ImportContainer`
-- added property `expiresAt` to type `ImportContainer`
-- added property `retentionPolicy` to type `ImportContainerDraft`
-- added property `attributes` to type `ProductDraftImport`
-- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
-- added property `attributes` to type `ProductImport`
-- added property `level` to type `AttributeDefinition`
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
-- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `LocalizedString`
+- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
 </details>
 
 
@@ -668,6 +668,13 @@
 
 
 <details>
+<summary>Required Property(s)</summary>
+
+- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
+</details>
+
+
+<details>
 <summary>Removed Enum(s)</summary>
 
 - :warning: removed enum `setAsssetKey` from type `UpdateType`
@@ -681,12 +688,5 @@
 - added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
 - added enum `payment-method` to type `ReferenceTypeId`
 - added enum `RecurringOrderState` to type `StateTypeEnum`
-</details>
-
-
-<details>
-<summary>Required Property(s)</summary>
-
-- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
 </details>
 
