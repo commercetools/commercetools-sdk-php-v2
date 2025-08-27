@@ -79,6 +79,12 @@ final class DiscountGroupBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $isActive;
+
+    /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
@@ -176,6 +182,17 @@ final class DiscountGroupBuilder implements Builder
     public function getSortOrder()
     {
         return $this->sortOrder;
+    }
+
+    /**
+     * <p>A DiscountGroup must be active for its CartDiscounts to be considered during discount application.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
     }
 
     /**
@@ -289,6 +306,17 @@ final class DiscountGroupBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isActive
+     * @return $this
+     */
+    public function withIsActive(?bool $isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
      * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
@@ -365,6 +393,7 @@ final class DiscountGroupBuilder implements Builder
             $this->key,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->sortOrder,
+            $this->isActive,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy
         );

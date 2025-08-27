@@ -45,6 +45,12 @@ final class DiscountGroupDraftModel extends JsonObjectModel implements DiscountG
      */
     protected $sortOrder;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $isActive;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -53,12 +59,14 @@ final class DiscountGroupDraftModel extends JsonObjectModel implements DiscountG
         ?LocalizedString $name = null,
         ?string $key = null,
         ?LocalizedString $description = null,
-        ?string $sortOrder = null
+        ?string $sortOrder = null,
+        ?bool $isActive = null
     ) {
         $this->name = $name;
         $this->key = $key;
         $this->description = $description;
         $this->sortOrder = $sortOrder;
+        $this->isActive = $isActive;
     }
 
     /**
@@ -144,6 +152,26 @@ final class DiscountGroupDraftModel extends JsonObjectModel implements DiscountG
         return $this->sortOrder;
     }
 
+    /**
+     * <p>A DiscountGroup must be active for its CartDiscounts to be considered during discount application.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        if (is_null($this->isActive)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_IS_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isActive = (bool) $data;
+        }
+
+        return $this->isActive;
+    }
+
 
     /**
      * @param ?LocalizedString $name
@@ -175,5 +203,13 @@ final class DiscountGroupDraftModel extends JsonObjectModel implements DiscountG
     public function setSortOrder(?string $sortOrder): void
     {
         $this->sortOrder = $sortOrder;
+    }
+
+    /**
+     * @param ?bool $isActive
+     */
+    public function setIsActive(?bool $isActive): void
+    {
+        $this->isActive = $isActive;
     }
 }

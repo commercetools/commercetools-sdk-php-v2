@@ -215,6 +215,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'DiscountCodeKeySet' => DiscountCodeKeySetMessageModel::class,
        'DiscountGroupCreated' => DiscountGroupCreatedMessageModel::class,
        'DiscountGroupDeleted' => DiscountGroupDeletedMessageModel::class,
+       'DiscountGroupIsActiveSet' => DiscountGroupIsActiveSetMessageModel::class,
        'DiscountGroupKeySet' => DiscountGroupKeySetMessageModel::class,
        'DiscountGroupSortOrderSet' => DiscountGroupSortOrderSetMessageModel::class,
        'InventoryEntryCreated' => InventoryEntryCreatedMessageModel::class,

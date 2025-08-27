@@ -83,6 +83,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'LockedField' => LockedFieldErrorModel::class,
        'MatchingPriceNotFound' => MatchingPriceNotFoundErrorModel::class,
        'MaxCartDiscountsReached' => MaxCartDiscountsReachedErrorModel::class,
+       'MaxDiscountGroupsReached' => MaxDiscountGroupsReachedErrorModel::class,
        'MaxResourceLimitExceeded' => MaxResourceLimitExceededErrorModel::class,
        'MaxStoreReferencesReached' => MaxStoreReferencesReachedErrorModel::class,
        'MissingRoleOnChannel' => MissingRoleOnChannelErrorModel::class,

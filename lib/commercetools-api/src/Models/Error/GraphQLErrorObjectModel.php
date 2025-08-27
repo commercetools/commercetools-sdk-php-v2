@@ -77,6 +77,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'LockedField' => GraphQLLockedFieldErrorModel::class,
        'MatchingPriceNotFound' => GraphQLMatchingPriceNotFoundErrorModel::class,
        'MaxCartDiscountsReached' => GraphQLMaxCartDiscountsReachedErrorModel::class,
+       'MaxDiscountGroupsReached' => GraphQLMaxDiscountGroupsReachedErrorModel::class,
        'MaxResourceLimitExceeded' => GraphQLMaxResourceLimitExceededErrorModel::class,
        'MaxStoreReferencesReached' => GraphQLMaxStoreReferencesReachedErrorModel::class,
        'MissingRoleOnChannel' => GraphQLMissingRoleOnChannelErrorModel::class,

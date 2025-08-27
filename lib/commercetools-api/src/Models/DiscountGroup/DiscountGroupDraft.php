@@ -18,6 +18,7 @@ interface DiscountGroupDraft extends JsonObject
     public const FIELD_KEY = 'key';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_SORT_ORDER = 'sortOrder';
+    public const FIELD_IS_ACTIVE = 'isActive';
 
     /**
      * <p>Name of the DiscountGroup.</p>
@@ -53,6 +54,14 @@ interface DiscountGroupDraft extends JsonObject
     public function getSortOrder();
 
     /**
+     * <p>A DiscountGroup must be active for its CartDiscounts to be considered during discount application.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsActive();
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -71,4 +80,9 @@ interface DiscountGroupDraft extends JsonObject
      * @param ?string $sortOrder
      */
     public function setSortOrder(?string $sortOrder): void;
+
+    /**
+     * @param ?bool $isActive
+     */
+    public function setIsActive(?bool $isActive): void;
 }

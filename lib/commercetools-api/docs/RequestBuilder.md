@@ -3527,6 +3527,8 @@ $request = $builder
 Creates a DiscountGroup in the Project.
 This request generates the [DiscountGroupCreated](ctp:api:type:DiscountGroupCreatedMessage) Message.
 
+If the [limit](/../api/limits#discount-groups) for active Discount Groups has been reached, a [MaxDiscountGroupsReached](ctp:api:type:MaxDiscountGroupsReachedError) error is returned.
+
 
 ### Example
 ```php

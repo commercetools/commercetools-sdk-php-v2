@@ -22,6 +22,7 @@ interface DiscountGroup extends BaseResource
     public const FIELD_KEY = 'key';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_SORT_ORDER = 'sortOrder';
+    public const FIELD_IS_ACTIVE = 'isActive';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
 
@@ -73,6 +74,14 @@ interface DiscountGroup extends BaseResource
      * @return null|string
      */
     public function getSortOrder();
+
+    /**
+     * <p>A DiscountGroup must be active for its CartDiscounts to be considered during discount application.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsActive();
 
     /**
      * <p>Date and time (UTC) the DiscountGroup was initially created.</p>
@@ -135,6 +144,11 @@ interface DiscountGroup extends BaseResource
      * @param ?string $sortOrder
      */
     public function setSortOrder(?string $sortOrder): void;
+
+    /**
+     * @param ?bool $isActive
+     */
+    public function setIsActive(?bool $isActive): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt

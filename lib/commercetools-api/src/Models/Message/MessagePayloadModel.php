@@ -146,6 +146,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'DiscountCodeKeySet' => DiscountCodeKeySetMessagePayloadModel::class,
        'DiscountGroupCreated' => DiscountGroupCreatedMessagePayloadModel::class,
        'DiscountGroupDeleted' => DiscountGroupDeletedMessagePayloadModel::class,
+       'DiscountGroupIsActiveSet' => DiscountGroupIsActiveSetMessagePayloadModel::class,
        'DiscountGroupKeySet' => DiscountGroupKeySetMessagePayloadModel::class,
        'DiscountGroupSortOrderSet' => DiscountGroupSortOrderSetMessagePayloadModel::class,
        'InventoryEntryCreated' => InventoryEntryCreatedMessagePayloadModel::class,
