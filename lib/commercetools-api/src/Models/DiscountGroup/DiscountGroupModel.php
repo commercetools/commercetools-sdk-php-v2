@@ -78,6 +78,12 @@ final class DiscountGroupModel extends JsonObjectModel implements DiscountGroup
 
     /**
      *
+     * @var ?bool
+     */
+    protected $isActive;
+
+    /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
@@ -101,6 +107,7 @@ final class DiscountGroupModel extends JsonObjectModel implements DiscountGroup
         ?string $key = null,
         ?LocalizedString $description = null,
         ?string $sortOrder = null,
+        ?bool $isActive = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null
     ) {
@@ -112,6 +119,7 @@ final class DiscountGroupModel extends JsonObjectModel implements DiscountGroup
         $this->key = $key;
         $this->description = $description;
         $this->sortOrder = $sortOrder;
+        $this->isActive = $isActive;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
     }
@@ -288,6 +296,26 @@ final class DiscountGroupModel extends JsonObjectModel implements DiscountGroup
     }
 
     /**
+     * <p>A DiscountGroup must be active for its CartDiscounts to be considered during discount application.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        if (is_null($this->isActive)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_IS_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isActive = (bool) $data;
+        }
+
+        return $this->isActive;
+    }
+
+    /**
      * <p>IDs and references that last modified the DiscountGroup.</p>
      *
      *
@@ -392,6 +420,14 @@ final class DiscountGroupModel extends JsonObjectModel implements DiscountGroup
     public function setSortOrder(?string $sortOrder): void
     {
         $this->sortOrder = $sortOrder;
+    }
+
+    /**
+     * @param ?bool $isActive
+     */
+    public function setIsActive(?bool $isActive): void
+    {
+        $this->isActive = $isActive;
     }
 
     /**

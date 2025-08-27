@@ -47,6 +47,12 @@ final class DiscountGroupDraftBuilder implements Builder
     private $sortOrder;
 
     /**
+
+     * @var ?bool
+     */
+    private $isActive;
+
+    /**
      * <p>Name of the DiscountGroup.</p>
      *
 
@@ -89,6 +95,17 @@ final class DiscountGroupDraftBuilder implements Builder
     public function getSortOrder()
     {
         return $this->sortOrder;
+    }
+
+    /**
+     * <p>A DiscountGroup must be active for its CartDiscounts to be considered during discount application.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
     }
 
     /**
@@ -136,6 +153,17 @@ final class DiscountGroupDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isActive
+     * @return $this
+     */
+    public function withIsActive(?bool $isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -163,7 +191,8 @@ final class DiscountGroupDraftBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->key,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
-            $this->sortOrder
+            $this->sortOrder,
+            $this->isActive
         );
     }
 

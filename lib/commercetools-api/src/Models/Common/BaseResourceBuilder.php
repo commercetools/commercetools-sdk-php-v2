@@ -254,6 +254,8 @@ use Commercetools\Api\Models\Message\DiscountGroupCreatedMessage;
 use Commercetools\Api\Models\Message\DiscountGroupCreatedMessageBuilder;
 use Commercetools\Api\Models\Message\DiscountGroupDeletedMessage;
 use Commercetools\Api\Models\Message\DiscountGroupDeletedMessageBuilder;
+use Commercetools\Api\Models\Message\DiscountGroupIsActiveSetMessage;
+use Commercetools\Api\Models\Message\DiscountGroupIsActiveSetMessageBuilder;
 use Commercetools\Api\Models\Message\DiscountGroupKeySetMessage;
 use Commercetools\Api\Models\Message\DiscountGroupKeySetMessageBuilder;
 use Commercetools\Api\Models\Message\DiscountGroupSortOrderSetMessage;

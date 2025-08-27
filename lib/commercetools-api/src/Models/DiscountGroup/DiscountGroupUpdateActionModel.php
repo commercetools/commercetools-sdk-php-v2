@@ -32,6 +32,7 @@ final class DiscountGroupUpdateActionModel extends JsonObjectModel implements Di
      */
     private static $discriminatorClasses = [
        'setDescription' => DiscountGroupSetDescriptionActionModel::class,
+       'setIsActive' => DiscountGroupSetIsActiveActionModel::class,
        'setKey' => DiscountGroupSetKeyActionModel::class,
        'setName' => DiscountGroupSetNameActionModel::class,
        'setSortOrder' => DiscountGroupSetSortOrderActionModel::class,

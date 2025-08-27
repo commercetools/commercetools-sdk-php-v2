@@ -131,6 +131,7 @@ use Commercetools\Api\Models\Message\DiscountCodeDeletedMessage;
 use Commercetools\Api\Models\Message\DiscountCodeKeySetMessage;
 use Commercetools\Api\Models\Message\DiscountGroupCreatedMessage;
 use Commercetools\Api\Models\Message\DiscountGroupDeletedMessage;
+use Commercetools\Api\Models\Message\DiscountGroupIsActiveSetMessage;
 use Commercetools\Api\Models\Message\DiscountGroupKeySetMessage;
 use Commercetools\Api\Models\Message\DiscountGroupSortOrderSetMessage;
 use Commercetools\Api\Models\Message\InventoryEntryCreatedMessage;
