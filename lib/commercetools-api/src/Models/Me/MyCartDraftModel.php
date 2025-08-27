@@ -466,8 +466,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
-     * <p>Languages of the Cart.
-     * Can only contain languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     * <p>Language of the Cart. Must be one of the languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
      *
      *
      * @return null|string
