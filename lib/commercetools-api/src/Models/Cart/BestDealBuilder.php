@@ -27,7 +27,7 @@ final class BestDealBuilder implements Builder
     private $chosenDiscountType;
 
     /**
-     * <p>Discount type that offers the best deal; the value can be <code>product-discount</code> or <code>cart-discount</code>.</p>
+     * <p>Discount type that offers the best deal; the value can be <code>ProductDiscount</code> or <code>CartDiscount</code>.</p>
      *
 
      * @return null|string
