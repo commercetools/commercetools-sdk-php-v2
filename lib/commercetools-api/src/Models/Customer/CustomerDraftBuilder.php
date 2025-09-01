@@ -314,7 +314,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>Identifies a <a href="ctp:api:type:Cart">Cart</a> that will be assigned to the new Customer.</p>
+     * <p>Assigns the Customer to the specified Cart.</p>
      *
 
      * @return null|CartResourceIdentifier
@@ -325,7 +325,8 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>Identifies Carts and Orders belonging to an anonymous session that will be assigned to the new Customer.</p>
+     * <p>Assigns the Customer to all <a href="ctp:api:type:Cart">Carts</a>, <a href="ctp:api:type:Order">Orders</a>, <a href="ctp:api:type:ShoppingList">ShoppingLists</a>, and <a href="ctp:api:type:Payment">Payments</a> with the same <code>anonymousId</code>.</p>
+     * <p>If <code>anonymousCart</code> is provided, this value must match the <code>anonymousId</code> of the anonymous <a href="ctp:api:type:Cart">Cart</a>; otherwise, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|string
