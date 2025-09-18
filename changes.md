@@ -1,6 +1,75 @@
 **Api changes**
 
 <details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/discount-groups`
+- added resource `/{projectKey}/payment-methods`
+- added resource `/{projectKey}/recurring-orders`
+- added resource `/{projectKey}/recurrence-policies`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
+- added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
+- added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/discount-groups/key={key}`
+- added resource `/{projectKey}/discount-groups/{ID}`
+- added resource `/{projectKey}/payment-methods/key={key}`
+- added resource `/{projectKey}/payment-methods/{ID}`
+- added resource `/{projectKey}/recurring-orders/{ID}`
+- added resource `/{projectKey}/recurring-orders/key={key}`
+- added resource `/{projectKey}/recurrence-policies/key={key}`
+- added resource `/{projectKey}/recurrence-policies/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- changed property `sortOrder` of type `CartDiscountDraft` to be optional
+- changed property `variantSelection` of type `ProductSelectionProductAddedMessage` to be optional
+- changed property `variantExclusion` of type `ProductSelectionProductExcludedMessage` to be optional
+- changed property `oldVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessage` to be optional
+- changed property `newVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessage` to be optional
+- changed property `oldVariantSelection` of type `ProductSelectionVariantSelectionChangedMessage` to be optional
+- changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessage` to be optional
+- changed property `variantSelection` of type `ProductSelectionProductAddedMessagePayload` to be optional
+- changed property `variantExclusion` of type `ProductSelectionProductExcludedMessagePayload` to be optional
+- changed property `oldVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessagePayload` to be optional
+- changed property `newVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessagePayload` to be optional
+- changed property `oldVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
+- changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
+- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
+- changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
+- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
+</details>
+
+
+<details>
+<summary>MarkDeprecated Property(s)</summary>
+
+- marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
+- marked property `CountOnLineItemUnits::excludeCount` as deprecated
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
+- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
+- :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
+- :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
+- :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
+</details>
+
+
+<details>
 <summary>Added Property(s)</summary>
 
 - added property `inheritedStores` to type `BusinessUnit`
@@ -80,47 +149,6 @@
 
 
 <details>
-<summary>Required Property(s)</summary>
-
-- changed property `sortOrder` of type `CartDiscountDraft` to be optional
-- changed property `variantSelection` of type `ProductSelectionProductAddedMessage` to be optional
-- changed property `variantExclusion` of type `ProductSelectionProductExcludedMessage` to be optional
-- changed property `oldVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessage` to be optional
-- changed property `newVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessage` to be optional
-- changed property `oldVariantSelection` of type `ProductSelectionVariantSelectionChangedMessage` to be optional
-- changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessage` to be optional
-- changed property `variantSelection` of type `ProductSelectionProductAddedMessagePayload` to be optional
-- changed property `variantExclusion` of type `ProductSelectionProductExcludedMessagePayload` to be optional
-- changed property `oldVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessagePayload` to be optional
-- changed property `newVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessagePayload` to be optional
-- changed property `oldVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
-- changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
-- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
-- changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
-- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
-</details>
-
-
-<details>
-<summary>MarkDeprecated Property(s)</summary>
-
-- marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
-- marked property `CountOnLineItemUnits::excludeCount` as deprecated
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
-- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
-- :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
-- :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
-- :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
-</details>
-
-
-<details>
 <summary>Removed Property(s)</summary>
 
 - :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
@@ -166,6 +194,124 @@
 - added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
 - added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
 - added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+</details>
+
+
+<details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKey()->discountGroups()->get()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->head()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->post()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->get()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->head()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->post()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->get()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->head()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->post()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->get()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->head()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->post()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->get()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->post()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
+- added method `$apiRoot->withProjectKey()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->recurringOrders()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->post()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `ViewMyShoppingLists` to type `Permission`
+- added enum `ViewOthersShoppingLists` to type `Permission`
+- added enum `UpdateMyShoppingLists` to type `Permission`
+- added enum `UpdateOthersShoppingLists` to type `Permission`
+- added enum `CreateMyShoppingLists` to type `Permission`
+- added enum `CreateOthersShoppingLists` to type `Permission`
+- added enum `DeleteMyShoppingLists` to type `Permission`
+- added enum `DeleteOthersShoppingLists` to type `Permission`
+- added enum `RecurringOrder` to type `CartOrigin`
+- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
+- added enum `discount-group` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ReferenceTypeId`
+- added enum `recurrence-policy` to type `ReferenceTypeId`
+- added enum `recurring-order` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ExtensionResourceTypeId`
+- added enum `RecurringOrderState` to type `StateTypeEnum`
+- added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
+- added enum `recurrence-policy` to type `ChangeSubscriptionResourceTypeId`
+- added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
+- added enum `recurring-order` to type `ResourceTypeId`
+</details>
+
+
+<details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `AssociateRoleNameChangedMessage`
+- :warning: removed type `AssociateRoleNameChangedMessagePayload`
+- :warning: removed type `ProductSearchFacetScope`
+</details>
+
+
+<details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
 </details>
 
 
@@ -435,153 +581,35 @@
 - added type `SubscriptionSetEventsAction`
 </details>
 
-
-<details>
-<summary>Changed Type(s)</summary>
-
-- :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
-</details>
-
-
-<details>
-<summary>Removed Type(s)</summary>
-
-- :warning: removed type `AssociateRoleNameChangedMessage`
-- :warning: removed type `AssociateRoleNameChangedMessagePayload`
-- :warning: removed type `ProductSearchFacetScope`
-</details>
-
+**Import changes**
 
 <details>
 <summary>Added Resource(s)</summary>
 
-- added resource `/{projectKey}/discount-groups`
-- added resource `/{projectKey}/payment-methods`
-- added resource `/{projectKey}/recurring-orders`
-- added resource `/{projectKey}/recurrence-policies`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
-- added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
-- added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
-- added resource `/{projectKey}/discount-groups/key={key}`
-- added resource `/{projectKey}/discount-groups/{ID}`
-- added resource `/{projectKey}/payment-methods/key={key}`
-- added resource `/{projectKey}/payment-methods/{ID}`
-- added resource `/{projectKey}/recurring-orders/{ID}`
-- added resource `/{projectKey}/recurring-orders/key={key}`
-- added resource `/{projectKey}/recurrence-policies/key={key}`
-- added resource `/{projectKey}/recurrence-policies/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/product-selections`
+- added resource `/{projectKey}/business-units`
+- added resource `/{projectKey}/product-selections/import-containers`
+- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/business-units/import-containers`
+- added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
 </details>
 
 
 <details>
 <summary>Added Method(s)</summary>
 
-- added method `$apiRoot->withProjectKey()->discountGroups()->get()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->head()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->post()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->get()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->head()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->post()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->get()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->head()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->post()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->get()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->head()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->post()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->get()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->head()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->post()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withKey()->get()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withKey()->head()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withKey()->post()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withKey()->delete()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->get()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->head()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->post()`
-- added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->delete()`
-- added method `$apiRoot->withProjectKey()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
-- added method `$apiRoot->withProjectKey()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->get()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->head()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->post()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->delete()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->get()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->head()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->post()`
-- added method `$apiRoot->withProjectKey()->discountGroups()->withId()->delete()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->get()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->head()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->post()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->withKey()->delete()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->get()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->head()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->post()`
-- added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->delete()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->get()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->head()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->post()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->delete()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->withKey()->get()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->withKey()->head()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->withKey()->post()`
-- added method `$apiRoot->withProjectKey()->recurringOrders()->withKey()->delete()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withKey()->get()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withKey()->head()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withKey()->post()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withKey()->delete()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->get()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->head()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->post()`
-- added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->delete()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->get()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->head()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->post()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->get()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->head()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->post()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->delete()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->get()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->head()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->post()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->delete()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
-- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
+- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
 </details>
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Changed Property(s)</summary>
 
-- added enum `ViewMyShoppingLists` to type `Permission`
-- added enum `ViewOthersShoppingLists` to type `Permission`
-- added enum `UpdateMyShoppingLists` to type `Permission`
-- added enum `UpdateOthersShoppingLists` to type `Permission`
-- added enum `CreateMyShoppingLists` to type `Permission`
-- added enum `CreateOthersShoppingLists` to type `Permission`
-- added enum `DeleteMyShoppingLists` to type `Permission`
-- added enum `DeleteOthersShoppingLists` to type `Permission`
-- added enum `RecurringOrder` to type `CartOrigin`
-- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
-- added enum `discount-group` to type `ReferenceTypeId`
-- added enum `payment-method` to type `ReferenceTypeId`
-- added enum `recurrence-policy` to type `ReferenceTypeId`
-- added enum `recurring-order` to type `ReferenceTypeId`
-- added enum `payment-method` to type `ExtensionResourceTypeId`
-- added enum `RecurringOrderState` to type `StateTypeEnum`
-- added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
-- added enum `recurrence-policy` to type `ChangeSubscriptionResourceTypeId`
-- added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
-- added enum `recurring-order` to type `ResourceTypeId`
+- :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
+- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
 </details>
 
-**Import changes**
 
 <details>
 <summary>Added Property(s)</summary>
@@ -598,18 +626,20 @@
 
 
 <details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
-- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
-</details>
-
-
-<details>
 <summary>Removed Property(s)</summary>
 
 - :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
 - :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `LocalizedString`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `business-unit` to type `ImportResourceType`
+- added enum `product-selection` to type `ImportResourceType`
+- added enum `associate-role` to type `ReferenceType`
+- added enum `business-unit` to type `ReferenceType`
 </details>
 
 
@@ -644,50 +674,22 @@
 - added type `AttributeLevel`
 </details>
 
+**History changes**
 
 <details>
-<summary>Added Resource(s)</summary>
+<summary>Required Property(s)</summary>
 
-- added resource `/{projectKey}/product-selections`
-- added resource `/{projectKey}/business-units`
-- added resource `/{projectKey}/product-selections/import-containers`
-- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
-- added resource `/{projectKey}/business-units/import-containers`
-- added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
-</details>
-
-
-<details>
-<summary>Added Method(s)</summary>
-
-- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
+- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
 </details>
 
 
 <details>
 <summary>Added Enum(s)</summary>
 
-- added enum `business-unit` to type `ImportResourceType`
-- added enum `product-selection` to type `ImportResourceType`
-- added enum `associate-role` to type `ReferenceType`
-- added enum `business-unit` to type `ReferenceType`
-</details>
-
-**History changes**
-
-<details>
-<summary>Added Type(s)</summary>
-
-- added type `TooManyRequestsError`
-- added type `GraphQLTooManyRequestsError`
-</details>
-
-
-<details>
-<summary>Required Property(s)</summary>
-
-- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
+- added enum `setAssetKey` to type `UpdateType`
+- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
+- added enum `payment-method` to type `ReferenceTypeId`
+- added enum `RecurringOrderState` to type `StateTypeEnum`
 </details>
 
 
@@ -699,11 +701,9 @@
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Added Type(s)</summary>
 
-- added enum `setAssetKey` to type `UpdateType`
-- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
-- added enum `payment-method` to type `ReferenceTypeId`
-- added enum `RecurringOrderState` to type `StateTypeEnum`
+- added type `TooManyRequestsError`
+- added type `GraphQLTooManyRequestsError`
 </details>
 
