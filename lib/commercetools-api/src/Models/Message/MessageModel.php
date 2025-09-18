@@ -294,6 +294,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'PaymentStatusInterfaceCodeSet' => PaymentStatusInterfaceCodeSetMessageModel::class,
        'PaymentStatusStateTransition' => PaymentStatusStateTransitionMessageModel::class,
        'PaymentTransactionAdded' => PaymentTransactionAddedMessageModel::class,
+       'PaymentTransactionInterfaceIdSet' => PaymentTransactionInterfaceIdSetMessageModel::class,
        'PaymentTransactionStateChanged' => PaymentTransactionStateChangedMessageModel::class,
        'ProductAddedToCategory' => ProductAddedToCategoryMessageModel::class,
        'ProductCreated' => ProductCreatedMessageModel::class,

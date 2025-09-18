@@ -23,6 +23,7 @@ interface Transaction extends JsonObject
     public const FIELD_INTERACTION_ID = 'interactionId';
     public const FIELD_STATE = 'state';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_INTERFACE_ID = 'interfaceId';
 
     /**
      * <p>Unique identifier of the Transaction.</p>
@@ -82,6 +83,14 @@ interface Transaction extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Identifier used by the payment service that processes the Payment (for example, a PSP) in the current transaction.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInterfaceId();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -115,4 +124,9 @@ interface Transaction extends JsonObject
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?string $interfaceId
+     */
+    public function setInterfaceId(?string $interfaceId): void;
 }

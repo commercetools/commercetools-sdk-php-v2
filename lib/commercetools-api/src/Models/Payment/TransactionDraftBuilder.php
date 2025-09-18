@@ -62,6 +62,12 @@ final class TransactionDraftBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var ?string
+     */
+    private $interfaceId;
+
+    /**
      * <p>Date and time (UTC) the Transaction took place.</p>
      *
 
@@ -126,6 +132,17 @@ final class TransactionDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Identifier used by the payment service that processes the Payment (for example, a PSP) in the current transaction.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInterfaceId()
+    {
+        return $this->interfaceId;
     }
 
     /**
@@ -195,6 +212,17 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $interfaceId
+     * @return $this
+     */
+    public function withInterfaceId(?string $interfaceId)
+    {
+        $this->interfaceId = $interfaceId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAmount() instead
      * @return $this
      */
@@ -224,7 +252,8 @@ final class TransactionDraftBuilder implements Builder
             $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount,
             $this->interactionId,
             $this->state,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->interfaceId
         );
     }
 

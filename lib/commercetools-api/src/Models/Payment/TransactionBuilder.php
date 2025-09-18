@@ -68,6 +68,12 @@ final class TransactionBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var ?string
+     */
+    private $interfaceId;
+
+    /**
      * <p>Unique identifier of the Transaction.</p>
      *
 
@@ -143,6 +149,17 @@ final class TransactionBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Identifier used by the payment service that processes the Payment (for example, a PSP) in the current transaction.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInterfaceId()
+    {
+        return $this->interfaceId;
     }
 
     /**
@@ -223,6 +240,17 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * @param ?string $interfaceId
+     * @return $this
+     */
+    public function withInterfaceId(?string $interfaceId)
+    {
+        $this->interfaceId = $interfaceId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAmount() instead
      * @return $this
      */
@@ -253,7 +281,8 @@ final class TransactionBuilder implements Builder
             $this->amount instanceof CentPrecisionMoneyBuilder ? $this->amount->build() : $this->amount,
             $this->interactionId,
             $this->state,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->interfaceId
         );
     }
 

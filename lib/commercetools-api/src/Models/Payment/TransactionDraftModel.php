@@ -60,6 +60,12 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $interfaceId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -70,7 +76,8 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
         ?Money $amount = null,
         ?string $interactionId = null,
         ?string $state = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?string $interfaceId = null
     ) {
         $this->timestamp = $timestamp;
         $this->type = $type;
@@ -78,6 +85,7 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
         $this->interactionId = $interactionId;
         $this->state = $state;
         $this->custom = $custom;
+        $this->interfaceId = $interfaceId;
     }
 
     /**
@@ -207,6 +215,26 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
         return $this->custom;
     }
 
+    /**
+     * <p>Identifier used by the payment service that processes the Payment (for example, a PSP) in the current transaction.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getInterfaceId()
+    {
+        if (is_null($this->interfaceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INTERFACE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->interfaceId = (string) $data;
+        }
+
+        return $this->interfaceId;
+    }
+
 
     /**
      * @param ?DateTimeImmutable $timestamp
@@ -254,6 +282,14 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?string $interfaceId
+     */
+    public function setInterfaceId(?string $interfaceId): void
+    {
+        $this->interfaceId = $interfaceId;
     }
 
 

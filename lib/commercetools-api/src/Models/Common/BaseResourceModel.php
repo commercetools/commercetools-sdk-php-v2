@@ -332,6 +332,8 @@ use Commercetools\Api\Models\Message\PaymentStatusStateTransitionMessage;
 use Commercetools\Api\Models\Message\PaymentStatusStateTransitionMessageModel;
 use Commercetools\Api\Models\Message\PaymentTransactionAddedMessage;
 use Commercetools\Api\Models\Message\PaymentTransactionAddedMessageModel;
+use Commercetools\Api\Models\Message\PaymentTransactionInterfaceIdSetMessage;
+use Commercetools\Api\Models\Message\PaymentTransactionInterfaceIdSetMessageModel;
 use Commercetools\Api\Models\Message\PaymentTransactionStateChangedMessage;
 use Commercetools\Api\Models\Message\PaymentTransactionStateChangedMessageModel;
 use Commercetools\Api\Models\Message\ProductAddedToCategoryMessage;

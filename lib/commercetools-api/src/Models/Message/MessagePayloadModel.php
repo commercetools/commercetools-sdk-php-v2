@@ -225,6 +225,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'PaymentStatusInterfaceCodeSet' => PaymentStatusInterfaceCodeSetMessagePayloadModel::class,
        'PaymentStatusStateTransition' => PaymentStatusStateTransitionMessagePayloadModel::class,
        'PaymentTransactionAdded' => PaymentTransactionAddedMessagePayloadModel::class,
+       'PaymentTransactionInterfaceIdSet' => PaymentTransactionInterfaceIdSetMessagePayloadModel::class,
        'PaymentTransactionStateChanged' => PaymentTransactionStateChangedMessagePayloadModel::class,
        'ProductAddedToCategory' => ProductAddedToCategoryMessagePayloadModel::class,
        'ProductCreated' => ProductCreatedMessagePayloadModel::class,

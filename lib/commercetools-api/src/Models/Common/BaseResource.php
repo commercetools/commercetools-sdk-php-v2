@@ -170,6 +170,7 @@ use Commercetools\Api\Models\Message\PaymentMethodPaymentMethodStatusSetMessage;
 use Commercetools\Api\Models\Message\PaymentStatusInterfaceCodeSetMessage;
 use Commercetools\Api\Models\Message\PaymentStatusStateTransitionMessage;
 use Commercetools\Api\Models\Message\PaymentTransactionAddedMessage;
+use Commercetools\Api\Models\Message\PaymentTransactionInterfaceIdSetMessage;
 use Commercetools\Api\Models\Message\PaymentTransactionStateChangedMessage;
 use Commercetools\Api\Models\Message\ProductAddedToCategoryMessage;
 use Commercetools\Api\Models\Message\ProductCreatedMessage;
