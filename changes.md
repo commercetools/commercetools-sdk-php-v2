@@ -99,6 +99,7 @@
 - added property `minCartQuantity` to type `InventoryEntryDraft`
 - added property `maxCartQuantity` to type `InventoryEntryDraft`
 - added property `recurrenceInfo` to type `MyLineItemDraft`
+- added property `interfaceId` to type `MyTransactionDraft`
 - added property `recurrenceInfo` to type `MyCartAddLineItemAction`
 - added property `value` to type `CustomerEmailTokenCreatedMessage`
 - added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessage`
@@ -122,6 +123,8 @@
 - added property `token` to type `PaymentMethodInfo`
 - added property `interfaceAccount` to type `PaymentMethodInfo`
 - added property `custom` to type `PaymentMethodInfo`
+- added property `interfaceId` to type `Transaction`
+- added property `interfaceId` to type `TransactionDraft`
 - added property `priceCustomerGroupAssignments` to type `ProductSearchProjectionParams`
 - added property `attributes` to type `ProductTailoringData`
 - added property `attributes` to type `ProductTailoringDraft`
@@ -422,6 +425,7 @@
 - added type `PaymentMethodNameSetMessage`
 - added type `PaymentMethodPaymentInterfaceSetMessage`
 - added type `PaymentMethodPaymentMethodStatusSetMessage`
+- added type `PaymentTransactionInterfaceIdSetMessage`
 - added type `RecurringOrderCreatedMessage`
 - added type `RecurringOrderCustomFieldAddedMessage`
 - added type `RecurringOrderCustomFieldChangedMessage`
@@ -476,6 +480,7 @@
 - added type `PaymentMethodNameSetMessagePayload`
 - added type `PaymentMethodPaymentInterfaceSetMessagePayload`
 - added type `PaymentMethodPaymentMethodStatusSetMessagePayload`
+- added type `PaymentTransactionInterfaceIdSetMessagePayload`
 - added type `RecurringOrderCreatedMessagePayload`
 - added type `RecurringOrderCustomFieldAddedMessagePayload`
 - added type `RecurringOrderCustomFieldChangedMessagePayload`
@@ -515,6 +520,7 @@
 - added type `PaymentSetMethodInfoCustomTypeAction`
 - added type `PaymentSetMethodInfoInterfaceAccountAction`
 - added type `PaymentSetMethodInfoTokenAction`
+- added type `PaymentSetTransactionInterfaceIdAction`
 - added type `ProductSearchFacetResultStats`
 - added type `ProductSearchFacetStatsExpression`
 - added type `ProductSearchFacetStatsValue`

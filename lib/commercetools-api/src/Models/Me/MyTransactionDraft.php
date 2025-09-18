@@ -21,6 +21,7 @@ interface MyTransactionDraft extends JsonObject
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_INTERACTION_ID = 'interactionId';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_INTERFACE_ID = 'interfaceId';
 
     /**
      * <p>Date and time (UTC) the Transaction took place.</p>
@@ -65,6 +66,14 @@ interface MyTransactionDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Identifier used by the payment service that processes the Payment (for example, a PSP) in the current transaction.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInterfaceId();
+
+    /**
      * @param ?DateTimeImmutable $timestamp
      */
     public function setTimestamp(?DateTimeImmutable $timestamp): void;
@@ -88,4 +97,9 @@ interface MyTransactionDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?string $interfaceId
+     */
+    public function setInterfaceId(?string $interfaceId): void;
 }
