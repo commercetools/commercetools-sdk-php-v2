@@ -167,9 +167,9 @@ final class ProductSearchProjectionParamsBuilder implements Builder
      * <p><code>key</code> of an existing <a href="ctp:api:type:Store">Store</a>.
      * If the Store has defined <code>languages</code>, <code>countries</code>, <code>distributionChannels</code>, or <code>supplyChannels</code>,
      * they are used for projections based on <a href="ctp:api:type:ProductProjectionLocales">locale</a>, <a href="ctp:api:type:ProductProjectionPrices">price</a>,
-     * and <a href="ctp:api:type:ProductProjectionInventoryEntries">inventory</a>.
-     * For Projects with active <a href="/../api/projects/product-selections">Product Selections</a>, the API does not take the <a href="/../api/projects/stores#products-available-in-store">availability of the Product in the specified Store</a> into account.
-     * <a href="/../api/projects/product-tailoring">Product Tailoring</a> modifies the product information returned in API responses. However, you can only specify <a href="/../api/search-query-language#simple-expressions">query expressions</a> for the original product data, not for tailored data.</p>
+     * and <a href="ctp:api:type:ProductProjectionInventoryEntries">inventory</a>.</p>
+     * <p>For Projects with active <a href="/api/projects/product-selections">Product Selections</a>, the API does not take the <a href="/api/project-configuration-overview#products-available-in-store">availability of the Product in the specified Store</a> into account.</p>
+     * <p><a href="/api/projects/product-tailoring">Product Tailoring</a> modifies the product information returned in API responses. However, you can only specify <a href="/api/search-query-language#simple-expressions">query expressions</a> for the original Product data, not for tailored data.</p>
      *
 
      * @return null|string
