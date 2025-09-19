@@ -18,7 +18,7 @@ interface RecurringOrderSetOrderSkipConfigurationAction extends RecurringOrderUp
     public const FIELD_UPDATED_EXPIRES_AT = 'updatedExpiresAt';
 
     /**
-     * <p>Configuration for skipping the next orders of the <a href="ctp:api:type:RecurringOrder">Recurring Order</a>.</p>
+     * <p>Configuration for skipping future orders of the <a href="ctp:api:type:RecurringOrder">Recurring Order</a>.</p>
      *
 
      * @return null|SkipConfigurationDraft

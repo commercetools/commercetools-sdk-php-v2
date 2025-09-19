@@ -19,7 +19,7 @@ use stdClass;
  */
 final class CounterDraftModel extends JsonObjectModel implements CounterDraft
 {
-    public const DISCRIMINATOR_VALUE = 'counter';
+    public const DISCRIMINATOR_VALUE = 'Counter';
     /**
      *
      * @var ?string
