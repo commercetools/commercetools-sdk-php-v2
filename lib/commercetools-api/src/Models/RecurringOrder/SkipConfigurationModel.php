@@ -31,7 +31,7 @@ final class SkipConfigurationModel extends JsonObjectModel implements SkipConfig
      *
      */
     private static $discriminatorClasses = [
-       'counter' => CounterModel::class,
+       'Counter' => CounterModel::class,
     ];
 
     /**

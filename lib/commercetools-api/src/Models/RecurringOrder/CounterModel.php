@@ -20,7 +20,7 @@ use stdClass;
  */
 final class CounterModel extends JsonObjectModel implements Counter
 {
-    public const DISCRIMINATOR_VALUE = 'counter';
+    public const DISCRIMINATOR_VALUE = 'Counter';
     /**
      *
      * @var ?string
