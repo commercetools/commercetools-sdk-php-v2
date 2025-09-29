@@ -152,7 +152,7 @@ final class RecurringOrderDraftModel extends JsonObjectModel implements Recurrin
     }
 
     /**
-     * <p>Date and time (UTC) when the RecurringOrder will start.</p>
+     * <p>Date and time (UTC) when the RecurringOrder will start. When specified, the date and time must be in the future. If not specified, the recurring order will start immediately.</p>
      *
      *
      * @return null|DateTimeImmutable

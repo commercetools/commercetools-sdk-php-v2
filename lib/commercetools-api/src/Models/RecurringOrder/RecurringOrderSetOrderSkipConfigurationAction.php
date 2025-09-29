@@ -14,7 +14,7 @@ use DateTimeImmutable;
 
 interface RecurringOrderSetOrderSkipConfigurationAction extends RecurringOrderUpdateAction
 {
-    public const FIELD_SKIP_CONFIGURATION = 'skipConfiguration';
+    public const FIELD_SKIP_CONFIGURATION_INPUT_DRAFT = 'skipConfigurationInputDraft';
     public const FIELD_UPDATED_EXPIRES_AT = 'updatedExpiresAt';
 
     /**
@@ -23,7 +23,7 @@ interface RecurringOrderSetOrderSkipConfigurationAction extends RecurringOrderUp
 
      * @return null|SkipConfigurationDraft
      */
-    public function getSkipConfiguration();
+    public function getSkipConfigurationInputDraft();
 
     /**
      * <p>Date and time (UTC) the Recurring Order will expire and stop generating new orders.</p>
@@ -34,9 +34,9 @@ interface RecurringOrderSetOrderSkipConfigurationAction extends RecurringOrderUp
     public function getUpdatedExpiresAt();
 
     /**
-     * @param ?SkipConfigurationDraft $skipConfiguration
+     * @param ?SkipConfigurationDraft $skipConfigurationInputDraft
      */
-    public function setSkipConfiguration(?SkipConfigurationDraft $skipConfiguration): void;
+    public function setSkipConfigurationInputDraft(?SkipConfigurationDraft $skipConfigurationInputDraft): void;
 
     /**
      * @param ?DateTimeImmutable $updatedExpiresAt

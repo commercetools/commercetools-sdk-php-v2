@@ -199,6 +199,18 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/test_ID?storeProjection=storeProjection',
             ],
+            'ByProjectKeyProductProjectionsByIDGet_withFilterAttributes' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productProjections()
+                        ->withId('test_ID')
+                        ->get()
+                        ->withFilterAttributes('filter[attributes]');
+                },
+                'get',
+                'test_projectKey/product-projections/test_ID?filter%5Battributes%5D=filter%5Battributes%5D',
+            ],
             'ByProjectKeyProductProjectionsByIDGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

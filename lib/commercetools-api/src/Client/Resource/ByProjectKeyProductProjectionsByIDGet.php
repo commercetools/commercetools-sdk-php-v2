@@ -34,11 +34,12 @@ use Psr\Http\Message\ResponseInterface;
  * @template-implements PriceSelecting<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements LocaleProjecting<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements StoreProjectingTailoring<ByProjectKeyProductProjectionsByIDGet>
+ * @template-implements AttributeFiltering<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements Expandable<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements Errorable<ByProjectKeyProductProjectionsByIDGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsByIDGet>
  */
-class ByProjectKeyProductProjectionsByIDGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjectingTailoring, Expandable, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsByIDGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjectingTailoring, AttributeFiltering, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -227,6 +228,15 @@ class ByProjectKeyProductProjectionsByIDGet extends ApiRequest implements Projec
     public function withStoreProjection($storeProjection): ByProjectKeyProductProjectionsByIDGet
     {
         return $this->withQueryParam('storeProjection', $storeProjection);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $filterAttributes
+     */
+    public function withFilterAttributes($filterAttributes): ByProjectKeyProductProjectionsByIDGet
+    {
+        return $this->withQueryParam('filter[attributes]', $filterAttributes);
     }
 
     /**

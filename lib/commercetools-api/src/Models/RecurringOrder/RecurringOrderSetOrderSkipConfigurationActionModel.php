@@ -31,7 +31,7 @@ final class RecurringOrderSetOrderSkipConfigurationActionModel extends JsonObjec
      *
      * @var ?SkipConfigurationDraft
      */
-    protected $skipConfiguration;
+    protected $skipConfigurationInputDraft;
 
     /**
      *
@@ -44,11 +44,11 @@ final class RecurringOrderSetOrderSkipConfigurationActionModel extends JsonObjec
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?SkipConfigurationDraft $skipConfiguration = null,
+        ?SkipConfigurationDraft $skipConfigurationInputDraft = null,
         ?DateTimeImmutable $updatedExpiresAt = null,
         ?string $action = null
     ) {
-        $this->skipConfiguration = $skipConfiguration;
+        $this->skipConfigurationInputDraft = $skipConfigurationInputDraft;
         $this->updatedExpiresAt = $updatedExpiresAt;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
@@ -77,19 +77,19 @@ final class RecurringOrderSetOrderSkipConfigurationActionModel extends JsonObjec
      *
      * @return null|SkipConfigurationDraft
      */
-    public function getSkipConfiguration()
+    public function getSkipConfigurationInputDraft()
     {
-        if (is_null($this->skipConfiguration)) {
+        if (is_null($this->skipConfigurationInputDraft)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SKIP_CONFIGURATION);
+            $data = $this->raw(self::FIELD_SKIP_CONFIGURATION_INPUT_DRAFT);
             if (is_null($data)) {
                 return null;
             }
             $className = SkipConfigurationDraftModel::resolveDiscriminatorClass($data);
-            $this->skipConfiguration = $className::of($data);
+            $this->skipConfigurationInputDraft = $className::of($data);
         }
 
-        return $this->skipConfiguration;
+        return $this->skipConfigurationInputDraft;
     }
 
     /**
@@ -118,11 +118,11 @@ final class RecurringOrderSetOrderSkipConfigurationActionModel extends JsonObjec
 
 
     /**
-     * @param ?SkipConfigurationDraft $skipConfiguration
+     * @param ?SkipConfigurationDraft $skipConfigurationInputDraft
      */
-    public function setSkipConfiguration(?SkipConfigurationDraft $skipConfiguration): void
+    public function setSkipConfigurationInputDraft(?SkipConfigurationDraft $skipConfigurationInputDraft): void
     {
-        $this->skipConfiguration = $skipConfiguration;
+        $this->skipConfigurationInputDraft = $skipConfigurationInputDraft;
     }
 
     /**
