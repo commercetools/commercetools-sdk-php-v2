@@ -25,7 +25,7 @@ final class RecurringOrderSetOrderSkipConfigurationActionBuilder implements Buil
 
      * @var null|SkipConfigurationDraft|SkipConfigurationDraftBuilder
      */
-    private $skipConfiguration;
+    private $skipConfigurationInputDraft;
 
     /**
 
@@ -39,9 +39,9 @@ final class RecurringOrderSetOrderSkipConfigurationActionBuilder implements Buil
 
      * @return null|SkipConfigurationDraft
      */
-    public function getSkipConfiguration()
+    public function getSkipConfigurationInputDraft()
     {
-        return $this->skipConfiguration instanceof SkipConfigurationDraftBuilder ? $this->skipConfiguration->build() : $this->skipConfiguration;
+        return $this->skipConfigurationInputDraft instanceof SkipConfigurationDraftBuilder ? $this->skipConfigurationInputDraft->build() : $this->skipConfigurationInputDraft;
     }
 
     /**
@@ -56,12 +56,12 @@ final class RecurringOrderSetOrderSkipConfigurationActionBuilder implements Buil
     }
 
     /**
-     * @param ?SkipConfigurationDraft $skipConfiguration
+     * @param ?SkipConfigurationDraft $skipConfigurationInputDraft
      * @return $this
      */
-    public function withSkipConfiguration(?SkipConfigurationDraft $skipConfiguration)
+    public function withSkipConfigurationInputDraft(?SkipConfigurationDraft $skipConfigurationInputDraft)
     {
-        $this->skipConfiguration = $skipConfiguration;
+        $this->skipConfigurationInputDraft = $skipConfigurationInputDraft;
 
         return $this;
     }
@@ -78,12 +78,12 @@ final class RecurringOrderSetOrderSkipConfigurationActionBuilder implements Buil
     }
 
     /**
-     * @deprecated use withSkipConfiguration() instead
+     * @deprecated use withSkipConfigurationInputDraft() instead
      * @return $this
      */
-    public function withSkipConfigurationBuilder(?SkipConfigurationDraftBuilder $skipConfiguration)
+    public function withSkipConfigurationInputDraftBuilder(?SkipConfigurationDraftBuilder $skipConfigurationInputDraft)
     {
-        $this->skipConfiguration = $skipConfiguration;
+        $this->skipConfigurationInputDraft = $skipConfigurationInputDraft;
 
         return $this;
     }
@@ -91,7 +91,7 @@ final class RecurringOrderSetOrderSkipConfigurationActionBuilder implements Buil
     public function build(): RecurringOrderSetOrderSkipConfigurationAction
     {
         return new RecurringOrderSetOrderSkipConfigurationActionModel(
-            $this->skipConfiguration instanceof SkipConfigurationDraftBuilder ? $this->skipConfiguration->build() : $this->skipConfiguration,
+            $this->skipConfigurationInputDraft instanceof SkipConfigurationDraftBuilder ? $this->skipConfigurationInputDraft->build() : $this->skipConfigurationInputDraft,
             $this->updatedExpiresAt
         );
     }

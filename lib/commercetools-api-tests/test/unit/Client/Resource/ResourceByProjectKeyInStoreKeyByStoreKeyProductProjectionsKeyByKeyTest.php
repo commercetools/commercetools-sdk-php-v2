@@ -195,6 +195,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyTest ext
                 'get',
                 'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key?localeProjection=localeProjection',
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withFilterAttributes' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withFilterAttributes('filter[attributes]');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key?filter%5Battributes%5D=filter%5Battributes%5D',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

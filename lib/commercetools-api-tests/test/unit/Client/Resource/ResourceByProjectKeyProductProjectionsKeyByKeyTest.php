@@ -199,6 +199,18 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/key=test_key?storeProjection=storeProjection',
             ],
+            'ByProjectKeyProductProjectionsKeyByKeyGet_withFilterAttributes' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withFilterAttributes('filter[attributes]');
+                },
+                'get',
+                'test_projectKey/product-projections/key=test_key?filter%5Battributes%5D=filter%5Battributes%5D',
+            ],
             'ByProjectKeyProductProjectionsKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

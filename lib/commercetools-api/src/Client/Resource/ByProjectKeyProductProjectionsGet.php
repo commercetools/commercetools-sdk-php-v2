@@ -34,6 +34,7 @@ use Psr\Http\Message\ResponseInterface;
  * @template-implements PriceSelecting<ByProjectKeyProductProjectionsGet>
  * @template-implements LocaleProjecting<ByProjectKeyProductProjectionsGet>
  * @template-implements StoreProjectingTailoring<ByProjectKeyProductProjectionsGet>
+ * @template-implements AttributeFiltering<ByProjectKeyProductProjectionsGet>
  * @template-implements Expandable<ByProjectKeyProductProjectionsGet>
  * @template-implements Sortable<ByProjectKeyProductProjectionsGet>
  * @template-implements Paging<ByProjectKeyProductProjectionsGet>
@@ -41,7 +42,7 @@ use Psr\Http\Message\ResponseInterface;
  * @template-implements Errorable<ByProjectKeyProductProjectionsGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsGet>
  */
-class ByProjectKeyProductProjectionsGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjectingTailoring, Expandable, Sortable, Paging, Query, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsGet extends ApiRequest implements ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjectingTailoring, AttributeFiltering, Expandable, Sortable, Paging, Query, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -230,6 +231,15 @@ class ByProjectKeyProductProjectionsGet extends ApiRequest implements Projection
     public function withStoreProjection($storeProjection): ByProjectKeyProductProjectionsGet
     {
         return $this->withQueryParam('storeProjection', $storeProjection);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $filterAttributes
+     */
+    public function withFilterAttributes($filterAttributes): ByProjectKeyProductProjectionsGet
+    {
+        return $this->withQueryParam('filter[attributes]', $filterAttributes);
     }
 
     /**

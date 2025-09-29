@@ -2014,6 +2014,7 @@ $request = $builder
 
 Creating a Cart Discount produces the [CartDiscountCreated](ctp:api:type:CartDiscountCreatedMessage) Message.
 
+
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
