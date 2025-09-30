@@ -46,6 +46,7 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
        'changeProductSearchIndexingEnabled' => ProjectChangeProductSearchIndexingEnabledActionModel::class,
        'changeShoppingListsConfiguration' => ProjectChangeShoppingListsConfigurationActionModel::class,
        'changeTaxRoundingMode' => ProjectChangeTaxRoundingModeActionModel::class,
+       'setDiscountsConfiguration' => ProjectSetDiscountsConfigurationActionModel::class,
        'setExternalOAuth' => ProjectSetExternalOAuthActionModel::class,
        'setMyBusinessUnitAssociateRoleOnCreation' => ProjectSetBusinessUnitAssociateRoleOnCreationActionModel::class,
        'setShippingRateInputType' => ProjectSetShippingRateInputTypeActionModel::class,

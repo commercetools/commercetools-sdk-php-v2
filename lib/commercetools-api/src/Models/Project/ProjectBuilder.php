@@ -114,6 +114,12 @@ final class ProjectBuilder implements Builder
     private $businessUnits;
 
     /**
+
+     * @var null|DiscountsConfiguration|DiscountsConfigurationBuilder
+     */
+    private $discounts;
+
+    /**
      * <p>Current version of the Project.</p>
      *
 
@@ -276,6 +282,17 @@ final class ProjectBuilder implements Builder
     public function getBusinessUnits()
     {
         return $this->businessUnits instanceof BusinessUnitConfigurationBuilder ? $this->businessUnits->build() : $this->businessUnits;
+    }
+
+    /**
+     * <p>Holds configuration specific to discounts, including how Product and Cart Discounts are combined in every Cart of the Project.</p>
+     *
+
+     * @return null|DiscountsConfiguration
+     */
+    public function getDiscounts()
+    {
+        return $this->discounts instanceof DiscountsConfigurationBuilder ? $this->discounts->build() : $this->discounts;
     }
 
     /**
@@ -444,6 +461,17 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountsConfiguration $discounts
+     * @return $this
+     */
+    public function withDiscounts(?DiscountsConfiguration $discounts)
+    {
+        $this->discounts = $discounts;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMessages() instead
      * @return $this
      */
@@ -520,6 +548,17 @@ final class ProjectBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withDiscounts() instead
+     * @return $this
+     */
+    public function withDiscountsBuilder(?DiscountsConfigurationBuilder $discounts)
+    {
+        $this->discounts = $discounts;
+
+        return $this;
+    }
+
     public function build(): Project
     {
         return new ProjectModel(
@@ -537,7 +576,8 @@ final class ProjectBuilder implements Builder
             $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType,
             $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth,
             $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing,
-            $this->businessUnits instanceof BusinessUnitConfigurationBuilder ? $this->businessUnits->build() : $this->businessUnits
+            $this->businessUnits instanceof BusinessUnitConfigurationBuilder ? $this->businessUnits->build() : $this->businessUnits,
+            $this->discounts instanceof DiscountsConfigurationBuilder ? $this->discounts->build() : $this->discounts
         );
     }
 
