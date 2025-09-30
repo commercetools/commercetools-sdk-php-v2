@@ -209,8 +209,11 @@
 - added type `ProductTailoringSetProductAttributeAction`
 - added type `AttributeLevelEnum`
 - added type `ProductSetProductAttributeAction`
+- added type `DiscountCombinationMode`
+- added type `DiscountsConfiguration`
 - added type `ProjectChangePriceRoundingModeAction`
 - added type `ProjectChangeTaxRoundingModeAction`
+- added type `ProjectSetDiscountsConfigurationAction`
 - added type `DayOfMonthSchedule`
 - added type `DayOfMonthScheduleDraft`
 - added type `IntervalUnit`
@@ -481,6 +484,7 @@
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `ProductVariantChannelAvailabilityMap`
 - added property `priceRoundingMode` to type `CartsConfiguration`
 - added property `taxRoundingMode` to type `CartsConfiguration`
+- added property `discounts` to type `Project`
 - added property `priceRoundingMode` to type `QuoteRequest`
 - added property `priceRoundingMode` to type `Quote`
 - added property `businessUnit` to type `ShoppingList`

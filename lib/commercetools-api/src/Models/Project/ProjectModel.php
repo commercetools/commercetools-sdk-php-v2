@@ -112,6 +112,12 @@ final class ProjectModel extends JsonObjectModel implements Project
      */
     protected $businessUnits;
 
+    /**
+     *
+     * @var ?DiscountsConfiguration
+     */
+    protected $discounts;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -131,7 +137,8 @@ final class ProjectModel extends JsonObjectModel implements Project
         ?ShippingRateInputType $shippingRateInputType = null,
         ?ExternalOAuth $externalOAuth = null,
         ?SearchIndexingConfiguration $searchIndexing = null,
-        ?BusinessUnitConfiguration $businessUnits = null
+        ?BusinessUnitConfiguration $businessUnits = null,
+        ?DiscountsConfiguration $discounts = null
     ) {
         $this->version = $version;
         $this->key = $key;
@@ -148,6 +155,7 @@ final class ProjectModel extends JsonObjectModel implements Project
         $this->externalOAuth = $externalOAuth;
         $this->searchIndexing = $searchIndexing;
         $this->businessUnits = $businessUnits;
+        $this->discounts = $discounts;
     }
 
     /**
@@ -461,6 +469,27 @@ final class ProjectModel extends JsonObjectModel implements Project
         return $this->businessUnits;
     }
 
+    /**
+     * <p>Holds configuration specific to discounts, including how Product and Cart Discounts are combined in every Cart of the Project.</p>
+     *
+     *
+     * @return null|DiscountsConfiguration
+     */
+    public function getDiscounts()
+    {
+        if (is_null($this->discounts)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISCOUNTS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discounts = DiscountsConfigurationModel::of($data);
+        }
+
+        return $this->discounts;
+    }
+
 
     /**
      * @param ?int $version
@@ -580,6 +609,14 @@ final class ProjectModel extends JsonObjectModel implements Project
     public function setBusinessUnits(?BusinessUnitConfiguration $businessUnits): void
     {
         $this->businessUnits = $businessUnits;
+    }
+
+    /**
+     * @param ?DiscountsConfiguration $discounts
+     */
+    public function setDiscounts(?DiscountsConfiguration $discounts): void
+    {
+        $this->discounts = $discounts;
     }
 
 

@@ -30,6 +30,7 @@ interface Project extends JsonObject
     public const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
     public const FIELD_SEARCH_INDEXING = 'searchIndexing';
     public const FIELD_BUSINESS_UNITS = 'businessUnits';
+    public const FIELD_DISCOUNTS = 'discounts';
 
     /**
      * <p>Current version of the Project.</p>
@@ -152,6 +153,14 @@ interface Project extends JsonObject
     public function getBusinessUnits();
 
     /**
+     * <p>Holds configuration specific to discounts, including how Product and Cart Discounts are combined in every Cart of the Project.</p>
+     *
+
+     * @return null|DiscountsConfiguration
+     */
+    public function getDiscounts();
+
+    /**
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
@@ -225,4 +234,9 @@ interface Project extends JsonObject
      * @param ?BusinessUnitConfiguration $businessUnits
      */
     public function setBusinessUnits(?BusinessUnitConfiguration $businessUnits): void;
+
+    /**
+     * @param ?DiscountsConfiguration $discounts
+     */
+    public function setDiscounts(?DiscountsConfiguration $discounts): void;
 }
