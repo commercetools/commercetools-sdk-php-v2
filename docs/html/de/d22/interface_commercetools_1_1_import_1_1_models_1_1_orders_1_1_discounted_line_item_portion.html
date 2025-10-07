@@ -139,7 +139,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a cart discount by key.</p>
+<p>References a cart discount by key. If the referenced <a href="../../ctp:api:type:CartDiscount">CartDiscount</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CartDiscount is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CartDiscountKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d4/df3/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_discounted_line_item_portion_model.html#aec791ea16879992b9be12d6261860fef">Commercetools\Import\Models\Orders\DiscountedLineItemPortionModel</a>.</p>
@@ -160,6 +160,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Money value for the discount applicable.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Money </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d4/df3/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_discounted_line_item_portion_model.html#ac66ed4dad181263d95f2efa3956b6e43">Commercetools\Import\Models\Orders\DiscountedLineItemPortionModel</a>.</p>

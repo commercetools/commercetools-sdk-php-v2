@@ -181,7 +181,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a channel by key.</p>
+<p>Maps to <code>Price.channel</code>. References a channel by key. If the referenced <a href="../../ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d6/d30/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_price_model.html#af0134a3fb55bcfe3e07792f11c09f747">Commercetools\Import\Models\Orders\LineItemPriceModel</a>.</p>
@@ -244,7 +244,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a customer group by key.</p>
+<p>Maps to <code>Price.customerGroup</code>. References a customer group by key. If the referenced <a href="../../ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d6/d30/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_price_model.html#a4468a45c10c99386aea9b0c2e18586b2">Commercetools\Import\Models\Orders\LineItemPriceModel</a>.</p>
@@ -286,7 +286,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The tiered prices for this price.</p>
+<p>Maps to <code>Price.tiers</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceTierCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d6/d30/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_price_model.html#a3dd1425488dbf12c349eda75d8d640c3">Commercetools\Import\Models\Orders\LineItemPriceModel</a>.</p>

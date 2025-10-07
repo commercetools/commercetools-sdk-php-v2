@@ -168,11 +168,11 @@ Setting the value of a non-required Attribute to <code>null</code> will remove t
 <li>
 Attempting to set a <code>null</code> value to a required Attribute will make the import operation fail with an <a href="../../ctp:import:type:InvalidOperation">InvalidOperation</a> error. </li>
 <li>
-Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTextAttributes</a> or <a href="../../ctp:import:type:LocalizableTextSetAttribute">LocalizableTextSetAttributes</a> follows an override pattern, meaning that omitted localized fields will be deleted, new fields will be created, and existing fields will be updated. You can also delete localized fields by setting their value to <code>null</code>. </li>
+Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTextAttributes</a> or <a href="../../ctp:import:type:LocalizableTextSetAttribute">LocalizableTextSetAttributes</a> follows an override pattern, meaning that omitted localized fields will be deleted, new fields will be created, and existing fields will be updated. You can delete localized fields by setting their value to <code>null</code>. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|Attributes </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00075">75</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00074">74</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -190,8 +190,9 @@ Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTe
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reference to the <a href="../..//../api/projects/products#product">Product</a> that contains the ProductVariant.</p>
+<p>Reference to the <a href="../../ctp:api:type:Product">Product</a> that contains the ProductVariant.</p>
 <p>We recommend to set this value to minimize concurrency errors. If set, this field is required for every ProductVariantPatch in the <a href="../../ctp:import:type:ProductVariantPatchRequest">ProductVariantPatchRequest</a>.</p>
+<p>If the referenced Product does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Product is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductKeyReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00099">99</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>
@@ -212,10 +213,10 @@ Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTe
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reference to the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> to update. If the referenced ProductVariant does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
+<p>Reference to the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> to update.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantKeyReference </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00058">58</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00057">57</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -236,7 +237,7 @@ Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTe
 <p>If <code>false</code>, the attribute changes are applied to both <a href="../..//projects/productProjections#current--staged">current and staged projected representations</a> of the <a href="../../ctp:api:type:Product">Product</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00086">86</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00085">85</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -309,7 +310,7 @@ Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTe
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000153">Deprecated:</a></b></dt><dd>use withAttributes() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000167">Deprecated:</a></b></dt><dd>use withAttributes() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00163">163</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>
@@ -358,7 +359,7 @@ Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTe
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000154">Deprecated:</a></b></dt><dd>use withProduct() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000168">Deprecated:</a></b></dt><dd>use withProduct() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00174">174</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>
@@ -407,7 +408,7 @@ Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTe
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000152">Deprecated:</a></b></dt><dd>use withProductVariant() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000166">Deprecated:</a></b></dt><dd>use withProductVariant() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html#l00152">152</a> of file <a class="el" href="../../d4/d7a/_product_variant_patch_builder_8php_source.html">ProductVariantPatchBuilder.php</a>.</p>

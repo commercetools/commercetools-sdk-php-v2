@@ -83,7 +83,8 @@ $(function() {
 </div><!-- fragment --><h1><a class="anchor" id="withprojectkeyvalueprojectkey-get"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;get()&lt;/tt&gt;</h1>
 <p>The <code>view_audit_log:{projectKey}</code> scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.</p>
-<h2><a class="anchor" id="example-752"></a>
+<p>If the request exceeds the rate limit, a [TooManyRequests](ctp:history:type:TooManyRequestsError) error is returned.</p>
+<h2><a class="anchor" id="example-798"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../d5/df6/class_commercetools_1_1_history_1_1_client_1_1_history_request_builder.html">Commercetools\History\Client\HistoryRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -94,7 +95,8 @@ Example</h2>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-withresourcetypevalueresourcetype-get"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;withResourceTypeValue("resourceType")-&gt;get()&lt;/tt&gt;</h1>
 <p>The <code>view_audit_log:{projectKey}</code> scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.</p>
-<h2><a class="anchor" id="example-753"></a>
+<p>If the request exceeds the rate limit, a [TooManyRequests](ctp:history:type:TooManyRequestsError) error is returned.</p>
+<h2><a class="anchor" id="example-799"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../d5/df6/class_commercetools_1_1_history_1_1_client_1_1_history_request_builder.html">Commercetools\History\Client\HistoryRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -106,7 +108,8 @@ Example</h2>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-withresourcetypevalueresourcetype-withidvalueid-get"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;withResourceTypeValue("resourceType")-&gt;withIDValue("ID")-&gt;get()&lt;/tt&gt;</h1>
 <p>The <code>view_audit_log:{projectKey}</code> scope is required, and depending on the [resource type](ctp:history:type:ChangeHistoryResourceType) queried, their respective scopes must be granted.</p>
-<h2><a class="anchor" id="example-754"></a>
+<p>If the request exceeds the rate limit, a [TooManyRequests](ctp:history:type:TooManyRequestsError) error is returned.</p>
+<h2><a class="anchor" id="example-800"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../d5/df6/class_commercetools_1_1_history_1_1_client_1_1_history_request_builder.html">Commercetools\History\Client\HistoryRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -119,7 +122,7 @@ Example</h2>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-graphql-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;graphql()-&gt;post(null)&lt;/tt&gt;</h1>
 <p>Execute a GraphQL request.</p>
-<h2><a class="anchor" id="example-755"></a>
+<h2><a class="anchor" id="example-801"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../d5/df6/class_commercetools_1_1_history_1_1_client_1_1_history_request_builder.html">Commercetools\History\Client\HistoryRequestBuilder</a>;</div>
 <div class="line"> </div>

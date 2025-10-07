@@ -153,7 +153,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00273">273</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00271">271</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -260,7 +260,7 @@ Set to <code>true</code> if the ProductVariant exists and you want to set this P
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier. If a <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it will be updated with the imported data.</p>
+<p>User-defined unique identifier. If a <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it is updated with the imported data.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00083">83</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
@@ -281,10 +281,10 @@ Set to <code>true</code> if the ProductVariant exists and you want to set this P
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The <a href="../../ctp:api:type:ProductVariant">Product</a> to which this Product Variant belongs. Maps to <code>ProductVariant.product</code>. The Reference to the <a href="../../ctp:api:type:Product">Product</a> with which the ProductVariant is associated. If referenced Product does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
+<p>The <a href="../../ctp:api:type:ProductVariant">Product</a> containing this ProductVariant. If the referenced Product does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Product is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductKeyReference </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00169">169</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00167">167</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -325,7 +325,7 @@ Set to <code>true</code> if the ProductVariant exists and you want to set this P
 </div><div class="memdoc">
 <ul>
 <li>
-Set to <code>false</code> to update both the <a href="../..//../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="../..//../api/projects/products#product">Product</a> with the new Product Variant data. </li>
+Set to <code>false</code> to update both the <a href="../..//../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="../../ctp:api:type:Product">Product</a> with the new Product Variant data. </li>
 <li>
 Leave empty or set to <code>true</code> to only update the staged projection. </li>
 </ul>
@@ -358,7 +358,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00287">287</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00285">285</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -385,7 +385,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00233">233</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00231">231</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -412,7 +412,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00211">211</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00209">209</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -439,7 +439,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00222">222</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00220">220</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -466,7 +466,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00200">200</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00198">198</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -493,7 +493,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00178">178</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00176">176</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -520,7 +520,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00255">255</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00253">253</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -539,10 +539,10 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000151">Deprecated:</a></b></dt><dd>use withProduct() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000165">Deprecated:</a></b></dt><dd>use withProduct() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00266">266</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00264">264</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -569,7 +569,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00189">189</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00187">187</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -596,7 +596,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00244">244</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html#l00242">242</a> of file <a class="el" href="../../de/d10/_product_variant_import_builder_8php_source.html">ProductVariantImportBuilder.php</a>.</p>
 
 </div>
 </div>

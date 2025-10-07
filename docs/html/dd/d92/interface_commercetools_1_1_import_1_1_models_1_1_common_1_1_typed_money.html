@@ -151,6 +151,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Amount in the smallest indivisible unit of a currency, such as:</p>
+<ul>
+<li>
+Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>). </li>
+<li>
+The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>). </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/db6/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_high_precision_money_model.html#ae1a30f472137fcef5ff4fc0707df301b">Commercetools\Import\Models\Common\HighPrecisionMoneyModel</a>, <a class="el" href="../../dd/dd4/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_money_model.html#aa288d33d5b39e133a7b7fb0454fad5b8">Commercetools\Import\Models\Common\MoneyModel</a>, and <a class="el" href="../../d7/d61/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money_model.html#a2f02ebb3e2787b94a197035dae6451af">Commercetools\Import\Models\Common\TypedMoneyModel</a>.</p>
@@ -192,6 +199,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The number of fraction digits of the money value. This is used to determine how many digits are after the decimal point. For example, for EUR and USD, this is <code>2</code>, and for JPY, this is <code>0</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/db6/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_high_precision_money_model.html#a4769dacf6ca1099a528afa820236dd37">Commercetools\Import\Models\Common\HighPrecisionMoneyModel</a>, <a class="el" href="../../dd/dd4/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_money_model.html#a63166375e69a7948acfcea3023f63125">Commercetools\Import\Models\Common\MoneyModel</a>, and <a class="el" href="../../d7/d61/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money_model.html#a26cc1abb3ee304cd6ce9572466d679a3">Commercetools\Import\Models\Common\TypedMoneyModel</a>.</p>
@@ -212,6 +220,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The type of money. The <code>centPrecision</code> type is used for currencies with minor units, such as EUR and USD. The <code>highPrecision</code> type is used for currencies without minor units, such as JPY.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/db6/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_high_precision_money_model.html#ac48029a515125d75f55fbe18e0babc31">Commercetools\Import\Models\Common\HighPrecisionMoneyModel</a>, <a class="el" href="../../dd/dd4/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_money_model.html#ab86f84592ee61f9b48ab15a2664eb642">Commercetools\Import\Models\Common\MoneyModel</a>, and <a class="el" href="../../d7/d61/class_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money_model.html#a62842f01a8502cc79d9debde22b8c63a">Commercetools\Import\Models\Common\TypedMoneyModel</a>.</p>

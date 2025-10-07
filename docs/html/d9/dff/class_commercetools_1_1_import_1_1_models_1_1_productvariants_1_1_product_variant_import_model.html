@@ -373,7 +373,7 @@ Set to <code>true</code> if the ProductVariant exists and you want to set this P
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier. If a <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it will be updated with the imported data.</p>
+<p>User-defined unique identifier. If a <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> with this <code>key</code> exists on the specified <code>product</code>, it is updated with the imported data.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -397,13 +397,13 @@ Set to <code>true</code> if the ProductVariant exists and you want to set this P
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The <a href="../../ctp:api:type:ProductVariant">Product</a> to which this Product Variant belongs. Maps to <code>ProductVariant.product</code>. The Reference to the <a href="../../ctp:api:type:Product">Product</a> with which the ProductVariant is associated. If referenced Product does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
+<p>The <a href="../../ctp:api:type:ProductVariant">Product</a> containing this ProductVariant. If the referenced Product does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Product is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d7/ddc/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_import.html#a84c4502a75e013b7ae8029727d856458">Commercetools\Import\Models\Productvariants\ProductVariantImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00255">255</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00253">253</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -447,7 +447,7 @@ Set to <code>true</code> if the ProductVariant exists and you want to set this P
 </div><div class="memdoc">
 <ul>
 <li>
-Set to <code>false</code> to update both the <a href="../..//../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="../..//../api/projects/products#product">Product</a> with the new Product Variant data. </li>
+Set to <code>false</code> to update both the <a href="../..//../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="../../ctp:api:type:Product">Product</a> with the new Product Variant data. </li>
 <li>
 Leave empty or set to <code>true</code> to only update the staged projection. </li>
 </ul>
@@ -484,7 +484,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 
 <p>Implements <a class="el" href="../../d7/ddc/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_import.html#a528e83daa33d62ed05782a9654fd2889">Commercetools\Import\Models\Productvariants\ProductVariantImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00314">314</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00312">312</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -512,7 +512,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 
 <p>Implements <a class="el" href="../../d7/ddc/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_import.html#a7eb7a6654c648d6daee567bde605e4aa">Commercetools\Import\Models\Productvariants\ProductVariantImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00298">298</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00296">296</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -540,7 +540,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 
 <p>Implements <a class="el" href="../../d7/ddc/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_import.html#abdb41fe998f19fbfb66566e13583dc28">Commercetools\Import\Models\Productvariants\ProductVariantImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00306">306</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00304">304</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -568,7 +568,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 
 <p>Implements <a class="el" href="../../d7/ddc/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_import.html#ac117f7ea4868cc40b6978401d2306dd5">Commercetools\Import\Models\Productvariants\ProductVariantImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00290">290</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00288">288</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -596,7 +596,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 
 <p>Implements <a class="el" href="../../d7/ddc/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_import.html#ac36b2622b22052cf50dfd9743714997e">Commercetools\Import\Models\Productvariants\ProductVariantImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00274">274</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00272">272</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -624,7 +624,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 
 <p>Implements <a class="el" href="../../d7/ddc/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_import.html#aad8d76eb67168e09b5311c3f31475005">Commercetools\Import\Models\Productvariants\ProductVariantImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00330">330</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00328">328</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -652,7 +652,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 
 <p>Implements <a class="el" href="../../d7/ddc/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_import.html#a26f5ada6159eb4c3702842ee494d2196">Commercetools\Import\Models\Productvariants\ProductVariantImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00282">282</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00280">280</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -680,7 +680,7 @@ Leave empty or set to <code>true</code> to only update the staged projection. </
 
 <p>Implements <a class="el" href="../../d7/ddc/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_import.html#aa0e972634b85ab2aa7d7e1e0ce73714f">Commercetools\Import\Models\Productvariants\ProductVariantImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00322">322</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html#l00320">320</a> of file <a class="el" href="../../da/da7/_product_variant_import_model_8php_source.html">ProductVariantImportModel.php</a>.</p>
 
 </div>
 </div>

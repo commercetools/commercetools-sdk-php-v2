@@ -765,8 +765,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Sets the <a href="../../ctp:api:type:Store">Stores</a> the Business Unit is associated with. Can only be set when <code>storeMode</code> is <code>Explicit</code>. Defaults to empty for <a href="../../ctp:api:type:BusinessUnitType">Companies</a> and not set for <a href="../../ctp:api:type:BusinessUnitType">Divisions</a>.</p>
-<p>If the Business Unit has Stores defined, then all of its <a href="../../ctp:api:type:Cart">Carts</a>, <a href="../../ctp:api:type:Order">Orders</a>, <a href="../../ctp:api:type:Quote">Quotes</a>, <a href="../../ctp:api:type:QuoteRequest">Quote Requests</a>, or <a href="../../ctp:api:type:ShoppingList">Shopping Lists</a> must belong to one of the Business Unit's Stores.</p>
-<p>If the Business Unit has no Stores, then all of its <a href="../../ctp:api:type:Cart">Carts</a>, <a href="../../ctp:api:type:Order">Orders</a>, <a href="../../ctp:api:type:Quote">Quotes</a>, <a href="../../ctp:api:type:QuoteRequest">Quote Requests</a>, or <a href="../../ctp:api:type:ShoppingList">Shopping Lists</a> must not belong to any Store.</p>
+<p>If the Business Unit has Stores defined, then all of its <a href="../../ctp:api:type:Cart">Carts</a>, <a href="../../ctp:api:type:Order">Orders</a>, <a href="../../ctp:api:type:RecurringOrder">Recurring Orders</a>, <a href="../../ctp:api:type:Quote">Quotes</a>, <a href="../../ctp:api:type:QuoteRequest">Quote Requests</a>, or <a href="../../ctp:api:type:ShoppingList">Shopping Lists</a> must belong to one of the Business Unit's Stores.</p>
+<p>If the Business Unit has no Stores, then all of its <a href="../../ctp:api:type:Cart">Carts</a>, <a href="../../ctp:api:type:Order">Orders</a>, <a href="../../ctp:api:type:RecurringOrder">Recurring Orders</a>, <a href="../../ctp:api:type:Quote">Quotes</a>, <a href="../../ctp:api:type:QuoteRequest">Quote Requests</a>, or <a href="../../ctp:api:type:ShoppingList">Shopping Lists</a> must not belong to any Store.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreResourceIdentifierCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 

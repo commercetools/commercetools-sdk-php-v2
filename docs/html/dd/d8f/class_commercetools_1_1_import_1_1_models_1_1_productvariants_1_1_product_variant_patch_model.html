@@ -224,14 +224,14 @@ Setting the value of a non-required Attribute to <code>null</code> will remove t
 <li>
 Attempting to set a <code>null</code> value to a required Attribute will make the import operation fail with an <a href="../../ctp:import:type:InvalidOperation">InvalidOperation</a> error. </li>
 <li>
-Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTextAttributes</a> or <a href="../../ctp:import:type:LocalizableTextSetAttribute">LocalizableTextSetAttributes</a> follows an override pattern, meaning that omitted localized fields will be deleted, new fields will be created, and existing fields will be updated. You can also delete localized fields by setting their value to <code>null</code>. </li>
+Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTextAttributes</a> or <a href="../../ctp:import:type:LocalizableTextSetAttribute">LocalizableTextSetAttributes</a> follows an override pattern, meaning that omitted localized fields will be deleted, new fields will be created, and existing fields will be updated. You can delete localized fields by setting their value to <code>null</code>. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|Attributes </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d9/dde/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_patch.html#aeb453c68c586468a8499d2cab604e299">Commercetools\Import\Models\Productvariants\ProductVariantPatch</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00100">100</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00099">99</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
 
 </div>
 </div>
@@ -249,8 +249,9 @@ Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTe
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reference to the <a href="../..//../api/projects/products#product">Product</a> that contains the ProductVariant.</p>
+<p>Reference to the <a href="../../ctp:api:type:Product">Product</a> that contains the ProductVariant.</p>
 <p>We recommend to set this value to minimize concurrency errors. If set, this field is required for every ProductVariantPatch in the <a href="../../ctp:import:type:ProductVariantPatchRequest">ProductVariantPatchRequest</a>.</p>
+<p>If the referenced Product does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Product is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -274,13 +275,13 @@ Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTe
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reference to the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> to update. If the referenced ProductVariant does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
+<p>Reference to the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> to update.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d9/dde/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_patch.html#a4158d39e78db4ccadae7432c406886d4">Commercetools\Import\Models\Productvariants\ProductVariantPatch</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00073">73</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00072">72</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
 
 </div>
 </div>
@@ -304,7 +305,7 @@ Importing <a href="../../ctp:import:type:LocalizableTextAttribute">LocalizableTe
 
 <p>Implements <a class="el" href="../../d9/dde/interface_commercetools_1_1_import_1_1_models_1_1_productvariants_1_1_product_variant_patch.html#ab439fef662860f8f5b5ce64386b3e53c">Commercetools\Import\Models\Productvariants\ProductVariantPatch</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00121">121</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html#l00120">120</a> of file <a class="el" href="../../d8/d99/_product_variant_patch_model_8php_source.html">ProductVariantPatchModel.php</a>.</p>
 
 </div>
 </div>

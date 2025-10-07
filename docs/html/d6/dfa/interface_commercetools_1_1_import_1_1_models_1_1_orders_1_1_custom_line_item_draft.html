@@ -199,6 +199,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>CustomLineItem.discountedPricePerQuantity</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DiscountedLineItemPriceDraftCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#aea4d1bfefc96085538f47a422fc229dd">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -219,6 +220,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>External Tax Rate for the Custom Line Item if the Cart has the <code>External</code> <a href="../../ctp:api:type:TaxMode">TaxMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ExternalTaxRateDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#a499eec44927481731c44d31b89a283b9">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -239,6 +241,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>CustomLineItem.money</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#a918811b888e777d63b19565870ae5893">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -259,12 +262,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
-<pre><code class="language-json">{
-  &quot;de&quot;: &quot;Hundefutter&quot;,
-  &quot;en&quot;: &quot;dog food&quot;
-}
-</code></pre><dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
+<p>Maps to <code>CustomLineItem.name</code>.</p>
+<dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#a5137a6a068001b1190e1be8ebf23dd1b">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
 
@@ -284,6 +283,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>CustomLineItem.quantity</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#af741549c3cf39fa8e928d375fbb668cb">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -304,6 +304,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>CustomLineItem.shippingDetails</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ItemShippingDetailsDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#a2811bb1fdc61ba7519eb69c20ab38089">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -324,6 +325,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>CustomLineItem.slug</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#a2cb9be64f1f25537add42e8a3ffea862">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -344,6 +346,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>CustomLineItem.state</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ItemStateCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#a735b4be1ba080ff3bb1c6d210c4e1ed6">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -364,7 +367,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a tax category by key.</p>
+<p>Maps to <code>CustomLineItem.taxCategory</code>. References a tax category by key. If the referenced <a href="../../ctp:api:type:TaxCategory">TaxCategory</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced TaxCategory is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxCategoryKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#a87d86987aa63be303375ad668ca26f89">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -385,6 +388,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>CustomLineItem.taxedPrice</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomLineItemTaxedPrice </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#ae8f656d6a5e55c91c9c218cc15716242">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -405,6 +409,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>CustomLineItem.taxRate</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxRate </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#aaa21b731ca42baed0e458437f86938a5">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>
@@ -425,6 +430,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>CustomLineItem.totalPrice</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d57/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_custom_line_item_draft_model.html#af3c2101e09bdb44d0347330c796fe154">Commercetools\Import\Models\Orders\CustomLineItemDraftModel</a>.</p>

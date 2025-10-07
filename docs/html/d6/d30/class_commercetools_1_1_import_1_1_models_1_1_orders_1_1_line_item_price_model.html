@@ -284,7 +284,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a channel by key.</p>
+<p>Maps to <code>Price.channel</code>. References a channel by key. If the referenced <a href="../../ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -356,7 +356,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a customer group by key.</p>
+<p>Maps to <code>Price.customerGroup</code>. References a customer group by key. If the referenced <a href="../../ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -404,7 +404,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The tiered prices for this price.</p>
+<p>Maps to <code>Price.tiers</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceTierCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 

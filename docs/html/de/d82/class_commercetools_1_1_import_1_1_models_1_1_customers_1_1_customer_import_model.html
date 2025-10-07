@@ -501,7 +501,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a5fa6bc628819088f121ab3137583e9fc">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00562">562</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00561">561</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -530,7 +530,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#aaf3ea1a3c3a7c0bb43145e37f1c31286">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00706">706</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00705">705</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -548,13 +548,13 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The indices of the billing addresses in the addresses array. The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
+<p>Indices of the billing addresses in the <code>addresses</code> array. The <code>billingAddressIds</code> of the Customer will be set to the <code>id</code> of these addresses.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|array </dd></dl>
 <p>@psalm-var ?list&lt;mixed&gt; $data</p>
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#aa1d5462b4a0160962c988ec1eb746ad0">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00602">602</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00601">601</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -596,13 +596,13 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Custom Fields for this Customer.</p>
+<p>Maps to <code>Customer.custom</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Custom </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a73d8fdea63c47c476584fb75e4275932">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00682">682</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00681">681</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -620,13 +620,13 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Reference to the <a href="../../ctp:api:type:CustomerGroup">CustomerGroup</a> with which the Customer is associated. If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
+<p>Maps to <code>Customer.customerGroup</code>. If the referenced <a href="../../ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a556c2351830e0b3e9c808391f3fe1968">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00541">541</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00540">540</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -692,13 +692,13 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The index of the address in the addresses array. The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
+<p>Index of the address in the <code>addresses</code> array to use as the default billing address. The <code>defaultBillingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#aa8ae8659e1f16b6d98abcb702989d72e">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00582">582</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00581">581</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -716,13 +716,13 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The index of the address in the addresses array. The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
+<p>The index of the address in the <code>addresses</code> array. The <code>defaultShippingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a966683f0b9175864dbd6722c87ddf053">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00622">622</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00621">621</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -836,7 +836,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier. If a <a href="../../ctp:api:type:Customer">Customer</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+<p>User-defined unique identifier. If a <a href="../../ctp:api:type:Customer">Customer</a> with this <code>key</code> exists, it is updated with the imported data.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -890,7 +890,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a4a99c315aa1a7ef644763ce272d70d48">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00662">662</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00661">661</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -932,7 +932,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Required when <code>authenticationMode</code> is set to <code>Password</code>. Maps to <code>Customer.password</code>.</p>
+<p>Maps to <code>Customer.password</code>. Required when <code>authenticationMode</code> is set to <code>Password</code>. This field is only used when creating new Customers, and is ignored when updating Customers. However, due to the Import API's <a href="../..//../import-export/overview#how-are-resources-created-or-updated">upsert behavior</a>, a non-empty value must still be provided when updating Customers.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -980,13 +980,13 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The indices of the shipping addresses in the addresses array. The <code>shippingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
+<p>Indices of the shipping addresses in the <code>addresses</code> array. The <code>shippingAddressIds</code> of the Customer will be set to the <code>id</code> of these addresses.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|array </dd></dl>
 <p>@psalm-var ?list&lt;mixed&gt; $data</p>
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a4384477f901d75856be14c9ce7a65d8d">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00642">642</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00641">641</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1004,7 +1004,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The References to the Stores with which the Customer is associated. If referenced Stores do not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Stores are created.</p>
+<p>Maps to <code>Customer.stores</code>. If the referenced <a href="../../ctp:api:type:Store">Stores</a> do not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Stores are created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreKeyReferenceCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
@@ -1079,7 +1079,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Reimplemented from <a class="el" href="../../dd/dc2/class_commercetools_1_1_base_1_1_base_json_object.html#a96e992c3a9ef593f3214ea9cbeda88c5">Commercetools\Base\BaseJsonObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00915">915</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00914">914</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1107,7 +1107,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#aa23c37d24a7ec949c1726fd5a85c1949">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00852">852</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00851">851</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1135,7 +1135,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a23ce0a243d983fc90ea621763834007e">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00908">908</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00907">907</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1163,7 +1163,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a1825a6c33d08ce054ed4f940f56f585f">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00868">868</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00867">867</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1191,7 +1191,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a01c5ce5052c4a027193159a2e20174d0">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00820">820</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00819">819</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1219,7 +1219,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#aa489f12bc559515646c20b0c612a85d8">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00900">900</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00899">899</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1247,7 +1247,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a48891448d74d34ef85c67657e59b749c">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00844">844</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00843">843</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1275,7 +1275,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a6bdc8ddbe8de6d5cbc6a40e550d1e017">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00732">732</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00731">731</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1303,7 +1303,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a5f5c3c87d1b385c1cf8a88f0df86d302">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00812">812</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00811">811</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1331,7 +1331,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#aa0b4c33906d38c4242e4829777210190">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00860">860</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00859">859</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1359,7 +1359,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a69a534bdfc62bd64d58bd9a6ce12539d">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00876">876</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00875">875</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1387,7 +1387,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a5faa87059b5d276de005f93f8f5d45ef">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00740">740</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00739">739</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1415,7 +1415,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a661b54e653b84edd415f435afcf55839">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00804">804</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00803">803</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1443,7 +1443,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a957ce6e5c808da2a7563c2e2fc11ce0f">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00764">764</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00763">763</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1471,7 +1471,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a940e0aee6d53d287c675635b121d11c7">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00836">836</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00835">835</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1499,7 +1499,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a04ec063bbc0ea77230e7c74fe5242e98">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00724">724</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00723">723</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1527,7 +1527,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a17971bfd43f2772072b06b48051d0f56">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00772">772</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00771">771</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1555,7 +1555,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a69aa6c68de5dacfa644af8d76b8a77b7">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00892">892</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00891">891</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1583,7 +1583,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a614ef10dc8b971528b6409432c30366d">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00780">780</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00779">779</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1611,7 +1611,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a270ae960d8f7f6d1eec5c58bb0329cbd">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00748">748</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00747">747</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1639,7 +1639,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#ad367312e8acdfe67fcc0580ed0992b41">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00796">796</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00795">795</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1667,7 +1667,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a5a9ebbef7ec69849ebe6fe51bc8cb339">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00884">884</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00883">883</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1695,7 +1695,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a4a3571727a38049040085882506c8123">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00756">756</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00755">755</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1723,7 +1723,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#a7c9fee6e93c7c230a587260053947dd2">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00788">788</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00787">787</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>
@@ -1751,7 +1751,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 
 <p>Implements <a class="el" href="../../de/d3c/interface_commercetools_1_1_import_1_1_models_1_1_customers_1_1_customer_import.html#aabacc9efc2519fc968bf1792dab1a8b0">Commercetools\Import\Models\Customers\CustomerImport</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00828">828</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d60/_customer_import_model_8php_source.html#l00827">827</a> of file <a class="el" href="../../da/d60/_customer_import_model_8php_source.html">CustomerImportModel.php</a>.</p>
 
 </div>
 </div>

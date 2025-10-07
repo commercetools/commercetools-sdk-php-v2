@@ -355,6 +355,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><code>key</code> of the <a href="../../ctp:api:type:Customer">Customer</a> that the Order belongs to. If the referenced Customer does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Customer is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/d5e/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_order_import_model.html#ad894011b3098eaa774248660c8cfc67e">Commercetools\Import\Models\Orders\OrderImportModel</a>.</p>
@@ -396,7 +397,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>Order.customerGroup</code>.</p>
+<p>Maps to <code>Order.customerGroup</code>. If the referenced <a href="../../ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/d5e/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_order_import_model.html#aa4ecaa7b23685f3375c1a022a2d9d5e0">Commercetools\Import\Models\Orders\OrderImportModel</a>.</p>
@@ -648,7 +649,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reference to a State in a custom workflow.</p>
+<p>Maps to <code>Order.state</code>. If the referenced <a href="../../ctp:api:type:State">State</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced State is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StateKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/d5e/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_order_import_model.html#a037ced5bd95393971a32aed8c0b62b6f">Commercetools\Import\Models\Orders\OrderImportModel</a>.</p>
@@ -669,7 +670,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reference to the Store in which the Order is associated. If referenced Store does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Store exists.</p>
+<p>Maps to <code>Order.store</code>. If the referenced <a href="../../ctp:api:type:Store">Store</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Store is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/d5e/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_order_import_model.html#aa76e4f422d315a841a09277f50809938">Commercetools\Import\Models\Orders\OrderImportModel</a>.</p>

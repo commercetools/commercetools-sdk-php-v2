@@ -163,6 +163,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Percentage in the range of 0-1.</p>
+<ul>
+<li>
+If no <code>subRates</code> are specified, a value must be defined. </li>
+<li>
+If <code>subRates</code> are specified, this can be omitted or its value must be the sum of all <code>subRates</code> amounts. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|float </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/dbb/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_external_tax_rate_draft_model.html#a1ba14369132402b429a686d76d73c537">Commercetools\Import\Models\Orders\ExternalTaxRateDraftModel</a>.</p>
@@ -183,6 +190,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Country for which the tax applies.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/dbb/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_external_tax_rate_draft_model.html#a09220d7c96df3627440564e4b513803c">Commercetools\Import\Models\Orders\ExternalTaxRateDraftModel</a>.</p>
@@ -203,6 +211,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<ul>
+<li>
+If set to <code>false</code>, the related price is considered the net price and the provided <code>amount</code> is applied to calculate the gross price. </li>
+<li>
+If set to <code>true</code>, the related price is considered the gross price, and the provided <code>amount</code> is applied to calculate the net price. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/dbb/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_external_tax_rate_draft_model.html#a55e163f0f125c265786927f310c0ff4f">Commercetools\Import\Models\Orders\ExternalTaxRateDraftModel</a>.</p>
@@ -223,6 +237,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Name of the Tax Rate.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/dbb/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_external_tax_rate_draft_model.html#adde453a2cf3163016d89debb8d752f2a">Commercetools\Import\Models\Orders\ExternalTaxRateDraftModel</a>.</p>
@@ -243,6 +258,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>State within the specified country.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/dbb/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_external_tax_rate_draft_model.html#a3291b22272ba304d55d7986384907d6e">Commercetools\Import\Models\Orders\ExternalTaxRateDraftModel</a>.</p>
@@ -263,6 +279,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Used when the total tax is a combination of multiple taxes (for example, local, state/provincial, and/or federal taxes). The total of all subrates must equal the TaxRate <code>amount</code>. These subrates are used to calculate the <code>taxPortions</code> field of a <a href="../../ctp:api:type:Cart">Cart</a> or <a href="../../ctp:api:type:Order">Order</a> and the <code>taxedPrice</code> field of <a href="../../ctp:api:type:LineItem">LineItems</a>, <a href="../../ctp:api:type:CustomLineItem">CustomLineItems</a>, and <a href="../../ctp:api:type:ShippingInfo">ShippingInfos</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|SubRateCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/dbb/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_external_tax_rate_draft_model.html#a1310cfd842a2a616cfcc275553d516c4">Commercetools\Import\Models\Orders\ExternalTaxRateDraftModel</a>.</p>

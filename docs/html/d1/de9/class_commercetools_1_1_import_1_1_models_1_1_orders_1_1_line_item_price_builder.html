@@ -183,7 +183,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a channel by key.</p>
+<p>Maps to <code>Price.channel</code>. References a channel by key. If the referenced <a href="../../ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelKeyReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html#l00150">150</a> of file <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html">LineItemPriceBuilder.php</a>.</p>
@@ -246,7 +246,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a customer group by key.</p>
+<p>Maps to <code>Price.customerGroup</code>. References a customer group by key. If the referenced <a href="../../ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupKeyReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html#l00139">139</a> of file <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html">LineItemPriceBuilder.php</a>.</p>
@@ -288,7 +288,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The tiered prices for this price.</p>
+<p>Maps to <code>Price.tiers</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceTierCollection </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html#l00172">172</a> of file <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html">LineItemPriceBuilder.php</a>.</p>
@@ -427,7 +427,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000080">Deprecated:</a></b></dt><dd>use withChannel() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000089">Deprecated:</a></b></dt><dd>use withChannel() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html#l00313">313</a> of file <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html">LineItemPriceBuilder.php</a>.</p>
@@ -503,7 +503,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000082">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000091">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html#l00335">335</a> of file <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html">LineItemPriceBuilder.php</a>.</p>
@@ -552,7 +552,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000079">Deprecated:</a></b></dt><dd>use withCustomerGroup() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000088">Deprecated:</a></b></dt><dd>use withCustomerGroup() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html#l00302">302</a> of file <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html">LineItemPriceBuilder.php</a>.</p>
@@ -601,7 +601,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000081">Deprecated:</a></b></dt><dd>use withDiscounted() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000090">Deprecated:</a></b></dt><dd>use withDiscounted() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html#l00324">324</a> of file <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html">LineItemPriceBuilder.php</a>.</p>
@@ -731,7 +731,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000078">Deprecated:</a></b></dt><dd>use withValue() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000087">Deprecated:</a></b></dt><dd>use withValue() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html#l00291">291</a> of file <a class="el" href="../../de/d5d/_line_item_price_builder_8php_source.html">LineItemPriceBuilder.php</a>.</p>

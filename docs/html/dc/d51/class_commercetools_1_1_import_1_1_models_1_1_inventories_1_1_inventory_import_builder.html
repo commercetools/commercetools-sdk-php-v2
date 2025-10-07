@@ -169,7 +169,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>Inventory.custom</code>.</p>
+<p>Maps to <code>InventoryEntry.custom</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Custom </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html#l00144">144</a> of file <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html">InventoryImportBuilder.php</a>.</p>
@@ -190,7 +190,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>Inventory.expectedDelivery</code></p>
+<p>Maps to <code>InventoryEntry.expectedDelivery</code></p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html#l00122">122</a> of file <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html">InventoryImportBuilder.php</a>.</p>
@@ -211,7 +211,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier. If an <a href="../../ctp:api:type:InventoryEntry">InventoryEntry</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+<p>User-defined unique identifier. If an <a href="../../ctp:api:type:InventoryEntry">InventoryEntry</a> with this <code>key</code> exists, it is updated with the imported data.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html#l00078">78</a> of file <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html">InventoryImportBuilder.php</a>.</p>
@@ -232,7 +232,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>Inventory.quantityOnStock</code></p>
+<p>Maps to <code>InventoryEntry.quantityOnStock</code></p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html#l00100">100</a> of file <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html">InventoryImportBuilder.php</a>.</p>
@@ -253,7 +253,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>Inventory.restockableInDays</code></p>
+<p>Maps to <code>InventoryEntry.restockableInDays</code></p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html#l00111">111</a> of file <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html">InventoryImportBuilder.php</a>.</p>
@@ -274,7 +274,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>Inventory.sku</code></p>
+<p>Maps to <code>InventoryEntry.sku</code></p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html#l00089">89</a> of file <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html">InventoryImportBuilder.php</a>.</p>
@@ -295,7 +295,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>Inventory.supplyChannel</code></p>
+<p>Maps to <code>InventoryEntry.supplyChannel</code>. If the referenced <a href="../../ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelKeyReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html#l00133">133</a> of file <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html">InventoryImportBuilder.php</a>.</p>
@@ -371,7 +371,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000034">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000043">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html#l00241">241</a> of file <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html">InventoryImportBuilder.php</a>.</p>
@@ -555,7 +555,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000033">Deprecated:</a></b></dt><dd>use withSupplyChannel() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000042">Deprecated:</a></b></dt><dd>use withSupplyChannel() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html#l00230">230</a> of file <a class="el" href="../../d2/d31/_inventory_import_builder_8php_source.html">InventoryImportBuilder.php</a>.</p>

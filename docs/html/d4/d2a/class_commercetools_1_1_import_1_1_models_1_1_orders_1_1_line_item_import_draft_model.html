@@ -313,13 +313,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Custom Fields for this Line Item.</p>
+<p>Maps to <code>LineItem.custom</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Custom </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#af74bdc3ef405637ee8b91308736c19af">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00344">344</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00342">342</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -337,13 +337,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>LineItem.distributionChannel</code>. The Reference to the Distribution <a href="../../ctp:api:type:Channel">Channel</a> with which the LineItem is associated. If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Distribution Channel is created.</p>
+<p>Maps to <code>LineItem.distributionChannel</code>. If the referenced <a href="../../ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a77bfebffb4c9e7d56598086875421bc4">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00281">281</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00279">279</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -409,7 +409,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>LineItem.productId</code>.</p>
+<p>Maps to <code>LineItem.productId</code>. If the referenced <a href="../../ctp:api:type:Product">Product</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Product is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -457,13 +457,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to LineItem.shippingDetails.</p>
+<p>Maps to <code>LineItem.shippingDetails</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ItemShippingDetailsDraft </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a3f62adf5753ee94e2a0e37d626634de2">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00323">323</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00321">321</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -481,12 +481,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>LineItem.state</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ItemStateCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a0e7225ee61f9481231047c5563566ffd">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00236">236</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00238">238</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -504,7 +505,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>LineItem.supplyChannel</code>. The Reference to the Supply <a href="../../ctp:api:type:Channel">Channel</a> with which the LineItem is associated. If referenced Supply Channel does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Supply Channel is created.</p>
+<p>Maps to <code>LineItem.supplyChannel</code>. If the referenced <a href="../../ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -534,7 +535,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#ad4b137688f5224938e23ca2ae4477e8d">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00302">302</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00300">300</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -586,7 +587,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a21c5c2feac130a5ffc2c669eae942278">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00443">443</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00441">441</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -614,7 +615,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a3a867f3e2f20811345cf919244ab62ca">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00419">419</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00417">417</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -642,7 +643,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a048ada79f98a2d9104baa869af68d9fa">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00371">371</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00369">369</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -670,7 +671,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a5d1414b644791c03295da9b19fd9e954">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00387">387</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00385">385</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -698,7 +699,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#ab0e16c49cc1eead8c7b8e50e53df941d">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00363">363</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00361">361</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -726,7 +727,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a3d32717bbe6e92cb93f6375e43692a61">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00395">395</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00393">393</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -754,7 +755,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a2f52a74671bcd1323bd7421d8f427c99">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00435">435</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00433">433</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -782,7 +783,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#ae3796f65012429393a5095ed84c60bf6">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00403">403</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00401">401</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -810,7 +811,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a55c9fd6a688513917bdaee3a9161693b">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00411">411</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00409">409</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -838,7 +839,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a19dfc2e793d8623f369a2f96a39be2b4">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00427">427</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00425">425</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -866,7 +867,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d61/interface_commercetools_1_1_import_1_1_models_1_1_orders_1_1_line_item_import_draft.html#a9c1bd3d5dc59fad35f9ccd198fb67002">Commercetools\Import\Models\Orders\LineItemImportDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00379">379</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html#l00377">377</a> of file <a class="el" href="../../d0/df3/commercetools-import_2src_2_models_2_orders_2_line_item_import_draft_model_8php_source.html">LineItemImportDraftModel.php</a>.</p>
 
 </div>
 </div>

@@ -221,12 +221,19 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Amount in the smallest indivisible unit of a currency, such as:</p>
+<ul>
+<li>
+Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>). </li>
+<li>
+The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>). </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
 <p>Implements <a class="el" href="../../dd/d92/interface_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money.html#ab811b9525dbb074a62d79ead24eb8303">Commercetools\Import\Models\Common\TypedMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00103">103</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00115">115</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -250,7 +257,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d92/interface_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money.html#af05fe28241bd6c15a09d90f3e9780d94">Commercetools\Import\Models\Common\TypedMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00123">123</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00135">135</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -268,12 +275,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The number of fraction digits of the money value. This is used to determine how many digits are after the decimal point. For example, for EUR and USD, this is <code>2</code>, and for JPY, this is <code>0</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
 <p>Implements <a class="el" href="../../dd/d92/interface_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money.html#ad4cc0b959f46eb3eae4479dee14679d0">Commercetools\Import\Models\Common\TypedMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00085">85</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00091">91</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -291,12 +299,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The type of money. The <code>centPrecision</code> type is used for currencies with minor units, such as EUR and USD. The <code>highPrecision</code> type is used for currencies without minor units, such as JPY.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dd/d92/interface_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money.html#a16996deddd8a326f6d1bca97bc13c674">Commercetools\Import\Models\Common\TypedMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00067">67</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00069">69</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -324,7 +333,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d92/interface_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money.html#a57dbeec1d17949923b22d065ce49cd40">Commercetools\Import\Models\Common\TypedMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00149">149</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00161">161</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -352,7 +361,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d92/interface_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money.html#a21fd3300a7ae9b8e84f75bfbc380ba59">Commercetools\Import\Models\Common\TypedMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00157">157</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00169">169</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -380,7 +389,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d92/interface_commercetools_1_1_import_1_1_models_1_1_common_1_1_typed_money.html#ad884a76fc5b97f0d49b112287c97d797">Commercetools\Import\Models\Common\TypedMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00141">141</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html#l00153">153</a> of file <a class="el" href="../../da/d27/commercetools-import_2src_2_models_2_common_2_money_model_8php_source.html">MoneyModel.php</a>.</p>
 
 </div>
 </div>

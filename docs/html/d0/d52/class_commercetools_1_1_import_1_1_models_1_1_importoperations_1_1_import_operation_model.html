@@ -312,7 +312,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The time when the ImportOperation was created.</p>
+<p>Date and time (UTC) the ImportOperation was created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -336,7 +336,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Contains an error if the import of the resource was not successful. See <a href="../..//import-export/error">Errors</a>.</p>
+<p>Contains errors if the import was unsuccessful. See <a href="../..//import-export/error">Errors</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ErrorObjectCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
@@ -360,7 +360,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The expiration time of the ImportOperation.</p>
+<p>Date and time (UTC) the ImportOperation will be deleted.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -384,7 +384,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID of the ImportOperation.</p>
+<p>Unique identifier of the ImportOperation.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -408,7 +408,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The key of the <a href="../../ctp:import:type:ImportContainer">ImportContainer</a>.</p>
+<p><code>key</code> of the <a href="../../ctp:import:type:ImportContainer">ImportContainer</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -432,7 +432,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The last time When the ImportOperation was modified.</p>
+<p>Date and time (UTC) the ImportOperation was last updated.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -456,7 +456,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The key of the resource.</p>
+<p><code>key</code> of the resource being imported.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -480,7 +480,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The version of the imported resource when the import was successful.</p>
+<p>The <code>version</code> of the imported resource when the import was successful.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
@@ -504,7 +504,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The import status of the resource. Set to <code>rejected</code> or <code>validationFailed</code> if the import of the resource was not successful.</p>
+<p>The import status of the resource. If <code>rejected</code> or <code>validationFailed</code>, the import was unsuccessful.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -528,7 +528,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>In case of unresolved status this array will show the unresolved references</p>
+<p>If the resource being imported contains references to resources which do not exist, these references are contained within this array.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|UnresolvedReferencesCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
@@ -552,7 +552,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The version of the ImportOperation.</p>
+<p>Current version of the ImportOperation.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 

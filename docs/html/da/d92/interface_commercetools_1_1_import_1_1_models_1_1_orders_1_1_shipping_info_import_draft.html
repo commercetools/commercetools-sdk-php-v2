@@ -181,7 +181,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Note that you can not add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referenceable by an <code>id</code>.</p>
+<p>Maps to <code>shippingInfo.deliveries</code>. You cannot add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referenceable by an <code>id</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DeliveryCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d0c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_shipping_info_import_draft_model.html#adc3229279fb2d3f607248e87c70d2986">Commercetools\Import\Models\Orders\ShippingInfoImportDraftModel</a>.</p>
@@ -202,6 +202,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>shippingInfo.discountedPrice</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DiscountedLineItemPriceDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d0c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_shipping_info_import_draft_model.html#ac2711aedde3568eb2f2357ef2225e17d">Commercetools\Import\Models\Orders\ShippingInfoImportDraftModel</a>.</p>
@@ -222,6 +223,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>shippingInfo.price</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d0c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_shipping_info_import_draft_model.html#aaf4b50bf0b564dea6c0ce82bcbc38a0a">Commercetools\Import\Models\Orders\ShippingInfoImportDraftModel</a>.</p>
@@ -242,7 +244,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a shipping method by key.</p>
+<p>Maps to <code>shippingInfo.shippingMethod</code>. If the referenced <a href="../../ctp:api:type:ShippingMethod">ShippingMethod</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced ShippingMethod is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingMethodKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d0c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_shipping_info_import_draft_model.html#a2ded3cd00c8821938a2e4a2e435b7d08">Commercetools\Import\Models\Orders\ShippingInfoImportDraftModel</a>.</p>
@@ -263,6 +265,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>shippingInfo.shippingMethodName</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d0c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_shipping_info_import_draft_model.html#a8a098168e066d3ec727a5b6a423f067c">Commercetools\Import\Models\Orders\ShippingInfoImportDraftModel</a>.</p>
@@ -283,6 +286,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>shippingInfo.shippingMethodState</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d0c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_shipping_info_import_draft_model.html#a2f405e122b1f326d66786c6dc428cd33">Commercetools\Import\Models\Orders\ShippingInfoImportDraftModel</a>.</p>
@@ -303,6 +307,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Used to determine the price.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingRateDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d0c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_shipping_info_import_draft_model.html#aea31ac23f31364df792803192d54fe61">Commercetools\Import\Models\Orders\ShippingInfoImportDraftModel</a>.</p>
@@ -323,7 +328,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a tax category by key.</p>
+<p>Maps to <code>shippingInfo.taxCategory</code>. If the referenced <a href="../../ctp:api:type:TaxCategory">TaxCategory</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced TaxCategory is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxCategoryKeyReference </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d0c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_shipping_info_import_draft_model.html#a041b83942adeaa360246d6e0fc69536d">Commercetools\Import\Models\Orders\ShippingInfoImportDraftModel</a>.</p>
@@ -344,6 +349,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maps to <code>shippingInfo.taxRate</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TaxRate </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d0c/class_commercetools_1_1_import_1_1_models_1_1_orders_1_1_shipping_info_import_draft_model.html#a3fdbd24238f52ab02a45d4c92053c10a">Commercetools\Import\Models\Orders\ShippingInfoImportDraftModel</a>.</p>

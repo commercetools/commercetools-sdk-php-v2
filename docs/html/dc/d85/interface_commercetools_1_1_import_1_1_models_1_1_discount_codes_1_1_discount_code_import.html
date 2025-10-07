@@ -206,7 +206,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reference to CartDiscounts that can be applied to the Cart once the DiscountCode is applied.</p>
+<p>Maps to <code>DiscountCode.cartDiscounts</code>. If the referenced <a href="../../ctp:api:type:CartDiscount">CartDiscounts</a> do not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CartDiscounts are created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CartDiscountKeyReferenceCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#af78b9784a2a92a6b92363e6c6f8b5f12">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>
@@ -227,7 +227,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>DiscountCode can only be applied to Carts that match this predicate.</p>
+<p>Maps to <code>DiscountCode.cartPredicate</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#a010379516b3a4370a9dd68dfd5b58b65">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>
@@ -248,8 +248,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier of the DiscountCode that is used by the customer to apply the discount.</p>
-<p>The value cannot be updated. Attempting to update the value will result in an <a href="../..//import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+<p>Maps to <code>DiscountCode.code</code>. This value cannot be updated. Attempting to update this value will result in an <a href="../..//import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#a2dfba7f1fe01288d73701655e4d5b982">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>
@@ -270,7 +269,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Custom Fields of the DiscountCode.</p>
+<p>Maps to <code>DiscountCode.custom</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Custom </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#adf19742a5cfa1eba6290c136237d50c2">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>
@@ -312,7 +311,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Groups to which the DiscountCode belongs.</p>
+<p>Maps to <code>DiscountCode.groups</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|array </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#a73ac2a57112c0b39f3e232d1cc2e20ae">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>
@@ -333,7 +332,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Indicates if the DiscountCode is active and can be applied to the Cart.</p>
+<p>Maps to <code>DiscountCode.isActive</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#a59422be1da794d7577ead81a635b5c68">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>
@@ -354,7 +353,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier. If a <a href="../..//../api/projects/discountCodes#discountcode">Discount Code</a> with this <code>key</code> exists, it will be updated with the imported data.</p>
+<p>User-defined unique identifier. If a <a href="../../ctp:api:type:DiscountCode">DiscountCode</a> with this <code>key</code> exists, it is updated with the imported data.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implements <a class="el" href="../../d2/d31/interface_commercetools_1_1_import_1_1_models_1_1_common_1_1_import_resource.html#a0ee26f4508f08b8676f5eb96dd43da3b">Commercetools\Import\Models\Common\ImportResource</a>.</p>
@@ -377,7 +376,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of times the DiscountCode can be applied. DiscountCode application is counted at the time of Order creation or update. However, Order cancellation or deletion does not decrement the count.</p>
+<p>Maps to <code>DiscountCode.maxApplications</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#a05d69a592913751f7cbbf5a2af2ef978">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>
@@ -398,7 +397,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of times the DiscountCode can be applied per Customer (anonymous Carts are not supported). DiscountCode application is counted at the time of Order creation or update. However, Order cancellation or deletion does not decrement the count.</p>
+<p>Maps to <code>DiscountCode.maxApplicationsPerCustomer</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#afc195323c754ef057cac80cd00f7e327">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>
@@ -440,7 +439,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) from which the DiscountCode is effective.</p>
+<p>Maps to <code>DiscountCode.validFrom</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#a7195a4f7e41f882c15be7c355734da50">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>
@@ -461,7 +460,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) until which the DiscountCode is effective.</p>
+<p>Maps to <code>DiscountCode.validUntil</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d4f/class_commercetools_1_1_import_1_1_models_1_1_discount_codes_1_1_discount_code_import_model.html#aa0b13230b513d62d307166f5e9304368">Commercetools\Import\Models\DiscountCodes\DiscountCodeImportModel</a>.</p>

@@ -187,7 +187,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>References a discount code by key.</p>
+<p>References a DiscountCode by key. If the referenced <a href="../../ctp:api:type:DiscountCode">DiscountCode</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced DiscountCode is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DiscountCodeKeyReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 

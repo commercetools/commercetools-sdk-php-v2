@@ -147,7 +147,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Each field referenced must be defined in an already existing order in the project or the import operation state is set to <code>validationFailed</code>.</p>
+<p>Each field referenced must be defined in an existing <a href="../../ctp:api:type:Order">Order</a> or the <a href="../../ctp:import:type:ImportOperationState">ImportOperationState</a> is set to <code>validationFailed</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|OrderField </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/dae/_order_patch_import_builder_8php_source.html#l00052">52</a> of file <a class="el" href="../../d3/dae/_order_patch_import_builder_8php_source.html">OrderPatchImportBuilder.php</a>.</p>
@@ -168,7 +168,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order, unique across a project.</p>
+<p>User-defined unique identifier. If an <a href="../../ctp:api:type:Order">Order</a> with this <code>orderNumber</code> exists, it is updated with the imported data.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/dae/_order_patch_import_builder_8php_source.html#l00041">41</a> of file <a class="el" href="../../d3/dae/_order_patch_import_builder_8php_source.html">OrderPatchImportBuilder.php</a>.</p>
@@ -244,7 +244,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000048">Deprecated:</a></b></dt><dd>use withFields() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000057">Deprecated:</a></b></dt><dd>use withFields() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/dae/_order_patch_import_builder_8php_source.html#l00083">83</a> of file <a class="el" href="../../d3/dae/_order_patch_import_builder_8php_source.html">OrderPatchImportBuilder.php</a>.</p>

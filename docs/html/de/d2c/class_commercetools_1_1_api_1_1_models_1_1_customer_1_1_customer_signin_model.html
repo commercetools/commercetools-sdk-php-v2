@@ -257,7 +257,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Identifies a <a href="../../ctp:api:type:Cart">Cart</a> that will be assigned to the Customer.</p>
+<p>Assigns the Customer to the specified Cart.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CartResourceIdentifier </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -282,7 +282,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Deprecated since it is now possible to identify an anonymous cart by using its <code>id</code> or external <code>key</code>.</p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000614">Deprecated:</a></b></dt><dd></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000641">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -335,13 +335,14 @@ Set to <code>UseAsNewActiveCustomerCart</code> if the anonymous Cart should be u
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If both <code>anonymousCart</code> and <code>anonymousId</code> are provided, the <code>anonymousId</code> on the CustomerSignin must match that of the anonymous <a href="../../ctp:api:type:Cart">Cart</a>. Otherwise a <a href="../../ctp:api:type:InvalidOperationError">400 Bad Request</a> <code>Invalid Operation</code> error is returned with the message: &quot;Cart with the ID cart-id does not have the expected anonymousId.&quot;.</p>
+<p>Assigns the Customer to all <a href="../../ctp:api:type:Cart">Carts</a>, <a href="../../ctp:api:type:Order">Orders</a>, <a href="../../ctp:api:type:ShoppingList">ShoppingLists</a>, and <a href="../../ctp:api:type:Payment">Payments</a> with the same <code>anonymousId</code>.</p>
+<p>If <code>anonymousCart</code> is provided, this value must match the <code>anonymousId</code> of the anonymous <a href="../../ctp:api:type:Cart">Cart</a>; otherwise, an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#ac512a4263193c300bcb8210b9490d336">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00200">200</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00199">199</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -418,7 +419,7 @@ If <code>false</code>, only the prices, discounts, and tax rates will be updated
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#aeacd7e70e527607890d700bcb92eda0c">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00223">223</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00222">222</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -446,7 +447,7 @@ If <code>false</code>, only the prices, discounts, and tax rates will be updated
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#af29296eb053504b54ef58f7552ce3bb5">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00265">265</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00264">264</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -474,7 +475,7 @@ If <code>false</code>, only the prices, discounts, and tax rates will be updated
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#ab0bc4c12e1d30c3cd8375b120fcd3f0a">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00257">257</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00256">256</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -502,7 +503,7 @@ If <code>false</code>, only the prices, discounts, and tax rates will be updated
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a5555515a5a8833a77a773be3a6a0f247">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00273">273</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00272">272</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -530,7 +531,7 @@ If <code>false</code>, only the prices, discounts, and tax rates will be updated
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a3db665bcc13792a95772898ca874b2b3">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00281">281</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00280">280</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -558,7 +559,7 @@ If <code>false</code>, only the prices, discounts, and tax rates will be updated
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a1b0a1d5a07a4f23b1023bf4691bb0b10">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00241">241</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00240">240</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -586,7 +587,7 @@ If <code>false</code>, only the prices, discounts, and tax rates will be updated
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a0e2b3b37bb2b3ee50c4ae5d6080aa77f">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00249">249</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00248">248</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -614,7 +615,7 @@ If <code>false</code>, only the prices, discounts, and tax rates will be updated
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#afd37424eaca6ad438b978d4615d700c8">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00289">289</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00288">288</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>

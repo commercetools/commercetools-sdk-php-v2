@@ -141,7 +141,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The name of this attribute must match a name of the product types attribute definitions. The name is required if this type is used in a product variant and must not be set when used in a product variant patch.</p>
+<p>Required if used for <a href="../../ctp:import:type:ProductVariantImport">ProductVariantImport</a>. Must not be set if used for <a href="../../ctp:import:type:ProductVariantPatch">ProductVariantPatch</a>.</p>
+<p>Must match <code>name</code> of an <a href="../../ctp:api:type:AttributeDefinition">AttributeDefinition</a> of the Product Type.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/d18/commercetools-import_2src_2_models_2_productvariants_2_attribute_builder_8php_source.html#l00037">37</a> of file <a class="el" href="../../dd/d18/commercetools-import_2src_2_models_2_productvariants_2_attribute_builder_8php_source.html">AttributeBuilder.php</a>.</p>

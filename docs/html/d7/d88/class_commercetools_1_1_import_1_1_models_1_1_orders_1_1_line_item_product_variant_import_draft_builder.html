@@ -222,7 +222,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maps to <code>ProductVariant.product</code>.</p>
+<p>Maps to <code>ProductVariant.product</code>. If the referenced <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> does not exist, the <code>state</code> of the <a href="../../ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced ProductVariant is created.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantKeyReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d91/_line_item_product_variant_import_draft_builder_8php_source.html#l00063">63</a> of file <a class="el" href="../../df/d91/_line_item_product_variant_import_draft_builder_8php_source.html">LineItemProductVariantImportDraftBuilder.php</a>.</p>
@@ -400,7 +400,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000083">Deprecated:</a></b></dt><dd>use withProductVariant() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000092">Deprecated:</a></b></dt><dd>use withProductVariant() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d91/_line_item_product_variant_import_draft_builder_8php_source.html#l00171">171</a> of file <a class="el" href="../../df/d91/_line_item_product_variant_import_draft_builder_8php_source.html">LineItemProductVariantImportDraftBuilder.php</a>.</p>

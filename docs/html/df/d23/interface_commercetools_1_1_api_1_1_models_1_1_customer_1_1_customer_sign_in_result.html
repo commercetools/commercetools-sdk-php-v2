@@ -139,7 +139,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Cart associated with the Customer. If empty, the Customer does not have a Cart assigned.</p>
+<p>Cart associated with the Customer.</p>
+<p>The Cart is recalculated to remove invalid Line Items and apply the latest prices, taxes, and discounts. During these updates, the following errors can be returned: <a href="../../ctp:api:type:MatchingPriceNotFoundError">MatchingPriceNotFound</a> and <a href="../../ctp:api:type:MissingTaxRateForCountryError">MissingTaxRateForCountry</a>.</p>
+<p>For more information, see <a href="../..//../api/carts-orders-overview#update-a-cart">Cart updates</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Cart </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/d90/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_sign_in_result_model.html#a9438371ff9872e8f330c55439c902522">Commercetools\Api\Models\Customer\CustomerSignInResultModel</a>.</p>

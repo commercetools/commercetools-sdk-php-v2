@@ -80,10 +80,24 @@ $(function() {
 <div class="line"> </div>
 <div class="line">$root = <span class="keyword">new</span> ImportRequestBuilder();</div>
 <div class="ttc" id="aclass_commercetools_1_1_import_1_1_client_1_1_import_request_builder_html"><div class="ttname"><a href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/da9/lib_2commercetools-import_2src_2_client_2_import_request_builder_8php_source.html#l00019">ImportRequestBuilder.php:20</a></div></div>
-</div><!-- fragment --><h1><a class="anchor" id="withprojectkeyvalueprojectkey-categories-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
-&lt;tt&gt;withProjectKeyValue("projectKey")-&gt;categories()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new Categories or updating existing ones.</p>
+</div><!-- fragment --><h1><a class="anchor" id="withprojectkeyvalueprojectkey-businessunits-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
+&lt;tt&gt;withProjectKeyValue("projectKey")-&gt;businessUnits()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
+<p>Creates an Import Request for Business Units.</p>
 <h2><a class="anchor" id="example"></a>
+Example</h2>
+<div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
+<div class="line"> </div>
+<div class="line">$builder =  <span class="keyword">new</span> ImportRequestBuilder();</div>
+<div class="line">$request = $builder</div>
+<div class="line">                -&gt;withProjectKeyValue(<span class="stringliteral">&quot;projectKey&quot;</span>)</div>
+<div class="line">                -&gt;businessUnits()</div>
+<div class="line">                -&gt;importContainers()</div>
+<div class="line">                -&gt;withImportContainerKeyValue(<span class="stringliteral">&quot;importContainerKey&quot;</span>)</div>
+<div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
+</div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-categories-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
+&lt;tt&gt;withProjectKeyValue("projectKey")-&gt;categories()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
+<p>Creates an Import Request for Categories.</p>
+<h2><a class="anchor" id="example-1"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -96,8 +110,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-customers-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;customers()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new Customers or updating existing ones.</p>
-<h2><a class="anchor" id="example-1"></a>
+<p>Creates an Import Request for Customers.</p>
+<h2><a class="anchor" id="example-2"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -110,8 +124,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-discountcodes-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;discountCodes()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new Discount Codes or updating existing ones.</p>
-<h2><a class="anchor" id="example-2"></a>
+<p>Creates an Import Request for Discount Codes.</p>
+<h2><a class="anchor" id="example-3"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -124,9 +138,9 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a new Import Container.</p>
+<p>Creates an Import Container in the Project.</p>
 <p>Generates the <a href="../..//projects/events#import-container-created-event">ImportContainerCreated</a> Event.</p>
-<h2><a class="anchor" id="example-3"></a>
+<h2><a class="anchor" id="example-4"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -137,8 +151,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-get"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;get()&lt;/tt&gt;</h1>
-<p>Retrieves all Import Containers of a given project key.</p>
-<h2><a class="anchor" id="example-4"></a>
+<p>Retrieves all ImportContainers in the Project.</p>
+<h2><a class="anchor" id="example-5"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -149,8 +163,8 @@ Example</h2>
 <div class="line">                -&gt;get();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-withimportcontainerkeyvalueimportcontainerkey-putnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;put(null)&lt;/tt&gt;</h1>
-<p>Updates the Import Container given by the key.</p>
-<h2><a class="anchor" id="example-5"></a>
+<p>Updates an [ImportContainer](ctp:import:type:ImportContainer) in the Project.</p>
+<h2><a class="anchor" id="example-6"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -162,8 +176,8 @@ Example</h2>
 <div class="line">                -&gt;put(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-withimportcontainerkeyvalueimportcontainerkey-get"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;get()&lt;/tt&gt;</h1>
-<p>Retrieves the Import Container given by the key.</p>
-<h2><a class="anchor" id="example-6"></a>
+<p>Retrieves an [ImportContainer](ctp:import:type:ImportContainer) with the provided <code>importContainerKey</code>.</p>
+<h2><a class="anchor" id="example-7"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -175,9 +189,9 @@ Example</h2>
 <div class="line">                -&gt;get();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-withimportcontainerkeyvalueimportcontainerkey-delete"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;delete()&lt;/tt&gt;</h1>
-<p>Deletes the Import Container specified by the <code>importContainerKey</code>.</p>
+<p>Deletes an Import Container in the Project.</p>
 <p>Generates the <a href="../..//projects/events#import-container-deleted-event">ImportContainerDeleted</a> Event.</p>
-<h2><a class="anchor" id="example-7"></a>
+<h2><a class="anchor" id="example-8"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -189,8 +203,8 @@ Example</h2>
 <div class="line">                -&gt;delete();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-withimportcontainerkeyvalueimportcontainerkey-importoperations-get"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;importOperations()-&gt;get()&lt;/tt&gt;</h1>
-<p>Retrieves all [ImportOperations](ctp:import:type:ImportOperation) of a given ImportContainer key.</p>
-<h2><a class="anchor" id="example-8"></a>
+<p>Retrieves all ImportOperations within an [ImportContainer](ctp:import:type:ImportContainer).</p>
+<h2><a class="anchor" id="example-9"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -203,8 +217,8 @@ Example</h2>
 <div class="line">                -&gt;get();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-withimportcontainerkeyvalueimportcontainerkey-importsummaries-get"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;importSummaries()-&gt;get()&lt;/tt&gt;</h1>
-<p>Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the given Import Container. An [ImportSummary](ctp:import:type:ImportSummary) is calculated on demand.</p>
-<h2><a class="anchor" id="example-9"></a>
+<p>Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the [ImportContainer](ctp:import:type:ImportContainer) with the provided <code>importContainerKey</code>.</p>
+<h2><a class="anchor" id="example-10"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -217,8 +231,8 @@ Example</h2>
 <div class="line">                -&gt;get();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importoperations-withidvalueid-get"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importOperations()-&gt;withIdValue("id")-&gt;get()&lt;/tt&gt;</h1>
-<p>Retrieves the [ImportOperation](ctp:import:type:ImportOperation) of a given ID.</p>
-<h2><a class="anchor" id="example-10"></a>
+<p>Retrieves an ImportOperation with the provided <code>id</code>.</p>
+<h2><a class="anchor" id="example-11"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -230,8 +244,8 @@ Example</h2>
 <div class="line">                -&gt;get();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-inventories-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;inventories()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new Inventories or updating existing ones.</p>
-<h2><a class="anchor" id="example-11"></a>
+<p>Creates an Import Request for InventoryEntries.</p>
+<h2><a class="anchor" id="example-12"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -244,8 +258,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-orderpatches-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;orderPatches()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a new import request for order patches</p>
-<h2><a class="anchor" id="example-12"></a>
+<p>Creates an Import Request for updating Orders.</p>
+<h2><a class="anchor" id="example-13"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -258,8 +272,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-orders-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;orders()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new Orders.</p>
-<h2><a class="anchor" id="example-13"></a>
+<p>Creates an Import Request for creating Orders.</p>
+<h2><a class="anchor" id="example-14"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -272,8 +286,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-prices-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;prices()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new Prices or updating existing ones.</p>
-<h2><a class="anchor" id="example-14"></a>
+<p>Creates an Import Request for Prices.</p>
+<h2><a class="anchor" id="example-15"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -286,8 +300,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-productdrafts-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;productDrafts()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new ProductDrafts or updating existing ones.</p>
-<h2><a class="anchor" id="example-15"></a>
+<p>Creates an Import Request for Products.</p>
+<h2><a class="anchor" id="example-16"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -298,10 +312,24 @@ Example</h2>
 <div class="line">                -&gt;importContainers()</div>
 <div class="line">                -&gt;withImportContainerKeyValue(<span class="stringliteral">&quot;importContainerKey&quot;</span>)</div>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
+</div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-productselections-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
+&lt;tt&gt;withProjectKeyValue("projectKey")-&gt;productSelections()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
+<p>Creates an Import Request for Product Selections.</p>
+<h2><a class="anchor" id="example-17"></a>
+Example</h2>
+<div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
+<div class="line"> </div>
+<div class="line">$builder =  <span class="keyword">new</span> ImportRequestBuilder();</div>
+<div class="line">$request = $builder</div>
+<div class="line">                -&gt;withProjectKeyValue(<span class="stringliteral">&quot;projectKey&quot;</span>)</div>
+<div class="line">                -&gt;productSelections()</div>
+<div class="line">                -&gt;importContainers()</div>
+<div class="line">                -&gt;withImportContainerKeyValue(<span class="stringliteral">&quot;importContainerKey&quot;</span>)</div>
+<div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-producttypes-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;productTypes()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new ProductTypes or updating existing ones.</p>
-<h2><a class="anchor" id="example-16"></a>
+<p>Creates an Import Request for ProductTypes.</p>
+<h2><a class="anchor" id="example-18"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -314,8 +342,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-productvariantpatches-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;productVariantPatches()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a new import request for Product Variant Patches. Returns an [InvalidField](ctp:import:type:InvalidFieldError) error if the [ProductVariantPatchRequest](ctp:import:type:ProductVariantPatchRequest) contains patches with and without the <code>product</code> field set.</p>
-<h2><a class="anchor" id="example-17"></a>
+<p>Creates an Import Request for updating Product Variants. Returns an [InvalidField](ctp:import:type:InvalidFieldError) error if the [ProductVariantPatchRequest](ctp:import:type:ProductVariantPatchRequest) contains patches with and without the <code>product</code> field set.</p>
+<h2><a class="anchor" id="example-19"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -328,8 +356,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-productvariants-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;productVariants()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new ProductVariants or updating existing ones.</p>
-<h2><a class="anchor" id="example-18"></a>
+<p>Creates an Import Request for ProductVariants.</p>
+<h2><a class="anchor" id="example-20"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -342,8 +370,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-products-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;products()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new Products or updating existing ones.</p>
-<h2><a class="anchor" id="example-19"></a>
+<p>Creates an Import Request for Products.</p>
+<h2><a class="anchor" id="example-21"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -356,8 +384,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-standaloneprices-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;standalonePrices()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new Standalone Prices or updating existing ones.</p>
-<h2><a class="anchor" id="example-20"></a>
+<p>Creates an Import Request for Standalone Prices.</p>
+<h2><a class="anchor" id="example-22"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
@@ -370,8 +398,8 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-types-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;types()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates a request for creating new Type or updating existing ones.</p>
-<h2><a class="anchor" id="example-21"></a>
+<p>Creates an Import Request for Types.</p>
+<h2><a class="anchor" id="example-23"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
 <div class="line"> </div>
