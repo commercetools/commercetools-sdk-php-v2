@@ -7,7 +7,9 @@
 - added type `BusinessUnitSetUnitTypeAction`
 - added type `CartDiscountSetDiscountGroupAction`
 - added type `BestDeal`
+- added type `CartMergeMode`
 - added type `DiscountTypeCombination`
+- added type `MergeCartDraft`
 - added type `Stacking`
 - added type `CartChangePriceRoundingModeAction`
 - added type `CartSetCustomLineItemRecurrenceInfoAction`
@@ -525,6 +527,7 @@
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->delete()`
 - added method `$apiRoot->withProjectKey()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
+- added method `$apiRoot->withProjectKey()->carts()->customerIdWithCustomerIdValueMerge()->post()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->get()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->head()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->post()`
@@ -570,6 +573,7 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->delete()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->carts()->customerIdWithCustomerIdValueMerge()->post()`
 </details>
 
 
@@ -585,6 +589,7 @@
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
 - added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
 - added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/carts/customer-id={customerId}/merge`
 - added resource `/{projectKey}/discount-groups/key={key}`
 - added resource `/{projectKey}/discount-groups/{ID}`
 - added resource `/{projectKey}/payment-methods/key={key}`
@@ -598,6 +603,7 @@
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge`
 </details>
 
 **Import changes**
