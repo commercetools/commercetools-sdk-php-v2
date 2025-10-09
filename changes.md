@@ -726,3 +726,111 @@
 - :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
 </details>
 
+**Checkout changes**
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `PaymentIntentReverseAction`
+- added type `ConnectorError`
+- added type `ErrorLoadingAllPaymentIntegrations`
+- added type `FailedToRefreshSession`
+- added type `GiftCardBalanceError`
+- added type `GiftCardBalanceRemoved`
+- added type `GiftCardBalanceStarted`
+- added type `GiftCardBalanceSuccess`
+- added type `GiftCardRedeemError`
+- added type `GiftCardRedeemStarted`
+- added type `GiftCardRedeemSuccess`
+- added type `NoPaymentIntegrations`
+- added type `NonOrderableCartError`
+- added type `NotApplicableDiscountCodeRemoved`
+- added type `OrderVerificationRetryError`
+- added type `OrderVerificationStarted`
+- added type `OrderVerificationTimeout`
+- added type `PaymentIntegrationLoaded`
+- added type `PaymentIntegrationLoading`
+- added type `PaymentIntegrationLoadingError`
+- added type `PaymentIntegrationNotAvailable`
+- added type `PaymentIntegrationSelected`
+- added type `PaymentIntegrationSelectionConfirmation`
+- added type `PaymentIntegrationSelectionConfirmationFailed`
+- added type `PaymentIntegrationsReceived`
+- added type `ShippingMethodSelected`
+- added type `ShippingMethodSelectionConfirmation`
+</details>
+
+
+<details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `PaymentIntentCancelAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentIntentCaptureAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentIntentRefundAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentCancelled` from type `Message` to `ResponseMessage`
+- :warning: changed type `PaymentFailed` from type `Message` to `ResponseMessage`
+- :warning: changed type `PaymentValidationFailed` from type `Message` to `ResponseMessage`
+- :warning: changed type `TransactionItem` from type `TransactionItemDraft` to `object`
+</details>
+
+
+<details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `NoPaymentMethods`
+- :warning: removed type `PaymentConnectorError`
+- :warning: removed type `PaymentMethodLoaded`
+- :warning: removed type `PaymentMethodLoading`
+- :warning: removed type `PaymentMethodLoadingError`
+- :warning: removed type `PaymentMethodSelected`
+- :warning: removed type `PaymentMethodSelectionConfirmation`
+- :warning: removed type `PaymentMethodSelectionConfirmationFailed`
+- :warning: removed type `PaymentMethodsReceived`
+- :warning: removed type `PaymentVerificationStarted`
+- :warning: removed type `PaymentVerificationTimeout`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `reversePayment` to type `PaymentIntentOperation`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `action` of type `PaymentIntentCancelAction` from type `string` to `PaymentIntentOperation`
+- :warning: changed property `action` of type `PaymentIntentCaptureAction` from type `string` to `PaymentIntentOperation`
+- :warning: changed property `action` of type `PaymentIntentRefundAction` from type `string` to `PaymentIntentOperation`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- :warning: changed property `amount` of type `PaymentIntentRefundAction` to be required
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `payload` from type `ResponseMessage`
+- :warning: removed property `amount` from type `PaymentIntentAction`
+</details>
+
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `merchantReference` to type `PaymentIntentCancelAction`
+- added property `merchantReference` to type `PaymentIntentCaptureAction`
+- added property `transactionId` to type `PaymentIntentRefundAction`
+- added property `merchantReference` to type `PaymentIntentRefundAction`
+- added property `payload` to type `PaymentCancelled`
+- added property `payload` to type `PaymentFailed`
+- added property `payload` to type `PaymentValidationFailed`
+</details>
+
