@@ -7,7 +7,9 @@
 - added type `BusinessUnitSetUnitTypeAction`
 - added type `CartDiscountSetDiscountGroupAction`
 - added type `BestDeal`
+- added type `CartMergeMode`
 - added type `DiscountTypeCombination`
+- added type `MergeCartDraft`
 - added type `Stacking`
 - added type `CartChangePriceRoundingModeAction`
 - added type `CartSetCustomLineItemRecurrenceInfoAction`
@@ -525,6 +527,7 @@
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->withId()->delete()`
 - added method `$apiRoot->withProjectKey()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
+- added method `$apiRoot->withProjectKey()->carts()->customerIdWithCustomerIdValueMerge()->post()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->get()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->head()`
 - added method `$apiRoot->withProjectKey()->discountGroups()->withKey()->post()`
@@ -570,6 +573,7 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withId()->delete()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->carts()->customerIdWithCustomerIdValueMerge()->post()`
 </details>
 
 
@@ -585,6 +589,7 @@
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
 - added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
 - added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/carts/customer-id={customerId}/merge`
 - added resource `/{projectKey}/discount-groups/key={key}`
 - added resource `/{projectKey}/discount-groups/{ID}`
 - added resource `/{projectKey}/payment-methods/key={key}`
@@ -598,6 +603,7 @@
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge`
 </details>
 
 **Import changes**
@@ -677,20 +683,20 @@
 <details>
 <summary>Added Method(s)</summary>
 
-- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
 - added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
 </details>
 
 
 <details>
 <summary>Added Resource(s)</summary>
 
-- added resource `/{projectKey}/product-selections`
 - added resource `/{projectKey}/business-units`
-- added resource `/{projectKey}/product-selections/import-containers`
-- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-selections`
 - added resource `/{projectKey}/business-units/import-containers`
 - added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-selections/import-containers`
+- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
 </details>
 
 **History changes**
@@ -731,6 +737,85 @@
 <details>
 <summary>Added Type(s)</summary>
 
+- added type `AllowedOrigins`
+- added type `Application`
+- added type `ApplicationAgreement`
+- added type `ApplicationAgreementDraft`
+- added type `ApplicationAgreementStatus`
+- added type `ApplicationAgreementType`
+- added type `ApplicationDraft`
+- added type `ApplicationLogo`
+- added type `ApplicationMode`
+- added type `ApplicationStatus`
+- added type `ApplicationUpdateAction`
+- added type `ApplicationUpdateActions`
+- added type `DiscountsConfiguration`
+- added type `PaginatedApplication`
+- added type `PaymentsConfiguration`
+- added type `AddAllowedOriginUpdateAction`
+- added type `AddApplicationAgreementUpdateAction`
+- added type `AddCountryUpdateAction`
+- added type `RemoveAllowedOriginUpdateAction`
+- added type `RemoveApplicationAgreementUpdateAction`
+- added type `RemoveCountryUpdateAction`
+- added type `ReorderApplicationAgreementUpdateAction`
+- added type `SetActivePaymentComponentTypeUpdateAction`
+- added type `SetAllowAllOriginsUpdateAction`
+- added type `SetAllowedOriginsUpdateAction`
+- added type `SetApplicationAgreementNameUpdateAction`
+- added type `SetApplicationAgreementStatusUpdateAction`
+- added type `SetApplicationAgreementTextUpdateAction`
+- added type `SetApplicationAgreementTypeUpdateAction`
+- added type `SetApplicationAgreementsUpdateAction`
+- added type `SetApplicationLogoUpdateAction`
+- added type `SetApplicationNameUpdateAction`
+- added type `SetApplicationStatusUpdateAction`
+- added type `SetCountriesUpdateAction`
+- added type `SetDescriptionUpdateAction`
+- added type `SetDiscountsConfigurationUpdateAction`
+- added type `SetPaymentReturnUrlUpdateAction`
+- added type `SetPaymentsConfigurationUpdateAction`
+- added type `CreatedBy`
+- added type `LastModifiedBy`
+- added type `LocalizedString`
+- added type `LocalizedUrl`
+- added type `ConcurrentModificationError`
+- added type `DuplicateFieldWithConflictingResourceError`
+- added type `ErrorResponse`
+- added type `InvalidFieldError`
+- added type `InvalidOperationError`
+- added type `MaxResourceLimitExceededError`
+- added type `MissingProjectKeyError`
+- added type `ReferencedResourceNotFoundError`
+- added type `ServiceUnavailableError`
+- added type `SyntaxErrorError`
+- added type `AutomatedReversalConfiguration`
+- added type `ConnectorDeploymentReference`
+- added type `DisplayInfo`
+- added type `PaginatedPaymentIntegration`
+- added type `PaymentComponentType`
+- added type `PaymentIntegration`
+- added type `PaymentIntegrationDraft`
+- added type `PaymentIntegrationStatus`
+- added type `PaymentIntegrationType`
+- added type `SortingInfo`
+- added type `PaymentIntegrationUpdateAction`
+- added type `PaymentIntegrationUpdateActions`
+- added type `SetAutomatedReversalConfigurationPredicateUpdateAction`
+- added type `SetAutomatedReversalConfigurationStatusUpdateAction`
+- added type `SetAutomatedReversalConfigurationUpdateAction`
+- added type `SetConnectorDeploymentUpdateAction`
+- added type `SetDisplayInfoDescriptionUpdateAction`
+- added type `SetDisplayInfoLabelUpdateAction`
+- added type `SetDisplayInfoLogoUrlUpdateAction`
+- added type `SetDisplayInfoPayButtonTextUpdateAction`
+- added type `SetDisplayInfoUpdateAction`
+- added type `SetKeyUpdateAction`
+- added type `SetNameUpdateAction`
+- added type `SetPredicateUpdateAction`
+- added type `SetSortingInfoUpdateAction`
+- added type `SetStatusUpdateAction`
+- added type `SetTypeUpdateAction`
 - added type `PaymentIntentReverseAction`
 - added type `ConnectorError`
 - added type `ErrorLoadingAllPaymentIntegrations`
@@ -794,7 +879,16 @@
 <details>
 <summary>Added Enum(s)</summary>
 
+- added enum `deployment` to type `ReferenceTypeId`
 - added enum `reversePayment` to type `PaymentIntentOperation`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- changed property `detailedErrorMessage` of type `InvalidJsonInputError` to be optional
+- :warning: changed property `amount` of type `PaymentIntentRefundAction` to be required
 </details>
 
 
@@ -804,13 +898,7 @@
 - :warning: changed property `action` of type `PaymentIntentCancelAction` from type `string` to `PaymentIntentOperation`
 - :warning: changed property `action` of type `PaymentIntentCaptureAction` from type `string` to `PaymentIntentOperation`
 - :warning: changed property `action` of type `PaymentIntentRefundAction` from type `string` to `PaymentIntentOperation`
-</details>
-
-
-<details>
-<summary>Required Property(s)</summary>
-
-- :warning: changed property `amount` of type `PaymentIntentRefundAction` to be required
+- :warning: changed property `application` of type `Transaction` from type `ApplicationResourceIdentifier` to `ApplicationReference`
 </details>
 
 
@@ -825,6 +913,8 @@
 <details>
 <summary>Added Property(s)</summary>
 
+- added property `resourceIdentifier` to type `ResourceNotFoundError`
+- added property `resourceId` to type `ResourceNotFoundError`
 - added property `merchantReference` to type `PaymentIntentCancelAction`
 - added property `merchantReference` to type `PaymentIntentCaptureAction`
 - added property `transactionId` to type `PaymentIntentRefundAction`
@@ -832,5 +922,53 @@
 - added property `payload` to type `PaymentCancelled`
 - added property `payload` to type `PaymentFailed`
 - added property `payload` to type `PaymentValidationFailed`
+</details>
+
+
+<details>
+<summary>Changed MethodResponseBody(s)</summary>
+
+- :warning: changed response body for `400: application/json` of method `post /{projectKey}/transactions` from type `null` to `ErrorResponse`
+- :warning: changed response body for `400: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `null` to `ErrorResponse`
+- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/{id}` from type `null` to `ErrorResponse`
+- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/key={key}` from type `null` to `ErrorResponse`
+</details>
+
+
+<details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->get()`
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->post()`
+- added method `$apiRoot->withProjectKey()->applications()->get()`
+- added method `$apiRoot->withProjectKey()->applications()->post()`
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->paymentIntegrations()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->applications()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->applications()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->applications()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->applications()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->applications()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->applications()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->applications()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->applications()->withKey()->delete()`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/payment-integrations`
+- added resource `/{projectKey}/applications`
+- added resource `/{projectKey}/payment-integrations/{id}`
+- added resource `/{projectKey}/payment-integrations/key={key}`
+- added resource `/{projectKey}/applications/{id}`
+- added resource `/{projectKey}/applications/key={key}`
 </details>
 

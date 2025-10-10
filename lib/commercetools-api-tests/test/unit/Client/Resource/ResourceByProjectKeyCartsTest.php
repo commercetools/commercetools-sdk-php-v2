@@ -11,6 +11,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsCustomerIdByCustomerId;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsCustomerIdByCustomerIdMerge;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsKeyByKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsReplicate;
 use Commercetools\Base\JsonObject;
@@ -261,6 +262,17 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 ResourceByProjectKeyCartsCustomerIdByCustomerId::class,
                 ['projectKey' => 'test_projectKey', 'customerId' => 'test_customerId'],
                 '/{projectKey}/carts/customer-id={customerId}'
+            ],
+            'ResourceByProjectKeyCartsCustomerIdByCustomerIdMerge' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsCustomerIdByCustomerIdMerge {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->carts()
+                        ->customerIdWithCustomerIdValueMerge("test_customerId");
+                },
+                ResourceByProjectKeyCartsCustomerIdByCustomerIdMerge::class,
+                ['projectKey' => 'test_projectKey', 'customerId' => 'test_customerId'],
+                '/{projectKey}/carts/customer-id={customerId}/merge'
             ],
             'ResourceByProjectKeyCartsKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsKeyByKey {

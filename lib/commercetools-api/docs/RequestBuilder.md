@@ -2293,6 +2293,24 @@ $request = $builder
                 ->withCustomerId("customerId")
                 ->head();
 ```
+## `withProjectKey("projectKey")->carts()->customerIdWithCustomerIdValueMerge("customerId")->post(null)`
+
+Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+For more information, see [Merge behavior](/../api/carts-orders-overview#merge-behavior).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->carts()
+                ->customerIdWithCustomerIdValueMerge("customerId")
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->get()`
 
 Retrieves a Cart with the provided `key`.
@@ -4427,6 +4445,27 @@ $request = $builder
                 ->carts()
                 ->withCustomerId("customerId")
                 ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->customerIdWithCustomerIdValueMerge("customerId")->post(null)`
+
+Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+For more information, see [Merge behavior](/../api/carts-orders-overview#merge-behavior).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->carts()
+                ->customerIdWithCustomerIdValueMerge("customerId")
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
