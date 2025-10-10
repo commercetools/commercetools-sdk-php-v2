@@ -43,11 +43,35 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function businessUnits(): ResourceByProjectKeyBusinessUnits
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyBusinessUnits($args, $this->getClient());
+    }
+    /**
+     */
     public function categories(): ResourceByProjectKeyCategories
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyCategories($args, $this->getClient());
+    }
+    /**
+     */
+    public function customers(): ResourceByProjectKeyCustomers
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyCustomers($args, $this->getClient());
+    }
+    /**
+     */
+    public function discountCodes(): ResourceByProjectKeyDiscountCodes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyDiscountCodes($args, $this->getClient());
     }
     /**
      */
@@ -59,11 +83,11 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
-    public function standalonePrices(): ResourceByProjectKeyStandalonePrices
+    public function inventories(): ResourceByProjectKeyInventories
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyStandalonePrices($args, $this->getClient());
+        return new ResourceByProjectKeyInventories($args, $this->getClient());
     }
     /**
      */
@@ -107,6 +131,14 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function productSelections(): ResourceByProjectKeyProductSelections
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductSelections($args, $this->getClient());
+    }
+    /**
+     */
     public function orders(): ResourceByProjectKeyOrders
     {
         $args = $this->getArgs();
@@ -123,19 +155,11 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
-    public function customers(): ResourceByProjectKeyCustomers
+    public function standalonePrices(): ResourceByProjectKeyStandalonePrices
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCustomers($args, $this->getClient());
-    }
-    /**
-     */
-    public function inventories(): ResourceByProjectKeyInventories
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyInventories($args, $this->getClient());
+        return new ResourceByProjectKeyStandalonePrices($args, $this->getClient());
     }
     /**
      */
@@ -144,29 +168,5 @@ class ResourceByProjectKey extends ApiResource
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyTypes($args, $this->getClient());
-    }
-    /**
-     */
-    public function discountCodes(): ResourceByProjectKeyDiscountCodes
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyDiscountCodes($args, $this->getClient());
-    }
-    /**
-     */
-    public function productSelections(): ResourceByProjectKeyProductSelections
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyProductSelections($args, $this->getClient());
-    }
-    /**
-     */
-    public function businessUnits(): ResourceByProjectKeyBusinessUnits
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyBusinessUnits($args, $this->getClient());
     }
 }

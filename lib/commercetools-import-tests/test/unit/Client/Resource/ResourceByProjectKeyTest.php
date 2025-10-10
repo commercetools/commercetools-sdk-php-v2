@@ -89,6 +89,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/import-operations'
             ],
+            'ResourceByProjectKeyBusinessUnits' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyBusinessUnits {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->businessUnits();
+                },
+                ResourceByProjectKeyBusinessUnits::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/business-units'
+            ],
             'ResourceByProjectKeyCategories' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyCategories {
                     return $builder
@@ -98,6 +108,26 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyCategories::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/categories'
+            ],
+            'ResourceByProjectKeyCustomers' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyCustomers {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->customers();
+                },
+                ResourceByProjectKeyCustomers::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/customers'
+            ],
+            'ResourceByProjectKeyDiscountCodes' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyDiscountCodes {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->discountCodes();
+                },
+                ResourceByProjectKeyDiscountCodes::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/discount-codes'
             ],
             'ResourceByProjectKeyPrices' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyPrices {
@@ -109,15 +139,15 @@ class ResourceByProjectKeyTest extends TestCase
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/prices'
             ],
-            'ResourceByProjectKeyStandalonePrices' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyStandalonePrices {
+            'ResourceByProjectKeyInventories' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyInventories {
                     return $builder
                         ->withProjectKeyValue("test_projectKey")
-                        ->standalonePrices();
+                        ->inventories();
                 },
-                ResourceByProjectKeyStandalonePrices::class,
+                ResourceByProjectKeyInventories::class,
                 ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/standalone-prices'
+                '/{projectKey}/inventories'
             ],
             'ResourceByProjectKeyProducts' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProducts {
@@ -169,6 +199,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-variant-patches'
             ],
+            'ResourceByProjectKeyProductSelections' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyProductSelections {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->productSelections();
+                },
+                ResourceByProjectKeyProductSelections::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/product-selections'
+            ],
             'ResourceByProjectKeyOrders' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyOrders {
                     return $builder
@@ -189,25 +229,15 @@ class ResourceByProjectKeyTest extends TestCase
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/order-patches'
             ],
-            'ResourceByProjectKeyCustomers' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyCustomers {
+            'ResourceByProjectKeyStandalonePrices' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyStandalonePrices {
                     return $builder
                         ->withProjectKeyValue("test_projectKey")
-                        ->customers();
+                        ->standalonePrices();
                 },
-                ResourceByProjectKeyCustomers::class,
+                ResourceByProjectKeyStandalonePrices::class,
                 ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/customers'
-            ],
-            'ResourceByProjectKeyInventories' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyInventories {
-                    return $builder
-                        ->withProjectKeyValue("test_projectKey")
-                        ->inventories();
-                },
-                ResourceByProjectKeyInventories::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/inventories'
+                '/{projectKey}/standalone-prices'
             ],
             'ResourceByProjectKeyTypes' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyTypes {
@@ -218,36 +248,6 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyTypes::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/types'
-            ],
-            'ResourceByProjectKeyDiscountCodes' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyDiscountCodes {
-                    return $builder
-                        ->withProjectKeyValue("test_projectKey")
-                        ->discountCodes();
-                },
-                ResourceByProjectKeyDiscountCodes::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/discount-codes'
-            ],
-            'ResourceByProjectKeyProductSelections' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyProductSelections {
-                    return $builder
-                        ->withProjectKeyValue("test_projectKey")
-                        ->productSelections();
-                },
-                ResourceByProjectKeyProductSelections::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/product-selections'
-            ],
-            'ResourceByProjectKeyBusinessUnits' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyBusinessUnits {
-                    return $builder
-                        ->withProjectKeyValue("test_projectKey")
-                        ->businessUnits();
-                },
-                ResourceByProjectKeyBusinessUnits::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/business-units'
             ]
         ];
     }

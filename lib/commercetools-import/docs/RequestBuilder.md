@@ -251,7 +251,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->prices()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates an Import Request for Prices.
+Creates an Import Request for Embedded Prices.
 
 ### Example
 ```php

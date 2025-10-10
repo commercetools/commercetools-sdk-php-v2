@@ -683,20 +683,20 @@
 <details>
 <summary>Added Method(s)</summary>
 
-- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
 - added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
 </details>
 
 
 <details>
 <summary>Added Resource(s)</summary>
 
-- added resource `/{projectKey}/product-selections`
 - added resource `/{projectKey}/business-units`
-- added resource `/{projectKey}/product-selections/import-containers`
-- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-selections`
 - added resource `/{projectKey}/business-units/import-containers`
 - added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-selections/import-containers`
+- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
 </details>
 
 **History changes**
