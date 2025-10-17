@@ -48,6 +48,12 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $sku;
+
+    /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
@@ -94,6 +100,17 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     public function getNewAvailableQuantity()
     {
         return $this->newAvailableQuantity;
+    }
+
+    /**
+     * <p>SKU of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> for which the quantity was updated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
     }
 
     /**
@@ -152,6 +169,17 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
      * @param ?ChannelReference $supplyChannel
      * @return $this
      */
@@ -180,6 +208,7 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
             $this->newQuantityOnStock,
             $this->oldAvailableQuantity,
             $this->newAvailableQuantity,
+            $this->sku,
             $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel
         );
     }

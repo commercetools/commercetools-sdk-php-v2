@@ -452,11 +452,13 @@
 - added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessage`
 - added property `value` to type `CustomerPasswordTokenCreatedMessage`
 - added property `invalidateOlderTokens` to type `CustomerPasswordTokenCreatedMessage`
+- added property `sku` to type `InventoryEntryQuantitySetMessage`
 - added property `attributes` to type `ProductTailoringCreatedMessage`
 - added property `value` to type `CustomerEmailTokenCreatedMessagePayload`
 - added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessagePayload`
 - added property `value` to type `CustomerPasswordTokenCreatedMessagePayload`
 - added property `invalidateOlderTokens` to type `CustomerPasswordTokenCreatedMessagePayload`
+- added property `sku` to type `InventoryEntryQuantitySetMessagePayload`
 - added property `attributes` to type `ProductTailoringCreatedMessagePayload`
 - added property `priceRoundingMode` to type `StagedOrder`
 - added property `recurringOrder` to type `StagedOrder`
