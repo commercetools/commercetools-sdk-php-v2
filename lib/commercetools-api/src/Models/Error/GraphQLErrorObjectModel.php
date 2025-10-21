@@ -95,6 +95,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'ProjectNotConfiguredForLanguages' => GraphQLProjectNotConfiguredForLanguagesErrorModel::class,
        'QueryComplexityLimitExceeded' => GraphQLQueryComplexityLimitExceededErrorModel::class,
        'QueryTimedOut' => GraphQLQueryTimedOutErrorModel::class,
+       'RecurringOrderFailure' => GraphQLRecurringOrderFailureErrorModel::class,
        'ReferenceExists' => GraphQLReferenceExistsErrorModel::class,
        'ReferencedResourceNotFound' => GraphQLReferencedResourceNotFoundErrorModel::class,
        'RequiredField' => GraphQLRequiredFieldErrorModel::class,

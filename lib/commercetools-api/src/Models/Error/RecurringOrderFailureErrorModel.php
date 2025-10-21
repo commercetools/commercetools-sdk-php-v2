@@ -1,0 +1,142 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\Error;
+
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
+/**
+ * @internal
+ */
+final class RecurringOrderFailureErrorModel extends JsonObjectModel implements RecurringOrderFailureError
+{
+    public const DISCRIMINATOR_VALUE = 'RecurringOrderFailure';
+    /**
+     *
+     * @var ?string
+     */
+    protected $code;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $message;
+
+    /**
+     *
+     * @var ?mixed
+     */
+    protected $details;
+
+
+    /**
+     * @psalm-suppress MissingParamType
+     */
+    public function __construct(
+        ?string $message = null,
+        $details = null,
+        ?string $code = null
+    ) {
+        $this->message = $message;
+        $this->details = $details;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     *
+     * @return null|string
+     */
+    public function getCode()
+    {
+        if (is_null($this->code)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->code = (string) $data;
+        }
+
+        return $this->code;
+    }
+
+    /**
+     * <p>Plain text description of the error.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getMessage()
+    {
+        if (is_null($this->message)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_MESSAGE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->message = (string) $data;
+        }
+
+        return $this->message;
+    }
+
+    /**
+     * <p>Details about the error's cause and the entities involved.</p>
+     *
+     *
+     * @return null|mixed
+     */
+    public function getDetails()
+    {
+        if (is_null($this->details)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->details = $data;
+        }
+
+        return $this->details;
+    }
+
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void
+    {
+        $this->message = $message;
+    }
+
+    /**
+     * @param mixed $details
+     */
+    public function setDetails($details): void
+    {
+        $this->details = $details;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
+}

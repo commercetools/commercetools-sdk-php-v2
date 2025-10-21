@@ -460,6 +460,8 @@ use Commercetools\Api\Models\Message\RecurringOrderDeletedMessage;
 use Commercetools\Api\Models\Message\RecurringOrderDeletedMessageBuilder;
 use Commercetools\Api\Models\Message\RecurringOrderExpiresAtSetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderExpiresAtSetMessageBuilder;
+use Commercetools\Api\Models\Message\RecurringOrderFailedMessage;
+use Commercetools\Api\Models\Message\RecurringOrderFailedMessageBuilder;
 use Commercetools\Api\Models\Message\RecurringOrderKeySetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderKeySetMessageBuilder;
 use Commercetools\Api\Models\Message\RecurringOrderScheduleSetMessage;
