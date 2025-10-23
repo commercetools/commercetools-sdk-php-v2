@@ -2295,8 +2295,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->customerIdWithCustomerIdValueMerge("customerId")->post(null)`
 
-Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
-
+Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 For more information, see [Merge behavior](/../api/carts-orders-overview#merge-behavior).
 
 
@@ -3024,6 +3023,8 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->customers()->post(null)`
+
+Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up).
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message. Simultaneously creating two Customers with the same email address can return a [LockedField](ctp:api:type:LockedFieldError) error.
 
@@ -4448,7 +4449,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->customerIdWithCustomerIdValueMerge("customerId")->post(null)`
 
-Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
@@ -4612,7 +4613,8 @@ When using this endpoint, if omitted, the Customer `stores` field is set to the 
 
 If a Cart with a `store` field specified, the `store` field must reference the same [Store](ctp:api:type:Store) specified in the `{storeKey}` path parameter.
 
-If the Customer has multiple active Carts, the anonymous Cart is [merged](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
+Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up).
+If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message. Simultaneously creating two Customers with the same email address can return a [LockedField](ctp:api:type:LockedFieldError) error.
 
@@ -4919,7 +4921,9 @@ $request = $builder
 
 Authenticates a Customer associated with a [Store](ctp:api:type:Store).
 
-If the Customer has multiple active Carts, the anonymous Cart is [merged](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
+Allows [merging](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
+If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
+If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error.
 
@@ -7164,7 +7168,9 @@ $request = $builder
 
 Authenticates a global Customer.
 
-If the Customer has multiple active Carts, the anonymous Cart is [merged](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
+Allows [merging](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
+If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
+If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
