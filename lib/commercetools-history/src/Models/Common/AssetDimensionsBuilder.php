@@ -33,6 +33,8 @@ final class AssetDimensionsBuilder implements Builder
     private $h;
 
     /**
+     * <p>Width of the Asset source.</p>
+     *
 
      * @return null|int
      */
@@ -42,6 +44,8 @@ final class AssetDimensionsBuilder implements Builder
     }
 
     /**
+     * <p>Height of the Asset source.</p>
+     *
 
      * @return null|int
      */

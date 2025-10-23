@@ -29,7 +29,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
 
     /**
      *
-     * @var ?Reference
+     * @var ?StateReference
      */
     protected $state;
 
@@ -39,7 +39,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
      */
     public function __construct(
         ?int $quantity = null,
-        ?Reference $state = null
+        ?StateReference $state = null
     ) {
         $this->quantity = $quantity;
         $this->state = $state;
@@ -47,6 +47,8 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     }
 
     /**
+     * <p>Number of Line Items or Custom Line Items in this State.</p>
+     *
      *
      * @return null|int
      */
@@ -65,8 +67,10 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     }
 
     /**
+     * <p>State of the Line Items or Custom Line Items in a custom workflow.</p>
      *
-     * @return null|Reference
+     *
+     * @return null|StateReference
      */
     public function getState()
     {
@@ -77,7 +81,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
                 return null;
             }
 
-            $this->state = ReferenceModel::of($data);
+            $this->state = StateReferenceModel::of($data);
         }
 
         return $this->state;
@@ -93,9 +97,9 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     }
 
     /**
-     * @param ?Reference $state
+     * @param ?StateReference $state
      */
-    public function setState(?Reference $state): void
+    public function setState(?StateReference $state): void
     {
         $this->state = $state;
     }

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @implements Builder<TextLineItem>
@@ -22,7 +23,7 @@ final class TextLineItemBuilder implements Builder
 {
     /**
 
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     private $addedAt;
 
@@ -46,6 +47,12 @@ final class TextLineItemBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -57,8 +64,10 @@ final class TextLineItemBuilder implements Builder
     private $quantity;
 
     /**
+     * <p>Date and time (UTC) the TextLineItem was added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getAddedAt()
     {
@@ -66,6 +75,8 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields of the TextLineItem.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -75,6 +86,8 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Description of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -84,6 +97,8 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the TextLineItem.</p>
+     *
 
      * @return null|string
      */
@@ -93,6 +108,19 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier of the TextLineItem. It is unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Name of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -102,6 +130,8 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Number of entries in the TextLineItem.</p>
+     *
 
      * @return null|int
      */
@@ -111,10 +141,10 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
-     * @param ?string $addedAt
+     * @param ?DateTimeImmutable $addedAt
      * @return $this
      */
-    public function withAddedAt(?string $addedAt)
+    public function withAddedAt(?DateTimeImmutable $addedAt)
     {
         $this->addedAt = $addedAt;
 
@@ -150,6 +180,17 @@ final class TextLineItemBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -216,6 +257,7 @@ final class TextLineItemBuilder implements Builder
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->id,
+            $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->quantity
         );

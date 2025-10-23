@@ -23,7 +23,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
 
     /**
      *
-     * @var ?ReferenceCollection
+     * @var ?PaymentReferenceCollection
      */
     protected $payments;
 
@@ -32,15 +32,17 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ReferenceCollection $payments = null
+        ?PaymentReferenceCollection $payments = null
     ) {
         $this->payments = $payments;
 
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">References</a> to the Payments associated with the Order.</p>
      *
-     * @return null|ReferenceCollection
+     *
+     * @return null|PaymentReferenceCollection
      */
     public function getPayments()
     {
@@ -50,7 +52,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
             if (is_null($data)) {
                 return null;
             }
-            $this->payments = ReferenceCollection::fromArray($data);
+            $this->payments = PaymentReferenceCollection::fromArray($data);
         }
 
         return $this->payments;
@@ -58,9 +60,9 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
 
 
     /**
-     * @param ?ReferenceCollection $payments
+     * @param ?PaymentReferenceCollection $payments
      */
-    public function setPayments(?ReferenceCollection $payments): void
+    public function setPayments(?PaymentReferenceCollection $payments): void
     {
         $this->payments = $payments;
     }

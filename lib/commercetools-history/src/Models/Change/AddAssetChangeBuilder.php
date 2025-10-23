@@ -42,6 +42,18 @@ final class AddAssetChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $catalogData;
+
+    /**
+
+     * @var ?string
+     */
+    private $variant;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -69,6 +81,33 @@ final class AddAssetChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue instanceof AssetBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Product data that was updated.</p>
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        return $this->catalogData;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
     }
 
     /**
@@ -105,6 +144,28 @@ final class AddAssetChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $catalogData
+     * @return $this
+     */
+    public function withCatalogData(?string $catalogData)
+    {
+        $this->catalogData = $catalogData;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $variant
+     * @return $this
+     */
+    public function withVariant(?string $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -131,7 +192,9 @@ final class AddAssetChangeBuilder implements Builder
         return new AddAssetChangeModel(
             $this->change,
             $this->previousValue instanceof AssetBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof AssetBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof AssetBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->catalogData,
+            $this->variant
         );
     }
 

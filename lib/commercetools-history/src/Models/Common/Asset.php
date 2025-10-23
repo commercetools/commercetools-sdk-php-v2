@@ -15,12 +15,16 @@ interface Asset extends JsonObject
 {
 
     public const FIELD_ID = 'id';
+    public const FIELD_SOURCES = 'sources';
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_TAGS = 'tags';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Unique identifier of the Asset. Not required when importing Assets using the <a href="/import-export/import-resources">Import API</a>.</p>
+     *
 
      * @return null|string
      */
@@ -28,23 +32,45 @@ interface Asset extends JsonObject
 
     /**
 
+     * @return null|AssetSourceCollection
+     */
+    public function getSources();
+
+    /**
+     * <p>Name of the Asset.</p>
+     *
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Description of the Asset.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
+
+     * @return null|array
+     */
+    public function getTags();
+
+    /**
+     * <p>Custom Fields defined for the Asset.</p>
+     *
 
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+     * <p>User-defined identifier of the Asset. It is unique per <a href="ctp:api:type:Category">Category</a> or <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|string
      */
@@ -56,6 +82,11 @@ interface Asset extends JsonObject
     public function setId(?string $id): void;
 
     /**
+     * @param ?AssetSourceCollection $sources
+     */
+    public function setSources(?AssetSourceCollection $sources): void;
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -64,6 +95,11 @@ interface Asset extends JsonObject
      * @param ?LocalizedString $description
      */
     public function setDescription(?LocalizedString $description): void;
+
+    /**
+     * @param ?array $tags
+     */
+    public function setTags(?array $tags): void;
 
     /**
      * @param ?CustomFields $custom

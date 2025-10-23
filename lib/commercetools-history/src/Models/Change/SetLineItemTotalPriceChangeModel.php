@@ -55,6 +55,18 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
      */
     protected $lineItem;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $lineItemId;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $variant;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -64,12 +76,16 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
         ?Money $previousValue = null,
         ?Money $nextValue = null,
         ?LocalizedString $lineItem = null,
+        ?string $lineItemId = null,
+        ?string $variant = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->lineItem = $lineItem;
+        $this->lineItemId = $lineItemId;
+        $this->variant = $variant;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -172,6 +188,47 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
         return $this->lineItem;
     }
 
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
+    }
+
 
     /**
      * @param ?string $change
@@ -203,6 +260,22 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     public function setLineItem(?LocalizedString $lineItem): void
     {
         $this->lineItem = $lineItem;
+    }
+
+    /**
+     * @param ?string $lineItemId
+     */
+    public function setLineItemId(?string $lineItemId): void
+    {
+        $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void
+    {
+        $this->variant = $variant;
     }
 
 

@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\CustomFieldExpandedValue;
-use Commercetools\History\Models\ChangeValue\CustomFieldExpandedValueBuilder;
+use Commercetools\History\Models\Common\CustomFields;
+use Commercetools\History\Models\Common\CustomFieldsBuilder;
 
 /**
  * @implements Builder<AddInterfaceInteractionChange>
@@ -30,7 +30,7 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
 
     /**
 
-     * @var null|CustomFieldExpandedValue|CustomFieldExpandedValueBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $nextValue;
 
@@ -47,11 +47,11 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
      * <p>Value after the change.</p>
      *
 
-     * @return null|CustomFieldExpandedValue
+     * @return null|CustomFields
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof CustomFieldExpandedValueBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -66,10 +66,10 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFieldExpandedValue $nextValue
+     * @param ?CustomFields $nextValue
      * @return $this
      */
-    public function withNextValue(?CustomFieldExpandedValue $nextValue)
+    public function withNextValue(?CustomFields $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -80,7 +80,7 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?CustomFieldExpandedValueBuilder $nextValue)
+    public function withNextValueBuilder(?CustomFieldsBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -91,7 +91,7 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
     {
         return new AddInterfaceInteractionChangeModel(
             $this->change,
-            $this->nextValue instanceof CustomFieldExpandedValueBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

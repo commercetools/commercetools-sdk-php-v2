@@ -21,6 +21,7 @@ interface SetOrderLineItemCustomFieldChange extends Change
     public const FIELD_NAME = 'name';
     public const FIELD_LINE_ITEM = 'lineItem';
     public const FIELD_VARIANT = 'variant';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
 
     /**
 
@@ -75,12 +76,21 @@ interface SetOrderLineItemCustomFieldChange extends Change
     public function getLineItem();
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
 
      * @return null|string
      */
     public function getVariant();
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId();
 
     /**
      * @param ?string $change
@@ -116,4 +126,9 @@ interface SetOrderLineItemCustomFieldChange extends Change
      * @param ?string $variant
      */
     public function setVariant(?string $variant): void;
+
+    /**
+     * @param ?string $lineItemId
+     */
+    public function setLineItemId(?string $lineItemId): void;
 }

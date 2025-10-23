@@ -20,37 +20,13 @@ use stdClass;
  */
 final class FieldTypeBuilder implements Builder
 {
-    /**
 
-     * @var ?string
-     */
-    private $name;
 
-    /**
-
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param ?string $name
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
 
 
     public function build(): FieldType
     {
         return new FieldTypeModel(
-            $this->name
         );
     }
 

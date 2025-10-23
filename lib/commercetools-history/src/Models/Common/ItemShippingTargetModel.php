@@ -33,21 +33,30 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
      */
     protected $quantity;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingMethodKey;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $addressKey = null,
-        ?int $quantity = null
+        ?int $quantity = null,
+        ?string $shippingMethodKey = null
     ) {
         $this->addressKey = $addressKey;
         $this->quantity = $quantity;
+        $this->shippingMethodKey = $shippingMethodKey;
 
     }
 
     /**
-     * <p>The key of the address in the cart's <code>itemShippingAddresses</code></p>
+     * <p>Key of the address in the <a href="ctp:api:type:Cart">Cart</a> <code>itemShippingAddresses</code>.
+     * Duplicate address keys are not allowed.</p>
      *
      *
      * @return null|string
@@ -67,7 +76,8 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     }
 
     /**
-     * <p>The quantity of items that should go to the address with the specified <code>addressKey</code>. Only positive values are allowed. Using <code>0</code> as quantity is also possible in a draft object, but the element will not be present in the resulting ItemShippingDetails.</p>
+     * <p>Quantity of Line Items or Custom Line Items shipped to the address with the specified <code>addressKey</code>.</p>
+     * <p>If a quantity is updated to <code>0</code> when defining <a href="ctp:api:type:ItemShippingDetailsDraft">ItemShippingDetailsDraft</a>, the <code>targets</code> are removed from a Line Item or Custom Line Item in the resulting <a href="ctp:api:type:ItemShippingDetails">ItemShippingDetails</a>.</p>
      *
      *
      * @return null|int
@@ -86,6 +96,27 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
         return $this->quantity;
     }
 
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>It connects Line Item or Custom Line Item quantities with individual Shipping Methods.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingMethodKey()
+    {
+        if (is_null($this->shippingMethodKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_METHOD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingMethodKey = (string) $data;
+        }
+
+        return $this->shippingMethodKey;
+    }
+
 
     /**
      * @param ?string $addressKey
@@ -101,6 +132,14 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
+    }
+
+    /**
+     * @param ?string $shippingMethodKey
+     */
+    public function setShippingMethodKey(?string $shippingMethodKey): void
+    {
+        $this->shippingMethodKey = $shippingMethodKey;
     }
 
 

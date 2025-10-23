@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\ChangeValue\CustomFieldExpandedValue;
+use Commercetools\History\Models\Common\CustomFields;
 
 interface AddInterfaceInteractionChange extends Change
 {
@@ -33,7 +33,7 @@ interface AddInterfaceInteractionChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|CustomFieldExpandedValue
+     * @return null|CustomFields
      */
     public function getNextValue();
 
@@ -43,7 +43,7 @@ interface AddInterfaceInteractionChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?CustomFieldExpandedValue $nextValue
+     * @param ?CustomFields $nextValue
      */
-    public function setNextValue(?CustomFieldExpandedValue $nextValue): void;
+    public function setNextValue(?CustomFields $nextValue): void;
 }

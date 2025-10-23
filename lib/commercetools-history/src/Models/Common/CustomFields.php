@@ -18,26 +18,28 @@ interface CustomFields extends JsonObject
     public const FIELD_FIELDS = 'fields';
 
     /**
+     * <p>Reference to the <a href="ctp:api:type:Type">Type</a> that holds the <a href="ctp:api:type:FieldDefinition">FieldDefinitions</a> for the Custom Fields.</p>
+     *
 
-     * @return null|Reference
+     * @return null|TypeReference
      */
     public function getType();
 
     /**
-     * <p>A valid JSON object, based on FieldDefinition.</p>
+     * <p>Object containing the Custom Fields for the <a href="/../api/projects/types#resourcetypeid">customized resource or data type</a>.</p>
      *
 
-     * @return null|mixed
+     * @return null|FieldContainer
      */
     public function getFields();
 
     /**
-     * @param ?Reference $type
+     * @param ?TypeReference $type
      */
-    public function setType(?Reference $type): void;
+    public function setType(?TypeReference $type): void;
 
     /**
-     * @param ?JsonObject $fields
+     * @param ?FieldContainer $fields
      */
-    public function setFields(?JsonObject $fields): void;
+    public function setFields(?FieldContainer $fields): void;
 }

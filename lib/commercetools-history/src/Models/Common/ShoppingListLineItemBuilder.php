@@ -1,0 +1,471 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\History\Models\Common;
+
+use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+use DateTimeImmutable;
+
+/**
+ * @implements Builder<ShoppingListLineItem>
+ */
+final class ShoppingListLineItemBuilder implements Builder
+{
+    /**
+
+     * @var ?DateTimeImmutable
+     */
+    private $addedAt;
+
+    /**
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+
+     * @var ?DateTimeImmutable
+     */
+    private $deactivatedAt;
+
+    /**
+
+     * @var ?string
+     */
+    private $id;
+
+    /**
+
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+
+     * @var ?string
+     */
+    private $productId;
+
+    /**
+
+     * @var null|ProductTypeReference|ProductTypeReferenceBuilder
+     */
+    private $productType;
+
+    /**
+
+     * @var ?bool
+     */
+    private $published;
+
+    /**
+
+     * @var ?int
+     */
+    private $quantity;
+
+    /**
+
+     * @var ?int
+     */
+    private $variantId;
+
+    /**
+
+     * @var null|ProductVariant|ProductVariantBuilder
+     */
+    private $variant;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $productSlug;
+
+    /**
+     * <p>Date and time (UTC) the ShoppingListLineItem was added to the ShoppingList.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        return $this->addedAt;
+    }
+
+    /**
+     * <p>Custom Fields of the ShoppingListLineItem.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>If the Product or Product Variant is deleted, <code>deactivatedAt</code> is the date and time (UTC) of deletion.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product Variant cannot be ordered anymore.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getDeactivatedAt()
+    {
+        return $this->deactivatedAt;
+    }
+
+    /**
+     * <p>Unique identifier of the ShoppingListLineItem.</p>
+     *
+
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * <p>User-defined identifier of the ShoppingListLineItem. It is unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Name of the Product.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product's name changes.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getProductId()
+    {
+        return $this->productId;
+    }
+
+    /**
+     * <p>The Product Type defining the Attributes of the <a href="ctp:api:type:Product">Product</a>.</p>
+     *
+
+     * @return null|ProductTypeReference
+     */
+    public function getProductType()
+    {
+        return $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType;
+    }
+
+    /**
+     * <p>Whether the related <a href="ctp:api:type:Product">Product</a> is published or not.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product's published status changes.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * <p>Number of Products in the ShoppingListLineItem.</p>
+     *
+
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the ShoppingListLineItem refers to. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+     *
+
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        return $this->variantId;
+    }
+
+    /**
+     * <p>Data of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.  This data includes all the Product Attributes and Variant Attributes to ensure the full Attribute context of the Product Variant.</p>
+     * <p>Returned when expanded using <code>expand=lineItems[*].variant</code>. You cannot expand only a single element of the array.</p>
+     *
+
+     * @return null|ProductVariant
+     */
+    public function getVariant()
+    {
+        return $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant;
+    }
+
+    /**
+     * <p>Slug of the current <a href="ctp:api:type:ProductData">ProductData</a>.</p>
+     * <p>Returned when expanded using <code>expand=lineItems[*].productSlug</code>. You cannot expand only a single element of the array.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getProductSlug()
+    {
+        return $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     * @return $this
+     */
+    public function withAddedAt(?DateTimeImmutable $addedAt)
+    {
+        $this->addedAt = $addedAt;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $deactivatedAt
+     * @return $this
+     */
+    public function withDeactivatedAt(?DateTimeImmutable $deactivatedAt)
+    {
+        $this->deactivatedAt = $deactivatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $id
+     * @return $this
+     */
+    public function withId(?string $id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $name
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $productId
+     * @return $this
+     */
+    public function withProductId(?string $productId)
+    {
+        $this->productId = $productId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductTypeReference $productType
+     * @return $this
+     */
+    public function withProductType(?ProductTypeReference $productType)
+    {
+        $this->productType = $productType;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $published
+     * @return $this
+     */
+    public function withPublished(?bool $published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $quantity
+     * @return $this
+     */
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $variantId
+     * @return $this
+     */
+    public function withVariantId(?int $variantId)
+    {
+        $this->variantId = $variantId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductVariant $variant
+     * @return $this
+     */
+    public function withVariant(?ProductVariant $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $productSlug
+     * @return $this
+     */
+    public function withProductSlug(?LocalizedString $productSlug)
+    {
+        $this->productSlug = $productSlug;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withName() instead
+     * @return $this
+     */
+    public function withNameBuilder(?LocalizedStringBuilder $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withProductType() instead
+     * @return $this
+     */
+    public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
+    {
+        $this->productType = $productType;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withVariant() instead
+     * @return $this
+     */
+    public function withVariantBuilder(?ProductVariantBuilder $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withProductSlug() instead
+     * @return $this
+     */
+    public function withProductSlugBuilder(?LocalizedStringBuilder $productSlug)
+    {
+        $this->productSlug = $productSlug;
+
+        return $this;
+    }
+
+    public function build(): ShoppingListLineItem
+    {
+        return new ShoppingListLineItemModel(
+            $this->addedAt,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->deactivatedAt,
+            $this->id,
+            $this->key,
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->productId,
+            $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType,
+            $this->published,
+            $this->quantity,
+            $this->variantId,
+            $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant,
+            $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug
+        );
+    }
+
+    public static function of(): ShoppingListLineItemBuilder
+    {
+        return new self();
+    }
+}

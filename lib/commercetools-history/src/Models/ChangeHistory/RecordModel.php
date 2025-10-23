@@ -355,8 +355,8 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-
-            $this->businessUnit = KeyReferenceModel::of($data);
+            $className = KeyReferenceModel::resolveDiscriminatorClass($data);
+            $this->businessUnit = $className::of($data);
         }
 
         return $this->businessUnit;

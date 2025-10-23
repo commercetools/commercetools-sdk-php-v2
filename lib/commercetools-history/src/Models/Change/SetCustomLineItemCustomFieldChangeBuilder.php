@@ -60,6 +60,12 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $customTypeId;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -120,6 +126,17 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p><code>id</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomTypeId()
+    {
+        return $this->customTypeId;
     }
 
     /**
@@ -189,6 +206,17 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $customTypeId
+     * @return $this
+     */
+    public function withCustomTypeId(?string $customTypeId)
+    {
+        $this->customTypeId = $customTypeId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomLineItem() instead
      * @return $this
      */
@@ -207,7 +235,8 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
             $this->nextValue,
             $this->name,
             $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
-            $this->customLineItemId
+            $this->customLineItemId,
+            $this->customTypeId
         );
     }
 

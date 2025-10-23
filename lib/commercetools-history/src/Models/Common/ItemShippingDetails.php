@@ -18,13 +18,19 @@ interface ItemShippingDetails extends JsonObject
     public const FIELD_VALID = 'valid';
 
     /**
+     * <p>Holds information on the quantity of Line Items or Custom Line Items and the address it is shipped.</p>
+     *
 
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets();
 
     /**
-     * <p>true if the quantity of the (custom) line item is equal to the sum of the sub-quantities in <code>targets</code>, <code>false</code> otherwise. A cart cannot be ordered when the value is <code>false</code>. The error InvalidItemShippingDetails will be triggered.</p>
+     * <ul>
+     * <li><code>true</code> if the quantity of Line Items or Custom Line Items is equal to the sum of sub-quantities defined in <code>targets</code>.</li>
+     * <li><code>false</code> if the quantity of Line Items or Custom Line Items is not equal to the sum of sub-quantities defined in <code>targets</code>.
+     * Ordering a Cart when the value is <code>false</code> returns an <a href="ctp:api:type:InvalidItemShippingDetailsError">InvalidItemShippingDetails</a> error.</li>
+     * </ul>
      *
 
      * @return null|bool

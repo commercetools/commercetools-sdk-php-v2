@@ -28,11 +28,13 @@ final class ItemStateBuilder implements Builder
 
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
+     * <p>Number of Line Items or Custom Line Items in this State.</p>
+     *
 
      * @return null|int
      */
@@ -42,12 +44,14 @@ final class ItemStateBuilder implements Builder
     }
 
     /**
+     * <p>State of the Line Items or Custom Line Items in a custom workflow.</p>
+     *
 
-     * @return null|Reference
+     * @return null|StateReference
      */
     public function getState()
     {
-        return $this->state instanceof ReferenceBuilder ? $this->state->build() : $this->state;
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
     }
 
     /**
@@ -62,10 +66,10 @@ final class ItemStateBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $state
+     * @param ?StateReference $state
      * @return $this
      */
-    public function withState(?Reference $state)
+    public function withState(?StateReference $state)
     {
         $this->state = $state;
 
@@ -76,7 +80,7 @@ final class ItemStateBuilder implements Builder
      * @deprecated use withState() instead
      * @return $this
      */
-    public function withStateBuilder(?ReferenceBuilder $state)
+    public function withStateBuilder(?StateReferenceBuilder $state)
     {
         $this->state = $state;
 
@@ -87,7 +91,7 @@ final class ItemStateBuilder implements Builder
     {
         return new ItemStateModel(
             $this->quantity,
-            $this->state instanceof ReferenceBuilder ? $this->state->build() : $this->state
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

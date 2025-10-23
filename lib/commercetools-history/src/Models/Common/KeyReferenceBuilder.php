@@ -27,27 +27,14 @@ final class KeyReferenceBuilder implements Builder
     private $key;
 
     /**
-
-     * @var ?string
-     */
-    private $typeId;
-
-    /**
+     * <p>User-defined unique and immutable key of the referenced resource.</p>
+     *
 
      * @return null|string
      */
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
     }
 
     /**
@@ -61,23 +48,11 @@ final class KeyReferenceBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?string $typeId
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
-    }
-
 
     public function build(): KeyReference
     {
         return new KeyReferenceModel(
-            $this->key,
-            $this->typeId
+            $this->key
         );
     }
 

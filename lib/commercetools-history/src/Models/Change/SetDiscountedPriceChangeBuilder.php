@@ -14,6 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\Common\DiscountedPrice;
+use Commercetools\History\Models\Common\DiscountedPriceBuilder;
 use Commercetools\History\Models\Common\Price;
 use Commercetools\History\Models\Common\PriceBuilder;
 
@@ -30,13 +32,13 @@ final class SetDiscountedPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|Price|PriceBuilder
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $previousValue;
 
     /**
 
-     * @var null|Price|PriceBuilder
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $nextValue;
 
@@ -60,6 +62,12 @@ final class SetDiscountedPriceChangeBuilder implements Builder
 
     /**
 
+     * @var null|Price|PriceBuilder
+     */
+    private $price;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -71,25 +79,26 @@ final class SetDiscountedPriceChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|Price
+     * @return null|DiscountedPrice
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof PriceBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue instanceof DiscountedPriceBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
      * <p>Value after the change.</p>
      *
 
-     * @return null|Price
+     * @return null|DiscountedPrice
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof PriceBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof DiscountedPriceBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -104,7 +113,8 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the updated <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
 
      * @return null|string
@@ -126,6 +136,17 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
+     * <p>Embedded Price of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|Price
+     */
+    public function getPrice()
+    {
+        return $this->price instanceof PriceBuilder ? $this->price->build() : $this->price;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
@@ -137,10 +158,10 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Price $previousValue
+     * @param ?DiscountedPrice $previousValue
      * @return $this
      */
-    public function withPreviousValue(?Price $previousValue)
+    public function withPreviousValue(?DiscountedPrice $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -148,10 +169,10 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Price $nextValue
+     * @param ?DiscountedPrice $nextValue
      * @return $this
      */
-    public function withNextValue(?Price $nextValue)
+    public function withNextValue(?DiscountedPrice $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -192,10 +213,21 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
+     * @param ?Price $price
+     * @return $this
+     */
+    public function withPrice(?Price $price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?PriceBuilder $previousValue)
+    public function withPreviousValueBuilder(?DiscountedPriceBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -206,9 +238,20 @@ final class SetDiscountedPriceChangeBuilder implements Builder
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?PriceBuilder $nextValue)
+    public function withNextValueBuilder(?DiscountedPriceBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPrice() instead
+     * @return $this
+     */
+    public function withPriceBuilder(?PriceBuilder $price)
+    {
+        $this->price = $price;
 
         return $this;
     }
@@ -217,11 +260,12 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     {
         return new SetDiscountedPriceChangeModel(
             $this->change,
-            $this->previousValue instanceof PriceBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof PriceBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->previousValue instanceof DiscountedPriceBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof DiscountedPriceBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->catalogData,
             $this->variant,
-            $this->priceId
+            $this->priceId,
+            $this->price instanceof PriceBuilder ? $this->price->build() : $this->price
         );
     }
 

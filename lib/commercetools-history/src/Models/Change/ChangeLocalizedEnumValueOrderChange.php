@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\ChangeValue\LocalizedEnumValueCollection;
+use Commercetools\History\Models\Common\AttributeLocalizedEnumValueCollection;
 
 interface ChangeLocalizedEnumValueOrderChange extends Change
 {
@@ -36,7 +36,7 @@ interface ChangeLocalizedEnumValueOrderChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|LocalizedEnumValueCollection
+     * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getPreviousValue();
 
@@ -44,7 +44,7 @@ interface ChangeLocalizedEnumValueOrderChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|LocalizedEnumValueCollection
+     * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getNextValue();
 
@@ -70,14 +70,14 @@ interface ChangeLocalizedEnumValueOrderChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?LocalizedEnumValueCollection $previousValue
+     * @param ?AttributeLocalizedEnumValueCollection $previousValue
      */
-    public function setPreviousValue(?LocalizedEnumValueCollection $previousValue): void;
+    public function setPreviousValue(?AttributeLocalizedEnumValueCollection $previousValue): void;
 
     /**
-     * @param ?LocalizedEnumValueCollection $nextValue
+     * @param ?AttributeLocalizedEnumValueCollection $nextValue
      */
-    public function setNextValue(?LocalizedEnumValueCollection $nextValue): void;
+    public function setNextValue(?AttributeLocalizedEnumValueCollection $nextValue): void;
 
     /**
      * @param ?string $fieldName

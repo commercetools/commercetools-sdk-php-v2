@@ -28,11 +28,19 @@ final class AssociateBuilder implements Builder
 
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var ?array
+     */
+    private $roles;
+
+    /**
+
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
+     * <p>Roles assigned to the Associate within a Business Unit.</p>
+     *
 
      * @return null|AssociateRoleAssignmentCollection
      */
@@ -42,12 +50,25 @@ final class AssociateBuilder implements Builder
     }
 
     /**
+     * <p>Deprecated type. Use <code>associateRoleAssignments</code> instead.</p>
+     *
 
-     * @return null|Reference
+     * @return null|array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> that acts as an Associate in the Business Unit.</p>
+     *
+
+     * @return null|CustomerReference
      */
     public function getCustomer()
     {
-        return $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer;
+        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
     }
 
     /**
@@ -62,10 +83,21 @@ final class AssociateBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $customer
+     * @param ?array $roles
      * @return $this
      */
-    public function withCustomer(?Reference $customer)
+    public function withRoles(?array $roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomerReference $customer
+     * @return $this
+     */
+    public function withCustomer(?CustomerReference $customer)
     {
         $this->customer = $customer;
 
@@ -76,7 +108,7 @@ final class AssociateBuilder implements Builder
      * @deprecated use withCustomer() instead
      * @return $this
      */
-    public function withCustomerBuilder(?ReferenceBuilder $customer)
+    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
     {
         $this->customer = $customer;
 
@@ -87,7 +119,8 @@ final class AssociateBuilder implements Builder
     {
         return new AssociateModel(
             $this->associateRoleAssignments,
-            $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer
+            $this->roles,
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer
         );
     }
 

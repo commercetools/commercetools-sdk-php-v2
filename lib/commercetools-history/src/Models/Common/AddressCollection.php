@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Common;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Common\BaseAddressCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Address>
+ * @extends BaseAddressCollection<Address>
  * @method Address current()
  * @method Address end()
  * @method Address at($offset)
  */
-class AddressCollection extends MapperSequence
+class AddressCollection extends BaseAddressCollection
 {
     /**
      * @psalm-assert Address $value

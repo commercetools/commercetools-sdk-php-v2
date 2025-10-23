@@ -41,6 +41,18 @@ final class SetReservationsChangeBuilder implements Builder
 
     /**
 
+     * @var ?ReservationCollection
+     */
+    private $addedItems;
+
+    /**
+
+     * @var ?ReservationCollection
+     */
+    private $removedItems;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -68,6 +80,28 @@ final class SetReservationsChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue;
+    }
+
+    /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|ReservationCollection
+     */
+    public function getAddedItems()
+    {
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|ReservationCollection
+     */
+    public function getRemovedItems()
+    {
+        return $this->removedItems;
     }
 
     /**
@@ -103,13 +137,37 @@ final class SetReservationsChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?ReservationCollection $addedItems
+     * @return $this
+     */
+    public function withAddedItems(?ReservationCollection $addedItems)
+    {
+        $this->addedItems = $addedItems;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ReservationCollection $removedItems
+     * @return $this
+     */
+    public function withRemovedItems(?ReservationCollection $removedItems)
+    {
+        $this->removedItems = $removedItems;
+
+        return $this;
+    }
+
 
     public function build(): SetReservationsChange
     {
         return new SetReservationsChangeModel(
             $this->change,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->addedItems,
+            $this->removedItems
         );
     }
 

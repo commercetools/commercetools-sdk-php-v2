@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\Common\KeyReferenceCollection;
 use Commercetools\History\Models\Common\ReferenceCollection;
 
 /**
@@ -38,6 +39,18 @@ final class SetStoresChangeBuilder implements Builder
      * @var ?ReferenceCollection
      */
     private $nextValue;
+
+    /**
+
+     * @var ?KeyReferenceCollection
+     */
+    private $addedItems;
+
+    /**
+
+     * @var ?KeyReferenceCollection
+     */
+    private $removedItems;
 
     /**
 
@@ -68,6 +81,28 @@ final class SetStoresChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue;
+    }
+
+    /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|KeyReferenceCollection
+     */
+    public function getAddedItems()
+    {
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|KeyReferenceCollection
+     */
+    public function getRemovedItems()
+    {
+        return $this->removedItems;
     }
 
     /**
@@ -103,13 +138,37 @@ final class SetStoresChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?KeyReferenceCollection $addedItems
+     * @return $this
+     */
+    public function withAddedItems(?KeyReferenceCollection $addedItems)
+    {
+        $this->addedItems = $addedItems;
+
+        return $this;
+    }
+
+    /**
+     * @param ?KeyReferenceCollection $removedItems
+     * @return $this
+     */
+    public function withRemovedItems(?KeyReferenceCollection $removedItems)
+    {
+        $this->removedItems = $removedItems;
+
+        return $this;
+    }
+
 
     public function build(): SetStoresChange
     {
         return new SetStoresChangeModel(
             $this->change,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->addedItems,
+            $this->removedItems
         );
     }
 

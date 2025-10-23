@@ -131,8 +131,8 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->previousValue = $className::of($data);
         }
 
         return $this->previousValue;
@@ -152,8 +152,8 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
             if (is_null($data)) {
                 return null;
             }
-
-            $this->nextValue = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->nextValue = $className::of($data);
         }
 
         return $this->nextValue;
@@ -181,7 +181,8 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
     }
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the updated <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
      *
      * @return null|string

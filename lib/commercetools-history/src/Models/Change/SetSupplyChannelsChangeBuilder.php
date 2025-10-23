@@ -41,6 +41,18 @@ final class SetSupplyChannelsChangeBuilder implements Builder
 
     /**
 
+     * @var ?ReferenceCollection
+     */
+    private $addedItems;
+
+    /**
+
+     * @var ?ReferenceCollection
+     */
+    private $removedItems;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -68,6 +80,28 @@ final class SetSupplyChannelsChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue;
+    }
+
+    /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|ReferenceCollection
+     */
+    public function getAddedItems()
+    {
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|ReferenceCollection
+     */
+    public function getRemovedItems()
+    {
+        return $this->removedItems;
     }
 
     /**
@@ -103,13 +137,37 @@ final class SetSupplyChannelsChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?ReferenceCollection $addedItems
+     * @return $this
+     */
+    public function withAddedItems(?ReferenceCollection $addedItems)
+    {
+        $this->addedItems = $addedItems;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ReferenceCollection $removedItems
+     * @return $this
+     */
+    public function withRemovedItems(?ReferenceCollection $removedItems)
+    {
+        $this->removedItems = $removedItems;
+
+        return $this;
+    }
+
 
     public function build(): SetSupplyChannelsChange
     {
         return new SetSupplyChannelsChangeModel(
             $this->change,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->addedItems,
+            $this->removedItems
         );
     }
 

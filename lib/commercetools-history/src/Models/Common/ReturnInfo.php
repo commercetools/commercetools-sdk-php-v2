@@ -10,6 +10,7 @@ namespace Commercetools\History\Models\Common;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use DateTimeImmutable;
 
 interface ReturnInfo extends JsonObject
 {
@@ -19,13 +20,15 @@ interface ReturnInfo extends JsonObject
     public const FIELD_RETURN_DATE = 'returnDate';
 
     /**
+     * <p>Information on the Line Items or Custom Line Items returned.</p>
+     *
 
      * @return null|ReturnItemCollection
      */
     public function getItems();
 
     /**
-     * <p>Identifies, which return tracking ID is connected to this particular return.</p>
+     * <p>User-defined identifier to track the return.</p>
      *
 
      * @return null|string
@@ -33,8 +36,10 @@ interface ReturnInfo extends JsonObject
     public function getReturnTrackingId();
 
     /**
+     * <p>Date and time (UTC) the return is initiated.</p>
+     *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getReturnDate();
 
@@ -49,7 +54,7 @@ interface ReturnInfo extends JsonObject
     public function setReturnTrackingId(?string $returnTrackingId): void;
 
     /**
-     * @param ?string $returnDate
+     * @param ?DateTimeImmutable $returnDate
      */
-    public function setReturnDate(?string $returnDate): void;
+    public function setReturnDate(?DateTimeImmutable $returnDate): void;
 }

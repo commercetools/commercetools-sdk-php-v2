@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\Reference;
+use Commercetools\History\Models\Common\KeyReference;
 
 interface SetStoreChange extends Change
 {
@@ -34,7 +34,7 @@ interface SetStoreChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|Reference
+     * @return null|KeyReference
      */
     public function getPreviousValue();
 
@@ -42,7 +42,7 @@ interface SetStoreChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|Reference
+     * @return null|KeyReference
      */
     public function getNextValue();
 
@@ -52,12 +52,12 @@ interface SetStoreChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?Reference $previousValue
+     * @param ?KeyReference $previousValue
      */
-    public function setPreviousValue(?Reference $previousValue): void;
+    public function setPreviousValue(?KeyReference $previousValue): void;
 
     /**
-     * @param ?Reference $nextValue
+     * @param ?KeyReference $nextValue
      */
-    public function setNextValue(?Reference $nextValue): void;
+    public function setNextValue(?KeyReference $nextValue): void;
 }

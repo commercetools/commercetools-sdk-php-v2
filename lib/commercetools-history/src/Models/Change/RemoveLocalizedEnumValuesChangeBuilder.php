@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\LocalizedEnumValue;
-use Commercetools\History\Models\ChangeValue\LocalizedEnumValueBuilder;
+use Commercetools\History\Models\Common\AttributeLocalizedEnumValue;
+use Commercetools\History\Models\Common\AttributeLocalizedEnumValueBuilder;
 
 /**
  * @implements Builder<RemoveLocalizedEnumValuesChange>
@@ -30,7 +30,7 @@ final class RemoveLocalizedEnumValuesChangeBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedEnumValue|LocalizedEnumValueBuilder
+     * @var null|AttributeLocalizedEnumValue|AttributeLocalizedEnumValueBuilder
      */
     private $previousValue;
 
@@ -53,11 +53,11 @@ final class RemoveLocalizedEnumValuesChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|LocalizedEnumValue
+     * @return null|AttributeLocalizedEnumValue
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof LocalizedEnumValueBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue instanceof AttributeLocalizedEnumValueBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
@@ -83,10 +83,10 @@ final class RemoveLocalizedEnumValuesChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedEnumValue $previousValue
+     * @param ?AttributeLocalizedEnumValue $previousValue
      * @return $this
      */
-    public function withPreviousValue(?LocalizedEnumValue $previousValue)
+    public function withPreviousValue(?AttributeLocalizedEnumValue $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -108,7 +108,7 @@ final class RemoveLocalizedEnumValuesChangeBuilder implements Builder
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?LocalizedEnumValueBuilder $previousValue)
+    public function withPreviousValueBuilder(?AttributeLocalizedEnumValueBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -119,7 +119,7 @@ final class RemoveLocalizedEnumValuesChangeBuilder implements Builder
     {
         return new RemoveLocalizedEnumValuesChangeModel(
             $this->change,
-            $this->previousValue instanceof LocalizedEnumValueBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->previousValue instanceof AttributeLocalizedEnumValueBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->attributeName
         );
     }

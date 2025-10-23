@@ -13,29 +13,15 @@ use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ProductVariantSelection extends JsonObject
 {
-
+    public const DISCRIMINATOR_FIELD = 'type';
     public const FIELD_TYPE = 'type';
-    public const FIELD_SKUS = 'skus';
 
     /**
+     * <p>Determines whether the SKUs are to be included in, or excluded from, the Product Selection.</p>
+     *
 
      * @return null|string
      */
     public function getType();
 
-    /**
-
-     * @return null|array
-     */
-    public function getSkus();
-
-    /**
-     * @param ?string $type
-     */
-    public function setType(?string $type): void;
-
-    /**
-     * @param ?array $skus
-     */
-    public function setSkus(?array $skus): void;
 }

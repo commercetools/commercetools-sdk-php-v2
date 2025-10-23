@@ -21,10 +21,11 @@ interface ReviewRatingStatistics extends JsonObject
     public const FIELD_RATINGS_DISTRIBUTION = 'ratingsDistribution';
 
     /**
-     * <p>Average rating of one target This number is rounded with 5 decimals.</p>
+     * <p>Average rating of one target
+     * This number is rounded with 5 decimals.</p>
      *
 
-     * @return null|int
+     * @return null|float
      */
     public function getAverageRating();
 
@@ -32,7 +33,7 @@ interface ReviewRatingStatistics extends JsonObject
      * <p>Highest rating of one target</p>
      *
 
-     * @return null|int
+     * @return null|float
      */
     public function getHighestRating();
 
@@ -40,7 +41,7 @@ interface ReviewRatingStatistics extends JsonObject
      * <p>Lowest rating of one target</p>
      *
 
-     * @return null|int
+     * @return null|float
      */
     public function getLowestRating();
 
@@ -53,7 +54,9 @@ interface ReviewRatingStatistics extends JsonObject
     public function getCount();
 
     /**
-     * <p>The full distribution of the ratings. The keys are the different ratings and the values are the count of reviews having this rating. Only the used ratings appear in this object.</p>
+     * <p>Full distribution of the ratings.
+     * The keys are the different ratings and the values are the count of reviews having this rating.
+     * Only the used ratings appear in this object.</p>
      *
 
      * @return null|mixed
@@ -61,19 +64,19 @@ interface ReviewRatingStatistics extends JsonObject
     public function getRatingsDistribution();
 
     /**
-     * @param ?int $averageRating
+     * @param ?float $averageRating
      */
-    public function setAverageRating(?int $averageRating): void;
+    public function setAverageRating(?float $averageRating): void;
 
     /**
-     * @param ?int $highestRating
+     * @param ?float $highestRating
      */
-    public function setHighestRating(?int $highestRating): void;
+    public function setHighestRating(?float $highestRating): void;
 
     /**
-     * @param ?int $lowestRating
+     * @param ?float $lowestRating
      */
-    public function setLowestRating(?int $lowestRating): void;
+    public function setLowestRating(?float $lowestRating): void;
 
     /**
      * @param ?int $count

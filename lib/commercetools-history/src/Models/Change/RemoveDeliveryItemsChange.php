@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\Delivery;
+use Commercetools\History\Models\ChangeValue\DeliveryChangeValue;
 
 interface RemoveDeliveryItemsChange extends Change
 {
@@ -33,7 +33,7 @@ interface RemoveDeliveryItemsChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|Delivery
+     * @return null|DeliveryChangeValue
      */
     public function getPreviousValue();
 
@@ -43,7 +43,7 @@ interface RemoveDeliveryItemsChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?Delivery $previousValue
+     * @param ?DeliveryChangeValue $previousValue
      */
-    public function setPreviousValue(?Delivery $previousValue): void;
+    public function setPreviousValue(?DeliveryChangeValue $previousValue): void;
 }

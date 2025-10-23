@@ -13,6 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\Common\DiscountedPrice;
+use Commercetools\History\Models\Common\DiscountedPriceModel;
 use Commercetools\History\Models\Common\Price;
 use Commercetools\History\Models\Common\PriceModel;
 
@@ -37,13 +39,13 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
 
     /**
      *
-     * @var ?Price
+     * @var ?DiscountedPrice
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?Price
+     * @var ?DiscountedPrice
      */
     protected $nextValue;
 
@@ -65,17 +67,24 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
      */
     protected $priceId;
 
+    /**
+     *
+     * @var ?Price
+     */
+    protected $price;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?Price $previousValue = null,
-        ?Price $nextValue = null,
+        ?DiscountedPrice $previousValue = null,
+        ?DiscountedPrice $nextValue = null,
         ?string $catalogData = null,
         ?string $variant = null,
         ?string $priceId = null,
+        ?Price $price = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -84,6 +93,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
         $this->catalogData = $catalogData;
         $this->variant = $variant;
         $this->priceId = $priceId;
+        $this->price = $price;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -127,7 +137,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
      * <p>Value before the change.</p>
      *
      *
-     * @return null|Price
+     * @return null|DiscountedPrice
      */
     public function getPreviousValue()
     {
@@ -138,7 +148,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
                 return null;
             }
 
-            $this->previousValue = PriceModel::of($data);
+            $this->previousValue = DiscountedPriceModel::of($data);
         }
 
         return $this->previousValue;
@@ -148,7 +158,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
      * <p>Value after the change.</p>
      *
      *
-     * @return null|Price
+     * @return null|DiscountedPrice
      */
     public function getNextValue()
     {
@@ -159,13 +169,14 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
                 return null;
             }
 
-            $this->nextValue = PriceModel::of($data);
+            $this->nextValue = DiscountedPriceModel::of($data);
         }
 
         return $this->nextValue;
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -189,7 +200,8 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the updated <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
      *
      * @return null|string
@@ -228,6 +240,27 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
         return $this->priceId;
     }
 
+    /**
+     * <p>Embedded Price of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+     *
+     * @return null|Price
+     */
+    public function getPrice()
+    {
+        if (is_null($this->price)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->price = PriceModel::of($data);
+        }
+
+        return $this->price;
+    }
+
 
     /**
      * @param ?string $change
@@ -238,17 +271,17 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * @param ?Price $previousValue
+     * @param ?DiscountedPrice $previousValue
      */
-    public function setPreviousValue(?Price $previousValue): void
+    public function setPreviousValue(?DiscountedPrice $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?Price $nextValue
+     * @param ?DiscountedPrice $nextValue
      */
-    public function setNextValue(?Price $nextValue): void
+    public function setNextValue(?DiscountedPrice $nextValue): void
     {
         $this->nextValue = $nextValue;
     }
@@ -275,6 +308,14 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
     public function setPriceId(?string $priceId): void
     {
         $this->priceId = $priceId;
+    }
+
+    /**
+     * @param ?Price $price
+     */
+    public function setPrice(?Price $price): void
+    {
+        $this->price = $price;
     }
 
 

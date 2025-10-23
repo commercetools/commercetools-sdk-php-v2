@@ -102,7 +102,7 @@ interface ReturnItem extends JsonObject
     public function getLastModifiedAt();
 
     /**
-     * <p>Date and time (UTC) the Return Item was intitially created.</p>
+     * <p>Date and time (UTC) the Return Item was initially created.</p>
      *
 
      * @return null|DateTimeImmutable

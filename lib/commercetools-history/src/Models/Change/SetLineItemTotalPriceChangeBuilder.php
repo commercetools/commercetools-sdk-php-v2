@@ -50,6 +50,18 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemId;
+
+    /**
+
+     * @var ?string
+     */
+    private $variant;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -88,6 +100,29 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
     public function getLineItem()
     {
         return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        return $this->lineItemId;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
     }
 
     /**
@@ -135,6 +170,28 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
+     * @return $this
+     */
+    public function withLineItemId(?string $lineItemId)
+    {
+        $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $variant
+     * @return $this
+     */
+    public function withVariant(?string $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -173,7 +230,9 @@ final class SetLineItemTotalPriceChangeBuilder implements Builder
             $this->change,
             $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem
+            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->lineItemId,
+            $this->variant
         );
     }
 

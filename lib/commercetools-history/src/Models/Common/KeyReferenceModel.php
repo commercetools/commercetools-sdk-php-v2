@@ -20,6 +20,12 @@ use stdClass;
 final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 {
 
+    public const DISCRIMINATOR_VALUE = '';
+    /**
+     *
+     * @var ?string
+     */
+    protected $typeId;
 
     /**
      *
@@ -28,11 +34,14 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     protected $key;
 
     /**
-     *
-     * @var ?string
+     * @psalm-var array<string, class-string<KeyReference> >
+     * 
      */
-    protected $typeId;
-
+    private static $discriminatorClasses = [
+       'associate-role' => AssociateRoleKeyReferenceModel::class,
+       'business-unit' => BusinessUnitKeyReferenceModel::class,
+       'store' => StoreKeyReferenceModel::class,
+    ];
 
     /**
      * @psalm-suppress MissingParamType
@@ -47,24 +56,8 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
+     * <p>Type of referenced resource.</p>
      *
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
      *
      * @return null|string
      */
@@ -82,6 +75,26 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
         return $this->typeId;
     }
 
+    /**
+     * <p>User-defined unique and immutable key of the referenced resource.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
 
     /**
      * @param ?string $key
@@ -91,14 +104,32 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
         $this->key = $key;
     }
 
+
+
     /**
-     * @param ?string $typeId
+     * @psalm-param stdClass|array<string, mixed> $value
+     * @psalm-return class-string<KeyReference>
      */
-    public function setTypeId(?string $typeId): void
+    public static function resolveDiscriminatorClass($value): string
     {
-        $this->typeId = $typeId;
+       $fieldName = KeyReference::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
+                return self::$discriminatorClasses[$discriminatorValue];
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
+                return self::$discriminatorClasses[$discriminatorValue];
+           }
+       }
+
+       /** @psalm-var class-string<KeyReference> */
+       $type = KeyReferenceModel::class;
+       return $type;
     }
-
-
-
 }

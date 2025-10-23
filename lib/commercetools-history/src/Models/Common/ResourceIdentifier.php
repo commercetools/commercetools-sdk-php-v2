@@ -31,6 +31,8 @@ interface ResourceIdentifier extends JsonObject
     public function getKey();
 
     /**
+     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
+     *
 
      * @return null|string
      */

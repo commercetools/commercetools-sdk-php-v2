@@ -22,19 +22,19 @@ final class ReviewRatingStatisticsBuilder implements Builder
 {
     /**
 
-     * @var ?int
+     * @var ?float
      */
     private $averageRating;
 
     /**
 
-     * @var ?int
+     * @var ?float
      */
     private $highestRating;
 
     /**
 
-     * @var ?int
+     * @var ?float
      */
     private $lowestRating;
 
@@ -51,10 +51,11 @@ final class ReviewRatingStatisticsBuilder implements Builder
     private $ratingsDistribution;
 
     /**
-     * <p>Average rating of one target This number is rounded with 5 decimals.</p>
+     * <p>Average rating of one target
+     * This number is rounded with 5 decimals.</p>
      *
 
-     * @return null|int
+     * @return null|float
      */
     public function getAverageRating()
     {
@@ -65,7 +66,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
      * <p>Highest rating of one target</p>
      *
 
-     * @return null|int
+     * @return null|float
      */
     public function getHighestRating()
     {
@@ -76,7 +77,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
      * <p>Lowest rating of one target</p>
      *
 
-     * @return null|int
+     * @return null|float
      */
     public function getLowestRating()
     {
@@ -95,7 +96,9 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * <p>The full distribution of the ratings. The keys are the different ratings and the values are the count of reviews having this rating. Only the used ratings appear in this object.</p>
+     * <p>Full distribution of the ratings.
+     * The keys are the different ratings and the values are the count of reviews having this rating.
+     * Only the used ratings appear in this object.</p>
      *
 
      * @return null|JsonObject
@@ -106,10 +109,10 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * @param ?int $averageRating
+     * @param ?float $averageRating
      * @return $this
      */
-    public function withAverageRating(?int $averageRating)
+    public function withAverageRating(?float $averageRating)
     {
         $this->averageRating = $averageRating;
 
@@ -117,10 +120,10 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * @param ?int $highestRating
+     * @param ?float $highestRating
      * @return $this
      */
-    public function withHighestRating(?int $highestRating)
+    public function withHighestRating(?float $highestRating)
     {
         $this->highestRating = $highestRating;
 
@@ -128,10 +131,10 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * @param ?int $lowestRating
+     * @param ?float $lowestRating
      * @return $this
      */
-    public function withLowestRating(?int $lowestRating)
+    public function withLowestRating(?float $lowestRating)
     {
         $this->lowestRating = $lowestRating;
 

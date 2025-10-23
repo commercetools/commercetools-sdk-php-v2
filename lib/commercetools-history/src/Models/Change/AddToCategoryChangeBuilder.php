@@ -49,6 +49,12 @@ final class AddToCategoryChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $catalogData;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -87,6 +93,21 @@ final class AddToCategoryChangeBuilder implements Builder
     public function getCategory()
     {
         return $this->category instanceof ReferenceBuilder ? $this->category->build() : $this->category;
+    }
+
+    /**
+     * <p>Product data that was updated.</p>
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        return $this->catalogData;
     }
 
     /**
@@ -134,6 +155,17 @@ final class AddToCategoryChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $catalogData
+     * @return $this
+     */
+    public function withCatalogData(?string $catalogData)
+    {
+        $this->catalogData = $catalogData;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCategory() instead
      * @return $this
      */
@@ -150,7 +182,8 @@ final class AddToCategoryChangeBuilder implements Builder
             $this->change,
             $this->previousValue,
             $this->nextValue,
-            $this->category instanceof ReferenceBuilder ? $this->category->build() : $this->category
+            $this->category instanceof ReferenceBuilder ? $this->category->build() : $this->category,
+            $this->catalogData
         );
     }
 

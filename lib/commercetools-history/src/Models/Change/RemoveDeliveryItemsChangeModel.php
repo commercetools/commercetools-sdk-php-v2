@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\Delivery;
-use Commercetools\History\Models\Common\DeliveryModel;
+use Commercetools\History\Models\ChangeValue\DeliveryChangeValue;
+use Commercetools\History\Models\ChangeValue\DeliveryChangeValueModel;
 
 /**
  * @internal
@@ -37,7 +37,7 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
 
     /**
      *
-     * @var ?Delivery
+     * @var ?DeliveryChangeValue
      */
     protected $previousValue;
 
@@ -47,7 +47,7 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
      */
     public function __construct(
         ?string $change = null,
-        ?Delivery $previousValue = null,
+        ?DeliveryChangeValue $previousValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -95,7 +95,7 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
      * <p>Value before the change.</p>
      *
      *
-     * @return null|Delivery
+     * @return null|DeliveryChangeValue
      */
     public function getPreviousValue()
     {
@@ -106,7 +106,7 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
                 return null;
             }
 
-            $this->previousValue = DeliveryModel::of($data);
+            $this->previousValue = DeliveryChangeValueModel::of($data);
         }
 
         return $this->previousValue;
@@ -122,9 +122,9 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
     }
 
     /**
-     * @param ?Delivery $previousValue
+     * @param ?DeliveryChangeValue $previousValue
      */
-    public function setPreviousValue(?Delivery $previousValue): void
+    public function setPreviousValue(?DeliveryChangeValue $previousValue): void
     {
         $this->previousValue = $previousValue;
     }

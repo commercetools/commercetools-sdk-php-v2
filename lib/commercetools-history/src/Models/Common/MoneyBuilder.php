@@ -22,27 +22,30 @@ final class MoneyBuilder implements Builder
 {
     /**
 
-     * @var ?string
-     */
-    private $currencyCode;
-
-    /**
-
      * @var ?int
      */
     private $centAmount;
 
     /**
 
-     * @var ?int
-     */
-    private $fractionDigits;
-
-    /**
-
      * @var ?string
      */
-    private $type;
+    private $currencyCode;
+
+    /**
+     * <p>Amount in the smallest indivisible unit of a currency, such as:</p>
+     * <ul>
+     * <li>Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>).</li>
+     * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
+     * </ul>
+     *
+
+     * @return null|int
+     */
+    public function getCentAmount()
+    {
+        return $this->centAmount;
+    }
 
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
@@ -53,44 +56,6 @@ final class MoneyBuilder implements Builder
     public function getCurrencyCode()
     {
         return $this->currencyCode;
-    }
-
-    /**
-
-     * @return null|int
-     */
-    public function getCentAmount()
-    {
-        return $this->centAmount;
-    }
-
-    /**
-
-     * @return null|int
-     */
-    public function getFractionDigits()
-    {
-        return $this->fractionDigits;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param ?string $currencyCode
-     * @return $this
-     */
-    public function withCurrencyCode(?string $currencyCode)
-    {
-        $this->currencyCode = $currencyCode;
-
-        return $this;
     }
 
     /**
@@ -105,23 +70,12 @@ final class MoneyBuilder implements Builder
     }
 
     /**
-     * @param ?int $fractionDigits
+     * @param ?string $currencyCode
      * @return $this
      */
-    public function withFractionDigits(?int $fractionDigits)
+    public function withCurrencyCode(?string $currencyCode)
     {
-        $this->fractionDigits = $fractionDigits;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $type
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
+        $this->currencyCode = $currencyCode;
 
         return $this;
     }
@@ -130,10 +84,8 @@ final class MoneyBuilder implements Builder
     public function build(): Money
     {
         return new MoneyModel(
-            $this->currencyCode,
             $this->centAmount,
-            $this->fractionDigits,
-            $this->type
+            $this->currencyCode
         );
     }
 

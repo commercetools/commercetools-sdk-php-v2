@@ -57,6 +57,12 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
      */
     protected $valueKey;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $attributeName;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -67,6 +73,7 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
         ?string $nextValue = null,
         ?string $fieldName = null,
         ?string $valueKey = null,
+        ?string $attributeName = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -74,6 +81,7 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
         $this->nextValue = $nextValue;
         $this->fieldName = $fieldName;
         $this->valueKey = $valueKey;
+        $this->attributeName = $attributeName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -193,6 +201,26 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
         return $this->valueKey;
     }
 
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
+    }
+
 
     /**
      * @param ?string $change
@@ -232,6 +260,14 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
     public function setValueKey(?string $valueKey): void
     {
         $this->valueKey = $valueKey;
+    }
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void
+    {
+        $this->attributeName = $attributeName;
     }
 
 

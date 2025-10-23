@@ -29,7 +29,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
 
     /**
      *
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $discountedAmount;
 
@@ -39,7 +39,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
      */
     public function __construct(
         ?Reference $discount = null,
-        ?Money $discountedAmount = null
+        ?TypedMoney $discountedAmount = null
     ) {
         $this->discount = $discount;
         $this->discountedAmount = $discountedAmount;
@@ -47,6 +47,8 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
+     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> of the applicable discount on the Line Item.</p>
+     *
      *
      * @return null|Reference
      */
@@ -58,16 +60,18 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discount = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->discount = $className::of($data);
         }
 
         return $this->discount;
     }
 
     /**
+     * <p>Money value of the applicable discount.</p>
      *
-     * @return null|Money
+     *
+     * @return null|TypedMoney
      */
     public function getDiscountedAmount()
     {
@@ -77,8 +81,8 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discountedAmount = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->discountedAmount = $className::of($data);
         }
 
         return $this->discountedAmount;
@@ -94,9 +98,9 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
-     * @param ?Money $discountedAmount
+     * @param ?TypedMoney $discountedAmount
      */
-    public function setDiscountedAmount(?Money $discountedAmount): void
+    public function setDiscountedAmount(?TypedMoney $discountedAmount): void
     {
         $this->discountedAmount = $discountedAmount;
     }

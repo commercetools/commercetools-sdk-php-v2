@@ -16,6 +16,8 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Common\ItemShippingDetails;
 use Commercetools\History\Models\Common\ItemShippingDetailsBuilder;
+use Commercetools\History\Models\Common\LocalizedString;
+use Commercetools\History\Models\Common\LocalizedStringBuilder;
 
 /**
  * @implements Builder<SetCustomLineItemShippingDetailsChange>
@@ -45,6 +47,12 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
      * @var ?string
      */
     private $customLineItemId;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $customLineItem;
 
     /**
 
@@ -86,6 +94,17 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem()
+    {
+        return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
     }
 
     /**
@@ -133,6 +152,17 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $customLineItem
+     * @return $this
+     */
+    public function withCustomLineItem(?LocalizedString $customLineItem)
+    {
+        $this->customLineItem = $customLineItem;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -154,13 +184,25 @@ final class SetCustomLineItemShippingDetailsChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustomLineItem() instead
+     * @return $this
+     */
+    public function withCustomLineItemBuilder(?LocalizedStringBuilder $customLineItem)
+    {
+        $this->customLineItem = $customLineItem;
+
+        return $this;
+    }
+
     public function build(): SetCustomLineItemShippingDetailsChange
     {
         return new SetCustomLineItemShippingDetailsChangeModel(
             $this->change,
             $this->previousValue instanceof ItemShippingDetailsBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof ItemShippingDetailsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->customLineItemId
+            $this->customLineItemId,
+            $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem
         );
     }
 

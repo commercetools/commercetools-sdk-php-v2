@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\TaxedPrice;
+use Commercetools\History\Models\Common\TaxedItemPrice;
 
 interface SetShippingInfoTaxedPriceChange extends Change
 {
@@ -34,7 +34,7 @@ interface SetShippingInfoTaxedPriceChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|TaxedPrice
+     * @return null|TaxedItemPrice
      */
     public function getPreviousValue();
 
@@ -42,7 +42,7 @@ interface SetShippingInfoTaxedPriceChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|TaxedPrice
+     * @return null|TaxedItemPrice
      */
     public function getNextValue();
 
@@ -52,12 +52,12 @@ interface SetShippingInfoTaxedPriceChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?TaxedPrice $previousValue
+     * @param ?TaxedItemPrice $previousValue
      */
-    public function setPreviousValue(?TaxedPrice $previousValue): void;
+    public function setPreviousValue(?TaxedItemPrice $previousValue): void;
 
     /**
-     * @param ?TaxedPrice $nextValue
+     * @param ?TaxedItemPrice $nextValue
      */
-    public function setNextValue(?TaxedPrice $nextValue): void;
+    public function setNextValue(?TaxedItemPrice $nextValue): void;
 }

@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\Reference;
-use Commercetools\History\Models\Common\ReferenceBuilder;
+use Commercetools\History\Models\Common\KeyReference;
+use Commercetools\History\Models\Common\KeyReferenceBuilder;
 
 /**
  * @implements Builder<SetStoreChange>
@@ -30,13 +30,13 @@ final class SetStoreChangeBuilder implements Builder
 
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var null|KeyReference|KeyReferenceBuilder
      */
     private $previousValue;
 
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var null|KeyReference|KeyReferenceBuilder
      */
     private $nextValue;
 
@@ -53,22 +53,22 @@ final class SetStoreChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|Reference
+     * @return null|KeyReference
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof ReferenceBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue instanceof KeyReferenceBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
      * <p>Value after the change.</p>
      *
 
-     * @return null|Reference
+     * @return null|KeyReference
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof ReferenceBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof KeyReferenceBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -83,10 +83,10 @@ final class SetStoreChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $previousValue
+     * @param ?KeyReference $previousValue
      * @return $this
      */
-    public function withPreviousValue(?Reference $previousValue)
+    public function withPreviousValue(?KeyReference $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -94,10 +94,10 @@ final class SetStoreChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $nextValue
+     * @param ?KeyReference $nextValue
      * @return $this
      */
-    public function withNextValue(?Reference $nextValue)
+    public function withNextValue(?KeyReference $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -108,7 +108,7 @@ final class SetStoreChangeBuilder implements Builder
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?ReferenceBuilder $previousValue)
+    public function withPreviousValueBuilder(?KeyReferenceBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -119,7 +119,7 @@ final class SetStoreChangeBuilder implements Builder
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?ReferenceBuilder $nextValue)
+    public function withNextValueBuilder(?KeyReferenceBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -130,8 +130,8 @@ final class SetStoreChangeBuilder implements Builder
     {
         return new SetStoreChangeModel(
             $this->change,
-            $this->previousValue instanceof ReferenceBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof ReferenceBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->previousValue instanceof KeyReferenceBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof KeyReferenceBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

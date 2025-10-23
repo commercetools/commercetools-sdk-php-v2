@@ -48,6 +48,12 @@ final class AddPriceChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $variant;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -67,6 +73,7 @@ final class AddPriceChangeBuilder implements Builder
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -89,6 +96,18 @@ final class AddPriceChangeBuilder implements Builder
     public function getPriceId()
     {
         return $this->priceId;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
     }
 
     /**
@@ -136,6 +155,17 @@ final class AddPriceChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $variant
+     * @return $this
+     */
+    public function withVariant(?string $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withNextValue() instead
      * @return $this
      */
@@ -152,7 +182,8 @@ final class AddPriceChangeBuilder implements Builder
             $this->change,
             $this->nextValue instanceof PriceBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->catalogData,
-            $this->priceId
+            $this->priceId,
+            $this->variant
         );
     }
 

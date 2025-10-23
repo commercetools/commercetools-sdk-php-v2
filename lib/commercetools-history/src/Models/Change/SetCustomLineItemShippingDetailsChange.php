@@ -11,6 +11,7 @@ namespace Commercetools\History\Models\Change;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\History\Models\Common\ItemShippingDetails;
+use Commercetools\History\Models\Common\LocalizedString;
 
 interface SetCustomLineItemShippingDetailsChange extends Change
 {
@@ -18,6 +19,7 @@ interface SetCustomLineItemShippingDetailsChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
 
     /**
 
@@ -56,6 +58,14 @@ interface SetCustomLineItemShippingDetailsChange extends Change
     public function getCustomLineItemId();
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -74,4 +84,9 @@ interface SetCustomLineItemShippingDetailsChange extends Change
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?LocalizedString $customLineItem
+     */
+    public function setCustomLineItem(?LocalizedString $customLineItem): void;
 }

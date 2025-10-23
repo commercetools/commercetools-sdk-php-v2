@@ -40,11 +40,19 @@ final class FieldDefinitionBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $required;
+
+    /**
+
      * @var ?string
      */
     private $inputHint;
 
     /**
+     * <p>Data type of the Custom Field to define.</p>
+     *
 
      * @return null|FieldType
      */
@@ -54,7 +62,9 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field. The name must be between two and 36 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>). The name must be unique for a given resource type ID. In case there is a field with the same name in another type it has to have the same FieldType also.</p>
+     * <p>Name of the Custom Field to define.
+     * Must be unique for a given <a href="ctp:api:type:ResourceTypeId">ResourceTypeId</a>.
+     * In case there is a FieldDefinition with the same <code>name</code> in another <a href="ctp:api:type:Type">Type</a>, both FieldDefinitions must have the same <code>type</code>.</p>
      *
 
      * @return null|string
@@ -65,6 +75,8 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>A human-readable label for the field.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -74,6 +86,20 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>Defines whether the field is required to have a value.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getRequired()
+    {
+        return $this->required;
+    }
+
+    /**
+     * <p>Defines the visual representation of the field in user interfaces like the Merchant Center.
+     * It is only relevant for string-based <a href="ctp:api:type:FieldType">FieldTypes</a> like <a href="ctp:api:type:CustomFieldStringType">CustomFieldStringType</a> and <a href="ctp:api:type:CustomFieldLocalizedStringType">CustomFieldLocalizedStringType</a>.</p>
+     *
 
      * @return null|string
      */
@@ -111,6 +137,17 @@ final class FieldDefinitionBuilder implements Builder
     public function withLabel(?LocalizedString $label)
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $required
+     * @return $this
+     */
+    public function withRequired(?bool $required)
+    {
+        $this->required = $required;
 
         return $this;
     }
@@ -154,6 +191,7 @@ final class FieldDefinitionBuilder implements Builder
             $this->type instanceof FieldTypeBuilder ? $this->type->build() : $this->type,
             $this->name,
             $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
+            $this->required,
             $this->inputHint
         );
     }

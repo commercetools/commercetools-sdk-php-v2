@@ -42,6 +42,12 @@ final class SetMetaKeywordsChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $catalogData;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -69,6 +75,21 @@ final class SetMetaKeywordsChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue;
+    }
+
+    /**
+     * <p>Product data that was updated.</p>
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        return $this->catalogData;
     }
 
     /**
@@ -105,6 +126,17 @@ final class SetMetaKeywordsChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $catalogData
+     * @return $this
+     */
+    public function withCatalogData(?string $catalogData)
+    {
+        $this->catalogData = $catalogData;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -131,7 +163,8 @@ final class SetMetaKeywordsChangeBuilder implements Builder
         return new SetMetaKeywordsChangeModel(
             $this->change,
             $this->previousValue instanceof LocalizedStringBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->nextValue instanceof LocalizedStringBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->catalogData
         );
     }
 

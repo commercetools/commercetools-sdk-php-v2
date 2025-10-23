@@ -18,6 +18,7 @@ interface ChangeEnumValueLabelChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_FIELD_NAME = 'fieldName';
     public const FIELD_VALUE_KEY = 'valueKey';
+    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
 
     /**
 
@@ -64,6 +65,14 @@ interface ChangeEnumValueLabelChange extends Change
     public function getValueKey();
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAttributeName();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -87,4 +96,9 @@ interface ChangeEnumValueLabelChange extends Change
      * @param ?string $valueKey
      */
     public function setValueKey(?string $valueKey): void;
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void;
 }

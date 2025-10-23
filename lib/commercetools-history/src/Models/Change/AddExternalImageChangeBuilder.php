@@ -47,6 +47,12 @@ final class AddExternalImageChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $variant;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -77,6 +83,7 @@ final class AddExternalImageChangeBuilder implements Builder
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -88,6 +95,18 @@ final class AddExternalImageChangeBuilder implements Builder
     public function getCatalogData()
     {
         return $this->catalogData;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
     }
 
     /**
@@ -134,6 +153,17 @@ final class AddExternalImageChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $variant
+     * @return $this
+     */
+    public function withVariant(?string $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
 
     public function build(): AddExternalImageChange
     {
@@ -141,7 +171,8 @@ final class AddExternalImageChangeBuilder implements Builder
             $this->change,
             $this->previousValue,
             $this->nextValue,
-            $this->catalogData
+            $this->catalogData,
+            $this->variant
         );
     }
 

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @implements Builder<ReturnItem>
@@ -28,15 +29,15 @@ final class ReturnItemBuilder implements Builder
 
     /**
 
-     * @var ?int
+     * @var ?string
      */
-    private $quantity;
+    private $key;
 
     /**
 
-     * @var ?string
+     * @var ?int
      */
-    private $type;
+    private $quantity;
 
     /**
 
@@ -58,17 +59,25 @@ final class ReturnItemBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+
+     * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
 
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+     * <p>Unique identifier of the Return Item.</p>
+     *
 
      * @return null|string
      */
@@ -78,6 +87,19 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Return Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Number of Line Items or Custom Line Items returned.</p>
+     *
 
      * @return null|int
      */
@@ -87,15 +109,8 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
+     * <p>User-defined description for the return.</p>
+     *
 
      * @return null|string
      */
@@ -105,6 +120,8 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Shipment status of the Return Item.</p>
+     *
 
      * @return null|string
      */
@@ -114,6 +131,12 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Payment status of the Return Item:</p>
+     * <ul>
+     * <li><code>NonRefundable</code>, for items in the <code>Advised</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * <li><code>Initial</code>, for items in the <code>Returned</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * </ul>
+     *
 
      * @return null|string
      */
@@ -123,8 +146,21 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields of the Return Item.</p>
+     *
 
-     * @return null|string
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Return Item was last updated.</p>
+     *
+
+     * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
     {
@@ -132,8 +168,10 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Return Item was initially created.</p>
+     *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
     {
@@ -152,23 +190,23 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $type
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
 
         return $this;
     }
@@ -207,10 +245,21 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
-     * @param ?string $lastModifiedAt
+     * @param ?CustomFields $custom
      * @return $this
      */
-    public function withLastModifiedAt(?string $lastModifiedAt)
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
 
@@ -218,26 +267,37 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
-     * @param ?string $createdAt
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
-    public function withCreatedAt(?string $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
 
     public function build(): ReturnItem
     {
         return new ReturnItemModel(
             $this->id,
+            $this->key,
             $this->quantity,
-            $this->type,
             $this->comment,
             $this->shipmentState,
             $this->paymentState,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->lastModifiedAt,
             $this->createdAt
         );

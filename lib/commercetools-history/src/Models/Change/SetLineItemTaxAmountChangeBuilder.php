@@ -62,6 +62,12 @@ final class SetLineItemTaxAmountChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemId;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -103,7 +109,8 @@ final class SetLineItemTaxAmountChangeBuilder implements Builder
     }
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
 
      * @return null|string
@@ -122,6 +129,17 @@ final class SetLineItemTaxAmountChangeBuilder implements Builder
     public function getTaxMode()
     {
         return $this->taxMode;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        return $this->lineItemId;
     }
 
     /**
@@ -191,6 +209,17 @@ final class SetLineItemTaxAmountChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
+     * @return $this
+     */
+    public function withLineItemId(?string $lineItemId)
+    {
+        $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -231,7 +260,8 @@ final class SetLineItemTaxAmountChangeBuilder implements Builder
             $this->nextValue instanceof TaxRateBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
             $this->variant,
-            $this->taxMode
+            $this->taxMode,
+            $this->lineItemId
         );
     }
 

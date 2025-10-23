@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValue;
-use Commercetools\History\Models\ChangeValue\EnumValueModel;
+use Commercetools\History\Models\Common\AttributePlainEnumValue;
+use Commercetools\History\Models\Common\AttributePlainEnumValueModel;
 
 /**
  * @internal
@@ -37,7 +37,7 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
 
     /**
      *
-     * @var ?EnumValue
+     * @var ?AttributePlainEnumValue
      */
     protected $previousValue;
 
@@ -53,7 +53,7 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
      */
     public function __construct(
         ?string $change = null,
-        ?EnumValue $previousValue = null,
+        ?AttributePlainEnumValue $previousValue = null,
         ?string $attributeName = null,
         ?string $type = null
     ) {
@@ -103,7 +103,7 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
      * <p>Value before the change.</p>
      *
      *
-     * @return null|EnumValue
+     * @return null|AttributePlainEnumValue
      */
     public function getPreviousValue()
     {
@@ -114,7 +114,7 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
                 return null;
             }
 
-            $this->previousValue = EnumValueModel::of($data);
+            $this->previousValue = AttributePlainEnumValueModel::of($data);
         }
 
         return $this->previousValue;
@@ -150,9 +150,9 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
     }
 
     /**
-     * @param ?EnumValue $previousValue
+     * @param ?AttributePlainEnumValue $previousValue
      */
-    public function setPreviousValue(?EnumValue $previousValue): void
+    public function setPreviousValue(?AttributePlainEnumValue $previousValue): void
     {
         $this->previousValue = $previousValue;
     }

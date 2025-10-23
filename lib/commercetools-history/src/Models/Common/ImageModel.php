@@ -55,6 +55,8 @@ final class ImageModel extends JsonObjectModel implements Image
     }
 
     /**
+     * <p>URL of the image in its original size that must be unique within a single <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -73,6 +75,8 @@ final class ImageModel extends JsonObjectModel implements Image
     }
 
     /**
+     * <p>Dimensions of the original image.</p>
+     *
      *
      * @return null|ImageDimensions
      */
@@ -92,6 +96,8 @@ final class ImageModel extends JsonObjectModel implements Image
     }
 
     /**
+     * <p>Custom label for the image.</p>
+     *
      *
      * @return null|string
      */

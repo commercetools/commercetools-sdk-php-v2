@@ -1,0 +1,280 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\History\Models\Change;
+
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
+/**
+ * @internal
+ */
+final class SetPriceKeyChangeModel extends JsonObjectModel implements SetPriceKeyChange
+{
+
+    public const DISCRIMINATOR_VALUE = 'SetPriceKeyChange';
+    /**
+     *
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $change;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $catalogData;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $variant;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $priceId;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $previousValue;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $nextValue;
+
+
+    /**
+     * @psalm-suppress MissingParamType
+     */
+    public function __construct(
+        ?string $change = null,
+        ?string $catalogData = null,
+        ?string $variant = null,
+        ?string $priceId = null,
+        ?string $previousValue = null,
+        ?string $nextValue = null,
+        ?string $type = null
+    ) {
+        $this->change = $change;
+        $this->catalogData = $catalogData;
+        $this->variant = $variant;
+        $this->priceId = $priceId;
+        $this->previousValue = $previousValue;
+        $this->nextValue = $nextValue;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     *
+     * @return null|string
+     */
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
+
+    /**
+     *
+     * @return null|string
+     */
+    public function getChange()
+    {
+        if (is_null($this->change)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CHANGE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->change = (string) $data;
+        }
+
+        return $this->change;
+    }
+
+    /**
+     * <p>Product data that was updated.</p>
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+     *
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        if (is_null($this->catalogData)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CATALOG_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->catalogData = (string) $data;
+        }
+
+        return $this->catalogData;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
+    }
+
+    /**
+     * <p><code>id</code> of the Embedded <a href="ctp:api:type:Price">Price</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        if (is_null($this->priceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceId = (string) $data;
+        }
+
+        return $this->priceId;
+    }
+
+    /**
+     * <p>Value before the change.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPreviousValue()
+    {
+        if (is_null($this->previousValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->previousValue = (string) $data;
+        }
+
+        return $this->previousValue;
+    }
+
+    /**
+     * <p>Value after the change.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getNextValue()
+    {
+        if (is_null($this->nextValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_NEXT_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->nextValue = (string) $data;
+        }
+
+        return $this->nextValue;
+    }
+
+
+    /**
+     * @param ?string $change
+     */
+    public function setChange(?string $change): void
+    {
+        $this->change = $change;
+    }
+
+    /**
+     * @param ?string $catalogData
+     */
+    public function setCatalogData(?string $catalogData): void
+    {
+        $this->catalogData = $catalogData;
+    }
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void
+    {
+        $this->variant = $variant;
+    }
+
+    /**
+     * @param ?string $priceId
+     */
+    public function setPriceId(?string $priceId): void
+    {
+        $this->priceId = $priceId;
+    }
+
+    /**
+     * @param ?string $previousValue
+     */
+    public function setPreviousValue(?string $previousValue): void
+    {
+        $this->previousValue = $previousValue;
+    }
+
+    /**
+     * @param ?string $nextValue
+     */
+    public function setNextValue(?string $nextValue): void
+    {
+        $this->nextValue = $nextValue;
+    }
+
+
+
+}

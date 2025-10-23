@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\ChangeValue\EnumValueCollection;
+use Commercetools\History\Models\Common\AttributePlainEnumValueCollection;
 
 interface ChangePlainEnumValueOrderChange extends Change
 {
@@ -35,7 +35,7 @@ interface ChangePlainEnumValueOrderChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|EnumValueCollection
+     * @return null|AttributePlainEnumValueCollection
      */
     public function getPreviousValue();
 
@@ -43,7 +43,7 @@ interface ChangePlainEnumValueOrderChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|EnumValueCollection
+     * @return null|AttributePlainEnumValueCollection
      */
     public function getNextValue();
 
@@ -61,14 +61,14 @@ interface ChangePlainEnumValueOrderChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?AttributePlainEnumValueCollection $previousValue
      */
-    public function setPreviousValue(?EnumValueCollection $previousValue): void;
+    public function setPreviousValue(?AttributePlainEnumValueCollection $previousValue): void;
 
     /**
-     * @param ?EnumValueCollection $nextValue
+     * @param ?AttributePlainEnumValueCollection $nextValue
      */
-    public function setNextValue(?EnumValueCollection $nextValue): void;
+    public function setNextValue(?AttributePlainEnumValueCollection $nextValue): void;
 
     /**
      * @param ?string $attributeName

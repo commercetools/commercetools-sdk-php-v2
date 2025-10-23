@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\AttributeValue;
-use Commercetools\History\Models\ChangeValue\AttributeValueModel;
+use Commercetools\History\Models\Common\Attribute;
+use Commercetools\History\Models\Common\AttributeModel;
 
 /**
  * @internal
@@ -37,13 +37,13 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
 
     /**
      *
-     * @var ?AttributeValue
+     * @var ?Attribute
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?AttributeValue
+     * @var ?Attribute
      */
     protected $nextValue;
 
@@ -53,21 +53,29 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
      */
     protected $catalogData;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $variant;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?AttributeValue $previousValue = null,
-        ?AttributeValue $nextValue = null,
+        ?Attribute $previousValue = null,
+        ?Attribute $nextValue = null,
         ?string $catalogData = null,
+        ?string $variant = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->catalogData = $catalogData;
+        $this->variant = $variant;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -111,7 +119,7 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
      * <p>Value before the change.</p>
      *
      *
-     * @return null|AttributeValue
+     * @return null|Attribute
      */
     public function getPreviousValue()
     {
@@ -122,7 +130,7 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
                 return null;
             }
 
-            $this->previousValue = AttributeValueModel::of($data);
+            $this->previousValue = AttributeModel::of($data);
         }
 
         return $this->previousValue;
@@ -132,7 +140,7 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
      * <p>Value after the change.</p>
      *
      *
-     * @return null|AttributeValue
+     * @return null|Attribute
      */
     public function getNextValue()
     {
@@ -143,13 +151,14 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
                 return null;
             }
 
-            $this->nextValue = AttributeValueModel::of($data);
+            $this->nextValue = AttributeModel::of($data);
         }
 
         return $this->nextValue;
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -172,6 +181,27 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
         return $this->catalogData;
     }
 
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
+    }
+
 
     /**
      * @param ?string $change
@@ -182,17 +212,17 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     }
 
     /**
-     * @param ?AttributeValue $previousValue
+     * @param ?Attribute $previousValue
      */
-    public function setPreviousValue(?AttributeValue $previousValue): void
+    public function setPreviousValue(?Attribute $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?AttributeValue $nextValue
+     * @param ?Attribute $nextValue
      */
-    public function setNextValue(?AttributeValue $nextValue): void
+    public function setNextValue(?Attribute $nextValue): void
     {
         $this->nextValue = $nextValue;
     }
@@ -203,6 +233,14 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     public function setCatalogData(?string $catalogData): void
     {
         $this->catalogData = $catalogData;
+    }
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void
+    {
+        $this->variant = $variant;
     }
 
 

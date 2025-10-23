@@ -46,6 +46,18 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?ProductSelectionSettingCollection
+     */
+    protected $addedItems;
+
+    /**
+     *
+     * @var ?ProductSelectionSettingCollection
+     */
+    protected $removedItems;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -54,11 +66,15 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
         ?string $change = null,
         ?ProductSelectionSettingCollection $previousValue = null,
         ?ProductSelectionSettingCollection $nextValue = null,
+        ?ProductSelectionSettingCollection $addedItems = null,
+        ?ProductSelectionSettingCollection $removedItems = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->addedItems = $addedItems;
+        $this->removedItems = $removedItems;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -138,6 +154,46 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
         return $this->nextValue;
     }
 
+    /**
+     * <p>Elements added to the array.</p>
+     *
+     *
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getAddedItems()
+    {
+        if (is_null($this->addedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ADDED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addedItems = ProductSelectionSettingCollection::fromArray($data);
+        }
+
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+     *
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getRemovedItems()
+    {
+        if (is_null($this->removedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_REMOVED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedItems = ProductSelectionSettingCollection::fromArray($data);
+        }
+
+        return $this->removedItems;
+    }
+
 
     /**
      * @param ?string $change
@@ -161,6 +217,22 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
     public function setNextValue(?ProductSelectionSettingCollection $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?ProductSelectionSettingCollection $addedItems
+     */
+    public function setAddedItems(?ProductSelectionSettingCollection $addedItems): void
+    {
+        $this->addedItems = $addedItems;
+    }
+
+    /**
+     * @param ?ProductSelectionSettingCollection $removedItems
+     */
+    public function setRemovedItems(?ProductSelectionSettingCollection $removedItems): void
+    {
+        $this->removedItems = $removedItems;
     }
 
 

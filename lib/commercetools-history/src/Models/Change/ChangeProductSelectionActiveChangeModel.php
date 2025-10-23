@@ -121,8 +121,8 @@ final class ChangeProductSelectionActiveChangeModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-
-            $this->productSelection = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->productSelection = $className::of($data);
         }
 
         return $this->productSelection;

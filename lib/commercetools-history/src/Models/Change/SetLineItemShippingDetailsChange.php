@@ -11,6 +11,7 @@ namespace Commercetools\History\Models\Change;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\History\Models\Common\ItemShippingDetails;
+use Commercetools\History\Models\Common\LocalizedString;
 
 interface SetLineItemShippingDetailsChange extends Change
 {
@@ -18,6 +19,8 @@ interface SetLineItemShippingDetailsChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_LINE_ITEM = 'lineItem';
+    public const FIELD_VARIANT = 'variant';
 
     /**
 
@@ -56,6 +59,23 @@ interface SetLineItemShippingDetailsChange extends Change
     public function getLineItemId();
 
     /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem();
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -74,4 +94,14 @@ interface SetLineItemShippingDetailsChange extends Change
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?LocalizedString $lineItem
+     */
+    public function setLineItem(?LocalizedString $lineItem): void;
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void;
 }

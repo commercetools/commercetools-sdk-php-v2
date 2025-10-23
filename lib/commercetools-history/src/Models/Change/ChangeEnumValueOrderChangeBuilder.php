@@ -14,7 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValueCollection;
+use Commercetools\History\Models\Common\CustomFieldEnumValueCollection;
 
 /**
  * @implements Builder<ChangeEnumValueOrderChange>
@@ -29,13 +29,13 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
 
     /**
 
-     * @var ?EnumValueCollection
+     * @var ?CustomFieldEnumValueCollection
      */
     private $previousValue;
 
     /**
 
-     * @var ?EnumValueCollection
+     * @var ?CustomFieldEnumValueCollection
      */
     private $nextValue;
 
@@ -44,6 +44,12 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
      * @var ?string
      */
     private $fieldName;
+
+    /**
+
+     * @var ?string
+     */
+    private $attributeName;
 
     /**
 
@@ -58,7 +64,7 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|EnumValueCollection
+     * @return null|CustomFieldEnumValueCollection
      */
     public function getPreviousValue()
     {
@@ -69,7 +75,7 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
      * <p>Value after the change.</p>
      *
 
-     * @return null|EnumValueCollection
+     * @return null|CustomFieldEnumValueCollection
      */
     public function getNextValue()
     {
@@ -88,6 +94,17 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        return $this->attributeName;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
@@ -99,10 +116,10 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?CustomFieldEnumValueCollection $previousValue
      * @return $this
      */
-    public function withPreviousValue(?EnumValueCollection $previousValue)
+    public function withPreviousValue(?CustomFieldEnumValueCollection $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -110,10 +127,10 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?EnumValueCollection $nextValue
+     * @param ?CustomFieldEnumValueCollection $nextValue
      * @return $this
      */
-    public function withNextValue(?EnumValueCollection $nextValue)
+    public function withNextValue(?CustomFieldEnumValueCollection $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -131,6 +148,17 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $attributeName
+     * @return $this
+     */
+    public function withAttributeName(?string $attributeName)
+    {
+        $this->attributeName = $attributeName;
+
+        return $this;
+    }
+
 
     public function build(): ChangeEnumValueOrderChange
     {
@@ -138,7 +166,8 @@ final class ChangeEnumValueOrderChangeBuilder implements Builder
             $this->change,
             $this->previousValue,
             $this->nextValue,
-            $this->fieldName
+            $this->fieldName,
+            $this->attributeName
         );
     }
 

@@ -28,13 +28,19 @@ final class CustomLineItemBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $money;
 
@@ -46,7 +52,13 @@ final class CustomLineItemBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var ?MethodTaxedPriceCollection
+     */
+    private $taxedPricePortions;
+
+    /**
+
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $totalPrice;
 
@@ -63,7 +75,61 @@ final class CustomLineItemBuilder implements Builder
     private $quantity;
 
     /**
-     * <p>The unique ID of this CustomLineItem.</p>
+
+     * @var ?ItemStateCollection
+     */
+    private $state;
+
+    /**
+
+     * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
+     */
+    private $taxCategory;
+
+    /**
+
+     * @var null|TaxRate|TaxRateBuilder
+     */
+    private $taxRate;
+
+    /**
+
+     * @var ?MethodTaxRateCollection
+     */
+    private $perMethodTaxRate;
+
+    /**
+
+     * @var ?DiscountedLineItemPriceForQuantityCollection
+     */
+    private $discountedPricePerQuantity;
+
+    /**
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+
+     * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
+     */
+    private $shippingDetails;
+
+    /**
+
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
+
+     * @var null|CustomLineItemRecurrenceInfo|CustomLineItemRecurrenceInfoBuilder
+     */
+    private $recurrenceInfo;
+
+    /**
+     * <p>Unique identifier of the Custom Line Item.</p>
      *
 
      * @return null|string
@@ -74,6 +140,19 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Name of the Custom Line Item.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -83,15 +162,19 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Money value of the Custom Line Item.</p>
+     *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getMoney()
     {
-        return $this->money instanceof MoneyBuilder ? $this->money->build() : $this->money;
+        return $this->money instanceof TypedMoneyBuilder ? $this->money->build() : $this->money;
     }
 
     /**
+     * <p>Automatically set after the <code>taxRate</code> is set.</p>
+     *
 
      * @return null|TaxedItemPrice
      */
@@ -101,16 +184,33 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Total taxed prices based on the quantity of the Custom Line Item assigned to each <a href="ctp:api:type:ShippingMethod">Shipping Method</a>. Only applicable for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Automatically set after <code>perMethodTaxRate</code> is set.</p>
+     *
 
-     * @return null|Money
+     * @return null|MethodTaxedPriceCollection
      */
-    public function getTotalPrice()
+    public function getTaxedPricePortions()
     {
-        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+        return $this->taxedPricePortions;
     }
 
     /**
-     * <p>A unique String in the cart to identify this CustomLineItem.</p>
+     * <p>Total price of the Custom Line Item (<code>money</code> multiplied by <code>quantity</code>).
+     * If the Custom Line Item is discounted, the total price is <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>.</p>
+     * <p>Includes taxes if the <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
+     *
+
+     * @return null|CentPrecisionMoney
+     */
+    public function getTotalPrice()
+    {
+        return $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+    }
+
+    /**
+     * <p>User-defined identifier used in a deep-link URL for the Custom Line Item.
+     * It matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
      *
 
      * @return null|string
@@ -121,7 +221,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>The amount of a CustomLineItem in the cart. Must be a positive integer.</p>
+     * <p>Number of Custom Line Items in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|int
@@ -132,12 +232,126 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Tracks specific quantities of the Custom Line Item within a given State. When a Custom Line Item is added to a Cart, its full quantity is set to the built-in &quot;Initial&quot; state. State transitions for Custom Line Items are managed on the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
+
+     * @return null|ItemStateCollection
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * <p>Used to select a Tax Rate when a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+
+     * @return null|TaxCategoryReference
+     */
+    public function getTaxCategory()
+    {
+        return $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory;
+    }
+
+    /**
+     * <ul>
+     * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the <code>taxRate</code> of Custom Line Items is set automatically once a shipping address is set. The rate is based on the <a href="ctp:api:type:TaxCategory">TaxCategory</a> that applies for the shipping address.</li>
+     * <li>For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Custom Line Items can be set using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</li>
+     * </ul>
+     *
+
+     * @return null|TaxRate
+     */
+    public function getTaxRate()
+    {
+        return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
+    }
+
+    /**
+     * <p>Tax Rate per Shipping Method for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> it is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.
+     * For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|MethodTaxRateCollection
+     */
+    public function getPerMethodTaxRate()
+    {
+        return $this->perMethodTaxRate;
+    }
+
+    /**
+     * <p>Discounted price of a single quantity of the Custom Line Item.</p>
+     *
+
+     * @return null|DiscountedLineItemPriceForQuantityCollection
+     */
+    public function getDiscountedPricePerQuantity()
+    {
+        return $this->discountedPricePerQuantity;
+    }
+
+    /**
+     * <p>Custom Fields of the Custom Line Item.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Container for Custom Line Item-specific addresses.</p>
+     *
+
+     * @return null|ItemShippingDetails
+     */
+    public function getShippingDetails()
+    {
+        return $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <p>Indicates whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>, <a href="ctp:api:type:MultiBuyCustomLineItemsTarget">MultiBuyCustomLineItemsTarget</a>, or <a href="ctp:api:type:CartDiscountPatternTarget">CartDiscountPatternTarget</a> are applied to the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
+    }
+
+    /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+
+     * @return null|CustomLineItemRecurrenceInfo
+     */
+    public function getRecurrenceInfo()
+    {
+        return $this->recurrenceInfo instanceof CustomLineItemRecurrenceInfoBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -154,10 +368,10 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * @param ?Money $money
+     * @param ?TypedMoney $money
      * @return $this
      */
-    public function withMoney(?Money $money)
+    public function withMoney(?TypedMoney $money)
     {
         $this->money = $money;
 
@@ -176,10 +390,21 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * @param ?Money $totalPrice
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
      * @return $this
      */
-    public function withTotalPrice(?Money $totalPrice)
+    public function withTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions)
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CentPrecisionMoney $totalPrice
+     * @return $this
+     */
+    public function withTotalPrice(?CentPrecisionMoney $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -209,6 +434,105 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ItemStateCollection $state
+     * @return $this
+     */
+    public function withState(?ItemStateCollection $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     * @return $this
+     */
+    public function withTaxCategory(?TaxCategoryReference $taxCategory)
+    {
+        $this->taxCategory = $taxCategory;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TaxRate $taxRate
+     * @return $this
+     */
+    public function withTaxRate(?TaxRate $taxRate)
+    {
+        $this->taxRate = $taxRate;
+
+        return $this;
+    }
+
+    /**
+     * @param ?MethodTaxRateCollection $perMethodTaxRate
+     * @return $this
+     */
+    public function withPerMethodTaxRate(?MethodTaxRateCollection $perMethodTaxRate)
+    {
+        $this->perMethodTaxRate = $perMethodTaxRate;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     * @return $this
+     */
+    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
+    {
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ItemShippingDetails $shippingDetails
+     * @return $this
+     */
+    public function withShippingDetails(?ItemShippingDetails $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomLineItemRecurrenceInfo $recurrenceInfo
+     * @return $this
+     */
+    public function withRecurrenceInfo(?CustomLineItemRecurrenceInfo $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -223,7 +547,7 @@ final class CustomLineItemBuilder implements Builder
      * @deprecated use withMoney() instead
      * @return $this
      */
-    public function withMoneyBuilder(?MoneyBuilder $money)
+    public function withMoneyBuilder(?TypedMoneyBuilder $money)
     {
         $this->money = $money;
 
@@ -245,9 +569,64 @@ final class CustomLineItemBuilder implements Builder
      * @deprecated use withTotalPrice() instead
      * @return $this
      */
-    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?CentPrecisionMoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withTaxCategory() instead
+     * @return $this
+     */
+    public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
+    {
+        $this->taxCategory = $taxCategory;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withTaxRate() instead
+     * @return $this
+     */
+    public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
+    {
+        $this->taxRate = $taxRate;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withShippingDetails() instead
+     * @return $this
+     */
+    public function withShippingDetailsBuilder(?ItemShippingDetailsBuilder $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withRecurrenceInfo() instead
+     * @return $this
+     */
+    public function withRecurrenceInfoBuilder(?CustomLineItemRecurrenceInfoBuilder $recurrenceInfo)
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
 
         return $this;
     }
@@ -256,12 +635,23 @@ final class CustomLineItemBuilder implements Builder
     {
         return new CustomLineItemModel(
             $this->id,
+            $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
-            $this->money instanceof MoneyBuilder ? $this->money->build() : $this->money,
+            $this->money instanceof TypedMoneyBuilder ? $this->money->build() : $this->money,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
-            $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
+            $this->taxedPricePortions,
+            $this->totalPrice instanceof CentPrecisionMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->slug,
-            $this->quantity
+            $this->quantity,
+            $this->state,
+            $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
+            $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
+            $this->perMethodTaxRate,
+            $this->discountedPricePerQuantity,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->priceMode,
+            $this->recurrenceInfo instanceof CustomLineItemRecurrenceInfoBuilder ? $this->recurrenceInfo->build() : $this->recurrenceInfo
         );
     }
 

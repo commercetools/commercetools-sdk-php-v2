@@ -22,7 +22,7 @@ final class ProductSelectionSettingBuilder implements Builder
 {
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var null|ProductSelectionReference|ProductSelectionReferenceBuilder
      */
     private $productSelection;
 
@@ -33,15 +33,19 @@ final class ProductSelectionSettingBuilder implements Builder
     private $active;
 
     /**
+     * <p>Reference to a ProductSelection.</p>
+     *
 
-     * @return null|Reference
+     * @return null|ProductSelectionReference
      */
     public function getProductSelection()
     {
-        return $this->productSelection instanceof ReferenceBuilder ? $this->productSelection->build() : $this->productSelection;
+        return $this->productSelection instanceof ProductSelectionReferenceBuilder ? $this->productSelection->build() : $this->productSelection;
     }
 
     /**
+     * <p>If <code>true</code>, all Products assigned to this Product Selection are part of the Store's assortment.</p>
+     *
 
      * @return null|bool
      */
@@ -51,10 +55,10 @@ final class ProductSelectionSettingBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $productSelection
+     * @param ?ProductSelectionReference $productSelection
      * @return $this
      */
-    public function withProductSelection(?Reference $productSelection)
+    public function withProductSelection(?ProductSelectionReference $productSelection)
     {
         $this->productSelection = $productSelection;
 
@@ -76,7 +80,7 @@ final class ProductSelectionSettingBuilder implements Builder
      * @deprecated use withProductSelection() instead
      * @return $this
      */
-    public function withProductSelectionBuilder(?ReferenceBuilder $productSelection)
+    public function withProductSelectionBuilder(?ProductSelectionReferenceBuilder $productSelection)
     {
         $this->productSelection = $productSelection;
 
@@ -86,7 +90,7 @@ final class ProductSelectionSettingBuilder implements Builder
     public function build(): ProductSelectionSetting
     {
         return new ProductSelectionSettingModel(
-            $this->productSelection instanceof ReferenceBuilder ? $this->productSelection->build() : $this->productSelection,
+            $this->productSelection instanceof ProductSelectionReferenceBuilder ? $this->productSelection->build() : $this->productSelection,
             $this->active
         );
     }

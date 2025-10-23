@@ -8,30 +8,39 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Common;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\Base\MapperMap;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CategoryOrderHints>
+ * @extends MapperMap<CategoryOrderHints>
  */
-final class CategoryOrderHintsBuilder implements Builder
+final class CategoryOrderHintsBuilder extends MapperMap implements Builder
 {
-
-
-
-
-    public function build(): CategoryOrderHints
+    /**
+     * @psalm-return callable(string):?CategoryOrderHints
+     */
+    protected function mapper()
     {
-        return new CategoryOrderHintsModel(
-        );
+        return
+            /**
+             * @psalm-return ?CategoryOrderHints
+             */
+            function(string $key) {
+                $data = $this->get($key);
+                if ($data instanceof stdClass) {
+                    $data = CategoryOrderHintsModel::of($data);
+                }
+                return $data;
+            };
     }
 
-    public static function of(): CategoryOrderHintsBuilder
+    /**
+     * @return CategoryOrderHints
+     */
+    public function build()
     {
-        return new self();
+        return new CategoryOrderHintsModel($this->toArray());
     }
 }

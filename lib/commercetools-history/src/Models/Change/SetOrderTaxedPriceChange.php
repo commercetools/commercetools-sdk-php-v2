@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\TaxedItemPrice;
+use Commercetools\History\Models\Common\TaxedPrice;
 
 interface SetOrderTaxedPriceChange extends Change
 {
@@ -35,7 +35,7 @@ interface SetOrderTaxedPriceChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|TaxedItemPrice
+     * @return null|TaxedPrice
      */
     public function getPreviousValue();
 
@@ -43,11 +43,13 @@ interface SetOrderTaxedPriceChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|TaxedItemPrice
+     * @return null|TaxedPrice
      */
     public function getNextValue();
 
     /**
+     * <p>Indicates how taxes are set on the Cart.</p>
+     *
 
      * @return null|string
      */
@@ -59,14 +61,14 @@ interface SetOrderTaxedPriceChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?TaxedItemPrice $previousValue
+     * @param ?TaxedPrice $previousValue
      */
-    public function setPreviousValue(?TaxedItemPrice $previousValue): void;
+    public function setPreviousValue(?TaxedPrice $previousValue): void;
 
     /**
-     * @param ?TaxedItemPrice $nextValue
+     * @param ?TaxedPrice $nextValue
      */
-    public function setNextValue(?TaxedItemPrice $nextValue): void;
+    public function setNextValue(?TaxedPrice $nextValue): void;
 
     /**
      * @param ?string $taxMode

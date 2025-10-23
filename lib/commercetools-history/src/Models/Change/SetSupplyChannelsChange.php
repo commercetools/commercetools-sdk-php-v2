@@ -17,6 +17,8 @@ interface SetSupplyChannelsChange extends Change
 
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ADDED_ITEMS = 'addedItems';
+    public const FIELD_REMOVED_ITEMS = 'removedItems';
 
     /**
 
@@ -47,6 +49,22 @@ interface SetSupplyChannelsChange extends Change
     public function getNextValue();
 
     /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|ReferenceCollection
+     */
+    public function getAddedItems();
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|ReferenceCollection
+     */
+    public function getRemovedItems();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -60,4 +78,14 @@ interface SetSupplyChannelsChange extends Change
      * @param ?ReferenceCollection $nextValue
      */
     public function setNextValue(?ReferenceCollection $nextValue): void;
+
+    /**
+     * @param ?ReferenceCollection $addedItems
+     */
+    public function setAddedItems(?ReferenceCollection $addedItems): void;
+
+    /**
+     * @param ?ReferenceCollection $removedItems
+     */
+    public function setRemovedItems(?ReferenceCollection $removedItems): void;
 }

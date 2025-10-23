@@ -91,6 +91,8 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
     /**
+     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
+     *
      *
      * @return null|string
      */

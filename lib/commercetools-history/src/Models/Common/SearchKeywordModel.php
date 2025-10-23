@@ -47,6 +47,8 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
+     * <p>Text to return in the <a href="ctp:api:type:SuggestionResult">SuggestionResult</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -65,6 +67,8 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
+     * <p>If no tokenizer is defined, the <code>text</code> is used as a single token.</p>
+     *
      *
      * @return null|SuggestTokenizer
      */
@@ -76,8 +80,8 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
             if (is_null($data)) {
                 return null;
             }
-
-            $this->suggestTokenizer = SuggestTokenizerModel::of($data);
+            $className = SuggestTokenizerModel::resolveDiscriminatorClass($data);
+            $this->suggestTokenizer = $className::of($data);
         }
 
         return $this->suggestTokenizer;

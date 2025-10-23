@@ -8,13 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Common;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\CMap;
 
-interface SearchKeywords extends JsonObject
+interface SearchKeywords extends CMap
 {
-
-    public const FIELD_PATTERN0 = '/^[a-z]{2}(-[A-Z]{2})?$/';
-
-
 }

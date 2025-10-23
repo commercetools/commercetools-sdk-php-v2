@@ -58,6 +58,18 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
      */
     protected $variant;
 
+    /**
+     *
+     * @var ?PriceCollection
+     */
+    protected $addedItems;
+
+    /**
+     *
+     * @var ?PriceCollection
+     */
+    protected $removedItems;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -68,6 +80,8 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
         ?PriceCollection $nextValue = null,
         ?string $catalogData = null,
         ?string $variant = null,
+        ?PriceCollection $addedItems = null,
+        ?PriceCollection $removedItems = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -75,6 +89,8 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
         $this->nextValue = $nextValue;
         $this->catalogData = $catalogData;
         $this->variant = $variant;
+        $this->addedItems = $addedItems;
+        $this->removedItems = $removedItems;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -155,6 +171,7 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -178,7 +195,8 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
     }
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
      *
      * @return null|string
@@ -195,6 +213,46 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
         }
 
         return $this->variant;
+    }
+
+    /**
+     * <p>Elements added to the array.</p>
+     *
+     *
+     * @return null|PriceCollection
+     */
+    public function getAddedItems()
+    {
+        if (is_null($this->addedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ADDED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addedItems = PriceCollection::fromArray($data);
+        }
+
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+     *
+     * @return null|PriceCollection
+     */
+    public function getRemovedItems()
+    {
+        if (is_null($this->removedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_REMOVED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedItems = PriceCollection::fromArray($data);
+        }
+
+        return $this->removedItems;
     }
 
 
@@ -236,6 +294,22 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
     public function setVariant(?string $variant): void
     {
         $this->variant = $variant;
+    }
+
+    /**
+     * @param ?PriceCollection $addedItems
+     */
+    public function setAddedItems(?PriceCollection $addedItems): void
+    {
+        $this->addedItems = $addedItems;
+    }
+
+    /**
+     * @param ?PriceCollection $removedItems
+     */
+    public function setRemovedItems(?PriceCollection $removedItems): void
+    {
+        $this->removedItems = $removedItems;
     }
 
 

@@ -20,7 +20,7 @@ use stdClass;
 final class ProductVariantSelectionModel extends JsonObjectModel implements ProductVariantSelection
 {
 
-
+    public const DISCRIMINATOR_VALUE = '';
     /**
      *
      * @var ?string
@@ -28,25 +28,25 @@ final class ProductVariantSelectionModel extends JsonObjectModel implements Prod
     protected $type;
 
     /**
-     *
-     * @var ?array
+     * @psalm-var array<string, class-string<ProductVariantSelection> >
+     * 
      */
-    protected $skus;
-
+    private static $discriminatorClasses = [
+    ];
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $type = null,
-        ?array $skus = null
+        ?string $type = null
     ) {
         $this->type = $type;
-        $this->skus = $skus;
 
     }
 
     /**
+     * <p>Determines whether the SKUs are to be included in, or excluded from, the Product Selection.</p>
+     *
      *
      * @return null|string
      */
@@ -64,41 +64,34 @@ final class ProductVariantSelectionModel extends JsonObjectModel implements Prod
         return $this->type;
     }
 
-    /**
-     *
-     * @return null|array
-     */
-    public function getSkus()
-    {
-        if (is_null($this->skus)) {
-            /** @psalm-var ?list<mixed> $data */
-            $data = $this->raw(self::FIELD_SKUS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->skus = $data;
-        }
 
-        return $this->skus;
-    }
+
 
 
     /**
-     * @param ?string $type
+     * @psalm-param stdClass|array<string, mixed> $value
+     * @psalm-return class-string<ProductVariantSelection>
      */
-    public function setType(?string $type): void
+    public static function resolveDiscriminatorClass($value): string
     {
-        $this->type = $type;
+       $fieldName = ProductVariantSelection::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
+                return self::$discriminatorClasses[$discriminatorValue];
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
+                return self::$discriminatorClasses[$discriminatorValue];
+           }
+       }
+
+       /** @psalm-var class-string<ProductVariantSelection> */
+       $type = ProductVariantSelectionModel::class;
+       return $type;
     }
-
-    /**
-     * @param ?array $skus
-     */
-    public function setSkus(?array $skus): void
-    {
-        $this->skus = $skus;
-    }
-
-
-
 }

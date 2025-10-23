@@ -41,6 +41,18 @@ final class SetProductSelectionsChangeBuilder implements Builder
 
     /**
 
+     * @var ?ProductSelectionSettingCollection
+     */
+    private $addedItems;
+
+    /**
+
+     * @var ?ProductSelectionSettingCollection
+     */
+    private $removedItems;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -68,6 +80,28 @@ final class SetProductSelectionsChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue;
+    }
+
+    /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getAddedItems()
+    {
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getRemovedItems()
+    {
+        return $this->removedItems;
     }
 
     /**
@@ -103,13 +137,37 @@ final class SetProductSelectionsChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?ProductSelectionSettingCollection $addedItems
+     * @return $this
+     */
+    public function withAddedItems(?ProductSelectionSettingCollection $addedItems)
+    {
+        $this->addedItems = $addedItems;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductSelectionSettingCollection $removedItems
+     * @return $this
+     */
+    public function withRemovedItems(?ProductSelectionSettingCollection $removedItems)
+    {
+        $this->removedItems = $removedItems;
+
+        return $this;
+    }
+
 
     public function build(): SetProductSelectionsChange
     {
         return new SetProductSelectionsChangeModel(
             $this->change,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->addedItems,
+            $this->removedItems
         );
     }
 

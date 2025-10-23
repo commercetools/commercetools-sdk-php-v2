@@ -20,6 +20,7 @@ interface SetLineItemTaxedPriceChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_LINE_ITEM = 'lineItem';
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_VARIANT = 'variant';
 
     /**
 
@@ -66,6 +67,15 @@ interface SetLineItemTaxedPriceChange extends Change
     public function getLineItemId();
 
     /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -89,4 +99,9 @@ interface SetLineItemTaxedPriceChange extends Change
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void;
 }

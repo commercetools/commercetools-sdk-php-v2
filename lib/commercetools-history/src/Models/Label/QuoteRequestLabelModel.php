@@ -107,8 +107,8 @@ final class QuoteRequestLabelModel extends JsonObjectModel implements QuoteReque
             if (is_null($data)) {
                 return null;
             }
-
-            $this->customer = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->customer = $className::of($data);
         }
 
         return $this->customer;

@@ -53,6 +53,18 @@ final class SetProductPriceCustomTypeChangeModel extends JsonObjectModel impleme
      */
     protected $catalogData;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $variant;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $priceId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -62,12 +74,16 @@ final class SetProductPriceCustomTypeChangeModel extends JsonObjectModel impleme
         ?CustomFields $previousValue = null,
         ?CustomFields $nextValue = null,
         ?string $catalogData = null,
+        ?string $variant = null,
+        ?string $priceId = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->catalogData = $catalogData;
+        $this->variant = $variant;
+        $this->priceId = $priceId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -150,6 +166,7 @@ final class SetProductPriceCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -170,6 +187,47 @@ final class SetProductPriceCustomTypeChangeModel extends JsonObjectModel impleme
         }
 
         return $this->catalogData;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
+    }
+
+    /**
+     * <p><code>id</code> of the Embedded <a href="ctp:api:type:Price">Price</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        if (is_null($this->priceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceId = (string) $data;
+        }
+
+        return $this->priceId;
     }
 
 
@@ -203,6 +261,22 @@ final class SetProductPriceCustomTypeChangeModel extends JsonObjectModel impleme
     public function setCatalogData(?string $catalogData): void
     {
         $this->catalogData = $catalogData;
+    }
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void
+    {
+        $this->variant = $variant;
+    }
+
+    /**
+     * @param ?string $priceId
+     */
+    public function setPriceId(?string $priceId): void
+    {
+        $this->priceId = $priceId;
     }
 
 

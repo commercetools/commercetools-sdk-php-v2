@@ -54,6 +54,12 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
      */
     protected $category;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $catalogData;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -63,12 +69,14 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
         ?ReferenceCollection $previousValue = null,
         ?ReferenceCollection $nextValue = null,
         ?Reference $category = null,
+        ?string $catalogData = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->category = $category;
+        $this->catalogData = $catalogData;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -162,11 +170,35 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
             if (is_null($data)) {
                 return null;
             }
-
-            $this->category = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->category = $className::of($data);
         }
 
         return $this->category;
+    }
+
+    /**
+     * <p>Product data that was updated.</p>
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+     *
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        if (is_null($this->catalogData)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CATALOG_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->catalogData = (string) $data;
+        }
+
+        return $this->catalogData;
     }
 
 
@@ -200,6 +232,14 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     public function setCategory(?Reference $category): void
     {
         $this->category = $category;
+    }
+
+    /**
+     * @param ?string $catalogData
+     */
+    public function setCatalogData(?string $catalogData): void
+    {
+        $this->catalogData = $catalogData;
     }
 
 

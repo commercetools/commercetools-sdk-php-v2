@@ -23,34 +23,50 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
 
     /**
      *
-     * @var ?Money
+     * @var ?CentPrecisionMoney
      */
     protected $totalNet;
 
     /**
      *
-     * @var ?Money
+     * @var ?CentPrecisionMoney
      */
     protected $totalGross;
+
+    /**
+     *
+     * @var ?TaxPortionCollection
+     */
+    protected $taxPortions;
+
+    /**
+     *
+     * @var ?CentPrecisionMoney
+     */
+    protected $totalTax;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Money $totalNet = null,
-        ?Money $totalGross = null
+        ?CentPrecisionMoney $totalNet = null,
+        ?CentPrecisionMoney $totalGross = null,
+        ?TaxPortionCollection $taxPortions = null,
+        ?CentPrecisionMoney $totalTax = null
     ) {
         $this->totalNet = $totalNet;
         $this->totalGross = $totalGross;
+        $this->taxPortions = $taxPortions;
+        $this->totalTax = $totalTax;
 
     }
 
     /**
-     * <p>Total net price of the Order.</p>
+     * <p>Total net price of the Cart or Order.</p>
      *
      *
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getTotalNet()
     {
@@ -61,17 +77,17 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
                 return null;
             }
 
-            $this->totalNet = MoneyModel::of($data);
+            $this->totalNet = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->totalNet;
     }
 
     /**
-     * <p>Total gross price of the Order.</p>
+     * <p>Total gross price of the Cart or Order.</p>
      *
      *
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getTotalGross()
     {
@@ -82,27 +98,86 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
                 return null;
             }
 
-            $this->totalGross = MoneyModel::of($data);
+            $this->totalGross = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->totalGross;
     }
 
+    /**
+     * <p>Taxable portions added to the total net price.</p>
+     * <p>Calculated from the <a href="ctp:api:type:TaxRate">TaxRates</a>.</p>
+     *
+     *
+     * @return null|TaxPortionCollection
+     */
+    public function getTaxPortions()
+    {
+        if (is_null($this->taxPortions)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TAX_PORTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxPortions = TaxPortionCollection::fromArray($data);
+        }
+
+        return $this->taxPortions;
+    }
 
     /**
-     * @param ?Money $totalNet
+     * <p>Total tax applicable for the Cart or Order.</p>
+     * <p>Automatically calculated as the difference between the <code>totalGross</code> and <code>totalNet</code> values.</p>
+     *
+     *
+     * @return null|CentPrecisionMoney
      */
-    public function setTotalNet(?Money $totalNet): void
+    public function getTotalTax()
+    {
+        if (is_null($this->totalTax)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TOTAL_TAX);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalTax = CentPrecisionMoneyModel::of($data);
+        }
+
+        return $this->totalTax;
+    }
+
+
+    /**
+     * @param ?CentPrecisionMoney $totalNet
+     */
+    public function setTotalNet(?CentPrecisionMoney $totalNet): void
     {
         $this->totalNet = $totalNet;
     }
 
     /**
-     * @param ?Money $totalGross
+     * @param ?CentPrecisionMoney $totalGross
      */
-    public function setTotalGross(?Money $totalGross): void
+    public function setTotalGross(?CentPrecisionMoney $totalGross): void
     {
         $this->totalGross = $totalGross;
+    }
+
+    /**
+     * @param ?TaxPortionCollection $taxPortions
+     */
+    public function setTaxPortions(?TaxPortionCollection $taxPortions): void
+    {
+        $this->taxPortions = $taxPortions;
+    }
+
+    /**
+     * @param ?CentPrecisionMoney $totalTax
+     */
+    public function setTotalTax(?CentPrecisionMoney $totalTax): void
+    {
+        $this->totalTax = $totalTax;
     }
 
 

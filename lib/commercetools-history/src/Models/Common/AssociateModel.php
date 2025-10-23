@@ -29,7 +29,13 @@ final class AssociateModel extends JsonObjectModel implements Associate
 
     /**
      *
-     * @var ?Reference
+     * @var ?array
+     */
+    protected $roles;
+
+    /**
+     *
+     * @var ?CustomerReference
      */
     protected $customer;
 
@@ -39,14 +45,18 @@ final class AssociateModel extends JsonObjectModel implements Associate
      */
     public function __construct(
         ?AssociateRoleAssignmentCollection $associateRoleAssignments = null,
-        ?Reference $customer = null
+        ?array $roles = null,
+        ?CustomerReference $customer = null
     ) {
         $this->associateRoleAssignments = $associateRoleAssignments;
+        $this->roles = $roles;
         $this->customer = $customer;
 
     }
 
     /**
+     * <p>Roles assigned to the Associate within a Business Unit.</p>
+     *
      *
      * @return null|AssociateRoleAssignmentCollection
      */
@@ -65,8 +75,30 @@ final class AssociateModel extends JsonObjectModel implements Associate
     }
 
     /**
+     * <p>Deprecated type. Use <code>associateRoleAssignments</code> instead.</p>
      *
-     * @return null|Reference
+     *
+     * @return null|array
+     */
+    public function getRoles()
+    {
+        if (is_null($this->roles)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_ROLES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->roles = $data;
+        }
+
+        return $this->roles;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> that acts as an Associate in the Business Unit.</p>
+     *
+     *
+     * @return null|CustomerReference
      */
     public function getCustomer()
     {
@@ -77,7 +109,7 @@ final class AssociateModel extends JsonObjectModel implements Associate
                 return null;
             }
 
-            $this->customer = ReferenceModel::of($data);
+            $this->customer = CustomerReferenceModel::of($data);
         }
 
         return $this->customer;
@@ -93,9 +125,17 @@ final class AssociateModel extends JsonObjectModel implements Associate
     }
 
     /**
-     * @param ?Reference $customer
+     * @param ?array $roles
      */
-    public function setCustomer(?Reference $customer): void
+    public function setRoles(?array $roles): void
+    {
+        $this->roles = $roles;
+    }
+
+    /**
+     * @param ?CustomerReference $customer
+     */
+    public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
     }

@@ -50,6 +50,12 @@ final class SetLineItemPriceChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemId;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -88,6 +94,17 @@ final class SetLineItemPriceChangeBuilder implements Builder
     public function getLineItem()
     {
         return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        return $this->lineItemId;
     }
 
     /**
@@ -135,6 +152,17 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
+     * @return $this
+     */
+    public function withLineItemId(?string $lineItemId)
+    {
+        $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -173,7 +201,8 @@ final class SetLineItemPriceChangeBuilder implements Builder
             $this->change,
             $this->previousValue instanceof PriceBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof PriceBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem
+            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->lineItemId
         );
     }
 

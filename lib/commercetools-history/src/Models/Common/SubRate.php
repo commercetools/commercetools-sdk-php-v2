@@ -18,6 +18,8 @@ interface SubRate extends JsonObject
     public const FIELD_AMOUNT = 'amount';
 
     /**
+     * <p>Name of the SubRate.</p>
+     *
 
      * @return null|string
      */
@@ -25,7 +27,7 @@ interface SubRate extends JsonObject
 
     /**
 
-     * @return null|int
+     * @return null|float
      */
     public function getAmount();
 
@@ -35,7 +37,7 @@ interface SubRate extends JsonObject
     public function setName(?string $name): void;
 
     /**
-     * @param ?int $amount
+     * @param ?float $amount
      */
-    public function setAmount(?int $amount): void;
+    public function setAmount(?float $amount): void;
 }

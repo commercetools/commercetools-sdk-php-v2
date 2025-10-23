@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @internal
@@ -29,7 +30,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
 
     /**
      *
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     protected $timestamp;
 
@@ -41,7 +42,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
 
     /**
      *
-     * @var ?Money
+     * @var ?CentPrecisionMoney
      */
     protected $amount;
 
@@ -57,17 +58,24 @@ final class TransactionModel extends JsonObjectModel implements Transaction
      */
     protected $state;
 
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $id = null,
-        ?string $timestamp = null,
+        ?DateTimeImmutable $timestamp = null,
         ?string $type = null,
-        ?Money $amount = null,
+        ?CentPrecisionMoney $amount = null,
         ?string $interactionId = null,
-        ?string $state = null
+        ?string $state = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->timestamp = $timestamp;
@@ -75,6 +83,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         $this->amount = $amount;
         $this->interactionId = $interactionId;
         $this->state = $state;
+        $this->custom = $custom;
 
     }
 
@@ -99,10 +108,10 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
-     * <p>Time at which the transaction took place.</p>
+     * <p>Date and time (UTC) the Transaction took place.</p>
      *
      *
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getTimestamp()
     {
@@ -112,13 +121,19 @@ final class TransactionModel extends JsonObjectModel implements Transaction
             if (is_null($data)) {
                 return null;
             }
-            $this->timestamp = (string) $data;
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->timestamp = $data;
         }
 
         return $this->timestamp;
     }
 
     /**
+     * <p>Type of the Transaction. For example, <code>Authorization</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -137,8 +152,10 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
+     * <p>Money value of the Transaction.</p>
      *
-     * @return null|Money
+     *
+     * @return null|CentPrecisionMoney
      */
     public function getAmount()
     {
@@ -149,14 +166,15 @@ final class TransactionModel extends JsonObjectModel implements Transaction
                 return null;
             }
 
-            $this->amount = MoneyModel::of($data);
+            $this->amount = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->amount;
     }
 
     /**
-     * <p>Identifier used by the interface that manages the transaction (usually the PSP). If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
+     * <p>Identifier used by the interface that manages the Transaction (usually the PSP).
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction can be found with this ID.</p>
      *
      *
      * @return null|string
@@ -176,6 +194,8 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
+     * <p>State of the Transaction.</p>
+     *
      *
      * @return null|string
      */
@@ -193,6 +213,27 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         return $this->state;
     }
 
+    /**
+     * <p>Custom Fields defined for the Transaction.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -203,9 +244,9 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
-     * @param ?string $timestamp
+     * @param ?DateTimeImmutable $timestamp
      */
-    public function setTimestamp(?string $timestamp): void
+    public function setTimestamp(?DateTimeImmutable $timestamp): void
     {
         $this->timestamp = $timestamp;
     }
@@ -219,9 +260,9 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
-     * @param ?Money $amount
+     * @param ?CentPrecisionMoney $amount
      */
-    public function setAmount(?Money $amount): void
+    public function setAmount(?CentPrecisionMoney $amount): void
     {
         $this->amount = $amount;
     }
@@ -242,6 +283,23 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         $this->state = $state;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
 
+
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[Transaction::FIELD_TIMESTAMP]) && $data[Transaction::FIELD_TIMESTAMP] instanceof \DateTimeImmutable) {
+            $data[Transaction::FIELD_TIMESTAMP] = $data[Transaction::FIELD_TIMESTAMP]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
+    }
 
 }

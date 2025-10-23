@@ -18,6 +18,7 @@ interface TransitionCustomLineItemStateChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_STATE_ID = 'stateId';
 
     /**
@@ -49,12 +50,20 @@ interface TransitionCustomLineItemStateChange extends Change
     public function getNextValue();
 
     /**
-     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
      *
 
      * @return null|string
      */
     public function getLineItemId();
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemId();
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:State">State</a> involved in the transition.</p>
@@ -83,6 +92,11 @@ interface TransitionCustomLineItemStateChange extends Change
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
+
+    /**
+     * @param ?string $customLineItemId
+     */
+    public function setCustomLineItemId(?string $customLineItemId): void;
 
     /**
      * @param ?string $stateId

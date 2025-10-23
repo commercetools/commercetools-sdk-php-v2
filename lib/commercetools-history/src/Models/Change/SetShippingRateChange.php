@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\Money;
+use Commercetools\History\Models\Common\ShippingRate;
 
 interface SetShippingRateChange extends Change
 {
@@ -34,7 +34,7 @@ interface SetShippingRateChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|Money
+     * @return null|ShippingRate
      */
     public function getPreviousValue();
 
@@ -42,7 +42,7 @@ interface SetShippingRateChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|Money
+     * @return null|ShippingRate
      */
     public function getNextValue();
 
@@ -52,12 +52,12 @@ interface SetShippingRateChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?Money $previousValue
+     * @param ?ShippingRate $previousValue
      */
-    public function setPreviousValue(?Money $previousValue): void;
+    public function setPreviousValue(?ShippingRate $previousValue): void;
 
     /**
-     * @param ?Money $nextValue
+     * @param ?ShippingRate $nextValue
      */
-    public function setNextValue(?Money $nextValue): void;
+    public function setNextValue(?ShippingRate $nextValue): void;
 }

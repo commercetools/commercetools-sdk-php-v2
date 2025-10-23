@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\LineItem;
-use Commercetools\History\Models\Common\LineItemModel;
+use Commercetools\History\Models\Common\ShoppingListLineItem;
+use Commercetools\History\Models\Common\ShoppingListLineItemModel;
 
 /**
  * @internal
@@ -37,13 +37,13 @@ final class RemoveShoppingListLineItemChangeModel extends JsonObjectModel implem
 
     /**
      *
-     * @var ?LineItem
+     * @var ?ShoppingListLineItem
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?LineItem
+     * @var ?ShoppingListLineItem
      */
     protected $nextValue;
 
@@ -53,8 +53,8 @@ final class RemoveShoppingListLineItemChangeModel extends JsonObjectModel implem
      */
     public function __construct(
         ?string $change = null,
-        ?LineItem $previousValue = null,
-        ?LineItem $nextValue = null,
+        ?ShoppingListLineItem $previousValue = null,
+        ?ShoppingListLineItem $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -103,7 +103,7 @@ final class RemoveShoppingListLineItemChangeModel extends JsonObjectModel implem
      * <p>Value before the change.</p>
      *
      *
-     * @return null|LineItem
+     * @return null|ShoppingListLineItem
      */
     public function getPreviousValue()
     {
@@ -114,7 +114,7 @@ final class RemoveShoppingListLineItemChangeModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->previousValue = LineItemModel::of($data);
+            $this->previousValue = ShoppingListLineItemModel::of($data);
         }
 
         return $this->previousValue;
@@ -124,7 +124,7 @@ final class RemoveShoppingListLineItemChangeModel extends JsonObjectModel implem
      * <p>Value after the change.</p>
      *
      *
-     * @return null|LineItem
+     * @return null|ShoppingListLineItem
      */
     public function getNextValue()
     {
@@ -135,7 +135,7 @@ final class RemoveShoppingListLineItemChangeModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->nextValue = LineItemModel::of($data);
+            $this->nextValue = ShoppingListLineItemModel::of($data);
         }
 
         return $this->nextValue;
@@ -151,17 +151,17 @@ final class RemoveShoppingListLineItemChangeModel extends JsonObjectModel implem
     }
 
     /**
-     * @param ?LineItem $previousValue
+     * @param ?ShoppingListLineItem $previousValue
      */
-    public function setPreviousValue(?LineItem $previousValue): void
+    public function setPreviousValue(?ShoppingListLineItem $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?LineItem $nextValue
+     * @param ?ShoppingListLineItem $nextValue
      */
-    public function setNextValue(?LineItem $nextValue): void
+    public function setNextValue(?ShoppingListLineItem $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @implements Builder<Parcel>
@@ -29,6 +30,12 @@ final class ParcelBuilder implements Builder
     /**
 
      * @var ?string
+     */
+    private $key;
+
+    /**
+
+     * @var ?DateTimeImmutable
      */
     private $createdAt;
 
@@ -52,6 +59,14 @@ final class ParcelBuilder implements Builder
 
     /**
 
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>Unique identifier of the Parcel.</p>
+     *
+
      * @return null|string
      */
     public function getId()
@@ -60,8 +75,21 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Parcel.</p>
+     *
 
      * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Parcel was created.</p>
+     *
+
+     * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
     {
@@ -69,6 +97,8 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * <p>Information about the dimensions of the Parcel.</p>
+     *
 
      * @return null|ParcelMeasurements
      */
@@ -78,6 +108,8 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * <p>Shipment tracking information of the Parcel.</p>
+     *
 
      * @return null|TrackingData
      */
@@ -87,12 +119,25 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * <p>Line Items or Custom Line Items delivered in this Parcel.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * <p>Custom Fields of the Parcel.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -107,10 +152,21 @@ final class ParcelBuilder implements Builder
     }
 
     /**
-     * @param ?string $createdAt
+     * @param ?string $key
      * @return $this
      */
-    public function withCreatedAt(?string $createdAt)
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     * @return $this
+     */
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -151,6 +207,17 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMeasurements() instead
      * @return $this
      */
@@ -172,14 +239,27 @@ final class ParcelBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): Parcel
     {
         return new ParcelModel(
             $this->id,
+            $this->key,
             $this->createdAt,
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
             $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
-            $this->items
+            $this->items,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

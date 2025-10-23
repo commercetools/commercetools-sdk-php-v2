@@ -48,6 +48,18 @@ final class SetProductPriceCustomTypeChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $variant;
+
+    /**
+
+     * @var ?string
+     */
+    private $priceId;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -78,6 +90,7 @@ final class SetProductPriceCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -89,6 +102,29 @@ final class SetProductPriceCustomTypeChangeBuilder implements Builder
     public function getCatalogData()
     {
         return $this->catalogData;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
+    }
+
+    /**
+     * <p><code>id</code> of the Embedded <a href="ctp:api:type:Price">Price</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        return $this->priceId;
     }
 
     /**
@@ -136,6 +172,28 @@ final class SetProductPriceCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $variant
+     * @return $this
+     */
+    public function withVariant(?string $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $priceId
+     * @return $this
+     */
+    public function withPriceId(?string $priceId)
+    {
+        $this->priceId = $priceId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -163,7 +221,9 @@ final class SetProductPriceCustomTypeChangeBuilder implements Builder
             $this->change,
             $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->catalogData
+            $this->catalogData,
+            $this->variant,
+            $this->priceId
         );
     }
 

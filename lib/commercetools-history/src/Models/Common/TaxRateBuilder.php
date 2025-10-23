@@ -30,11 +30,17 @@ final class TaxRateBuilder implements Builder
 
      * @var ?string
      */
+    private $key;
+
+    /**
+
+     * @var ?string
+     */
     private $name;
 
     /**
 
-     * @var ?int
+     * @var ?float
      */
     private $amount;
 
@@ -63,7 +69,8 @@ final class TaxRateBuilder implements Builder
     private $subRates;
 
     /**
-     * <p>The ID is always set if the tax rate is part of a TaxCategory. The external tax rates in a Cart do not contain an <code>id</code>.</p>
+     * <p>Present if the TaxRate is part of a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.
+     * Absent for external TaxRates in <a href="ctp:api:type:LineItem">LineItem</a>, <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>, and <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.</p>
      *
 
      * @return null|string
@@ -74,6 +81,20 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the TaxRate.
+     * Present when set using <a href="ctp:api:type:TaxRateDraft">TaxRateDraft</a>. Not available for external TaxRates created using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Name of the TaxRate.</p>
+     *
 
      * @return null|string
      */
@@ -83,10 +104,10 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
-     * <p>Percentage in the range of [0..1]. The sum of the amounts of all <code>subRates</code>, if there are any.</p>
+     * <p>Tax rate. If subrates are used, the amount is the sum of all rates in <code>subRates</code>.</p>
      *
 
-     * @return null|int
+     * @return null|float
      */
     public function getAmount()
     {
@@ -94,6 +115,8 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, tax is included in <a href="ctp:api:type:Price">Embedded Prices</a> or <a href="ctp:api:type:StandalonePrice">Standalone Prices</a>, and the <code>taxedPrice</code> is present on <a href="ctp:api:type:LineItem">LineItems</a>. In this case, the <code>totalNet</code> price on <a href="ctp:api:type:TaxedPrice">TaxedPrice</a> includes the TaxRate.</p>
+     *
 
      * @return null|bool
      */
@@ -103,7 +126,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
-     * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country in which the tax rate is applied in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> format.</p>
      *
 
      * @return null|string
@@ -114,7 +137,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
-     * <p>The state in the country</p>
+     * <p>State within the country, such as Texas in the United States.</p>
      *
 
      * @return null|string
@@ -125,6 +148,9 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * <p>Used when the total tax is a combination of multiple taxes (for example, local, state/provincial, and/or federal taxes). The total of all subrates must equal the TaxRate <code>amount</code>.
+     * These subrates are used to calculate the <code>taxPortions</code> field of a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> and the <code>taxedPrice</code> field of <a href="ctp:api:type:LineItem">LineItems</a>, <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and <a href="ctp:api:type:ShippingInfo">ShippingInfos</a>.</p>
+     *
 
      * @return null|SubRateCollection
      */
@@ -145,6 +171,17 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -156,10 +193,10 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
-     * @param ?int $amount
+     * @param ?float $amount
      * @return $this
      */
-    public function withAmount(?int $amount)
+    public function withAmount(?float $amount)
     {
         $this->amount = $amount;
 
@@ -215,6 +252,7 @@ final class TaxRateBuilder implements Builder
     {
         return new TaxRateModel(
             $this->id,
+            $this->key,
             $this->name,
             $this->amount,
             $this->includedInPrice,

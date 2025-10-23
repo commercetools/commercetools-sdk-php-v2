@@ -23,7 +23,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
 
     /**
      *
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $value;
 
@@ -38,7 +38,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Money $value = null,
+        ?TypedMoney $value = null,
         ?DiscountedLineItemPortionCollection $includedDiscounts = null
     ) {
         $this->value = $value;
@@ -47,8 +47,10 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     }
 
     /**
+     * <p>Money value of the discounted Line Item or Custom Line Item.</p>
      *
-     * @return null|Money
+     *
+     * @return null|TypedMoney
      */
     public function getValue()
     {
@@ -58,14 +60,16 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
     }
 
     /**
+     * <p>Discount applicable on the Line Item or Custom Line Item.</p>
+     *
      *
      * @return null|DiscountedLineItemPortionCollection
      */
@@ -85,9 +89,9 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
 
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void
+    public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }

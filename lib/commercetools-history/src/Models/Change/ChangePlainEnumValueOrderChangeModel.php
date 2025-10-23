@@ -13,7 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValueCollection;
+use Commercetools\History\Models\Common\AttributePlainEnumValueCollection;
 
 /**
  * @internal
@@ -36,13 +36,13 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
 
     /**
      *
-     * @var ?EnumValueCollection
+     * @var ?AttributePlainEnumValueCollection
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?EnumValueCollection
+     * @var ?AttributePlainEnumValueCollection
      */
     protected $nextValue;
 
@@ -58,8 +58,8 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $change = null,
-        ?EnumValueCollection $previousValue = null,
-        ?EnumValueCollection $nextValue = null,
+        ?AttributePlainEnumValueCollection $previousValue = null,
+        ?AttributePlainEnumValueCollection $nextValue = null,
         ?string $attributeName = null,
         ?string $type = null
     ) {
@@ -110,7 +110,7 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
      * <p>Value before the change.</p>
      *
      *
-     * @return null|EnumValueCollection
+     * @return null|AttributePlainEnumValueCollection
      */
     public function getPreviousValue()
     {
@@ -120,7 +120,7 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = EnumValueCollection::fromArray($data);
+            $this->previousValue = AttributePlainEnumValueCollection::fromArray($data);
         }
 
         return $this->previousValue;
@@ -130,7 +130,7 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
      * <p>Value after the change.</p>
      *
      *
-     * @return null|EnumValueCollection
+     * @return null|AttributePlainEnumValueCollection
      */
     public function getNextValue()
     {
@@ -140,7 +140,7 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue = EnumValueCollection::fromArray($data);
+            $this->nextValue = AttributePlainEnumValueCollection::fromArray($data);
         }
 
         return $this->nextValue;
@@ -176,17 +176,17 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?AttributePlainEnumValueCollection $previousValue
      */
-    public function setPreviousValue(?EnumValueCollection $previousValue): void
+    public function setPreviousValue(?AttributePlainEnumValueCollection $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?EnumValueCollection $nextValue
+     * @param ?AttributePlainEnumValueCollection $nextValue
      */
-    public function setNextValue(?EnumValueCollection $nextValue): void
+    public function setNextValue(?AttributePlainEnumValueCollection $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

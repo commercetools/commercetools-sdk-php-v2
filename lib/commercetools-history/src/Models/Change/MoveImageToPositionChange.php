@@ -18,6 +18,7 @@ interface MoveImageToPositionChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_CATALOG_DATA = 'catalogData';
+    public const FIELD_VARIANT = 'variant';
 
     /**
 
@@ -48,6 +49,7 @@ interface MoveImageToPositionChange extends Change
     public function getNextValue();
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -57,6 +59,15 @@ interface MoveImageToPositionChange extends Change
      * @return null|string
      */
     public function getCatalogData();
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant();
 
     /**
      * @param ?string $change
@@ -77,4 +88,9 @@ interface MoveImageToPositionChange extends Change
      * @param ?string $catalogData
      */
     public function setCatalogData(?string $catalogData): void;
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void;
 }

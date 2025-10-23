@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\ChangeValue\LocalizedEnumValue;
+use Commercetools\History\Models\Common\AttributeLocalizedEnumValue;
 
 interface RemoveLocalizedEnumValuesChange extends Change
 {
@@ -34,7 +34,7 @@ interface RemoveLocalizedEnumValuesChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|LocalizedEnumValue
+     * @return null|AttributeLocalizedEnumValue
      */
     public function getPreviousValue();
 
@@ -52,9 +52,9 @@ interface RemoveLocalizedEnumValuesChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?LocalizedEnumValue $previousValue
+     * @param ?AttributeLocalizedEnumValue $previousValue
      */
-    public function setPreviousValue(?LocalizedEnumValue $previousValue): void;
+    public function setPreviousValue(?AttributeLocalizedEnumValue $previousValue): void;
 
     /**
      * @param ?string $attributeName

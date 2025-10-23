@@ -65,6 +65,12 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
      */
     protected $customLineItemId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $customTypeId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -76,6 +82,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
         ?string $name = null,
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
+        ?string $customTypeId = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -84,6 +91,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
         $this->name = $name;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
+        $this->customTypeId = $customTypeId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -224,6 +232,26 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
         return $this->customLineItemId;
     }
 
+    /**
+     * <p><code>id</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomTypeId()
+    {
+        if (is_null($this->customTypeId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_TYPE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customTypeId = (string) $data;
+        }
+
+        return $this->customTypeId;
+    }
+
 
     /**
      * @param ?string $change
@@ -271,6 +299,14 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $customTypeId
+     */
+    public function setCustomTypeId(?string $customTypeId): void
+    {
+        $this->customTypeId = $customTypeId;
     }
 
 

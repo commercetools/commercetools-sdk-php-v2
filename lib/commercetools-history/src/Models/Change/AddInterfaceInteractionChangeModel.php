@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\CustomFieldExpandedValue;
-use Commercetools\History\Models\ChangeValue\CustomFieldExpandedValueModel;
+use Commercetools\History\Models\Common\CustomFields;
+use Commercetools\History\Models\Common\CustomFieldsModel;
 
 /**
  * @internal
@@ -37,7 +37,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
 
     /**
      *
-     * @var ?CustomFieldExpandedValue
+     * @var ?CustomFields
      */
     protected $nextValue;
 
@@ -47,7 +47,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
      */
     public function __construct(
         ?string $change = null,
-        ?CustomFieldExpandedValue $nextValue = null,
+        ?CustomFields $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -95,7 +95,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
      * <p>Value after the change.</p>
      *
      *
-     * @return null|CustomFieldExpandedValue
+     * @return null|CustomFields
      */
     public function getNextValue()
     {
@@ -106,7 +106,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
                 return null;
             }
 
-            $this->nextValue = CustomFieldExpandedValueModel::of($data);
+            $this->nextValue = CustomFieldsModel::of($data);
         }
 
         return $this->nextValue;
@@ -122,9 +122,9 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
     }
 
     /**
-     * @param ?CustomFieldExpandedValue $nextValue
+     * @param ?CustomFields $nextValue
      */
-    public function setNextValue(?CustomFieldExpandedValue $nextValue): void
+    public function setNextValue(?CustomFields $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

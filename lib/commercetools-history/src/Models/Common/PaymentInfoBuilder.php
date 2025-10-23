@@ -22,13 +22,15 @@ final class PaymentInfoBuilder implements Builder
 {
     /**
 
-     * @var ?ReferenceCollection
+     * @var ?PaymentReferenceCollection
      */
     private $payments;
 
     /**
+     * <p><a href="ctp:api:type:Reference">References</a> to the Payments associated with the Order.</p>
+     *
 
-     * @return null|ReferenceCollection
+     * @return null|PaymentReferenceCollection
      */
     public function getPayments()
     {
@@ -36,10 +38,10 @@ final class PaymentInfoBuilder implements Builder
     }
 
     /**
-     * @param ?ReferenceCollection $payments
+     * @param ?PaymentReferenceCollection $payments
      * @return $this
      */
-    public function withPayments(?ReferenceCollection $payments)
+    public function withPayments(?PaymentReferenceCollection $payments)
     {
         $this->payments = $payments;
 

@@ -10,13 +10,14 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\ChangeValue\EnumValue;
+use Commercetools\History\Models\Common\CustomFieldEnumValue;
 
 interface AddEnumValueChange extends Change
 {
 
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_FIELD_NAME = 'fieldName';
+    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
 
     /**
 
@@ -34,7 +35,7 @@ interface AddEnumValueChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|EnumValue
+     * @return null|CustomFieldEnumValue
      */
     public function getNextValue();
 
@@ -47,17 +48,30 @@ interface AddEnumValueChange extends Change
     public function getFieldName();
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAttributeName();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
 
     /**
-     * @param ?EnumValue $nextValue
+     * @param ?CustomFieldEnumValue $nextValue
      */
-    public function setNextValue(?EnumValue $nextValue): void;
+    public function setNextValue(?CustomFieldEnumValue $nextValue): void;
 
     /**
      * @param ?string $fieldName
      */
     public function setFieldName(?string $fieldName): void;
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void;
 }

@@ -55,6 +55,12 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
      */
     protected $lineItem;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $lineItemId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -64,12 +70,14 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
         ?Price $previousValue = null,
         ?Price $nextValue = null,
         ?LocalizedString $lineItem = null,
+        ?string $lineItemId = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->lineItem = $lineItem;
+        $this->lineItemId = $lineItemId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -172,6 +180,26 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
         return $this->lineItem;
     }
 
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
+    }
+
 
     /**
      * @param ?string $change
@@ -203,6 +231,14 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
     public function setLineItem(?LocalizedString $lineItem): void
     {
         $this->lineItem = $lineItem;
+    }
+
+    /**
+     * @param ?string $lineItemId
+     */
+    public function setLineItemId(?string $lineItemId): void
+    {
+        $this->lineItemId = $lineItemId;
     }
 
 

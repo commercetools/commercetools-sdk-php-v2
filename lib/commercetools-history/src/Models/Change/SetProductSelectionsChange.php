@@ -17,6 +17,8 @@ interface SetProductSelectionsChange extends Change
 
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ADDED_ITEMS = 'addedItems';
+    public const FIELD_REMOVED_ITEMS = 'removedItems';
 
     /**
 
@@ -47,6 +49,22 @@ interface SetProductSelectionsChange extends Change
     public function getNextValue();
 
     /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getAddedItems();
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getRemovedItems();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -60,4 +78,14 @@ interface SetProductSelectionsChange extends Change
      * @param ?ProductSelectionSettingCollection $nextValue
      */
     public function setNextValue(?ProductSelectionSettingCollection $nextValue): void;
+
+    /**
+     * @param ?ProductSelectionSettingCollection $addedItems
+     */
+    public function setAddedItems(?ProductSelectionSettingCollection $addedItems): void;
+
+    /**
+     * @param ?ProductSelectionSettingCollection $removedItems
+     */
+    public function setRemovedItems(?ProductSelectionSettingCollection $removedItems): void;
 }

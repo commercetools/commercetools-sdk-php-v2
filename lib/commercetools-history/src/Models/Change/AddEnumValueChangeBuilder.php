@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValue;
-use Commercetools\History\Models\ChangeValue\EnumValueBuilder;
+use Commercetools\History\Models\Common\CustomFieldEnumValue;
+use Commercetools\History\Models\Common\CustomFieldEnumValueBuilder;
 
 /**
  * @implements Builder<AddEnumValueChange>
@@ -30,7 +30,7 @@ final class AddEnumValueChangeBuilder implements Builder
 
     /**
 
-     * @var null|EnumValue|EnumValueBuilder
+     * @var null|CustomFieldEnumValue|CustomFieldEnumValueBuilder
      */
     private $nextValue;
 
@@ -39,6 +39,12 @@ final class AddEnumValueChangeBuilder implements Builder
      * @var ?string
      */
     private $fieldName;
+
+    /**
+
+     * @var ?string
+     */
+    private $attributeName;
 
     /**
 
@@ -53,11 +59,11 @@ final class AddEnumValueChangeBuilder implements Builder
      * <p>Value after the change.</p>
      *
 
-     * @return null|EnumValue
+     * @return null|CustomFieldEnumValue
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof CustomFieldEnumValueBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -72,6 +78,17 @@ final class AddEnumValueChangeBuilder implements Builder
     }
 
     /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        return $this->attributeName;
+    }
+
+    /**
      * @param ?string $change
      * @return $this
      */
@@ -83,10 +100,10 @@ final class AddEnumValueChangeBuilder implements Builder
     }
 
     /**
-     * @param ?EnumValue $nextValue
+     * @param ?CustomFieldEnumValue $nextValue
      * @return $this
      */
-    public function withNextValue(?EnumValue $nextValue)
+    public function withNextValue(?CustomFieldEnumValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -105,10 +122,21 @@ final class AddEnumValueChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
+     * @return $this
+     */
+    public function withAttributeName(?string $attributeName)
+    {
+        $this->attributeName = $attributeName;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?EnumValueBuilder $nextValue)
+    public function withNextValueBuilder(?CustomFieldEnumValueBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -119,8 +147,9 @@ final class AddEnumValueChangeBuilder implements Builder
     {
         return new AddEnumValueChangeModel(
             $this->change,
-            $this->nextValue instanceof EnumValueBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->fieldName
+            $this->nextValue instanceof CustomFieldEnumValueBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->fieldName,
+            $this->attributeName
         );
     }
 

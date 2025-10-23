@@ -37,6 +37,12 @@ final class AddressModel extends JsonObjectModel implements Address
      *
      * @var ?string
      */
+    protected $country;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $title;
 
     /**
@@ -98,12 +104,6 @@ final class AddressModel extends JsonObjectModel implements Address
      * @var ?string
      */
     protected $state;
-
-    /**
-     *
-     * @var ?string
-     */
-    protected $country;
 
     /**
      *
@@ -171,6 +171,12 @@ final class AddressModel extends JsonObjectModel implements Address
      */
     protected $externalId;
 
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -178,6 +184,7 @@ final class AddressModel extends JsonObjectModel implements Address
     public function __construct(
         ?string $id = null,
         ?string $key = null,
+        ?string $country = null,
         ?string $title = null,
         ?string $salutation = null,
         ?string $firstName = null,
@@ -189,7 +196,6 @@ final class AddressModel extends JsonObjectModel implements Address
         ?string $city = null,
         ?string $region = null,
         ?string $state = null,
-        ?string $country = null,
         ?string $company = null,
         ?string $department = null,
         ?string $building = null,
@@ -200,10 +206,12 @@ final class AddressModel extends JsonObjectModel implements Address
         ?string $email = null,
         ?string $fax = null,
         ?string $additionalAddressInfo = null,
-        ?string $externalId = null
+        ?string $externalId = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->key = $key;
+        $this->country = $country;
         $this->title = $title;
         $this->salutation = $salutation;
         $this->firstName = $firstName;
@@ -215,7 +223,6 @@ final class AddressModel extends JsonObjectModel implements Address
         $this->city = $city;
         $this->region = $region;
         $this->state = $state;
-        $this->country = $country;
         $this->company = $company;
         $this->department = $department;
         $this->building = $building;
@@ -227,11 +234,14 @@ final class AddressModel extends JsonObjectModel implements Address
         $this->fax = $fax;
         $this->additionalAddressInfo = $additionalAddressInfo;
         $this->externalId = $externalId;
+        $this->custom = $custom;
 
     }
 
     /**
-     * <p>Unique ID of the Address.</p>
+     * <p>Unique identifier of the Address.</p>
+     * <p>It is not recommended to set it manually since the API overwrites this ID when creating an Address for a <a href="ctp:api:type:Customer">Customer</a>.
+     * Use <code>key</code> instead and omit this field from the request to let the API generate the ID for the Address.</p>
      *
      *
      * @return null|string
@@ -251,6 +261,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>User-defined identifier of the Address that must be unique when multiple addresses are referenced in <a href="ctp:api:type:BusinessUnit">BusinessUnits</a>, <a href="ctp:api:type:Customer">Customers</a>, and <code>itemShippingAddresses</code> (LineItem-specific addresses) of a <a href="ctp:api:type:Cart">Cart</a>, <a href="ctp:api:type:Order">Order</a>, <a href="ctp:api:type:QuoteRequest">QuoteRequest</a>, or <a href="ctp:api:type:Quote">Quote</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -269,205 +281,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
-     *
-     * @return null|string
-     */
-    public function getTitle()
-    {
-        if (is_null($this->title)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TITLE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->title = (string) $data;
-        }
-
-        return $this->title;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getSalutation()
-    {
-        if (is_null($this->salutation)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SALUTATION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->salutation = (string) $data;
-        }
-
-        return $this->salutation;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getFirstName()
-    {
-        if (is_null($this->firstName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_FIRST_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->firstName = (string) $data;
-        }
-
-        return $this->firstName;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getLastName()
-    {
-        if (is_null($this->lastName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_LAST_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lastName = (string) $data;
-        }
-
-        return $this->lastName;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getStreetName()
-    {
-        if (is_null($this->streetName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_STREET_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->streetName = (string) $data;
-        }
-
-        return $this->streetName;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getStreetNumber()
-    {
-        if (is_null($this->streetNumber)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_STREET_NUMBER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->streetNumber = (string) $data;
-        }
-
-        return $this->streetNumber;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getAdditionalStreetInfo()
-    {
-        if (is_null($this->additionalStreetInfo)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ADDITIONAL_STREET_INFO);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->additionalStreetInfo = (string) $data;
-        }
-
-        return $this->additionalStreetInfo;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getPostalCode()
-    {
-        if (is_null($this->postalCode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_POSTAL_CODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->postalCode = (string) $data;
-        }
-
-        return $this->postalCode;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getCity()
-    {
-        if (is_null($this->city)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->city = (string) $data;
-        }
-
-        return $this->city;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getRegion()
-    {
-        if (is_null($this->region)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_REGION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->region = (string) $data;
-        }
-
-        return $this->region;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getState()
-    {
-        if (is_null($this->state)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->state = (string) $data;
-        }
-
-        return $this->state;
-    }
-
-    /**
-     * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Name of the country.</p>
      *
      *
      * @return null|string
@@ -487,6 +301,228 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Title of the contact, for example 'Dr.'</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        if (is_null($this->title)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TITLE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->title = (string) $data;
+        }
+
+        return $this->title;
+    }
+
+    /**
+     * <p>Salutation of the contact, for example 'Mr.' or 'Ms.'</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSalutation()
+    {
+        if (is_null($this->salutation)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SALUTATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->salutation = (string) $data;
+        }
+
+        return $this->salutation;
+    }
+
+    /**
+     * <p>Given name (first name) of the contact.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        if (is_null($this->firstName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_FIRST_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->firstName = (string) $data;
+        }
+
+        return $this->firstName;
+    }
+
+    /**
+     * <p>Family name (last name) of the contact.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLastName()
+    {
+        if (is_null($this->lastName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LAST_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lastName = (string) $data;
+        }
+
+        return $this->lastName;
+    }
+
+    /**
+     * <p>Name of the street.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getStreetName()
+    {
+        if (is_null($this->streetName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_STREET_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->streetName = (string) $data;
+        }
+
+        return $this->streetName;
+    }
+
+    /**
+     * <p>Street number.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getStreetNumber()
+    {
+        if (is_null($this->streetNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_STREET_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->streetNumber = (string) $data;
+        }
+
+        return $this->streetNumber;
+    }
+
+    /**
+     * <p>Further information on the street address.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAdditionalStreetInfo()
+    {
+        if (is_null($this->additionalStreetInfo)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDITIONAL_STREET_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->additionalStreetInfo = (string) $data;
+        }
+
+        return $this->additionalStreetInfo;
+    }
+
+    /**
+     * <p>Postal code.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPostalCode()
+    {
+        if (is_null($this->postalCode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_POSTAL_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->postalCode = (string) $data;
+        }
+
+        return $this->postalCode;
+    }
+
+    /**
+     * <p>Name of the city.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCity()
+    {
+        if (is_null($this->city)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->city = (string) $data;
+        }
+
+        return $this->city;
+    }
+
+    /**
+     * <p>Name of the region.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getRegion()
+    {
+        if (is_null($this->region)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_REGION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->region = (string) $data;
+        }
+
+        return $this->region;
+    }
+
+    /**
+     * <p>Name of the state, for example, Colorado.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = (string) $data;
+        }
+
+        return $this->state;
+    }
+
+    /**
+     * <p>Name of the company.</p>
+     *
      *
      * @return null|string
      */
@@ -505,6 +541,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Name of the department.</p>
+     *
      *
      * @return null|string
      */
@@ -523,6 +561,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Number or name of the building.</p>
+     *
      *
      * @return null|string
      */
@@ -541,6 +581,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Number or name of the apartment.</p>
+     *
      *
      * @return null|string
      */
@@ -559,6 +601,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Post office box number.</p>
+     *
      *
      * @return null|string
      */
@@ -577,6 +621,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Phone number of the contact.</p>
+     *
      *
      * @return null|string
      */
@@ -595,6 +641,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Mobile phone number of the contact.</p>
+     *
      *
      * @return null|string
      */
@@ -613,6 +661,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Email address of the contact.</p>
+     *
      *
      * @return null|string
      */
@@ -631,6 +681,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Fax number of the contact.</p>
+     *
      *
      * @return null|string
      */
@@ -649,6 +701,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>Further information on the Address.</p>
+     *
      *
      * @return null|string
      */
@@ -667,6 +721,8 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     * <p>ID for the contact used in an external system.</p>
+     *
      *
      * @return null|string
      */
@@ -684,6 +740,27 @@ final class AddressModel extends JsonObjectModel implements Address
         return $this->externalId;
     }
 
+    /**
+     * <p>Custom Fields defined for the Address.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -699,6 +776,14 @@ final class AddressModel extends JsonObjectModel implements Address
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    /**
+     * @param ?string $country
+     */
+    public function setCountry(?string $country): void
+    {
+        $this->country = $country;
     }
 
     /**
@@ -790,14 +875,6 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
-     * @param ?string $country
-     */
-    public function setCountry(?string $country): void
-    {
-        $this->country = $country;
-    }
-
-    /**
      * @param ?string $company
      */
     public function setCompany(?string $company): void
@@ -883,6 +960,14 @@ final class AddressModel extends JsonObjectModel implements Address
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
 

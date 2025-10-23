@@ -123,8 +123,8 @@ final class SetVariantSelectionChangeModel extends JsonObjectModel implements Se
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = ProductVariantSelectionModel::of($data);
+            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
+            $this->previousValue = $className::of($data);
         }
 
         return $this->previousValue;
@@ -144,8 +144,8 @@ final class SetVariantSelectionChangeModel extends JsonObjectModel implements Se
             if (is_null($data)) {
                 return null;
             }
-
-            $this->nextValue = ProductVariantSelectionModel::of($data);
+            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
+            $this->nextValue = $className::of($data);
         }
 
         return $this->nextValue;
@@ -165,8 +165,8 @@ final class SetVariantSelectionChangeModel extends JsonObjectModel implements Se
             if (is_null($data)) {
                 return null;
             }
-
-            $this->product = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->product = $className::of($data);
         }
 
         return $this->product;

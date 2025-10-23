@@ -18,21 +18,25 @@ interface DiscountCodeInfo extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
+     * <p>Discount Code associated with the Cart or Order.</p>
+     *
 
-     * @return null|Reference
+     * @return null|DiscountCodeReference
      */
     public function getDiscountCode();
 
     /**
+     * <p>Indicates the state of the Discount Code applied to the Cart or Order.</p>
+     *
 
      * @return null|string
      */
     public function getState();
 
     /**
-     * @param ?Reference $discountCode
+     * @param ?DiscountCodeReference $discountCode
      */
-    public function setDiscountCode(?Reference $discountCode): void;
+    public function setDiscountCode(?DiscountCodeReference $discountCode): void;
 
     /**
      * @param ?string $state

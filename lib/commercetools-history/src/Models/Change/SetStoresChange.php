@@ -10,6 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\History\Models\Common\KeyReferenceCollection;
 use Commercetools\History\Models\Common\ReferenceCollection;
 
 interface SetStoresChange extends Change
@@ -17,6 +18,8 @@ interface SetStoresChange extends Change
 
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ADDED_ITEMS = 'addedItems';
+    public const FIELD_REMOVED_ITEMS = 'removedItems';
 
     /**
 
@@ -47,6 +50,22 @@ interface SetStoresChange extends Change
     public function getNextValue();
 
     /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|KeyReferenceCollection
+     */
+    public function getAddedItems();
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|KeyReferenceCollection
+     */
+    public function getRemovedItems();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -60,4 +79,14 @@ interface SetStoresChange extends Change
      * @param ?ReferenceCollection $nextValue
      */
     public function setNextValue(?ReferenceCollection $nextValue): void;
+
+    /**
+     * @param ?KeyReferenceCollection $addedItems
+     */
+    public function setAddedItems(?KeyReferenceCollection $addedItems): void;
+
+    /**
+     * @param ?KeyReferenceCollection $removedItems
+     */
+    public function setRemovedItems(?KeyReferenceCollection $removedItems): void;
 }

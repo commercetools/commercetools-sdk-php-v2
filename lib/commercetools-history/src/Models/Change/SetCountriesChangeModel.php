@@ -46,6 +46,18 @@ final class SetCountriesChangeModel extends JsonObjectModel implements SetCountr
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?StoreCountryCollection
+     */
+    protected $addedItems;
+
+    /**
+     *
+     * @var ?StoreCountryCollection
+     */
+    protected $removedItems;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -54,11 +66,15 @@ final class SetCountriesChangeModel extends JsonObjectModel implements SetCountr
         ?string $change = null,
         ?StoreCountryCollection $previousValue = null,
         ?StoreCountryCollection $nextValue = null,
+        ?StoreCountryCollection $addedItems = null,
+        ?StoreCountryCollection $removedItems = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->addedItems = $addedItems;
+        $this->removedItems = $removedItems;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -138,6 +154,46 @@ final class SetCountriesChangeModel extends JsonObjectModel implements SetCountr
         return $this->nextValue;
     }
 
+    /**
+     * <p>Elements added to the array.</p>
+     *
+     *
+     * @return null|StoreCountryCollection
+     */
+    public function getAddedItems()
+    {
+        if (is_null($this->addedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ADDED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addedItems = StoreCountryCollection::fromArray($data);
+        }
+
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+     *
+     * @return null|StoreCountryCollection
+     */
+    public function getRemovedItems()
+    {
+        if (is_null($this->removedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_REMOVED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedItems = StoreCountryCollection::fromArray($data);
+        }
+
+        return $this->removedItems;
+    }
+
 
     /**
      * @param ?string $change
@@ -161,6 +217,22 @@ final class SetCountriesChangeModel extends JsonObjectModel implements SetCountr
     public function setNextValue(?StoreCountryCollection $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?StoreCountryCollection $addedItems
+     */
+    public function setAddedItems(?StoreCountryCollection $addedItems): void
+    {
+        $this->addedItems = $addedItems;
+    }
+
+    /**
+     * @param ?StoreCountryCollection $removedItems
+     */
+    public function setRemovedItems(?StoreCountryCollection $removedItems): void
+    {
+        $this->removedItems = $removedItems;
     }
 
 

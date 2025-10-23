@@ -66,6 +66,12 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $lineItemId;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -129,7 +135,8 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
 
      * @return null|string
@@ -137,6 +144,17 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
     public function getVariant()
     {
         return $this->variant;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        return $this->lineItemId;
     }
 
     /**
@@ -217,6 +235,17 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
+     * @return $this
+     */
+    public function withLineItemId(?string $lineItemId)
+    {
+        $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLineItem() instead
      * @return $this
      */
@@ -236,7 +265,8 @@ final class SetOrderLineItemCustomFieldChangeBuilder implements Builder
             $this->customTypeId,
             $this->name,
             $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
-            $this->variant
+            $this->variant,
+            $this->lineItemId
         );
     }
 
