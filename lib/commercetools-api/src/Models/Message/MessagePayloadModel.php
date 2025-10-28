@@ -92,6 +92,8 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'CartDiscountStoreAdded' => CartDiscountStoreAddedMessagePayloadModel::class,
        'CartDiscountStoreRemoved' => CartDiscountStoreRemovedMessagePayloadModel::class,
        'CartDiscountStoresSet' => CartDiscountStoresSetMessagePayloadModel::class,
+       'CartFrozen' => CartFrozenMessagePayloadModel::class,
+       'CartUnfrozen' => CartUnfrozenMessagePayloadModel::class,
        'CategoryCreated' => CategoryCreatedMessagePayloadModel::class,
        'CategorySlugChanged' => CategorySlugChangedMessagePayloadModel::class,
        'CustomLineItemStateTransition' => CustomLineItemStateTransitionMessagePayloadModel::class,

@@ -161,6 +161,8 @@ final class MessageModel extends JsonObjectModel implements Message
        'CartDiscountStoreAdded' => CartDiscountStoreAddedMessageModel::class,
        'CartDiscountStoreRemoved' => CartDiscountStoreRemovedMessageModel::class,
        'CartDiscountStoresSet' => CartDiscountStoresSetMessageModel::class,
+       'CartFrozen' => CartFrozenMessageModel::class,
+       'CartUnfrozen' => CartUnfrozenMessageModel::class,
        'CategoryCreated' => CategoryCreatedMessageModel::class,
        'CategorySlugChanged' => CategorySlugChangedMessageModel::class,
        'CustomLineItemStateTransition' => CustomLineItemStateTransitionMessageModel::class,

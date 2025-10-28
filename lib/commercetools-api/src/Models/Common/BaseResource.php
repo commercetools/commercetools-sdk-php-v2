@@ -87,6 +87,8 @@ use Commercetools\Api\Models\Message\CartDiscountDeletedMessage;
 use Commercetools\Api\Models\Message\CartDiscountStoreAddedMessage;
 use Commercetools\Api\Models\Message\CartDiscountStoreRemovedMessage;
 use Commercetools\Api\Models\Message\CartDiscountStoresSetMessage;
+use Commercetools\Api\Models\Message\CartFrozenMessage;
+use Commercetools\Api\Models\Message\CartUnfrozenMessage;
 use Commercetools\Api\Models\Message\CategoryCreatedMessage;
 use Commercetools\Api\Models\Message\CategorySlugChangedMessage;
 use Commercetools\Api\Models\Message\CustomerAddressAddedMessage;
