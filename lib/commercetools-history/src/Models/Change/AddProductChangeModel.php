@@ -136,8 +136,8 @@ final class AddProductChangeModel extends JsonObjectModel implements AddProductC
             if (is_null($data)) {
                 return null;
             }
-            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
-            $this->variantSelection = $className::of($data);
+
+            $this->variantSelection = ProductVariantSelectionModel::of($data);
         }
 
         return $this->variantSelection;

@@ -20,19 +20,13 @@ use stdClass;
 final class ProductDiscountValueModel extends JsonObjectModel implements ProductDiscountValue
 {
 
-    public const DISCRIMINATOR_VALUE = '';
+
     /**
      *
      * @var ?string
      */
     protected $type;
 
-    /**
-     * @psalm-var array<string, class-string<ProductDiscountValue> >
-     * 
-     */
-    private static $discriminatorClasses = [
-    ];
 
     /**
      * @psalm-suppress MissingParamType
@@ -63,33 +57,14 @@ final class ProductDiscountValueModel extends JsonObjectModel implements Product
     }
 
 
-
-
-
     /**
-     * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<ProductDiscountValue>
+     * @param ?string $type
      */
-    public static function resolveDiscriminatorClass($value): string
+    public function setType(?string $type): void
     {
-       $fieldName = ProductDiscountValue::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-
-       /** @psalm-var class-string<ProductDiscountValue> */
-       $type = ProductDiscountValueModel::class;
-       return $type;
+        $this->type = $type;
     }
+
+
+
 }

@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Common;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Common\GeoJsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<GeoLocation>
+ * @extends GeoJsonCollection<GeoLocation>
  * @method GeoLocation current()
  * @method GeoLocation end()
  * @method GeoLocation at($offset)
  */
-class GeoLocationCollection extends MapperSequence
+class GeoLocationCollection extends GeoJsonCollection
 {
     /**
      * @psalm-assert GeoLocation $value

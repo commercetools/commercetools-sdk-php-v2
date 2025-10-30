@@ -14,7 +14,7 @@ use DateTimeImmutable;
 
 interface ReturnItem extends JsonObject
 {
-    public const DISCRIMINATOR_FIELD = 'type';
+
     public const FIELD_ID = 'id';
     public const FIELD_KEY = 'key';
     public const FIELD_QUANTITY = 'quantity';
@@ -122,6 +122,11 @@ interface ReturnItem extends JsonObject
      * @param ?int $quantity
      */
     public function setQuantity(?int $quantity): void;
+
+    /**
+     * @param ?string $type
+     */
+    public function setType(?string $type): void;
 
     /**
      * @param ?string $comment

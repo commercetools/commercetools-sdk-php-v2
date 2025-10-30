@@ -32,6 +32,7 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
      * 
      */
     private static $discriminatorClasses = [
+       'Point' => GeoLocationModel::class,
     ];
 
     /**

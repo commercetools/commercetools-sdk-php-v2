@@ -20,19 +20,13 @@ use stdClass;
 final class CartDiscountTargetModel extends JsonObjectModel implements CartDiscountTarget
 {
 
-    public const DISCRIMINATOR_VALUE = '';
+
     /**
      *
      * @var ?string
      */
     protected $type;
 
-    /**
-     * @psalm-var array<string, class-string<CartDiscountTarget> >
-     * 
-     */
-    private static $discriminatorClasses = [
-    ];
 
     /**
      * @psalm-suppress MissingParamType
@@ -63,33 +57,14 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
     }
 
 
-
-
-
     /**
-     * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<CartDiscountTarget>
+     * @param ?string $type
      */
-    public static function resolveDiscriminatorClass($value): string
+    public function setType(?string $type): void
     {
-       $fieldName = CartDiscountTarget::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-
-       /** @psalm-var class-string<CartDiscountTarget> */
-       $type = CartDiscountTargetModel::class;
-       return $type;
+        $this->type = $type;
     }
+
+
+
 }

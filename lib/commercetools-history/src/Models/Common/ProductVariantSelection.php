@@ -13,7 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ProductVariantSelection extends JsonObject
 {
-    public const DISCRIMINATOR_FIELD = 'type';
+
     public const FIELD_TYPE = 'type';
 
     /**
@@ -24,4 +24,8 @@ interface ProductVariantSelection extends JsonObject
      */
     public function getType();
 
+    /**
+     * @param ?string $type
+     */
+    public function setType(?string $type): void;
 }

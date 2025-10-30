@@ -21,7 +21,7 @@ use DateTimeImmutable;
 final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 {
 
-    public const DISCRIMINATOR_VALUE = '';
+
     /**
      *
      * @var ?string
@@ -82,12 +82,6 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
      */
     protected $createdAt;
 
-    /**
-     * @psalm-var array<string, class-string<ReturnItem> >
-     * 
-     */
-    private static $discriminatorClasses = [
-    ];
 
     /**
      * @psalm-suppress MissingParamType
@@ -96,24 +90,24 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         ?string $id = null,
         ?string $key = null,
         ?int $quantity = null,
+        ?string $type = null,
         ?string $comment = null,
         ?string $shipmentState = null,
         ?string $paymentState = null,
         ?CustomFields $custom = null,
         ?DateTimeImmutable $lastModifiedAt = null,
-        ?DateTimeImmutable $createdAt = null,
-        ?string $type = null
+        ?DateTimeImmutable $createdAt = null
     ) {
         $this->id = $id;
         $this->key = $key;
         $this->quantity = $quantity;
+        $this->type = $type;
         $this->comment = $comment;
         $this->shipmentState = $shipmentState;
         $this->paymentState = $paymentState;
         $this->custom = $custom;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->createdAt = $createdAt;
-        $this->type = $type;
 
     }
 
@@ -354,6 +348,14 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * @param ?string $type
+     */
+    public function setType(?string $type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
      * @param ?string $comment
      */
     public function setComment(?string $comment): void
@@ -416,30 +418,4 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         return (object) $data;
     }
 
-    /**
-     * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<ReturnItem>
-     */
-    public static function resolveDiscriminatorClass($value): string
-    {
-       $fieldName = ReturnItem::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-
-       /** @psalm-var class-string<ReturnItem> */
-       $type = ReturnItemModel::class;
-       return $type;
-    }
 }

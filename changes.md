@@ -839,6 +839,7 @@
 <summary>Changed Type(s)</summary>
 
 - :warning: changed type `Address` from type `object` to `BaseAddress`
+- :warning: changed type `GeoLocation` from type `object` to `GeoJson`
 </details>
 
 
@@ -970,6 +971,8 @@
 - changed property `isOnStock` of type `ProductVariantChannelAvailability` to be optional
 - changed property `restockableInDays` of type `ProductVariantChannelAvailability` to be optional
 - changed property `availableQuantity` of type `ProductVariantChannelAvailability` to be optional
+- changed property `id` of type `ResourceIdentifier` to be optional
+- changed property `key` of type `ResourceIdentifier` to be optional
 - changed property `returnTrackingId` of type `ReturnInfo` to be optional
 - changed property `returnDate` of type `ReturnInfo` to be optional
 - changed property `comment` of type `ReturnItem` to be optional

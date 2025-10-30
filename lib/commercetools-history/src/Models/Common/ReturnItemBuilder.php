@@ -43,6 +43,12 @@ final class ReturnItemBuilder implements Builder
 
      * @var ?string
      */
+    private $type;
+
+    /**
+
+     * @var ?string
+     */
     private $comment;
 
     /**
@@ -106,6 +112,15 @@ final class ReturnItemBuilder implements Builder
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -212,6 +227,17 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $type
+     * @return $this
+     */
+    public function withType(?string $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $comment
      * @return $this
      */
@@ -294,6 +320,7 @@ final class ReturnItemBuilder implements Builder
             $this->id,
             $this->key,
             $this->quantity,
+            $this->type,
             $this->comment,
             $this->shipmentState,
             $this->paymentState,
