@@ -13,7 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 
 interface FieldType extends JsonObject
 {
-    public const DISCRIMINATOR_FIELD = 'name';
+
     public const FIELD_NAME = 'name';
 
     /**
@@ -22,4 +22,8 @@ interface FieldType extends JsonObject
      */
     public function getName();
 
+    /**
+     * @param ?string $name
+     */
+    public function setName(?string $name): void;
 }

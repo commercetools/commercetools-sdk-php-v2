@@ -84,8 +84,8 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
             if (is_null($data)) {
                 return null;
             }
-            $className = FieldTypeModel::resolveDiscriminatorClass($data);
-            $this->type = $className::of($data);
+
+            $this->type = FieldTypeModel::of($data);
         }
 
         return $this->type;

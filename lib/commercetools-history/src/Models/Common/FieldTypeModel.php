@@ -20,19 +20,13 @@ use stdClass;
 final class FieldTypeModel extends JsonObjectModel implements FieldType
 {
 
-    public const DISCRIMINATOR_VALUE = '';
+
     /**
      *
      * @var ?string
      */
     protected $name;
 
-    /**
-     * @psalm-var array<string, class-string<FieldType> >
-     * 
-     */
-    private static $discriminatorClasses = [
-    ];
 
     /**
      * @psalm-suppress MissingParamType
@@ -63,33 +57,14 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
     }
 
 
-
-
-
     /**
-     * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<FieldType>
+     * @param ?string $name
      */
-    public static function resolveDiscriminatorClass($value): string
+    public function setName(?string $name): void
     {
-       $fieldName = FieldType::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-
-       /** @psalm-var class-string<FieldType> */
-       $type = FieldTypeModel::class;
-       return $type;
+        $this->name = $name;
     }
+
+
+
 }
