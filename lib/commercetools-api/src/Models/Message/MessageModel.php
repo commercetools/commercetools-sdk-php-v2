@@ -251,6 +251,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'OrderLineItemDistributionChannelSet' => OrderLineItemDistributionChannelSetMessageModel::class,
        'OrderLineItemRemoved' => OrderLineItemRemovedMessageModel::class,
        'OrderPaymentAdded' => OrderPaymentAddedMessageModel::class,
+       'OrderPaymentRemoved' => OrderPaymentRemovedMessageModel::class,
        'OrderPaymentStateChanged' => OrderPaymentStateChangedMessageModel::class,
        'OrderPurchaseOrderNumberSet' => OrderPurchaseOrderNumberSetMessageModel::class,
        'OrderReturnShipmentStateChanged' => OrderReturnShipmentStateChangedMessageModel::class,

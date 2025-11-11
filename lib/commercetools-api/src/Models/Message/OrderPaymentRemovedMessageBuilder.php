@@ -25,9 +25,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<OrderPaymentAddedMessage>
+ * @implements Builder<OrderPaymentRemovedMessage>
  */
-final class OrderPaymentAddedMessageBuilder implements Builder
+final class OrderPaymentRemovedMessageBuilder implements Builder
 {
     /**
 
@@ -94,6 +94,12 @@ final class OrderPaymentAddedMessageBuilder implements Builder
      * @var null|PaymentReference|PaymentReferenceBuilder
      */
     private $paymentRef;
+
+    /**
+
+     * @var ?bool
+     */
+    private $removedPaymentInfo;
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
@@ -207,7 +213,7 @@ final class OrderPaymentAddedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Payment">Payment</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     * <p><a href="ctp:api:type:Payment">Payment</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|PaymentReference
@@ -215,6 +221,17 @@ final class OrderPaymentAddedMessageBuilder implements Builder
     public function getPaymentRef()
     {
         return $this->paymentRef instanceof PaymentReferenceBuilder ? $this->paymentRef->build() : $this->paymentRef;
+    }
+
+    /**
+     * <p>Indicates whether the removal of the Payment resulted in no Payments remaining on the Order. The value is <code>true</code> if all Payments have been removed (none remain), and <code>false</code> if there are still Payments associated with the Order after the removal.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getRemovedPaymentInfo()
+    {
+        return $this->removedPaymentInfo;
     }
 
     /**
@@ -339,6 +356,17 @@ final class OrderPaymentAddedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?bool $removedPaymentInfo
+     * @return $this
+     */
+    public function withRemovedPaymentInfo(?bool $removedPaymentInfo)
+    {
+        $this->removedPaymentInfo = $removedPaymentInfo;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -393,9 +421,9 @@ final class OrderPaymentAddedMessageBuilder implements Builder
         return $this;
     }
 
-    public function build(): OrderPaymentAddedMessage
+    public function build(): OrderPaymentRemovedMessage
     {
-        return new OrderPaymentAddedMessageModel(
+        return new OrderPaymentRemovedMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -406,11 +434,12 @@ final class OrderPaymentAddedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->paymentRef instanceof PaymentReferenceBuilder ? $this->paymentRef->build() : $this->paymentRef
+            $this->paymentRef instanceof PaymentReferenceBuilder ? $this->paymentRef->build() : $this->paymentRef,
+            $this->removedPaymentInfo
         );
     }
 
-    public static function of(): OrderPaymentAddedMessageBuilder
+    public static function of(): OrderPaymentRemovedMessageBuilder
     {
         return new self();
     }

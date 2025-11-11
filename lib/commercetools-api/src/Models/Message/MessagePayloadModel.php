@@ -182,6 +182,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'OrderLineItemDistributionChannelSet' => OrderLineItemDistributionChannelSetMessagePayloadModel::class,
        'OrderLineItemRemoved' => OrderLineItemRemovedMessagePayloadModel::class,
        'OrderPaymentAdded' => OrderPaymentAddedMessagePayloadModel::class,
+       'OrderPaymentRemoved' => OrderPaymentRemovedMessagePayloadModel::class,
        'OrderPaymentStateChanged' => OrderPaymentStateChangedMessagePayloadModel::class,
        'OrderPurchaseOrderNumberSet' => OrderPurchaseOrderNumberSetMessagePayloadModel::class,
        'OrderReturnShipmentStateChanged' => OrderReturnShipmentStateChangedMessagePayloadModel::class,

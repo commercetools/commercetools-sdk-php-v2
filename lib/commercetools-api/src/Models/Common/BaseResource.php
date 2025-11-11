@@ -142,6 +142,7 @@ use Commercetools\Api\Models\Message\InventoryEntryQuantitySetMessage;
 use Commercetools\Api\Models\Message\Message;
 use Commercetools\Api\Models\Message\OrderMessage;
 use Commercetools\Api\Models\Message\OrderPaymentAddedMessage;
+use Commercetools\Api\Models\Message\OrderPaymentRemovedMessage;
 use Commercetools\Api\Models\Message\PaymentCreatedMessage;
 use Commercetools\Api\Models\Message\PaymentInteractionAddedMessage;
 use Commercetools\Api\Models\Message\PaymentInterfaceIdSetMessage;

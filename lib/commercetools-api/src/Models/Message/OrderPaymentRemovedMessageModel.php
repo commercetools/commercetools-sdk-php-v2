@@ -26,9 +26,9 @@ use stdClass;
 /**
  * @internal
  */
-final class OrderPaymentAddedMessageModel extends JsonObjectModel implements OrderPaymentAddedMessage
+final class OrderPaymentRemovedMessageModel extends JsonObjectModel implements OrderPaymentRemovedMessage
 {
-    public const DISCRIMINATOR_VALUE = 'OrderPaymentAdded';
+    public const DISCRIMINATOR_VALUE = 'OrderPaymentRemoved';
     /**
      *
      * @var ?string
@@ -101,6 +101,12 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
      */
     protected $paymentRef;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $removedPaymentInfo;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -117,6 +123,7 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?PaymentReference $paymentRef = null,
+        ?bool $removedPaymentInfo = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -130,6 +137,7 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->paymentRef = $paymentRef;
+        $this->removedPaymentInfo = $removedPaymentInfo;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -367,7 +375,7 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
     }
 
     /**
-     * <p><a href="ctp:api:type:Payment">Payment</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     * <p><a href="ctp:api:type:Payment">Payment</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
      *
      *
      * @return null|PaymentReference
@@ -385,6 +393,26 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
         }
 
         return $this->paymentRef;
+    }
+
+    /**
+     * <p>Indicates whether the removal of the Payment resulted in no Payments remaining on the Order. The value is <code>true</code> if all Payments have been removed (none remain), and <code>false</code> if there are still Payments associated with the Order after the removal.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getRemovedPaymentInfo()
+    {
+        if (is_null($this->removedPaymentInfo)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_REMOVED_PAYMENT_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedPaymentInfo = (bool) $data;
+        }
+
+        return $this->removedPaymentInfo;
     }
 
 
@@ -474,6 +502,14 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
     public function setPaymentRef(?PaymentReference $paymentRef): void
     {
         $this->paymentRef = $paymentRef;
+    }
+
+    /**
+     * @param ?bool $removedPaymentInfo
+     */
+    public function setRemovedPaymentInfo(?bool $removedPaymentInfo): void
+    {
+        $this->removedPaymentInfo = $removedPaymentInfo;
     }
 
 

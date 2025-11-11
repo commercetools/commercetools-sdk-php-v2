@@ -276,6 +276,8 @@ use Commercetools\Api\Models\Message\OrderMessage;
 use Commercetools\Api\Models\Message\OrderMessageModel;
 use Commercetools\Api\Models\Message\OrderPaymentAddedMessage;
 use Commercetools\Api\Models\Message\OrderPaymentAddedMessageModel;
+use Commercetools\Api\Models\Message\OrderPaymentRemovedMessage;
+use Commercetools\Api\Models\Message\OrderPaymentRemovedMessageModel;
 use Commercetools\Api\Models\Message\PaymentCreatedMessage;
 use Commercetools\Api\Models\Message\PaymentCreatedMessageModel;
 use Commercetools\Api\Models\Message\PaymentInteractionAddedMessage;

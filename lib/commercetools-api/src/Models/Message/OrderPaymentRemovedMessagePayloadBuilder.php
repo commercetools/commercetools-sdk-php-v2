@@ -18,9 +18,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<OrderPaymentAddedMessagePayload>
+ * @implements Builder<OrderPaymentRemovedMessagePayload>
  */
-final class OrderPaymentAddedMessagePayloadBuilder implements Builder
+final class OrderPaymentRemovedMessagePayloadBuilder implements Builder
 {
     /**
 
@@ -29,7 +29,13 @@ final class OrderPaymentAddedMessagePayloadBuilder implements Builder
     private $paymentRef;
 
     /**
-     * <p><a href="ctp:api:type:Payment">Payment</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+
+     * @var ?bool
+     */
+    private $removedPaymentInfo;
+
+    /**
+     * <p><a href="ctp:api:type:Payment">Payment</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|PaymentReference
@@ -40,12 +46,34 @@ final class OrderPaymentAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Indicates whether the removal of the Payment resulted in no Payments remaining on the Order. The value is <code>true</code> if all Payments have been removed (none remain), and <code>false</code> if there are still Payments associated with the Order after the removal.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getRemovedPaymentInfo()
+    {
+        return $this->removedPaymentInfo;
+    }
+
+    /**
      * @param ?PaymentReference $paymentRef
      * @return $this
      */
     public function withPaymentRef(?PaymentReference $paymentRef)
     {
         $this->paymentRef = $paymentRef;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $removedPaymentInfo
+     * @return $this
+     */
+    public function withRemovedPaymentInfo(?bool $removedPaymentInfo)
+    {
+        $this->removedPaymentInfo = $removedPaymentInfo;
 
         return $this;
     }
@@ -61,14 +89,15 @@ final class OrderPaymentAddedMessagePayloadBuilder implements Builder
         return $this;
     }
 
-    public function build(): OrderPaymentAddedMessagePayload
+    public function build(): OrderPaymentRemovedMessagePayload
     {
-        return new OrderPaymentAddedMessagePayloadModel(
-            $this->paymentRef instanceof PaymentReferenceBuilder ? $this->paymentRef->build() : $this->paymentRef
+        return new OrderPaymentRemovedMessagePayloadModel(
+            $this->paymentRef instanceof PaymentReferenceBuilder ? $this->paymentRef->build() : $this->paymentRef,
+            $this->removedPaymentInfo
         );
     }
 
-    public static function of(): OrderPaymentAddedMessagePayloadBuilder
+    public static function of(): OrderPaymentRemovedMessagePayloadBuilder
     {
         return new self();
     }

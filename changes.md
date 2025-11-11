@@ -88,6 +88,7 @@
 - added type `DiscountGroupSortOrderSetMessage`
 - added type `OrderBusinessUnitSetMessage`
 - added type `OrderCreatedFromRecurringOrderMessage`
+- added type `OrderPaymentRemovedMessage`
 - added type `PaymentInterfaceIdSetMessage`
 - added type `PaymentMethodCreatedMessage`
 - added type `PaymentMethodCustomFieldAddedMessage`
@@ -146,6 +147,7 @@
 - added type `DiscountGroupSortOrderSetMessagePayload`
 - added type `OrderBusinessUnitSetMessagePayload`
 - added type `OrderCreatedFromRecurringOrderMessagePayload`
+- added type `OrderPaymentRemovedMessagePayload`
 - added type `PaymentInterfaceIdSetMessagePayload`
 - added type `PaymentMethodCreatedMessagePayload`
 - added type `PaymentMethodCustomFieldAddedMessagePayload`
@@ -417,6 +419,8 @@
 <details>
 <summary>Removed Property(s)</summary>
 
+- :warning: removed property `payment` from type `OrderPaymentAddedMessage`
+- :warning: removed property `payment` from type `OrderPaymentAddedMessagePayload`
 - :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
 - :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
 </details>
@@ -461,12 +465,14 @@
 - added property `value` to type `CustomerPasswordTokenCreatedMessage`
 - added property `invalidateOlderTokens` to type `CustomerPasswordTokenCreatedMessage`
 - added property `sku` to type `InventoryEntryQuantitySetMessage`
+- added property `paymentRef` to type `OrderPaymentAddedMessage`
 - added property `attributes` to type `ProductTailoringCreatedMessage`
 - added property `value` to type `CustomerEmailTokenCreatedMessagePayload`
 - added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessagePayload`
 - added property `value` to type `CustomerPasswordTokenCreatedMessagePayload`
 - added property `invalidateOlderTokens` to type `CustomerPasswordTokenCreatedMessagePayload`
 - added property `sku` to type `InventoryEntryQuantitySetMessagePayload`
+- added property `paymentRef` to type `OrderPaymentAddedMessagePayload`
 - added property `attributes` to type `ProductTailoringCreatedMessagePayload`
 - added property `priceRoundingMode` to type `StagedOrder`
 - added property `recurringOrder` to type `StagedOrder`
