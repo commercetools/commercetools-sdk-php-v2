@@ -423,6 +423,7 @@
 - :warning: removed property `payment` from type `OrderPaymentAddedMessagePayload`
 - :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
 - :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
+- :warning: removed property `tierMinimumQuantity` from type `StandalonePriceRemovePriceTierAction`
 </details>
 
 
@@ -510,6 +511,7 @@
 - added property `published` to type `ShoppingListLineItem`
 - added property `recurrencePolicy` to type `StandalonePrice`
 - added property `recurrencePolicy` to type `StandalonePriceDraft`
+- added property `minimumQuantity` to type `StandalonePriceRemovePriceTierAction`
 - added property `events` to type `Subscription`
 - added property `events` to type `SubscriptionDraft`
 </details>

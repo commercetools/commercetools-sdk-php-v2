@@ -13,7 +13,7 @@ use Commercetools\Base\JsonObject;
 
 interface StandalonePriceRemovePriceTierAction extends StandalonePriceUpdateAction
 {
-    public const FIELD_TIER_MINIMUM_QUANTITY = 'tierMinimumQuantity';
+    public const FIELD_MINIMUM_QUANTITY = 'minimumQuantity';
 
     /**
      * <p>The <code>minimumQuantity</code> of the <a href="ctp:api:type:PriceTier">PriceTier</a> to be removed from the <code>tiers</code> field of the <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
@@ -21,10 +21,10 @@ interface StandalonePriceRemovePriceTierAction extends StandalonePriceUpdateActi
 
      * @return null|int
      */
-    public function getTierMinimumQuantity();
+    public function getMinimumQuantity();
 
     /**
-     * @param ?int $tierMinimumQuantity
+     * @param ?int $minimumQuantity
      */
-    public function setTierMinimumQuantity(?int $tierMinimumQuantity): void;
+    public function setMinimumQuantity(?int $minimumQuantity): void;
 }
