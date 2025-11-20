@@ -45,6 +45,8 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
     }
 
     /**
+     * <p>Discriminator that determines the type of the field.</p>
+     *
      *
      * @return null|string
      */

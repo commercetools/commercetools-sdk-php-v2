@@ -55,6 +55,8 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
     }
 
     /**
+     * <p>Discriminator that determines the type of the field.</p>
+     *
      *
      * @return null|string
      */

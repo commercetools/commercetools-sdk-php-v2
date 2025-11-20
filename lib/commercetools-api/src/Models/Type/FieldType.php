@@ -17,6 +17,8 @@ interface FieldType extends JsonObject
     public const FIELD_NAME = 'name';
 
     /**
+     * <p>Discriminator that determines the type of the field.</p>
+     *
 
      * @return null|string
      */

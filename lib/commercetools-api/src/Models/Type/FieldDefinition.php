@@ -31,7 +31,7 @@ interface FieldDefinition extends JsonObject
     /**
      * <p>Name of the Custom Field to define.
      * Must be unique for a given <a href="ctp:api:type:ResourceTypeId">ResourceTypeId</a>.
-     * In case there is a FieldDefinition with the same <code>name</code> in another <a href="ctp:api:type:Type">Type</a>, both FieldDefinitions must have the same <code>type</code>.</p>
+     * If a FieldDefinition with the same <code>name</code> is defined in another <a href="ctp:api:type:Type">Type</a> for the same <a href="ctp:api:type:ResourceTypeId">ResourceTypeId</a>, then both FieldDefinitions must have the same <code>type</code>.</p>
      *
 
      * @return null|string

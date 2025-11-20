@@ -37,6 +37,8 @@ final class CustomFieldLocalizedStringTypeModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Discriminator that determines the type of the field.</p>
+     *
      *
      * @return null|string
      */

@@ -45,6 +45,8 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>Discriminator that determines the type of the field.</p>
+     *
      *
      * @return null|string
      */

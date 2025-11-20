@@ -37,6 +37,8 @@ final class CustomFieldMoneyTypeModel extends JsonObjectModel implements CustomF
     }
 
     /**
+     * <p>Discriminator that determines the type of the field.</p>
+     *
      *
      * @return null|string
      */
