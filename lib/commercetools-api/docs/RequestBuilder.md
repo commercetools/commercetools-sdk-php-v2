@@ -2744,6 +2744,8 @@ $request = $builder
 
 For performance reasons, it is highly advisable to query for Custom Objects in a container by using the `container` field in the `where` predicate.
 
+This endpoint is deprecated and replaced by the [Query CustomObjects in Container](/../apis/ctp:api:endpoint:/{projectKey}/custom-objects/{container}:GET) endpoint.
+
 
 ### Example
 ```php
