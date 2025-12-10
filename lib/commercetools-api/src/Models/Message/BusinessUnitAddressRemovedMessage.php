@@ -15,6 +15,7 @@ use Commercetools\Base\JsonObject;
 interface BusinessUnitAddressRemovedMessage extends Message
 {
     public const FIELD_ADDRESS = 'address';
+    public const FIELD_ADDRESS_ROLES = 'addressRoles';
 
     /**
      * <p>The address that was removed from the <a href="ctp:api:type:BusinessUnit">Business Unit</a>.</p>
@@ -25,7 +26,20 @@ interface BusinessUnitAddressRemovedMessage extends Message
     public function getAddress();
 
     /**
+     * <p>Indicates if the address was used for shipping or billing purposes.</p>
+     *
+
+     * @return null|array
+     */
+    public function getAddressRoles();
+
+    /**
      * @param ?Address $address
      */
     public function setAddress(?Address $address): void;
+
+    /**
+     * @param ?array $addressRoles
+     */
+    public function setAddressRoles(?array $addressRoles): void;
 }

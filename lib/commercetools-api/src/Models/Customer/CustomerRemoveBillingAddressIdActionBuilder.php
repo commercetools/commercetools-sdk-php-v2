@@ -33,7 +33,7 @@ final class CustomerRemoveBillingAddressIdActionBuilder implements Builder
     private $addressKey;
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressesIds</code>.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressIds</code>.</p>
      *
 
      * @return null|string
@@ -44,7 +44,7 @@ final class CustomerRemoveBillingAddressIdActionBuilder implements Builder
     }
 
     /**
-     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressesIds</code>.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressIds</code>.</p>
      *
 
      * @return null|string

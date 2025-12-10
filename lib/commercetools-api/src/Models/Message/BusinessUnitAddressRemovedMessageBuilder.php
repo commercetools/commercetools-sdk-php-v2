@@ -96,6 +96,12 @@ final class BusinessUnitAddressRemovedMessageBuilder implements Builder
     private $address;
 
     /**
+
+     * @var ?array
+     */
+    private $addressRoles;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -215,6 +221,17 @@ final class BusinessUnitAddressRemovedMessageBuilder implements Builder
     public function getAddress()
     {
         return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
+    }
+
+    /**
+     * <p>Indicates if the address was used for shipping or billing purposes.</p>
+     *
+
+     * @return null|array
+     */
+    public function getAddressRoles()
+    {
+        return $this->addressRoles;
     }
 
     /**
@@ -339,6 +356,17 @@ final class BusinessUnitAddressRemovedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?array $addressRoles
+     * @return $this
+     */
+    public function withAddressRoles(?array $addressRoles)
+    {
+        $this->addressRoles = $addressRoles;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -406,7 +434,8 @@ final class BusinessUnitAddressRemovedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->addressRoles
         );
     }
 

@@ -15,6 +15,7 @@ use Commercetools\Base\JsonObject;
 interface BusinessUnitAddressChangedMessagePayload extends MessagePayload
 {
     public const FIELD_ADDRESS = 'address';
+    public const FIELD_ADDRESS_ROLES = 'addressRoles';
 
     /**
      * <p>Updated address of the Business Unit.</p>
@@ -25,7 +26,20 @@ interface BusinessUnitAddressChangedMessagePayload extends MessagePayload
     public function getAddress();
 
     /**
+     * <p>Indicates if the address was used for shipping or billing purposes.</p>
+     *
+
+     * @return null|array
+     */
+    public function getAddressRoles();
+
+    /**
      * @param ?Address $address
      */
     public function setAddress(?Address $address): void;
+
+    /**
+     * @param ?array $addressRoles
+     */
+    public function setAddressRoles(?array $addressRoles): void;
 }

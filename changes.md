@@ -14,6 +14,7 @@
 - added type `CartChangePriceRoundingModeAction`
 - added type `CartSetCustomLineItemRecurrenceInfoAction`
 - added type `CartSetLineItemRecurrenceInfoAction`
+- added type `AddressRole`
 - added type `CustomerGroupAssignment`
 - added type `CustomerGroupAssignmentDraft`
 - added type `CustomerAddCustomerGroupAssignmentAction`
@@ -75,11 +76,16 @@
 - added type `BusinessUnitTypeSetMessage`
 - added type `CartFrozenMessage`
 - added type `CartUnfrozenMessage`
+- added type `CustomerBillingAddressAddedMessage`
+- added type `CustomerBillingAddressRemovedMessage`
 - added type `CustomerDefaultBillingAddressSetMessage`
 - added type `CustomerDefaultShippingAddressSetMessage`
+- added type `CustomerExternalIdSetMessage`
 - added type `CustomerGroupAssignmentAddedMessage`
 - added type `CustomerGroupAssignmentRemovedMessage`
 - added type `CustomerGroupAssignmentsSetMessage`
+- added type `CustomerShippingAddressAddedMessage`
+- added type `CustomerShippingAddressRemovedMessage`
 - added type `CustomerStoresSetMessage`
 - added type `DiscountGroupCreatedMessage`
 - added type `DiscountGroupDeletedMessage`
@@ -134,11 +140,16 @@
 - added type `BusinessUnitTypeSetMessagePayload`
 - added type `CartFrozenMessagePayload`
 - added type `CartUnfrozenMessagePayload`
+- added type `CustomerBillingAddressAddedMessagePayload`
+- added type `CustomerBillingAddressRemovedMessagePayload`
 - added type `CustomerDefaultBillingAddressSetMessagePayload`
 - added type `CustomerDefaultShippingAddressSetMessagePayload`
+- added type `CustomerExternalIdSetMessagePayload`
 - added type `CustomerGroupAssignmentAddedMessagePayload`
 - added type `CustomerGroupAssignmentRemovedMessagePayload`
 - added type `CustomerGroupAssignmentsSetMessagePayload`
+- added type `CustomerShippingAddressAddedMessagePayload`
+- added type `CustomerShippingAddressRemovedMessagePayload`
 - added type `CustomerStoresSetMessagePayload`
 - added type `DiscountGroupCreatedMessagePayload`
 - added type `DiscountGroupDeletedMessagePayload`
@@ -468,6 +479,12 @@
 - added property `recurrenceInfo` to type `MyLineItemDraft`
 - added property `interfaceId` to type `MyTransactionDraft`
 - added property `recurrenceInfo` to type `MyCartAddLineItemAction`
+- added property `addressRoles` to type `BusinessUnitAddressChangedMessage`
+- added property `addressRoles` to type `BusinessUnitAddressRemovedMessage`
+- added property `addressRoles` to type `CustomerAddressChangedMessage`
+- added property `addressRoles` to type `CustomerAddressRemovedMessage`
+- added property `email` to type `CustomerDeletedMessage`
+- added property `oldEmail` to type `CustomerEmailChangedMessage`
 - added property `value` to type `CustomerEmailTokenCreatedMessage`
 - added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessage`
 - added property `value` to type `CustomerPasswordTokenCreatedMessage`
@@ -475,6 +492,12 @@
 - added property `sku` to type `InventoryEntryQuantitySetMessage`
 - added property `paymentRef` to type `OrderPaymentAddedMessage`
 - added property `attributes` to type `ProductTailoringCreatedMessage`
+- added property `addressRoles` to type `BusinessUnitAddressChangedMessagePayload`
+- added property `addressRoles` to type `BusinessUnitAddressRemovedMessagePayload`
+- added property `addressRoles` to type `CustomerAddressChangedMessagePayload`
+- added property `addressRoles` to type `CustomerAddressRemovedMessagePayload`
+- added property `email` to type `CustomerDeletedMessagePayload`
+- added property `oldEmail` to type `CustomerEmailChangedMessagePayload`
 - added property `value` to type `CustomerEmailTokenCreatedMessagePayload`
 - added property `invalidateOlderTokens` to type `CustomerEmailTokenCreatedMessagePayload`
 - added property `value` to type `CustomerPasswordTokenCreatedMessagePayload`

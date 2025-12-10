@@ -95,6 +95,12 @@ final class CustomerGroupAssignmentsSetMessageBuilder implements Builder
     private $customerGroupAssignments;
 
     /**
+
+     * @var ?CustomerGroupAssignmentCollection
+     */
+    private $oldCustomerGroupAssignments;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -214,6 +220,17 @@ final class CustomerGroupAssignmentsSetMessageBuilder implements Builder
     public function getCustomerGroupAssignments()
     {
         return $this->customerGroupAssignments;
+    }
+
+    /**
+     * <p>Customer Groups assigned to the Customer before the <a href="ctp:api:type:CustomerSetCustomerGroupAssignmentsAction">Set CustomerGroupAssignments</a> update action.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getOldCustomerGroupAssignments()
+    {
+        return $this->oldCustomerGroupAssignments;
     }
 
     /**
@@ -338,6 +355,17 @@ final class CustomerGroupAssignmentsSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupAssignmentCollection $oldCustomerGroupAssignments
+     * @return $this
+     */
+    public function withOldCustomerGroupAssignments(?CustomerGroupAssignmentCollection $oldCustomerGroupAssignments)
+    {
+        $this->oldCustomerGroupAssignments = $oldCustomerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -394,7 +422,8 @@ final class CustomerGroupAssignmentsSetMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->customerGroupAssignments
+            $this->customerGroupAssignments,
+            $this->oldCustomerGroupAssignments
         );
     }
 

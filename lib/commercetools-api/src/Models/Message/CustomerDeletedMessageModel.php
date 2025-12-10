@@ -93,6 +93,12 @@ final class CustomerDeletedMessageModel extends JsonObjectModel implements Custo
      */
     protected $resourceUserProvidedIdentifiers;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $email;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -108,6 +114,7 @@ final class CustomerDeletedMessageModel extends JsonObjectModel implements Custo
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?string $email = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -120,6 +127,7 @@ final class CustomerDeletedMessageModel extends JsonObjectModel implements Custo
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->email = $email;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -356,6 +364,26 @@ final class CustomerDeletedMessageModel extends JsonObjectModel implements Custo
         return $this->resourceUserProvidedIdentifiers;
     }
 
+    /**
+     * <p>The email address of the Customer that was deleted.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        if (is_null($this->email)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EMAIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->email = (string) $data;
+        }
+
+        return $this->email;
+    }
+
 
     /**
      * @param ?string $id
@@ -435,6 +463,14 @@ final class CustomerDeletedMessageModel extends JsonObjectModel implements Custo
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @param ?string $email
+     */
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
     }
 
 

@@ -29,6 +29,12 @@ final class BusinessUnitAddressRemovedMessagePayloadBuilder implements Builder
     private $address;
 
     /**
+
+     * @var ?array
+     */
+    private $addressRoles;
+
+    /**
      * <p>The address that was removed from the <a href="ctp:api:type:BusinessUnit">Business Unit</a>.</p>
      *
 
@@ -40,12 +46,34 @@ final class BusinessUnitAddressRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Indicates if the address was used for shipping or billing purposes.</p>
+     *
+
+     * @return null|array
+     */
+    public function getAddressRoles()
+    {
+        return $this->addressRoles;
+    }
+
+    /**
      * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @param ?array $addressRoles
+     * @return $this
+     */
+    public function withAddressRoles(?array $addressRoles)
+    {
+        $this->addressRoles = $addressRoles;
 
         return $this;
     }
@@ -64,7 +92,8 @@ final class BusinessUnitAddressRemovedMessagePayloadBuilder implements Builder
     public function build(): BusinessUnitAddressRemovedMessagePayload
     {
         return new BusinessUnitAddressRemovedMessagePayloadModel(
-            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->addressRoles
         );
     }
 

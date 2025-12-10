@@ -78,7 +78,7 @@ final class RemoveBillingAddressIdChangeBuilder implements Builder
     }
 
     /**
-     * <p>Address removed from <code>billingAddressesIds</code>.</p>
+     * <p>Address removed from <code>billingAddressIds</code>.</p>
      *
 
      * @return null|Address

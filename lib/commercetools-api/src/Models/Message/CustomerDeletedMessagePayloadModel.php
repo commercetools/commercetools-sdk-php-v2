@@ -26,13 +26,21 @@ final class CustomerDeletedMessagePayloadModel extends JsonObjectModel implement
      */
     protected $type;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $email;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $email = null,
         ?string $type = null
     ) {
+        $this->email = $email;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -52,5 +60,34 @@ final class CustomerDeletedMessagePayloadModel extends JsonObjectModel implement
         }
 
         return $this->type;
+    }
+
+    /**
+     * <p>The email address of the Customer that was deleted.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        if (is_null($this->email)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EMAIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->email = (string) $data;
+        }
+
+        return $this->email;
+    }
+
+
+    /**
+     * @param ?string $email
+     */
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
     }
 }

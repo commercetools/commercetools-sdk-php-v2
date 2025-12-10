@@ -48,7 +48,7 @@ interface RemoveBillingAddressIdChange extends Change
     public function getNextValue();
 
     /**
-     * <p>Address removed from <code>billingAddressesIds</code>.</p>
+     * <p>Address removed from <code>billingAddressIds</code>.</p>
      *
 
      * @return null|Address

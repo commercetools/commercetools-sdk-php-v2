@@ -20,9 +20,39 @@ use stdClass;
  */
 final class CustomerDeletedMessagePayloadBuilder implements Builder
 {
+    /**
+
+     * @var ?string
+     */
+    private $email;
+
+    /**
+     * <p>The email address of the Customer that was deleted.</p>
+     *
+
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param ?string $email
+     * @return $this
+     */
+    public function withEmail(?string $email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+
     public function build(): CustomerDeletedMessagePayload
     {
         return new CustomerDeletedMessagePayloadModel(
+            $this->email
         );
     }
 

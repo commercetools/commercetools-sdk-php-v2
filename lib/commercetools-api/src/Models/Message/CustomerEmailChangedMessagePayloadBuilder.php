@@ -27,6 +27,12 @@ final class CustomerEmailChangedMessagePayloadBuilder implements Builder
     private $email;
 
     /**
+
+     * @var ?string
+     */
+    private $oldEmail;
+
+    /**
      * <p>The <code>email</code> that was set during the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
      *
 
@@ -35,6 +41,17 @@ final class CustomerEmailChangedMessagePayloadBuilder implements Builder
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * <p>The <code>email</code> that was set before the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOldEmail()
+    {
+        return $this->oldEmail;
     }
 
     /**
@@ -48,11 +65,23 @@ final class CustomerEmailChangedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $oldEmail
+     * @return $this
+     */
+    public function withOldEmail(?string $oldEmail)
+    {
+        $this->oldEmail = $oldEmail;
+
+        return $this;
+    }
+
 
     public function build(): CustomerEmailChangedMessagePayload
     {
         return new CustomerEmailChangedMessagePayloadModel(
-            $this->email
+            $this->email,
+            $this->oldEmail
         );
     }
 

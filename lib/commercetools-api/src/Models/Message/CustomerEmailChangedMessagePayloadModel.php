@@ -32,15 +32,23 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
      */
     protected $email;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $oldEmail;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $email = null,
+        ?string $oldEmail = null,
         ?string $type = null
     ) {
         $this->email = $email;
+        $this->oldEmail = $oldEmail;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -82,6 +90,26 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
         return $this->email;
     }
 
+    /**
+     * <p>The <code>email</code> that was set before the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getOldEmail()
+    {
+        if (is_null($this->oldEmail)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_OLD_EMAIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldEmail = (string) $data;
+        }
+
+        return $this->oldEmail;
+    }
+
 
     /**
      * @param ?string $email
@@ -89,5 +117,13 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
     public function setEmail(?string $email): void
     {
         $this->email = $email;
+    }
+
+    /**
+     * @param ?string $oldEmail
+     */
+    public function setOldEmail(?string $oldEmail): void
+    {
+        $this->oldEmail = $oldEmail;
     }
 }

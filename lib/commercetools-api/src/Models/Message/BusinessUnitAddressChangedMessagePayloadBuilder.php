@@ -29,6 +29,12 @@ final class BusinessUnitAddressChangedMessagePayloadBuilder implements Builder
     private $address;
 
     /**
+
+     * @var ?array
+     */
+    private $addressRoles;
+
+    /**
      * <p>Updated address of the Business Unit.</p>
      *
 
@@ -40,12 +46,34 @@ final class BusinessUnitAddressChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Indicates if the address was used for shipping or billing purposes.</p>
+     *
+
+     * @return null|array
+     */
+    public function getAddressRoles()
+    {
+        return $this->addressRoles;
+    }
+
+    /**
      * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @param ?array $addressRoles
+     * @return $this
+     */
+    public function withAddressRoles(?array $addressRoles)
+    {
+        $this->addressRoles = $addressRoles;
 
         return $this;
     }
@@ -64,7 +92,8 @@ final class BusinessUnitAddressChangedMessagePayloadBuilder implements Builder
     public function build(): BusinessUnitAddressChangedMessagePayload
     {
         return new BusinessUnitAddressChangedMessagePayloadModel(
-            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->addressRoles
         );
     }
 

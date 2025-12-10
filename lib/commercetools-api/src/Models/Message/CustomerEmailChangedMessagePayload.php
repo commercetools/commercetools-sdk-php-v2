@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 interface CustomerEmailChangedMessagePayload extends MessagePayload
 {
     public const FIELD_EMAIL = 'email';
+    public const FIELD_OLD_EMAIL = 'oldEmail';
 
     /**
      * <p>The <code>email</code> that was set during the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
@@ -24,7 +25,20 @@ interface CustomerEmailChangedMessagePayload extends MessagePayload
     public function getEmail();
 
     /**
+     * <p>The <code>email</code> that was set before the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOldEmail();
+
+    /**
      * @param ?string $email
      */
     public function setEmail(?string $email): void;
+
+    /**
+     * @param ?string $oldEmail
+     */
+    public function setOldEmail(?string $oldEmail): void;
 }
