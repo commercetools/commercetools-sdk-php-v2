@@ -10755,6 +10755,8 @@ $request = $builder
 
 Retrieves Recurrence Policies in the Project.
 
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10769,6 +10771,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->head()`
 
 Checks if one or more Recurrence Policies exist for the provided query predicate. Returns a `200` status if any Recurrence Policies match the query predicate, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10785,6 +10789,8 @@ $request = $builder
 
 Creates a Recurrence Policy in the Project.
 
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10799,6 +10805,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->get()`
 
 Retrieves a Recurrence Policy with the provided `id`.
+
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10816,6 +10824,8 @@ $request = $builder
 
 Checks if a Recurrence Policy exists with the provided `id`. Returns a `200` status if the Recurrence Policy exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10831,6 +10841,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->post(null)`
 
 Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
+
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10850,6 +10862,8 @@ Deletes a Recurrence Policy in the Project.
 
 A Recurrence Policy can be deleted only if it is not referenced by any Embedded Price, Standalone Price, or (Custom) Line Item, otherwise a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
 
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10865,6 +10879,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->get()`
 
 Retrieves a Recurrence Policy with the provided `key`.
+
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10882,6 +10898,8 @@ $request = $builder
 
 Checks if a Recurrence Policy exists with the provided `key`. Returns a `200` status if the Recurrence Policy exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10897,6 +10915,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->post(null)`
 
 Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
+
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10915,6 +10935,8 @@ $request = $builder
 Deletes a Recurrence Policy in the Project.
 
 A Recurrence Policy can be deleted only if it is not referenced by any Embedded Price, Standalone Price, or (Custom) Line Item, otherwise a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example

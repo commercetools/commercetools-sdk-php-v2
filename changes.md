@@ -306,6 +306,13 @@
 
 
 <details>
+<summary>MarkDeprecated Type(s)</summary>
+
+- marked type `ProductSearchProjectionParams` as deprecated
+</details>
+
+
+<details>
 <summary>Deprecated Type(s)</summary>
 
 - type `ProductLegacySetSkuAction` is removed
@@ -431,6 +438,8 @@
 
 - marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
 - marked property `CountOnLineItemUnits::excludeCount` as deprecated
+- marked property `ProductSearchRequest::productProjectionParameters` as deprecated
+- marked property `ProductSearchResult::productProjection` as deprecated
 </details>
 
 

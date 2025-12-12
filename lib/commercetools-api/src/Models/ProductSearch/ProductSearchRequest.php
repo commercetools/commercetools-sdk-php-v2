@@ -68,10 +68,10 @@ interface ProductSearchRequest extends JsonObject
     public function getMarkMatchingVariants();
 
     /**
-     * <p>Controls data integration <a href="/../api/projects/product-search#with-product-projection-parameters">with Product Projection parameters</a>.
+     * <p>Controls deprecated data integration <a href="/../api/deprecations-and-removals#product-projection-parameters">with Product Projection parameters</a>.
      * If not set, the result does not include the Product Projection.</p>
      *
-
+     * @deprecated
      * @return null|ProductSearchProjectionParams
      */
     public function getProductProjectionParameters();
