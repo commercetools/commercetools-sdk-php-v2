@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models\Label;
+namespace Commercetools\History\Models\Common;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -17,7 +17,7 @@ use stdClass;
 /**
  * @internal
  */
-final class LabelModel extends JsonObjectModel implements Label
+final class DiscountTypeCombinationModel extends JsonObjectModel implements DiscountTypeCombination
 {
 
     public const DISCRIMINATOR_VALUE = '';
@@ -28,25 +28,10 @@ final class LabelModel extends JsonObjectModel implements Label
     protected $type;
 
     /**
-     * @psalm-var array<string, class-string<Label> >
+     * @psalm-var array<string, class-string<DiscountTypeCombination> >
      * 
      */
     private static $discriminatorClasses = [
-       'AssociateRoleLabel' => AssociateRoleLabelModel::class,
-       'BusinessUnitLabel' => BusinessUnitLabelModel::class,
-       'CustomObjectLabel' => CustomObjectLabelModel::class,
-       'CustomerLabel' => CustomerLabelModel::class,
-       'LocalizedLabel' => LocalizedLabelModel::class,
-       'OrderLabel' => OrderLabelModel::class,
-       'PaymentLabel' => PaymentLabelModel::class,
-       'ProductLabel' => ProductLabelModel::class,
-       'QuoteLabel' => QuoteLabelModel::class,
-       'QuoteRequestLabel' => QuoteRequestLabelModel::class,
-       'ReviewLabel' => ReviewLabelModel::class,
-       'ShippingMethodLabel' => ShippingMethodLabelModel::class,
-       'StagedQuoteLabel' => StagedQuoteLabelModel::class,
-       'StandalonePriceLabel' => StandalonePriceLabelModel::class,
-       'StringLabel' => StringLabelModel::class,
     ];
 
     /**
@@ -83,11 +68,11 @@ final class LabelModel extends JsonObjectModel implements Label
 
     /**
      * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<Label>
+     * @psalm-return class-string<DiscountTypeCombination>
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = Label::DISCRIMINATOR_FIELD;
+       $fieldName = DiscountTypeCombination::DISCRIMINATOR_FIELD;
        if (is_object($value) && isset($value->$fieldName)) {
            /** @psalm-var string $discriminatorValue */
            $discriminatorValue = $value->$fieldName;
@@ -103,8 +88,8 @@ final class LabelModel extends JsonObjectModel implements Label
            }
        }
 
-       /** @psalm-var class-string<Label> */
-       $type = LabelModel::class;
+       /** @psalm-var class-string<DiscountTypeCombination> */
+       $type = DiscountTypeCombinationModel::class;
        return $type;
     }
 }
