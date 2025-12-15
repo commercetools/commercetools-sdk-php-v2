@@ -427,7 +427,15 @@
 - changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
 - changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
 - changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
+- :warning: changed property `shippingAddressIds` of type `BusinessUnit` to be required
+- :warning: changed property `billingAddressIds` of type `BusinessUnit` to be required
+- :warning: changed property `shippingAddressIds` of type `Company` to be required
+- :warning: changed property `billingAddressIds` of type `Company` to be required
+- :warning: changed property `shippingAddressIds` of type `Division` to be required
+- :warning: changed property `billingAddressIds` of type `Division` to be required
 - :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
+- :warning: changed property `shippingAddressIds` of type `Customer` to be required
+- :warning: changed property `billingAddressIds` of type `Customer` to be required
 </details>
 
 
