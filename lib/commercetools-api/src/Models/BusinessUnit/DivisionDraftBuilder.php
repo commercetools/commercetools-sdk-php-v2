@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
+use Commercetools\Api\Models\Customer\CustomerGroupAssignmentDraftCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
@@ -113,6 +114,12 @@ final class DivisionDraftBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+
+     * @var ?CustomerGroupAssignmentDraftCollection
+     */
+    private $customerGroupAssignments;
 
     /**
 
@@ -292,6 +299,18 @@ final class DivisionDraftBuilder implements Builder
     }
 
     /**
+     * <p>Customer Groups to assign the Business Unit to.</p>
+     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     *
+
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        return $this->customerGroupAssignments;
+    }
+
+    /**
      * <p>The parent unit of this Division. Can be a Company or a Division.</p>
      *
 
@@ -468,6 +487,17 @@ final class DivisionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     * @return $this
+     */
+    public function withCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments)
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @param ?BusinessUnitResourceIdentifier $parentUnit
      * @return $this
      */
@@ -518,6 +548,7 @@ final class DivisionDraftBuilder implements Builder
             $this->billingAddresses,
             $this->defaultBillingAddress,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->customerGroupAssignments,
             $this->parentUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->parentUnit->build() : $this->parentUnit
         );
     }

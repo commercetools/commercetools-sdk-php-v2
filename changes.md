@@ -4,6 +4,9 @@
 <summary>Added Type(s)</summary>
 
 - added type `BusinessUnitAssociateResponse`
+- added type `BusinessUnitAddCustomerGroupAssignmentAction`
+- added type `BusinessUnitRemoveCustomerGroupAssignmentAction`
+- added type `BusinessUnitSetCustomerGroupAssignmentsAction`
 - added type `BusinessUnitSetUnitTypeAction`
 - added type `CartDiscountSetDiscountGroupAction`
 - added type `BestDeal`
@@ -72,6 +75,9 @@
 - added type `MyPaymentSetMethodInfoCustomTypeAction`
 - added type `MyPaymentSetMethodInfoInterfaceAccountAction`
 - added type `AssociateRoleNameSetMessage`
+- added type `BusinessUnitCustomerGroupAssignmentAddedMessage`
+- added type `BusinessUnitCustomerGroupAssignmentRemovedMessage`
+- added type `BusinessUnitCustomerGroupAssignmentsSetMessage`
 - added type `BusinessUnitTopLevelUnitSetMessage`
 - added type `BusinessUnitTypeSetMessage`
 - added type `CartFrozenMessage`
@@ -136,6 +142,9 @@
 - added type `RecurringOrderStateChangedMessage`
 - added type `RecurringOrderStateTransitionMessage`
 - added type `AssociateRoleNameSetMessagePayload`
+- added type `BusinessUnitCustomerGroupAssignmentAddedMessagePayload`
+- added type `BusinessUnitCustomerGroupAssignmentRemovedMessagePayload`
+- added type `BusinessUnitCustomerGroupAssignmentsSetMessagePayload`
 - added type `BusinessUnitTopLevelUnitSetMessagePayload`
 - added type `BusinessUnitTypeSetMessagePayload`
 - added type `CartFrozenMessagePayload`
@@ -458,8 +467,14 @@
 <summary>Added Property(s)</summary>
 
 - added property `inheritedStores` to type `BusinessUnit`
+- added property `customerGroupAssignments` to type `BusinessUnit`
+- added property `customerGroupAssignments` to type `BusinessUnitDraft`
 - added property `inheritedStores` to type `Company`
+- added property `customerGroupAssignments` to type `Company`
+- added property `customerGroupAssignments` to type `CompanyDraft`
 - added property `inheritedStores` to type `Division`
+- added property `customerGroupAssignments` to type `Division`
+- added property `customerGroupAssignments` to type `DivisionDraft`
 - added property `makeInheritedAssociatesExplicit` to type `BusinessUnitChangeAssociateModeAction`
 - added property `discountGroup` to type `CartDiscount`
 - added property `discountGroup` to type `CartDiscountDraft`

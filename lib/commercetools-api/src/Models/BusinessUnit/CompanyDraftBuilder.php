@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
+use Commercetools\Api\Models\Customer\CustomerGroupAssignmentDraftCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
@@ -113,6 +114,12 @@ final class CompanyDraftBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+
+     * @var ?CustomerGroupAssignmentDraftCollection
+     */
+    private $customerGroupAssignments;
 
     /**
      * <p>User-defined unique and immutable identifier for the Business Unit.</p>
@@ -289,6 +296,18 @@ final class CompanyDraftBuilder implements Builder
     }
 
     /**
+     * <p>Customer Groups to assign the Business Unit to.</p>
+     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     *
+
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        return $this->customerGroupAssignments;
+    }
+
+    /**
      * @param ?string $key
      * @return $this
      */
@@ -454,6 +473,17 @@ final class CompanyDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     * @return $this
+     */
+    public function withCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments)
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustom() instead
      * @return $this
      */
@@ -481,7 +511,8 @@ final class CompanyDraftBuilder implements Builder
             $this->defaultShippingAddress,
             $this->billingAddresses,
             $this->defaultBillingAddress,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->customerGroupAssignments
         );
     }
 

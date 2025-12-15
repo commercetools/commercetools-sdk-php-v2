@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
+use Commercetools\Api\Models\Customer\CustomerGroupAssignmentDraftCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -33,6 +34,7 @@ interface BusinessUnitDraft extends JsonObject
     public const FIELD_BILLING_ADDRESSES = 'billingAddresses';
     public const FIELD_DEFAULT_BILLING_ADDRESS = 'defaultBillingAddress';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_CUSTOMER_GROUP_ASSIGNMENTS = 'customerGroupAssignments';
 
     /**
      * <p>User-defined unique and immutable identifier for the Business Unit.</p>
@@ -172,6 +174,15 @@ interface BusinessUnitDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Customer Groups to assign the Business Unit to.</p>
+     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     *
+
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -245,4 +256,9 @@ interface BusinessUnitDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments): void;
 }
