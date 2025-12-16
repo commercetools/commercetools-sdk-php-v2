@@ -405,6 +405,8 @@
 - added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
 - added enum `recurrence-policy` to type `ChangeSubscriptionResourceTypeId`
 - added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
+- added enum `payment-method` to type `ResourceTypeId`
+- added enum `payment-method-info` to type `ResourceTypeId`
 - added enum `recurring-order` to type `ResourceTypeId`
 </details>
 
