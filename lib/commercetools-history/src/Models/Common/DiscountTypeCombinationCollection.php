@@ -13,7 +13,11 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DiscountTypeCombination>
+ * @template T of DiscountTypeCombination
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T end()
+ * @psalm-method T at($offset)
  * @method DiscountTypeCombination current()
  * @method DiscountTypeCombination end()
  * @method DiscountTypeCombination at($offset)
@@ -21,8 +25,8 @@ use stdClass;
 class DiscountTypeCombinationCollection extends MapperSequence
 {
     /**
-     * @psalm-assert DiscountTypeCombination $value
-     * @psalm-param DiscountTypeCombination|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return DiscountTypeCombinationCollection
@@ -38,14 +42,14 @@ class DiscountTypeCombinationCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?DiscountTypeCombination
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (?int $index): ?DiscountTypeCombination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var DiscountTypeCombination $data */
+                /** @var T $data */
                 $data = DiscountTypeCombinationModel::of($data);
                 $this->set($data, $index);
             }

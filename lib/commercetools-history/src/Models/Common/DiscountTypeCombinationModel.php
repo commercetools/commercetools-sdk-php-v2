@@ -32,6 +32,8 @@ final class DiscountTypeCombinationModel extends JsonObjectModel implements Disc
      * 
      */
     private static $discriminatorClasses = [
+       'BestDeal' => BestDealModel::class,
+       'Stacking' => StackingModel::class,
     ];
 
     /**
