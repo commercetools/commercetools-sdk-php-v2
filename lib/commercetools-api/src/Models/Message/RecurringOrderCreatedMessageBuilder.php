@@ -93,7 +93,7 @@ final class RecurringOrderCreatedMessageBuilder implements Builder
 
      * @var null|RecurringOrder|RecurringOrderBuilder
      */
-    private $order;
+    private $recurringOrder;
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
@@ -212,9 +212,9 @@ final class RecurringOrderCreatedMessageBuilder implements Builder
 
      * @return null|RecurringOrder
      */
-    public function getOrder()
+    public function getRecurringOrder()
     {
-        return $this->order instanceof RecurringOrderBuilder ? $this->order->build() : $this->order;
+        return $this->recurringOrder instanceof RecurringOrderBuilder ? $this->recurringOrder->build() : $this->recurringOrder;
     }
 
     /**
@@ -328,12 +328,12 @@ final class RecurringOrderCreatedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?RecurringOrder $order
+     * @param ?RecurringOrder $recurringOrder
      * @return $this
      */
-    public function withOrder(?RecurringOrder $order)
+    public function withRecurringOrder(?RecurringOrder $recurringOrder)
     {
-        $this->order = $order;
+        $this->recurringOrder = $recurringOrder;
 
         return $this;
     }
@@ -383,12 +383,12 @@ final class RecurringOrderCreatedMessageBuilder implements Builder
     }
 
     /**
-     * @deprecated use withOrder() instead
+     * @deprecated use withRecurringOrder() instead
      * @return $this
      */
-    public function withOrderBuilder(?RecurringOrderBuilder $order)
+    public function withRecurringOrderBuilder(?RecurringOrderBuilder $recurringOrder)
     {
-        $this->order = $order;
+        $this->recurringOrder = $recurringOrder;
 
         return $this;
     }
@@ -406,7 +406,7 @@ final class RecurringOrderCreatedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->order instanceof RecurringOrderBuilder ? $this->order->build() : $this->order
+            $this->recurringOrder instanceof RecurringOrderBuilder ? $this->recurringOrder->build() : $this->recurringOrder
         );
     }
 

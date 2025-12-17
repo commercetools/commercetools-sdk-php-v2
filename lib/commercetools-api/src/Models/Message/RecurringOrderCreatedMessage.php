@@ -14,7 +14,7 @@ use Commercetools\Base\JsonObject;
 
 interface RecurringOrderCreatedMessage extends Message
 {
-    public const FIELD_ORDER = 'order';
+    public const FIELD_RECURRING_ORDER = 'recurringOrder';
 
     /**
      * <p><a href="ctp:api:type:RecurringOrder">RecurringOrder</a> that was created.</p>
@@ -22,10 +22,10 @@ interface RecurringOrderCreatedMessage extends Message
 
      * @return null|RecurringOrder
      */
-    public function getOrder();
+    public function getRecurringOrder();
 
     /**
-     * @param ?RecurringOrder $order
+     * @param ?RecurringOrder $recurringOrder
      */
-    public function setOrder(?RecurringOrder $order): void;
+    public function setRecurringOrder(?RecurringOrder $recurringOrder): void;
 }
