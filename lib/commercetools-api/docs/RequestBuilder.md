@@ -5964,13 +5964,22 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID in the specified [Store](ctp:api:type:Store).
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its ID in the specified [Store](ctp:api:type:Store).
+
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
 If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-overview#products-available-in-store) in the specified Store.
-If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `id` and the given Store, this endpoint returns the ProductProjection with tailored data.
-When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example
@@ -6003,13 +6012,22 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) by its key in the specified [Store](ctp:api:type:Store).
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key in the specified [Store](ctp:api:type:Store).
+
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
 If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-overview#products-available-in-store) in the specified Store.
 If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
-When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example
@@ -9548,9 +9566,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->get()`
 
-Use the Product Projections query endpoint to get the current or staged representations of Products.
-When used with an API Client that has the `view_published_products:{projectKey}` scope,
-this endpoint only returns published (current) Product Projections.
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of [Products](ctp:api:type:Product) by [query predicates](/../api/predicates/query).
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example
@@ -9579,7 +9604,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->withId("ID")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID. When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its ID.
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example
@@ -9610,9 +9644,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->withKey("key")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) found by Key.
-When used with an API Client that has the `view_published_products:{projectKey}` scope,
-this endpoint only returns published (current) Product Projections.
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key.
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example

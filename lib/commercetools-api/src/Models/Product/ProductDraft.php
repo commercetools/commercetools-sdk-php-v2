@@ -162,7 +162,9 @@ interface ProductDraft extends JsonObject
     public function getState();
 
     /**
-     * <p>If <code>true</code>, the Product is published immediately to the current projection.</p>
+     * <p>If <code>true</code>, the platform sets the <code>published</code> flag on the resulting <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> to <code>true</code>.
+     * This makes the current representation retrievable in <a href="/projects/productProjections">Product Projection</a> endpoints and indexes it for <a href="/../api/projects/product-search">Product Search</a>.
+     * You can also set this flag later using the <a href="/projects/products#publish">Publish</a> update action.</p>
      *
 
      * @return null|bool
