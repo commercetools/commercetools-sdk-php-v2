@@ -212,6 +212,12 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $purchaseOrderNumber;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -246,7 +252,8 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         ?string $locale = null,
         ?string $origin = null,
         ?int $deleteDaysAfterLastModification = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?string $purchaseOrderNumber = null
     ) {
         $this->currency = $currency;
         $this->key = $key;
@@ -278,6 +285,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         $this->origin = $origin;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->custom = $custom;
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
     }
 
     /**
@@ -906,6 +914,27 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         return $this->custom;
     }
 
+    /**
+     * <p>User-defined identifier of a purchase order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        if (is_null($this->purchaseOrderNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PURCHASE_ORDER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->purchaseOrderNumber = (string) $data;
+        }
+
+        return $this->purchaseOrderNumber;
+    }
+
 
     /**
      * @param ?string $currency
@@ -1145,5 +1174,13 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
     }
 }

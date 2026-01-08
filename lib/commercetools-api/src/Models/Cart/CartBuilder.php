@@ -303,6 +303,12 @@ final class CartBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $purchaseOrderNumber;
+
+    /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
@@ -801,6 +807,18 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier of a purchase order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
+    }
+
+    /**
      * <p>IDs and references that last modified the Cart.</p>
      *
 
@@ -1296,6 +1314,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
+
+        return $this;
+    }
+
+    /**
      * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
@@ -1550,6 +1579,7 @@ final class CartBuilder implements Builder
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->discountTypeCombination instanceof DiscountTypeCombinationBuilder ? $this->discountTypeCombination->build() : $this->discountTypeCombination,
             $this->deleteDaysAfterLastModification,
+            $this->purchaseOrderNumber,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy
         );

@@ -302,6 +302,12 @@ final class CartModel extends JsonObjectModel implements Cart
 
     /**
      *
+     * @var ?string
+     */
+    protected $purchaseOrderNumber;
+
+    /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
@@ -360,6 +366,7 @@ final class CartModel extends JsonObjectModel implements Cart
         ?CustomFields $custom = null,
         ?DiscountTypeCombination $discountTypeCombination = null,
         ?int $deleteDaysAfterLastModification = null,
+        ?string $purchaseOrderNumber = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null
     ) {
@@ -406,6 +413,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->custom = $custom;
         $this->discountTypeCombination = $discountTypeCombination;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
     }
@@ -1308,6 +1316,27 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * <p>User-defined identifier of a purchase order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        if (is_null($this->purchaseOrderNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PURCHASE_ORDER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->purchaseOrderNumber = (string) $data;
+        }
+
+        return $this->purchaseOrderNumber;
+    }
+
+    /**
      * <p>IDs and references that last modified the Cart.</p>
      *
      *
@@ -1692,6 +1721,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
     }
 
     /**

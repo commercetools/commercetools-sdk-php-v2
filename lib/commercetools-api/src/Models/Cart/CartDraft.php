@@ -50,6 +50,7 @@ interface CartDraft extends JsonObject
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
 
     /**
      * <p>Currency the Cart uses.</p>
@@ -309,6 +310,15 @@ interface CartDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>User-defined identifier of a purchase order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
+
+    /**
      * @param ?string $currency
      */
     public function setCurrency(?string $currency): void;
@@ -457,4 +467,9 @@ interface CartDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 }

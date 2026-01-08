@@ -17,6 +17,7 @@
 - added type `CartChangePriceRoundingModeAction`
 - added type `CartSetCustomLineItemRecurrenceInfoAction`
 - added type `CartSetLineItemRecurrenceInfoAction`
+- added type `CartSetPurchaseOrderNumberAction`
 - added type `AddressRole`
 - added type `CustomerGroupAssignment`
 - added type `CustomerGroupAssignmentDraft`
@@ -79,6 +80,7 @@
 - added type `BusinessUnitTopLevelUnitSetMessage`
 - added type `BusinessUnitTypeSetMessage`
 - added type `CartFrozenMessage`
+- added type `CartPurchaseOrderNumberSetMessage`
 - added type `CartUnfrozenMessage`
 - added type `CustomerBillingAddressAddedMessage`
 - added type `CustomerBillingAddressRemovedMessage`
@@ -146,6 +148,7 @@
 - added type `BusinessUnitTopLevelUnitSetMessagePayload`
 - added type `BusinessUnitTypeSetMessagePayload`
 - added type `CartFrozenMessagePayload`
+- added type `CartPurchaseOrderNumberSetMessagePayload`
 - added type `CartUnfrozenMessagePayload`
 - added type `CustomerBillingAddressAddedMessagePayload`
 - added type `CustomerBillingAddressRemovedMessagePayload`
@@ -490,7 +493,9 @@
 - added property `applicationMode` to type `CartDiscountValueRelativeDraft`
 - added property `priceRoundingMode` to type `Cart`
 - added property `discountTypeCombination` to type `Cart`
+- added property `purchaseOrderNumber` to type `Cart`
 - added property `priceRoundingMode` to type `CartDraft`
+- added property `purchaseOrderNumber` to type `CartDraft`
 - added property `recurrenceInfo` to type `CustomLineItem`
 - added property `recurrenceInfo` to type `CustomLineItemDraft`
 - added property `recurrenceInfo` to type `LineItem`

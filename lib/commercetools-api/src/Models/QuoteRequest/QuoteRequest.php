@@ -325,7 +325,7 @@ interface QuoteRequest extends BaseResource
 
     /**
      * <p>Identifier for a purchase order, usually in a B2B context.
-     * The Purchase Order Number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a>.</p>
+     * The purchase order number is typically entered by the <a href="/quotes-overview#buyer">Buyer</a>.</p>
      *
 
      * @return null|string

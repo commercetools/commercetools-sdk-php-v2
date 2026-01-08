@@ -174,6 +174,8 @@ use Commercetools\Api\Models\Message\CartDiscountStoresSetMessage;
 use Commercetools\Api\Models\Message\CartDiscountStoresSetMessageModel;
 use Commercetools\Api\Models\Message\CartFrozenMessage;
 use Commercetools\Api\Models\Message\CartFrozenMessageModel;
+use Commercetools\Api\Models\Message\CartPurchaseOrderNumberSetMessage;
+use Commercetools\Api\Models\Message\CartPurchaseOrderNumberSetMessageModel;
 use Commercetools\Api\Models\Message\CartUnfrozenMessage;
 use Commercetools\Api\Models\Message\CartUnfrozenMessageModel;
 use Commercetools\Api\Models\Message\CategoryCreatedMessage;

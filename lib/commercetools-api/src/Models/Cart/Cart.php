@@ -65,6 +65,7 @@ interface Cart extends BaseResource
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DISCOUNT_TYPE_COMBINATION = 'discountTypeCombination';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
 
@@ -411,6 +412,15 @@ interface Cart extends BaseResource
     public function getDeleteDaysAfterLastModification();
 
     /**
+     * <p>User-defined identifier of a purchase order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
+
+    /**
      * <p>Date and time (UTC) the Cart was initially created.</p>
      *
 
@@ -646,6 +656,11 @@ interface Cart extends BaseResource
      * @param ?int $deleteDaysAfterLastModification
      */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt
