@@ -297,6 +297,12 @@ final class CartBuilder implements Builder
 
     /**
 
+     * @var null|CartLock|CartLockBuilder
+     */
+    private $lock;
+
+    /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
@@ -793,6 +799,17 @@ final class CartBuilder implements Builder
     public function getDiscountTypeCombination()
     {
         return $this->discountTypeCombination instanceof DiscountTypeCombinationBuilder ? $this->discountTypeCombination->build() : $this->discountTypeCombination;
+    }
+
+    /**
+     * <p>Indicates whether the Cart has been <a href="/../api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
+     *
+
+     * @return null|CartLock
+     */
+    public function getLock()
+    {
+        return $this->lock instanceof CartLockBuilder ? $this->lock->build() : $this->lock;
     }
 
     /**
@@ -1303,6 +1320,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?CartLock $lock
+     * @return $this
+     */
+    public function withLock(?CartLock $lock)
+    {
+        $this->lock = $lock;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
@@ -1512,6 +1540,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLock() instead
+     * @return $this
+     */
+    public function withLockBuilder(?CartLockBuilder $lock)
+    {
+        $this->lock = $lock;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -1578,6 +1617,7 @@ final class CartBuilder implements Builder
             $this->origin,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->discountTypeCombination instanceof DiscountTypeCombinationBuilder ? $this->discountTypeCombination->build() : $this->discountTypeCombination,
+            $this->lock instanceof CartLockBuilder ? $this->lock->build() : $this->lock,
             $this->deleteDaysAfterLastModification,
             $this->purchaseOrderNumber,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,

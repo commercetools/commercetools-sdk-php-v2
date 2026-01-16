@@ -10,14 +10,17 @@
 - added type `BusinessUnitSetUnitTypeAction`
 - added type `CartDiscountSetDiscountGroupAction`
 - added type `BestDeal`
+- added type `CartLock`
 - added type `CartMergeMode`
 - added type `DiscountTypeCombination`
 - added type `MergeCartDraft`
 - added type `Stacking`
 - added type `CartChangePriceRoundingModeAction`
+- added type `CartLockCartAction`
 - added type `CartSetCustomLineItemRecurrenceInfoAction`
 - added type `CartSetLineItemRecurrenceInfoAction`
 - added type `CartSetPurchaseOrderNumberAction`
+- added type `CartUnlockCartAction`
 - added type `AddressRole`
 - added type `CustomerGroupAssignment`
 - added type `CustomerGroupAssignmentDraft`
@@ -493,6 +496,7 @@
 - added property `applicationMode` to type `CartDiscountValueRelativeDraft`
 - added property `priceRoundingMode` to type `Cart`
 - added property `discountTypeCombination` to type `Cart`
+- added property `lock` to type `Cart`
 - added property `purchaseOrderNumber` to type `Cart`
 - added property `priceRoundingMode` to type `CartDraft`
 - added property `purchaseOrderNumber` to type `CartDraft`

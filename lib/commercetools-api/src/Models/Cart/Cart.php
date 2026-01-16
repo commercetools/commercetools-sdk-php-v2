@@ -64,6 +64,7 @@ interface Cart extends BaseResource
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DISCOUNT_TYPE_COMBINATION = 'discountTypeCombination';
+    public const FIELD_LOCK = 'lock';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
@@ -404,6 +405,14 @@ interface Cart extends BaseResource
     public function getDiscountTypeCombination();
 
     /**
+     * <p>Indicates whether the Cart has been <a href="/../api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
+     *
+
+     * @return null|CartLock
+     */
+    public function getLock();
+
+    /**
      * <p>Number of days after the last modification before a Cart is deleted. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
 
@@ -651,6 +660,11 @@ interface Cart extends BaseResource
      * @param ?DiscountTypeCombination $discountTypeCombination
      */
     public function setDiscountTypeCombination(?DiscountTypeCombination $discountTypeCombination): void;
+
+    /**
+     * @param ?CartLock $lock
+     */
+    public function setLock(?CartLock $lock): void;
 
     /**
      * @param ?int $deleteDaysAfterLastModification

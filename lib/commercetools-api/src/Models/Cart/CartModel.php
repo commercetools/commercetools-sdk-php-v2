@@ -296,6 +296,12 @@ final class CartModel extends JsonObjectModel implements Cart
 
     /**
      *
+     * @var ?CartLock
+     */
+    protected $lock;
+
+    /**
+     *
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
@@ -365,6 +371,7 @@ final class CartModel extends JsonObjectModel implements Cart
         ?string $origin = null,
         ?CustomFields $custom = null,
         ?DiscountTypeCombination $discountTypeCombination = null,
+        ?CartLock $lock = null,
         ?int $deleteDaysAfterLastModification = null,
         ?string $purchaseOrderNumber = null,
         ?LastModifiedBy $lastModifiedBy = null,
@@ -412,6 +419,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->origin = $origin;
         $this->custom = $custom;
         $this->discountTypeCombination = $discountTypeCombination;
+        $this->lock = $lock;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->purchaseOrderNumber = $purchaseOrderNumber;
         $this->lastModifiedBy = $lastModifiedBy;
@@ -1296,6 +1304,27 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * <p>Indicates whether the Cart has been <a href="/../api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
+     *
+     *
+     * @return null|CartLock
+     */
+    public function getLock()
+    {
+        if (is_null($this->lock)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_LOCK);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lock = CartLockModel::of($data);
+        }
+
+        return $this->lock;
+    }
+
+    /**
      * <p>Number of days after the last modification before a Cart is deleted. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
      *
@@ -1713,6 +1742,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setDiscountTypeCombination(?DiscountTypeCombination $discountTypeCombination): void
     {
         $this->discountTypeCombination = $discountTypeCombination;
+    }
+
+    /**
+     * @param ?CartLock $lock
+     */
+    public function setLock(?CartLock $lock): void
+    {
+        $this->lock = $lock;
     }
 
     /**
