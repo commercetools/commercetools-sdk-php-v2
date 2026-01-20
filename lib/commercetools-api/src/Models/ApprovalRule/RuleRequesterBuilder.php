@@ -29,7 +29,7 @@ final class RuleRequesterBuilder implements Builder
     private $associateRole;
 
     /**
-     * <p>The <a href="ctp:api:type:AssociateRole">Associate Role</a> that an <a href="ctp:api:type">Associate</a> must hold for the Approval Rule to apply to the Orders they create.</p>
+     * <p>The <a href="ctp:api:type:AssociateRole">Associate Role</a> that an <a href="ctp:api:type:Associate">Associate</a> must hold for the Approval Rule to apply to the Orders they create.</p>
      *
 
      * @return null|AssociateRoleKeyReference
