@@ -13,6 +13,7 @@
 - added type `CartLock`
 - added type `CartMergeMode`
 - added type `DiscountTypeCombination`
+- added type `FreezeStrategy`
 - added type `MergeCartDraft`
 - added type `Stacking`
 - added type `CartChangePriceRoundingModeAction`
@@ -495,6 +496,7 @@
 - added property `applicationMode` to type `CartDiscountValueRelative`
 - added property `applicationMode` to type `CartDiscountValueRelativeDraft`
 - added property `priceRoundingMode` to type `Cart`
+- added property `freezeStrategy` to type `Cart`
 - added property `discountTypeCombination` to type `Cart`
 - added property `lock` to type `Cart`
 - added property `purchaseOrderNumber` to type `Cart`
@@ -506,6 +508,7 @@
 - added property `recurrenceInfo` to type `LineItemDraft`
 - added property `recurrenceInfo` to type `CartAddCustomLineItemAction`
 - added property `recurrenceInfo` to type `CartAddLineItemAction`
+- added property `strategy` to type `CartFreezeCartAction`
 - added property `recurrencePolicy` to type `Price`
 - added property `recurrencePolicy` to type `PriceDraft`
 - added property `customerGroupAssignments` to type `Customer`

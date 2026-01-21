@@ -189,6 +189,12 @@ final class CartBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $freezeStrategy;
+
+    /**
+
      * @var null|Address|AddressBuilder
      */
     private $billingAddress;
@@ -594,6 +600,17 @@ final class CartBuilder implements Builder
     public function getCartState()
     {
         return $this->cartState;
+    }
+
+    /**
+     * <p>Determines freezing behavior when <code>cartState</code> is <code>Frozen</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getFreezeStrategy()
+    {
+        return $this->freezeStrategy;
     }
 
     /**
@@ -1122,6 +1139,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?string $freezeStrategy
+     * @return $this
+     */
+    public function withFreezeStrategy(?string $freezeStrategy)
+    {
+        $this->freezeStrategy = $freezeStrategy;
+
+        return $this;
+    }
+
+    /**
      * @param ?Address $billingAddress
      * @return $this
      */
@@ -1599,6 +1627,7 @@ final class CartBuilder implements Builder
             $this->taxCalculationMode,
             $this->inventoryMode,
             $this->cartState,
+            $this->freezeStrategy,
             $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
             $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
             $this->shippingMode,

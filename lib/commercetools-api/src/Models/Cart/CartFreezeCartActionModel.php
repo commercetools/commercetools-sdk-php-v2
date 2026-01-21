@@ -26,13 +26,21 @@ final class CartFreezeCartActionModel extends JsonObjectModel implements CartFre
      */
     protected $action;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $strategy;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $strategy = null,
         ?string $action = null
     ) {
+        $this->strategy = $strategy;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -52,5 +60,34 @@ final class CartFreezeCartActionModel extends JsonObjectModel implements CartFre
         }
 
         return $this->action;
+    }
+
+    /**
+     * <p>Strategy that determines the freezing behavior.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getStrategy()
+    {
+        if (is_null($this->strategy)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_STRATEGY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->strategy = (string) $data;
+        }
+
+        return $this->strategy;
+    }
+
+
+    /**
+     * @param ?string $strategy
+     */
+    public function setStrategy(?string $strategy): void
+    {
+        $this->strategy = $strategy;
     }
 }

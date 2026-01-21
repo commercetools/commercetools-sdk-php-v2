@@ -188,6 +188,12 @@ final class CartModel extends JsonObjectModel implements Cart
 
     /**
      *
+     * @var ?string
+     */
+    protected $freezeStrategy;
+
+    /**
+     *
      * @var ?Address
      */
     protected $billingAddress;
@@ -353,6 +359,7 @@ final class CartModel extends JsonObjectModel implements Cart
         ?string $taxCalculationMode = null,
         ?string $inventoryMode = null,
         ?string $cartState = null,
+        ?string $freezeStrategy = null,
         ?Address $billingAddress = null,
         ?Address $shippingAddress = null,
         ?string $shippingMode = null,
@@ -401,6 +408,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->taxCalculationMode = $taxCalculationMode;
         $this->inventoryMode = $inventoryMode;
         $this->cartState = $cartState;
+        $this->freezeStrategy = $freezeStrategy;
         $this->billingAddress = $billingAddress;
         $this->shippingAddress = $shippingAddress;
         $this->shippingMode = $shippingMode;
@@ -926,6 +934,26 @@ final class CartModel extends JsonObjectModel implements Cart
         }
 
         return $this->cartState;
+    }
+
+    /**
+     * <p>Determines freezing behavior when <code>cartState</code> is <code>Frozen</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getFreezeStrategy()
+    {
+        if (is_null($this->freezeStrategy)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_FREEZE_STRATEGY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->freezeStrategy = (string) $data;
+        }
+
+        return $this->freezeStrategy;
     }
 
     /**
@@ -1598,6 +1626,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setCartState(?string $cartState): void
     {
         $this->cartState = $cartState;
+    }
+
+    /**
+     * @param ?string $freezeStrategy
+     */
+    public function setFreezeStrategy(?string $freezeStrategy): void
+    {
+        $this->freezeStrategy = $freezeStrategy;
     }
 
     /**

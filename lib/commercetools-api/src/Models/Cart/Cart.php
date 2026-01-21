@@ -46,6 +46,7 @@ interface Cart extends BaseResource
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_CART_STATE = 'cartState';
+    public const FIELD_FREEZE_STRATEGY = 'freezeStrategy';
     public const FIELD_BILLING_ADDRESS = 'billingAddress';
     public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
     public const FIELD_SHIPPING_MODE = 'shippingMode';
@@ -252,6 +253,14 @@ interface Cart extends BaseResource
      * @return null|string
      */
     public function getCartState();
+
+    /**
+     * <p>Determines freezing behavior when <code>cartState</code> is <code>Frozen</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getFreezeStrategy();
 
     /**
      * <p>Billing address associated with the Cart.</p>
@@ -570,6 +579,11 @@ interface Cart extends BaseResource
      * @param ?string $cartState
      */
     public function setCartState(?string $cartState): void;
+
+    /**
+     * @param ?string $freezeStrategy
+     */
+    public function setFreezeStrategy(?string $freezeStrategy): void;
 
     /**
      * @param ?Address $billingAddress
