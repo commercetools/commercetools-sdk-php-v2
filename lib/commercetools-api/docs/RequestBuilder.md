@@ -2306,7 +2306,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->carts()->customerIdWithCustomerIdValueMerge("customerId")->post(null)`
 
 Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
-For more information, see [Merge behavior](/../api/carts-orders-overview#merge-behavior).
+For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/../api/carts-orders-overview#merge-a-cart).
 
 
 ### Example
@@ -4465,7 +4465,7 @@ Merges items from an anonymous Cart into the most recently modified active Cart 
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
-For more information, see [Merge behavior](/../api/carts-orders-overview#merge-behavior).
+For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/../api/carts-orders-overview#merge-a-cart).
 
 
 ### Example
