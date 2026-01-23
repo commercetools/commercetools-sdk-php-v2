@@ -446,7 +446,7 @@ final class ChangeModel extends JsonObjectModel implements Change
     }
 
     /**
-     * <p><a href="#type-of-change">Type of change</a> on a resource that is similar to the update action it relates to, where possible.
+     * <p>Change type on a resource that is similar to the update action it relates to, where possible.
      * It is not a unique identifier for the data structure, for example, the <code>setDescription</code> change can occur with a localized and non-localized representation.</p>
      * <p><a href="ctp:history:type:Record">Records</a> can be filtered by this value using the <code>changes</code> query parameter.</p>
      *
