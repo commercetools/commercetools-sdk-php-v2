@@ -46,6 +46,7 @@ final class CartDiscountUpdateActionModel extends JsonObjectModel implements Car
        'setDescription' => CartDiscountSetDescriptionActionModel::class,
        'setDiscountGroup' => CartDiscountSetDiscountGroupActionModel::class,
        'setKey' => CartDiscountSetKeyActionModel::class,
+       'setRecurringOrderScope' => CartDiscountSetRecurringOrderScopeActionModel::class,
        'setStores' => CartDiscountSetStoresActionModel::class,
        'setValidFrom' => CartDiscountSetValidFromActionModel::class,
        'setValidFromAndUntil' => CartDiscountSetValidFromAndUntilActionModel::class,

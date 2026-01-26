@@ -14,6 +14,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScope;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -40,6 +41,7 @@ interface CartDiscount extends BaseResource
     public const FIELD_STACKING_MODE = 'stackingMode';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DISCOUNT_GROUP = 'discountGroup';
+    public const FIELD_RECURRING_ORDER_SCOPE = 'recurringOrderScope';
 
     /**
      * <p>Unique identifier of the CartDiscount.</p>
@@ -225,6 +227,15 @@ interface CartDiscount extends BaseResource
     public function getDiscountGroup();
 
     /**
+     * <p>Scope of the Cart Discount for Recurring Orders.</p>
+     * <p>The default is <a href="ctp:api:type:NonRecurringOrdersOnly">NonRecurringOrdersOnly</a>.</p>
+     *
+
+     * @return null|RecurringOrderScope
+     */
+    public function getRecurringOrderScope();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -333,4 +344,9 @@ interface CartDiscount extends BaseResource
      * @param ?DiscountGroupReference $discountGroup
      */
     public function setDiscountGroup(?DiscountGroupReference $discountGroup): void;
+
+    /**
+     * @param ?RecurringOrderScope $recurringOrderScope
+     */
+    public function setRecurringOrderScope(?RecurringOrderScope $recurringOrderScope): void;
 }

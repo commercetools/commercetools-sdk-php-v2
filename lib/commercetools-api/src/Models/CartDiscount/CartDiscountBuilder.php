@@ -19,6 +19,8 @@ use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupReferenceBuilder;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScope;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScopeBuilder;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
@@ -166,6 +168,12 @@ final class CartDiscountBuilder implements Builder
      * @var null|DiscountGroupReference|DiscountGroupReferenceBuilder
      */
     private $discountGroup;
+
+    /**
+
+     * @var null|RecurringOrderScope|RecurringOrderScopeBuilder
+     */
+    private $recurringOrderScope;
 
     /**
      * <p>Unique identifier of the CartDiscount.</p>
@@ -417,6 +425,18 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Scope of the Cart Discount for Recurring Orders.</p>
+     * <p>The default is <a href="ctp:api:type:NonRecurringOrdersOnly">NonRecurringOrdersOnly</a>.</p>
+     *
+
+     * @return null|RecurringOrderScope
+     */
+    public function getRecurringOrderScope()
+    {
+        return $this->recurringOrderScope instanceof RecurringOrderScopeBuilder ? $this->recurringOrderScope->build() : $this->recurringOrderScope;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -659,6 +679,17 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?RecurringOrderScope $recurringOrderScope
+     * @return $this
+     */
+    public function withRecurringOrderScope(?RecurringOrderScope $recurringOrderScope)
+    {
+        $this->recurringOrderScope = $recurringOrderScope;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -746,6 +777,17 @@ final class CartDiscountBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withRecurringOrderScope() instead
+     * @return $this
+     */
+    public function withRecurringOrderScopeBuilder(?RecurringOrderScopeBuilder $recurringOrderScope)
+    {
+        $this->recurringOrderScope = $recurringOrderScope;
+
+        return $this;
+    }
+
     public function build(): CartDiscount
     {
         return new CartDiscountModel(
@@ -770,7 +812,8 @@ final class CartDiscountBuilder implements Builder
             $this->references,
             $this->stackingMode,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
-            $this->discountGroup instanceof DiscountGroupReferenceBuilder ? $this->discountGroup->build() : $this->discountGroup
+            $this->discountGroup instanceof DiscountGroupReferenceBuilder ? $this->discountGroup->build() : $this->discountGroup,
+            $this->recurringOrderScope instanceof RecurringOrderScopeBuilder ? $this->recurringOrderScope->build() : $this->recurringOrderScope
         );
     }
 

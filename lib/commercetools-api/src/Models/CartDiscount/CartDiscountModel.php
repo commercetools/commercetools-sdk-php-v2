@@ -19,6 +19,8 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupReferenceModel;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScope;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScopeModel;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
@@ -166,6 +168,12 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
      */
     protected $discountGroup;
 
+    /**
+     *
+     * @var ?RecurringOrderScope
+     */
+    protected $recurringOrderScope;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -192,7 +200,8 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         ?ReferenceCollection $references = null,
         ?string $stackingMode = null,
         ?CustomFields $custom = null,
-        ?DiscountGroupReference $discountGroup = null
+        ?DiscountGroupReference $discountGroup = null,
+        ?RecurringOrderScope $recurringOrderScope = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -216,6 +225,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         $this->stackingMode = $stackingMode;
         $this->custom = $custom;
         $this->discountGroup = $discountGroup;
+        $this->recurringOrderScope = $recurringOrderScope;
     }
 
     /**
@@ -689,6 +699,28 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         return $this->discountGroup;
     }
 
+    /**
+     * <p>Scope of the Cart Discount for Recurring Orders.</p>
+     * <p>The default is <a href="ctp:api:type:NonRecurringOrdersOnly">NonRecurringOrdersOnly</a>.</p>
+     *
+     *
+     * @return null|RecurringOrderScope
+     */
+    public function getRecurringOrderScope()
+    {
+        if (is_null($this->recurringOrderScope)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRING_ORDER_SCOPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = RecurringOrderScopeModel::resolveDiscriminatorClass($data);
+            $this->recurringOrderScope = $className::of($data);
+        }
+
+        return $this->recurringOrderScope;
+    }
+
 
     /**
      * @param ?string $id
@@ -864,6 +896,14 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     public function setDiscountGroup(?DiscountGroupReference $discountGroup): void
     {
         $this->discountGroup = $discountGroup;
+    }
+
+    /**
+     * @param ?RecurringOrderScope $recurringOrderScope
+     */
+    public function setRecurringOrderScope(?RecurringOrderScope $recurringOrderScope): void
+    {
+        $this->recurringOrderScope = $recurringOrderScope;
     }
 
 

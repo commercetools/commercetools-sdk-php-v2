@@ -9,6 +9,7 @@
 - added type `BusinessUnitSetCustomerGroupAssignmentsAction`
 - added type `BusinessUnitSetUnitTypeAction`
 - added type `CartDiscountSetDiscountGroupAction`
+- added type `CartDiscountSetRecurringOrderScopeAction`
 - added type `BestDeal`
 - added type `CartLock`
 - added type `CartMergeMode`
@@ -291,6 +292,16 @@
 - added type `RecurringOrderUpdateAction`
 - added type `SkipConfiguration`
 - added type `SkipConfigurationDraft`
+- added type `AnyOrder`
+- added type `AnyOrderDraft`
+- added type `ApplicableRecurrencePolicies`
+- added type `ApplicableRecurrencePoliciesDraft`
+- added type `NonRecurringOrdersOnly`
+- added type `NonRecurringOrdersOnlyDraft`
+- added type `RecurringOrderScope`
+- added type `RecurringOrderScopeDraft`
+- added type `RecurringOrdersOnly`
+- added type `RecurringOrdersOnlyDraft`
 - added type `RecurringOrderSetCustomFieldAction`
 - added type `RecurringOrderSetCustomTypeAction`
 - added type `RecurringOrderSetExpiresAtAction`
@@ -492,7 +503,9 @@
 - added property `customerGroupAssignments` to type `DivisionDraft`
 - added property `makeInheritedAssociatesExplicit` to type `BusinessUnitChangeAssociateModeAction`
 - added property `discountGroup` to type `CartDiscount`
+- added property `recurringOrderScope` to type `CartDiscount`
 - added property `discountGroup` to type `CartDiscountDraft`
+- added property `recurringOrderScope` to type `CartDiscountDraft`
 - added property `applicationMode` to type `CartDiscountValueRelative`
 - added property `applicationMode` to type `CartDiscountValueRelativeDraft`
 - added property `priceRoundingMode` to type `Cart`
