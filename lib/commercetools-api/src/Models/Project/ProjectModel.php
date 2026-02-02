@@ -365,7 +365,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature. This field may not be present on Projects created before January 2020.</p>
+     * <p>Holds the configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature.</p>
      *
      *
      * @return null|ShoppingListsConfiguration
