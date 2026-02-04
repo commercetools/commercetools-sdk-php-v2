@@ -454,6 +454,8 @@
 - :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
 - :warning: changed property `shippingAddressIds` of type `Customer` to be required
 - :warning: changed property `billingAddressIds` of type `Customer` to be required
+- :warning: changed property `deleteDaysAfterLastModification` of type `CartsConfiguration` to be required
+- :warning: changed property `deleteDaysAfterLastModification` of type `ShoppingListsConfiguration` to be required
 </details>
 
 
