@@ -154,7 +154,8 @@ interface DiscountCode extends BaseResource
 
     /**
      * <p>Number of times the DiscountCode can be applied.
-     * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
+     * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.
+     * This field does not limit discount applications for Orders created from a <a href="ctp:api:type:RecurringOrder">Recurring Order</a>.</p>
      *
 
      * @return null|int
@@ -163,7 +164,8 @@ interface DiscountCode extends BaseResource
 
     /**
      * <p>Number of times the DiscountCode can be applied per Customer (anonymous Carts are not supported).
-     * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
+     * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.
+     * This field does not limit discount applications for Orders created from a <a href="ctp:api:type:RecurringOrder">Recurring Order</a>.</p>
      *
 
      * @return null|int
