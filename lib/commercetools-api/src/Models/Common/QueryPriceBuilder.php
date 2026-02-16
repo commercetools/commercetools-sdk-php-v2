@@ -176,7 +176,7 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the Price.</p>
+     * <p>Custom Fields of the Price.</p>
      *
 
      * @return null|CustomFields

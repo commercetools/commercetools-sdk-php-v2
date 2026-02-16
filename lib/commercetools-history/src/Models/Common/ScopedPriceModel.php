@@ -306,7 +306,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
-     * <p>Custom Fields for the Price.</p>
+     * <p>Custom Fields of the Price.</p>
      *
      *
      * @return null|CustomFields

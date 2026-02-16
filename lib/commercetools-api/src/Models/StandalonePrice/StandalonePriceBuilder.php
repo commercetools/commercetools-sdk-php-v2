@@ -340,7 +340,7 @@ final class StandalonePriceBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the StandalonePrice.</p>
+     * <p>Custom Fields of the StandalonePrice.</p>
      *
 
      * @return null|CustomFields

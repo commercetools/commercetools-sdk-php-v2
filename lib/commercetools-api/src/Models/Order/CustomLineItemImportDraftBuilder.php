@@ -213,7 +213,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of the CustomLineItem.</p>
+     * <p>Custom Fields for the CustomLineItem.</p>
      *
 
      * @return null|CustomFieldsDraft

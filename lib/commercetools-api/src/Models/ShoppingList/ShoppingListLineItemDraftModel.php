@@ -191,7 +191,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
-     * <p>Custom Fields of the ShoppingListLineItem.</p>
+     * <p>Custom Fields for the ShoppingListLineItem.</p>
      *
      *
      * @return null|CustomFieldsDraft

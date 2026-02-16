@@ -44,7 +44,7 @@ final class CustomFieldsBuilder implements Builder
     }
 
     /**
-     * <p>Object containing the Custom Fields for the <a href="/../api/projects/types#resourcetypeid">customized resource or data type</a>.</p>
+     * <p>Object containing the Custom Fields of the <a href="/../api/projects/types#resourcetypeid">customized resource or data type</a>.</p>
      *
 
      * @return null|FieldContainer

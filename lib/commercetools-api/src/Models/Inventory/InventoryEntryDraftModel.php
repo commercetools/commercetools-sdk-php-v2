@@ -271,7 +271,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
     /**
-     * <p>Custom Fields of the InventoryEntry.</p>
+     * <p>Custom Fields for the InventoryEntry.</p>
      *
      *
      * @return null|CustomFieldsDraft

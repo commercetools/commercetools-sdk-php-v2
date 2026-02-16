@@ -173,7 +173,7 @@ interface StandalonePrice extends BaseResource
     public function getDiscounted();
 
     /**
-     * <p>Custom Fields for the StandalonePrice.</p>
+     * <p>Custom Fields of the StandalonePrice.</p>
      *
 
      * @return null|CustomFields

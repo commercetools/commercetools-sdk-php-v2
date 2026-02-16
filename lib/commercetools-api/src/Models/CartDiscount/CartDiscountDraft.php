@@ -150,7 +150,7 @@ interface CartDiscountDraft extends JsonObject
     public function getStackingMode();
 
     /**
-     * <p>Custom Fields of the CartDiscount.</p>
+     * <p>Custom Fields for the CartDiscount.</p>
      *
 
      * @return null|CustomFieldsDraft

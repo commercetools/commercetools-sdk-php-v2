@@ -206,7 +206,7 @@ final class AssociateRoleBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the AssociateRole.</p>
+     * <p>Custom Fields of the AssociateRole.</p>
      *
 
      * @return null|CustomFields

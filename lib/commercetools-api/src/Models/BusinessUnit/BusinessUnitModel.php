@@ -557,7 +557,7 @@ final class BusinessUnitModel extends JsonObjectModel implements BusinessUnit
     }
 
     /**
-     * <p>Custom Fields for the Business Unit.</p>
+     * <p>Custom Fields of the Business Unit.</p>
      *
      *
      * @return null|CustomFields

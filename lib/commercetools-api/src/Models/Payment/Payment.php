@@ -150,7 +150,7 @@ interface Payment extends BaseResource
     public function getInterfaceInteractions();
 
     /**
-     * <p>Custom Fields for the Payment.</p>
+     * <p>Custom Fields of the Payment.</p>
      *
 
      * @return null|CustomFields

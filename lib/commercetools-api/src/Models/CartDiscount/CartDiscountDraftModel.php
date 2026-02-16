@@ -447,7 +447,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * <p>Custom Fields of the CartDiscount.</p>
+     * <p>Custom Fields for the CartDiscount.</p>
      *
      *
      * @return null|CustomFieldsDraft

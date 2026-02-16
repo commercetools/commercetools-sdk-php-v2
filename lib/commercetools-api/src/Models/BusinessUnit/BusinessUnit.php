@@ -161,7 +161,7 @@ interface BusinessUnit extends BaseResource
     public function getContactEmail();
 
     /**
-     * <p>Custom Fields for the Business Unit.</p>
+     * <p>Custom Fields of the Business Unit.</p>
      *
 
      * @return null|CustomFields

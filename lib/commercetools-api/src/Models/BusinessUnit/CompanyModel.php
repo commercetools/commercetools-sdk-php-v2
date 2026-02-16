@@ -547,7 +547,7 @@ final class CompanyModel extends JsonObjectModel implements Company
     }
 
     /**
-     * <p>Custom Fields for the Business Unit.</p>
+     * <p>Custom Fields of the Business Unit.</p>
      *
      *
      * @return null|CustomFields

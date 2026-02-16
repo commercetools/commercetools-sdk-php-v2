@@ -553,7 +553,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     }
 
     /**
-     * <p>Custom Fields for the StandalonePrice.</p>
+     * <p>Custom Fields of the StandalonePrice.</p>
      *
      *
      * @return null|CustomFields

@@ -532,7 +532,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     }
 
     /**
-     * <p>Custom Fields for the Category.</p>
+     * <p>Custom Fields of the Category.</p>
      *
      *
      * @return null|CustomFields

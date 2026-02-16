@@ -509,7 +509,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the Customer.</p>
+     * <p>Custom Fields of the Customer.</p>
      *
 
      * @return null|CustomFields

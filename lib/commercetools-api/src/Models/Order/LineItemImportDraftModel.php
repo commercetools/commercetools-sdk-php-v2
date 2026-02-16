@@ -396,7 +396,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>Custom Fields of the LineItem.</p>
+     * <p>Custom Fields for the LineItem.</p>
      *
      *
      * @return null|CustomFieldsDraft
