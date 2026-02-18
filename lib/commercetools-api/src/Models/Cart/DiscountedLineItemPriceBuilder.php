@@ -36,6 +36,7 @@ final class DiscountedLineItemPriceBuilder implements Builder
 
     /**
      * <p>Money value of the discounted Line Item or Custom Line Item.</p>
+     * <p>When multiple discounts from <code>includedDiscounts</code> apply, they are applied sequentially based on the <code>sortOrder</code> of their associated <a href="ctp:api:type:CartDiscount">Cart Discounts</a> (discounts with higher <code>sortOrder</code> values are applied first). The Cart's <code>priceRoundingMode</code> field (<a href="ctp:api:type:RoundingMode">RoundingMode</a>) is applied after each discount calculation, so rounding occurs after each discount step rather than only once on the final cumulative amount.</p>
      *
 
      * @return null|TypedMoney
