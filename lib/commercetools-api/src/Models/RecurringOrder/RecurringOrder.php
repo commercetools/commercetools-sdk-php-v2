@@ -79,7 +79,9 @@ interface RecurringOrder extends BaseResource
     public function getCart();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to the original <a href="ctp:api:type:Order">Order</a> that generated this RecurringOrder.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the original <a href="ctp:api:type:Order">Order</a> that generated this RecurringOrder.
+     * This field is automatically populated when the RecurringOrder is created via the <a href="/../api/projects/orders#create-order-from-cart">Create Order from Cart</a> endpoint and the Cart contains Line Items with defined <code>recurrenceInfo</code>.
+     * When the RecurringOrder is created directly via the <a href="/../api/projects/recurring-orders#create-recurringorder">Create RecurringOrder</a> endpoint, this field remains empty.</p>
      *
 
      * @return null|OrderReference
