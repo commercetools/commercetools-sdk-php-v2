@@ -353,6 +353,7 @@
 - added type `GraphQLRecurringOrderFailureError`
 - added type `GraphQLValidityLockConflictError`
 - added type `BaseEvent`
+- added type `Event`
 - added type `CheckoutOrderCreationFailedEvent`
 - added type `CheckoutPaymentAuthorizationCancelledEvent`
 - added type `CheckoutPaymentAuthorizationFailedEvent`
@@ -362,13 +363,6 @@
 - added type `CheckoutPaymentChargedEvent`
 - added type `CheckoutPaymentRefundFailedEvent`
 - added type `CheckoutPaymentRefundedEvent`
-- added type `Event`
-- added type `ImportContainerCreatedEvent`
-- added type `ImportContainerDeletedEvent`
-- added type `ImportOperationRejectedEvent`
-- added type `ImportUnresolvedEvent`
-- added type `ImportValidationFailedEvent`
-- added type `ImportWaitForMasterVariantEvent`
 - added type `CheckoutMessageOrderPayloadBaseData`
 - added type `CheckoutMessagePaymentsPayloadBaseData`
 - added type `ImportContainerCreatedEventData`
@@ -377,6 +371,12 @@
 - added type `ImportUnresolvedEventData`
 - added type `ImportValidationFailedEventData`
 - added type `ImportWaitForMasterVariantEventData`
+- added type `ImportContainerCreatedEvent`
+- added type `ImportContainerDeletedEvent`
+- added type `ImportOperationRejectedEvent`
+- added type `ImportUnresolvedEvent`
+- added type `ImportValidationFailedEvent`
+- added type `ImportWaitForMasterVariantEvent`
 - added type `InventoryEntrySetInventoryLimitsAction`
 - added type `MyPaymentSetMethodInfoCustomFieldAction`
 - added type `MyPaymentSetMethodInfoCustomTypeAction`
@@ -738,6 +738,7 @@
 - added enum `product-selection` to type `ImportResourceType`
 - added enum `associate-role` to type `ReferenceType`
 - added enum `business-unit` to type `ReferenceType`
+- added enum `partiallyImported` to type `ProcessingState`
 </details>
 
 
@@ -764,6 +765,7 @@
 - added property `retentionPolicy` to type `ImportContainer`
 - added property `expiresAt` to type `ImportContainer`
 - added property `retentionPolicy` to type `ImportContainerDraft`
+- added property `partiallyImported` to type `OperationStates`
 - added property `attributes` to type `ProductDraftImport`
 - added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
 - added property `attributes` to type `ProductImport`

@@ -63,6 +63,12 @@ final class OperationStatesBuilder implements Builder
     private $canceled;
 
     /**
+
+     * @var ?int
+     */
+    private $partiallyImported;
+
+    /**
      * <p>The number of ImportOperations in the <code>processing</code> state.</p>
      *
 
@@ -137,6 +143,17 @@ final class OperationStatesBuilder implements Builder
     public function getCanceled()
     {
         return $this->canceled;
+    }
+
+    /**
+     * <p>The number of ImportOperations in the <code>partiallyImported</code> state.</p>
+     *
+
+     * @return null|int
+     */
+    public function getPartiallyImported()
+    {
+        return $this->partiallyImported;
     }
 
     /**
@@ -216,6 +233,17 @@ final class OperationStatesBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?int $partiallyImported
+     * @return $this
+     */
+    public function withPartiallyImported(?int $partiallyImported)
+    {
+        $this->partiallyImported = $partiallyImported;
+
+        return $this;
+    }
+
 
     public function build(): OperationStates
     {
@@ -226,7 +254,8 @@ final class OperationStatesBuilder implements Builder
             $this->waitForMasterVariant,
             $this->imported,
             $this->rejected,
-            $this->canceled
+            $this->canceled,
+            $this->partiallyImported
         );
     }
 

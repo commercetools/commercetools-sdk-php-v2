@@ -76,7 +76,7 @@ $request = $builder
 
 Creates an Import Container in the Project.
 
-Generates the [ImportContainerCreated](/projects/events#import-container-created-event) Event.
+Generates the [ImportContainerCreated](ctp:api:type:ImportContainerCreatedEvent) Event.
 
 
 ### Example
@@ -137,7 +137,7 @@ $request = $builder
 
 Deletes an Import Container in the Project.
 
-Generates the [ImportContainerDeleted](/projects/events#import-container-deleted-event) Event.
+Generates the [ImportContainerDeleted](ctp:api:type:ImportContainerDeletedEvent) Event.
 
 
 ### Example

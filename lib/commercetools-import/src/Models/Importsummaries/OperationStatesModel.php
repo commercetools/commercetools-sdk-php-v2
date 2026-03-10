@@ -61,6 +61,12 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
      */
     protected $canceled;
 
+    /**
+     *
+     * @var ?int
+     */
+    protected $partiallyImported;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -72,7 +78,8 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         ?int $waitForMasterVariant = null,
         ?int $imported = null,
         ?int $rejected = null,
-        ?int $canceled = null
+        ?int $canceled = null,
+        ?int $partiallyImported = null
     ) {
         $this->processing = $processing;
         $this->validationFailed = $validationFailed;
@@ -81,6 +88,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         $this->imported = $imported;
         $this->rejected = $rejected;
         $this->canceled = $canceled;
+        $this->partiallyImported = $partiallyImported;
     }
 
     /**
@@ -223,6 +231,26 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         return $this->canceled;
     }
 
+    /**
+     * <p>The number of ImportOperations in the <code>partiallyImported</code> state.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getPartiallyImported()
+    {
+        if (is_null($this->partiallyImported)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_PARTIALLY_IMPORTED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->partiallyImported = (int) $data;
+        }
+
+        return $this->partiallyImported;
+    }
+
 
     /**
      * @param ?int $processing
@@ -278,5 +306,13 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     public function setCanceled(?int $canceled): void
     {
         $this->canceled = $canceled;
+    }
+
+    /**
+     * @param ?int $partiallyImported
+     */
+    public function setPartiallyImported(?int $partiallyImported): void
+    {
+        $this->partiallyImported = $partiallyImported;
     }
 }

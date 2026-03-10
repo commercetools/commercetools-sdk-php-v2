@@ -20,6 +20,7 @@ interface OperationStates extends JsonObject
     public const FIELD_IMPORTED = 'imported';
     public const FIELD_REJECTED = 'rejected';
     public const FIELD_CANCELED = 'canceled';
+    public const FIELD_PARTIALLY_IMPORTED = 'partiallyImported';
 
     /**
      * <p>The number of ImportOperations in the <code>processing</code> state.</p>
@@ -78,6 +79,14 @@ interface OperationStates extends JsonObject
     public function getCanceled();
 
     /**
+     * <p>The number of ImportOperations in the <code>partiallyImported</code> state.</p>
+     *
+
+     * @return null|int
+     */
+    public function getPartiallyImported();
+
+    /**
      * @param ?int $processing
      */
     public function setProcessing(?int $processing): void;
@@ -111,4 +120,9 @@ interface OperationStates extends JsonObject
      * @param ?int $canceled
      */
     public function setCanceled(?int $canceled): void;
+
+    /**
+     * @param ?int $partiallyImported
+     */
+    public function setPartiallyImported(?int $partiallyImported): void;
 }
