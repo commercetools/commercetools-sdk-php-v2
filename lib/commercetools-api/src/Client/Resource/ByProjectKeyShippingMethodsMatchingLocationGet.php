@@ -43,7 +43,7 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest implemen
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/shipping-methods/matching-location');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/shipping-methods/matching-location');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

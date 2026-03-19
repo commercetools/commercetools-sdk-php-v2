@@ -38,7 +38,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
      */
     public function __construct(string $projectKey, string $ID, ?UploadedFileInterface $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/products/{ID}/images');
+        $uri = str_replace(['{projectKey}', '{ID}'], [urlencode($projectKey), urlencode($ID)], '{projectKey}/products/{ID}/images');
         if (!is_null($body)) {
             $mediaType = $body->getClientMediaType();
             if (!is_null($mediaType)) {

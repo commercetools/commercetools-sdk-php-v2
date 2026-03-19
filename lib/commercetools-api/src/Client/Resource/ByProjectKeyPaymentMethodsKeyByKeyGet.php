@@ -42,7 +42,7 @@ class ByProjectKeyPaymentMethodsKeyByKeyGet extends ApiRequest implements Expand
      */
     public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/payment-methods/key={key}');
+        $uri = str_replace(['{projectKey}', '{key}'], [urlencode($projectKey), urlencode($key)], '{projectKey}/payment-methods/key={key}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

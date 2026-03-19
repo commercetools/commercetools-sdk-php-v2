@@ -45,7 +45,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Proj
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/product-projections/search');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/product-projections/search');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

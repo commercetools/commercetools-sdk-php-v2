@@ -39,7 +39,7 @@ class ByProjectKeyStatesHead extends ApiRequest implements Errorable, Deprecatab
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/states');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/states');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

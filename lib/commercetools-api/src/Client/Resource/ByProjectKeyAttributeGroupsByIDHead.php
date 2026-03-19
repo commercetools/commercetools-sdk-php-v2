@@ -39,7 +39,7 @@ class ByProjectKeyAttributeGroupsByIDHead extends ApiRequest implements Errorabl
      */
     public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/attribute-groups/{ID}');
+        $uri = str_replace(['{projectKey}', '{ID}'], [urlencode($projectKey), urlencode($ID)], '{projectKey}/attribute-groups/{ID}');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

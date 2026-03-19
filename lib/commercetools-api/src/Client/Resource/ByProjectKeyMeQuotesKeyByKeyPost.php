@@ -43,7 +43,7 @@ class ByProjectKeyMeQuotesKeyByKeyPost extends ApiRequest implements Conflicting
      */
     public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/me/quotes/key={key}');
+        $uri = str_replace(['{projectKey}', '{key}'], [urlencode($projectKey), urlencode($key)], '{projectKey}/me/quotes/key={key}');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

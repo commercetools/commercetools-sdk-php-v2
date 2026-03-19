@@ -39,7 +39,7 @@ class ByProjectKeyMeCartsHead extends ApiRequest implements Errorable, Deprecata
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/me/carts');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/me/carts');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

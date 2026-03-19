@@ -42,7 +42,7 @@ class ByProjectKeyTypesByIDGet extends ApiRequest implements Expandable, Errorab
      */
     public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/types/{ID}');
+        $uri = str_replace(['{projectKey}', '{ID}'], [urlencode($projectKey), urlencode($ID)], '{projectKey}/types/{ID}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

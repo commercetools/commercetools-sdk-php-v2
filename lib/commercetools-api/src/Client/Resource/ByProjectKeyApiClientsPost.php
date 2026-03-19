@@ -42,7 +42,7 @@ class ByProjectKeyApiClientsPost extends ApiRequest implements Expandable, Depre
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/api-clients');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/api-clients');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

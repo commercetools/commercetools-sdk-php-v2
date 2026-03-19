@@ -39,7 +39,7 @@ class ByProjectKeyAsAssociateByAssociateIdBusinessUnitsHead extends ApiRequest i
      */
     public function __construct(string $projectKey, string $associateId, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{associateId}'], [$projectKey, $associateId], '{projectKey}/as-associate/{associateId}/business-units');
+        $uri = str_replace(['{projectKey}', '{associateId}'], [urlencode($projectKey), urlencode($associateId)], '{projectKey}/as-associate/{associateId}/business-units');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

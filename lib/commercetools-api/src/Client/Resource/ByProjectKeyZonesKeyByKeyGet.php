@@ -42,7 +42,7 @@ class ByProjectKeyZonesKeyByKeyGet extends ApiRequest implements Expandable, Err
      */
     public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/zones/key={key}');
+        $uri = str_replace(['{projectKey}', '{key}'], [urlencode($projectKey), urlencode($key)], '{projectKey}/zones/key={key}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

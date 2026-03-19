@@ -42,7 +42,7 @@ class ByProjectKeyStagedQuotesPost extends ApiRequest implements Expandable, Dep
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/staged-quotes');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/staged-quotes');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

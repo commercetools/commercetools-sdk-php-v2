@@ -42,7 +42,7 @@ class ByProjectKeyDiscountCodesPost extends ApiRequest implements Expandable, De
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/discount-codes');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/discount-codes');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

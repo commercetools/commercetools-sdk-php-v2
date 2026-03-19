@@ -40,7 +40,7 @@ class ByProjectKeyProductProjectionsSearchPost extends ApiRequest implements Err
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/product-projections/search');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/product-projections/search');
         if (!is_null($body)) {
             $headers = $this->ensureHeader($headers, 'Content-Type', 'application/x-www-form-urlencoded');
         }

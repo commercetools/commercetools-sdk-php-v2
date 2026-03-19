@@ -41,7 +41,7 @@ class ByProjectKeyMePasswordPost extends ApiRequest implements Conflicting, Erro
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/me/password');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/me/password');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

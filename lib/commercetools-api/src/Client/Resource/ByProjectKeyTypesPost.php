@@ -42,7 +42,7 @@ class ByProjectKeyTypesPost extends ApiRequest implements Expandable, Deprecatab
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/types');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/types');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

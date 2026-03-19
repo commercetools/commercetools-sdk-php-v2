@@ -42,7 +42,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet e
      */
     public function __construct(string $projectKey, string $storeKey, string $passwordToken, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{passwordToken}'], [$projectKey, $storeKey, $passwordToken], '{projectKey}/in-store/key={storeKey}/customers/password-token={passwordToken}');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{passwordToken}'], [urlencode($projectKey), urlencode($storeKey), urlencode($passwordToken)], '{projectKey}/in-store/key={storeKey}/customers/password-token={passwordToken}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

@@ -43,7 +43,7 @@ class ByProjectKeyMeDelete extends ApiRequest implements Versioned, Conflicting,
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/me');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/me');
         parent::__construct($client, 'DELETE', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

@@ -43,7 +43,7 @@ class ByProjectKeyProductsPost extends ApiRequest implements PriceSelecting, Exp
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/products');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/products');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

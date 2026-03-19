@@ -44,7 +44,7 @@ class ByProjectKeyExtensionsGet extends ApiRequest implements Sortable, Paging, 
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/extensions');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/extensions');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

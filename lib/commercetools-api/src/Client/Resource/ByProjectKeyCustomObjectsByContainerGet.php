@@ -46,7 +46,7 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest implements Quer
      */
     public function __construct(string $projectKey, string $container, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{container}'], [$projectKey, $container], '{projectKey}/custom-objects/{container}');
+        $uri = str_replace(['{projectKey}', '{container}'], [urlencode($projectKey), urlencode($container)], '{projectKey}/custom-objects/{container}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

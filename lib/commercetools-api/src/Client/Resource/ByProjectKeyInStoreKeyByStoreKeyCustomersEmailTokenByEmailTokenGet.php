@@ -42,7 +42,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet extends
      */
     public function __construct(string $projectKey, string $storeKey, string $emailToken, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{emailToken}'], [$projectKey, $storeKey, $emailToken], '{projectKey}/in-store/key={storeKey}/customers/email-token={emailToken}');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{emailToken}'], [urlencode($projectKey), urlencode($storeKey), urlencode($emailToken)], '{projectKey}/in-store/key={storeKey}/customers/email-token={emailToken}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

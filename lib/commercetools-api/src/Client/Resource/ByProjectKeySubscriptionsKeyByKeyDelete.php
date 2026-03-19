@@ -43,7 +43,7 @@ class ByProjectKeySubscriptionsKeyByKeyDelete extends ApiRequest implements Vers
      */
     public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/subscriptions/key={key}');
+        $uri = str_replace(['{projectKey}', '{key}'], [urlencode($projectKey), urlencode($key)], '{projectKey}/subscriptions/key={key}');
         parent::__construct($client, 'DELETE', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

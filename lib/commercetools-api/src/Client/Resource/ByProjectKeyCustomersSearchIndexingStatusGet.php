@@ -41,7 +41,7 @@ class ByProjectKeyCustomersSearchIndexingStatusGet extends ApiRequest implements
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/customers/search/indexing-status');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/customers/search/indexing-status');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

@@ -45,7 +45,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete extends ApiRequest impleme
      */
     public function __construct(string $projectKey, string $storeKey, string $ID, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{ID}'], [$projectKey, $storeKey, $ID], '{projectKey}/in-store/key={storeKey}/carts/{ID}');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{ID}'], [urlencode($projectKey), urlencode($storeKey), urlencode($ID)], '{projectKey}/in-store/key={storeKey}/carts/{ID}');
         parent::__construct($client, 'DELETE', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

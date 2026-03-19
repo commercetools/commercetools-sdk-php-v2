@@ -43,7 +43,7 @@ class ByProjectKeyCartDiscountsByIDPost extends ApiRequest implements Conflictin
      */
     public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/cart-discounts/{ID}');
+        $uri = str_replace(['{projectKey}', '{ID}'], [urlencode($projectKey), urlencode($ID)], '{projectKey}/cart-discounts/{ID}');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

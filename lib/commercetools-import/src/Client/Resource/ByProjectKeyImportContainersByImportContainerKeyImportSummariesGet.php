@@ -38,7 +38,7 @@ class ByProjectKeyImportContainersByImportContainerKeyImportSummariesGet extends
      */
     public function __construct(string $projectKey, string $importContainerKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{importContainerKey}'], [$projectKey, $importContainerKey], '{projectKey}/import-containers/{importContainerKey}/import-summaries');
+        $uri = str_replace(['{projectKey}', '{importContainerKey}'], [urlencode($projectKey), urlencode($importContainerKey)], '{projectKey}/import-containers/{importContainerKey}/import-summaries');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

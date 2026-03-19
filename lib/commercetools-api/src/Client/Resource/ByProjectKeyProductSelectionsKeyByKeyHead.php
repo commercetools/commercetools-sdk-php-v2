@@ -39,7 +39,7 @@ class ByProjectKeyProductSelectionsKeyByKeyHead extends ApiRequest implements Er
      */
     public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/product-selections/key={key}');
+        $uri = str_replace(['{projectKey}', '{key}'], [urlencode($projectKey), urlencode($key)], '{projectKey}/product-selections/key={key}');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

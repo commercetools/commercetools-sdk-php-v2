@@ -46,7 +46,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet extends ApiReque
      */
     public function __construct(string $projectKey, string $storeKey, string $ID, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{ID}'], [$projectKey, $storeKey, $ID], '{projectKey}/in-store/key={storeKey}/product-projections/{ID}');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{ID}'], [urlencode($projectKey), urlencode($storeKey), urlencode($ID)], '{projectKey}/in-store/key={storeKey}/product-projections/{ID}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

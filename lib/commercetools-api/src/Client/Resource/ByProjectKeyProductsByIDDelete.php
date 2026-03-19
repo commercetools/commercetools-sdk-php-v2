@@ -45,7 +45,7 @@ class ByProjectKeyProductsByIDDelete extends ApiRequest implements PriceSelectin
      */
     public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/products/{ID}');
+        $uri = str_replace(['{projectKey}', '{ID}'], [urlencode($projectKey), urlencode($ID)], '{projectKey}/products/{ID}');
         parent::__construct($client, 'DELETE', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

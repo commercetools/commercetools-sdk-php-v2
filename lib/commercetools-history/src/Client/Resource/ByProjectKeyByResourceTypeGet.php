@@ -40,7 +40,7 @@ class ByProjectKeyByResourceTypeGet extends ApiRequest
      */
     public function __construct(string $projectKey, string $resourceType, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{resourceType}'], [$projectKey, $resourceType], '{projectKey}/{resourceType}');
+        $uri = str_replace(['{projectKey}', '{resourceType}'], [urlencode($projectKey), urlencode($resourceType)], '{projectKey}/{resourceType}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

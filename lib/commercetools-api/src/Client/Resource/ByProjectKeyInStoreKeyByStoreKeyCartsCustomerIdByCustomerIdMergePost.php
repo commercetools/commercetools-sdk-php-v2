@@ -40,7 +40,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdMergePost exten
      */
     public function __construct(string $projectKey, string $storeKey, string $customerId, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{customerId}'], [$projectKey, $storeKey, $customerId], '{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{customerId}'], [urlencode($projectKey), urlencode($storeKey), urlencode($customerId)], '{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
