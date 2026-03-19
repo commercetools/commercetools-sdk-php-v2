@@ -37,6 +37,7 @@ use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Api\Models\Type\TypeReferenceBuilder;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierBuilder;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
 use GuzzleHttp\Psr7\Response;
@@ -296,5 +297,12 @@ class MiscTest extends TestCase
     {
         $credentials = new ClientCredentials("clientId", "clientSecret");
         $this->assertInstanceOf(ClientCredentials::class, $credentials);
+    }
+
+    public function testPathTraversal()
+    {
+        $b = new ApiRequestBuilder();
+        $request = $b->withProjectKey('test')->carts()->withId("../categories")->get();
+        $this->assertSame("test/carts/..%2Fcategories", $request->getUri()->getPath());
     }
 }
