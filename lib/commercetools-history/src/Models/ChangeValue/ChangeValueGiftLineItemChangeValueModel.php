@@ -103,8 +103,8 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-
-            $this->product = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->product = $className::of($data);
         }
 
         return $this->product;
@@ -144,8 +144,8 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-
-            $this->supplyChannel = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->supplyChannel = $className::of($data);
         }
 
         return $this->supplyChannel;
@@ -165,8 +165,8 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-
-            $this->distributionChannel = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->distributionChannel = $className::of($data);
         }
 
         return $this->distributionChannel;

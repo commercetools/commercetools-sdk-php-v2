@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\AttributeLocalizedEnumValue;
+use Commercetools\History\Models\Common\CustomFieldLocalizedEnumValue;
 
 interface AddLocalizedEnumValueChange extends Change
 {
@@ -35,7 +35,7 @@ interface AddLocalizedEnumValueChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|AttributeLocalizedEnumValue
+     * @return null|CustomFieldLocalizedEnumValue
      */
     public function getNextValue();
 
@@ -61,9 +61,9 @@ interface AddLocalizedEnumValueChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?AttributeLocalizedEnumValue $nextValue
+     * @param ?CustomFieldLocalizedEnumValue $nextValue
      */
-    public function setNextValue(?AttributeLocalizedEnumValue $nextValue): void;
+    public function setNextValue(?CustomFieldLocalizedEnumValue $nextValue): void;
 
     /**
      * @param ?string $fieldName

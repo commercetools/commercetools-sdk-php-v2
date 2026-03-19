@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\Delivery;
-use Commercetools\History\Models\Common\DeliveryBuilder;
+use Commercetools\History\Models\ChangeValue\DeliveryChangeValue;
+use Commercetools\History\Models\ChangeValue\DeliveryChangeValueBuilder;
 
 /**
  * @implements Builder<RemoveDeliveryItemsChange>
@@ -30,7 +30,7 @@ final class RemoveDeliveryItemsChangeBuilder implements Builder
 
     /**
 
-     * @var null|Delivery|DeliveryBuilder
+     * @var null|DeliveryChangeValue|DeliveryChangeValueBuilder
      */
     private $previousValue;
 
@@ -47,11 +47,11 @@ final class RemoveDeliveryItemsChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|Delivery
+     * @return null|DeliveryChangeValue
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof DeliveryBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue instanceof DeliveryChangeValueBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
@@ -66,10 +66,10 @@ final class RemoveDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Delivery $previousValue
+     * @param ?DeliveryChangeValue $previousValue
      * @return $this
      */
-    public function withPreviousValue(?Delivery $previousValue)
+    public function withPreviousValue(?DeliveryChangeValue $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -80,7 +80,7 @@ final class RemoveDeliveryItemsChangeBuilder implements Builder
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?DeliveryBuilder $previousValue)
+    public function withPreviousValueBuilder(?DeliveryChangeValueBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -91,7 +91,7 @@ final class RemoveDeliveryItemsChangeBuilder implements Builder
     {
         return new RemoveDeliveryItemsChangeModel(
             $this->change,
-            $this->previousValue instanceof DeliveryBuilder ? $this->previousValue->build() : $this->previousValue
+            $this->previousValue instanceof DeliveryChangeValueBuilder ? $this->previousValue->build() : $this->previousValue
         );
     }
 

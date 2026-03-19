@@ -17,6 +17,8 @@ interface SetCountriesChange extends Change
 
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ADDED_ITEMS = 'addedItems';
+    public const FIELD_REMOVED_ITEMS = 'removedItems';
 
     /**
 
@@ -47,6 +49,22 @@ interface SetCountriesChange extends Change
     public function getNextValue();
 
     /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getAddedItems();
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getRemovedItems();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -60,4 +78,14 @@ interface SetCountriesChange extends Change
      * @param ?StoreCountryCollection $nextValue
      */
     public function setNextValue(?StoreCountryCollection $nextValue): void;
+
+    /**
+     * @param ?StoreCountryCollection $addedItems
+     */
+    public function setAddedItems(?StoreCountryCollection $addedItems): void;
+
+    /**
+     * @param ?StoreCountryCollection $removedItems
+     */
+    public function setRemovedItems(?StoreCountryCollection $removedItems): void;
 }

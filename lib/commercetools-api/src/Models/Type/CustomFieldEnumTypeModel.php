@@ -45,6 +45,8 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
     }
 
     /**
+     * <p>Discriminator that determines the type of the field.</p>
+     *
      *
      * @return null|string
      */

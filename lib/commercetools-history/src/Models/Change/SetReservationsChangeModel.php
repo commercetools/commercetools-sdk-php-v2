@@ -46,6 +46,18 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?ReservationCollection
+     */
+    protected $addedItems;
+
+    /**
+     *
+     * @var ?ReservationCollection
+     */
+    protected $removedItems;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -54,11 +66,15 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
         ?string $change = null,
         ?ReservationCollection $previousValue = null,
         ?ReservationCollection $nextValue = null,
+        ?ReservationCollection $addedItems = null,
+        ?ReservationCollection $removedItems = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->addedItems = $addedItems;
+        $this->removedItems = $removedItems;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -138,6 +154,46 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
         return $this->nextValue;
     }
 
+    /**
+     * <p>Elements added to the array.</p>
+     *
+     *
+     * @return null|ReservationCollection
+     */
+    public function getAddedItems()
+    {
+        if (is_null($this->addedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ADDED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addedItems = ReservationCollection::fromArray($data);
+        }
+
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+     *
+     * @return null|ReservationCollection
+     */
+    public function getRemovedItems()
+    {
+        if (is_null($this->removedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_REMOVED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedItems = ReservationCollection::fromArray($data);
+        }
+
+        return $this->removedItems;
+    }
+
 
     /**
      * @param ?string $change
@@ -161,6 +217,22 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
     public function setNextValue(?ReservationCollection $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?ReservationCollection $addedItems
+     */
+    public function setAddedItems(?ReservationCollection $addedItems): void
+    {
+        $this->addedItems = $addedItems;
+    }
+
+    /**
+     * @param ?ReservationCollection $removedItems
+     */
+    public function setRemovedItems(?ReservationCollection $removedItems): void
+    {
+        $this->removedItems = $removedItems;
     }
 
 

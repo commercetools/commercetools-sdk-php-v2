@@ -45,6 +45,18 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?array
+     */
+    protected $addedItems;
+
+    /**
+     *
+     * @var ?array
+     */
+    protected $removedItems;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -53,11 +65,15 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
         ?string $change = null,
         ?array $previousValue = null,
         ?array $nextValue = null,
+        ?array $addedItems = null,
+        ?array $removedItems = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->addedItems = $addedItems;
+        $this->removedItems = $removedItems;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -137,6 +153,46 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
         return $this->nextValue;
     }
 
+    /**
+     * <p>Elements added to the array.</p>
+     *
+     *
+     * @return null|array
+     */
+    public function getAddedItems()
+    {
+        if (is_null($this->addedItems)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_ADDED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addedItems = $data;
+        }
+
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+     *
+     * @return null|array
+     */
+    public function getRemovedItems()
+    {
+        if (is_null($this->removedItems)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_REMOVED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedItems = $data;
+        }
+
+        return $this->removedItems;
+    }
+
 
     /**
      * @param ?string $change
@@ -160,6 +216,22 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
     public function setNextValue(?array $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?array $addedItems
+     */
+    public function setAddedItems(?array $addedItems): void
+    {
+        $this->addedItems = $addedItems;
+    }
+
+    /**
+     * @param ?array $removedItems
+     */
+    public function setRemovedItems(?array $removedItems): void
+    {
+        $this->removedItems = $removedItems;
     }
 
 

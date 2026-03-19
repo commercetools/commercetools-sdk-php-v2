@@ -17,13 +17,15 @@ interface PaymentInfo extends JsonObject
     public const FIELD_PAYMENTS = 'payments';
 
     /**
+     * <p><a href="ctp:api:type:Reference">References</a> to the Payments associated with the Order.</p>
+     *
 
-     * @return null|ReferenceCollection
+     * @return null|PaymentReferenceCollection
      */
     public function getPayments();
 
     /**
-     * @param ?ReferenceCollection $payments
+     * @param ?PaymentReferenceCollection $payments
      */
-    public function setPayments(?ReferenceCollection $payments): void;
+    public function setPayments(?PaymentReferenceCollection $payments): void;
 }

@@ -24,7 +24,7 @@ final class StandalonePriceRemovePriceTierActionBuilder implements Builder
 
      * @var ?int
      */
-    private $tierMinimumQuantity;
+    private $minimumQuantity;
 
     /**
      * <p>The <code>minimumQuantity</code> of the <a href="ctp:api:type:PriceTier">PriceTier</a> to be removed from the <code>tiers</code> field of the <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
@@ -32,18 +32,18 @@ final class StandalonePriceRemovePriceTierActionBuilder implements Builder
 
      * @return null|int
      */
-    public function getTierMinimumQuantity()
+    public function getMinimumQuantity()
     {
-        return $this->tierMinimumQuantity;
+        return $this->minimumQuantity;
     }
 
     /**
-     * @param ?int $tierMinimumQuantity
+     * @param ?int $minimumQuantity
      * @return $this
      */
-    public function withTierMinimumQuantity(?int $tierMinimumQuantity)
+    public function withMinimumQuantity(?int $minimumQuantity)
     {
-        $this->tierMinimumQuantity = $tierMinimumQuantity;
+        $this->minimumQuantity = $minimumQuantity;
 
         return $this;
     }
@@ -52,7 +52,7 @@ final class StandalonePriceRemovePriceTierActionBuilder implements Builder
     public function build(): StandalonePriceRemovePriceTierAction
     {
         return new StandalonePriceRemovePriceTierActionModel(
-            $this->tierMinimumQuantity
+            $this->minimumQuantity
         );
     }
 

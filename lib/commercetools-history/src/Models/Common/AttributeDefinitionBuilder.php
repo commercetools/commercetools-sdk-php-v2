@@ -48,6 +48,12 @@ final class AttributeDefinitionBuilder implements Builder
 
      * @var ?string
      */
+    private $level;
+
+    /**
+
+     * @var ?string
+     */
     private $attributeConstraint;
 
     /**
@@ -69,6 +75,8 @@ final class AttributeDefinitionBuilder implements Builder
     private $isSearchable;
 
     /**
+     * <p>Describes the Type of the Attribute.</p>
+     *
 
      * @return null|AttributeType
      */
@@ -78,7 +86,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>The unique name of the attribute used in the API. The name must be between two and 256 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>). When using the same <code>name</code> for an attribute in two or more product types all fields of the AttributeDefinition of this attribute need to be the same across the product types, otherwise an AttributeDefinitionAlreadyExists error code will be returned. An exception to this are the values of an <code>enum</code> or <code>lenum</code> type and sets thereof.</p>
+     * <p>User-defined name of the Attribute that is unique within the <a href="ctp:api:type:Project">Project</a>.</p>
      *
 
      * @return null|string
@@ -89,6 +97,8 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>Human-readable label for the Attribute.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -98,7 +108,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>Whether the attribute is required to have a value.</p>
+     * <p>If <code>true</code>, the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
 
      * @return null|bool
@@ -109,6 +119,19 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>Specifies whether the Attribute is defined at the Product or Variant level.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * <p>Specifies how Attributes are validated across all variants of a Product.</p>
+     *
 
      * @return null|string
      */
@@ -118,6 +141,8 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>Provides additional Attribute information to aid content managers configure Product details.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -127,6 +152,8 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>Provides a visual representation directive for values of this Attribute (only relevant for <a href="ctp:api:type:AttributeTextType">AttributeTextType</a> and <a href="ctp:api:type:AttributeLocalizableTextType">AttributeLocalizableTextType</a>).</p>
+     *
 
      * @return null|string
      */
@@ -136,7 +163,12 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>Whether the attribute's values should generally be enabled in product search. This determines whether the value is stored in products for matching terms in the context of full-text search queries  and can be used in facets &amp; filters as part of product search queries. The exact features that are enabled/disabled with this flag depend on the concrete attribute type and are described there. The max size of a searchable field is <strong>restricted to 10922 characters</strong>. This constraint is enforced at both product creation and product update. If the length of the input exceeds the maximum size an InvalidField error is returned.</p>
+     * <p>If <code>true</code>, the Attribute's values are available in the <a href="/../api/projects/product-search">Product Search</a> or the <a href="/../api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.
+     * However, if an Attribute's <code>level</code> is set as <code>Product</code>, then Product Projection Search does <strong>not support</strong> the Attribute.</p>
+     * <p>The exact features that are available with this flag depend on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
+     * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/../api/limits#field-content-size">Field content size limit</a>.
+     * This constraint is enforced at both <a href="ctp:api:endpoint:/{projectKey}/products:POST">Product creation</a> and <a href="/../api/projects/products#update-product">Product update</a>.
+     * If the length of the input exceeds the maximum size, an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> error is returned.</p>
      *
 
      * @return null|bool
@@ -186,6 +218,17 @@ final class AttributeDefinitionBuilder implements Builder
     public function withIsRequired(?bool $isRequired)
     {
         $this->isRequired = $isRequired;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $level
+     * @return $this
+     */
+    public function withLevel(?string $level)
+    {
+        $this->level = $level;
 
         return $this;
     }
@@ -274,6 +317,7 @@ final class AttributeDefinitionBuilder implements Builder
             $this->name,
             $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
             $this->isRequired,
+            $this->level,
             $this->attributeConstraint,
             $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip,
             $this->inputHint,

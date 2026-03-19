@@ -27,27 +27,14 @@ final class ProductVariantSelectionBuilder implements Builder
     private $type;
 
     /**
-
-     * @var ?array
-     */
-    private $skus;
-
-    /**
+     * <p>Determines whether the SKUs are to be included in, or excluded from, the Product Selection.</p>
+     *
 
      * @return null|string
      */
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-
-     * @return null|array
-     */
-    public function getSkus()
-    {
-        return $this->skus;
     }
 
     /**
@@ -61,23 +48,11 @@ final class ProductVariantSelectionBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?array $skus
-     * @return $this
-     */
-    public function withSkus(?array $skus)
-    {
-        $this->skus = $skus;
-
-        return $this;
-    }
-
 
     public function build(): ProductVariantSelection
     {
         return new ProductVariantSelectionModel(
-            $this->type,
-            $this->skus
+            $this->type
         );
     }
 

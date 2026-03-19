@@ -148,7 +148,7 @@ final class RemoveShippingAddressIdChangeModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Address removed from <code>shippingAddressesIds</code>.</p>
+     * <p>Address removed from <code>shippingAddressIds</code>.</p>
      *
      *
      * @return null|Address

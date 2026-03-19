@@ -37,6 +37,8 @@ final class CustomFieldBooleanTypeModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>Discriminator that determines the type of the field.</p>
+     *
      *
      * @return null|string
      */

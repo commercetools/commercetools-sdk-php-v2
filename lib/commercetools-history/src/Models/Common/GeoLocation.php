@@ -11,10 +11,9 @@ namespace Commercetools\History\Models\Common;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
 
-interface GeoLocation extends JsonObject
+interface GeoLocation extends GeoJson
 {
 
-    public const FIELD_TYPE = 'type';
     public const FIELD_COORDINATES = 'coordinates';
 
     /**
@@ -28,11 +27,6 @@ interface GeoLocation extends JsonObject
      * @return null|array
      */
     public function getCoordinates();
-
-    /**
-     * @param ?string $type
-     */
-    public function setType(?string $type): void;
 
     /**
      * @param ?array $coordinates

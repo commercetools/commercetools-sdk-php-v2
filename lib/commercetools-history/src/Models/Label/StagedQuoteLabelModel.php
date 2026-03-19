@@ -115,8 +115,8 @@ final class StagedQuoteLabelModel extends JsonObjectModel implements StagedQuote
             if (is_null($data)) {
                 return null;
             }
-
-            $this->customer = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->customer = $className::of($data);
         }
 
         return $this->customer;
@@ -136,8 +136,8 @@ final class StagedQuoteLabelModel extends JsonObjectModel implements StagedQuote
             if (is_null($data)) {
                 return null;
             }
-
-            $this->quoteRequest = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->quoteRequest = $className::of($data);
         }
 
         return $this->quoteRequest;

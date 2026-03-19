@@ -892,7 +892,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->get()`
 
-null
+Retrieves all QuoteRequests in a BusinessUnit.
 
 ### Example
 ```php
@@ -909,7 +909,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->head()`
 
-Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200` status if any QuoteRequests match the query predicate, or a `404` status otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate in a BusinessUnit. Returns a `200 OK` status if any QuoteRequests match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -926,7 +926,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->post(null)`
 
-Creates a QuoteRequest in a [BusinessUnit](ctp:api:type:BusinessUnit). Creating QuoteRequest fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Cart does not reference the same BusinessUnit as the `businessUnitKey` path parameter.
+Creates a QuoteRequest in a BusinessUnit.
+Creating QuoteRequest fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the Cart does not reference the same BusinessUnit as the `businessUnitKey` path parameter.
+
 
 ### Example
 ```php
@@ -943,6 +945,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->get()`
 
+Retrieves a QuoteRequest with the provided `id` in a BusinessUnit.
 If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -962,7 +965,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists with the provided `id`. Returns a `200` status if the QuoteRequest exists, or a `404` status otherwise.
+Checks if a QuoteRequest exists with the provided `id` in a BusinessUnit. Returns a `200 OK` status if the QuoteRequest exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -980,6 +983,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->post(null)`
 
+Updates a QuoteRequest in a BusinessUnit using one or more [update actions](/../api/projects/quote-requests#update-actions).
 If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -999,6 +1003,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->get()`
 
+Retrieves a QuoteRequest with the provided `key` in a BusinessUnit.
 If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1018,7 +1023,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists with the provided `key`. Returns a `200` status if the QuoteRequest exists, or a `404` status otherwise.
+Checks if a QuoteRequest exists with the provided `key` in a BusinessUnit. Returns a `200 OK` status if the QuoteRequest exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -1036,6 +1041,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->post(null)`
 
+Updates a QuoteRequest in a BusinessUnit using one or more [update actions](/../api/projects/quote-requests#update-actions).
 If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1055,7 +1061,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->get()`
 
-null
+Retrieves all Quotes in a BusinessUnit.
 
 ### Example
 ```php
@@ -1072,7 +1078,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->head()`
 
-Checks if one or more Quotes exist for the provided query predicate. Returns a `200` status if any Quotes match the query predicate, or a `404` status otherwise.
+Checks if one or more Quotes exist for the provided query predicate in a BusinessUnit. Returns a `200 OK` status if any Quotes match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -1089,6 +1095,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->get()`
 
+Retrieves a Quote with the provided `id` in a BusinessUnit.
 If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1108,7 +1115,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists with the provided `id`. Returns a `200` status if the Quote exists, or a `404` status otherwise.
+Checks if a Quote exists with the provided `id` in a BusinessUnit. Returns a `200 OK` status if the Quote exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -1126,6 +1133,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->post(null)`
 
+Updates a Quote in a BusinessUnit using one or more [update actions](/../api/projects/quotes#update-actions).
 If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1145,6 +1153,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->get()`
 
+Retrieves a Quote with the provided `key` in a BusinessUnit.
 If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1164,7 +1173,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists with the provided `key`. Returns a `200` status if the Quote exists, or a `404` status otherwise.
+Checks if a Quote exists with the provided `key` in a BusinessUnit. Returns a `200 OK` status if the Quote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -1182,6 +1191,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->post(null)`
 
+Updates a Quote in a BusinessUnit using one or more [update actions](/../api/projects/quotes#update-actions).
 If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -2293,6 +2303,23 @@ $request = $builder
                 ->withCustomerId("customerId")
                 ->head();
 ```
+## `withProjectKey("projectKey")->carts()->customerIdWithCustomerIdValueMerge("customerId")->post(null)`
+
+Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
+For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/../api/carts-orders-overview#merge-a-cart).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->carts()
+                ->customerIdWithCustomerIdValueMerge("customerId")
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->get()`
 
 Retrieves a Cart with the provided `key`.
@@ -2727,6 +2754,8 @@ $request = $builder
 
 For performance reasons, it is highly advisable to query for Custom Objects in a container by using the `container` field in the `where` predicate.
 
+This endpoint is deprecated and replaced by the [Query CustomObjects in Container](/../apis/ctp:api:endpoint:/{projectKey}/custom-objects/{container}:GET) endpoint.
+
 
 ### Example
 ```php
@@ -3006,6 +3035,8 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->customers()->post(null)`
+
+Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up).
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message. Simultaneously creating two Customers with the same email address can return a [LockedField](ctp:api:type:LockedFieldError) error.
 
@@ -4428,6 +4459,27 @@ $request = $builder
                 ->withCustomerId("customerId")
                 ->head();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->customerIdWithCustomerIdValueMerge("customerId")->post(null)`
+
+Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
+
+If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/../api/carts-orders-overview#merge-a-cart).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->carts()
+                ->customerIdWithCustomerIdValueMerge("customerId")
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
 
@@ -4573,7 +4625,8 @@ When using this endpoint, if omitted, the Customer `stores` field is set to the 
 
 If a Cart with a `store` field specified, the `store` field must reference the same [Store](ctp:api:type:Store) specified in the `{storeKey}` path parameter.
 
-If the Customer has multiple active Carts, the anonymous Cart is [merged](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
+Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up).
+If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message. Simultaneously creating two Customers with the same email address can return a [LockedField](ctp:api:type:LockedFieldError) error.
 
@@ -4880,7 +4933,9 @@ $request = $builder
 
 Authenticates a Customer associated with a [Store](ctp:api:type:Store).
 
-If the Customer has multiple active Carts, the anonymous Cart is [merged](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
+Allows [merging](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
+If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
+If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error.
 
@@ -5909,13 +5964,22 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID in the specified [Store](ctp:api:type:Store).
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its ID in the specified [Store](ctp:api:type:Store).
+
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
 If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-overview#products-available-in-store) in the specified Store.
-If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `id` and the given Store, this endpoint returns the ProductProjection with tailored data.
-When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example
@@ -5948,13 +6012,22 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) by its key in the specified [Store](ctp:api:type:Store).
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key in the specified [Store](ctp:api:type:Store).
+
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
 If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-overview#products-available-in-store) in the specified Store.
 If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
-When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example
@@ -6207,7 +6280,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->get()`
 
-null
+Retrieves QuoteRequests in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6222,7 +6295,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->head()`
 
-Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200` status if any QuoteRequests match the query predicate, or a `404` status otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate in a [Store](ctp:api:type:Store). Returns a `200` status if any QuoteRequests match the query predicate, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -6237,7 +6310,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->post(null)`
 
-
+Creates a QuoteRequest in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6252,7 +6325,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withId("ID")->get()`
 
-null
+Retrieves a QuoteRequest with the provided `id` in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6268,7 +6341,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists with the provided `id`. Returns a `200` status if the QuoteRequest exists, or a `404` status otherwise.
+Checks if a QuoteRequest exists with the provided `id` in a [Store](ctp:api:type:Store). Returns a `200` status if the QuoteRequest exists, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -6284,7 +6357,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withId("ID")->post(null)`
 
-null
+Updates a QuoteRequest in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6300,7 +6373,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withId("ID")->delete()`
 
-null
+Deletes a QuoteRequest in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6316,7 +6389,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withKey("key")->get()`
 
-null
+Retrieves a QuoteRequest with the provided `key` in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6332,7 +6405,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists with the provided `key`. Returns a `200` status if the QuoteRequest exists, or a `404` status otherwise.
+Checks if a QuoteRequest exists with the provided `key` in a [Store](ctp:api:type:Store). Returns a `200` status if the QuoteRequest exists, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -6348,7 +6421,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withKey("key")->post(null)`
 
-null
+Updates a QuoteRequest in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6364,7 +6437,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quoteRequests()->withKey("key")->delete()`
 
-null
+Deletes a QuoteRequest in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6380,7 +6453,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->get()`
 
-null
+Retrieves Quotes in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6395,7 +6468,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->head()`
 
-Checks if one or more Quotes exist for the provided query predicate. Returns a `200` status if any Quotes match the query predicate, or a `404` status otherwise.
+Checks if one or more Quotes exist for the provided query predicate in a [Store](ctp:api:type:Store). Returns a `200` status if any Quotes match the query predicate, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -6410,7 +6483,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->post(null)`
 
-null
+Creates a Quote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6425,7 +6498,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withId("ID")->get()`
 
-null
+Retrieves a Quote with the provided `id` in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6441,7 +6514,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists with the provided `id`. Returns a `200` status if the Quote exists, or a `404` status otherwise.
+Checks if a Quote exists with the provided `id` in a [Store](ctp:api:type:Store). Returns a `200` status if the Quote exists, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -6457,7 +6530,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withId("ID")->post(null)`
 
-null
+Updates a Quote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6473,7 +6546,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withId("ID")->delete()`
 
-null
+Deletes a Quote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6489,7 +6562,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withKey("key")->get()`
 
-null
+Retrieves a Quote with the provided `key` in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6505,7 +6578,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists with the provided `key`. Returns a `200` status if the Quote exists, or a `404` status otherwise.
+Checks if a Quote exists with the provided `key` in a [Store](ctp:api:type:Store). Returns a `200` status if the Quote exists, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -6521,7 +6594,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withKey("key")->post(null)`
 
-null
+Updates a Quote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6537,7 +6610,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->quotes()->withKey("key")->delete()`
 
-null
+Deletes a Quote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6783,7 +6856,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->get()`
 
-null
+Retrieves StagedQuotes in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6798,7 +6871,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->head()`
 
-Checks if one or more StagedQuotes exist for the provided query predicate. Returns a `200` status if any StagedQuotes match the query predicate, or a `404` status otherwise.
+Checks if one or more StagedQuotes exist for the provided query predicate in a [Store](ctp:api:type:Store). Returns a `200` status if any StagedQuotes match the query predicate, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -6813,7 +6886,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->post(null)`
 
-null
+Creates a StagedQuote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6828,7 +6901,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withId("ID")->get()`
 
-null
+Retrieves a StagedQuote with the provided `id` in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6844,7 +6917,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withId("ID")->head()`
 
-Checks if a StagedQuote exists with the provided `id`. Returns a `200` status if the StagedQuote exists, or a `404` status otherwise.
+Checks if a StagedQuote exists with the provided `id` in a [Store](ctp:api:type:Store). Returns a `200` status if the StagedQuote exists, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -6860,7 +6933,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withId("ID")->post(null)`
 
-null
+Updates a StagedQuote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6876,7 +6949,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withId("ID")->delete()`
 
-null
+Deletes a StagedQuote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6892,7 +6965,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withKey("key")->get()`
 
-null
+Retrieves a StagedQuote with the provided `key` in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6908,7 +6981,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withKey("key")->head()`
 
-Checks if a StagedQuote exists with the provided `key`. Returns a `200` status if the StagedQuote exists, or a `404` status otherwise.
+Checks if a StagedQuote exists with the provided `key` in a [Store](ctp:api:type:Store). Returns a `200` status if the StagedQuote exists, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -6924,7 +6997,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withKey("key")->post(null)`
 
-null
+Updates a StagedQuote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -6940,7 +7013,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->withKey("key")->delete()`
 
-null
+Deletes a StagedQuote in a [Store](ctp:api:type:Store).
 
 ### Example
 ```php
@@ -7125,7 +7198,9 @@ $request = $builder
 
 Authenticates a global Customer.
 
-If the Customer has multiple active Carts, the anonymous Cart is [merged](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
+Allows [merging](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
+If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
+If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
@@ -7904,7 +7979,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->get()`
 
-Retrieves Quote Requests for the authenticated Customer. Returns a `200` status if successful.
+Retrieves all QuoteRequests for the authenticated Customer.
+Returns a `200 OK` status if successful.
 
 
 ### Example
@@ -7920,7 +7996,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->head()`
 
-Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200` status if any QuoteRequests match the query predicate, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate for the authenticated Customer.
+Returns a `200 OK` status if any QuoteRequests match the query predicate, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
 
 ### Example
@@ -7936,7 +8013,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->post(null)`
 
-null
+Creates a QuoteRequest for the authenticated Customer.
+
 
 ### Example
 ```php
@@ -7951,7 +8029,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->get()`
 
-null
+Retrieves a QuoteRequest with the provided `id` for the authenticated Customer.
+
 
 ### Example
 ```php
@@ -7967,7 +8046,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists with the provided `id`. Returns a `200` status if the QuoteRequest exists, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a QuoteRequest exists with the provided `id` for the authenticated Customer.
+Returns a `200 OK` status if the QuoteRequest exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
 
 ### Example
 ```php
@@ -7983,7 +8064,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->post(null)`
 
-null
+Updates a QuoteRequest for the authenticated Customer using one or more [update actions](/../api/projects/quote-requests#update-actions).
+
 
 ### Example
 ```php
@@ -7999,7 +8081,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->get()`
 
-null
+Retrieves a QuoteRequest with the provided `key` for the authenticated Customer.
+
 
 ### Example
 ```php
@@ -8015,7 +8098,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists with the provided `key`. Returns a `200` status if the QuoteRequest exists, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a QuoteRequest exists with the provided `key` for the authenticated Customer.
+Returns a `200 OK` status if the QuoteRequest exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
 
 ### Example
 ```php
@@ -8031,7 +8116,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->post(null)`
 
-null
+Updates a QuoteRequest for the authenticated Customer using one or more [update actions](/../api/projects/quote-requests#update-actions).
+
 
 ### Example
 ```php
@@ -8047,7 +8133,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->get()`
 
-null
+Retrieves all Quotes for the authenticated Customer.
+
 
 ### Example
 ```php
@@ -8062,7 +8149,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->head()`
 
-Checks if one or more Quotes exist for the provided query predicate. Returns a `200` status if any Quotes match the query predicate, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if one or more Quotes exist for the provided query predicate for the authenticated Customer.
+Returns a `200 OK` status if any Quotes match the query predicate, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
 
 ### Example
 ```php
@@ -8077,7 +8166,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->get()`
 
-null
+Retrieves a Quote with the provided `id` for the authenticated Customer.
+
 
 ### Example
 ```php
@@ -8093,7 +8183,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists with the provided `id`. Returns a `200` status if the Quote exists, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Quote exists with the provided `id` for the authenticated Customer.
+Returns a `200 OK` status if the Quote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
 
 ### Example
 ```php
@@ -8109,7 +8201,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->post(null)`
 
-null
+Updates a Quote for the authenticated Customer using one or more [update actions](/../api/projects/quotes#update-actions).
+
 
 ### Example
 ```php
@@ -8125,7 +8218,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withKey("key")->get()`
 
-null
+Retrieves a Quote with the provided `key` for the authenticated Customer.
+
 
 ### Example
 ```php
@@ -8141,7 +8235,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists with the provided `key`. Returns a `200` status if the Quote exists, or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+Checks if a Quote exists with the provided `key` for the authenticated Customer.
+Returns a `200 OK` status if the Quote exists or a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
 
 ### Example
 ```php
@@ -8157,7 +8253,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withKey("key")->post(null)`
 
-null
+Updates a Quote for the authenticated Customer using one or more [update actions](/../api/projects/quotes#update-actions).
+
 
 ### Example
 ```php
@@ -8257,7 +8354,7 @@ Checks if a ShoppingList exists with the provided `id` for the authenticated Cus
 
 A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the provided `id`.
+- If no ShoppingList exists with the provided `id`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -8389,7 +8486,7 @@ Deletes a ShoppingList for the authenticated Customer or anonymous user. Returns
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no ShoppingList exists for the provided `key`.
+- If no ShoppingList exists with the provided `key`.
 - If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
 
 
@@ -9469,9 +9566,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->get()`
 
-Use the Product Projections query endpoint to get the current or staged representations of Products.
-When used with an API Client that has the `view_published_products:{projectKey}` scope,
-this endpoint only returns published (current) Product Projections.
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of [Products](ctp:api:type:Product) by [query predicates](/../api/predicates/query).
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example
@@ -9500,7 +9604,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->withId("ID")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID. When used with an API Client that has the `view_published_products:{projectKey}` scope, this endpoint only returns published (current) Product Projections.
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its ID.
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example
@@ -9531,9 +9644,16 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->withKey("key")->get()`
 
-Gets the current or staged representation of a [Product](ctp:api:type:Product) found by Key.
-When used with an API Client that has the `view_published_products:{projectKey}` scope,
-this endpoint only returns published (current) Product Projections.
+Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key.
+
+By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation of Products (draft data) or access unpublished Products, the API Client must have the `view_products:{projectKey}` scope.
 
 
 ### Example
@@ -10350,7 +10470,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->get()`
 
-null
+Retrieves all QuoteRequests in the Project.
 
 ### Example
 ```php
@@ -10364,7 +10484,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->head()`
 
-Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200` status if any QuoteRequests match the query predicate, or a `404` status otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200 OK` status if any QuoteRequests match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10378,7 +10498,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->post(null)`
 
-null
+Creates a QuoteRequest in the Project.
 
 ### Example
 ```php
@@ -10392,7 +10512,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->get()`
 
-null
+Retrieves a QuoteRequest with the provided `id`.
 
 ### Example
 ```php
@@ -10407,7 +10527,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists with the provided `id`. Returns a `200` status if the QuoteRequest exists, or a `404` status otherwise.
+Checks if a QuoteRequest exists with the provided `id`. Returns a `200 OK` status if the QuoteRequest exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10422,7 +10542,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->post(null)`
 
-null
+Updates a QuoteRequest in the Project using one or more [update actions](/../api/projects/quote-requests#update-actions).
 
 ### Example
 ```php
@@ -10437,7 +10557,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->delete()`
 
-null
+Deletes a QuoteRequest in the Project.
 
 ### Example
 ```php
@@ -10452,7 +10572,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->get()`
 
-null
+Retrieves a QuoteRequest with the provided `key`.
 
 ### Example
 ```php
@@ -10467,7 +10587,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists with the provided `key`. Returns a `200` status if the QuoteRequest exists, or a `404` status otherwise.
+Checks if a QuoteRequest exists with the provided `key`. Returns a `200 OK` status if the QuoteRequest exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10482,7 +10602,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->post(null)`
 
-null
+Updates a QuoteRequest in the Project using one or more [update actions](/../api/projects/quote-requests#update-actions).
 
 ### Example
 ```php
@@ -10497,7 +10617,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->delete()`
 
-null
+Deletes a QuoteRequest in the Project.
 
 ### Example
 ```php
@@ -10512,7 +10632,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->get()`
 
-null
+Retrieves all Quotes in the Project.
 
 ### Example
 ```php
@@ -10526,7 +10646,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->head()`
 
-Checks if one or more Quotes exist for the provided query predicate. Returns a `200` status if any Quotes match the query predicate, or a `404` status otherwise.
+Checks if one or more Quotes exist for the provided query predicate. Returns a `200 OK` status if any Quotes match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10540,7 +10660,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->post(null)`
 
-null
+Creates a Quote in the Project.
 
 ### Example
 ```php
@@ -10554,7 +10674,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withId("ID")->get()`
 
-null
+Retrieves a Quote with the provided `id`.
 
 ### Example
 ```php
@@ -10569,7 +10689,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists with the provided `id`. Returns a `200` status if the Quote exists, or a `404` status otherwise.
+Checks if a Quote exists with the provided `id`. Returns a `200 OK` status if the Quote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10584,7 +10704,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withId("ID")->post(null)`
 
-null
+Updates a Quote in the Project using one or more [update actions](/../api/projects/quotes#update-actions).
 
 ### Example
 ```php
@@ -10599,7 +10719,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withId("ID")->delete()`
 
-null
+Deletes a Quote in the Project.
 
 ### Example
 ```php
@@ -10614,7 +10734,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withKey("key")->get()`
 
-null
+Retrieves a Quote with the provided `key`.
 
 ### Example
 ```php
@@ -10629,7 +10749,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists with the provided `key`. Returns a `200` status if the Quote exists, or a `404` status otherwise.
+Checks if a Quote exists with the provided `key`. Returns a `200 OK` status if the Quote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10644,7 +10764,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withKey("key")->post(null)`
 
-null
+Updates a Quote in the Project using one or more [update actions](/../api/projects/quotes#update-actions).
 
 ### Example
 ```php
@@ -10659,7 +10779,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withKey("key")->delete()`
 
-null
+Deletes a Quote in the Project.
 
 ### Example
 ```php
@@ -10676,6 +10796,8 @@ $request = $builder
 
 Retrieves Recurrence Policies in the Project.
 
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10690,6 +10812,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->head()`
 
 Checks if one or more Recurrence Policies exist for the provided query predicate. Returns a `200` status if any Recurrence Policies match the query predicate, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
+
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10706,6 +10830,8 @@ $request = $builder
 
 Creates a Recurrence Policy in the Project.
 
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10720,6 +10846,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->get()`
 
 Retrieves a Recurrence Policy with the provided `id`.
+
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10737,6 +10865,8 @@ $request = $builder
 
 Checks if a Recurrence Policy exists with the provided `id`. Returns a `200` status if the Recurrence Policy exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10752,6 +10882,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->post(null)`
 
 Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
+
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10771,6 +10903,8 @@ Deletes a Recurrence Policy in the Project.
 
 A Recurrence Policy can be deleted only if it is not referenced by any Embedded Price, Standalone Price, or (Custom) Line Item, otherwise a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
 
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10786,6 +10920,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->get()`
 
 Retrieves a Recurrence Policy with the provided `key`.
+
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10803,6 +10939,8 @@ $request = $builder
 
 Checks if a Recurrence Policy exists with the provided `key`. Returns a `200` status if the Recurrence Policy exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
+The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
+
 
 ### Example
 ```php
@@ -10818,6 +10956,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->post(null)`
 
 Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
+
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10836,6 +10976,8 @@ $request = $builder
 Deletes a Recurrence Policy in the Project.
 
 A Recurrence Policy can be deleted only if it is not referenced by any Embedded Price, Standalone Price, or (Custom) Line Item, otherwise a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -11666,7 +11808,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->get()`
 
-null
+Retrieves all StagedQuotes in the Project.
 
 ### Example
 ```php
@@ -11680,7 +11822,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->head()`
 
-Checks if one or more StagedQuotes exist for the provided query predicate. Returns a `200` status if any StagedQuotes match the query predicate, or a `404` status otherwise.
+Checks if one or more StagedQuotes exist for the provided query predicate. Returns a `200 OK` status if any StagedQuotes match the query predicate or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11694,7 +11836,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->post(null)`
 
-null
+Creates a StagedQuote in the Project.
 
 ### Example
 ```php
@@ -11708,7 +11850,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->get()`
 
-null
+Retrieves a StagedQuote with the provided `id`.
 
 ### Example
 ```php
@@ -11723,7 +11865,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->head()`
 
-Checks if a StagedQuote exists with the provided `id`. Returns a `200` status if the StagedQuote exists, or a `404` status otherwise.
+Checks if a StagedQuote exists with the provided `id`. Returns a `200 OK` status if the StagedQuote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11738,7 +11880,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->post(null)`
 
-null
+Updates a StagedQuote in the Project using one or more [update actions](/../api/projects/staged-quotes#update-actions).
 
 ### Example
 ```php
@@ -11753,7 +11895,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->delete()`
 
-null
+Deletes a StagedQuote in the Project.
 
 ### Example
 ```php
@@ -11768,7 +11910,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->get()`
 
-null
+Retrieves a StagedQuote with the provided `key`.
 
 ### Example
 ```php
@@ -11783,7 +11925,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->head()`
 
-Checks if a StagedQuote exists with the provided `key`. Returns a `200` status if the StagedQuote exists, or a `404` status otherwise.
+Checks if a StagedQuote exists with the provided `key`. Returns a `200 OK` status if the StagedQuote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11798,7 +11940,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->post(null)`
 
-null
+Updates a StagedQuote in the Project using one or more [update actions](/../api/projects/staged-quotes#update-actions).
 
 ### Example
 ```php
@@ -11813,7 +11955,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->delete()`
 
-null
+Deletes a StagedQuote in the Project.
 
 ### Example
 ```php
@@ -11860,6 +12002,7 @@ Creating a Standalone Price produces the [StandalonePriceCreated](ctp:api:type:S
 
 - If the Standalone Price has the same price scope as an existing Standalone Price, a [DuplicateStandalonePriceScope](ctp:api:type:DuplicateStandalonePriceScopeError) error is returned.
 - If the Standalone Price has overlapping validity periods within the same price scope, a [OverlappingStandalonePriceValidity](ctp:api:type:OverlappingStandalonePriceValidityError) error is returned. A Price without validity period does not conflict with a Price defined for a time period.
+- If a modification is already in progress for the exact combination of SKU and price scope fields, an [ExactLockConflict](ctp:api:type:ExactLockConflictError) or [ValidityLockConflict](ctp:api:type:ValidityLockConflictError) error is returned.
 
 
 ### Example
@@ -11904,7 +12047,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->post(null)`
 
-null
+If a modification is already in progress for the exact combination of SKU and price scope fields, an [ExactLockConflict](ctp:api:type:ExactLockConflictError) or [ValidityLockConflict](ctp:api:type:ValidityLockConflictError) error is returned.
+
 
 ### Example
 ```php
@@ -11965,7 +12109,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->post(null)`
 
-null
+If a modification is already in progress for the exact combination of SKU and price scope fields, an [ExactLockConflict](ctp:api:type:ExactLockConflictError) or [ValidityLockConflict](ctp:api:type:ValidityLockConflictError) error is returned.
+
 
 ### Example
 ```php

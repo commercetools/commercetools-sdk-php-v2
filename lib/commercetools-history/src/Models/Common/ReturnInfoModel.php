@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @internal
@@ -35,7 +36,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
 
     /**
      *
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     protected $returnDate;
 
@@ -46,7 +47,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     public function __construct(
         ?ReturnItemCollection $items = null,
         ?string $returnTrackingId = null,
-        ?string $returnDate = null
+        ?DateTimeImmutable $returnDate = null
     ) {
         $this->items = $items;
         $this->returnTrackingId = $returnTrackingId;
@@ -55,6 +56,8 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     }
 
     /**
+     * <p>Information on the Line Items or Custom Line Items returned.</p>
+     *
      *
      * @return null|ReturnItemCollection
      */
@@ -73,7 +76,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     }
 
     /**
-     * <p>Identifies, which return tracking ID is connected to this particular return.</p>
+     * <p>User-defined identifier to track the return.</p>
      *
      *
      * @return null|string
@@ -93,8 +96,10 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     }
 
     /**
+     * <p>Date and time (UTC) the return is initiated.</p>
      *
-     * @return null|string
+     *
+     * @return null|DateTimeImmutable
      */
     public function getReturnDate()
     {
@@ -104,7 +109,11 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
             if (is_null($data)) {
                 return null;
             }
-            $this->returnDate = (string) $data;
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->returnDate = $data;
         }
 
         return $this->returnDate;
@@ -128,13 +137,22 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     }
 
     /**
-     * @param ?string $returnDate
+     * @param ?DateTimeImmutable $returnDate
      */
-    public function setReturnDate(?string $returnDate): void
+    public function setReturnDate(?DateTimeImmutable $returnDate): void
     {
         $this->returnDate = $returnDate;
     }
 
 
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[ReturnInfo::FIELD_RETURN_DATE]) && $data[ReturnInfo::FIELD_RETURN_DATE] instanceof \DateTimeImmutable) {
+            $data[ReturnInfo::FIELD_RETURN_DATE] = $data[ReturnInfo::FIELD_RETURN_DATE]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
+    }
 
 }

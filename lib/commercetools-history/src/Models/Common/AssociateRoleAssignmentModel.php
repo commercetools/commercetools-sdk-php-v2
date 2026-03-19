@@ -23,7 +23,7 @@ final class AssociateRoleAssignmentModel extends JsonObjectModel implements Asso
 
     /**
      *
-     * @var ?KeyReference
+     * @var ?AssociateRoleKeyReference
      */
     protected $associateRole;
 
@@ -38,7 +38,7 @@ final class AssociateRoleAssignmentModel extends JsonObjectModel implements Asso
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?KeyReference $associateRole = null,
+        ?AssociateRoleKeyReference $associateRole = null,
         ?string $inheritance = null
     ) {
         $this->associateRole = $associateRole;
@@ -47,8 +47,10 @@ final class AssociateRoleAssignmentModel extends JsonObjectModel implements Asso
     }
 
     /**
+     * <p>Role the Associate holds within a Business Unit.</p>
      *
-     * @return null|KeyReference
+     *
+     * @return null|AssociateRoleKeyReference
      */
     public function getAssociateRole()
     {
@@ -59,14 +61,14 @@ final class AssociateRoleAssignmentModel extends JsonObjectModel implements Asso
                 return null;
             }
 
-            $this->associateRole = KeyReferenceModel::of($data);
+            $this->associateRole = AssociateRoleKeyReferenceModel::of($data);
         }
 
         return $this->associateRole;
     }
 
     /**
-     * <p>Determines whether an <a href="ctp:api:type:AssociateRoleAssignment">AssociateRoleAssignment</a> can be inherited by child Business Units.</p>
+     * <p>Determines whether the AssociateRoleAssignment can be inherited by child Business Units.</p>
      *
      *
      * @return null|string
@@ -87,9 +89,9 @@ final class AssociateRoleAssignmentModel extends JsonObjectModel implements Asso
 
 
     /**
-     * @param ?KeyReference $associateRole
+     * @param ?AssociateRoleKeyReference $associateRole
      */
-    public function setAssociateRole(?KeyReference $associateRole): void
+    public function setAssociateRole(?AssociateRoleKeyReference $associateRole): void
     {
         $this->associateRole = $associateRole;
     }

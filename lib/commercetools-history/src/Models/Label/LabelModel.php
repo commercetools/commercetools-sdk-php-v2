@@ -43,7 +43,9 @@ final class LabelModel extends JsonObjectModel implements Label
        'QuoteLabel' => QuoteLabelModel::class,
        'QuoteRequestLabel' => QuoteRequestLabelModel::class,
        'ReviewLabel' => ReviewLabelModel::class,
+       'ShippingMethodLabel' => ShippingMethodLabelModel::class,
        'StagedQuoteLabel' => StagedQuoteLabelModel::class,
+       'StandalonePriceLabel' => StandalonePriceLabelModel::class,
        'StringLabel' => StringLabelModel::class,
     ];
 

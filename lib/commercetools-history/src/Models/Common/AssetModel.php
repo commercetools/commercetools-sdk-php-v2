@@ -29,6 +29,12 @@ final class AssetModel extends JsonObjectModel implements Asset
 
     /**
      *
+     * @var ?AssetSourceCollection
+     */
+    protected $sources;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -38,6 +44,12 @@ final class AssetModel extends JsonObjectModel implements Asset
      * @var ?LocalizedString
      */
     protected $description;
+
+    /**
+     *
+     * @var ?array
+     */
+    protected $tags;
 
     /**
      *
@@ -57,20 +69,26 @@ final class AssetModel extends JsonObjectModel implements Asset
      */
     public function __construct(
         ?string $id = null,
+        ?AssetSourceCollection $sources = null,
         ?LocalizedString $name = null,
         ?LocalizedString $description = null,
+        ?array $tags = null,
         ?CustomFields $custom = null,
         ?string $key = null
     ) {
         $this->id = $id;
+        $this->sources = $sources;
         $this->name = $name;
         $this->description = $description;
+        $this->tags = $tags;
         $this->custom = $custom;
         $this->key = $key;
 
     }
 
     /**
+     * <p>Unique identifier of the Asset. Not required when importing Assets using the <a href="/import-export/import-resources">Import API</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -90,6 +108,26 @@ final class AssetModel extends JsonObjectModel implements Asset
 
     /**
      *
+     * @return null|AssetSourceCollection
+     */
+    public function getSources()
+    {
+        if (is_null($this->sources)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_SOURCES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sources = AssetSourceCollection::fromArray($data);
+        }
+
+        return $this->sources;
+    }
+
+    /**
+     * <p>Name of the Asset.</p>
+     *
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -108,6 +146,8 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+     * <p>Description of the Asset.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -127,6 +167,28 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
+     *
+     * @return null|array
+     */
+    public function getTags()
+    {
+        if (is_null($this->tags)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_TAGS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tags = $data;
+        }
+
+        return $this->tags;
+    }
+
+    /**
+     * <p>Custom Fields defined for the Asset.</p>
+     *
      *
      * @return null|CustomFields
      */
@@ -146,6 +208,8 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+     * <p>User-defined identifier of the Asset. It is unique per <a href="ctp:api:type:Category">Category</a> or <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -173,6 +237,14 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+     * @param ?AssetSourceCollection $sources
+     */
+    public function setSources(?AssetSourceCollection $sources): void
+    {
+        $this->sources = $sources;
+    }
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void
@@ -186,6 +258,14 @@ final class AssetModel extends JsonObjectModel implements Asset
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * @param ?array $tags
+     */
+    public function setTags(?array $tags): void
+    {
+        $this->tags = $tags;
     }
 
     /**

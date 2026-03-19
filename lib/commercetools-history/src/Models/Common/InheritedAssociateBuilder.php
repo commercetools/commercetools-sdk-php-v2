@@ -28,11 +28,13 @@ final class InheritedAssociateBuilder implements Builder
 
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
+     * <p>Inherited roles of the Associate within a Business Unit.</p>
+     *
 
      * @return null|InheritedAssociateRoleAssignmentCollection
      */
@@ -42,12 +44,14 @@ final class InheritedAssociateBuilder implements Builder
     }
 
     /**
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> that acts as an Associate in the Business Unit.</p>
+     *
 
-     * @return null|Reference
+     * @return null|CustomerReference
      */
     public function getCustomer()
     {
-        return $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer;
+        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
     }
 
     /**
@@ -62,10 +66,10 @@ final class InheritedAssociateBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $customer
+     * @param ?CustomerReference $customer
      * @return $this
      */
-    public function withCustomer(?Reference $customer)
+    public function withCustomer(?CustomerReference $customer)
     {
         $this->customer = $customer;
 
@@ -76,7 +80,7 @@ final class InheritedAssociateBuilder implements Builder
      * @deprecated use withCustomer() instead
      * @return $this
      */
-    public function withCustomerBuilder(?ReferenceBuilder $customer)
+    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
     {
         $this->customer = $customer;
 
@@ -87,7 +91,7 @@ final class InheritedAssociateBuilder implements Builder
     {
         return new InheritedAssociateModel(
             $this->associateRoleAssignments,
-            $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer
         );
     }
 

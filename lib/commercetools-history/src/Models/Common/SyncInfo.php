@@ -10,6 +10,7 @@ namespace Commercetools\History\Models\Common;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use DateTimeImmutable;
 
 interface SyncInfo extends JsonObject
 {
@@ -19,13 +20,15 @@ interface SyncInfo extends JsonObject
     public const FIELD_SYNCED_AT = 'syncedAt';
 
     /**
+     * <p>Connection to a synchronization destination.</p>
+     *
 
-     * @return null|Reference
+     * @return null|ChannelReference
      */
     public function getChannel();
 
     /**
-     * <p>Can be used to reference an external order instance, file etc.</p>
+     * <p>Identifier of an external order instance, file, or other resource.</p>
      *
 
      * @return null|string
@@ -33,15 +36,17 @@ interface SyncInfo extends JsonObject
     public function getExternalId();
 
     /**
+     * <p>Date and time (UTC) the information was synced.</p>
+     *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getSyncedAt();
 
     /**
-     * @param ?Reference $channel
+     * @param ?ChannelReference $channel
      */
-    public function setChannel(?Reference $channel): void;
+    public function setChannel(?ChannelReference $channel): void;
 
     /**
      * @param ?string $externalId
@@ -49,7 +54,7 @@ interface SyncInfo extends JsonObject
     public function setExternalId(?string $externalId): void;
 
     /**
-     * @param ?string $syncedAt
+     * @param ?DateTimeImmutable $syncedAt
      */
-    public function setSyncedAt(?string $syncedAt): void;
+    public function setSyncedAt(?DateTimeImmutable $syncedAt): void;
 }

@@ -149,8 +149,8 @@ final class MyCartRemoveLineItemActionModel extends JsonObjectModel implements M
     }
 
     /**
-     * <p>Amount to subtract from the LineItem's <code>quantity</code>.
-     * If absent, the LineItem is removed from the Cart.</p>
+     * <p>Amount to subtract from the LineItem quantity.
+     * If omitted, the LineItem is removed from the Cart.</p>
      *
      *
      * @return null|int

@@ -49,6 +49,12 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
 
      * @var ?string
      */
+    private $customLineItemId;
+
+    /**
+
+     * @var ?string
+     */
     private $stateId;
 
     /**
@@ -83,7 +89,7 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
     }
 
     /**
-     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
      *
 
      * @return null|string
@@ -91,6 +97,17 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        return $this->customLineItemId;
     }
 
     /**
@@ -149,6 +166,17 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
+     * @return $this
+     */
+    public function withCustomLineItemId(?string $customLineItemId)
+    {
+        $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $stateId
      * @return $this
      */
@@ -167,6 +195,7 @@ final class TransitionCustomLineItemStateChangeBuilder implements Builder
             $this->previousValue,
             $this->nextValue,
             $this->lineItemId,
+            $this->customLineItemId,
             $this->stateId
         );
     }

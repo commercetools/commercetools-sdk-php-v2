@@ -20,19 +20,25 @@ interface ShippingRate extends JsonObject
     public const FIELD_TIERS = 'tiers';
 
     /**
+     * <p>Currency amount of the ShippingRate.</p>
+     *
 
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getPrice();
 
     /**
+     * <p><a href="/../api/shipping-delivery-overview#free-shipping">Free shipping</a> is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
+     *
 
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getFreeAbove();
 
     /**
-     * <p>Only appears in response to requests for ShippingMethods by Cart or location to mark this shipping rate as one that matches the Cart or location.</p>
+     * <p><code>true</code> if the ShippingRate matches given <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Location">Location</a>.
+     * Only appears in response to requests for <a href="ctp:api:endpoint:/{projectKey}/shipping-methods/matching-cart:GET">Get ShippingMethods for a Cart</a> or
+     * <a href="ctp:api:endpoint:/{projectKey}/shipping-methods/matching-location:GET">Get ShippingMethods for a Location</a>.</p>
      *
 
      * @return null|bool
@@ -40,20 +46,22 @@ interface ShippingRate extends JsonObject
     public function getIsMatching();
 
     /**
+     * <p>Price tiers for the ShippingRate.</p>
+     *
 
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers();
 
     /**
-     * @param ?Money $price
+     * @param ?CentPrecisionMoney $price
      */
-    public function setPrice(?Money $price): void;
+    public function setPrice(?CentPrecisionMoney $price): void;
 
     /**
-     * @param ?Money $freeAbove
+     * @param ?CentPrecisionMoney $freeAbove
      */
-    public function setFreeAbove(?Money $freeAbove): void;
+    public function setFreeAbove(?CentPrecisionMoney $freeAbove): void;
 
     /**
      * @param ?bool $isMatching

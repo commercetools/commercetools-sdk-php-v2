@@ -89,7 +89,7 @@ interface CustomerGroup extends BaseResource
     public function getName();
 
     /**
-     * <p>Custom Fields for the CustomerGroup.</p>
+     * <p>Custom Fields of the CustomerGroup.</p>
      *
 
      * @return null|CustomFields

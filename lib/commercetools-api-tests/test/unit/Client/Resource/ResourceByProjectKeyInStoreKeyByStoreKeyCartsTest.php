@@ -11,6 +11,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdMerge;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsKeyByKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate;
 use Commercetools\Base\JsonObject;
@@ -263,6 +264,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                 ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'customerId' => 'test_customerId'],
                 '/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdMerge' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdMerge {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->carts()
+                        ->customerIdWithCustomerIdValueMerge("test_customerId");
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdMerge::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'customerId' => 'test_customerId'],
+                '/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyCartsKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCartsKeyByKey {

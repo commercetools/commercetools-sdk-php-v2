@@ -26,7 +26,7 @@ final class OrderPaymentAddedMessagePayloadBuilder implements Builder
 
      * @var null|PaymentReference|PaymentReferenceBuilder
      */
-    private $payment;
+    private $paymentRef;
 
     /**
      * <p><a href="ctp:api:type:Payment">Payment</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
@@ -34,29 +34,29 @@ final class OrderPaymentAddedMessagePayloadBuilder implements Builder
 
      * @return null|PaymentReference
      */
-    public function getPayment()
+    public function getPaymentRef()
     {
-        return $this->payment instanceof PaymentReferenceBuilder ? $this->payment->build() : $this->payment;
+        return $this->paymentRef instanceof PaymentReferenceBuilder ? $this->paymentRef->build() : $this->paymentRef;
     }
 
     /**
-     * @param ?PaymentReference $payment
+     * @param ?PaymentReference $paymentRef
      * @return $this
      */
-    public function withPayment(?PaymentReference $payment)
+    public function withPaymentRef(?PaymentReference $paymentRef)
     {
-        $this->payment = $payment;
+        $this->paymentRef = $paymentRef;
 
         return $this;
     }
 
     /**
-     * @deprecated use withPayment() instead
+     * @deprecated use withPaymentRef() instead
      * @return $this
      */
-    public function withPaymentBuilder(?PaymentReferenceBuilder $payment)
+    public function withPaymentRefBuilder(?PaymentReferenceBuilder $paymentRef)
     {
-        $this->payment = $payment;
+        $this->paymentRef = $paymentRef;
 
         return $this;
     }
@@ -64,7 +64,7 @@ final class OrderPaymentAddedMessagePayloadBuilder implements Builder
     public function build(): OrderPaymentAddedMessagePayload
     {
         return new OrderPaymentAddedMessagePayloadModel(
-            $this->payment instanceof PaymentReferenceBuilder ? $this->payment->build() : $this->payment
+            $this->paymentRef instanceof PaymentReferenceBuilder ? $this->paymentRef->build() : $this->paymentRef
         );
     }
 

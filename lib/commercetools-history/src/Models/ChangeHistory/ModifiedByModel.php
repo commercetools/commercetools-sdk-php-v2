@@ -210,8 +210,8 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
             if (is_null($data)) {
                 return null;
             }
-
-            $this->customer = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->customer = $className::of($data);
         }
 
         return $this->customer;
@@ -231,8 +231,8 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
             if (is_null($data)) {
                 return null;
             }
-
-            $this->associate = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->associate = $className::of($data);
         }
 
         return $this->associate;

@@ -14,7 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValueCollection;
+use Commercetools\History\Models\Common\AttributePlainEnumValueCollection;
 
 /**
  * @implements Builder<ChangePlainEnumValueOrderChange>
@@ -29,13 +29,13 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
 
     /**
 
-     * @var ?EnumValueCollection
+     * @var ?AttributePlainEnumValueCollection
      */
     private $previousValue;
 
     /**
 
-     * @var ?EnumValueCollection
+     * @var ?AttributePlainEnumValueCollection
      */
     private $nextValue;
 
@@ -58,7 +58,7 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|EnumValueCollection
+     * @return null|AttributePlainEnumValueCollection
      */
     public function getPreviousValue()
     {
@@ -69,7 +69,7 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
      * <p>Value after the change.</p>
      *
 
-     * @return null|EnumValueCollection
+     * @return null|AttributePlainEnumValueCollection
      */
     public function getNextValue()
     {
@@ -99,10 +99,10 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?AttributePlainEnumValueCollection $previousValue
      * @return $this
      */
-    public function withPreviousValue(?EnumValueCollection $previousValue)
+    public function withPreviousValue(?AttributePlainEnumValueCollection $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -110,10 +110,10 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?EnumValueCollection $nextValue
+     * @param ?AttributePlainEnumValueCollection $nextValue
      * @return $this
      */
-    public function withNextValue(?EnumValueCollection $nextValue)
+    public function withNextValue(?AttributePlainEnumValueCollection $nextValue)
     {
         $this->nextValue = $nextValue;
 

@@ -92,7 +92,7 @@ interface InventoryEntryDraft extends JsonObject
     public function getExpectedDelivery();
 
     /**
-     * <p>Custom Fields of the InventoryEntry.</p>
+     * <p>Custom Fields for the InventoryEntry.</p>
      *
 
      * @return null|CustomFieldsDraft

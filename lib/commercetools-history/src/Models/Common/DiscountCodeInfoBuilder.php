@@ -22,7 +22,7 @@ final class DiscountCodeInfoBuilder implements Builder
 {
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var null|DiscountCodeReference|DiscountCodeReferenceBuilder
      */
     private $discountCode;
 
@@ -33,15 +33,19 @@ final class DiscountCodeInfoBuilder implements Builder
     private $state;
 
     /**
+     * <p>Discount Code associated with the Cart or Order.</p>
+     *
 
-     * @return null|Reference
+     * @return null|DiscountCodeReference
      */
     public function getDiscountCode()
     {
-        return $this->discountCode instanceof ReferenceBuilder ? $this->discountCode->build() : $this->discountCode;
+        return $this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode;
     }
 
     /**
+     * <p>Indicates the state of the Discount Code applied to the Cart or Order.</p>
+     *
 
      * @return null|string
      */
@@ -51,10 +55,10 @@ final class DiscountCodeInfoBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $discountCode
+     * @param ?DiscountCodeReference $discountCode
      * @return $this
      */
-    public function withDiscountCode(?Reference $discountCode)
+    public function withDiscountCode(?DiscountCodeReference $discountCode)
     {
         $this->discountCode = $discountCode;
 
@@ -76,7 +80,7 @@ final class DiscountCodeInfoBuilder implements Builder
      * @deprecated use withDiscountCode() instead
      * @return $this
      */
-    public function withDiscountCodeBuilder(?ReferenceBuilder $discountCode)
+    public function withDiscountCodeBuilder(?DiscountCodeReferenceBuilder $discountCode)
     {
         $this->discountCode = $discountCode;
 
@@ -86,7 +90,7 @@ final class DiscountCodeInfoBuilder implements Builder
     public function build(): DiscountCodeInfo
     {
         return new DiscountCodeInfoModel(
-            $this->discountCode instanceof ReferenceBuilder ? $this->discountCode->build() : $this->discountCode,
+            $this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode,
             $this->state
         );
     }

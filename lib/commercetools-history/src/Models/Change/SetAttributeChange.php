@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\ChangeValue\AttributeValue;
+use Commercetools\History\Models\Common\Attribute;
 
 interface SetAttributeChange extends Change
 {
@@ -18,6 +18,7 @@ interface SetAttributeChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_CATALOG_DATA = 'catalogData';
+    public const FIELD_VARIANT = 'variant';
 
     /**
 
@@ -35,7 +36,7 @@ interface SetAttributeChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|AttributeValue
+     * @return null|Attribute
      */
     public function getPreviousValue();
 
@@ -43,11 +44,12 @@ interface SetAttributeChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|AttributeValue
+     * @return null|Attribute
      */
     public function getNextValue();
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -59,22 +61,36 @@ interface SetAttributeChange extends Change
     public function getCatalogData();
 
     /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
 
     /**
-     * @param ?AttributeValue $previousValue
+     * @param ?Attribute $previousValue
      */
-    public function setPreviousValue(?AttributeValue $previousValue): void;
+    public function setPreviousValue(?Attribute $previousValue): void;
 
     /**
-     * @param ?AttributeValue $nextValue
+     * @param ?Attribute $nextValue
      */
-    public function setNextValue(?AttributeValue $nextValue): void;
+    public function setNextValue(?Attribute $nextValue): void;
 
     /**
      * @param ?string $catalogData
      */
     public function setCatalogData(?string $catalogData): void;
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void;
 }

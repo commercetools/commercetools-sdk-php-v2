@@ -61,6 +61,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'EnumKeyDoesNotExist' => EnumKeyDoesNotExistErrorModel::class,
        'EnumValueIsUsed' => EnumValueIsUsedErrorModel::class,
        'EnumValuesMustMatch' => EnumValuesMustMatchErrorModel::class,
+       'ExactLockConflict' => ExactLockConflictErrorModel::class,
        'ExpiredCustomerEmailToken' => ExpiredCustomerEmailTokenErrorModel::class,
        'ExpiredCustomerPasswordToken' => ExpiredCustomerPasswordTokenErrorModel::class,
        'ExtensionBadResponse' => ExtensionBadResponseErrorModel::class,
@@ -101,6 +102,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'ProjectNotConfiguredForLanguages' => ProjectNotConfiguredForLanguagesErrorModel::class,
        'QueryComplexityLimitExceeded' => QueryComplexityLimitExceededErrorModel::class,
        'QueryTimedOut' => QueryTimedOutErrorModel::class,
+       'RecurringOrderFailure' => RecurringOrderFailureErrorModel::class,
        'ReferenceExists' => ReferenceExistsErrorModel::class,
        'ReferencedResourceNotFound' => ReferencedResourceNotFoundErrorModel::class,
        'RequiredField' => RequiredFieldErrorModel::class,
@@ -115,6 +117,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
        'StoreCartDiscountsLimitReached' => StoreCartDiscountsLimitReachedErrorModel::class,
        'SyntaxError' => SyntaxErrorErrorModel::class,
+       'ValidityLockConflict' => ValidityLockConflictErrorModel::class,
        'insufficient_scope' => InsufficientScopeErrorModel::class,
        'invalid_token' => InvalidTokenErrorModel::class,
     ];

@@ -10,6 +10,7 @@ namespace Commercetools\History\Models\Common;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use DateTimeImmutable;
 
 interface Transaction extends JsonObject
 {
@@ -20,6 +21,7 @@ interface Transaction extends JsonObject
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_INTERACTION_ID = 'interactionId';
     public const FIELD_STATE = 'state';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>Unique identifier of the Transaction.</p>
@@ -30,27 +32,32 @@ interface Transaction extends JsonObject
     public function getId();
 
     /**
-     * <p>Time at which the transaction took place.</p>
+     * <p>Date and time (UTC) the Transaction took place.</p>
      *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getTimestamp();
 
     /**
+     * <p>Type of the Transaction. For example, <code>Authorization</code>.</p>
+     *
 
      * @return null|string
      */
     public function getType();
 
     /**
+     * <p>Money value of the Transaction.</p>
+     *
 
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getAmount();
 
     /**
-     * <p>Identifier used by the interface that manages the transaction (usually the PSP). If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
+     * <p>Identifier used by the interface that manages the Transaction (usually the PSP).
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction can be found with this ID.</p>
      *
 
      * @return null|string
@@ -58,10 +65,20 @@ interface Transaction extends JsonObject
     public function getInteractionId();
 
     /**
+     * <p>State of the Transaction.</p>
+     *
 
      * @return null|string
      */
     public function getState();
+
+    /**
+     * <p>Custom Fields defined for the Transaction.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom();
 
     /**
      * @param ?string $id
@@ -69,9 +86,9 @@ interface Transaction extends JsonObject
     public function setId(?string $id): void;
 
     /**
-     * @param ?string $timestamp
+     * @param ?DateTimeImmutable $timestamp
      */
-    public function setTimestamp(?string $timestamp): void;
+    public function setTimestamp(?DateTimeImmutable $timestamp): void;
 
     /**
      * @param ?string $type
@@ -79,9 +96,9 @@ interface Transaction extends JsonObject
     public function setType(?string $type): void;
 
     /**
-     * @param ?Money $amount
+     * @param ?CentPrecisionMoney $amount
      */
-    public function setAmount(?Money $amount): void;
+    public function setAmount(?CentPrecisionMoney $amount): void;
 
     /**
      * @param ?string $interactionId
@@ -92,4 +109,9 @@ interface Transaction extends JsonObject
      * @param ?string $state
      */
     public function setState(?string $state): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 }

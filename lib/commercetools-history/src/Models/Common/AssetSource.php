@@ -20,24 +20,32 @@ interface AssetSource extends JsonObject
     public const FIELD_CONTENT_TYPE = 'contentType';
 
     /**
+     * <p>URI of the AssetSource.</p>
+     *
 
      * @return null|string
      */
     public function getUri();
 
     /**
+     * <p>User-defined identifier of the AssetSource. Must be unique per <a href="ctp:api:type:Asset">Asset</a>.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Width and height of the AssetSource.</p>
+     *
 
      * @return null|AssetDimensions
      */
     public function getDimensions();
 
     /**
+     * <p>Indicates the type of content, for example <code>application/pdf</code>.</p>
+     *
 
      * @return null|string
      */

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
+use Commercetools\Api\Models\Customer\CustomerGroupAssignmentDraftCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
@@ -121,6 +122,12 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
     protected $custom;
 
     /**
+     *
+     * @var ?CustomerGroupAssignmentDraftCollection
+     */
+    protected $customerGroupAssignments;
+
+    /**
      * @psalm-var array<string, class-string<BusinessUnitDraft> >
      *
      */
@@ -148,6 +155,7 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
         ?array $billingAddresses = null,
         ?int $defaultBillingAddress = null,
         ?CustomFieldsDraft $custom = null,
+        ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments = null,
         ?string $unitType = null
     ) {
         $this->key = $key;
@@ -165,6 +173,7 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
         $this->billingAddresses = $billingAddresses;
         $this->defaultBillingAddress = $defaultBillingAddress;
         $this->custom = $custom;
+        $this->customerGroupAssignments = $customerGroupAssignments;
         $this->unitType = $unitType;
     }
 
@@ -498,6 +507,27 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
         return $this->custom;
     }
 
+    /**
+     * <p>Customer Groups to assign the Business Unit to.</p>
+     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     *
+     *
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        if (is_null($this->customerGroupAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerGroupAssignments = CustomerGroupAssignmentDraftCollection::fromArray($data);
+        }
+
+        return $this->customerGroupAssignments;
+    }
+
 
     /**
      * @param ?string $key
@@ -617,6 +647,14 @@ final class BusinessUnitDraftModel extends JsonObjectModel implements BusinessUn
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments): void
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
 

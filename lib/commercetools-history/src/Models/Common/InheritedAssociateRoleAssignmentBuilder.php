@@ -22,39 +22,43 @@ final class InheritedAssociateRoleAssignmentBuilder implements Builder
 {
     /**
 
-     * @var null|KeyReference|KeyReferenceBuilder
+     * @var null|AssociateRoleKeyReference|AssociateRoleKeyReferenceBuilder
      */
     private $associateRole;
 
     /**
 
-     * @var null|KeyReference|KeyReferenceBuilder
+     * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
      */
     private $source;
 
     /**
+     * <p>Inherited role the Associate holds within a Business Unit.</p>
+     *
 
-     * @return null|KeyReference
+     * @return null|AssociateRoleKeyReference
      */
     public function getAssociateRole()
     {
-        return $this->associateRole instanceof KeyReferenceBuilder ? $this->associateRole->build() : $this->associateRole;
+        return $this->associateRole instanceof AssociateRoleKeyReferenceBuilder ? $this->associateRole->build() : $this->associateRole;
     }
 
     /**
+     * <p>Reference to the parent Business Unit where the assignment is defined explicitly.</p>
+     *
 
-     * @return null|KeyReference
+     * @return null|BusinessUnitKeyReference
      */
     public function getSource()
     {
-        return $this->source instanceof KeyReferenceBuilder ? $this->source->build() : $this->source;
+        return $this->source instanceof BusinessUnitKeyReferenceBuilder ? $this->source->build() : $this->source;
     }
 
     /**
-     * @param ?KeyReference $associateRole
+     * @param ?AssociateRoleKeyReference $associateRole
      * @return $this
      */
-    public function withAssociateRole(?KeyReference $associateRole)
+    public function withAssociateRole(?AssociateRoleKeyReference $associateRole)
     {
         $this->associateRole = $associateRole;
 
@@ -62,10 +66,10 @@ final class InheritedAssociateRoleAssignmentBuilder implements Builder
     }
 
     /**
-     * @param ?KeyReference $source
+     * @param ?BusinessUnitKeyReference $source
      * @return $this
      */
-    public function withSource(?KeyReference $source)
+    public function withSource(?BusinessUnitKeyReference $source)
     {
         $this->source = $source;
 
@@ -76,7 +80,7 @@ final class InheritedAssociateRoleAssignmentBuilder implements Builder
      * @deprecated use withAssociateRole() instead
      * @return $this
      */
-    public function withAssociateRoleBuilder(?KeyReferenceBuilder $associateRole)
+    public function withAssociateRoleBuilder(?AssociateRoleKeyReferenceBuilder $associateRole)
     {
         $this->associateRole = $associateRole;
 
@@ -87,7 +91,7 @@ final class InheritedAssociateRoleAssignmentBuilder implements Builder
      * @deprecated use withSource() instead
      * @return $this
      */
-    public function withSourceBuilder(?KeyReferenceBuilder $source)
+    public function withSourceBuilder(?BusinessUnitKeyReferenceBuilder $source)
     {
         $this->source = $source;
 
@@ -97,8 +101,8 @@ final class InheritedAssociateRoleAssignmentBuilder implements Builder
     public function build(): InheritedAssociateRoleAssignment
     {
         return new InheritedAssociateRoleAssignmentModel(
-            $this->associateRole instanceof KeyReferenceBuilder ? $this->associateRole->build() : $this->associateRole,
-            $this->source instanceof KeyReferenceBuilder ? $this->source->build() : $this->source
+            $this->associateRole instanceof AssociateRoleKeyReferenceBuilder ? $this->associateRole->build() : $this->associateRole,
+            $this->source instanceof BusinessUnitKeyReferenceBuilder ? $this->source->build() : $this->source
         );
     }
 

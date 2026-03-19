@@ -10,6 +10,7 @@ namespace Commercetools\History\Models\Common;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use DateTimeImmutable;
 
 interface TextLineItem extends JsonObject
 {
@@ -18,49 +19,70 @@ interface TextLineItem extends JsonObject
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+     * <p>Date and time (UTC) the TextLineItem was added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getAddedAt();
 
     /**
+     * <p>Custom Fields of the TextLineItem.</p>
+     *
 
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+     * <p>Description of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+     * <p>Unique identifier of the TextLineItem.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>User-defined identifier of the TextLineItem. It is unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * <p>Name of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Number of entries in the TextLineItem.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
-     * @param ?string $addedAt
+     * @param ?DateTimeImmutable $addedAt
      */
-    public function setAddedAt(?string $addedAt): void;
+    public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
     /**
      * @param ?CustomFields $custom
@@ -76,6 +98,11 @@ interface TextLineItem extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?LocalizedString $name

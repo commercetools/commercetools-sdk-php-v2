@@ -101,6 +101,12 @@ final class CustomerAddressRemovedMessageModel extends JsonObjectModel implement
      */
     protected $address;
 
+    /**
+     *
+     * @var ?array
+     */
+    protected $addressRoles;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -117,6 +123,7 @@ final class CustomerAddressRemovedMessageModel extends JsonObjectModel implement
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?Address $address = null,
+        ?array $addressRoles = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -130,6 +137,7 @@ final class CustomerAddressRemovedMessageModel extends JsonObjectModel implement
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->address = $address;
+        $this->addressRoles = $addressRoles;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -387,6 +395,26 @@ final class CustomerAddressRemovedMessageModel extends JsonObjectModel implement
         return $this->address;
     }
 
+    /**
+     * <p>Indicates if the address was used for shipping or billing purposes.</p>
+     *
+     *
+     * @return null|array
+     */
+    public function getAddressRoles()
+    {
+        if (is_null($this->addressRoles)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ROLES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressRoles = $data;
+        }
+
+        return $this->addressRoles;
+    }
+
 
     /**
      * @param ?string $id
@@ -474,6 +502,14 @@ final class CustomerAddressRemovedMessageModel extends JsonObjectModel implement
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
+    }
+
+    /**
+     * @param ?array $addressRoles
+     */
+    public function setAddressRoles(?array $addressRoles): void
+    {
+        $this->addressRoles = $addressRoles;
     }
 
 

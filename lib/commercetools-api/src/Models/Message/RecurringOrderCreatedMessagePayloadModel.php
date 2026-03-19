@@ -32,17 +32,17 @@ final class RecurringOrderCreatedMessagePayloadModel extends JsonObjectModel imp
      *
      * @var ?RecurringOrder
      */
-    protected $order;
+    protected $recurringOrder;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?RecurringOrder $order = null,
+        ?RecurringOrder $recurringOrder = null,
         ?string $type = null
     ) {
-        $this->order = $order;
+        $this->recurringOrder = $recurringOrder;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -70,27 +70,27 @@ final class RecurringOrderCreatedMessagePayloadModel extends JsonObjectModel imp
      *
      * @return null|RecurringOrder
      */
-    public function getOrder()
+    public function getRecurringOrder()
     {
-        if (is_null($this->order)) {
+        if (is_null($this->recurringOrder)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ORDER);
+            $data = $this->raw(self::FIELD_RECURRING_ORDER);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->order = RecurringOrderModel::of($data);
+            $this->recurringOrder = RecurringOrderModel::of($data);
         }
 
-        return $this->order;
+        return $this->recurringOrder;
     }
 
 
     /**
-     * @param ?RecurringOrder $order
+     * @param ?RecurringOrder $recurringOrder
      */
-    public function setOrder(?RecurringOrder $order): void
+    public function setRecurringOrder(?RecurringOrder $recurringOrder): void
     {
-        $this->order = $order;
+        $this->recurringOrder = $recurringOrder;
     }
 }

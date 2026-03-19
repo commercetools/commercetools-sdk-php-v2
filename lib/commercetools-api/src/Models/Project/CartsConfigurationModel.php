@@ -65,7 +65,6 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
      * <li>If a <a href="ctp:api:type:ChangeSubscription">ChangeSubscription</a> for Carts exists, a <a href="ctp:api:type:ResourceDeletedDeliveryPayload">ResourceDeletedDeliveryPayload</a> is sent upon deletion of a Cart.</li>
      * <li>Carts with <a href="ctp:api:type:CartOrigin">CartOrigin</a> <code>Quote</code> or <code>RecurringOrder</code> are not affected by this configuration value.</li>
      * <li>Changing this value doesn't affect the retention of existing Carts. To update an existing Cart's retention use <a href="/projects/carts#set-deletedaysafterlastmodification"><code>setDeleteDaysAfterLastModification</code></a> on the Carts API.</li>
-     * <li>This field may not be present on Projects created before January 2020.</li>
      * </ul>
      *
      *

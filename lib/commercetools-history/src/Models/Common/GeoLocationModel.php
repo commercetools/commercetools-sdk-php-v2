@@ -20,7 +20,7 @@ use stdClass;
 final class GeoLocationModel extends JsonObjectModel implements GeoLocation
 {
 
-
+    public const DISCRIMINATOR_VALUE = 'Point';
     /**
      *
      * @var ?string
@@ -38,12 +38,11 @@ final class GeoLocationModel extends JsonObjectModel implements GeoLocation
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $type = null,
-        ?array $coordinates = null
+        ?array $coordinates = null,
+        ?string $type = null
     ) {
-        $this->type = $type;
         $this->coordinates = $coordinates;
-
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -82,14 +81,6 @@ final class GeoLocationModel extends JsonObjectModel implements GeoLocation
         return $this->coordinates;
     }
 
-
-    /**
-     * @param ?string $type
-     */
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
-    }
 
     /**
      * @param ?array $coordinates

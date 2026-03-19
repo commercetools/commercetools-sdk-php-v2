@@ -40,6 +40,18 @@ final class SetStateRolesChangeBuilder implements Builder
 
     /**
 
+     * @var ?array
+     */
+    private $addedItems;
+
+    /**
+
+     * @var ?array
+     */
+    private $removedItems;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -67,6 +79,28 @@ final class SetStateRolesChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue;
+    }
+
+    /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|array
+     */
+    public function getAddedItems()
+    {
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|array
+     */
+    public function getRemovedItems()
+    {
+        return $this->removedItems;
     }
 
     /**
@@ -102,13 +136,37 @@ final class SetStateRolesChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?array $addedItems
+     * @return $this
+     */
+    public function withAddedItems(?array $addedItems)
+    {
+        $this->addedItems = $addedItems;
+
+        return $this;
+    }
+
+    /**
+     * @param ?array $removedItems
+     * @return $this
+     */
+    public function withRemovedItems(?array $removedItems)
+    {
+        $this->removedItems = $removedItems;
+
+        return $this;
+    }
+
 
     public function build(): SetStateRolesChange
     {
         return new SetStateRolesChangeModel(
             $this->change,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->addedItems,
+            $this->removedItems
         );
     }
 

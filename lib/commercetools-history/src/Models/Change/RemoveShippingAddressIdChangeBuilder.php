@@ -78,7 +78,7 @@ final class RemoveShippingAddressIdChangeBuilder implements Builder
     }
 
     /**
-     * <p>Address removed from <code>shippingAddressesIds</code>.</p>
+     * <p>Address removed from <code>shippingAddressIds</code>.</p>
      *
 
      * @return null|Address

@@ -22,7 +22,7 @@ final class AssociateRoleAssignmentBuilder implements Builder
 {
     /**
 
-     * @var null|KeyReference|KeyReferenceBuilder
+     * @var null|AssociateRoleKeyReference|AssociateRoleKeyReferenceBuilder
      */
     private $associateRole;
 
@@ -33,16 +33,18 @@ final class AssociateRoleAssignmentBuilder implements Builder
     private $inheritance;
 
     /**
+     * <p>Role the Associate holds within a Business Unit.</p>
+     *
 
-     * @return null|KeyReference
+     * @return null|AssociateRoleKeyReference
      */
     public function getAssociateRole()
     {
-        return $this->associateRole instanceof KeyReferenceBuilder ? $this->associateRole->build() : $this->associateRole;
+        return $this->associateRole instanceof AssociateRoleKeyReferenceBuilder ? $this->associateRole->build() : $this->associateRole;
     }
 
     /**
-     * <p>Determines whether an <a href="ctp:api:type:AssociateRoleAssignment">AssociateRoleAssignment</a> can be inherited by child Business Units.</p>
+     * <p>Determines whether the AssociateRoleAssignment can be inherited by child Business Units.</p>
      *
 
      * @return null|string
@@ -53,10 +55,10 @@ final class AssociateRoleAssignmentBuilder implements Builder
     }
 
     /**
-     * @param ?KeyReference $associateRole
+     * @param ?AssociateRoleKeyReference $associateRole
      * @return $this
      */
-    public function withAssociateRole(?KeyReference $associateRole)
+    public function withAssociateRole(?AssociateRoleKeyReference $associateRole)
     {
         $this->associateRole = $associateRole;
 
@@ -78,7 +80,7 @@ final class AssociateRoleAssignmentBuilder implements Builder
      * @deprecated use withAssociateRole() instead
      * @return $this
      */
-    public function withAssociateRoleBuilder(?KeyReferenceBuilder $associateRole)
+    public function withAssociateRoleBuilder(?AssociateRoleKeyReferenceBuilder $associateRole)
     {
         $this->associateRole = $associateRole;
 
@@ -88,7 +90,7 @@ final class AssociateRoleAssignmentBuilder implements Builder
     public function build(): AssociateRoleAssignment
     {
         return new AssociateRoleAssignmentModel(
-            $this->associateRole instanceof KeyReferenceBuilder ? $this->associateRole->build() : $this->associateRole,
+            $this->associateRole instanceof AssociateRoleKeyReferenceBuilder ? $this->associateRole->build() : $this->associateRole,
             $this->inheritance
         );
     }

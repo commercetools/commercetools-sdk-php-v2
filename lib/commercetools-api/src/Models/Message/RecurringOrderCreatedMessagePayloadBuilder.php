@@ -26,7 +26,7 @@ final class RecurringOrderCreatedMessagePayloadBuilder implements Builder
 
      * @var null|RecurringOrder|RecurringOrderBuilder
      */
-    private $order;
+    private $recurringOrder;
 
     /**
      * <p><a href="ctp:api:type:RecurringOrder">RecurringOrder</a> that was created.</p>
@@ -34,29 +34,29 @@ final class RecurringOrderCreatedMessagePayloadBuilder implements Builder
 
      * @return null|RecurringOrder
      */
-    public function getOrder()
+    public function getRecurringOrder()
     {
-        return $this->order instanceof RecurringOrderBuilder ? $this->order->build() : $this->order;
+        return $this->recurringOrder instanceof RecurringOrderBuilder ? $this->recurringOrder->build() : $this->recurringOrder;
     }
 
     /**
-     * @param ?RecurringOrder $order
+     * @param ?RecurringOrder $recurringOrder
      * @return $this
      */
-    public function withOrder(?RecurringOrder $order)
+    public function withRecurringOrder(?RecurringOrder $recurringOrder)
     {
-        $this->order = $order;
+        $this->recurringOrder = $recurringOrder;
 
         return $this;
     }
 
     /**
-     * @deprecated use withOrder() instead
+     * @deprecated use withRecurringOrder() instead
      * @return $this
      */
-    public function withOrderBuilder(?RecurringOrderBuilder $order)
+    public function withRecurringOrderBuilder(?RecurringOrderBuilder $recurringOrder)
     {
-        $this->order = $order;
+        $this->recurringOrder = $recurringOrder;
 
         return $this;
     }
@@ -64,7 +64,7 @@ final class RecurringOrderCreatedMessagePayloadBuilder implements Builder
     public function build(): RecurringOrderCreatedMessagePayload
     {
         return new RecurringOrderCreatedMessagePayloadModel(
-            $this->order instanceof RecurringOrderBuilder ? $this->order->build() : $this->order
+            $this->recurringOrder instanceof RecurringOrderBuilder ? $this->recurringOrder->build() : $this->recurringOrder
         );
     }
 

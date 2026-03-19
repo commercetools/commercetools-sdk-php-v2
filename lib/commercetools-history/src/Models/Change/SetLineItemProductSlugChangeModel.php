@@ -59,6 +59,12 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
      */
     protected $variant;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $lineItemId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -69,6 +75,7 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
         ?LocalizedString $nextValue = null,
         ?LocalizedString $lineItem = null,
         ?string $variant = null,
+        ?string $lineItemId = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -76,6 +83,7 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
         $this->nextValue = $nextValue;
         $this->lineItem = $lineItem;
         $this->variant = $variant;
+        $this->lineItemId = $lineItemId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -179,7 +187,8 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     }
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the updated <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
      *
      * @return null|string
@@ -196,6 +205,26 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
         }
 
         return $this->variant;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
     }
 
 
@@ -237,6 +266,14 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     public function setVariant(?string $variant): void
     {
         $this->variant = $variant;
+    }
+
+    /**
+     * @param ?string $lineItemId
+     */
+    public function setLineItemId(?string $lineItemId): void
+    {
+        $this->lineItemId = $lineItemId;
     }
 
 

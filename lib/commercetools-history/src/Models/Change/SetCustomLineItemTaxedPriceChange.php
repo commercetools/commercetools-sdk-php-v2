@@ -11,7 +11,7 @@ namespace Commercetools\History\Models\Change;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\History\Models\Common\LocalizedString;
-use Commercetools\History\Models\Common\Money;
+use Commercetools\History\Models\Common\TaxedItemPrice;
 
 interface SetCustomLineItemTaxedPriceChange extends Change
 {
@@ -37,7 +37,7 @@ interface SetCustomLineItemTaxedPriceChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|Money
+     * @return null|TaxedItemPrice
      */
     public function getPreviousValue();
 
@@ -45,7 +45,7 @@ interface SetCustomLineItemTaxedPriceChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|Money
+     * @return null|TaxedItemPrice
      */
     public function getNextValue();
 
@@ -71,14 +71,14 @@ interface SetCustomLineItemTaxedPriceChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?Money $previousValue
+     * @param ?TaxedItemPrice $previousValue
      */
-    public function setPreviousValue(?Money $previousValue): void;
+    public function setPreviousValue(?TaxedItemPrice $previousValue): void;
 
     /**
-     * @param ?Money $nextValue
+     * @param ?TaxedItemPrice $nextValue
      */
-    public function setNextValue(?Money $nextValue): void;
+    public function setNextValue(?TaxedItemPrice $nextValue): void;
 
     /**
      * @param ?LocalizedString $customLineItem

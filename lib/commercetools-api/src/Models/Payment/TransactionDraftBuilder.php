@@ -124,7 +124,7 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of the Transaction.</p>
+     * <p>Custom Fields for the Transaction.</p>
      *
 
      * @return null|CustomFieldsDraft

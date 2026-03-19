@@ -19,6 +19,8 @@ interface SetAssetDescriptionChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_ASSET = 'asset';
+    public const FIELD_CATALOG_DATA = 'catalogData';
+    public const FIELD_VARIANT = 'variant';
 
     /**
 
@@ -57,6 +59,27 @@ interface SetAssetDescriptionChange extends Change
     public function getAsset();
 
     /**
+     * <p>Product data that was updated.</p>
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getCatalogData();
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -75,4 +98,14 @@ interface SetAssetDescriptionChange extends Change
      * @param ?AssetChangeValue $asset
      */
     public function setAsset(?AssetChangeValue $asset): void;
+
+    /**
+     * @param ?string $catalogData
+     */
+    public function setCatalogData(?string $catalogData): void;
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void;
 }

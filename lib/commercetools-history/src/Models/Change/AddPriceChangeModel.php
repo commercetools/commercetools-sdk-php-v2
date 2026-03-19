@@ -53,6 +53,12 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
      */
     protected $priceId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $variant;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -62,12 +68,14 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
         ?Price $nextValue = null,
         ?string $catalogData = null,
         ?string $priceId = null,
+        ?string $variant = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->catalogData = $catalogData;
         $this->priceId = $priceId;
+        $this->variant = $variant;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -129,6 +137,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -171,6 +180,27 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
         return $this->priceId;
     }
 
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
+    }
+
 
     /**
      * @param ?string $change
@@ -202,6 +232,14 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     public function setPriceId(?string $priceId): void
     {
         $this->priceId = $priceId;
+    }
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void
+    {
+        $this->variant = $variant;
     }
 
 

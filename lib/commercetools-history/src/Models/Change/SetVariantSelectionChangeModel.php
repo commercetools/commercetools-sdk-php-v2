@@ -165,8 +165,8 @@ final class SetVariantSelectionChangeModel extends JsonObjectModel implements Se
             if (is_null($data)) {
                 return null;
             }
-
-            $this->product = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->product = $className::of($data);
         }
 
         return $this->product;

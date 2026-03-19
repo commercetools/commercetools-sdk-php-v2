@@ -18,14 +18,18 @@ interface DiscountedLineItemPortion extends JsonObject
     public const FIELD_DISCOUNTED_AMOUNT = 'discountedAmount';
 
     /**
+     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> of the applicable discount on the Line Item.</p>
+     *
 
      * @return null|Reference
      */
     public function getDiscount();
 
     /**
+     * <p>Money value of the applicable discount.</p>
+     *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getDiscountedAmount();
 
@@ -35,7 +39,7 @@ interface DiscountedLineItemPortion extends JsonObject
     public function setDiscount(?Reference $discount): void;
 
     /**
-     * @param ?Money $discountedAmount
+     * @param ?TypedMoney $discountedAmount
      */
-    public function setDiscountedAmount(?Money $discountedAmount): void;
+    public function setDiscountedAmount(?TypedMoney $discountedAmount): void;
 }

@@ -188,6 +188,12 @@ final class CartModel extends JsonObjectModel implements Cart
 
     /**
      *
+     * @var ?string
+     */
+    protected $freezeStrategy;
+
+    /**
+     *
      * @var ?Address
      */
     protected $billingAddress;
@@ -296,9 +302,21 @@ final class CartModel extends JsonObjectModel implements Cart
 
     /**
      *
+     * @var ?CartLock
+     */
+    protected $lock;
+
+    /**
+     *
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $purchaseOrderNumber;
 
     /**
      *
@@ -341,6 +359,7 @@ final class CartModel extends JsonObjectModel implements Cart
         ?string $taxCalculationMode = null,
         ?string $inventoryMode = null,
         ?string $cartState = null,
+        ?string $freezeStrategy = null,
         ?Address $billingAddress = null,
         ?Address $shippingAddress = null,
         ?string $shippingMode = null,
@@ -359,7 +378,9 @@ final class CartModel extends JsonObjectModel implements Cart
         ?string $origin = null,
         ?CustomFields $custom = null,
         ?DiscountTypeCombination $discountTypeCombination = null,
+        ?CartLock $lock = null,
         ?int $deleteDaysAfterLastModification = null,
+        ?string $purchaseOrderNumber = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null
     ) {
@@ -387,6 +408,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->taxCalculationMode = $taxCalculationMode;
         $this->inventoryMode = $inventoryMode;
         $this->cartState = $cartState;
+        $this->freezeStrategy = $freezeStrategy;
         $this->billingAddress = $billingAddress;
         $this->shippingAddress = $shippingAddress;
         $this->shippingMode = $shippingMode;
@@ -405,7 +427,9 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->origin = $origin;
         $this->custom = $custom;
         $this->discountTypeCombination = $discountTypeCombination;
+        $this->lock = $lock;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
     }
@@ -913,6 +937,26 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * <p>Determines freezing behavior when <code>cartState</code> is <code>Frozen</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getFreezeStrategy()
+    {
+        if (is_null($this->freezeStrategy)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_FREEZE_STRATEGY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->freezeStrategy = (string) $data;
+        }
+
+        return $this->freezeStrategy;
+    }
+
+    /**
      * <p>Billing address associated with the Cart.</p>
      *
      *
@@ -1288,6 +1332,27 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * <p>Indicates whether the Cart has been <a href="/../api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
+     *
+     *
+     * @return null|CartLock
+     */
+    public function getLock()
+    {
+        if (is_null($this->lock)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_LOCK);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lock = CartLockModel::of($data);
+        }
+
+        return $this->lock;
+    }
+
+    /**
      * <p>Number of days after the last modification before a Cart is deleted. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
      *
@@ -1305,6 +1370,27 @@ final class CartModel extends JsonObjectModel implements Cart
         }
 
         return $this->deleteDaysAfterLastModification;
+    }
+
+    /**
+     * <p>User-defined identifier of a purchase order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        if (is_null($this->purchaseOrderNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PURCHASE_ORDER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->purchaseOrderNumber = (string) $data;
+        }
+
+        return $this->purchaseOrderNumber;
     }
 
     /**
@@ -1543,6 +1629,14 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * @param ?string $freezeStrategy
+     */
+    public function setFreezeStrategy(?string $freezeStrategy): void
+    {
+        $this->freezeStrategy = $freezeStrategy;
+    }
+
+    /**
      * @param ?Address $billingAddress
      */
     public function setBillingAddress(?Address $billingAddress): void
@@ -1687,11 +1781,27 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * @param ?CartLock $lock
+     */
+    public function setLock(?CartLock $lock): void
+    {
+        $this->lock = $lock;
+    }
+
+    /**
      * @param ?int $deleteDaysAfterLastModification
      */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
     }
 
     /**

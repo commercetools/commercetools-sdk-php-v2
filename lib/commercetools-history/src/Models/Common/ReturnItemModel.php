@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @internal
@@ -26,6 +27,12 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
      * @var ?string
      */
     protected $id;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $key;
 
     /**
      *
@@ -59,13 +66,19 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 
     /**
      *
-     * @var ?string
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     *
+     * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
      *
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
@@ -75,26 +88,32 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
      */
     public function __construct(
         ?string $id = null,
+        ?string $key = null,
         ?int $quantity = null,
         ?string $type = null,
         ?string $comment = null,
         ?string $shipmentState = null,
         ?string $paymentState = null,
-        ?string $lastModifiedAt = null,
-        ?string $createdAt = null
+        ?CustomFields $custom = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?DateTimeImmutable $createdAt = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->quantity = $quantity;
         $this->type = $type;
         $this->comment = $comment;
         $this->shipmentState = $shipmentState;
         $this->paymentState = $paymentState;
+        $this->custom = $custom;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->createdAt = $createdAt;
 
     }
 
     /**
+     * <p>Unique identifier of the Return Item.</p>
+     *
      *
      * @return null|string
      */
@@ -113,6 +132,28 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>User-defined unique identifier of the Return Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>Number of Line Items or Custom Line Items returned.</p>
+     *
      *
      * @return null|int
      */
@@ -149,6 +190,8 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>User-defined description for the return.</p>
+     *
      *
      * @return null|string
      */
@@ -167,6 +210,8 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>Shipment status of the Return Item.</p>
+     *
      *
      * @return null|string
      */
@@ -185,6 +230,12 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>Payment status of the Return Item:</p>
+     * <ul>
+     * <li><code>NonRefundable</code>, for items in the <code>Advised</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * <li><code>Initial</code>, for items in the <code>Returned</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * </ul>
+     *
      *
      * @return null|string
      */
@@ -203,8 +254,31 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>Custom Fields of the Return Item.</p>
      *
-     * @return null|string
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Return Item was last updated.</p>
+     *
+     *
+     * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
     {
@@ -214,15 +288,21 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->lastModifiedAt = (string) $data;
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->lastModifiedAt = $data;
         }
 
         return $this->lastModifiedAt;
     }
 
     /**
+     * <p>Date and time (UTC) the Return Item was initially created.</p>
      *
-     * @return null|string
+     *
+     * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
     {
@@ -232,7 +312,11 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
             if (is_null($data)) {
                 return null;
             }
-            $this->createdAt = (string) $data;
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->createdAt = $data;
         }
 
         return $this->createdAt;
@@ -245,6 +329,14 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**
@@ -288,21 +380,42 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
-     * @param ?string $lastModifiedAt
+     * @param ?CustomFields $custom
      */
-    public function setLastModifiedAt(?string $lastModifiedAt): void
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
     /**
-     * @param ?string $createdAt
+     * @param ?DateTimeImmutable $createdAt
      */
-    public function setCreatedAt(?string $createdAt): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
 
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[ReturnItem::FIELD_LAST_MODIFIED_AT]) && $data[ReturnItem::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[ReturnItem::FIELD_LAST_MODIFIED_AT] = $data[ReturnItem::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[ReturnItem::FIELD_CREATED_AT]) && $data[ReturnItem::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[ReturnItem::FIELD_CREATED_AT] = $data[ReturnItem::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
+    }
 
 }

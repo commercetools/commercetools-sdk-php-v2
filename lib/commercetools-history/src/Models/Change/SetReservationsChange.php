@@ -17,6 +17,8 @@ interface SetReservationsChange extends Change
 
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_ADDED_ITEMS = 'addedItems';
+    public const FIELD_REMOVED_ITEMS = 'removedItems';
 
     /**
 
@@ -47,6 +49,22 @@ interface SetReservationsChange extends Change
     public function getNextValue();
 
     /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|ReservationCollection
+     */
+    public function getAddedItems();
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|ReservationCollection
+     */
+    public function getRemovedItems();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -60,4 +78,14 @@ interface SetReservationsChange extends Change
      * @param ?ReservationCollection $nextValue
      */
     public function setNextValue(?ReservationCollection $nextValue): void;
+
+    /**
+     * @param ?ReservationCollection $addedItems
+     */
+    public function setAddedItems(?ReservationCollection $addedItems): void;
+
+    /**
+     * @param ?ReservationCollection $removedItems
+     */
+    public function setRemovedItems(?ReservationCollection $removedItems): void;
 }

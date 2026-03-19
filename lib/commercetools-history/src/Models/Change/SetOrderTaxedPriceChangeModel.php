@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\TaxedItemPrice;
-use Commercetools\History\Models\Common\TaxedItemPriceModel;
+use Commercetools\History\Models\Common\TaxedPrice;
+use Commercetools\History\Models\Common\TaxedPriceModel;
 
 /**
  * @internal
@@ -37,13 +37,13 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
 
     /**
      *
-     * @var ?TaxedItemPrice
+     * @var ?TaxedPrice
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?TaxedItemPrice
+     * @var ?TaxedPrice
      */
     protected $nextValue;
 
@@ -59,8 +59,8 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
      */
     public function __construct(
         ?string $change = null,
-        ?TaxedItemPrice $previousValue = null,
-        ?TaxedItemPrice $nextValue = null,
+        ?TaxedPrice $previousValue = null,
+        ?TaxedPrice $nextValue = null,
         ?string $taxMode = null,
         ?string $type = null
     ) {
@@ -111,7 +111,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
      * <p>Value before the change.</p>
      *
      *
-     * @return null|TaxedItemPrice
+     * @return null|TaxedPrice
      */
     public function getPreviousValue()
     {
@@ -122,7 +122,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
                 return null;
             }
 
-            $this->previousValue = TaxedItemPriceModel::of($data);
+            $this->previousValue = TaxedPriceModel::of($data);
         }
 
         return $this->previousValue;
@@ -132,7 +132,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
      * <p>Value after the change.</p>
      *
      *
-     * @return null|TaxedItemPrice
+     * @return null|TaxedPrice
      */
     public function getNextValue()
     {
@@ -143,13 +143,15 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
                 return null;
             }
 
-            $this->nextValue = TaxedItemPriceModel::of($data);
+            $this->nextValue = TaxedPriceModel::of($data);
         }
 
         return $this->nextValue;
     }
 
     /**
+     * <p>Indicates how taxes are set on the Cart.</p>
+     *
      *
      * @return null|string
      */
@@ -177,17 +179,17 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-     * @param ?TaxedItemPrice $previousValue
+     * @param ?TaxedPrice $previousValue
      */
-    public function setPreviousValue(?TaxedItemPrice $previousValue): void
+    public function setPreviousValue(?TaxedPrice $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?TaxedItemPrice $nextValue
+     * @param ?TaxedPrice $nextValue
      */
-    public function setNextValue(?TaxedItemPrice $nextValue): void
+    public function setNextValue(?TaxedPrice $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

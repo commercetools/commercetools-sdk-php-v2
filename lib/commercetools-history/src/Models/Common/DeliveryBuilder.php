@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @implements Builder<Delivery>
@@ -29,6 +30,12 @@ final class DeliveryBuilder implements Builder
     /**
 
      * @var ?string
+     */
+    private $key;
+
+    /**
+
+     * @var ?DateTimeImmutable
      */
     private $createdAt;
 
@@ -57,6 +64,8 @@ final class DeliveryBuilder implements Builder
     private $custom;
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
 
      * @return null|string
      */
@@ -66,8 +75,21 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Delivery.</p>
+     *
 
      * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Delivery was created.</p>
+     *
+
+     * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
     {
@@ -75,6 +97,8 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * <p>Line Items or Custom Line Items that are delivered.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
@@ -84,6 +108,8 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * <p>Information regarding the appearance, content, and shipment of a Parcel.</p>
+     *
 
      * @return null|ParcelCollection
      */
@@ -93,6 +119,8 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * <p>Address to which Parcels are delivered.</p>
+     *
 
      * @return null|Address
      */
@@ -102,7 +130,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields of the Delivery.</p>
      *
 
      * @return null|CustomFields
@@ -124,10 +152,21 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
-     * @param ?string $createdAt
+     * @param ?string $key
      * @return $this
      */
-    public function withCreatedAt(?string $createdAt)
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     * @return $this
+     */
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -204,6 +243,7 @@ final class DeliveryBuilder implements Builder
     {
         return new DeliveryModel(
             $this->id,
+            $this->key,
             $this->createdAt,
             $this->items,
             $this->parcels,

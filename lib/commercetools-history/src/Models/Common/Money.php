@@ -14,10 +14,20 @@ use Commercetools\Base\DateTimeImmutableCollection;
 interface Money extends JsonObject
 {
 
-    public const FIELD_CURRENCY_CODE = 'currencyCode';
     public const FIELD_CENT_AMOUNT = 'centAmount';
-    public const FIELD_FRACTION_DIGITS = 'fractionDigits';
-    public const FIELD_TYPE = 'type';
+    public const FIELD_CURRENCY_CODE = 'currencyCode';
+
+    /**
+     * <p>Amount in the smallest indivisible unit of a currency, such as:</p>
+     * <ul>
+     * <li>Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>).</li>
+     * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
+     * </ul>
+     *
+
+     * @return null|int
+     */
+    public function getCentAmount();
 
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
@@ -28,40 +38,12 @@ interface Money extends JsonObject
     public function getCurrencyCode();
 
     /**
-
-     * @return null|int
-     */
-    public function getCentAmount();
-
-    /**
-
-     * @return null|int
-     */
-    public function getFractionDigits();
-
-    /**
-
-     * @return null|string
-     */
-    public function getType();
-
-    /**
-     * @param ?string $currencyCode
-     */
-    public function setCurrencyCode(?string $currencyCode): void;
-
-    /**
      * @param ?int $centAmount
      */
     public function setCentAmount(?int $centAmount): void;
 
     /**
-     * @param ?int $fractionDigits
+     * @param ?string $currencyCode
      */
-    public function setFractionDigits(?int $fractionDigits): void;
-
-    /**
-     * @param ?string $type
-     */
-    public function setType(?string $type): void;
+    public function setCurrencyCode(?string $currencyCode): void;
 }

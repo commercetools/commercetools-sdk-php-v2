@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\TaxedPrice;
-use Commercetools\History\Models\Common\TaxedPriceBuilder;
+use Commercetools\History\Models\Common\TaxedItemPrice;
+use Commercetools\History\Models\Common\TaxedItemPriceBuilder;
 
 /**
  * @implements Builder<SetShippingInfoTaxedPriceChange>
@@ -30,13 +30,13 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|TaxedPrice|TaxedPriceBuilder
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $previousValue;
 
     /**
 
-     * @var null|TaxedPrice|TaxedPriceBuilder
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $nextValue;
 
@@ -53,22 +53,22 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|TaxedPrice
+     * @return null|TaxedItemPrice
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof TaxedPriceBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
      * <p>Value after the change.</p>
      *
 
-     * @return null|TaxedPrice
+     * @return null|TaxedItemPrice
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof TaxedPriceBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof TaxedItemPriceBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -83,10 +83,10 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?TaxedPrice $previousValue
+     * @param ?TaxedItemPrice $previousValue
      * @return $this
      */
-    public function withPreviousValue(?TaxedPrice $previousValue)
+    public function withPreviousValue(?TaxedItemPrice $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -94,10 +94,10 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?TaxedPrice $nextValue
+     * @param ?TaxedItemPrice $nextValue
      * @return $this
      */
-    public function withNextValue(?TaxedPrice $nextValue)
+    public function withNextValue(?TaxedItemPrice $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -108,7 +108,7 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?TaxedPriceBuilder $previousValue)
+    public function withPreviousValueBuilder(?TaxedItemPriceBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -119,7 +119,7 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?TaxedPriceBuilder $nextValue)
+    public function withNextValueBuilder(?TaxedItemPriceBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -130,8 +130,8 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
     {
         return new SetShippingInfoTaxedPriceChangeModel(
             $this->change,
-            $this->previousValue instanceof TaxedPriceBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof TaxedPriceBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof TaxedItemPriceBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

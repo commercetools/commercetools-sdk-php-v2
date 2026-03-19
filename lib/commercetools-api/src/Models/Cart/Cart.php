@@ -46,6 +46,7 @@ interface Cart extends BaseResource
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_CART_STATE = 'cartState';
+    public const FIELD_FREEZE_STRATEGY = 'freezeStrategy';
     public const FIELD_BILLING_ADDRESS = 'billingAddress';
     public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
     public const FIELD_SHIPPING_MODE = 'shippingMode';
@@ -64,7 +65,9 @@ interface Cart extends BaseResource
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DISCOUNT_TYPE_COMBINATION = 'discountTypeCombination';
+    public const FIELD_LOCK = 'lock';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
 
@@ -252,6 +255,14 @@ interface Cart extends BaseResource
     public function getCartState();
 
     /**
+     * <p>Determines freezing behavior when <code>cartState</code> is <code>Frozen</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getFreezeStrategy();
+
+    /**
      * <p>Billing address associated with the Cart.</p>
      *
 
@@ -403,12 +414,29 @@ interface Cart extends BaseResource
     public function getDiscountTypeCombination();
 
     /**
+     * <p>Indicates whether the Cart has been <a href="/../api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
+     *
+
+     * @return null|CartLock
+     */
+    public function getLock();
+
+    /**
      * <p>Number of days after the last modification before a Cart is deleted. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
 
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
+
+    /**
+     * <p>User-defined identifier of a purchase order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
 
     /**
      * <p>Date and time (UTC) the Cart was initially created.</p>
@@ -553,6 +581,11 @@ interface Cart extends BaseResource
     public function setCartState(?string $cartState): void;
 
     /**
+     * @param ?string $freezeStrategy
+     */
+    public function setFreezeStrategy(?string $freezeStrategy): void;
+
+    /**
      * @param ?Address $billingAddress
      */
     public function setBillingAddress(?Address $billingAddress): void;
@@ -643,9 +676,19 @@ interface Cart extends BaseResource
     public function setDiscountTypeCombination(?DiscountTypeCombination $discountTypeCombination): void;
 
     /**
+     * @param ?CartLock $lock
+     */
+    public function setLock(?CartLock $lock): void;
+
+    /**
      * @param ?int $deleteDaysAfterLastModification
      */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt

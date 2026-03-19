@@ -94,6 +94,12 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     private $email;
 
     /**
+
+     * @var ?string
+     */
+    private $oldEmail;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -213,6 +219,17 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * <p>The <code>email</code> that was set before the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOldEmail()
+    {
+        return $this->oldEmail;
     }
 
     /**
@@ -337,6 +354,17 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $oldEmail
+     * @return $this
+     */
+    public function withOldEmail(?string $oldEmail)
+    {
+        $this->oldEmail = $oldEmail;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -393,7 +421,8 @@ final class CustomerEmailChangedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->email
+            $this->email,
+            $this->oldEmail
         );
     }
 

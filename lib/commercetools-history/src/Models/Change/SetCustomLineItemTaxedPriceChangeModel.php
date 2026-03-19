@@ -15,8 +15,8 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Common\LocalizedString;
 use Commercetools\History\Models\Common\LocalizedStringModel;
-use Commercetools\History\Models\Common\Money;
-use Commercetools\History\Models\Common\MoneyModel;
+use Commercetools\History\Models\Common\TaxedItemPrice;
+use Commercetools\History\Models\Common\TaxedItemPriceModel;
 
 /**
  * @internal
@@ -39,13 +39,13 @@ final class SetCustomLineItemTaxedPriceChangeModel extends JsonObjectModel imple
 
     /**
      *
-     * @var ?Money
+     * @var ?TaxedItemPrice
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?Money
+     * @var ?TaxedItemPrice
      */
     protected $nextValue;
 
@@ -67,8 +67,8 @@ final class SetCustomLineItemTaxedPriceChangeModel extends JsonObjectModel imple
      */
     public function __construct(
         ?string $change = null,
-        ?Money $previousValue = null,
-        ?Money $nextValue = null,
+        ?TaxedItemPrice $previousValue = null,
+        ?TaxedItemPrice $nextValue = null,
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
         ?string $type = null
@@ -121,7 +121,7 @@ final class SetCustomLineItemTaxedPriceChangeModel extends JsonObjectModel imple
      * <p>Value before the change.</p>
      *
      *
-     * @return null|Money
+     * @return null|TaxedItemPrice
      */
     public function getPreviousValue()
     {
@@ -132,7 +132,7 @@ final class SetCustomLineItemTaxedPriceChangeModel extends JsonObjectModel imple
                 return null;
             }
 
-            $this->previousValue = MoneyModel::of($data);
+            $this->previousValue = TaxedItemPriceModel::of($data);
         }
 
         return $this->previousValue;
@@ -142,7 +142,7 @@ final class SetCustomLineItemTaxedPriceChangeModel extends JsonObjectModel imple
      * <p>Value after the change.</p>
      *
      *
-     * @return null|Money
+     * @return null|TaxedItemPrice
      */
     public function getNextValue()
     {
@@ -153,7 +153,7 @@ final class SetCustomLineItemTaxedPriceChangeModel extends JsonObjectModel imple
                 return null;
             }
 
-            $this->nextValue = MoneyModel::of($data);
+            $this->nextValue = TaxedItemPriceModel::of($data);
         }
 
         return $this->nextValue;
@@ -210,17 +210,17 @@ final class SetCustomLineItemTaxedPriceChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * @param ?Money $previousValue
+     * @param ?TaxedItemPrice $previousValue
      */
-    public function setPreviousValue(?Money $previousValue): void
+    public function setPreviousValue(?TaxedItemPrice $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?Money $nextValue
+     * @param ?TaxedItemPrice $nextValue
      */
-    public function setNextValue(?Money $nextValue): void
+    public function setNextValue(?TaxedItemPrice $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Customer\CustomerGroupAssignmentCollection;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -32,6 +33,7 @@ interface BusinessUnit extends BaseResource
     public const FIELD_NAME = 'name';
     public const FIELD_CONTACT_EMAIL = 'contactEmail';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_CUSTOMER_GROUP_ASSIGNMENTS = 'customerGroupAssignments';
     public const FIELD_ADDRESSES = 'addresses';
     public const FIELD_SHIPPING_ADDRESS_IDS = 'shippingAddressIds';
     public const FIELD_DEFAULT_SHIPPING_ADDRESS_ID = 'defaultShippingAddressId';
@@ -159,12 +161,21 @@ interface BusinessUnit extends BaseResource
     public function getContactEmail();
 
     /**
-     * <p>Custom Fields for the Business Unit.</p>
+     * <p>Custom Fields of the Business Unit.</p>
      *
 
      * @return null|CustomFields
      */
     public function getCustom();
+
+    /**
+     * <p>Customer Groups assigned to the Business Unit.</p>
+     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     *
+
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getCustomerGroupAssignments();
 
     /**
      * <p>Addresses used by the Business Unit.</p>
@@ -324,6 +335,11 @@ interface BusinessUnit extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments): void;
 
     /**
      * @param ?AddressCollection $addresses

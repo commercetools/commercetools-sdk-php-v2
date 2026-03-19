@@ -23,43 +23,51 @@ final class MoneyModel extends JsonObjectModel implements Money
 
     /**
      *
-     * @var ?string
-     */
-    protected $currencyCode;
-
-    /**
-     *
      * @var ?int
      */
     protected $centAmount;
 
     /**
      *
-     * @var ?int
-     */
-    protected $fractionDigits;
-
-    /**
-     *
      * @var ?string
      */
-    protected $type;
+    protected $currencyCode;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $currencyCode = null,
         ?int $centAmount = null,
-        ?int $fractionDigits = null,
-        ?string $type = null
+        ?string $currencyCode = null
     ) {
-        $this->currencyCode = $currencyCode;
         $this->centAmount = $centAmount;
-        $this->fractionDigits = $fractionDigits;
-        $this->type = $type;
+        $this->currencyCode = $currencyCode;
 
+    }
+
+    /**
+     * <p>Amount in the smallest indivisible unit of a currency, such as:</p>
+     * <ul>
+     * <li>Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>).</li>
+     * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
+     * </ul>
+     *
+     *
+     * @return null|int
+     */
+    public function getCentAmount()
+    {
+        if (is_null($this->centAmount)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_CENT_AMOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->centAmount = (int) $data;
+        }
+
+        return $this->centAmount;
     }
 
     /**
@@ -82,68 +90,6 @@ final class MoneyModel extends JsonObjectModel implements Money
         return $this->currencyCode;
     }
 
-    /**
-     *
-     * @return null|int
-     */
-    public function getCentAmount()
-    {
-        if (is_null($this->centAmount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_CENT_AMOUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->centAmount = (int) $data;
-        }
-
-        return $this->centAmount;
-    }
-
-    /**
-     *
-     * @return null|int
-     */
-    public function getFractionDigits()
-    {
-        if (is_null($this->fractionDigits)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_FRACTION_DIGITS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->fractionDigits = (int) $data;
-        }
-
-        return $this->fractionDigits;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getType()
-    {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->type = (string) $data;
-        }
-
-        return $this->type;
-    }
-
-
-    /**
-     * @param ?string $currencyCode
-     */
-    public function setCurrencyCode(?string $currencyCode): void
-    {
-        $this->currencyCode = $currencyCode;
-    }
 
     /**
      * @param ?int $centAmount
@@ -154,19 +100,11 @@ final class MoneyModel extends JsonObjectModel implements Money
     }
 
     /**
-     * @param ?int $fractionDigits
+     * @param ?string $currencyCode
      */
-    public function setFractionDigits(?int $fractionDigits): void
+    public function setCurrencyCode(?string $currencyCode): void
     {
-        $this->fractionDigits = $fractionDigits;
-    }
-
-    /**
-     * @param ?string $type
-     */
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
+        $this->currencyCode = $currencyCode;
     }
 
 

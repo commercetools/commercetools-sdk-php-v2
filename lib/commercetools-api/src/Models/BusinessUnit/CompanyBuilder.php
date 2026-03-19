@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
+use Commercetools\Api\Models\Customer\CustomerGroupAssignmentCollection;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
@@ -112,6 +113,12 @@ final class CompanyBuilder implements Builder
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
+
+    /**
+
+     * @var ?CustomerGroupAssignmentCollection
+     */
+    private $customerGroupAssignments;
 
     /**
 
@@ -325,7 +332,7 @@ final class CompanyBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the Business Unit.</p>
+     * <p>Custom Fields of the Business Unit.</p>
      *
 
      * @return null|CustomFields
@@ -333,6 +340,18 @@ final class CompanyBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Customer Groups assigned to the Business Unit.</p>
+     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     *
+
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        return $this->customerGroupAssignments;
     }
 
     /**
@@ -611,6 +630,17 @@ final class CompanyBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
+     * @return $this
+     */
+    public function withCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments)
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
+
+        return $this;
+    }
+
+    /**
      * @param ?AddressCollection $addresses
      * @return $this
      */
@@ -803,6 +833,7 @@ final class CompanyBuilder implements Builder
             $this->name,
             $this->contactEmail,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->customerGroupAssignments,
             $this->addresses,
             $this->shippingAddressIds,
             $this->defaultShippingAddressId,

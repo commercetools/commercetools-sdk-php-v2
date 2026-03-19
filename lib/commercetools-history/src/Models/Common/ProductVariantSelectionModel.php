@@ -27,26 +27,20 @@ final class ProductVariantSelectionModel extends JsonObjectModel implements Prod
      */
     protected $type;
 
-    /**
-     *
-     * @var ?array
-     */
-    protected $skus;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $type = null,
-        ?array $skus = null
+        ?string $type = null
     ) {
         $this->type = $type;
-        $this->skus = $skus;
 
     }
 
     /**
+     * <p>Determines whether the SKUs are to be included in, or excluded from, the Product Selection.</p>
+     *
      *
      * @return null|string
      */
@@ -64,24 +58,6 @@ final class ProductVariantSelectionModel extends JsonObjectModel implements Prod
         return $this->type;
     }
 
-    /**
-     *
-     * @return null|array
-     */
-    public function getSkus()
-    {
-        if (is_null($this->skus)) {
-            /** @psalm-var ?list<mixed> $data */
-            $data = $this->raw(self::FIELD_SKUS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->skus = $data;
-        }
-
-        return $this->skus;
-    }
-
 
     /**
      * @param ?string $type
@@ -89,14 +65,6 @@ final class ProductVariantSelectionModel extends JsonObjectModel implements Prod
     public function setType(?string $type): void
     {
         $this->type = $type;
-    }
-
-    /**
-     * @param ?array $skus
-     */
-    public function setSkus(?array $skus): void
-    {
-        $this->skus = $skus;
     }
 
 

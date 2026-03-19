@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Api\Models\Customer\CustomerGroupAssignmentCollection;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
@@ -121,6 +122,12 @@ final class DivisionModel extends JsonObjectModel implements Division
 
     /**
      *
+     * @var ?CustomerGroupAssignmentCollection
+     */
+    protected $customerGroupAssignments;
+
+    /**
+     *
      * @var ?AddressCollection
      */
     protected $addresses;
@@ -204,6 +211,7 @@ final class DivisionModel extends JsonObjectModel implements Division
         ?string $name = null,
         ?string $contactEmail = null,
         ?CustomFields $custom = null,
+        ?CustomerGroupAssignmentCollection $customerGroupAssignments = null,
         ?AddressCollection $addresses = null,
         ?array $shippingAddressIds = null,
         ?string $defaultShippingAddressId = null,
@@ -231,6 +239,7 @@ final class DivisionModel extends JsonObjectModel implements Division
         $this->name = $name;
         $this->contactEmail = $contactEmail;
         $this->custom = $custom;
+        $this->customerGroupAssignments = $customerGroupAssignments;
         $this->addresses = $addresses;
         $this->shippingAddressIds = $shippingAddressIds;
         $this->defaultShippingAddressId = $defaultShippingAddressId;
@@ -538,7 +547,7 @@ final class DivisionModel extends JsonObjectModel implements Division
     }
 
     /**
-     * <p>Custom Fields for the Business Unit.</p>
+     * <p>Custom Fields of the Business Unit.</p>
      *
      *
      * @return null|CustomFields
@@ -556,6 +565,27 @@ final class DivisionModel extends JsonObjectModel implements Division
         }
 
         return $this->custom;
+    }
+
+    /**
+     * <p>Customer Groups assigned to the Business Unit.</p>
+     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     *
+     *
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        if (is_null($this->customerGroupAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerGroupAssignments = CustomerGroupAssignmentCollection::fromArray($data);
+        }
+
+        return $this->customerGroupAssignments;
     }
 
     /**
@@ -891,6 +921,14 @@ final class DivisionModel extends JsonObjectModel implements Division
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?CustomerGroupAssignmentCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments): void
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
     /**

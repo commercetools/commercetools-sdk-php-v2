@@ -46,6 +46,18 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?ReferenceCollection
+     */
+    protected $addedItems;
+
+    /**
+     *
+     * @var ?ReferenceCollection
+     */
+    protected $removedItems;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -54,11 +66,15 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
         ?string $change = null,
         ?ReferenceCollection $previousValue = null,
         ?ReferenceCollection $nextValue = null,
+        ?ReferenceCollection $addedItems = null,
+        ?ReferenceCollection $removedItems = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->addedItems = $addedItems;
+        $this->removedItems = $removedItems;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -138,6 +154,46 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
         return $this->nextValue;
     }
 
+    /**
+     * <p>Elements added to the array.</p>
+     *
+     *
+     * @return null|ReferenceCollection
+     */
+    public function getAddedItems()
+    {
+        if (is_null($this->addedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ADDED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addedItems = ReferenceCollection::fromArray($data);
+        }
+
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+     *
+     * @return null|ReferenceCollection
+     */
+    public function getRemovedItems()
+    {
+        if (is_null($this->removedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_REMOVED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedItems = ReferenceCollection::fromArray($data);
+        }
+
+        return $this->removedItems;
+    }
+
 
     /**
      * @param ?string $change
@@ -161,6 +217,22 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
     public function setNextValue(?ReferenceCollection $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?ReferenceCollection $addedItems
+     */
+    public function setAddedItems(?ReferenceCollection $addedItems): void
+    {
+        $this->addedItems = $addedItems;
+    }
+
+    /**
+     * @param ?ReferenceCollection $removedItems
+     */
+    public function setRemovedItems(?ReferenceCollection $removedItems): void
+    {
+        $this->removedItems = $removedItems;
     }
 
 

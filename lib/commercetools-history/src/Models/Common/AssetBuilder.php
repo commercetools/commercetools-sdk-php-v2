@@ -28,6 +28,12 @@ final class AssetBuilder implements Builder
 
     /**
 
+     * @var ?AssetSourceCollection
+     */
+    private $sources;
+
+    /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -37,6 +43,12 @@ final class AssetBuilder implements Builder
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
+
+    /**
+
+     * @var ?array
+     */
+    private $tags;
 
     /**
 
@@ -51,6 +63,8 @@ final class AssetBuilder implements Builder
     private $key;
 
     /**
+     * <p>Unique identifier of the Asset. Not required when importing Assets using the <a href="/import-export/import-resources">Import API</a>.</p>
+     *
 
      * @return null|string
      */
@@ -61,6 +75,17 @@ final class AssetBuilder implements Builder
 
     /**
 
+     * @return null|AssetSourceCollection
+     */
+    public function getSources()
+    {
+        return $this->sources;
+    }
+
+    /**
+     * <p>Name of the Asset.</p>
+     *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -69,6 +94,8 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Asset.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -78,6 +105,19 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
+
+     * @return null|array
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * <p>Custom Fields defined for the Asset.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -87,6 +127,8 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier of the Asset. It is unique per <a href="ctp:api:type:Category">Category</a> or <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|string
      */
@@ -102,6 +144,17 @@ final class AssetBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?AssetSourceCollection $sources
+     * @return $this
+     */
+    public function withSources(?AssetSourceCollection $sources)
+    {
+        $this->sources = $sources;
 
         return $this;
     }
@@ -124,6 +177,17 @@ final class AssetBuilder implements Builder
     public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @param ?array $tags
+     * @return $this
+     */
+    public function withTags(?array $tags)
+    {
+        $this->tags = $tags;
 
         return $this;
     }
@@ -187,8 +251,10 @@ final class AssetBuilder implements Builder
     {
         return new AssetModel(
             $this->id,
+            $this->sources,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->tags,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->key
         );

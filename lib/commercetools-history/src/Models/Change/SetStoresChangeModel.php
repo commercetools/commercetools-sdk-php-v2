@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\Common\KeyReferenceCollection;
 use Commercetools\History\Models\Common\ReferenceCollection;
 
 /**
@@ -46,6 +47,18 @@ final class SetStoresChangeModel extends JsonObjectModel implements SetStoresCha
      */
     protected $nextValue;
 
+    /**
+     *
+     * @var ?KeyReferenceCollection
+     */
+    protected $addedItems;
+
+    /**
+     *
+     * @var ?KeyReferenceCollection
+     */
+    protected $removedItems;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -54,11 +67,15 @@ final class SetStoresChangeModel extends JsonObjectModel implements SetStoresCha
         ?string $change = null,
         ?ReferenceCollection $previousValue = null,
         ?ReferenceCollection $nextValue = null,
+        ?KeyReferenceCollection $addedItems = null,
+        ?KeyReferenceCollection $removedItems = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
+        $this->addedItems = $addedItems;
+        $this->removedItems = $removedItems;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -138,6 +155,46 @@ final class SetStoresChangeModel extends JsonObjectModel implements SetStoresCha
         return $this->nextValue;
     }
 
+    /**
+     * <p>Elements added to the array.</p>
+     *
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getAddedItems()
+    {
+        if (is_null($this->addedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_ADDED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addedItems = KeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getRemovedItems()
+    {
+        if (is_null($this->removedItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_REMOVED_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedItems = KeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->removedItems;
+    }
+
 
     /**
      * @param ?string $change
@@ -161,6 +218,22 @@ final class SetStoresChangeModel extends JsonObjectModel implements SetStoresCha
     public function setNextValue(?ReferenceCollection $nextValue): void
     {
         $this->nextValue = $nextValue;
+    }
+
+    /**
+     * @param ?KeyReferenceCollection $addedItems
+     */
+    public function setAddedItems(?KeyReferenceCollection $addedItems): void
+    {
+        $this->addedItems = $addedItems;
+    }
+
+    /**
+     * @param ?KeyReferenceCollection $removedItems
+     */
+    public function setRemovedItems(?KeyReferenceCollection $removedItems): void
+    {
+        $this->removedItems = $removedItems;
     }
 
 

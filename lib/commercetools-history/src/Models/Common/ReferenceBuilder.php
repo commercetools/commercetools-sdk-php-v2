@@ -27,27 +27,14 @@ final class ReferenceBuilder implements Builder
     private $id;
 
     /**
-
-     * @var ?string
-     */
-    private $typeId;
-
-    /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
 
      * @return null|string
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
     }
 
     /**
@@ -61,23 +48,11 @@ final class ReferenceBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?string $typeId
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
-    }
-
 
     public function build(): Reference
     {
         return new ReferenceModel(
-            $this->id,
-            $this->typeId
+            $this->id
         );
     }
 

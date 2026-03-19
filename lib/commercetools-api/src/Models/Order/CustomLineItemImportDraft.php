@@ -116,7 +116,7 @@ interface CustomLineItemImportDraft extends JsonObject
     public function getState();
 
     /**
-     * <p>Custom Fields of the CustomLineItem.</p>
+     * <p>Custom Fields for the CustomLineItem.</p>
      *
 
      * @return null|CustomFieldsDraft

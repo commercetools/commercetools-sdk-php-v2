@@ -55,6 +55,18 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
      */
     protected $asset;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $catalogData;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $variant;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -64,12 +76,16 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
         ?LocalizedString $previousValue = null,
         ?LocalizedString $nextValue = null,
         ?AssetChangeValue $asset = null,
+        ?string $catalogData = null,
+        ?string $variant = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->asset = $asset;
+        $this->catalogData = $catalogData;
+        $this->variant = $variant;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -172,6 +188,51 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
         return $this->asset;
     }
 
+    /**
+     * <p>Product data that was updated.</p>
+     * <ul>
+     * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
+     * </ul>
+     *
+     *
+     * @return null|string
+     */
+    public function getCatalogData()
+    {
+        if (is_null($this->catalogData)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CATALOG_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->catalogData = (string) $data;
+        }
+
+        return $this->catalogData;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
+    }
+
 
     /**
      * @param ?string $change
@@ -203,6 +264,22 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     public function setAsset(?AssetChangeValue $asset): void
     {
         $this->asset = $asset;
+    }
+
+    /**
+     * @param ?string $catalogData
+     */
+    public function setCatalogData(?string $catalogData): void
+    {
+        $this->catalogData = $catalogData;
+    }
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void
+    {
+        $this->variant = $variant;
     }
 
 

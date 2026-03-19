@@ -66,7 +66,7 @@ interface TransactionDraft extends JsonObject
     public function getState();
 
     /**
-     * <p>Custom Fields of the Transaction.</p>
+     * <p>Custom Fields for the Transaction.</p>
      *
 
      * @return null|CustomFieldsDraft

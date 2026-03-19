@@ -42,7 +42,6 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
        'changeName' => ProductChangeNameActionModel::class,
        'changePrice' => ProductChangePriceActionModel::class,
        'changeSlug' => ProductChangeSlugActionModel::class,
-       'legacySetSku' => ProductLegacySetSkuActionModel::class,
        'moveImageToPosition' => ProductMoveImageToPositionActionModel::class,
        'publish' => ProductPublishActionModel::class,
        'removeAsset' => ProductRemoveAssetActionModel::class,

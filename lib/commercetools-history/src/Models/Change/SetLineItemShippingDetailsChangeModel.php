@@ -15,6 +15,8 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Common\ItemShippingDetails;
 use Commercetools\History\Models\Common\ItemShippingDetailsModel;
+use Commercetools\History\Models\Common\LocalizedString;
+use Commercetools\History\Models\Common\LocalizedStringModel;
 
 /**
  * @internal
@@ -53,6 +55,18 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
      */
     protected $lineItemId;
 
+    /**
+     *
+     * @var ?LocalizedString
+     */
+    protected $lineItem;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $variant;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -62,12 +76,16 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
         ?ItemShippingDetails $previousValue = null,
         ?ItemShippingDetails $nextValue = null,
         ?string $lineItemId = null,
+        ?LocalizedString $lineItem = null,
+        ?string $variant = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->lineItemId = $lineItemId;
+        $this->lineItem = $lineItem;
+        $this->variant = $variant;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -169,6 +187,48 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
         return $this->lineItemId;
     }
 
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
+     *
+     *
+     * @return null|LocalizedString
+     */
+    public function getLineItem()
+    {
+        if (is_null($this->lineItem)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lineItem = LocalizedStringModel::of($data);
+        }
+
+        return $this->lineItem;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
+    }
+
 
     /**
      * @param ?string $change
@@ -200,6 +260,22 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?LocalizedString $lineItem
+     */
+    public function setLineItem(?LocalizedString $lineItem): void
+    {
+        $this->lineItem = $lineItem;
+    }
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void
+    {
+        $this->variant = $variant;
     }
 
 

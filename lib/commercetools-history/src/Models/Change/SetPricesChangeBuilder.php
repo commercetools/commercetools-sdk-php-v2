@@ -53,6 +53,18 @@ final class SetPricesChangeBuilder implements Builder
 
     /**
 
+     * @var ?PriceCollection
+     */
+    private $addedItems;
+
+    /**
+
+     * @var ?PriceCollection
+     */
+    private $removedItems;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -83,6 +95,7 @@ final class SetPricesChangeBuilder implements Builder
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
@@ -97,7 +110,8 @@ final class SetPricesChangeBuilder implements Builder
     }
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
 
      * @return null|string
@@ -105,6 +119,28 @@ final class SetPricesChangeBuilder implements Builder
     public function getVariant()
     {
         return $this->variant;
+    }
+
+    /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|PriceCollection
+     */
+    public function getAddedItems()
+    {
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|PriceCollection
+     */
+    public function getRemovedItems()
+    {
+        return $this->removedItems;
     }
 
     /**
@@ -162,6 +198,28 @@ final class SetPricesChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?PriceCollection $addedItems
+     * @return $this
+     */
+    public function withAddedItems(?PriceCollection $addedItems)
+    {
+        $this->addedItems = $addedItems;
+
+        return $this;
+    }
+
+    /**
+     * @param ?PriceCollection $removedItems
+     * @return $this
+     */
+    public function withRemovedItems(?PriceCollection $removedItems)
+    {
+        $this->removedItems = $removedItems;
+
+        return $this;
+    }
+
 
     public function build(): SetPricesChange
     {
@@ -170,7 +228,9 @@ final class SetPricesChangeBuilder implements Builder
             $this->previousValue,
             $this->nextValue,
             $this->catalogData,
-            $this->variant
+            $this->variant,
+            $this->addedItems,
+            $this->removedItems
         );
     }
 

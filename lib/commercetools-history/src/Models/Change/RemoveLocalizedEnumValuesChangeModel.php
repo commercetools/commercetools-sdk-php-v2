@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\LocalizedEnumValue;
-use Commercetools\History\Models\ChangeValue\LocalizedEnumValueModel;
+use Commercetools\History\Models\Common\AttributeLocalizedEnumValue;
+use Commercetools\History\Models\Common\AttributeLocalizedEnumValueModel;
 
 /**
  * @internal
@@ -37,7 +37,7 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
 
     /**
      *
-     * @var ?LocalizedEnumValue
+     * @var ?AttributeLocalizedEnumValue
      */
     protected $previousValue;
 
@@ -53,7 +53,7 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $change = null,
-        ?LocalizedEnumValue $previousValue = null,
+        ?AttributeLocalizedEnumValue $previousValue = null,
         ?string $attributeName = null,
         ?string $type = null
     ) {
@@ -103,7 +103,7 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
      * <p>Value before the change.</p>
      *
      *
-     * @return null|LocalizedEnumValue
+     * @return null|AttributeLocalizedEnumValue
      */
     public function getPreviousValue()
     {
@@ -114,7 +114,7 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
                 return null;
             }
 
-            $this->previousValue = LocalizedEnumValueModel::of($data);
+            $this->previousValue = AttributeLocalizedEnumValueModel::of($data);
         }
 
         return $this->previousValue;
@@ -150,9 +150,9 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?LocalizedEnumValue $previousValue
+     * @param ?AttributeLocalizedEnumValue $previousValue
      */
-    public function setPreviousValue(?LocalizedEnumValue $previousValue): void
+    public function setPreviousValue(?AttributeLocalizedEnumValue $previousValue): void
     {
         $this->previousValue = $previousValue;
     }

@@ -56,6 +56,12 @@ final class TransitionCustomLineItemStateChangeModel extends JsonObjectModel imp
      *
      * @var ?string
      */
+    protected $customLineItemId;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $stateId;
 
 
@@ -67,6 +73,7 @@ final class TransitionCustomLineItemStateChangeModel extends JsonObjectModel imp
         ?ItemStateCollection $previousValue = null,
         ?ItemStateCollection $nextValue = null,
         ?string $lineItemId = null,
+        ?string $customLineItemId = null,
         ?string $stateId = null,
         ?string $type = null
     ) {
@@ -74,6 +81,7 @@ final class TransitionCustomLineItemStateChangeModel extends JsonObjectModel imp
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->lineItemId = $lineItemId;
+        $this->customLineItemId = $customLineItemId;
         $this->stateId = $stateId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -155,7 +163,7 @@ final class TransitionCustomLineItemStateChangeModel extends JsonObjectModel imp
     }
 
     /**
-     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
      *
      *
      * @return null|string
@@ -172,6 +180,26 @@ final class TransitionCustomLineItemStateChangeModel extends JsonObjectModel imp
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        if (is_null($this->customLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemId = (string) $data;
+        }
+
+        return $this->customLineItemId;
     }
 
     /**
@@ -225,6 +253,14 @@ final class TransitionCustomLineItemStateChangeModel extends JsonObjectModel imp
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $customLineItemId
+     */
+    public function setCustomLineItemId(?string $customLineItemId): void
+    {
+        $this->customLineItemId = $customLineItemId;
     }
 
     /**

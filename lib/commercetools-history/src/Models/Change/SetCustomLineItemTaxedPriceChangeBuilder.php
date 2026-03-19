@@ -16,8 +16,8 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Common\LocalizedString;
 use Commercetools\History\Models\Common\LocalizedStringBuilder;
-use Commercetools\History\Models\Common\Money;
-use Commercetools\History\Models\Common\MoneyBuilder;
+use Commercetools\History\Models\Common\TaxedItemPrice;
+use Commercetools\History\Models\Common\TaxedItemPriceBuilder;
 
 /**
  * @implements Builder<SetCustomLineItemTaxedPriceChange>
@@ -32,13 +32,13 @@ final class SetCustomLineItemTaxedPriceChangeBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $previousValue;
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $nextValue;
 
@@ -67,22 +67,22 @@ final class SetCustomLineItemTaxedPriceChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|Money
+     * @return null|TaxedItemPrice
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
      * <p>Value after the change.</p>
      *
 
-     * @return null|Money
+     * @return null|TaxedItemPrice
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof TaxedItemPriceBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -119,10 +119,10 @@ final class SetCustomLineItemTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Money $previousValue
+     * @param ?TaxedItemPrice $previousValue
      * @return $this
      */
-    public function withPreviousValue(?Money $previousValue)
+    public function withPreviousValue(?TaxedItemPrice $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -130,10 +130,10 @@ final class SetCustomLineItemTaxedPriceChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Money $nextValue
+     * @param ?TaxedItemPrice $nextValue
      * @return $this
      */
-    public function withNextValue(?Money $nextValue)
+    public function withNextValue(?TaxedItemPrice $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -166,7 +166,7 @@ final class SetCustomLineItemTaxedPriceChangeBuilder implements Builder
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?MoneyBuilder $previousValue)
+    public function withPreviousValueBuilder(?TaxedItemPriceBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -177,7 +177,7 @@ final class SetCustomLineItemTaxedPriceChangeBuilder implements Builder
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?MoneyBuilder $nextValue)
+    public function withNextValueBuilder(?TaxedItemPriceBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -199,8 +199,8 @@ final class SetCustomLineItemTaxedPriceChangeBuilder implements Builder
     {
         return new SetCustomLineItemTaxedPriceChangeModel(
             $this->change,
-            $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof TaxedItemPriceBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
             $this->customLineItemId
         );

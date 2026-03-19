@@ -47,6 +47,8 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     }
 
     /**
+     * <p>Width of the Asset source.</p>
+     *
      *
      * @return null|int
      */
@@ -65,6 +67,8 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     }
 
     /**
+     * <p>Height of the Asset source.</p>
+     *
      *
      * @return null|int
      */

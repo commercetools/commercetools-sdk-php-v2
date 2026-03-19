@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\TaxedPrice;
-use Commercetools\History\Models\Common\TaxedPriceModel;
+use Commercetools\History\Models\Common\TaxedItemPrice;
+use Commercetools\History\Models\Common\TaxedItemPriceModel;
 
 /**
  * @internal
@@ -37,13 +37,13 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
 
     /**
      *
-     * @var ?TaxedPrice
+     * @var ?TaxedItemPrice
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?TaxedPrice
+     * @var ?TaxedItemPrice
      */
     protected $nextValue;
 
@@ -53,8 +53,8 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $change = null,
-        ?TaxedPrice $previousValue = null,
-        ?TaxedPrice $nextValue = null,
+        ?TaxedItemPrice $previousValue = null,
+        ?TaxedItemPrice $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -103,7 +103,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
      * <p>Value before the change.</p>
      *
      *
-     * @return null|TaxedPrice
+     * @return null|TaxedItemPrice
      */
     public function getPreviousValue()
     {
@@ -114,7 +114,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
                 return null;
             }
 
-            $this->previousValue = TaxedPriceModel::of($data);
+            $this->previousValue = TaxedItemPriceModel::of($data);
         }
 
         return $this->previousValue;
@@ -124,7 +124,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
      * <p>Value after the change.</p>
      *
      *
-     * @return null|TaxedPrice
+     * @return null|TaxedItemPrice
      */
     public function getNextValue()
     {
@@ -135,7 +135,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
                 return null;
             }
 
-            $this->nextValue = TaxedPriceModel::of($data);
+            $this->nextValue = TaxedItemPriceModel::of($data);
         }
 
         return $this->nextValue;
@@ -151,17 +151,17 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?TaxedPrice $previousValue
+     * @param ?TaxedItemPrice $previousValue
      */
-    public function setPreviousValue(?TaxedPrice $previousValue): void
+    public function setPreviousValue(?TaxedItemPrice $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?TaxedPrice $nextValue
+     * @param ?TaxedItemPrice $nextValue
      */
-    public function setNextValue(?TaxedPrice $nextValue): void
+    public function setNextValue(?TaxedItemPrice $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

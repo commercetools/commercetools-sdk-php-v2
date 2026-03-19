@@ -288,7 +288,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields for the Payment.</p>
+     * <p>Custom Fields of the Payment.</p>
      *
 
      * @return null|CustomFields

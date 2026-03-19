@@ -91,7 +91,10 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     }
 
     /**
-     * <p>Name of the Custom Field to define. Must be unique for a given <a href="ctp:import:type:ResourceTypeId">ResourceTypeId</a>. In case there is a FieldDefinition with the same <code>name</code> in another Type, both FieldDefinitions must have the same <code>type</code>. This value cannot be changed after the Type is imported.</p>
+     * <p>Name of the Custom Field that you want to define.
+     * The name must be unique for a given <a href="ctp:import:type:ResourceTypeId">ResourceTypeId</a>.
+     * If a FieldDefinition with the same <code>name</code> is defined in another <a href="ctp:api:type:Type">Type</a> for the same <a href="ctp:import:type:ResourceTypeId">ResourceTypeId</a>, then both FieldDefinitions must have the same <code>type</code>.
+     * This value can't be changed after you import the Type.</p>
      *
      *
      * @return null|string

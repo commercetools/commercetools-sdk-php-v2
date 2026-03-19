@@ -56,6 +56,12 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $variant;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -105,6 +111,18 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
     }
 
     /**
@@ -163,6 +181,17 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $variant
+     * @return $this
+     */
+    public function withVariant(?string $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -202,7 +231,8 @@ final class SetLineItemTaxedPriceChangeBuilder implements Builder
             $this->previousValue instanceof TaxedItemPriceBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof TaxedItemPriceBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
-            $this->lineItemId
+            $this->lineItemId,
+            $this->variant
         );
     }
 

@@ -99,6 +99,12 @@ final class CustomerEmailChangedMessageModel extends JsonObjectModel implements 
      */
     protected $email;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $oldEmail;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -115,6 +121,7 @@ final class CustomerEmailChangedMessageModel extends JsonObjectModel implements 
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $email = null,
+        ?string $oldEmail = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -128,6 +135,7 @@ final class CustomerEmailChangedMessageModel extends JsonObjectModel implements 
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->email = $email;
+        $this->oldEmail = $oldEmail;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -384,6 +392,26 @@ final class CustomerEmailChangedMessageModel extends JsonObjectModel implements 
         return $this->email;
     }
 
+    /**
+     * <p>The <code>email</code> that was set before the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getOldEmail()
+    {
+        if (is_null($this->oldEmail)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_OLD_EMAIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldEmail = (string) $data;
+        }
+
+        return $this->oldEmail;
+    }
+
 
     /**
      * @param ?string $id
@@ -471,6 +499,14 @@ final class CustomerEmailChangedMessageModel extends JsonObjectModel implements 
     public function setEmail(?string $email): void
     {
         $this->email = $email;
+    }
+
+    /**
+     * @param ?string $oldEmail
+     */
+    public function setOldEmail(?string $oldEmail): void
+    {
+        $this->oldEmail = $oldEmail;
     }
 
 

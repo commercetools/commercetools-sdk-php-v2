@@ -55,6 +55,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'EnumKeyDoesNotExist' => GraphQLEnumKeyDoesNotExistErrorModel::class,
        'EnumValueIsUsed' => GraphQLEnumValueIsUsedErrorModel::class,
        'EnumValuesMustMatch' => GraphQLEnumValuesMustMatchErrorModel::class,
+       'ExactLockConflict' => GraphQLExactLockConflictErrorModel::class,
        'ExpiredCustomerEmailToken' => GraphQLExpiredCustomerEmailTokenErrorModel::class,
        'ExpiredCustomerPasswordToken' => GraphQLExpiredCustomerPasswordTokenErrorModel::class,
        'ExtensionBadResponse' => GraphQLExtensionBadResponseErrorModel::class,
@@ -95,6 +96,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'ProjectNotConfiguredForLanguages' => GraphQLProjectNotConfiguredForLanguagesErrorModel::class,
        'QueryComplexityLimitExceeded' => GraphQLQueryComplexityLimitExceededErrorModel::class,
        'QueryTimedOut' => GraphQLQueryTimedOutErrorModel::class,
+       'RecurringOrderFailure' => GraphQLRecurringOrderFailureErrorModel::class,
        'ReferenceExists' => GraphQLReferenceExistsErrorModel::class,
        'ReferencedResourceNotFound' => GraphQLReferencedResourceNotFoundErrorModel::class,
        'RequiredField' => GraphQLRequiredFieldErrorModel::class,
@@ -109,6 +111,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'ShippingMethodDoesNotMatchCart' => GraphQLShippingMethodDoesNotMatchCartErrorModel::class,
        'StoreCartDiscountsLimitReached' => GraphQLStoreCartDiscountsLimitReachedErrorModel::class,
        'SyntaxError' => GraphQLSyntaxErrorErrorModel::class,
+       'ValidityLockConflict' => GraphQLValidityLockConflictErrorModel::class,
        'insufficient_scope' => GraphQLInsufficientScopeErrorModel::class,
        'invalid_token' => GraphQLInvalidTokenErrorModel::class,
     ];

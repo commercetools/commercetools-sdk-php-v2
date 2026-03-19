@@ -468,7 +468,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>Custom Fields for the Payment.</p>
+     * <p>Custom Fields of the Payment.</p>
      *
      *
      * @return null|CustomFields

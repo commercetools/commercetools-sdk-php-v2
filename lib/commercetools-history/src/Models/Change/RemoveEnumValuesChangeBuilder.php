@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValue;
-use Commercetools\History\Models\ChangeValue\EnumValueBuilder;
+use Commercetools\History\Models\Common\AttributePlainEnumValue;
+use Commercetools\History\Models\Common\AttributePlainEnumValueBuilder;
 
 /**
  * @implements Builder<RemoveEnumValuesChange>
@@ -30,7 +30,7 @@ final class RemoveEnumValuesChangeBuilder implements Builder
 
     /**
 
-     * @var null|EnumValue|EnumValueBuilder
+     * @var null|AttributePlainEnumValue|AttributePlainEnumValueBuilder
      */
     private $previousValue;
 
@@ -53,11 +53,11 @@ final class RemoveEnumValuesChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|EnumValue
+     * @return null|AttributePlainEnumValue
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof EnumValueBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue instanceof AttributePlainEnumValueBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
@@ -83,10 +83,10 @@ final class RemoveEnumValuesChangeBuilder implements Builder
     }
 
     /**
-     * @param ?EnumValue $previousValue
+     * @param ?AttributePlainEnumValue $previousValue
      * @return $this
      */
-    public function withPreviousValue(?EnumValue $previousValue)
+    public function withPreviousValue(?AttributePlainEnumValue $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -108,7 +108,7 @@ final class RemoveEnumValuesChangeBuilder implements Builder
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?EnumValueBuilder $previousValue)
+    public function withPreviousValueBuilder(?AttributePlainEnumValueBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -119,7 +119,7 @@ final class RemoveEnumValuesChangeBuilder implements Builder
     {
         return new RemoveEnumValuesChangeModel(
             $this->change,
-            $this->previousValue instanceof EnumValueBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->previousValue instanceof AttributePlainEnumValueBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->attributeName
         );
     }

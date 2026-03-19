@@ -47,6 +47,17 @@ class ResourceByProjectKeyCarts extends ApiResource
     }
     /**
      */
+    public function customerIdWithCustomerIdValueMerge(?string $customerId = null): ResourceByProjectKeyCartsCustomerIdByCustomerIdMerge
+    {
+        $args = $this->getArgs();
+        if (!is_null($customerId)) {
+            $args['customerId'] = $customerId;
+        }
+
+        return new ResourceByProjectKeyCartsCustomerIdByCustomerIdMerge($args, $this->getClient());
+    }
+    /**
+     */
     public function withKey(?string $key = null): ResourceByProjectKeyCartsKeyByKey
     {
         $args = $this->getArgs();

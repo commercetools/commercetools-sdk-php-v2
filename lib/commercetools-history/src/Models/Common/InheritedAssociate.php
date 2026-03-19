@@ -18,14 +18,18 @@ interface InheritedAssociate extends JsonObject
     public const FIELD_CUSTOMER = 'customer';
 
     /**
+     * <p>Inherited roles of the Associate within a Business Unit.</p>
+     *
 
      * @return null|InheritedAssociateRoleAssignmentCollection
      */
     public function getAssociateRoleAssignments();
 
     /**
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> that acts as an Associate in the Business Unit.</p>
+     *
 
-     * @return null|Reference
+     * @return null|CustomerReference
      */
     public function getCustomer();
 
@@ -35,7 +39,7 @@ interface InheritedAssociate extends JsonObject
     public function setAssociateRoleAssignments(?InheritedAssociateRoleAssignmentCollection $associateRoleAssignments): void;
 
     /**
-     * @param ?Reference $customer
+     * @param ?CustomerReference $customer
      */
-    public function setCustomer(?Reference $customer): void;
+    public function setCustomer(?CustomerReference $customer): void;
 }

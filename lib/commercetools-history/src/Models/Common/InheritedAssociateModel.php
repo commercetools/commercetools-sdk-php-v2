@@ -29,7 +29,7 @@ final class InheritedAssociateModel extends JsonObjectModel implements Inherited
 
     /**
      *
-     * @var ?Reference
+     * @var ?CustomerReference
      */
     protected $customer;
 
@@ -39,7 +39,7 @@ final class InheritedAssociateModel extends JsonObjectModel implements Inherited
      */
     public function __construct(
         ?InheritedAssociateRoleAssignmentCollection $associateRoleAssignments = null,
-        ?Reference $customer = null
+        ?CustomerReference $customer = null
     ) {
         $this->associateRoleAssignments = $associateRoleAssignments;
         $this->customer = $customer;
@@ -47,6 +47,8 @@ final class InheritedAssociateModel extends JsonObjectModel implements Inherited
     }
 
     /**
+     * <p>Inherited roles of the Associate within a Business Unit.</p>
+     *
      *
      * @return null|InheritedAssociateRoleAssignmentCollection
      */
@@ -65,8 +67,10 @@ final class InheritedAssociateModel extends JsonObjectModel implements Inherited
     }
 
     /**
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> that acts as an Associate in the Business Unit.</p>
      *
-     * @return null|Reference
+     *
+     * @return null|CustomerReference
      */
     public function getCustomer()
     {
@@ -77,7 +81,7 @@ final class InheritedAssociateModel extends JsonObjectModel implements Inherited
                 return null;
             }
 
-            $this->customer = ReferenceModel::of($data);
+            $this->customer = CustomerReferenceModel::of($data);
         }
 
         return $this->customer;
@@ -93,9 +97,9 @@ final class InheritedAssociateModel extends JsonObjectModel implements Inherited
     }
 
     /**
-     * @param ?Reference $customer
+     * @param ?CustomerReference $customer
      */
-    public function setCustomer(?Reference $customer): void
+    public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
     }

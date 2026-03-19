@@ -100,6 +100,12 @@ final class CustomerGroupAssignmentsSetMessageModel extends JsonObjectModel impl
      */
     protected $customerGroupAssignments;
 
+    /**
+     *
+     * @var ?CustomerGroupAssignmentCollection
+     */
+    protected $oldCustomerGroupAssignments;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -116,6 +122,7 @@ final class CustomerGroupAssignmentsSetMessageModel extends JsonObjectModel impl
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?CustomerGroupAssignmentCollection $customerGroupAssignments = null,
+        ?CustomerGroupAssignmentCollection $oldCustomerGroupAssignments = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -129,6 +136,7 @@ final class CustomerGroupAssignmentsSetMessageModel extends JsonObjectModel impl
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->customerGroupAssignments = $customerGroupAssignments;
+        $this->oldCustomerGroupAssignments = $oldCustomerGroupAssignments;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -385,6 +393,26 @@ final class CustomerGroupAssignmentsSetMessageModel extends JsonObjectModel impl
         return $this->customerGroupAssignments;
     }
 
+    /**
+     * <p>Customer Groups assigned to the Customer before the <a href="ctp:api:type:CustomerSetCustomerGroupAssignmentsAction">Set CustomerGroupAssignments</a> update action.</p>
+     *
+     *
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getOldCustomerGroupAssignments()
+    {
+        if (is_null($this->oldCustomerGroupAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_OLD_CUSTOMER_GROUP_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldCustomerGroupAssignments = CustomerGroupAssignmentCollection::fromArray($data);
+        }
+
+        return $this->oldCustomerGroupAssignments;
+    }
+
 
     /**
      * @param ?string $id
@@ -472,6 +500,14 @@ final class CustomerGroupAssignmentsSetMessageModel extends JsonObjectModel impl
     public function setCustomerGroupAssignments(?CustomerGroupAssignmentCollection $customerGroupAssignments): void
     {
         $this->customerGroupAssignments = $customerGroupAssignments;
+    }
+
+    /**
+     * @param ?CustomerGroupAssignmentCollection $oldCustomerGroupAssignments
+     */
+    public function setOldCustomerGroupAssignments(?CustomerGroupAssignmentCollection $oldCustomerGroupAssignments): void
+    {
+        $this->oldCustomerGroupAssignments = $oldCustomerGroupAssignments;
     }
 
 

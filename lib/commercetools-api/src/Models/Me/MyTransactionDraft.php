@@ -58,7 +58,7 @@ interface MyTransactionDraft extends JsonObject
     public function getInteractionId();
 
     /**
-     * <p>Custom Fields of the Transaction.</p>
+     * <p>Custom Fields for the Transaction.</p>
      *
 
      * @return null|CustomFieldsDraft

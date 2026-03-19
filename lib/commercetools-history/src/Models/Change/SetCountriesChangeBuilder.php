@@ -41,6 +41,18 @@ final class SetCountriesChangeBuilder implements Builder
 
     /**
 
+     * @var ?StoreCountryCollection
+     */
+    private $addedItems;
+
+    /**
+
+     * @var ?StoreCountryCollection
+     */
+    private $removedItems;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -68,6 +80,28 @@ final class SetCountriesChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue;
+    }
+
+    /**
+     * <p>Elements added to the array.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getAddedItems()
+    {
+        return $this->addedItems;
+    }
+
+    /**
+     * <p>Elements removed from the array.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getRemovedItems()
+    {
+        return $this->removedItems;
     }
 
     /**
@@ -103,13 +137,37 @@ final class SetCountriesChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?StoreCountryCollection $addedItems
+     * @return $this
+     */
+    public function withAddedItems(?StoreCountryCollection $addedItems)
+    {
+        $this->addedItems = $addedItems;
+
+        return $this;
+    }
+
+    /**
+     * @param ?StoreCountryCollection $removedItems
+     * @return $this
+     */
+    public function withRemovedItems(?StoreCountryCollection $removedItems)
+    {
+        $this->removedItems = $removedItems;
+
+        return $this;
+    }
+
 
     public function build(): SetCountriesChange
     {
         return new SetCountriesChangeModel(
             $this->change,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->addedItems,
+            $this->removedItems
         );
     }
 

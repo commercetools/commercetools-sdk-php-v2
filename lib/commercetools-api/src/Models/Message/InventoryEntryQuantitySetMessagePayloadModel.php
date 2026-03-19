@@ -54,6 +54,12 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
 
     /**
      *
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     *
      * @var ?ChannelReference
      */
     protected $supplyChannel;
@@ -67,6 +73,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
         ?int $newQuantityOnStock = null,
         ?int $oldAvailableQuantity = null,
         ?int $newAvailableQuantity = null,
+        ?string $sku = null,
         ?ChannelReference $supplyChannel = null,
         ?string $type = null
     ) {
@@ -74,6 +81,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
         $this->newQuantityOnStock = $newQuantityOnStock;
         $this->oldAvailableQuantity = $oldAvailableQuantity;
         $this->newAvailableQuantity = $newAvailableQuantity;
+        $this->sku = $sku;
         $this->supplyChannel = $supplyChannel;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
@@ -177,6 +185,26 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> for which the quantity was updated.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Channel">Channel</a> where the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> quantity was set.</p>
      *
      *
@@ -228,6 +256,14 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     public function setNewAvailableQuantity(?int $newAvailableQuantity): void
     {
         $this->newAvailableQuantity = $newAvailableQuantity;
+    }
+
+    /**
+     * @param ?string $sku
+     */
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
     }
 
     /**

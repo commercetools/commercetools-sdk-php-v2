@@ -214,6 +214,12 @@ final class CartDraftBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var ?string
+     */
+    private $purchaseOrderNumber;
+
+    /**
      * <p>Currency the Cart uses.</p>
      *
 
@@ -561,6 +567,18 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier of a purchase order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
+    }
+
+    /**
      * @param ?string $currency
      * @return $this
      */
@@ -891,6 +909,17 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomerGroup() instead
      * @return $this
      */
@@ -1021,7 +1050,8 @@ final class CartDraftBuilder implements Builder
             $this->locale,
             $this->origin,
             $this->deleteDaysAfterLastModification,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->purchaseOrderNumber
         );
     }
 

@@ -37,6 +37,8 @@ final class CustomFieldStringTypeModel extends JsonObjectModel implements Custom
     }
 
     /**
+     * <p>Discriminator that determines the type of the field.</p>
+     *
      *
      * @return null|string
      */

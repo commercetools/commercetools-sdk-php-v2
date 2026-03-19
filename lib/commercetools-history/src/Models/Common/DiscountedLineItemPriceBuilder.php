@@ -22,7 +22,7 @@ final class DiscountedLineItemPriceBuilder implements Builder
 {
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -33,15 +33,19 @@ final class DiscountedLineItemPriceBuilder implements Builder
     private $includedDiscounts;
 
     /**
+     * <p>Money value of the discounted Line Item or Custom Line Item.</p>
+     *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
+     * <p>Discount applicable on the Line Item or Custom Line Item.</p>
+     *
 
      * @return null|DiscountedLineItemPortionCollection
      */
@@ -51,10 +55,10 @@ final class DiscountedLineItemPriceBuilder implements Builder
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      * @return $this
      */
-    public function withValue(?Money $value)
+    public function withValue(?TypedMoney $value)
     {
         $this->value = $value;
 
@@ -76,7 +80,7 @@ final class DiscountedLineItemPriceBuilder implements Builder
      * @deprecated use withValue() instead
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?TypedMoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -86,7 +90,7 @@ final class DiscountedLineItemPriceBuilder implements Builder
     public function build(): DiscountedLineItemPrice
     {
         return new DiscountedLineItemPriceModel(
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
             $this->includedDiscounts
         );
     }

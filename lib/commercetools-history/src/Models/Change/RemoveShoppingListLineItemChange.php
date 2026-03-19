@@ -10,7 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\LineItem;
+use Commercetools\History\Models\Common\ShoppingListLineItem;
 
 interface RemoveShoppingListLineItemChange extends Change
 {
@@ -34,7 +34,7 @@ interface RemoveShoppingListLineItemChange extends Change
      * <p>Value before the change.</p>
      *
 
-     * @return null|LineItem
+     * @return null|ShoppingListLineItem
      */
     public function getPreviousValue();
 
@@ -42,7 +42,7 @@ interface RemoveShoppingListLineItemChange extends Change
      * <p>Value after the change.</p>
      *
 
-     * @return null|LineItem
+     * @return null|ShoppingListLineItem
      */
     public function getNextValue();
 
@@ -52,12 +52,12 @@ interface RemoveShoppingListLineItemChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?LineItem $previousValue
+     * @param ?ShoppingListLineItem $previousValue
      */
-    public function setPreviousValue(?LineItem $previousValue): void;
+    public function setPreviousValue(?ShoppingListLineItem $previousValue): void;
 
     /**
-     * @param ?LineItem $nextValue
+     * @param ?ShoppingListLineItem $nextValue
      */
-    public function setNextValue(?LineItem $nextValue): void;
+    public function setNextValue(?ShoppingListLineItem $nextValue): void;
 }

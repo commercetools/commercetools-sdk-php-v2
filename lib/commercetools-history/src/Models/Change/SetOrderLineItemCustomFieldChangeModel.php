@@ -71,6 +71,12 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
      */
     protected $variant;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $lineItemId;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -83,6 +89,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
         ?string $name = null,
         ?LocalizedString $lineItem = null,
         ?string $variant = null,
+        ?string $lineItemId = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -92,6 +99,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
         $this->name = $name;
         $this->lineItem = $lineItem;
         $this->variant = $variant;
+        $this->lineItemId = $lineItemId;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -233,7 +241,8 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
      *
      * @return null|string
@@ -250,6 +259,26 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
         }
 
         return $this->variant;
+    }
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
     }
 
 
@@ -307,6 +336,14 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     public function setVariant(?string $variant): void
     {
         $this->variant = $variant;
+    }
+
+    /**
+     * @param ?string $lineItemId
+     */
+    public function setLineItemId(?string $lineItemId): void
+    {
+        $this->lineItemId = $lineItemId;
     }
 
 

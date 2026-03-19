@@ -22,13 +22,13 @@ final class ShippingRateBuilder implements Builder
 {
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $price;
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $freeAbove;
 
@@ -45,25 +45,31 @@ final class ShippingRateBuilder implements Builder
     private $tiers;
 
     /**
+     * <p>Currency amount of the ShippingRate.</p>
+     *
 
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getPrice()
     {
-        return $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price;
+        return $this->price instanceof CentPrecisionMoneyBuilder ? $this->price->build() : $this->price;
     }
 
     /**
+     * <p><a href="/../api/shipping-delivery-overview#free-shipping">Free shipping</a> is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
+     *
 
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getFreeAbove()
     {
-        return $this->freeAbove instanceof MoneyBuilder ? $this->freeAbove->build() : $this->freeAbove;
+        return $this->freeAbove instanceof CentPrecisionMoneyBuilder ? $this->freeAbove->build() : $this->freeAbove;
     }
 
     /**
-     * <p>Only appears in response to requests for ShippingMethods by Cart or location to mark this shipping rate as one that matches the Cart or location.</p>
+     * <p><code>true</code> if the ShippingRate matches given <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Location">Location</a>.
+     * Only appears in response to requests for <a href="ctp:api:endpoint:/{projectKey}/shipping-methods/matching-cart:GET">Get ShippingMethods for a Cart</a> or
+     * <a href="ctp:api:endpoint:/{projectKey}/shipping-methods/matching-location:GET">Get ShippingMethods for a Location</a>.</p>
      *
 
      * @return null|bool
@@ -74,6 +80,8 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
+     * <p>Price tiers for the ShippingRate.</p>
+     *
 
      * @return null|ShippingRatePriceTierCollection
      */
@@ -83,10 +91,10 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
-     * @param ?Money $price
+     * @param ?CentPrecisionMoney $price
      * @return $this
      */
-    public function withPrice(?Money $price)
+    public function withPrice(?CentPrecisionMoney $price)
     {
         $this->price = $price;
 
@@ -94,10 +102,10 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
-     * @param ?Money $freeAbove
+     * @param ?CentPrecisionMoney $freeAbove
      * @return $this
      */
-    public function withFreeAbove(?Money $freeAbove)
+    public function withFreeAbove(?CentPrecisionMoney $freeAbove)
     {
         $this->freeAbove = $freeAbove;
 
@@ -130,7 +138,7 @@ final class ShippingRateBuilder implements Builder
      * @deprecated use withPrice() instead
      * @return $this
      */
-    public function withPriceBuilder(?MoneyBuilder $price)
+    public function withPriceBuilder(?CentPrecisionMoneyBuilder $price)
     {
         $this->price = $price;
 
@@ -141,7 +149,7 @@ final class ShippingRateBuilder implements Builder
      * @deprecated use withFreeAbove() instead
      * @return $this
      */
-    public function withFreeAboveBuilder(?MoneyBuilder $freeAbove)
+    public function withFreeAboveBuilder(?CentPrecisionMoneyBuilder $freeAbove)
     {
         $this->freeAbove = $freeAbove;
 
@@ -151,8 +159,8 @@ final class ShippingRateBuilder implements Builder
     public function build(): ShippingRate
     {
         return new ShippingRateModel(
-            $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price,
-            $this->freeAbove instanceof MoneyBuilder ? $this->freeAbove->build() : $this->freeAbove,
+            $this->price instanceof CentPrecisionMoneyBuilder ? $this->price->build() : $this->price,
+            $this->freeAbove instanceof CentPrecisionMoneyBuilder ? $this->freeAbove->build() : $this->freeAbove,
             $this->isMatching,
             $this->tiers
         );

@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\LineItem;
-use Commercetools\History\Models\Common\LineItemBuilder;
+use Commercetools\History\Models\Common\ShoppingListLineItem;
+use Commercetools\History\Models\Common\ShoppingListLineItemBuilder;
 
 /**
  * @implements Builder<RemoveShoppingListLineItemChange>
@@ -30,13 +30,13 @@ final class RemoveShoppingListLineItemChangeBuilder implements Builder
 
     /**
 
-     * @var null|LineItem|LineItemBuilder
+     * @var null|ShoppingListLineItem|ShoppingListLineItemBuilder
      */
     private $previousValue;
 
     /**
 
-     * @var null|LineItem|LineItemBuilder
+     * @var null|ShoppingListLineItem|ShoppingListLineItemBuilder
      */
     private $nextValue;
 
@@ -53,22 +53,22 @@ final class RemoveShoppingListLineItemChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|LineItem
+     * @return null|ShoppingListLineItem
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof LineItemBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue instanceof ShoppingListLineItemBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
      * <p>Value after the change.</p>
      *
 
-     * @return null|LineItem
+     * @return null|ShoppingListLineItem
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof LineItemBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof ShoppingListLineItemBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -83,10 +83,10 @@ final class RemoveShoppingListLineItemChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LineItem $previousValue
+     * @param ?ShoppingListLineItem $previousValue
      * @return $this
      */
-    public function withPreviousValue(?LineItem $previousValue)
+    public function withPreviousValue(?ShoppingListLineItem $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -94,10 +94,10 @@ final class RemoveShoppingListLineItemChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LineItem $nextValue
+     * @param ?ShoppingListLineItem $nextValue
      * @return $this
      */
-    public function withNextValue(?LineItem $nextValue)
+    public function withNextValue(?ShoppingListLineItem $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -108,7 +108,7 @@ final class RemoveShoppingListLineItemChangeBuilder implements Builder
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?LineItemBuilder $previousValue)
+    public function withPreviousValueBuilder(?ShoppingListLineItemBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -119,7 +119,7 @@ final class RemoveShoppingListLineItemChangeBuilder implements Builder
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?LineItemBuilder $nextValue)
+    public function withNextValueBuilder(?ShoppingListLineItemBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -130,8 +130,8 @@ final class RemoveShoppingListLineItemChangeBuilder implements Builder
     {
         return new RemoveShoppingListLineItemChangeModel(
             $this->change,
-            $this->previousValue instanceof LineItemBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof LineItemBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->previousValue instanceof ShoppingListLineItemBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof ShoppingListLineItemBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

@@ -20,9 +20,39 @@ use stdClass;
  */
 final class CartFreezeCartActionBuilder implements Builder
 {
+    /**
+
+     * @var ?string
+     */
+    private $strategy;
+
+    /**
+     * <p>Strategy that determines the freezing behavior.</p>
+     *
+
+     * @return null|string
+     */
+    public function getStrategy()
+    {
+        return $this->strategy;
+    }
+
+    /**
+     * @param ?string $strategy
+     * @return $this
+     */
+    public function withStrategy(?string $strategy)
+    {
+        $this->strategy = $strategy;
+
+        return $this;
+    }
+
+
     public function build(): CartFreezeCartAction
     {
         return new CartFreezeCartActionModel(
+            $this->strategy
         );
     }
 

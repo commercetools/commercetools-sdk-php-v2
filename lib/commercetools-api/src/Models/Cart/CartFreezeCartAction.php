@@ -13,4 +13,18 @@ use Commercetools\Base\JsonObject;
 
 interface CartFreezeCartAction extends CartUpdateAction
 {
+    public const FIELD_STRATEGY = 'strategy';
+
+    /**
+     * <p>Strategy that determines the freezing behavior.</p>
+     *
+
+     * @return null|string
+     */
+    public function getStrategy();
+
+    /**
+     * @param ?string $strategy
+     */
+    public function setStrategy(?string $strategy): void;
 }

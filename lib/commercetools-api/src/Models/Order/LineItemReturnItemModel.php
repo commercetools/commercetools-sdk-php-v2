@@ -307,7 +307,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
-     * <p>Date and time (UTC) the Return Item was intitially created.</p>
+     * <p>Date and time (UTC) the Return Item was initially created.</p>
      *
      *
      * @return null|DateTimeImmutable

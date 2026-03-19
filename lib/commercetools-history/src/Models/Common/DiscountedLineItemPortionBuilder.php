@@ -28,11 +28,13 @@ final class DiscountedLineItemPortionBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $discountedAmount;
 
     /**
+     * <p>A <a href="ctp:api:type:CartDiscountReference">CartDiscountReference</a> or <a href="ctp:api:type:DirectDiscountReference">DirectDiscountReference</a> of the applicable discount on the Line Item.</p>
+     *
 
      * @return null|Reference
      */
@@ -42,12 +44,14 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
+     * <p>Money value of the applicable discount.</p>
+     *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getDiscountedAmount()
     {
-        return $this->discountedAmount instanceof MoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount;
+        return $this->discountedAmount instanceof TypedMoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount;
     }
 
     /**
@@ -62,10 +66,10 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
-     * @param ?Money $discountedAmount
+     * @param ?TypedMoney $discountedAmount
      * @return $this
      */
-    public function withDiscountedAmount(?Money $discountedAmount)
+    public function withDiscountedAmount(?TypedMoney $discountedAmount)
     {
         $this->discountedAmount = $discountedAmount;
 
@@ -87,7 +91,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
      * @deprecated use withDiscountedAmount() instead
      * @return $this
      */
-    public function withDiscountedAmountBuilder(?MoneyBuilder $discountedAmount)
+    public function withDiscountedAmountBuilder(?TypedMoneyBuilder $discountedAmount)
     {
         $this->discountedAmount = $discountedAmount;
 
@@ -98,7 +102,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     {
         return new DiscountedLineItemPortionModel(
             $this->discount instanceof ReferenceBuilder ? $this->discount->build() : $this->discount,
-            $this->discountedAmount instanceof MoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount
+            $this->discountedAmount instanceof TypedMoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount
         );
     }
 

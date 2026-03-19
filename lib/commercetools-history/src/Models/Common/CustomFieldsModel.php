@@ -23,13 +23,13 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
 
     /**
      *
-     * @var ?Reference
+     * @var ?TypeReference
      */
     protected $type;
 
     /**
      *
-     * @var ?mixed
+     * @var ?FieldContainer
      */
     protected $fields;
 
@@ -38,8 +38,8 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Reference $type = null,
-        ?JsonObject $fields = null
+        ?TypeReference $type = null,
+        ?FieldContainer $fields = null
     ) {
         $this->type = $type;
         $this->fields = $fields;
@@ -47,8 +47,10 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
     }
 
     /**
+     * <p>Reference to the <a href="ctp:api:type:Type">Type</a> that holds the <a href="ctp:api:type:FieldDefinition">FieldDefinitions</a> for the Custom Fields.</p>
      *
-     * @return null|Reference
+     *
+     * @return null|TypeReference
      */
     public function getType()
     {
@@ -59,17 +61,17 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
                 return null;
             }
 
-            $this->type = ReferenceModel::of($data);
+            $this->type = TypeReferenceModel::of($data);
         }
 
         return $this->type;
     }
 
     /**
-     * <p>A valid JSON object, based on FieldDefinition.</p>
+     * <p>Object containing the Custom Fields of the <a href="/../api/projects/types#resourcetypeid">customized resource or data type</a>.</p>
      *
      *
-     * @return null|mixed
+     * @return null|FieldContainer
      */
     public function getFields()
     {
@@ -79,7 +81,8 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
             if (is_null($data)) {
                 return null;
             }
-            $this->fields = JsonObjectModel::of($data);
+
+            $this->fields = FieldContainerModel::of($data);
         }
 
         return $this->fields;
@@ -87,17 +90,17 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
 
 
     /**
-     * @param ?Reference $type
+     * @param ?TypeReference $type
      */
-    public function setType(?Reference $type): void
+    public function setType(?TypeReference $type): void
     {
         $this->type = $type;
     }
 
     /**
-     * @param ?JsonObject $fields
+     * @param ?FieldContainer $fields
      */
-    public function setFields(?JsonObject $fields): void
+    public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;
     }

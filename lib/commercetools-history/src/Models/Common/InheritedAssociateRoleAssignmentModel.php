@@ -23,13 +23,13 @@ final class InheritedAssociateRoleAssignmentModel extends JsonObjectModel implem
 
     /**
      *
-     * @var ?KeyReference
+     * @var ?AssociateRoleKeyReference
      */
     protected $associateRole;
 
     /**
      *
-     * @var ?KeyReference
+     * @var ?BusinessUnitKeyReference
      */
     protected $source;
 
@@ -38,8 +38,8 @@ final class InheritedAssociateRoleAssignmentModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?KeyReference $associateRole = null,
-        ?KeyReference $source = null
+        ?AssociateRoleKeyReference $associateRole = null,
+        ?BusinessUnitKeyReference $source = null
     ) {
         $this->associateRole = $associateRole;
         $this->source = $source;
@@ -47,8 +47,10 @@ final class InheritedAssociateRoleAssignmentModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Inherited role the Associate holds within a Business Unit.</p>
      *
-     * @return null|KeyReference
+     *
+     * @return null|AssociateRoleKeyReference
      */
     public function getAssociateRole()
     {
@@ -59,15 +61,17 @@ final class InheritedAssociateRoleAssignmentModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->associateRole = KeyReferenceModel::of($data);
+            $this->associateRole = AssociateRoleKeyReferenceModel::of($data);
         }
 
         return $this->associateRole;
     }
 
     /**
+     * <p>Reference to the parent Business Unit where the assignment is defined explicitly.</p>
      *
-     * @return null|KeyReference
+     *
+     * @return null|BusinessUnitKeyReference
      */
     public function getSource()
     {
@@ -78,7 +82,7 @@ final class InheritedAssociateRoleAssignmentModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->source = KeyReferenceModel::of($data);
+            $this->source = BusinessUnitKeyReferenceModel::of($data);
         }
 
         return $this->source;
@@ -86,17 +90,17 @@ final class InheritedAssociateRoleAssignmentModel extends JsonObjectModel implem
 
 
     /**
-     * @param ?KeyReference $associateRole
+     * @param ?AssociateRoleKeyReference $associateRole
      */
-    public function setAssociateRole(?KeyReference $associateRole): void
+    public function setAssociateRole(?AssociateRoleKeyReference $associateRole): void
     {
         $this->associateRole = $associateRole;
     }
 
     /**
-     * @param ?KeyReference $source
+     * @param ?BusinessUnitKeyReference $source
      */
-    public function setSource(?KeyReference $source): void
+    public function setSource(?BusinessUnitKeyReference $source): void
     {
         $this->source = $source;
     }

@@ -10,26 +10,41 @@ namespace Commercetools\History\Models\Common;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use DateTimeImmutable;
 
 interface ReturnItem extends JsonObject
 {
 
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_TYPE = 'type';
     public const FIELD_COMMENT = 'comment';
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
     public const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_CUSTOM = 'custom';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
     public const FIELD_CREATED_AT = 'createdAt';
 
     /**
+     * <p>Unique identifier of the Return Item.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>User-defined unique identifier of the Return Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * <p>Number of Line Items or Custom Line Items returned.</p>
+     *
 
      * @return null|int
      */
@@ -42,32 +57,54 @@ interface ReturnItem extends JsonObject
     public function getType();
 
     /**
+     * <p>User-defined description for the return.</p>
+     *
 
      * @return null|string
      */
     public function getComment();
 
     /**
+     * <p>Shipment status of the Return Item.</p>
+     *
 
      * @return null|string
      */
     public function getShipmentState();
 
     /**
+     * <p>Payment status of the Return Item:</p>
+     * <ul>
+     * <li><code>NonRefundable</code>, for items in the <code>Advised</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * <li><code>Initial</code>, for items in the <code>Returned</code> <a href="ctp:api:type:ReturnShipmentState">ReturnShipmentState</a></li>
+     * </ul>
+     *
 
      * @return null|string
      */
     public function getPaymentState();
 
     /**
+     * <p>Custom Fields of the Return Item.</p>
+     *
 
-     * @return null|string
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
+     * <p>Date and time (UTC) the Return Item was last updated.</p>
+     *
+
+     * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
+     * <p>Date and time (UTC) the Return Item was initially created.</p>
+     *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
@@ -75,6 +112,11 @@ interface ReturnItem extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?int $quantity
@@ -102,12 +144,17 @@ interface ReturnItem extends JsonObject
     public function setPaymentState(?string $paymentState): void;
 
     /**
-     * @param ?string $lastModifiedAt
+     * @param ?CustomFields $custom
      */
-    public function setLastModifiedAt(?string $lastModifiedAt): void;
+    public function setCustom(?CustomFields $custom): void;
 
     /**
-     * @param ?string $createdAt
+     * @param ?DateTimeImmutable $lastModifiedAt
      */
-    public function setCreatedAt(?string $createdAt): void;
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 }

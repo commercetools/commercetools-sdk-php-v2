@@ -99,7 +99,7 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
      *
      * @var ?PaymentReference
      */
-    protected $payment;
+    protected $paymentRef;
 
 
     /**
@@ -116,7 +116,7 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?PaymentReference $payment = null,
+        ?PaymentReference $paymentRef = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -129,7 +129,7 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->payment = $payment;
+        $this->paymentRef = $paymentRef;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -372,19 +372,19 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
      *
      * @return null|PaymentReference
      */
-    public function getPayment()
+    public function getPaymentRef()
     {
-        if (is_null($this->payment)) {
+        if (is_null($this->paymentRef)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PAYMENT);
+            $data = $this->raw(self::FIELD_PAYMENT_REF);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->payment = PaymentReferenceModel::of($data);
+            $this->paymentRef = PaymentReferenceModel::of($data);
         }
 
-        return $this->payment;
+        return $this->paymentRef;
     }
 
 
@@ -469,11 +469,11 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
     }
 
     /**
-     * @param ?PaymentReference $payment
+     * @param ?PaymentReference $paymentRef
      */
-    public function setPayment(?PaymentReference $payment): void
+    public function setPaymentRef(?PaymentReference $paymentRef): void
     {
-        $this->payment = $payment;
+        $this->paymentRef = $paymentRef;
     }
 
 

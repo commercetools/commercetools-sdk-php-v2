@@ -335,7 +335,7 @@ final class AssociateRoleModel extends JsonObjectModel implements AssociateRole
     }
 
     /**
-     * <p>Custom Fields for the AssociateRole.</p>
+     * <p>Custom Fields of the AssociateRole.</p>
      *
      *
      * @return null|CustomFields

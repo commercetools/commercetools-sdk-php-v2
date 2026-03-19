@@ -22,24 +22,9 @@ final class GeoLocationBuilder implements Builder
 {
     /**
 
-     * @var ?string
-     */
-    private $type;
-
-    /**
-
      * @var ?array
      */
     private $coordinates;
-
-    /**
-
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
 
@@ -48,17 +33,6 @@ final class GeoLocationBuilder implements Builder
     public function getCoordinates()
     {
         return $this->coordinates;
-    }
-
-    /**
-     * @param ?string $type
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -76,7 +50,6 @@ final class GeoLocationBuilder implements Builder
     public function build(): GeoLocation
     {
         return new GeoLocationModel(
-            $this->type,
             $this->coordinates
         );
     }

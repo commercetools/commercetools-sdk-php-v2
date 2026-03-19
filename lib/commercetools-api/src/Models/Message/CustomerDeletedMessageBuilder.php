@@ -88,6 +88,12 @@ final class CustomerDeletedMessageBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
+
+     * @var ?string
+     */
+    private $email;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -196,6 +202,17 @@ final class CustomerDeletedMessageBuilder implements Builder
     public function getResourceUserProvidedIdentifiers()
     {
         return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * <p>The email address of the Customer that was deleted.</p>
+     *
+
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**
@@ -309,6 +326,17 @@ final class CustomerDeletedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $email
+     * @return $this
+     */
+    public function withEmail(?string $email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -364,7 +392,8 @@ final class CustomerDeletedMessageBuilder implements Builder
             $this->sequenceNumber,
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
-            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers
+            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
+            $this->email
         );
     }
 

@@ -52,6 +52,12 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $attributeName;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -101,6 +107,17 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
     public function getValueKey()
     {
         return $this->valueKey;
+    }
+
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        return $this->attributeName;
     }
 
     /**
@@ -158,6 +175,17 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $attributeName
+     * @return $this
+     */
+    public function withAttributeName(?string $attributeName)
+    {
+        $this->attributeName = $attributeName;
+
+        return $this;
+    }
+
 
     public function build(): ChangeEnumValueLabelChange
     {
@@ -166,7 +194,8 @@ final class ChangeEnumValueLabelChangeBuilder implements Builder
             $this->previousValue,
             $this->nextValue,
             $this->fieldName,
-            $this->valueKey
+            $this->valueKey,
+            $this->attributeName
         );
     }
 

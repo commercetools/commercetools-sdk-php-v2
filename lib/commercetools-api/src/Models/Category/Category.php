@@ -168,7 +168,7 @@ interface Category extends BaseResource
     public function getMetaKeywords();
 
     /**
-     * <p>Custom Fields for the Category.</p>
+     * <p>Custom Fields of the Category.</p>
      *
 
      * @return null|CustomFields

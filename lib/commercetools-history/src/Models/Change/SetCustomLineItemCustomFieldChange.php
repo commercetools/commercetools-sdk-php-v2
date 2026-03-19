@@ -20,6 +20,7 @@ interface SetCustomLineItemCustomFieldChange extends Change
     public const FIELD_NAME = 'name';
     public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_CUSTOM_TYPE_ID = 'customTypeId';
 
     /**
 
@@ -74,6 +75,14 @@ interface SetCustomLineItemCustomFieldChange extends Change
     public function getCustomLineItemId();
 
     /**
+     * <p><code>id</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomTypeId();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -102,4 +111,9 @@ interface SetCustomLineItemCustomFieldChange extends Change
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $customTypeId
+     */
+    public function setCustomTypeId(?string $customTypeId): void;
 }

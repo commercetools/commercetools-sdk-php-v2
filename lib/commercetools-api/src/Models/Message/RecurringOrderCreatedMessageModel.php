@@ -99,7 +99,7 @@ final class RecurringOrderCreatedMessageModel extends JsonObjectModel implements
      *
      * @var ?RecurringOrder
      */
-    protected $order;
+    protected $recurringOrder;
 
 
     /**
@@ -116,7 +116,7 @@ final class RecurringOrderCreatedMessageModel extends JsonObjectModel implements
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?RecurringOrder $order = null,
+        ?RecurringOrder $recurringOrder = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -129,7 +129,7 @@ final class RecurringOrderCreatedMessageModel extends JsonObjectModel implements
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->order = $order;
+        $this->recurringOrder = $recurringOrder;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -372,19 +372,19 @@ final class RecurringOrderCreatedMessageModel extends JsonObjectModel implements
      *
      * @return null|RecurringOrder
      */
-    public function getOrder()
+    public function getRecurringOrder()
     {
-        if (is_null($this->order)) {
+        if (is_null($this->recurringOrder)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ORDER);
+            $data = $this->raw(self::FIELD_RECURRING_ORDER);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->order = RecurringOrderModel::of($data);
+            $this->recurringOrder = RecurringOrderModel::of($data);
         }
 
-        return $this->order;
+        return $this->recurringOrder;
     }
 
 
@@ -469,11 +469,11 @@ final class RecurringOrderCreatedMessageModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?RecurringOrder $order
+     * @param ?RecurringOrder $recurringOrder
      */
-    public function setOrder(?RecurringOrder $order): void
+    public function setRecurringOrder(?RecurringOrder $recurringOrder): void
     {
-        $this->order = $order;
+        $this->recurringOrder = $recurringOrder;
     }
 
 

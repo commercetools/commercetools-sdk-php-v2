@@ -115,8 +115,8 @@ final class AddProductChangeModel extends JsonObjectModel implements AddProductC
             if (is_null($data)) {
                 return null;
             }
-
-            $this->nextValue = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->nextValue = $className::of($data);
         }
 
         return $this->nextValue;

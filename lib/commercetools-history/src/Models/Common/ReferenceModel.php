@@ -20,6 +20,12 @@ use stdClass;
 final class ReferenceModel extends JsonObjectModel implements Reference
 {
 
+    public const DISCRIMINATOR_VALUE = '';
+    /**
+     *
+     * @var ?string
+     */
+    protected $typeId;
 
     /**
      *
@@ -28,11 +34,27 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     protected $id;
 
     /**
-     *
-     * @var ?string
+     * @psalm-var array<string, class-string<Reference> >
+     * 
      */
-    protected $typeId;
-
+    private static $discriminatorClasses = [
+       'cart-discount' => CartDiscountReferenceModel::class,
+       'category' => CategoryReferenceModel::class,
+       'channel' => ChannelReferenceModel::class,
+       'customer' => CustomerReferenceModel::class,
+       'customer-group' => CustomerGroupReferenceModel::class,
+       'discount-code' => DiscountCodeReferenceModel::class,
+       'payment' => PaymentReferenceModel::class,
+       'product' => ProductReferenceModel::class,
+       'product-discount' => ProductDiscountReferenceModel::class,
+       'product-selection' => ProductSelectionReferenceModel::class,
+       'product-type' => ProductTypeReferenceModel::class,
+       'recurrence-policy' => RecurrencePolicyReferenceModel::class,
+       'shipping-method' => ShippingMethodReferenceModel::class,
+       'state' => StateReferenceModel::class,
+       'tax-category' => TaxCategoryReferenceModel::class,
+       'type' => TypeReferenceModel::class,
+    ];
 
     /**
      * @psalm-suppress MissingParamType
@@ -47,24 +69,8 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     }
 
     /**
+     * <p>Type of referenced resource.</p>
      *
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
      *
      * @return null|string
      */
@@ -82,6 +88,26 @@ final class ReferenceModel extends JsonObjectModel implements Reference
         return $this->typeId;
     }
 
+    /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
 
     /**
      * @param ?string $id
@@ -91,14 +117,32 @@ final class ReferenceModel extends JsonObjectModel implements Reference
         $this->id = $id;
     }
 
+
+
     /**
-     * @param ?string $typeId
+     * @psalm-param stdClass|array<string, mixed> $value
+     * @psalm-return class-string<Reference>
      */
-    public function setTypeId(?string $typeId): void
+    public static function resolveDiscriminatorClass($value): string
     {
-        $this->typeId = $typeId;
+       $fieldName = Reference::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
+                return self::$discriminatorClasses[$discriminatorValue];
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(self::$discriminatorClasses[$discriminatorValue])) {
+                return self::$discriminatorClasses[$discriminatorValue];
+           }
+       }
+
+       /** @psalm-var class-string<Reference> */
+       $type = ReferenceModel::class;
+       return $type;
     }
-
-
-
 }

@@ -94,7 +94,7 @@ interface ScopedPrice extends JsonObject
 
     /**
      * <p>Is set when a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the <a href="ctp:api:type:Cart">Cart</a> uses the discounted value for the <a href="ctp:api:type:CartAddLineItemAction">Cart Price calculation</a>.</p>
-     * <p>When a <a href="ctp:api:type:ProductDiscountValueRelative">relative Product Discount</a> is applied and the fractional part of the discounted Price is 0.5, the discounted Price is <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">rounded half down</a> in favor of the Customer.</p>
+     * <p>When a <a href="ctp:api:type:ProductDiscountValueRelative">relative Product Discount</a> is applied and the fractional part of the discounted Price is 0.5, the discounted Price is <a href="https://en.wikipedia.org/wiki/Rounding#Rounding_half_down">rounded half down</a> in favor of the Customer.</p>
      *
 
      * @return null|DiscountedPrice
@@ -102,7 +102,7 @@ interface ScopedPrice extends JsonObject
     public function getDiscounted();
 
     /**
-     * <p>Custom Fields for the Price.</p>
+     * <p>Custom Fields of the Price.</p>
      *
 
      * @return null|CustomFields

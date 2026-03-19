@@ -121,7 +121,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of the ShoppingListLineItem.</p>
+     * <p>Custom Fields for the ShoppingListLineItem.</p>
      *
 
      * @return null|CustomFieldsDraft

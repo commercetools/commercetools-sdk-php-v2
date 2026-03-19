@@ -64,7 +64,7 @@ interface ShoppingListLineItemDraft extends JsonObject
     public function getAddedAt();
 
     /**
-     * <p>Custom Fields of the ShoppingListLineItem.</p>
+     * <p>Custom Fields for the ShoppingListLineItem.</p>
      *
 
      * @return null|CustomFieldsDraft

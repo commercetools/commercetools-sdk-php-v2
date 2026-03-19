@@ -229,7 +229,7 @@ final class ProductTailoringBuilder implements Builder
     }
 
     /**
-     * <p>Current (published) data of the ProductTailoring.</p>
+     * <p>Current data of the ProductTailoring returned in the <a href="/projects/productProjections">Product Projection</a> response when the ProductTailoring is published.</p>
      *
 
      * @return null|ProductTailoringData
@@ -240,7 +240,7 @@ final class ProductTailoringBuilder implements Builder
     }
 
     /**
-     * <p>Staged (unpublished) data of the ProductTailoring.</p>
+     * <p>Staged data of the ProductTailoring. This data is not returned in the Product Projection response by default.</p>
      *
 
      * @return null|ProductTailoringData

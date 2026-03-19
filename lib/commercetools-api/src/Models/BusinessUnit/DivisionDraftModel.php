@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\BusinessUnit;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
+use Commercetools\Api\Models\Customer\CustomerGroupAssignmentDraftCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
@@ -122,6 +123,12 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
 
     /**
      *
+     * @var ?CustomerGroupAssignmentDraftCollection
+     */
+    protected $customerGroupAssignments;
+
+    /**
+     *
      * @var ?BusinessUnitResourceIdentifier
      */
     protected $parentUnit;
@@ -146,6 +153,7 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
         ?array $billingAddresses = null,
         ?int $defaultBillingAddress = null,
         ?CustomFieldsDraft $custom = null,
+        ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments = null,
         ?BusinessUnitResourceIdentifier $parentUnit = null,
         ?string $unitType = null
     ) {
@@ -164,6 +172,7 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
         $this->billingAddresses = $billingAddresses;
         $this->defaultBillingAddress = $defaultBillingAddress;
         $this->custom = $custom;
+        $this->customerGroupAssignments = $customerGroupAssignments;
         $this->parentUnit = $parentUnit;
         $this->unitType = $unitType ?? self::DISCRIMINATOR_VALUE;
     }
@@ -496,6 +505,27 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
     }
 
     /**
+     * <p>Customer Groups to assign the Business Unit to.</p>
+     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     *
+     *
+     * @return null|CustomerGroupAssignmentDraftCollection
+     */
+    public function getCustomerGroupAssignments()
+    {
+        if (is_null($this->customerGroupAssignments)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP_ASSIGNMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerGroupAssignments = CustomerGroupAssignmentDraftCollection::fromArray($data);
+        }
+
+        return $this->customerGroupAssignments;
+    }
+
+    /**
      * <p>The parent unit of this Division. Can be a Company or a Division.</p>
      *
      *
@@ -635,6 +665,14 @@ final class DivisionDraftModel extends JsonObjectModel implements DivisionDraft
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?CustomerGroupAssignmentDraftCollection $customerGroupAssignments
+     */
+    public function setCustomerGroupAssignments(?CustomerGroupAssignmentDraftCollection $customerGroupAssignments): void
+    {
+        $this->customerGroupAssignments = $customerGroupAssignments;
     }
 
     /**

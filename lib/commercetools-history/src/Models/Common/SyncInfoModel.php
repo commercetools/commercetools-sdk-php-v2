@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @internal
@@ -23,7 +24,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 
     /**
      *
-     * @var ?Reference
+     * @var ?ChannelReference
      */
     protected $channel;
 
@@ -35,7 +36,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 
     /**
      *
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     protected $syncedAt;
 
@@ -44,9 +45,9 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Reference $channel = null,
+        ?ChannelReference $channel = null,
         ?string $externalId = null,
-        ?string $syncedAt = null
+        ?DateTimeImmutable $syncedAt = null
     ) {
         $this->channel = $channel;
         $this->externalId = $externalId;
@@ -55,8 +56,10 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     }
 
     /**
+     * <p>Connection to a synchronization destination.</p>
      *
-     * @return null|Reference
+     *
+     * @return null|ChannelReference
      */
     public function getChannel()
     {
@@ -67,14 +70,14 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
                 return null;
             }
 
-            $this->channel = ReferenceModel::of($data);
+            $this->channel = ChannelReferenceModel::of($data);
         }
 
         return $this->channel;
     }
 
     /**
-     * <p>Can be used to reference an external order instance, file etc.</p>
+     * <p>Identifier of an external order instance, file, or other resource.</p>
      *
      *
      * @return null|string
@@ -94,8 +97,10 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     }
 
     /**
+     * <p>Date and time (UTC) the information was synced.</p>
      *
-     * @return null|string
+     *
+     * @return null|DateTimeImmutable
      */
     public function getSyncedAt()
     {
@@ -105,7 +110,11 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
             if (is_null($data)) {
                 return null;
             }
-            $this->syncedAt = (string) $data;
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->syncedAt = $data;
         }
 
         return $this->syncedAt;
@@ -113,9 +122,9 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 
 
     /**
-     * @param ?Reference $channel
+     * @param ?ChannelReference $channel
      */
-    public function setChannel(?Reference $channel): void
+    public function setChannel(?ChannelReference $channel): void
     {
         $this->channel = $channel;
     }
@@ -129,13 +138,22 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     }
 
     /**
-     * @param ?string $syncedAt
+     * @param ?DateTimeImmutable $syncedAt
      */
-    public function setSyncedAt(?string $syncedAt): void
+    public function setSyncedAt(?DateTimeImmutable $syncedAt): void
     {
         $this->syncedAt = $syncedAt;
     }
 
 
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[SyncInfo::FIELD_SYNCED_AT]) && $data[SyncInfo::FIELD_SYNCED_AT] instanceof \DateTimeImmutable) {
+            $data[SyncInfo::FIELD_SYNCED_AT] = $data[SyncInfo::FIELD_SYNCED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
+    }
 
 }

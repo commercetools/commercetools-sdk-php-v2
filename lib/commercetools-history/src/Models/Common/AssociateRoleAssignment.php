@@ -18,13 +18,15 @@ interface AssociateRoleAssignment extends JsonObject
     public const FIELD_INHERITANCE = 'inheritance';
 
     /**
+     * <p>Role the Associate holds within a Business Unit.</p>
+     *
 
-     * @return null|KeyReference
+     * @return null|AssociateRoleKeyReference
      */
     public function getAssociateRole();
 
     /**
-     * <p>Determines whether an <a href="ctp:api:type:AssociateRoleAssignment">AssociateRoleAssignment</a> can be inherited by child Business Units.</p>
+     * <p>Determines whether the AssociateRoleAssignment can be inherited by child Business Units.</p>
      *
 
      * @return null|string
@@ -32,9 +34,9 @@ interface AssociateRoleAssignment extends JsonObject
     public function getInheritance();
 
     /**
-     * @param ?KeyReference $associateRole
+     * @param ?AssociateRoleKeyReference $associateRole
      */
-    public function setAssociateRole(?KeyReference $associateRole): void;
+    public function setAssociateRole(?AssociateRoleKeyReference $associateRole): void;
 
     /**
      * @param ?string $inheritance

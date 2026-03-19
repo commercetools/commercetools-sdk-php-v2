@@ -113,8 +113,8 @@ final class ChangeParentUnitChangeModel extends JsonObjectModel implements Chang
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = KeyReferenceModel::of($data);
+            $className = KeyReferenceModel::resolveDiscriminatorClass($data);
+            $this->previousValue = $className::of($data);
         }
 
         return $this->previousValue;
@@ -134,8 +134,8 @@ final class ChangeParentUnitChangeModel extends JsonObjectModel implements Chang
             if (is_null($data)) {
                 return null;
             }
-
-            $this->nextValue = KeyReferenceModel::of($data);
+            $className = KeyReferenceModel::resolveDiscriminatorClass($data);
+            $this->nextValue = $className::of($data);
         }
 
         return $this->nextValue;

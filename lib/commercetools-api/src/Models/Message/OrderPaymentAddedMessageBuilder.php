@@ -93,7 +93,7 @@ final class OrderPaymentAddedMessageBuilder implements Builder
 
      * @var null|PaymentReference|PaymentReferenceBuilder
      */
-    private $payment;
+    private $paymentRef;
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
@@ -212,9 +212,9 @@ final class OrderPaymentAddedMessageBuilder implements Builder
 
      * @return null|PaymentReference
      */
-    public function getPayment()
+    public function getPaymentRef()
     {
-        return $this->payment instanceof PaymentReferenceBuilder ? $this->payment->build() : $this->payment;
+        return $this->paymentRef instanceof PaymentReferenceBuilder ? $this->paymentRef->build() : $this->paymentRef;
     }
 
     /**
@@ -328,12 +328,12 @@ final class OrderPaymentAddedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?PaymentReference $payment
+     * @param ?PaymentReference $paymentRef
      * @return $this
      */
-    public function withPayment(?PaymentReference $payment)
+    public function withPaymentRef(?PaymentReference $paymentRef)
     {
-        $this->payment = $payment;
+        $this->paymentRef = $paymentRef;
 
         return $this;
     }
@@ -383,12 +383,12 @@ final class OrderPaymentAddedMessageBuilder implements Builder
     }
 
     /**
-     * @deprecated use withPayment() instead
+     * @deprecated use withPaymentRef() instead
      * @return $this
      */
-    public function withPaymentBuilder(?PaymentReferenceBuilder $payment)
+    public function withPaymentRefBuilder(?PaymentReferenceBuilder $paymentRef)
     {
-        $this->payment = $payment;
+        $this->paymentRef = $paymentRef;
 
         return $this;
     }
@@ -406,7 +406,7 @@ final class OrderPaymentAddedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->payment instanceof PaymentReferenceBuilder ? $this->payment->build() : $this->payment
+            $this->paymentRef instanceof PaymentReferenceBuilder ? $this->paymentRef->build() : $this->paymentRef
         );
     }
 

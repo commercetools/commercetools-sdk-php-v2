@@ -30,17 +30,17 @@ final class StandalonePriceRemovePriceTierActionModel extends JsonObjectModel im
      *
      * @var ?int
      */
-    protected $tierMinimumQuantity;
+    protected $minimumQuantity;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $tierMinimumQuantity = null,
+        ?int $minimumQuantity = null,
         ?string $action = null
     ) {
-        $this->tierMinimumQuantity = $tierMinimumQuantity;
+        $this->minimumQuantity = $minimumQuantity;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -68,26 +68,26 @@ final class StandalonePriceRemovePriceTierActionModel extends JsonObjectModel im
      *
      * @return null|int
      */
-    public function getTierMinimumQuantity()
+    public function getMinimumQuantity()
     {
-        if (is_null($this->tierMinimumQuantity)) {
+        if (is_null($this->minimumQuantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_TIER_MINIMUM_QUANTITY);
+            $data = $this->raw(self::FIELD_MINIMUM_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->tierMinimumQuantity = (int) $data;
+            $this->minimumQuantity = (int) $data;
         }
 
-        return $this->tierMinimumQuantity;
+        return $this->minimumQuantity;
     }
 
 
     /**
-     * @param ?int $tierMinimumQuantity
+     * @param ?int $minimumQuantity
      */
-    public function setTierMinimumQuantity(?int $tierMinimumQuantity): void
+    public function setMinimumQuantity(?int $minimumQuantity): void
     {
-        $this->tierMinimumQuantity = $tierMinimumQuantity;
+        $this->minimumQuantity = $minimumQuantity;
     }
 }

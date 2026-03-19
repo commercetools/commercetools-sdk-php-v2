@@ -14,7 +14,7 @@ use Commercetools\Base\JsonObject;
 
 interface OrderPaymentAddedMessagePayload extends MessagePayload
 {
-    public const FIELD_PAYMENT = 'payment';
+    public const FIELD_PAYMENT_REF = 'paymentRef';
 
     /**
      * <p><a href="ctp:api:type:Payment">Payment</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
@@ -22,10 +22,10 @@ interface OrderPaymentAddedMessagePayload extends MessagePayload
 
      * @return null|PaymentReference
      */
-    public function getPayment();
+    public function getPaymentRef();
 
     /**
-     * @param ?PaymentReference $payment
+     * @param ?PaymentReference $paymentRef
      */
-    public function setPayment(?PaymentReference $payment): void;
+    public function setPaymentRef(?PaymentReference $paymentRef): void;
 }

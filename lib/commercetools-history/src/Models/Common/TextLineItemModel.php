@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @internal
@@ -23,7 +24,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
 
     /**
      *
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
@@ -47,6 +48,12 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -62,10 +69,11 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $addedAt = null,
+        ?DateTimeImmutable $addedAt = null,
         ?CustomFields $custom = null,
         ?LocalizedString $description = null,
         ?string $id = null,
+        ?string $key = null,
         ?LocalizedString $name = null,
         ?int $quantity = null
     ) {
@@ -73,14 +81,17 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
         $this->custom = $custom;
         $this->description = $description;
         $this->id = $id;
+        $this->key = $key;
         $this->name = $name;
         $this->quantity = $quantity;
 
     }
 
     /**
+     * <p>Date and time (UTC) the TextLineItem was added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
      *
-     * @return null|string
+     *
+     * @return null|DateTimeImmutable
      */
     public function getAddedAt()
     {
@@ -90,13 +101,19 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
             if (is_null($data)) {
                 return null;
             }
-            $this->addedAt = (string) $data;
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->addedAt = $data;
         }
 
         return $this->addedAt;
     }
 
     /**
+     * <p>Custom Fields of the TextLineItem.</p>
+     *
      *
      * @return null|CustomFields
      */
@@ -116,6 +133,8 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * <p>Description of the TextLineItem.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -135,6 +154,8 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * <p>Unique identifier of the TextLineItem.</p>
+     *
      *
      * @return null|string
      */
@@ -153,6 +174,28 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * <p>User-defined identifier of the TextLineItem. It is unique per <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>Name of the TextLineItem.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -172,6 +215,8 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * <p>Number of entries in the TextLineItem.</p>
+     *
      *
      * @return null|int
      */
@@ -191,9 +236,9 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
 
 
     /**
-     * @param ?string $addedAt
+     * @param ?DateTimeImmutable $addedAt
      */
-    public function setAddedAt(?string $addedAt): void
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
     }
@@ -223,6 +268,14 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void
@@ -239,5 +292,14 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
 
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[TextLineItem::FIELD_ADDED_AT]) && $data[TextLineItem::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
+            $data[TextLineItem::FIELD_ADDED_AT] = $data[TextLineItem::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
+    }
 
 }

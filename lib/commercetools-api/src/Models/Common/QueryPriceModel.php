@@ -287,7 +287,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
-     * <p>Custom Fields for the Price.</p>
+     * <p>Custom Fields of the Price.</p>
      *
      *
      * @return null|CustomFields

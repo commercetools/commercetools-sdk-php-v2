@@ -23,7 +23,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
 
     /**
      *
-     * @var ?Reference
+     * @var ?ProductSelectionReference
      */
     protected $productSelection;
 
@@ -38,7 +38,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Reference $productSelection = null,
+        ?ProductSelectionReference $productSelection = null,
         ?bool $active = null
     ) {
         $this->productSelection = $productSelection;
@@ -47,8 +47,10 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>Reference to a ProductSelection.</p>
      *
-     * @return null|Reference
+     *
+     * @return null|ProductSelectionReference
      */
     public function getProductSelection()
     {
@@ -59,13 +61,15 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
                 return null;
             }
 
-            $this->productSelection = ReferenceModel::of($data);
+            $this->productSelection = ProductSelectionReferenceModel::of($data);
         }
 
         return $this->productSelection;
     }
 
     /**
+     * <p>If <code>true</code>, all Products assigned to this Product Selection are part of the Store's assortment.</p>
+     *
      *
      * @return null|bool
      */
@@ -85,9 +89,9 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
 
 
     /**
-     * @param ?Reference $productSelection
+     * @param ?ProductSelectionReference $productSelection
      */
-    public function setProductSelection(?Reference $productSelection): void
+    public function setProductSelection(?ProductSelectionReference $productSelection): void
     {
         $this->productSelection = $productSelection;
     }

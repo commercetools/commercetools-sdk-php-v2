@@ -18,6 +18,7 @@ interface InventoryEntryQuantitySetMessage extends Message
     public const FIELD_NEW_QUANTITY_ON_STOCK = 'newQuantityOnStock';
     public const FIELD_OLD_AVAILABLE_QUANTITY = 'oldAvailableQuantity';
     public const FIELD_NEW_AVAILABLE_QUANTITY = 'newAvailableQuantity';
+    public const FIELD_SKU = 'sku';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**
@@ -53,6 +54,14 @@ interface InventoryEntryQuantitySetMessage extends Message
     public function getNewAvailableQuantity();
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> for which the quantity was updated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSku();
+
+    /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Channel">Channel</a> where the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> quantity was set.</p>
      *
 
@@ -79,6 +88,11 @@ interface InventoryEntryQuantitySetMessage extends Message
      * @param ?int $newAvailableQuantity
      */
     public function setNewAvailableQuantity(?int $newAvailableQuantity): void;
+
+    /**
+     * @param ?string $sku
+     */
+    public function setSku(?string $sku): void;
 
     /**
      * @param ?ChannelReference $supplyChannel

@@ -21,6 +21,7 @@ interface SetLineItemTaxRateChange extends Change
     public const FIELD_LINE_ITEM = 'lineItem';
     public const FIELD_VARIANT = 'variant';
     public const FIELD_TAX_MODE = 'taxMode';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
 
     /**
 
@@ -59,7 +60,8 @@ interface SetLineItemTaxRateChange extends Change
     public function getLineItem();
 
     /**
-     * <p><code>sku</code> or <code>key</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
      *
 
      * @return null|string
@@ -73,6 +75,14 @@ interface SetLineItemTaxRateChange extends Change
      * @return null|string
      */
     public function getTaxMode();
+
+    /**
+     * <p><code>id</code> of the updated <a href="ctp:api:type:LineItem">LineItem</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLineItemId();
 
     /**
      * @param ?string $change
@@ -103,4 +113,9 @@ interface SetLineItemTaxRateChange extends Change
      * @param ?string $taxMode
      */
     public function setTaxMode(?string $taxMode): void;
+
+    /**
+     * @param ?string $lineItemId
+     */
+    public function setLineItemId(?string $lineItemId): void;
 }

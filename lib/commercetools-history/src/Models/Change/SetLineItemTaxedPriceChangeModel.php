@@ -61,6 +61,12 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
      */
     protected $lineItemId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $variant;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -71,6 +77,7 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
         ?TaxedItemPrice $nextValue = null,
         ?LocalizedString $lineItem = null,
         ?string $lineItemId = null,
+        ?string $variant = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -78,6 +85,7 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
         $this->nextValue = $nextValue;
         $this->lineItem = $lineItem;
         $this->lineItemId = $lineItemId;
+        $this->variant = $variant;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -200,6 +208,27 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
         return $this->lineItemId;
     }
 
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant = (string) $data;
+        }
+
+        return $this->variant;
+    }
+
 
     /**
      * @param ?string $change
@@ -239,6 +268,14 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void
+    {
+        $this->variant = $variant;
     }
 
 

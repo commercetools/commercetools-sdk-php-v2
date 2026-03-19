@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValue;
-use Commercetools\History\Models\ChangeValue\EnumValueModel;
+use Commercetools\History\Models\Common\CustomFieldEnumValue;
+use Commercetools\History\Models\Common\CustomFieldEnumValueModel;
 
 /**
  * @internal
@@ -37,7 +37,7 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
 
     /**
      *
-     * @var ?EnumValue
+     * @var ?CustomFieldEnumValue
      */
     protected $nextValue;
 
@@ -47,19 +47,27 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
      */
     protected $fieldName;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $attributeName;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?EnumValue $nextValue = null,
+        ?CustomFieldEnumValue $nextValue = null,
         ?string $fieldName = null,
+        ?string $attributeName = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->fieldName = $fieldName;
+        $this->attributeName = $attributeName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -103,7 +111,7 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
      * <p>Value after the change.</p>
      *
      *
-     * @return null|EnumValue
+     * @return null|CustomFieldEnumValue
      */
     public function getNextValue()
     {
@@ -114,7 +122,7 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
                 return null;
             }
 
-            $this->nextValue = EnumValueModel::of($data);
+            $this->nextValue = CustomFieldEnumValueModel::of($data);
         }
 
         return $this->nextValue;
@@ -140,6 +148,26 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
         return $this->fieldName;
     }
 
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
+    }
+
 
     /**
      * @param ?string $change
@@ -150,9 +178,9 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
     }
 
     /**
-     * @param ?EnumValue $nextValue
+     * @param ?CustomFieldEnumValue $nextValue
      */
-    public function setNextValue(?EnumValue $nextValue): void
+    public function setNextValue(?CustomFieldEnumValue $nextValue): void
     {
         $this->nextValue = $nextValue;
     }
@@ -163,6 +191,14 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
     public function setFieldName(?string $fieldName): void
     {
         $this->fieldName = $fieldName;
+    }
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void
+    {
+        $this->attributeName = $attributeName;
     }
 
 

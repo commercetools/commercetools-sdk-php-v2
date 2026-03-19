@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifier;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScopeDraft;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -33,6 +34,7 @@ interface CartDiscountDraft extends JsonObject
     public const FIELD_STACKING_MODE = 'stackingMode';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DISCOUNT_GROUP = 'discountGroup';
+    public const FIELD_RECURRING_ORDER_SCOPE = 'recurringOrderScope';
 
     /**
      * <p>Name of the CartDiscount.</p>
@@ -148,7 +150,7 @@ interface CartDiscountDraft extends JsonObject
     public function getStackingMode();
 
     /**
-     * <p>Custom Fields of the CartDiscount.</p>
+     * <p>Custom Fields for the CartDiscount.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -162,6 +164,15 @@ interface CartDiscountDraft extends JsonObject
      * @return null|DiscountGroupResourceIdentifier
      */
     public function getDiscountGroup();
+
+    /**
+     * <p>Scope of the Cart Discount for Recurring Orders.</p>
+     * <p>If not set, the default is <a href="ctp:api:type:NonRecurringOrdersOnlyDraft">NonRecurringOrdersOnlyDraft</a>.</p>
+     *
+
+     * @return null|RecurringOrderScopeDraft
+     */
+    public function getRecurringOrderScope();
 
     /**
      * @param ?LocalizedString $name
@@ -237,4 +248,9 @@ interface CartDiscountDraft extends JsonObject
      * @param ?DiscountGroupResourceIdentifier $discountGroup
      */
     public function setDiscountGroup(?DiscountGroupResourceIdentifier $discountGroup): void;
+
+    /**
+     * @param ?RecurringOrderScopeDraft $recurringOrderScope
+     */
+    public function setRecurringOrderScope(?RecurringOrderScopeDraft $recurringOrderScope): void;
 }

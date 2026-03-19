@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\Money;
-use Commercetools\History\Models\Common\MoneyModel;
+use Commercetools\History\Models\Common\ShippingRate;
+use Commercetools\History\Models\Common\ShippingRateModel;
 
 /**
  * @internal
@@ -37,13 +37,13 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
 
     /**
      *
-     * @var ?Money
+     * @var ?ShippingRate
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?Money
+     * @var ?ShippingRate
      */
     protected $nextValue;
 
@@ -53,8 +53,8 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
      */
     public function __construct(
         ?string $change = null,
-        ?Money $previousValue = null,
-        ?Money $nextValue = null,
+        ?ShippingRate $previousValue = null,
+        ?ShippingRate $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -103,7 +103,7 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
      * <p>Value before the change.</p>
      *
      *
-     * @return null|Money
+     * @return null|ShippingRate
      */
     public function getPreviousValue()
     {
@@ -114,7 +114,7 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
                 return null;
             }
 
-            $this->previousValue = MoneyModel::of($data);
+            $this->previousValue = ShippingRateModel::of($data);
         }
 
         return $this->previousValue;
@@ -124,7 +124,7 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
      * <p>Value after the change.</p>
      *
      *
-     * @return null|Money
+     * @return null|ShippingRate
      */
     public function getNextValue()
     {
@@ -135,7 +135,7 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
                 return null;
             }
 
-            $this->nextValue = MoneyModel::of($data);
+            $this->nextValue = ShippingRateModel::of($data);
         }
 
         return $this->nextValue;
@@ -151,17 +151,17 @@ final class SetShippingRateChangeModel extends JsonObjectModel implements SetShi
     }
 
     /**
-     * @param ?Money $previousValue
+     * @param ?ShippingRate $previousValue
      */
-    public function setPreviousValue(?Money $previousValue): void
+    public function setPreviousValue(?ShippingRate $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?Money $nextValue
+     * @param ?ShippingRate $nextValue
      */
-    public function setNextValue(?Money $nextValue): void
+    public function setNextValue(?ShippingRate $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

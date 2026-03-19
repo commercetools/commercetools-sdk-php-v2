@@ -169,7 +169,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of the InventoryEntry.</p>
+     * <p>Custom Fields for the InventoryEntry.</p>
      *
 
      * @return null|CustomFieldsDraft

@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifier;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifierBuilder;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScopeDraft;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScopeDraftBuilder;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
@@ -117,6 +119,12 @@ final class CartDiscountDraftBuilder implements Builder
      * @var null|DiscountGroupResourceIdentifier|DiscountGroupResourceIdentifierBuilder
      */
     private $discountGroup;
+
+    /**
+
+     * @var null|RecurringOrderScopeDraft|RecurringOrderScopeDraftBuilder
+     */
+    private $recurringOrderScope;
 
     /**
      * <p>Name of the CartDiscount.</p>
@@ -271,7 +279,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of the CartDiscount.</p>
+     * <p>Custom Fields for the CartDiscount.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -290,6 +298,18 @@ final class CartDiscountDraftBuilder implements Builder
     public function getDiscountGroup()
     {
         return $this->discountGroup instanceof DiscountGroupResourceIdentifierBuilder ? $this->discountGroup->build() : $this->discountGroup;
+    }
+
+    /**
+     * <p>Scope of the Cart Discount for Recurring Orders.</p>
+     * <p>If not set, the default is <a href="ctp:api:type:NonRecurringOrdersOnlyDraft">NonRecurringOrdersOnlyDraft</a>.</p>
+     *
+
+     * @return null|RecurringOrderScopeDraft
+     */
+    public function getRecurringOrderScope()
+    {
+        return $this->recurringOrderScope instanceof RecurringOrderScopeDraftBuilder ? $this->recurringOrderScope->build() : $this->recurringOrderScope;
     }
 
     /**
@@ -458,6 +478,17 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?RecurringOrderScopeDraft $recurringOrderScope
+     * @return $this
+     */
+    public function withRecurringOrderScope(?RecurringOrderScopeDraft $recurringOrderScope)
+    {
+        $this->recurringOrderScope = $recurringOrderScope;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -523,6 +554,17 @@ final class CartDiscountDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withRecurringOrderScope() instead
+     * @return $this
+     */
+    public function withRecurringOrderScopeBuilder(?RecurringOrderScopeDraftBuilder $recurringOrderScope)
+    {
+        $this->recurringOrderScope = $recurringOrderScope;
+
+        return $this;
+    }
+
     public function build(): CartDiscountDraft
     {
         return new CartDiscountDraftModel(
@@ -540,7 +582,8 @@ final class CartDiscountDraftBuilder implements Builder
             $this->requiresDiscountCode,
             $this->stackingMode,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->discountGroup instanceof DiscountGroupResourceIdentifierBuilder ? $this->discountGroup->build() : $this->discountGroup
+            $this->discountGroup instanceof DiscountGroupResourceIdentifierBuilder ? $this->discountGroup->build() : $this->discountGroup,
+            $this->recurringOrderScope instanceof RecurringOrderScopeDraftBuilder ? $this->recurringOrderScope->build() : $this->recurringOrderScope
         );
     }
 

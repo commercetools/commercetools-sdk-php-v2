@@ -45,6 +45,8 @@ final class AssetSourceBuilder implements Builder
     private $contentType;
 
     /**
+     * <p>URI of the AssetSource.</p>
+     *
 
      * @return null|string
      */
@@ -54,6 +56,8 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier of the AssetSource. Must be unique per <a href="ctp:api:type:Asset">Asset</a>.</p>
+     *
 
      * @return null|string
      */
@@ -63,6 +67,8 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * <p>Width and height of the AssetSource.</p>
+     *
 
      * @return null|AssetDimensions
      */
@@ -72,6 +78,8 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * <p>Indicates the type of content, for example <code>application/pdf</code>.</p>
+     *
 
      * @return null|string
      */

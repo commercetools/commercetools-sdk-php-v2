@@ -28,6 +28,12 @@ final class CustomerGroupAssignmentsSetMessagePayloadBuilder implements Builder
     private $customerGroupAssignments;
 
     /**
+
+     * @var ?CustomerGroupAssignmentCollection
+     */
+    private $oldCustomerGroupAssignments;
+
+    /**
      * <p>Customer Groups assigned to the Customer during the <a href="ctp:api:type:CustomerSetCustomerGroupAssignmentsAction">Set CustomerGroupAssignments</a> update action.</p>
      *
 
@@ -36,6 +42,17 @@ final class CustomerGroupAssignmentsSetMessagePayloadBuilder implements Builder
     public function getCustomerGroupAssignments()
     {
         return $this->customerGroupAssignments;
+    }
+
+    /**
+     * <p>Customer Groups assigned to the Customer before the <a href="ctp:api:type:CustomerSetCustomerGroupAssignmentsAction">Set CustomerGroupAssignments</a> update action.</p>
+     *
+
+     * @return null|CustomerGroupAssignmentCollection
+     */
+    public function getOldCustomerGroupAssignments()
+    {
+        return $this->oldCustomerGroupAssignments;
     }
 
     /**
@@ -49,11 +66,23 @@ final class CustomerGroupAssignmentsSetMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?CustomerGroupAssignmentCollection $oldCustomerGroupAssignments
+     * @return $this
+     */
+    public function withOldCustomerGroupAssignments(?CustomerGroupAssignmentCollection $oldCustomerGroupAssignments)
+    {
+        $this->oldCustomerGroupAssignments = $oldCustomerGroupAssignments;
+
+        return $this;
+    }
+
 
     public function build(): CustomerGroupAssignmentsSetMessagePayload
     {
         return new CustomerGroupAssignmentsSetMessagePayloadModel(
-            $this->customerGroupAssignments
+            $this->customerGroupAssignments,
+            $this->oldCustomerGroupAssignments
         );
     }
 

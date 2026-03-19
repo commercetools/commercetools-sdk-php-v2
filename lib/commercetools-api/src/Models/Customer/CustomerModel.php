@@ -827,7 +827,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>Custom Fields for the Customer.</p>
+     * <p>Custom Fields of the Customer.</p>
      *
      *
      * @return null|CustomFields

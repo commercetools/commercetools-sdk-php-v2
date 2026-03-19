@@ -22,41 +22,43 @@ final class CustomFieldsBuilder implements Builder
 {
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var null|TypeReference|TypeReferenceBuilder
      */
     private $type;
 
     /**
 
-     * @var ?JsonObject
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
+     * <p>Reference to the <a href="ctp:api:type:Type">Type</a> that holds the <a href="ctp:api:type:FieldDefinition">FieldDefinitions</a> for the Custom Fields.</p>
+     *
 
-     * @return null|Reference
+     * @return null|TypeReference
      */
     public function getType()
     {
-        return $this->type instanceof ReferenceBuilder ? $this->type->build() : $this->type;
+        return $this->type instanceof TypeReferenceBuilder ? $this->type->build() : $this->type;
     }
 
     /**
-     * <p>A valid JSON object, based on FieldDefinition.</p>
+     * <p>Object containing the Custom Fields of the <a href="/../api/projects/types#resourcetypeid">customized resource or data type</a>.</p>
      *
 
-     * @return null|JsonObject
+     * @return null|FieldContainer
      */
     public function getFields()
     {
-        return $this->fields;
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
-     * @param ?Reference $type
+     * @param ?TypeReference $type
      * @return $this
      */
-    public function withType(?Reference $type)
+    public function withType(?TypeReference $type)
     {
         $this->type = $type;
 
@@ -64,10 +66,10 @@ final class CustomFieldsBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $fields
+     * @param ?FieldContainer $fields
      * @return $this
      */
-    public function withFields(?JsonObject $fields)
+    public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
 
@@ -78,9 +80,20 @@ final class CustomFieldsBuilder implements Builder
      * @deprecated use withType() instead
      * @return $this
      */
-    public function withTypeBuilder(?ReferenceBuilder $type)
+    public function withTypeBuilder(?TypeReferenceBuilder $type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withFields() instead
+     * @return $this
+     */
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    {
+        $this->fields = $fields;
 
         return $this;
     }
@@ -88,8 +101,8 @@ final class CustomFieldsBuilder implements Builder
     public function build(): CustomFields
     {
         return new CustomFieldsModel(
-            $this->type instanceof ReferenceBuilder ? $this->type->build() : $this->type,
-            $this->fields
+            $this->type instanceof TypeReferenceBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

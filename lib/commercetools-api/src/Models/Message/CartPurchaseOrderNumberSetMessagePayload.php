@@ -1,0 +1,44 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\Message;
+
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
+interface CartPurchaseOrderNumberSetMessagePayload extends MessagePayload
+{
+    public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
+    public const FIELD_OLD_PURCHASE_ORDER_NUMBER = 'oldPurchaseOrderNumber';
+
+    /**
+     * <p>Purchase order number on the <a href="ctp:api:type:Cart">Cart</a> after the <a href="ctp:api:type:CartSetPurchaseOrderNumberAction">Set Purchase Order Number</a> update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber();
+
+    /**
+     * <p>Purchase order number on the <a href="ctp:api:type:Cart">Cart</a> before the <a href="ctp:api:type:CartSetPurchaseOrderNumberAction">Set Purchase Order Number</a> update action.</p>
+     *
+
+     * @return null|string
+     */
+    public function getOldPurchaseOrderNumber();
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     */
+    public function setPurchaseOrderNumber(?string $purchaseOrderNumber): void;
+
+    /**
+     * @param ?string $oldPurchaseOrderNumber
+     */
+    public function setOldPurchaseOrderNumber(?string $oldPurchaseOrderNumber): void;
+}

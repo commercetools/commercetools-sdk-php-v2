@@ -15,6 +15,7 @@ interface TaxRate extends JsonObject
 {
 
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_INCLUDED_IN_PRICE = 'includedInPrice';
@@ -23,7 +24,8 @@ interface TaxRate extends JsonObject
     public const FIELD_SUB_RATES = 'subRates';
 
     /**
-     * <p>The ID is always set if the tax rate is part of a TaxCategory. The external tax rates in a Cart do not contain an <code>id</code>.</p>
+     * <p>Present if the TaxRate is part of a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.
+     * Absent for external TaxRates in <a href="ctp:api:type:LineItem">LineItem</a>, <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>, and <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.</p>
      *
 
      * @return null|string
@@ -31,27 +33,40 @@ interface TaxRate extends JsonObject
     public function getId();
 
     /**
+     * <p>User-defined unique identifier of the TaxRate.
+     * Present when set using <a href="ctp:api:type:TaxRateDraft">TaxRateDraft</a>. Not available for external TaxRates created using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * <p>Name of the TaxRate.</p>
+     *
 
      * @return null|string
      */
     public function getName();
 
     /**
-     * <p>Percentage in the range of [0..1]. The sum of the amounts of all <code>subRates</code>, if there are any.</p>
+     * <p>Tax rate. If subrates are used, the amount is the sum of all rates in <code>subRates</code>.</p>
      *
 
-     * @return null|int
+     * @return null|float
      */
     public function getAmount();
 
     /**
+     * <p>If <code>true</code>, tax is included in <a href="ctp:api:type:Price">Embedded Prices</a> or <a href="ctp:api:type:StandalonePrice">Standalone Prices</a>, and the <code>taxedPrice</code> is present on <a href="ctp:api:type:LineItem">LineItems</a>. In this case, the <code>totalNet</code> price on <a href="ctp:api:type:TaxedPrice">TaxedPrice</a> includes the TaxRate.</p>
+     *
 
      * @return null|bool
      */
     public function getIncludedInPrice();
 
     /**
-     * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country in which the tax rate is applied in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> format.</p>
      *
 
      * @return null|string
@@ -59,7 +74,7 @@ interface TaxRate extends JsonObject
     public function getCountry();
 
     /**
-     * <p>The state in the country</p>
+     * <p>State within the country, such as Texas in the United States.</p>
      *
 
      * @return null|string
@@ -67,6 +82,9 @@ interface TaxRate extends JsonObject
     public function getState();
 
     /**
+     * <p>Used when the total tax is a combination of multiple taxes (for example, local, state/provincial, and/or federal taxes). The total of all subrates must equal the TaxRate <code>amount</code>.
+     * These subrates are used to calculate the <code>taxPortions</code> field of a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> and the <code>taxedPrice</code> field of <a href="ctp:api:type:LineItem">LineItems</a>, <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and <a href="ctp:api:type:ShippingInfo">ShippingInfos</a>.</p>
+     *
 
      * @return null|SubRateCollection
      */
@@ -78,14 +96,19 @@ interface TaxRate extends JsonObject
     public function setId(?string $id): void;
 
     /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
+
+    /**
      * @param ?string $name
      */
     public function setName(?string $name): void;
 
     /**
-     * @param ?int $amount
+     * @param ?float $amount
      */
-    public function setAmount(?int $amount): void;
+    public function setAmount(?float $amount): void;
 
     /**
      * @param ?bool $includedInPrice

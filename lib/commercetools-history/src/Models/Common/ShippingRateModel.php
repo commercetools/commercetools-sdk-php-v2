@@ -23,13 +23,13 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
 
     /**
      *
-     * @var ?Money
+     * @var ?CentPrecisionMoney
      */
     protected $price;
 
     /**
      *
-     * @var ?Money
+     * @var ?CentPrecisionMoney
      */
     protected $freeAbove;
 
@@ -50,8 +50,8 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Money $price = null,
-        ?Money $freeAbove = null,
+        ?CentPrecisionMoney $price = null,
+        ?CentPrecisionMoney $freeAbove = null,
         ?bool $isMatching = null,
         ?ShippingRatePriceTierCollection $tiers = null
     ) {
@@ -63,8 +63,10 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     }
 
     /**
+     * <p>Currency amount of the ShippingRate.</p>
      *
-     * @return null|Money
+     *
+     * @return null|CentPrecisionMoney
      */
     public function getPrice()
     {
@@ -75,15 +77,17 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
                 return null;
             }
 
-            $this->price = MoneyModel::of($data);
+            $this->price = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->price;
     }
 
     /**
+     * <p><a href="/../api/shipping-delivery-overview#free-shipping">Free shipping</a> is applied if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
-     * @return null|Money
+     *
+     * @return null|CentPrecisionMoney
      */
     public function getFreeAbove()
     {
@@ -94,14 +98,16 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
                 return null;
             }
 
-            $this->freeAbove = MoneyModel::of($data);
+            $this->freeAbove = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->freeAbove;
     }
 
     /**
-     * <p>Only appears in response to requests for ShippingMethods by Cart or location to mark this shipping rate as one that matches the Cart or location.</p>
+     * <p><code>true</code> if the ShippingRate matches given <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Location">Location</a>.
+     * Only appears in response to requests for <a href="ctp:api:endpoint:/{projectKey}/shipping-methods/matching-cart:GET">Get ShippingMethods for a Cart</a> or
+     * <a href="ctp:api:endpoint:/{projectKey}/shipping-methods/matching-location:GET">Get ShippingMethods for a Location</a>.</p>
      *
      *
      * @return null|bool
@@ -121,6 +127,8 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     }
 
     /**
+     * <p>Price tiers for the ShippingRate.</p>
+     *
      *
      * @return null|ShippingRatePriceTierCollection
      */
@@ -140,17 +148,17 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
 
 
     /**
-     * @param ?Money $price
+     * @param ?CentPrecisionMoney $price
      */
-    public function setPrice(?Money $price): void
+    public function setPrice(?CentPrecisionMoney $price): void
     {
         $this->price = $price;
     }
 
     /**
-     * @param ?Money $freeAbove
+     * @param ?CentPrecisionMoney $freeAbove
      */
-    public function setFreeAbove(?Money $freeAbove): void
+    public function setFreeAbove(?CentPrecisionMoney $freeAbove): void
     {
         $this->freeAbove = $freeAbove;
     }

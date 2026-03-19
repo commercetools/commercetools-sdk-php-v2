@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @implements Builder<ReturnInfo>
@@ -34,11 +35,13 @@ final class ReturnInfoBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     private $returnDate;
 
     /**
+     * <p>Information on the Line Items or Custom Line Items returned.</p>
+     *
 
      * @return null|ReturnItemCollection
      */
@@ -48,7 +51,7 @@ final class ReturnInfoBuilder implements Builder
     }
 
     /**
-     * <p>Identifies, which return tracking ID is connected to this particular return.</p>
+     * <p>User-defined identifier to track the return.</p>
      *
 
      * @return null|string
@@ -59,8 +62,10 @@ final class ReturnInfoBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the return is initiated.</p>
+     *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getReturnDate()
     {
@@ -90,10 +95,10 @@ final class ReturnInfoBuilder implements Builder
     }
 
     /**
-     * @param ?string $returnDate
+     * @param ?DateTimeImmutable $returnDate
      * @return $this
      */
-    public function withReturnDate(?string $returnDate)
+    public function withReturnDate(?DateTimeImmutable $returnDate)
     {
         $this->returnDate = $returnDate;
 

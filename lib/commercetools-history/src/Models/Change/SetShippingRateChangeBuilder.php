@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\Money;
-use Commercetools\History\Models\Common\MoneyBuilder;
+use Commercetools\History\Models\Common\ShippingRate;
+use Commercetools\History\Models\Common\ShippingRateBuilder;
 
 /**
  * @implements Builder<SetShippingRateChange>
@@ -30,13 +30,13 @@ final class SetShippingRateChangeBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|ShippingRate|ShippingRateBuilder
      */
     private $previousValue;
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|ShippingRate|ShippingRateBuilder
      */
     private $nextValue;
 
@@ -53,22 +53,22 @@ final class SetShippingRateChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|Money
+     * @return null|ShippingRate
      */
     public function getPreviousValue()
     {
-        return $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue;
+        return $this->previousValue instanceof ShippingRateBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
      * <p>Value after the change.</p>
      *
 
-     * @return null|Money
+     * @return null|ShippingRate
      */
     public function getNextValue()
     {
-        return $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue;
+        return $this->nextValue instanceof ShippingRateBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -83,10 +83,10 @@ final class SetShippingRateChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Money $previousValue
+     * @param ?ShippingRate $previousValue
      * @return $this
      */
-    public function withPreviousValue(?Money $previousValue)
+    public function withPreviousValue(?ShippingRate $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -94,10 +94,10 @@ final class SetShippingRateChangeBuilder implements Builder
     }
 
     /**
-     * @param ?Money $nextValue
+     * @param ?ShippingRate $nextValue
      * @return $this
      */
-    public function withNextValue(?Money $nextValue)
+    public function withNextValue(?ShippingRate $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -108,7 +108,7 @@ final class SetShippingRateChangeBuilder implements Builder
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
-    public function withPreviousValueBuilder(?MoneyBuilder $previousValue)
+    public function withPreviousValueBuilder(?ShippingRateBuilder $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -119,7 +119,7 @@ final class SetShippingRateChangeBuilder implements Builder
      * @deprecated use withNextValue() instead
      * @return $this
      */
-    public function withNextValueBuilder(?MoneyBuilder $nextValue)
+    public function withNextValueBuilder(?ShippingRateBuilder $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -130,8 +130,8 @@ final class SetShippingRateChangeBuilder implements Builder
     {
         return new SetShippingRateChangeModel(
             $this->change,
-            $this->previousValue instanceof MoneyBuilder ? $this->previousValue->build() : $this->previousValue,
-            $this->nextValue instanceof MoneyBuilder ? $this->nextValue->build() : $this->nextValue
+            $this->previousValue instanceof ShippingRateBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof ShippingRateBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

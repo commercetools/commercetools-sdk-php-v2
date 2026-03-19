@@ -107,7 +107,7 @@ interface AssociateRole extends BaseResource
     public function getPermissions();
 
     /**
-     * <p>Custom Fields for the AssociateRole.</p>
+     * <p>Custom Fields of the AssociateRole.</p>
      *
 
      * @return null|CustomFields

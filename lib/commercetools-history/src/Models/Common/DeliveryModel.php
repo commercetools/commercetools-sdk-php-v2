@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @internal
@@ -30,6 +31,12 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     /**
      *
      * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
+     * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
@@ -63,13 +70,15 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
      */
     public function __construct(
         ?string $id = null,
-        ?string $createdAt = null,
+        ?string $key = null,
+        ?DateTimeImmutable $createdAt = null,
         ?DeliveryItemCollection $items = null,
         ?ParcelCollection $parcels = null,
         ?Address $address = null,
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->createdAt = $createdAt;
         $this->items = $items;
         $this->parcels = $parcels;
@@ -79,6 +88,8 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
      *
      * @return null|string
      */
@@ -97,8 +108,30 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>User-defined unique identifier of the Delivery.</p>
+     *
      *
      * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>Date and time (UTC) the Delivery was created.</p>
+     *
+     *
+     * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
     {
@@ -108,13 +141,19 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
             if (is_null($data)) {
                 return null;
             }
-            $this->createdAt = (string) $data;
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->createdAt = $data;
         }
 
         return $this->createdAt;
     }
 
     /**
+     * <p>Line Items or Custom Line Items that are delivered.</p>
+     *
      *
      * @return null|DeliveryItemCollection
      */
@@ -133,6 +172,8 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Information regarding the appearance, content, and shipment of a Parcel.</p>
+     *
      *
      * @return null|ParcelCollection
      */
@@ -151,6 +192,8 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
+     * <p>Address to which Parcels are delivered.</p>
+     *
      *
      * @return null|Address
      */
@@ -170,7 +213,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-     * <p>Custom Fields for the Transaction.</p>
+     * <p>Custom Fields of the Delivery.</p>
      *
      *
      * @return null|CustomFields
@@ -200,9 +243,17 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-     * @param ?string $createdAt
+     * @param ?string $key
      */
-    public function setCreatedAt(?string $createdAt): void
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -240,5 +291,14 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
 
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[Delivery::FIELD_CREATED_AT]) && $data[Delivery::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[Delivery::FIELD_CREATED_AT] = $data[Delivery::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
+    }
 
 }

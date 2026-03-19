@@ -32,17 +32,17 @@ final class OrderPaymentAddedMessagePayloadModel extends JsonObjectModel impleme
      *
      * @var ?PaymentReference
      */
-    protected $payment;
+    protected $paymentRef;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?PaymentReference $payment = null,
+        ?PaymentReference $paymentRef = null,
         ?string $type = null
     ) {
-        $this->payment = $payment;
+        $this->paymentRef = $paymentRef;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -70,27 +70,27 @@ final class OrderPaymentAddedMessagePayloadModel extends JsonObjectModel impleme
      *
      * @return null|PaymentReference
      */
-    public function getPayment()
+    public function getPaymentRef()
     {
-        if (is_null($this->payment)) {
+        if (is_null($this->paymentRef)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PAYMENT);
+            $data = $this->raw(self::FIELD_PAYMENT_REF);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->payment = PaymentReferenceModel::of($data);
+            $this->paymentRef = PaymentReferenceModel::of($data);
         }
 
-        return $this->payment;
+        return $this->paymentRef;
     }
 
 
     /**
-     * @param ?PaymentReference $payment
+     * @param ?PaymentReference $paymentRef
      */
-    public function setPayment(?PaymentReference $payment): void
+    public function setPaymentRef(?PaymentReference $paymentRef): void
     {
-        $this->payment = $payment;
+        $this->paymentRef = $paymentRef;
     }
 }

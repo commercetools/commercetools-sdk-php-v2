@@ -22,6 +22,12 @@ final class ProductVariantAvailabilityBuilder implements Builder
 {
     /**
 
+     * @var null|ProductVariantChannelAvailabilityMap|ProductVariantChannelAvailabilityMapBuilder
+     */
+    private $channels;
+
+    /**
+
      * @var ?bool
      */
     private $isOnStock;
@@ -40,11 +46,30 @@ final class ProductVariantAvailabilityBuilder implements Builder
 
     /**
 
-     * @var null|ProductVariantChannelAvailabilityMap|ProductVariantChannelAvailabilityMapBuilder
+     * @var ?string
      */
-    private $channels;
+    private $id;
 
     /**
+
+     * @var ?int
+     */
+    private $version;
+
+    /**
+     * <p>For each <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> with a supply Channel, an entry is added to <code>channels</code>.</p>
+     *
+
+     * @return null|ProductVariantChannelAvailabilityMap
+     */
+    public function getChannels()
+    {
+        return $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels;
+    }
+
+    /**
+     * <p>Indicates whether a Product Variant is in stock.</p>
+     *
 
      * @return null|bool
      */
@@ -54,6 +79,8 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
+     * <p>Number of days to restock a Product Variant once it is out of stock.</p>
+     *
 
      * @return null|int
      */
@@ -63,6 +90,8 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
+     * <p>Number of items of the Product Variant that are in stock.</p>
+     *
 
      * @return null|int
      */
@@ -72,12 +101,36 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
+     *
 
-     * @return null|ProductVariantChannelAvailabilityMap
+     * @return null|string
      */
-    public function getChannels()
+    public function getId()
     {
-        return $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels;
+        return $this->id;
+    }
+
+    /**
+     * <p>Current version of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
+     *
+
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * @param ?ProductVariantChannelAvailabilityMap $channels
+     * @return $this
+     */
+    public function withChannels(?ProductVariantChannelAvailabilityMap $channels)
+    {
+        $this->channels = $channels;
+
+        return $this;
     }
 
     /**
@@ -114,12 +167,23 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
-     * @param ?ProductVariantChannelAvailabilityMap $channels
+     * @param ?string $id
      * @return $this
      */
-    public function withChannels(?ProductVariantChannelAvailabilityMap $channels)
+    public function withId(?string $id)
     {
-        $this->channels = $channels;
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $version
+     * @return $this
+     */
+    public function withVersion(?int $version)
+    {
+        $this->version = $version;
 
         return $this;
     }
@@ -138,10 +202,12 @@ final class ProductVariantAvailabilityBuilder implements Builder
     public function build(): ProductVariantAvailability
     {
         return new ProductVariantAvailabilityModel(
+            $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels,
             $this->isOnStock,
             $this->restockableInDays,
             $this->availableQuantity,
-            $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels
+            $this->id,
+            $this->version
         );
     }
 

@@ -17,7 +17,7 @@ interface CustomerRemoveBillingAddressIdAction extends CustomerUpdateAction
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
-     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressesIds</code>.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressIds</code>.</p>
      *
 
      * @return null|string
@@ -25,7 +25,7 @@ interface CustomerRemoveBillingAddressIdAction extends CustomerUpdateAction
     public function getAddressId();
 
     /**
-     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressesIds</code>.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressIds</code>.</p>
      *
 
      * @return null|string

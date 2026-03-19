@@ -13,7 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\EnumValueCollection;
+use Commercetools\History\Models\Common\CustomFieldEnumValueCollection;
 
 /**
  * @internal
@@ -36,13 +36,13 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
 
     /**
      *
-     * @var ?EnumValueCollection
+     * @var ?CustomFieldEnumValueCollection
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?EnumValueCollection
+     * @var ?CustomFieldEnumValueCollection
      */
     protected $nextValue;
 
@@ -52,21 +52,29 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
      */
     protected $fieldName;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $attributeName;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $change = null,
-        ?EnumValueCollection $previousValue = null,
-        ?EnumValueCollection $nextValue = null,
+        ?CustomFieldEnumValueCollection $previousValue = null,
+        ?CustomFieldEnumValueCollection $nextValue = null,
         ?string $fieldName = null,
+        ?string $attributeName = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->fieldName = $fieldName;
+        $this->attributeName = $attributeName;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -110,7 +118,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
      * <p>Value before the change.</p>
      *
      *
-     * @return null|EnumValueCollection
+     * @return null|CustomFieldEnumValueCollection
      */
     public function getPreviousValue()
     {
@@ -120,7 +128,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue = EnumValueCollection::fromArray($data);
+            $this->previousValue = CustomFieldEnumValueCollection::fromArray($data);
         }
 
         return $this->previousValue;
@@ -130,7 +138,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
      * <p>Value after the change.</p>
      *
      *
-     * @return null|EnumValueCollection
+     * @return null|CustomFieldEnumValueCollection
      */
     public function getNextValue()
     {
@@ -140,7 +148,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue = EnumValueCollection::fromArray($data);
+            $this->nextValue = CustomFieldEnumValueCollection::fromArray($data);
         }
 
         return $this->nextValue;
@@ -166,6 +174,26 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
         return $this->fieldName;
     }
 
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
+    }
+
 
     /**
      * @param ?string $change
@@ -176,17 +204,17 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     }
 
     /**
-     * @param ?EnumValueCollection $previousValue
+     * @param ?CustomFieldEnumValueCollection $previousValue
      */
-    public function setPreviousValue(?EnumValueCollection $previousValue): void
+    public function setPreviousValue(?CustomFieldEnumValueCollection $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?EnumValueCollection $nextValue
+     * @param ?CustomFieldEnumValueCollection $nextValue
      */
-    public function setNextValue(?EnumValueCollection $nextValue): void
+    public function setNextValue(?CustomFieldEnumValueCollection $nextValue): void
     {
         $this->nextValue = $nextValue;
     }
@@ -197,6 +225,14 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     public function setFieldName(?string $fieldName): void
     {
         $this->fieldName = $fieldName;
+    }
+
+    /**
+     * @param ?string $attributeName
+     */
+    public function setAttributeName(?string $attributeName): void
+    {
+        $this->attributeName = $attributeName;
     }
 
 

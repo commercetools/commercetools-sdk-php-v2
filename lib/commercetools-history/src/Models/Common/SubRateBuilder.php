@@ -28,11 +28,13 @@ final class SubRateBuilder implements Builder
 
     /**
 
-     * @var ?int
+     * @var ?float
      */
     private $amount;
 
     /**
+     * <p>Name of the SubRate.</p>
+     *
 
      * @return null|string
      */
@@ -43,7 +45,7 @@ final class SubRateBuilder implements Builder
 
     /**
 
-     * @return null|int
+     * @return null|float
      */
     public function getAmount()
     {
@@ -62,10 +64,10 @@ final class SubRateBuilder implements Builder
     }
 
     /**
-     * @param ?int $amount
+     * @param ?float $amount
      * @return $this
      */
-    public function withAmount(?int $amount)
+    public function withAmount(?float $amount)
     {
         $this->amount = $amount;
 

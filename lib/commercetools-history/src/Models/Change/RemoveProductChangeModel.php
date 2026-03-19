@@ -105,8 +105,8 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->previousValue = $className::of($data);
         }
 
         return $this->previousValue;

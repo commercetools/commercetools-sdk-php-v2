@@ -35,7 +35,7 @@ final class ProductSearchResultBuilder implements Builder
     private $matchingVariants;
 
     /**
-
+     * @deprecated
      * @var null|ProductProjection|ProductProjectionBuilder
      */
     private $productProjection;
@@ -65,9 +65,9 @@ final class ProductSearchResultBuilder implements Builder
 
     /**
      * <p>Projected data of the Product with <code>id</code>.
-     * Only present if data integration <a href="/../api/projects/product-search#with-product-projection-parameters">with Product Projection parameters</a> is requested.</p>
+     * Only present if deprecated data integration <a href="/../api/deprecations-and-removals#product-projection-parameters">with Product Projection parameters</a> is requested.</p>
      *
-
+     * @deprecated
      * @return null|ProductProjection
      */
     public function getProductProjection()

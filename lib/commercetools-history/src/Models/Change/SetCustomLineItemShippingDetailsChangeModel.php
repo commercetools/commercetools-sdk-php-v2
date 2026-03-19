@@ -15,6 +15,8 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Common\ItemShippingDetails;
 use Commercetools\History\Models\Common\ItemShippingDetailsModel;
+use Commercetools\History\Models\Common\LocalizedString;
+use Commercetools\History\Models\Common\LocalizedStringModel;
 
 /**
  * @internal
@@ -53,6 +55,12 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
      */
     protected $customLineItemId;
 
+    /**
+     *
+     * @var ?LocalizedString
+     */
+    protected $customLineItem;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -62,12 +70,14 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
         ?ItemShippingDetails $previousValue = null,
         ?ItemShippingDetails $nextValue = null,
         ?string $customLineItemId = null,
+        ?LocalizedString $customLineItem = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->customLineItemId = $customLineItemId;
+        $this->customLineItem = $customLineItem;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -169,6 +179,27 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
         return $this->customLineItemId;
     }
 
+    /**
+     * <p>Name of the updated <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>.</p>
+     *
+     *
+     * @return null|LocalizedString
+     */
+    public function getCustomLineItem()
+    {
+        if (is_null($this->customLineItem)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customLineItem = LocalizedStringModel::of($data);
+        }
+
+        return $this->customLineItem;
+    }
+
 
     /**
      * @param ?string $change
@@ -200,6 +231,14 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?LocalizedString $customLineItem
+     */
+    public function setCustomLineItem(?LocalizedString $customLineItem): void
+    {
+        $this->customLineItem = $customLineItem;
     }
 
 

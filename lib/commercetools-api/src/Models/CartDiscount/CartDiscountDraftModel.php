@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifier;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupResourceIdentifierModel;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScopeDraft;
+use Commercetools\Api\Models\RecurringOrder\RecurringOrderScopeDraftModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
@@ -117,6 +119,12 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
      */
     protected $discountGroup;
 
+    /**
+     *
+     * @var ?RecurringOrderScopeDraft
+     */
+    protected $recurringOrderScope;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -136,7 +144,8 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         ?bool $requiresDiscountCode = null,
         ?string $stackingMode = null,
         ?CustomFieldsDraft $custom = null,
-        ?DiscountGroupResourceIdentifier $discountGroup = null
+        ?DiscountGroupResourceIdentifier $discountGroup = null,
+        ?RecurringOrderScopeDraft $recurringOrderScope = null
     ) {
         $this->name = $name;
         $this->key = $key;
@@ -153,6 +162,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         $this->stackingMode = $stackingMode;
         $this->custom = $custom;
         $this->discountGroup = $discountGroup;
+        $this->recurringOrderScope = $recurringOrderScope;
     }
 
     /**
@@ -437,7 +447,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * <p>Custom Fields of the CartDiscount.</p>
+     * <p>Custom Fields for the CartDiscount.</p>
      *
      *
      * @return null|CustomFieldsDraft
@@ -476,6 +486,28 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         }
 
         return $this->discountGroup;
+    }
+
+    /**
+     * <p>Scope of the Cart Discount for Recurring Orders.</p>
+     * <p>If not set, the default is <a href="ctp:api:type:NonRecurringOrdersOnlyDraft">NonRecurringOrdersOnlyDraft</a>.</p>
+     *
+     *
+     * @return null|RecurringOrderScopeDraft
+     */
+    public function getRecurringOrderScope()
+    {
+        if (is_null($this->recurringOrderScope)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRING_ORDER_SCOPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = RecurringOrderScopeDraftModel::resolveDiscriminatorClass($data);
+            $this->recurringOrderScope = $className::of($data);
+        }
+
+        return $this->recurringOrderScope;
     }
 
 
@@ -597,6 +629,14 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     public function setDiscountGroup(?DiscountGroupResourceIdentifier $discountGroup): void
     {
         $this->discountGroup = $discountGroup;
+    }
+
+    /**
+     * @param ?RecurringOrderScopeDraft $recurringOrderScope
+     */
+    public function setRecurringOrderScope(?RecurringOrderScopeDraft $recurringOrderScope): void
+    {
+        $this->recurringOrderScope = $recurringOrderScope;
     }
 
 

@@ -189,6 +189,12 @@ final class CartBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $freezeStrategy;
+
+    /**
+
      * @var null|Address|AddressBuilder
      */
     private $billingAddress;
@@ -297,9 +303,21 @@ final class CartBuilder implements Builder
 
     /**
 
+     * @var null|CartLock|CartLockBuilder
+     */
+    private $lock;
+
+    /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
+
+    /**
+
+     * @var ?string
+     */
+    private $purchaseOrderNumber;
 
     /**
 
@@ -585,6 +603,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * <p>Determines freezing behavior when <code>cartState</code> is <code>Frozen</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getFreezeStrategy()
+    {
+        return $this->freezeStrategy;
+    }
+
+    /**
      * <p>Billing address associated with the Cart.</p>
      *
 
@@ -790,6 +819,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * <p>Indicates whether the Cart has been <a href="/../api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
+     *
+
+     * @return null|CartLock
+     */
+    public function getLock()
+    {
+        return $this->lock instanceof CartLockBuilder ? $this->lock->build() : $this->lock;
+    }
+
+    /**
      * <p>Number of days after the last modification before a Cart is deleted. Configured in <a href="ctp:api:type:CartsConfiguration">Project settings</a>.</p>
      *
 
@@ -798,6 +838,18 @@ final class CartBuilder implements Builder
     public function getDeleteDaysAfterLastModification()
     {
         return $this->deleteDaysAfterLastModification;
+    }
+
+    /**
+     * <p>User-defined identifier of a purchase order.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPurchaseOrderNumber()
+    {
+        return $this->purchaseOrderNumber;
     }
 
     /**
@@ -1087,6 +1139,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?string $freezeStrategy
+     * @return $this
+     */
+    public function withFreezeStrategy(?string $freezeStrategy)
+    {
+        $this->freezeStrategy = $freezeStrategy;
+
+        return $this;
+    }
+
+    /**
      * @param ?Address $billingAddress
      * @return $this
      */
@@ -1285,12 +1348,34 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?CartLock $lock
+     * @return $this
+     */
+    public function withLock(?CartLock $lock)
+    {
+        $this->lock = $lock;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $purchaseOrderNumber
+     * @return $this
+     */
+    public function withPurchaseOrderNumber(?string $purchaseOrderNumber)
+    {
+        $this->purchaseOrderNumber = $purchaseOrderNumber;
 
         return $this;
     }
@@ -1483,6 +1568,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLock() instead
+     * @return $this
+     */
+    public function withLockBuilder(?CartLockBuilder $lock)
+    {
+        $this->lock = $lock;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -1531,6 +1627,7 @@ final class CartBuilder implements Builder
             $this->taxCalculationMode,
             $this->inventoryMode,
             $this->cartState,
+            $this->freezeStrategy,
             $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
             $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
             $this->shippingMode,
@@ -1549,7 +1646,9 @@ final class CartBuilder implements Builder
             $this->origin,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->discountTypeCombination instanceof DiscountTypeCombinationBuilder ? $this->discountTypeCombination->build() : $this->discountTypeCombination,
+            $this->lock instanceof CartLockBuilder ? $this->lock->build() : $this->lock,
             $this->deleteDaysAfterLastModification,
+            $this->purchaseOrderNumber,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy
         );

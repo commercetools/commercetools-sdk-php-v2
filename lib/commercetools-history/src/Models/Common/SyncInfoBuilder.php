@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @implements Builder<SyncInfo>
@@ -22,7 +23,7 @@ final class SyncInfoBuilder implements Builder
 {
     /**
 
-     * @var null|Reference|ReferenceBuilder
+     * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
@@ -34,21 +35,23 @@ final class SyncInfoBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     private $syncedAt;
 
     /**
+     * <p>Connection to a synchronization destination.</p>
+     *
 
-     * @return null|Reference
+     * @return null|ChannelReference
      */
     public function getChannel()
     {
-        return $this->channel instanceof ReferenceBuilder ? $this->channel->build() : $this->channel;
+        return $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel;
     }
 
     /**
-     * <p>Can be used to reference an external order instance, file etc.</p>
+     * <p>Identifier of an external order instance, file, or other resource.</p>
      *
 
      * @return null|string
@@ -59,8 +62,10 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the information was synced.</p>
+     *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getSyncedAt()
     {
@@ -68,10 +73,10 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
-     * @param ?Reference $channel
+     * @param ?ChannelReference $channel
      * @return $this
      */
-    public function withChannel(?Reference $channel)
+    public function withChannel(?ChannelReference $channel)
     {
         $this->channel = $channel;
 
@@ -90,10 +95,10 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
-     * @param ?string $syncedAt
+     * @param ?DateTimeImmutable $syncedAt
      * @return $this
      */
-    public function withSyncedAt(?string $syncedAt)
+    public function withSyncedAt(?DateTimeImmutable $syncedAt)
     {
         $this->syncedAt = $syncedAt;
 
@@ -104,7 +109,7 @@ final class SyncInfoBuilder implements Builder
      * @deprecated use withChannel() instead
      * @return $this
      */
-    public function withChannelBuilder(?ReferenceBuilder $channel)
+    public function withChannelBuilder(?ChannelReferenceBuilder $channel)
     {
         $this->channel = $channel;
 
@@ -114,7 +119,7 @@ final class SyncInfoBuilder implements Builder
     public function build(): SyncInfo
     {
         return new SyncInfoModel(
-            $this->channel instanceof ReferenceBuilder ? $this->channel->build() : $this->channel,
+            $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->externalId,
             $this->syncedAt
         );

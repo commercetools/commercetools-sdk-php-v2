@@ -124,7 +124,7 @@ final class RecordBuilder implements Builder
     }
 
     /**
-     * <p>Indicates the type of change.
+     * <p>Indicates the change type.
      * For creation, update, or deletion, the value is <code>&quot;ResourceCreated&quot;</code>, <code>&quot;ResourceUpdated&quot;</code>, or <code>&quot;ResourceDeleted&quot;</code> respectively.</p>
      *
 

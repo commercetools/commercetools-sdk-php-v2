@@ -76,7 +76,7 @@ $request = $builder
 
 Creates an Import Container in the Project.
 
-Generates the [ImportContainerCreated](/projects/events#import-container-created-event) Event.
+Generates the [ImportContainerCreated](ctp:api:type:ImportContainerCreatedEvent) Event.
 
 
 ### Example
@@ -137,7 +137,7 @@ $request = $builder
 
 Deletes an Import Container in the Project.
 
-Generates the [ImportContainerDeleted](/projects/events#import-container-deleted-event) Event.
+Generates the [ImportContainerDeleted](ctp:api:type:ImportContainerDeletedEvent) Event.
 
 
 ### Example
@@ -170,7 +170,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->importContainers()->withImportContainerKeyValue("importContainerKey")->importSummaries()->get()`
 
-Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the [ImportContainer](ctp:import:type:ImportContainer) with the provided `importContainerKey`.
+Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the [ImportContainer](ctp:import:type:ImportContainer) with the provided `importContainerKey`. The returned values are [eventually consistent](/general-concepts#eventual-consistency).
 
 
 ### Example
@@ -251,7 +251,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->prices()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
-Creates an Import Request for Prices.
+Creates an Import Request for Embedded Prices.
 
 ### Example
 ```php

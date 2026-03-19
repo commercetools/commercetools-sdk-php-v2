@@ -84,6 +84,7 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
+     * <p>Product data that was updated.</p>
      * <ul>
      * <li><code>staged</code>, if the staged <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>
      * <li><code>current</code>, if the current <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> was updated.</li>

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @implements Builder<Transaction>
@@ -28,7 +29,7 @@ final class TransactionBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
     private $timestamp;
 
@@ -40,7 +41,7 @@ final class TransactionBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $amount;
 
@@ -57,6 +58,12 @@ final class TransactionBuilder implements Builder
     private $state;
 
     /**
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
      * <p>Unique identifier of the Transaction.</p>
      *
 
@@ -68,10 +75,10 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>Time at which the transaction took place.</p>
+     * <p>Date and time (UTC) the Transaction took place.</p>
      *
 
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
     public function getTimestamp()
     {
@@ -79,6 +86,8 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * <p>Type of the Transaction. For example, <code>Authorization</code>.</p>
+     *
 
      * @return null|string
      */
@@ -88,16 +97,19 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * <p>Money value of the Transaction.</p>
+     *
 
-     * @return null|Money
+     * @return null|CentPrecisionMoney
      */
     public function getAmount()
     {
-        return $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount;
+        return $this->amount instanceof CentPrecisionMoneyBuilder ? $this->amount->build() : $this->amount;
     }
 
     /**
-     * <p>Identifier used by the interface that manages the transaction (usually the PSP). If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
+     * <p>Identifier used by the interface that manages the Transaction (usually the PSP).
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction can be found with this ID.</p>
      *
 
      * @return null|string
@@ -108,12 +120,25 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * <p>State of the Transaction.</p>
+     *
 
      * @return null|string
      */
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * <p>Custom Fields defined for the Transaction.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -128,10 +153,10 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * @param ?string $timestamp
+     * @param ?DateTimeImmutable $timestamp
      * @return $this
      */
-    public function withTimestamp(?string $timestamp)
+    public function withTimestamp(?DateTimeImmutable $timestamp)
     {
         $this->timestamp = $timestamp;
 
@@ -150,10 +175,10 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * @param ?Money $amount
+     * @param ?CentPrecisionMoney $amount
      * @return $this
      */
-    public function withAmount(?Money $amount)
+    public function withAmount(?CentPrecisionMoney $amount)
     {
         $this->amount = $amount;
 
@@ -183,12 +208,34 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAmount() instead
      * @return $this
      */
-    public function withAmountBuilder(?MoneyBuilder $amount)
+    public function withAmountBuilder(?CentPrecisionMoneyBuilder $amount)
     {
         $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -199,9 +246,10 @@ final class TransactionBuilder implements Builder
             $this->id,
             $this->timestamp,
             $this->type,
-            $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount,
+            $this->amount instanceof CentPrecisionMoneyBuilder ? $this->amount->build() : $this->amount,
             $this->interactionId,
-            $this->state
+            $this->state,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

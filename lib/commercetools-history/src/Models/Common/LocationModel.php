@@ -47,7 +47,7 @@ final class LocationModel extends JsonObjectModel implements Location
     }
 
     /**
-     * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country code of the geographic location.</p>
      *
      *
      * @return null|string
@@ -67,6 +67,8 @@ final class LocationModel extends JsonObjectModel implements Location
     }
 
     /**
+     * <p>State within the country.</p>
+     *
      *
      * @return null|string
      */

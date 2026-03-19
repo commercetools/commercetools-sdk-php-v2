@@ -13,29 +13,28 @@ use Commercetools\Base\DateTimeImmutableCollection;
 
 interface Reference extends JsonObject
 {
-
-    public const FIELD_ID = 'id';
+    public const DISCRIMINATOR_FIELD = 'typeId';
     public const FIELD_TYPE_ID = 'typeId';
+    public const FIELD_ID = 'id';
 
     /**
-
-     * @return null|string
-     */
-    public function getId();
-
-    /**
+     * <p>Type of referenced resource.</p>
+     *
 
      * @return null|string
      */
     public function getTypeId();
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
+
+     * @return null|string
+     */
+    public function getId();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
-
-    /**
-     * @param ?string $typeId
-     */
-    public function setTypeId(?string $typeId): void;
 }

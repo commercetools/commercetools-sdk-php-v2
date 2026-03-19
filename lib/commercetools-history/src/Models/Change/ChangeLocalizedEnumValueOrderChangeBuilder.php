@@ -14,7 +14,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\ChangeValue\LocalizedEnumValueCollection;
+use Commercetools\History\Models\Common\AttributeLocalizedEnumValueCollection;
 
 /**
  * @implements Builder<ChangeLocalizedEnumValueOrderChange>
@@ -29,13 +29,13 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
 
     /**
 
-     * @var ?LocalizedEnumValueCollection
+     * @var ?AttributeLocalizedEnumValueCollection
      */
     private $previousValue;
 
     /**
 
-     * @var ?LocalizedEnumValueCollection
+     * @var ?AttributeLocalizedEnumValueCollection
      */
     private $nextValue;
 
@@ -64,7 +64,7 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
      * <p>Value before the change.</p>
      *
 
-     * @return null|LocalizedEnumValueCollection
+     * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getPreviousValue()
     {
@@ -75,7 +75,7 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
      * <p>Value after the change.</p>
      *
 
-     * @return null|LocalizedEnumValueCollection
+     * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getNextValue()
     {
@@ -116,10 +116,10 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedEnumValueCollection $previousValue
+     * @param ?AttributeLocalizedEnumValueCollection $previousValue
      * @return $this
      */
-    public function withPreviousValue(?LocalizedEnumValueCollection $previousValue)
+    public function withPreviousValue(?AttributeLocalizedEnumValueCollection $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -127,10 +127,10 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedEnumValueCollection $nextValue
+     * @param ?AttributeLocalizedEnumValueCollection $nextValue
      * @return $this
      */
-    public function withNextValue(?LocalizedEnumValueCollection $nextValue)
+    public function withNextValue(?AttributeLocalizedEnumValueCollection $nextValue)
     {
         $this->nextValue = $nextValue;
 

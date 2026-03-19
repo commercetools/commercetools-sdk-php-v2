@@ -123,8 +123,8 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
             if (is_null($data)) {
                 return null;
             }
-
-            $this->customer = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->customer = $className::of($data);
         }
 
         return $this->customer;
@@ -144,8 +144,8 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
             if (is_null($data)) {
                 return null;
             }
-
-            $this->stagedQuote = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->stagedQuote = $className::of($data);
         }
 
         return $this->stagedQuote;
@@ -165,8 +165,8 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
             if (is_null($data)) {
                 return null;
             }
-
-            $this->quoteRequest = ReferenceModel::of($data);
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->quoteRequest = $className::of($data);
         }
 
         return $this->quoteRequest;

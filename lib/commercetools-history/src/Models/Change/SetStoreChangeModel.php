@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\Reference;
-use Commercetools\History\Models\Common\ReferenceModel;
+use Commercetools\History\Models\Common\KeyReference;
+use Commercetools\History\Models\Common\KeyReferenceModel;
 
 /**
  * @internal
@@ -37,13 +37,13 @@ final class SetStoreChangeModel extends JsonObjectModel implements SetStoreChang
 
     /**
      *
-     * @var ?Reference
+     * @var ?KeyReference
      */
     protected $previousValue;
 
     /**
      *
-     * @var ?Reference
+     * @var ?KeyReference
      */
     protected $nextValue;
 
@@ -53,8 +53,8 @@ final class SetStoreChangeModel extends JsonObjectModel implements SetStoreChang
      */
     public function __construct(
         ?string $change = null,
-        ?Reference $previousValue = null,
-        ?Reference $nextValue = null,
+        ?KeyReference $previousValue = null,
+        ?KeyReference $nextValue = null,
         ?string $type = null
     ) {
         $this->change = $change;
@@ -103,7 +103,7 @@ final class SetStoreChangeModel extends JsonObjectModel implements SetStoreChang
      * <p>Value before the change.</p>
      *
      *
-     * @return null|Reference
+     * @return null|KeyReference
      */
     public function getPreviousValue()
     {
@@ -113,8 +113,8 @@ final class SetStoreChangeModel extends JsonObjectModel implements SetStoreChang
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue = ReferenceModel::of($data);
+            $className = KeyReferenceModel::resolveDiscriminatorClass($data);
+            $this->previousValue = $className::of($data);
         }
 
         return $this->previousValue;
@@ -124,7 +124,7 @@ final class SetStoreChangeModel extends JsonObjectModel implements SetStoreChang
      * <p>Value after the change.</p>
      *
      *
-     * @return null|Reference
+     * @return null|KeyReference
      */
     public function getNextValue()
     {
@@ -134,8 +134,8 @@ final class SetStoreChangeModel extends JsonObjectModel implements SetStoreChang
             if (is_null($data)) {
                 return null;
             }
-
-            $this->nextValue = ReferenceModel::of($data);
+            $className = KeyReferenceModel::resolveDiscriminatorClass($data);
+            $this->nextValue = $className::of($data);
         }
 
         return $this->nextValue;
@@ -151,17 +151,17 @@ final class SetStoreChangeModel extends JsonObjectModel implements SetStoreChang
     }
 
     /**
-     * @param ?Reference $previousValue
+     * @param ?KeyReference $previousValue
      */
-    public function setPreviousValue(?Reference $previousValue): void
+    public function setPreviousValue(?KeyReference $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?Reference $nextValue
+     * @param ?KeyReference $nextValue
      */
-    public function setNextValue(?Reference $nextValue): void
+    public function setNextValue(?KeyReference $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

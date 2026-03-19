@@ -29,13 +29,19 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
      *
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $money;
 
@@ -47,7 +53,13 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
 
     /**
      *
-     * @var ?Money
+     * @var ?MethodTaxedPriceCollection
+     */
+    protected $taxedPricePortions;
+
+    /**
+     *
+     * @var ?CentPrecisionMoney
      */
     protected $totalPrice;
 
@@ -63,31 +75,107 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      */
     protected $quantity;
 
+    /**
+     *
+     * @var ?ItemStateCollection
+     */
+    protected $state;
+
+    /**
+     *
+     * @var ?TaxCategoryReference
+     */
+    protected $taxCategory;
+
+    /**
+     *
+     * @var ?TaxRate
+     */
+    protected $taxRate;
+
+    /**
+     *
+     * @var ?MethodTaxRateCollection
+     */
+    protected $perMethodTaxRate;
+
+    /**
+     *
+     * @var ?DiscountedLineItemPriceForQuantityCollection
+     */
+    protected $discountedPricePerQuantity;
+
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     *
+     * @var ?ItemShippingDetails
+     */
+    protected $shippingDetails;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $priceMode;
+
+    /**
+     *
+     * @var ?CustomLineItemRecurrenceInfo
+     */
+    protected $recurrenceInfo;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $id = null,
+        ?string $key = null,
         ?LocalizedString $name = null,
-        ?Money $money = null,
+        ?TypedMoney $money = null,
         ?TaxedItemPrice $taxedPrice = null,
-        ?Money $totalPrice = null,
+        ?MethodTaxedPriceCollection $taxedPricePortions = null,
+        ?CentPrecisionMoney $totalPrice = null,
         ?string $slug = null,
-        ?int $quantity = null
+        ?int $quantity = null,
+        ?ItemStateCollection $state = null,
+        ?TaxCategoryReference $taxCategory = null,
+        ?TaxRate $taxRate = null,
+        ?MethodTaxRateCollection $perMethodTaxRate = null,
+        ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
+        ?CustomFields $custom = null,
+        ?ItemShippingDetails $shippingDetails = null,
+        ?string $priceMode = null,
+        ?CustomLineItemRecurrenceInfo $recurrenceInfo = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->name = $name;
         $this->money = $money;
         $this->taxedPrice = $taxedPrice;
+        $this->taxedPricePortions = $taxedPricePortions;
         $this->totalPrice = $totalPrice;
         $this->slug = $slug;
         $this->quantity = $quantity;
+        $this->state = $state;
+        $this->taxCategory = $taxCategory;
+        $this->taxRate = $taxRate;
+        $this->perMethodTaxRate = $perMethodTaxRate;
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->custom = $custom;
+        $this->shippingDetails = $shippingDetails;
+        $this->priceMode = $priceMode;
+        $this->recurrenceInfo = $recurrenceInfo;
 
     }
 
     /**
-     * <p>The unique ID of this CustomLineItem.</p>
+     * <p>Unique identifier of the Custom Line Item.</p>
      *
      *
      * @return null|string
@@ -107,6 +195,28 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>Name of the Custom Line Item.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -126,8 +236,10 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+     * <p>Money value of the Custom Line Item.</p>
      *
-     * @return null|Money
+     *
+     * @return null|TypedMoney
      */
     public function getMoney()
     {
@@ -137,14 +249,16 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
             if (is_null($data)) {
                 return null;
             }
-
-            $this->money = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->money = $className::of($data);
         }
 
         return $this->money;
     }
 
     /**
+     * <p>Automatically set after the <code>taxRate</code> is set.</p>
+     *
      *
      * @return null|TaxedItemPrice
      */
@@ -164,8 +278,33 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+     * <p>Total taxed prices based on the quantity of the Custom Line Item assigned to each <a href="ctp:api:type:ShippingMethod">Shipping Method</a>. Only applicable for Carts with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Automatically set after <code>perMethodTaxRate</code> is set.</p>
      *
-     * @return null|Money
+     *
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        if (is_null($this->taxedPricePortions)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TAXED_PRICE_PORTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxedPricePortions = MethodTaxedPriceCollection::fromArray($data);
+        }
+
+        return $this->taxedPricePortions;
+    }
+
+    /**
+     * <p>Total price of the Custom Line Item (<code>money</code> multiplied by <code>quantity</code>).
+     * If the Custom Line Item is discounted, the total price is <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>.</p>
+     * <p>Includes taxes if the <a href="ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
+     *
+     *
+     * @return null|CentPrecisionMoney
      */
     public function getTotalPrice()
     {
@@ -176,14 +315,15 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
                 return null;
             }
 
-            $this->totalPrice = MoneyModel::of($data);
+            $this->totalPrice = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->totalPrice;
     }
 
     /**
-     * <p>A unique String in the cart to identify this CustomLineItem.</p>
+     * <p>User-defined identifier used in a deep-link URL for the Custom Line Item.
+     * It matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
      *
      *
      * @return null|string
@@ -203,7 +343,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * <p>The amount of a CustomLineItem in the cart. Must be a positive integer.</p>
+     * <p>Number of Custom Line Items in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
      *
      * @return null|int
@@ -222,6 +362,195 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         return $this->quantity;
     }
 
+    /**
+     * <p>Tracks specific quantities of the Custom Line Item within a given State. When a Custom Line Item is added to a Cart, its full quantity is set to the built-in &quot;Initial&quot; state. State transitions for Custom Line Items are managed on the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
+     *
+     * @return null|ItemStateCollection
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = ItemStateCollection::fromArray($data);
+        }
+
+        return $this->state;
+    }
+
+    /**
+     * <p>Used to select a Tax Rate when a Cart has the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>.</p>
+     *
+     *
+     * @return null|TaxCategoryReference
+     */
+    public function getTaxCategory()
+    {
+        if (is_null($this->taxCategory)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TAX_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxCategory = TaxCategoryReferenceModel::of($data);
+        }
+
+        return $this->taxCategory;
+    }
+
+    /**
+     * <ul>
+     * <li>For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the <code>taxRate</code> of Custom Line Items is set automatically once a shipping address is set. The rate is based on the <a href="ctp:api:type:TaxCategory">TaxCategory</a> that applies for the shipping address.</li>
+     * <li>For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Custom Line Items can be set using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</li>
+     * </ul>
+     *
+     *
+     * @return null|TaxRate
+     */
+    public function getTaxRate()
+    {
+        if (is_null($this->taxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxRate = TaxRateModel::of($data);
+        }
+
+        return $this->taxRate;
+    }
+
+    /**
+     * <p>Tax Rate per Shipping Method for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> it is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.
+     * For a Cart with <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+     *
+     * @return null|MethodTaxRateCollection
+     */
+    public function getPerMethodTaxRate()
+    {
+        if (is_null($this->perMethodTaxRate)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PER_METHOD_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->perMethodTaxRate = MethodTaxRateCollection::fromArray($data);
+        }
+
+        return $this->perMethodTaxRate;
+    }
+
+    /**
+     * <p>Discounted price of a single quantity of the Custom Line Item.</p>
+     *
+     *
+     * @return null|DiscountedLineItemPriceForQuantityCollection
+     */
+    public function getDiscountedPricePerQuantity()
+    {
+        if (is_null($this->discountedPricePerQuantity)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
+        }
+
+        return $this->discountedPricePerQuantity;
+    }
+
+    /**
+     * <p>Custom Fields of the Custom Line Item.</p>
+     *
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
+     * <p>Container for Custom Line Item-specific addresses.</p>
+     *
+     *
+     * @return null|ItemShippingDetails
+     */
+    public function getShippingDetails()
+    {
+        if (is_null($this->shippingDetails)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingDetails = ItemShippingDetailsModel::of($data);
+        }
+
+        return $this->shippingDetails;
+    }
+
+    /**
+     * <p>Indicates whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>, <a href="ctp:api:type:MultiBuyCustomLineItemsTarget">MultiBuyCustomLineItemsTarget</a>, or <a href="ctp:api:type:CartDiscountPatternTarget">CartDiscountPatternTarget</a> are applied to the Custom Line Item.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
+    }
+
+    /**
+     * <p>Recurring Order and frequency data.</p>
+     *
+     *
+     * @return null|CustomLineItemRecurrenceInfo
+     */
+    public function getRecurrenceInfo()
+    {
+        if (is_null($this->recurrenceInfo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RECURRENCE_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->recurrenceInfo = CustomLineItemRecurrenceInfoModel::of($data);
+        }
+
+        return $this->recurrenceInfo;
+    }
+
 
     /**
      * @param ?string $id
@@ -229,6 +558,14 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**
@@ -240,9 +577,9 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * @param ?Money $money
+     * @param ?TypedMoney $money
      */
-    public function setMoney(?Money $money): void
+    public function setMoney(?TypedMoney $money): void
     {
         $this->money = $money;
     }
@@ -256,9 +593,17 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * @param ?Money $totalPrice
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
      */
-    public function setTotalPrice(?Money $totalPrice): void
+    public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
+    }
+
+    /**
+     * @param ?CentPrecisionMoney $totalPrice
+     */
+    public function setTotalPrice(?CentPrecisionMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
@@ -277,6 +622,78 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
+    }
+
+    /**
+     * @param ?ItemStateCollection $state
+     */
+    public function setState(?ItemStateCollection $state): void
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     */
+    public function setTaxCategory(?TaxCategoryReference $taxCategory): void
+    {
+        $this->taxCategory = $taxCategory;
+    }
+
+    /**
+     * @param ?TaxRate $taxRate
+     */
+    public function setTaxRate(?TaxRate $taxRate): void
+    {
+        $this->taxRate = $taxRate;
+    }
+
+    /**
+     * @param ?MethodTaxRateCollection $perMethodTaxRate
+     */
+    public function setPerMethodTaxRate(?MethodTaxRateCollection $perMethodTaxRate): void
+    {
+        $this->perMethodTaxRate = $perMethodTaxRate;
+    }
+
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     */
+    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
+    {
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    /**
+     * @param ?ItemShippingDetails $shippingDetails
+     */
+    public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
+    {
+        $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
+    }
+
+    /**
+     * @param ?CustomLineItemRecurrenceInfo $recurrenceInfo
+     */
+    public function setRecurrenceInfo(?CustomLineItemRecurrenceInfo $recurrenceInfo): void
+    {
+        $this->recurrenceInfo = $recurrenceInfo;
     }
 
 

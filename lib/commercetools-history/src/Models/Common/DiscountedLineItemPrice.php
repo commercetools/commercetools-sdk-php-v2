@@ -18,21 +18,25 @@ interface DiscountedLineItemPrice extends JsonObject
     public const FIELD_INCLUDED_DISCOUNTS = 'includedDiscounts';
 
     /**
+     * <p>Money value of the discounted Line Item or Custom Line Item.</p>
+     *
 
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue();
 
     /**
+     * <p>Discount applicable on the Line Item or Custom Line Item.</p>
+     *
 
      * @return null|DiscountedLineItemPortionCollection
      */
     public function getIncludedDiscounts();
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void;
+    public function setValue(?TypedMoney $value): void;
 
     /**
      * @param ?DiscountedLineItemPortionCollection $includedDiscounts

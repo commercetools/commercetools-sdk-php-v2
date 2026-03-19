@@ -16,6 +16,8 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Common\ItemShippingDetails;
 use Commercetools\History\Models\Common\ItemShippingDetailsBuilder;
+use Commercetools\History\Models\Common\LocalizedString;
+use Commercetools\History\Models\Common\LocalizedStringBuilder;
 
 /**
  * @implements Builder<SetLineItemShippingDetailsChange>
@@ -45,6 +47,18 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
      * @var ?string
      */
     private $lineItemId;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $lineItem;
+
+    /**
+
+     * @var ?string
+     */
+    private $variant;
 
     /**
 
@@ -86,6 +100,29 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * <p>Name of the <a href="ctp:api:type:Product">Product</a> the updated Line Item is based on.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getLineItem()
+    {
+        return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
+     * <p>Identifier of the updated Product Variant.</p>
+     * <p>This field holds the SKU, if defined; otherwise the key; otherwise the ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
     }
 
     /**
@@ -133,6 +170,28 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $lineItem
+     * @return $this
+     */
+    public function withLineItem(?LocalizedString $lineItem)
+    {
+        $this->lineItem = $lineItem;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $variant
+     * @return $this
+     */
+    public function withVariant(?string $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPreviousValue() instead
      * @return $this
      */
@@ -154,13 +213,26 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withLineItem() instead
+     * @return $this
+     */
+    public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
+    {
+        $this->lineItem = $lineItem;
+
+        return $this;
+    }
+
     public function build(): SetLineItemShippingDetailsChange
     {
         return new SetLineItemShippingDetailsChangeModel(
             $this->change,
             $this->previousValue instanceof ItemShippingDetailsBuilder ? $this->previousValue->build() : $this->previousValue,
             $this->nextValue instanceof ItemShippingDetailsBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->lineItemId
+            $this->lineItemId,
+            $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->variant
         );
     }
 
