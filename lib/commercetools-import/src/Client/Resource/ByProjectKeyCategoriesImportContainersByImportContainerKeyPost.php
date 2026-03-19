@@ -40,7 +40,7 @@ class ByProjectKeyCategoriesImportContainersByImportContainerKeyPost extends Api
      */
     public function __construct(string $projectKey, string $importContainerKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{importContainerKey}'], [$projectKey, $importContainerKey], '{projectKey}/categories/import-containers/{importContainerKey}');
+        $uri = str_replace(['{projectKey}', '{importContainerKey}'], [urlencode($projectKey), urlencode($importContainerKey)], '{projectKey}/categories/import-containers/{importContainerKey}');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

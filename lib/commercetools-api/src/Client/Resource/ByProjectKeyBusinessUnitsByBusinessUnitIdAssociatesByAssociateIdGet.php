@@ -41,7 +41,7 @@ class ByProjectKeyBusinessUnitsByBusinessUnitIdAssociatesByAssociateIdGet extend
      */
     public function __construct(string $projectKey, string $businessUnitId, string $associateId, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{businessUnitId}', '{associateId}'], [$projectKey, $businessUnitId, $associateId], '{projectKey}/business-units/{businessUnitId}/associates/{associateId}');
+        $uri = str_replace(['{projectKey}', '{businessUnitId}', '{associateId}'], [urlencode($projectKey), urlencode($businessUnitId), urlencode($associateId)], '{projectKey}/business-units/{businessUnitId}/associates/{associateId}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

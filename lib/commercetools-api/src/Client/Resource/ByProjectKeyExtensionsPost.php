@@ -41,7 +41,7 @@ class ByProjectKeyExtensionsPost extends ApiRequest implements Deprecatable201, 
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/extensions');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/extensions');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

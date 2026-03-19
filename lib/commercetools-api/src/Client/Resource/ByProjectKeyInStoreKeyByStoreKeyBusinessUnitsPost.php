@@ -42,7 +42,7 @@ class ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsPost extends ApiRequest imple
      */
     public function __construct(string $projectKey, string $storeKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}'], [$projectKey, $storeKey], '{projectKey}/in-store/key={storeKey}/business-units');
+        $uri = str_replace(['{projectKey}', '{storeKey}'], [urlencode($projectKey), urlencode($storeKey)], '{projectKey}/in-store/key={storeKey}/business-units');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

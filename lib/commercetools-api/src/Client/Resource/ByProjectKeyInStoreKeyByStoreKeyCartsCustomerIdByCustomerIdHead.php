@@ -39,7 +39,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdHead extends Ap
      */
     public function __construct(string $projectKey, string $storeKey, string $customerId, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{customerId}'], [$projectKey, $storeKey, $customerId], '{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{customerId}'], [urlencode($projectKey), urlencode($storeKey), urlencode($customerId)], '{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

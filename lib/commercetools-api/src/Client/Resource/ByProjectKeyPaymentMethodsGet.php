@@ -45,7 +45,7 @@ class ByProjectKeyPaymentMethodsGet extends ApiRequest implements Expandable, So
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/payment-methods');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/payment-methods');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

@@ -44,7 +44,7 @@ class ByProjectKeyCustomObjectsByContainerByKeyDelete extends ApiRequest impleme
      */
     public function __construct(string $projectKey, string $container, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{container}', '{key}'], [$projectKey, $container, $key], '{projectKey}/custom-objects/{container}/{key}');
+        $uri = str_replace(['{projectKey}', '{container}', '{key}'], [urlencode($projectKey), urlencode($container), urlencode($key)], '{projectKey}/custom-objects/{container}/{key}');
         parent::__construct($client, 'DELETE', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

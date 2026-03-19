@@ -38,7 +38,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductsKeyByProductKeyProductTailoringIma
      */
     public function __construct(string $projectKey, string $storeKey, string $productKey, ?UploadedFileInterface $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{productKey}'], [$projectKey, $storeKey, $productKey], '{projectKey}/in-store/key={storeKey}/products/key={productKey}/product-tailoring/images');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{productKey}'], [urlencode($projectKey), urlencode($storeKey), urlencode($productKey)], '{projectKey}/in-store/key={storeKey}/products/key={productKey}/product-tailoring/images');
         if (!is_null($body)) {
             $mediaType = $body->getClientMediaType();
             if (!is_null($mediaType)) {

@@ -40,7 +40,7 @@ class ByProjectKeyCartsCustomerIdByCustomerIdMergePost extends ApiRequest implem
      */
     public function __construct(string $projectKey, string $customerId, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{customerId}'], [$projectKey, $customerId], '{projectKey}/carts/customer-id={customerId}/merge');
+        $uri = str_replace(['{projectKey}', '{customerId}'], [urlencode($projectKey), urlencode($customerId)], '{projectKey}/carts/customer-id={customerId}/merge');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

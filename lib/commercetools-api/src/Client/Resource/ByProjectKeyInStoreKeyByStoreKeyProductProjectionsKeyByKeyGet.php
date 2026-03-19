@@ -46,7 +46,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet extends ApiR
      */
     public function __construct(string $projectKey, string $storeKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{key}'], [$projectKey, $storeKey, $key], '{projectKey}/in-store/key={storeKey}/product-projections/key={key}');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{key}'], [urlencode($projectKey), urlencode($storeKey), urlencode($key)], '{projectKey}/in-store/key={storeKey}/product-projections/key={key}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

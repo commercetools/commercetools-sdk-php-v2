@@ -38,7 +38,7 @@ class ByProjectKeyInBusinessUnitKeyByBusinessUnitKeyMeCustomersPost extends ApiR
      */
     public function __construct(string $projectKey, string $businessUnitKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{businessUnitKey}'], [$projectKey, $businessUnitKey], '{projectKey}/in-business-unit/key={businessUnitKey}/me/customers');
+        $uri = str_replace(['{projectKey}', '{businessUnitKey}'], [urlencode($projectKey), urlencode($businessUnitKey)], '{projectKey}/in-business-unit/key={businessUnitKey}/me/customers');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

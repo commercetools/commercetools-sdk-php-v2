@@ -43,7 +43,7 @@ class ByProjectKeyOrdersOrderNumberByOrderNumberPost extends ApiRequest implemen
      */
     public function __construct(string $projectKey, string $orderNumber, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{orderNumber}'], [$projectKey, $orderNumber], '{projectKey}/orders/order-number={orderNumber}');
+        $uri = str_replace(['{projectKey}', '{orderNumber}'], [urlencode($projectKey), urlencode($orderNumber)], '{projectKey}/orders/order-number={orderNumber}');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

@@ -45,7 +45,7 @@ class ByProjectKeyCustomersGet extends ApiRequest implements Expandable, Sortabl
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/customers');
+        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/customers');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

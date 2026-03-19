@@ -42,7 +42,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductsByProductIDProductTailoringGet ext
      */
     public function __construct(string $projectKey, string $storeKey, string $productID, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{productID}'], [$projectKey, $storeKey, $productID], '{projectKey}/in-store/key={storeKey}/products/{productID}/product-tailoring');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{productID}'], [urlencode($projectKey), urlencode($storeKey), urlencode($productID)], '{projectKey}/in-store/key={storeKey}/products/{productID}/product-tailoring');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

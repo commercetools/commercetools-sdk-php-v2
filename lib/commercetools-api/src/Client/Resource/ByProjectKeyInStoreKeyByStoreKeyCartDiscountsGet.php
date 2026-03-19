@@ -45,7 +45,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartDiscountsGet extends ApiRequest implem
      */
     public function __construct(string $projectKey, string $storeKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}'], [$projectKey, $storeKey], '{projectKey}/in-store/key={storeKey}/cart-discounts');
+        $uri = str_replace(['{projectKey}', '{storeKey}'], [urlencode($projectKey), urlencode($storeKey)], '{projectKey}/in-store/key={storeKey}/cart-discounts');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
