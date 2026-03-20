@@ -229,7 +229,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The carrier that delivers the parcel.</p>
+<p>Name of the carrier that delivers the Parcel.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -253,13 +253,18 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Flag to distinguish if the parcel is on the way to the customer (false) or on the way back (true).</p>
+<ul>
+<li>
+If <code>true</code>, the Parcel is being returned. </li>
+<li>
+If <code>false</code>, the Parcel is being delivered to the customer. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
 <p>Implements <a class="el" href="../../d5/d3c/interface_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data.html#a5a5ee31afdc7894428a60f6ac231229b">Commercetools\History\Models\Common\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00155">155</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00162">162</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -277,12 +282,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Name of the provider that serves as facade to several carriers.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d5/d3c/interface_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data.html#a3f4545d14ba56dce2a7d1812289f17d7">Commercetools\History\Models\Common\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00117">117</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00119">119</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -300,12 +306,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Transaction identifier with the <code>provider</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d5/d3c/interface_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data.html#a09db475839e8c832a3607cfc07df2d72">Commercetools\History\Models\Common\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00135">135</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00139">139</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -323,7 +330,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID to track one parcel.</p>
+<p>Identifier to track the Parcel.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -357,7 +364,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d3c/interface_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data.html#a310cfd576c51b54ced44f422c34afc00">Commercetools\History\Models\Common\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00181">181</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00188">188</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -385,7 +392,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d3c/interface_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data.html#a3ffb757cafd2d36b9ce20e9d58ff3149">Commercetools\History\Models\Common\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00205">205</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00212">212</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -413,7 +420,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d3c/interface_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data.html#aea6294074916c39c25873d906b2c7ae8">Commercetools\History\Models\Common\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00189">189</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00196">196</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -441,7 +448,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d3c/interface_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data.html#a93b5ad56ce8ea1f2273734e24d9fb96d">Commercetools\History\Models\Common\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00197">197</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00204">204</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>
@@ -469,7 +476,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d3c/interface_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data.html#a82c6bdcf6f8e0644f7ac8bae4c559d6c">Commercetools\History\Models\Common\TrackingData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00173">173</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html#l00180">180</a> of file <a class="el" href="../../d2/dc5/commercetools-history_2src_2_models_2_common_2_tracking_data_model_8php_source.html">TrackingDataModel.php</a>.</p>
 
 </div>
 </div>

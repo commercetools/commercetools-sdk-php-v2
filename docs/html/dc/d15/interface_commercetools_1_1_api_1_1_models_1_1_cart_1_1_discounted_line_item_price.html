@@ -161,6 +161,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Money value of the discounted Line Item or Custom Line Item.</p>
+<p>When multiple discounts from <code>includedDiscounts</code> apply, they are applied sequentially based on the <code>sortOrder</code> of their associated <a href="../../ctp:api:type:CartDiscount">Cart Discounts</a> (discounts with higher <code>sortOrder</code> values are applied first). The Cart's <code>priceRoundingMode</code> field (<a href="../../ctp:api:type:RoundingMode">RoundingMode</a>) is applied after each discount calculation, so rounding occurs after each discount step rather than only once on the final cumulative amount.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
 
 <p>Implemented in <a class="el" href="../../df/d72/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_discounted_line_item_price_model.html#a00877a0c834b657e56141cdb4e8cd326">Commercetools\Api\Models\Cart\DiscountedLineItemPriceModel</a>.</p>

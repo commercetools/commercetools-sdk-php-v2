@@ -165,7 +165,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00350">350</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00351">351</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -214,7 +214,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomFieldsDraft </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00202">202</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00203">203</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -233,7 +233,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
       </table>
 </div><div class="memdoc">
 <p><code>id</code> of the <a href="../../ctp:api:type:Cart">Cart</a> used to create the Order.</p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002587">Deprecated:</a></b></dt><dd></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002670">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00095">95</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
@@ -278,7 +278,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 <p>Current status for the Order.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00175">175</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00176">176</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -299,7 +299,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 <p>Payment status for the Order.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00153">153</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00154">154</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -317,11 +317,12 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined identifier for a purchase Order.</p>
-<p>It is typically set by the <a href="../../ctp:api:type:Buyer">Buyer</a> and can be used with <a href="../..//quotes-overview">Quotes</a> to track the purchase Order during the <a href="../..//../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+<p>User-defined identifier for a purchase order.</p>
+<p>It is typically set by the <a href="../../ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="../..//../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+<p>If not provided, the <code>purchaseOrderNumber</code> from the referenced <a href="../../ctp:api:type:Cart">Cart</a> is used.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00142">142</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00143">143</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -342,7 +343,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 <p>Shipment status for the Order.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00164">164</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00165">165</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -363,7 +364,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 <p>State for the Order in a custom workflow.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StateResourceIdentifier </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00186">186</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00187">187</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -411,7 +412,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00366">366</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00367">367</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -438,7 +439,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00222">222</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00223">223</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -457,10 +458,10 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002588">Deprecated:</a></b></dt><dd>use withCart() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002671">Deprecated:</a></b></dt><dd>use withCart() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00321">321</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00322">322</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -487,7 +488,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00310">310</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00311">311</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -506,10 +507,10 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002590">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002673">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00343">343</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00344">344</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -536,7 +537,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00211">211</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00212">212</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -563,7 +564,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00244">244</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00245">245</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -590,7 +591,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00288">288</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00289">289</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -617,7 +618,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00266">266</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00267">267</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -644,7 +645,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00255">255</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00256">256</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -671,7 +672,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00277">277</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00278">278</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -698,7 +699,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00299">299</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00300">300</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -717,10 +718,10 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002589">Deprecated:</a></b></dt><dd>use withState() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002672">Deprecated:</a></b></dt><dd>use withState() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00332">332</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00333">333</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -747,7 +748,7 @@ If specified, the Custom Fields are merged with the Custom Fields on the referen
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00233">233</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html#l00234">234</a> of file <a class="el" href="../../d2/da7/_order_from_cart_draft_builder_8php_source.html">OrderFromCartDraftBuilder.php</a>.</p>
 
 </div>
 </div>

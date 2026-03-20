@@ -139,7 +139,7 @@ Example</h2>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;post(null)&lt;/tt&gt;</h1>
 <p>Creates an Import Container in the Project.</p>
-<p>Generates the <a href="../..//projects/events#import-container-created-event">ImportContainerCreated</a> Event.</p>
+<p>Generates the [ImportContainerCreated](ctp:api:type:ImportContainerCreatedEvent) Event.</p>
 <h2><a class="anchor" id="example-4"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
@@ -190,7 +190,7 @@ Example</h2>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-withimportcontainerkeyvalueimportcontainerkey-delete"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;delete()&lt;/tt&gt;</h1>
 <p>Deletes an Import Container in the Project.</p>
-<p>Generates the <a href="../..//projects/events#import-container-deleted-event">ImportContainerDeleted</a> Event.</p>
+<p>Generates the [ImportContainerDeleted](ctp:api:type:ImportContainerDeletedEvent) Event.</p>
 <h2><a class="anchor" id="example-8"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
@@ -217,7 +217,7 @@ Example</h2>
 <div class="line">                -&gt;get();</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-importcontainers-withimportcontainerkeyvalueimportcontainerkey-importsummaries-get"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;importSummaries()-&gt;get()&lt;/tt&gt;</h1>
-<p>Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the [ImportContainer](ctp:import:type:ImportContainer) with the provided <code>importContainerKey</code>.</p>
+<p>Retrieves an [ImportSummary](ctp:import:type:ImportSummary) for the [ImportContainer](ctp:import:type:ImportContainer) with the provided <code>importContainerKey</code>. The returned values are <a href="../..//general-concepts#eventual-consistency">eventually consistent</a>.</p>
 <h2><a class="anchor" id="example-10"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>
@@ -286,7 +286,7 @@ Example</h2>
 <div class="line">                -&gt;post(<span class="keyword">null</span>);</div>
 </div><!-- fragment --> <h1><a class="anchor" id="withprojectkeyvalueprojectkey-prices-importcontainers-withimportcontainerkeyvalueimportcontainerkey-postnull"></a>
 &lt;tt&gt;withProjectKeyValue("projectKey")-&gt;prices()-&gt;importContainers()-&gt;withImportContainerKeyValue("importContainerKey")-&gt;post(null)&lt;/tt&gt;</h1>
-<p>Creates an Import Request for Prices.</p>
+<p>Creates an Import Request for Embedded Prices.</p>
 <h2><a class="anchor" id="example-15"></a>
 Example</h2>
 <div class="fragment"><div class="line">use <a class="code hl_class" href="../../de/d57/class_commercetools_1_1_import_1_1_client_1_1_import_request_builder.html">Commercetools\Import\Client\ImportRequestBuilder</a>;</div>

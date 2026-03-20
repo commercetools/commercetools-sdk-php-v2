@@ -157,7 +157,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The carrier that delivers the parcel.</p>
+<p>Name of the carrier that delivers the Parcel.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/dcd/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data_model.html#a748c8681eea746bee8d46cde1442c3bb">Commercetools\History\Models\Common\TrackingDataModel</a>.</p>
@@ -178,7 +178,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Flag to distinguish if the parcel is on the way to the customer (false) or on the way back (true).</p>
+<ul>
+<li>
+If <code>true</code>, the Parcel is being returned. </li>
+<li>
+If <code>false</code>, the Parcel is being delivered to the customer. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/dcd/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data_model.html#a13e6e41eecffa890d8ebebf4c8dcc918">Commercetools\History\Models\Common\TrackingDataModel</a>.</p>
@@ -199,6 +204,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Name of the provider that serves as facade to several carriers.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/dcd/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data_model.html#a20d1941ba6e9aebda6ad69eb54671b33">Commercetools\History\Models\Common\TrackingDataModel</a>.</p>
@@ -219,6 +225,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Transaction identifier with the <code>provider</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/dcd/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data_model.html#a085578e4f038d4df4199825571c7e502">Commercetools\History\Models\Common\TrackingDataModel</a>.</p>
@@ -239,7 +246,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ID to track one parcel.</p>
+<p>Identifier to track the Parcel.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/dcd/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_tracking_data_model.html#a108c6cfae2eaf5d3b4f9bd199d5b2bc5">Commercetools\History\Models\Common\TrackingDataModel</a>.</p>

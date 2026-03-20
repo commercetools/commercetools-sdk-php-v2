@@ -167,8 +167,8 @@ $(document).ready(function() { init_codefold(1); });
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keywordflow">if</span> (is_null($data)) {</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            }</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            $this-&gt;customer = ReferenceModel::of($data);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            $className = ReferenceModel::resolveDiscriminatorClass($data);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            $this-&gt;customer = $className::of($data);</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        }</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../dc/d11/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_quote_label_model.html#a52a963816324acdae5a3b7c2dcb6f5a8">$this-&gt;customer</a>;</div>
@@ -183,8 +183,8 @@ $(document).ready(function() { init_codefold(1); });
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordflow">if</span> (is_null($data)) {</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            }</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            $this-&gt;stagedQuote = ReferenceModel::of($data);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            $className = ReferenceModel::resolveDiscriminatorClass($data);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            $this-&gt;stagedQuote = $className::of($data);</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        }</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../dc/d11/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_quote_label_model.html#a642e158d363116fd25ce09f96305a187">$this-&gt;stagedQuote</a>;</div>
@@ -199,8 +199,8 @@ $(document).ready(function() { init_codefold(1); });
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keywordflow">if</span> (is_null($data)) {</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            }</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            $this-&gt;quoteRequest = ReferenceModel::of($data);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            $className = ReferenceModel::resolveDiscriminatorClass($data);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            $this-&gt;quoteRequest = $className::of($data);</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        }</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../dc/d11/class_commercetools_1_1_history_1_1_models_1_1_label_1_1_quote_label_model.html#a3f271a0e334666dbdad0ea63769a9675">$this-&gt;quoteRequest</a>;</div>

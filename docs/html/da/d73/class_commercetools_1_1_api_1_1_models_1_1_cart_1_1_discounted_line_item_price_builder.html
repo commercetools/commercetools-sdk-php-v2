@@ -129,7 +129,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00092">92</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00093">93</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -150,7 +150,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Discount applicable on the Line Item or Custom Line Item.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DiscountedLineItemPortionCollection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00054">54</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00055">55</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -169,9 +169,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Money value of the discounted Line Item or Custom Line Item.</p>
+<p>When multiple discounts from <code>includedDiscounts</code> apply, they are applied sequentially based on the <code>sortOrder</code> of their associated <a href="../../ctp:api:type:CartDiscount">Cart Discounts</a> (discounts with higher <code>sortOrder</code> values are applied first). The Cart's <code>priceRoundingMode</code> field (<a href="../../ctp:api:type:RoundingMode">RoundingMode</a>) is applied after each discount calculation, so rounding occurs after each discount step rather than only once on the final cumulative amount.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00043">43</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00044">44</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -198,7 +199,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00100">100</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00101">101</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -225,7 +226,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00074">74</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00075">75</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -252,7 +253,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00063">63</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00064">64</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -271,10 +272,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000406">Deprecated:</a></b></dt><dd>use withValue() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000409">Deprecated:</a></b></dt><dd>use withValue() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00085">85</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html#l00086">86</a> of file <a class="el" href="../../d9/d1c/commercetools-api_2src_2_models_2_cart_2_discounted_line_item_price_builder_8php_source.html">DiscountedLineItemPriceBuilder.php</a>.</p>
 
 </div>
 </div>

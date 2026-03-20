@@ -244,12 +244,13 @@ Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as 
 <li>
 The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>). </li>
 </ul>
+<p><code>centAmount</code> is represented as 64-bit integers. If this limit is exceeded, a <a href="../..//errors#moneyoverflow">MoneyOverflow</a> error will be returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
 <p>Implements <a class="el" href="../../de/dc7/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_money.html#a602397a0d8767e3d8617fb2fdf16858f">Commercetools\Api\Models\Common\Money</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00081">81</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00082">82</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -273,7 +274,7 @@ The value in the major unit for currencies without minor units, like JPY (5 JPY 
 
 <p>Implements <a class="el" href="../../de/dc7/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_money.html#a53f88accc9d4a56ac1d43a731d9c6095">Commercetools\Api\Models\Common\Money</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00101">101</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00102">102</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -297,7 +298,7 @@ The value in the major unit for currencies without minor units, like JPY (5 JPY 
 
 <p>Implements <a class="el" href="../../d2/d24/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_high_precision_money.html#a21941f3f76e5cc3cc1543ac4477f7451">Commercetools\Api\Models\Common\HighPrecisionMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00141">141</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00142">142</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -321,7 +322,7 @@ The value in the major unit for currencies without minor units, like JPY (5 JPY 
 
 <p>Implements <a class="el" href="../../d2/d24/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_high_precision_money.html#ad3fe378e019ccfbb8758a75098d95ef5">Commercetools\Api\Models\Common\HighPrecisionMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00161">161</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00162">162</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -345,7 +346,7 @@ The value in the major unit for currencies without minor units, like JPY (5 JPY 
 
 <p>Implements <a class="el" href="../../d9/dfa/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_typed_money.html#a24c40c3c1b7b147a1221a8871313b2db">Commercetools\Api\Models\Common\TypedMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00121">121</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00122">122</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -373,7 +374,7 @@ The value in the major unit for currencies without minor units, like JPY (5 JPY 
 
 <p>Implements <a class="el" href="../../de/dc7/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_money.html#ae477e132f70f56f3f52a814730e5499b">Commercetools\Api\Models\Common\Money</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00179">179</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00180">180</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -401,7 +402,7 @@ The value in the major unit for currencies without minor units, like JPY (5 JPY 
 
 <p>Implements <a class="el" href="../../de/dc7/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_money.html#acc5bdd49d2adc9cb686865fe404d040d">Commercetools\Api\Models\Common\Money</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00187">187</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00188">188</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -429,7 +430,7 @@ The value in the major unit for currencies without minor units, like JPY (5 JPY 
 
 <p>Implements <a class="el" href="../../d2/d24/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_high_precision_money.html#a08379becfafc92749702da0a66d774c8">Commercetools\Api\Models\Common\HighPrecisionMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00195">195</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00196">196</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
 
 </div>
 </div>
@@ -457,7 +458,7 @@ The value in the major unit for currencies without minor units, like JPY (5 JPY 
 
 <p>Implements <a class="el" href="../../d2/d24/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_high_precision_money.html#abc3759bde0ff372dcfa35f9e790ca7ca">Commercetools\Api\Models\Common\HighPrecisionMoney</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00203">203</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html#l00204">204</a> of file <a class="el" href="../../d7/dfd/commercetools-api_2src_2_models_2_common_2_high_precision_money_model_8php_source.html">HighPrecisionMoneyModel.php</a>.</p>
 
 </div>
 </div>

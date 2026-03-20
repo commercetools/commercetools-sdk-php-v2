@@ -167,8 +167,8 @@ $(document).ready(function() { init_codefold(1); });
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordflow">if</span> (is_null($data)) {</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            }</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            $this-&gt;productSelection = ReferenceModel::of($data);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            $className = ReferenceModel::resolveDiscriminatorClass($data);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            $this-&gt;productSelection = $className::of($data);</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        }</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../db/d51/class_commercetools_1_1_history_1_1_models_1_1_change_1_1_change_product_selection_active_change_model.html#a1f50eb44c738de9c238c5f29e7bb3d49">$this-&gt;productSelection</a>;</div>
