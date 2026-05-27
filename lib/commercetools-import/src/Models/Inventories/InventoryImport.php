@@ -21,6 +21,7 @@ interface InventoryImport extends ImportResource
     public const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';
     public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
     public const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
+    public const FIELD_RESERVATION_EXPIRATION_IN_MINUTES = 'reservationExpirationInMinutes';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_CUSTOM = 'custom';
 
@@ -65,6 +66,14 @@ interface InventoryImport extends ImportResource
     public function getExpectedDelivery();
 
     /**
+     * <p>Maps to <code>InventoryEntry.reservationExpirationInMinutes</code></p>
+     *
+
+     * @return null|int
+     */
+    public function getReservationExpirationInMinutes();
+
+    /**
      * <p>Maps to <code>InventoryEntry.supplyChannel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
      *
 
@@ -104,6 +113,11 @@ interface InventoryImport extends ImportResource
      * @param ?DateTimeImmutable $expectedDelivery
      */
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void;
+
+    /**
+     * @param ?int $reservationExpirationInMinutes
+     */
+    public function setReservationExpirationInMinutes(?int $reservationExpirationInMinutes): void;
 
     /**
      * @param ?ChannelKeyReference $supplyChannel

@@ -66,6 +66,7 @@ final class ShippingMethodAddZoneActionModel extends JsonObjectModel implements 
 
     /**
      * <p>Value to add to <code>zoneRates</code>.</p>
+     * <p>Adds a new <a href="ctp:api:type:ZoneRate">ZoneRate</a> entry to the <code>zoneRates</code> array with the specified <a href="ctp:api:type:Zone">Zone</a> and an empty <code>shippingRates</code> array. After adding the Zone, you can add <a href="ctp:api:type:ShippingRate">ShippingRates</a> for this Zone using the <a href="ctp:api:type:ShippingMethodAddShippingRateAction">Add ShippingRate</a> update action.</p>
      *
      *
      * @return null|ZoneResourceIdentifier

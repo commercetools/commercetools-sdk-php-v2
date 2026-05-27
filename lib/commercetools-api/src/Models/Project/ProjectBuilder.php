@@ -115,6 +115,12 @@ final class ProjectBuilder implements Builder
 
     /**
 
+     * @var null|InventoryConfiguration|InventoryConfigurationBuilder
+     */
+    private $inventory;
+
+    /**
+
      * @var null|DiscountsConfiguration|DiscountsConfigurationBuilder
      */
     private $discounts;
@@ -282,6 +288,17 @@ final class ProjectBuilder implements Builder
     public function getBusinessUnits()
     {
         return $this->businessUnits instanceof BusinessUnitConfigurationBuilder ? $this->businessUnits->build() : $this->businessUnits;
+    }
+
+    /**
+     * <p>Holds configuration specific to inventory.</p>
+     *
+
+     * @return null|InventoryConfiguration
+     */
+    public function getInventory()
+    {
+        return $this->inventory instanceof InventoryConfigurationBuilder ? $this->inventory->build() : $this->inventory;
     }
 
     /**
@@ -461,6 +478,17 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?InventoryConfiguration $inventory
+     * @return $this
+     */
+    public function withInventory(?InventoryConfiguration $inventory)
+    {
+        $this->inventory = $inventory;
+
+        return $this;
+    }
+
+    /**
      * @param ?DiscountsConfiguration $discounts
      * @return $this
      */
@@ -549,6 +577,17 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @deprecated use withInventory() instead
+     * @return $this
+     */
+    public function withInventoryBuilder(?InventoryConfigurationBuilder $inventory)
+    {
+        $this->inventory = $inventory;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withDiscounts() instead
      * @return $this
      */
@@ -577,6 +616,7 @@ final class ProjectBuilder implements Builder
             $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth,
             $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing,
             $this->businessUnits instanceof BusinessUnitConfigurationBuilder ? $this->businessUnits->build() : $this->businessUnits,
+            $this->inventory instanceof InventoryConfigurationBuilder ? $this->inventory->build() : $this->inventory,
             $this->discounts instanceof DiscountsConfigurationBuilder ? $this->discounts->build() : $this->discounts
         );
     }

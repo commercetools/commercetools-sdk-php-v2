@@ -55,8 +55,6 @@ final class StagedQuoteResourceIdentifierModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
-     *
      *
      * @return null|string
      */

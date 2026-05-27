@@ -15,6 +15,12 @@ use Commercetools\Base\JsonObject;
 interface InventoryEntryResourceIdentifier extends ResourceIdentifier
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>. Required if <code>key</code> is absent.</p>
      *
 

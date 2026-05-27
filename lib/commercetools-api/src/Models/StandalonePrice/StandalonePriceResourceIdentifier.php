@@ -14,4 +14,9 @@ use Commercetools\Base\JsonObject;
 
 interface StandalonePriceResourceIdentifier extends ResourceIdentifier
 {
+    /**
+
+     * @return null|string
+     */
+    public function getTypeId();
 }

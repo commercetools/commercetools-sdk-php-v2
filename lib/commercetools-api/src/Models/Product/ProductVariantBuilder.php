@@ -140,8 +140,8 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>The Embedded Prices of the Product Variant.
-     * Cannot contain two Prices of the same Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     * <p>If the Product is <a href="/../api/projects/productProjections#projection-by-store">projected by Store</a>, this field only contains Embedded Prices that are valid for that Store.</p>
+     * <p>Cannot contain two Embedded Prices with the same scopes (currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
 
      * @return null|PriceCollection
@@ -163,7 +163,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>Only available when <a href="/../api/pricing-and-discounts-overview#price-selection">price selection</a> is used.
+     * <p>Only present when <a href="/../api/pricing-and-discounts-overview#price-selection">price selection</a> is applied.
      * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
      *
 
@@ -211,7 +211,7 @@ final class ProductVariantBuilder implements Builder
 
     /**
      * <p><code>true</code> if the Product Variant matches the search query.
-     * Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request.</p>
+     * Only available in response to a <a href="/../api/projects/product-projection-search">Product Projection Search</a> request.</p>
      *
 
      * @return null|bool
@@ -222,7 +222,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request
+     * <p>Only available in response to a <a href="/../api/projects/product-projection-search">Product Projection Search</a> request
      * with <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
      * Can be used to sort, <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
      *
@@ -235,7 +235,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">Product Projection Search</a> request
+     * <p>Only available in response to a <a href="/../api/projects/product-projection-search">Product Projection Search</a> request
      * with <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
      *
 

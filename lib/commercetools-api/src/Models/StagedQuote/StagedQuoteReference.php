@@ -17,6 +17,12 @@ interface StagedQuoteReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Contains the representation of the expanded StagedQuote.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for StagedQuote.</p>
      *

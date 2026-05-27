@@ -35,6 +35,12 @@ final class ExtensionInputBuilder implements Builder
     private $resource;
 
     /**
+
+     * @var null|Reference|ReferenceBuilder
+     */
+    private $oldResource;
+
+    /**
      * <p><code>Create</code> or <code>Update</code> request.</p>
      *
 
@@ -54,6 +60,17 @@ final class ExtensionInputBuilder implements Builder
     public function getResource()
     {
         return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
+    }
+
+    /**
+     * <p>Expanded reference to the resource as it was before the update. Only included when <a href="ctp:api:type:ExtensionAdditionalContext"><code>additionalContext.includeOldResource</code></a> is <code>true</code> on the <a href="ctp:api:type:Extension">Extension</a> and the <code>action</code> is <code>Update</code>.</p>
+     *
+
+     * @return null|Reference
+     */
+    public function getOldResource()
+    {
+        return $this->oldResource instanceof ReferenceBuilder ? $this->oldResource->build() : $this->oldResource;
     }
 
     /**
@@ -79,6 +96,17 @@ final class ExtensionInputBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $oldResource
+     * @return $this
+     */
+    public function withOldResource(?Reference $oldResource)
+    {
+        $this->oldResource = $oldResource;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withResource() instead
      * @return $this
      */
@@ -89,11 +117,23 @@ final class ExtensionInputBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withOldResource() instead
+     * @return $this
+     */
+    public function withOldResourceBuilder(?ReferenceBuilder $oldResource)
+    {
+        $this->oldResource = $oldResource;
+
+        return $this;
+    }
+
     public function build(): ExtensionInput
     {
         return new ExtensionInputModel(
             $this->action,
-            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource
+            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
+            $this->oldResource instanceof ReferenceBuilder ? $this->oldResource->build() : $this->oldResource
         );
     }
 

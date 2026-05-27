@@ -75,7 +75,7 @@ final class MyPaymentSetMethodInfoCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>paymentMethodInfo</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>paymentMethodInfo</code> with <a href="ctp:api:type:CustomFields">Custom Fields</a>.</p>
      *
      *
      * @return null|TypeResourceIdentifier
@@ -96,7 +96,8 @@ final class MyPaymentSetMethodInfoCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>paymentMethodInfo</code>.</p>
+     * <p>Object containing the <a href="ctp:api:type:CustomFields">Custom Fields</a> fields for the <code>paymentMethodInfo</code>.</p>
+     * <p>Required if at least one Custom Field is defined as required in the <code>fieldDefinitions</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
      *
      * @return null|FieldContainer

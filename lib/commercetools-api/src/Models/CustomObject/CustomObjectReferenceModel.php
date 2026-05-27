@@ -55,8 +55,6 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

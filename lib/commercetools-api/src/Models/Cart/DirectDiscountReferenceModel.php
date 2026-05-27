@@ -47,8 +47,6 @@ final class DirectDiscountReferenceModel extends JsonObjectModel implements Dire
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

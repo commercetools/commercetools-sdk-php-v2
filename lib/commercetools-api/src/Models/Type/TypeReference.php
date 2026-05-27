@@ -17,6 +17,12 @@ interface TypeReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
 

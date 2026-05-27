@@ -15,6 +15,12 @@ use Commercetools\Base\JsonObject;
 interface CustomerGroupResourceIdentifier extends ResourceIdentifier
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>. Required if <code>key</code> is absent.</p>
      *
 

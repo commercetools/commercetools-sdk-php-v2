@@ -55,8 +55,6 @@ final class AttributeGroupReferenceModel extends JsonObjectModel implements Attr
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

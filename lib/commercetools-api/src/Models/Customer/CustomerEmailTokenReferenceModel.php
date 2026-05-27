@@ -47,8 +47,6 @@ final class CustomerEmailTokenReferenceModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

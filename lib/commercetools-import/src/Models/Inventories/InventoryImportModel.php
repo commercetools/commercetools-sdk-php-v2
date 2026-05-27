@@ -58,6 +58,12 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
 
     /**
      *
+     * @var ?int
+     */
+    protected $reservationExpirationInMinutes;
+
+    /**
+     *
      * @var ?ChannelKeyReference
      */
     protected $supplyChannel;
@@ -78,6 +84,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
         ?int $quantityOnStock = null,
         ?int $restockableInDays = null,
         ?DateTimeImmutable $expectedDelivery = null,
+        ?int $reservationExpirationInMinutes = null,
         ?ChannelKeyReference $supplyChannel = null,
         ?Custom $custom = null
     ) {
@@ -86,6 +93,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
         $this->quantityOnStock = $quantityOnStock;
         $this->restockableInDays = $restockableInDays;
         $this->expectedDelivery = $expectedDelivery;
+        $this->reservationExpirationInMinutes = $reservationExpirationInMinutes;
         $this->supplyChannel = $supplyChannel;
         $this->custom = $custom;
     }
@@ -195,6 +203,26 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
+     * <p>Maps to <code>InventoryEntry.reservationExpirationInMinutes</code></p>
+     *
+     *
+     * @return null|int
+     */
+    public function getReservationExpirationInMinutes()
+    {
+        if (is_null($this->reservationExpirationInMinutes)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_RESERVATION_EXPIRATION_IN_MINUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->reservationExpirationInMinutes = (int) $data;
+        }
+
+        return $this->reservationExpirationInMinutes;
+    }
+
+    /**
      * <p>Maps to <code>InventoryEntry.supplyChannel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
      *
      *
@@ -275,6 +303,14 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void
     {
         $this->expectedDelivery = $expectedDelivery;
+    }
+
+    /**
+     * @param ?int $reservationExpirationInMinutes
+     */
+    public function setReservationExpirationInMinutes(?int $reservationExpirationInMinutes): void
+    {
+        $this->reservationExpirationInMinutes = $reservationExpirationInMinutes;
     }
 
     /**

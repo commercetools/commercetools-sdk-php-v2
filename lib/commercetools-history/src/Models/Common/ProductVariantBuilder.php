@@ -204,7 +204,7 @@ final class ProductVariantBuilder implements Builder
 
     /**
      * <p><code>true</code> if the Product Variant matches the search query.
-     * Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request.</p>
+     * Only available in response to a <a href="/../api/projects/product-projection-search">Product Projection Search</a> request.</p>
      *
 
      * @return null|bool
@@ -215,7 +215,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request
+     * <p>Only available in response to a <a href="/../api/projects/product-projection-search">Product Projection Search</a> request
      * with <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
      * Can be used to sort, <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
      *
@@ -228,7 +228,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">Product Projection Search</a> request
+     * <p>Only available in response to a <a href="/../api/projects/product-projection-search">Product Projection Search</a> request
      * with <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
      *
 

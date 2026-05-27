@@ -17,6 +17,12 @@ interface ProductTailoringReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductTailoring">ProductTailoring</a>.</p>
      *
 

@@ -158,7 +158,7 @@ interface Order extends BaseResource
     public function getAnonymousId();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Order belongs to. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Order belongs to. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference

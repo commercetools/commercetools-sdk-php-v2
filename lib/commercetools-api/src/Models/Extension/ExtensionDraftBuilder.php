@@ -45,6 +45,24 @@ final class ExtensionDraftBuilder implements Builder
     private $timeoutInMs;
 
     /**
+
+     * @var ?ExtensionResourceIdentifierCollection
+     */
+    private $dependencies;
+
+    /**
+
+     * @var ?array
+     */
+    private $expansionPaths;
+
+    /**
+
+     * @var null|ExtensionAdditionalContextDraft|ExtensionAdditionalContextDraftBuilder
+     */
+    private $additionalContext;
+
+    /**
      * <p>User-defined unique identifier for the Extension.</p>
      *
 
@@ -82,7 +100,7 @@ final class ExtensionDraftBuilder implements Builder
      * If no timeout is provided, the default value is used for all <a href="ctp:api:type:ExtensionResourceTypeId">types of Extensions</a>.
      * We recommend keeping the timeout as low as possible to avoid performance issues.</p>
      * <p>The limit of 10000 ms (10 seconds) can be increased per Project after we review the performance impact.
-     * Please contact the <a href="https://support.commercetools.com">Composable Commerce support team</a> and provide the Region, Project key, and use case.</p>
+     * Please contact the <a href="https://support.commercetools.com">commercetools support team</a> and provide the Region, Project key, and use case.</p>
      *
 
      * @return null|int
@@ -90,6 +108,40 @@ final class ExtensionDraftBuilder implements Builder
     public function getTimeoutInMs()
     {
         return $this->timeoutInMs;
+    }
+
+    /**
+     * <p>Extensions that must complete before this Extension is called, identified by <code>id</code> or <code>key</code>. Maximum 5 entries. If omitted, the Extension has no dependencies and may run concurrently with other independent Extensions.</p>
+     *
+
+     * @return null|ExtensionResourceIdentifierCollection
+     */
+    public function getDependencies()
+    {
+        return $this->dependencies;
+    }
+
+    /**
+     * <p><a href="/../api/general-concepts#expansion-paths">Expansion paths</a> used for reference expansion of the payload.</p>
+     * <p>Be aware of the <a href="/../api/limits#api-extensions">limits</a> of this feature and its <a href="/../api/performance-tips#api-extensions">performance impact</a>.</p>
+     *
+
+     * @return null|array
+     */
+    public function getExpansionPaths()
+    {
+        return $this->expansionPaths;
+    }
+
+    /**
+     * <p>Configures additional information included in the payload sent to the API Extension.</p>
+     *
+
+     * @return null|ExtensionAdditionalContextDraft
+     */
+    public function getAdditionalContext()
+    {
+        return $this->additionalContext instanceof ExtensionAdditionalContextDraftBuilder ? $this->additionalContext->build() : $this->additionalContext;
     }
 
     /**
@@ -137,6 +189,39 @@ final class ExtensionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ExtensionResourceIdentifierCollection $dependencies
+     * @return $this
+     */
+    public function withDependencies(?ExtensionResourceIdentifierCollection $dependencies)
+    {
+        $this->dependencies = $dependencies;
+
+        return $this;
+    }
+
+    /**
+     * @param ?array $expansionPaths
+     * @return $this
+     */
+    public function withExpansionPaths(?array $expansionPaths)
+    {
+        $this->expansionPaths = $expansionPaths;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ExtensionAdditionalContextDraft $additionalContext
+     * @return $this
+     */
+    public function withAdditionalContext(?ExtensionAdditionalContextDraft $additionalContext)
+    {
+        $this->additionalContext = $additionalContext;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withDestination() instead
      * @return $this
      */
@@ -147,13 +232,27 @@ final class ExtensionDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withAdditionalContext() instead
+     * @return $this
+     */
+    public function withAdditionalContextBuilder(?ExtensionAdditionalContextDraftBuilder $additionalContext)
+    {
+        $this->additionalContext = $additionalContext;
+
+        return $this;
+    }
+
     public function build(): ExtensionDraft
     {
         return new ExtensionDraftModel(
             $this->key,
             $this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination,
             $this->triggers,
-            $this->timeoutInMs
+            $this->timeoutInMs,
+            $this->dependencies,
+            $this->expansionPaths,
+            $this->additionalContext instanceof ExtensionAdditionalContextDraftBuilder ? $this->additionalContext->build() : $this->additionalContext
         );
     }
 

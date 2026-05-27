@@ -89,10 +89,12 @@
 - added enum `DeleteOthersShoppingLists` to type `Permission`
 - added enum `RecurringOrder` to type `CartOrigin`
 - added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
+- added enum `ReserveOnCart` to type `InventoryMode`
 - added enum `discount-group` to type `ReferenceTypeId`
 - added enum `payment-method` to type `ReferenceTypeId`
 - added enum `recurrence-policy` to type `ReferenceTypeId`
 - added enum `recurring-order` to type `ReferenceTypeId`
+- added enum `reservation` to type `ReferenceTypeId`
 - added enum `payment-method` to type `ExtensionResourceTypeId`
 - added enum `RecurringOrderState` to type `StateTypeEnum`
 - added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
@@ -100,6 +102,7 @@
 - added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
 - added enum `payment-method` to type `ResourceTypeId`
 - added enum `payment-method-info` to type `ResourceTypeId`
+- added enum `reservation` to type `ResourceTypeId`
 - added enum `recurring-order` to type `ResourceTypeId`
 </details>
 
@@ -182,10 +185,12 @@
 - added property `discountTypeCombination` to type `Cart`
 - added property `lock` to type `Cart`
 - added property `purchaseOrderNumber` to type `Cart`
+- added property `warnings` to type `Cart`
 - added property `priceRoundingMode` to type `CartDraft`
 - added property `purchaseOrderNumber` to type `CartDraft`
 - added property `recurrenceInfo` to type `CustomLineItem`
 - added property `recurrenceInfo` to type `CustomLineItemDraft`
+- added property `reservation` to type `LineItem`
 - added property `recurrenceInfo` to type `LineItem`
 - added property `recurrenceInfo` to type `LineItemDraft`
 - added property `recurrenceInfo` to type `CartAddCustomLineItemAction`
@@ -198,10 +203,21 @@
 - added property `invalidateOlderTokens` to type `CustomerCreatePasswordResetToken`
 - added property `customerGroupAssignments` to type `CustomerDraft`
 - added property `invalidateOlderTokens` to type `CustomerToken`
+- added property `dependencies` to type `Extension`
+- added property `expansionPaths` to type `Extension`
+- added property `additionalContext` to type `Extension`
+- added property `dependencies` to type `ExtensionDraft`
+- added property `expansionPaths` to type `ExtensionDraft`
+- added property `additionalContext` to type `ExtensionDraft`
+- added property `oldResource` to type `ExtensionInput`
 - added property `minCartQuantity` to type `InventoryEntry`
 - added property `maxCartQuantity` to type `InventoryEntry`
+- added property `reservationExpirationInMinutes` to type `InventoryEntry`
+- added property `stockLevels` to type `InventoryEntry`
 - added property `minCartQuantity` to type `InventoryEntryDraft`
 - added property `maxCartQuantity` to type `InventoryEntryDraft`
+- added property `reservationExpirationInMinutes` to type `InventoryEntryDraft`
+- added property `stockLevels` to type `InventoryEntryDraft`
 - added property `recurrenceInfo` to type `MyLineItemDraft`
 - added property `interfaceId` to type `MyTransactionDraft`
 - added property `recurrenceInfo` to type `MyCartAddLineItemAction`
@@ -259,6 +275,7 @@
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `ProductVariantChannelAvailabilityMap`
 - added property `priceRoundingMode` to type `CartsConfiguration`
 - added property `taxRoundingMode` to type `CartsConfiguration`
+- added property `inventory` to type `Project`
 - added property `discounts` to type `Project`
 - added property `priceRoundingMode` to type `QuoteRequest`
 - added property `priceRoundingMode` to type `Quote`
@@ -315,14 +332,17 @@
 - added type `DiscountTypeCombination`
 - added type `FreezeStrategy`
 - added type `MergeCartDraft`
+- added type `ReservationReference`
 - added type `Stacking`
 - added type `CartChangePriceRoundingModeAction`
 - added type `CartLockCartAction`
 - added type `CartSetCustomLineItemRecurrenceInfoAction`
 - added type `CartSetLineItemRecurrenceInfoAction`
 - added type `CartSetPurchaseOrderNumberAction`
+- added type `CartSetReservationExpirationInMinutesAction`
 - added type `CartUnlockCartAction`
 - added type `AddressRole`
+- added type `NonStandardCurrency`
 - added type `CustomerGroupAssignment`
 - added type `CustomerGroupAssignmentDraft`
 - added type `CustomerAddCustomerGroupAssignmentAction`
@@ -340,16 +360,30 @@
 - added type `DiscountGroupSetKeyAction`
 - added type `DiscountGroupSetNameAction`
 - added type `DiscountGroupSetSortOrderAction`
+- added type `CircularDependencyError`
 - added type `ExactLockConflictError`
 - added type `ExpiredCustomerEmailTokenError`
 - added type `ExpiredCustomerPasswordTokenError`
+- added type `ExtensionChainTooDeepError`
+- added type `ExtensionChainTooWideError`
+- added type `ExtensionDependencyExistsError`
+- added type `LineItemQuantityAboveLimitError`
+- added type `LineItemQuantityBelowLimitError`
 - added type `MaxDiscountGroupsReachedError`
+- added type `MissingDependencyError`
 - added type `RecurringOrderFailureError`
 - added type `ValidityLockConflictError`
+- added type `GraphQLCircularDependencyError`
 - added type `GraphQLExactLockConflictError`
 - added type `GraphQLExpiredCustomerEmailTokenError`
 - added type `GraphQLExpiredCustomerPasswordTokenError`
+- added type `GraphQLExtensionChainTooDeepError`
+- added type `GraphQLExtensionChainTooWideError`
+- added type `GraphQLExtensionDependencyExistsError`
+- added type `GraphQLLineItemQuantityAboveLimitError`
+- added type `GraphQLLineItemQuantityBelowLimitError`
 - added type `GraphQLMaxDiscountGroupsReachedError`
+- added type `GraphQLMissingDependencyError`
 - added type `GraphQLRecurringOrderFailureError`
 - added type `GraphQLValidityLockConflictError`
 - added type `BaseEvent`
@@ -377,7 +411,18 @@
 - added type `ImportUnresolvedEvent`
 - added type `ImportValidationFailedEvent`
 - added type `ImportWaitForMasterVariantEvent`
+- added type `ExtensionAdditionalContext`
+- added type `ExtensionAdditionalContextDraft`
+- added type `ExtensionReference`
+- added type `ExtensionResourceIdentifier`
+- added type `ExtensionSetAdditionalContextAction`
+- added type `ExtensionSetDependenciesAction`
+- added type `ExtensionSetExpansionPathsAction`
+- added type `InventoryEntryStockLevels`
 - added type `InventoryEntrySetInventoryLimitsAction`
+- added type `InventoryEntrySetReorderPointAction`
+- added type `InventoryEntrySetReservationExpirationInMinutesAction`
+- added type `InventoryEntrySetSafetyStockAction`
 - added type `MyPaymentSetMethodInfoCustomFieldAction`
 - added type `MyPaymentSetMethodInfoCustomTypeAction`
 - added type `MyPaymentSetMethodInfoInterfaceAccountAction`
@@ -406,6 +451,10 @@
 - added type `DiscountGroupIsActiveSetMessage`
 - added type `DiscountGroupKeySetMessage`
 - added type `DiscountGroupSortOrderSetMessage`
+- added type `InventoryEntryOutOfStockMessage`
+- added type `InventoryEntryReorderPointMessage`
+- added type `InventoryEntryReservationExpirationInMinutesSetMessage`
+- added type `InventoryEntrySafetyStockMessage`
 - added type `OrderBusinessUnitSetMessage`
 - added type `OrderCreatedFromRecurringOrderMessage`
 - added type `OrderPaymentRemovedMessage`
@@ -474,6 +523,10 @@
 - added type `DiscountGroupIsActiveSetMessagePayload`
 - added type `DiscountGroupKeySetMessagePayload`
 - added type `DiscountGroupSortOrderSetMessagePayload`
+- added type `InventoryEntryOutOfStockMessagePayload`
+- added type `InventoryEntryReorderPointMessagePayload`
+- added type `InventoryEntryReservationExpirationInMinutesSetMessagePayload`
+- added type `InventoryEntrySafetyStockMessagePayload`
 - added type `OrderBusinessUnitSetMessagePayload`
 - added type `OrderCreatedFromRecurringOrderMessagePayload`
 - added type `OrderPaymentRemovedMessagePayload`
@@ -552,9 +605,12 @@
 - added type `ProductSetProductAttributeAction`
 - added type `DiscountCombinationMode`
 - added type `DiscountsConfiguration`
+- added type `InventoryConfiguration`
 - added type `ProjectChangePriceRoundingModeAction`
 - added type `ProjectChangeTaxRoundingModeAction`
 - added type `ProjectSetDiscountsConfigurationAction`
+- added type `ProjectSetReleaseExpiredReservationsAction`
+- added type `ProjectSetReservationExpirationInMinutesAction`
 - added type `DayOfMonthSchedule`
 - added type `DayOfMonthScheduleDraft`
 - added type `IntervalUnit`
@@ -614,6 +670,8 @@
 - added type `RecurringOrderSetStartsAtAction`
 - added type `RecurringOrderSetStateAction`
 - added type `RecurringOrderTransitionStateAction`
+- added type `Reservation`
+- added type `ReservationState`
 - added type `SearchFuzzyExpression`
 - added type `SearchFuzzyValue`
 - added type `ShoppingListSetBusinessUnitAction`
@@ -623,6 +681,9 @@
 - added type `EventType`
 - added type `SubscriptionNotification`
 - added type `SubscriptionSetEventsAction`
+- added type `CannotChangeReservationExpiryWarning`
+- added type `CannotCreateReservationWarning`
+- added type `CannotUpdateReservationWarning`
 </details>
 
 
@@ -724,10 +785,13 @@
 
 - added resource `/{projectKey}/business-units`
 - added resource `/{projectKey}/product-selections`
+- added resource `/{projectKey}/product-tailorings`
 - added resource `/{projectKey}/business-units/import-containers`
 - added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
 - added resource `/{projectKey}/product-selections/import-containers`
 - added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-tailorings/import-containers`
+- added resource `/{projectKey}/product-tailorings/import-containers/{importContainerKey}`
 </details>
 
 
@@ -736,6 +800,7 @@
 
 - added enum `business-unit` to type `ImportResourceType`
 - added enum `product-selection` to type `ImportResourceType`
+- added enum `product-tailoring` to type `ImportResourceType`
 - added enum `associate-role` to type `ReferenceType`
 - added enum `business-unit` to type `ReferenceType`
 - added enum `partiallyImported` to type `ProcessingState`
@@ -766,10 +831,12 @@
 - added property `expiresAt` to type `ImportContainer`
 - added property `retentionPolicy` to type `ImportContainerDraft`
 - added property `partiallyImported` to type `OperationStates`
+- added property `reservationExpirationInMinutes` to type `InventoryImport`
 - added property `attributes` to type `ProductDraftImport`
 - added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
 - added property `attributes` to type `ProductImport`
 - added property `level` to type `AttributeDefinition`
+- added property `active` to type `StandalonePriceImport`
 </details>
 
 
@@ -783,6 +850,7 @@
 - added type `TimeToLiveConfig`
 - added type `TimeToLiveRetentionPolicy`
 - added type `ProductSelectionImportRequest`
+- added type `ProductTailoringImportRequest`
 - added type `BusinessUnitImportRequest`
 - added type `AssociateRoleInheritanceMode`
 - added type `BusinessUnitStatus`
@@ -801,6 +869,8 @@
 - added type `ProductSelectionAssignment`
 - added type `ProductSelectionMode`
 - added type `ProductSelectionImport`
+- added type `ProductVariantTailoringImport`
+- added type `ProductTailoringImport`
 - added type `AttributeLevel`
 </details>
 
@@ -810,6 +880,7 @@
 
 - added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
 - added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->productTailorings()->importContainers()->withImportContainerKeyValue()->post()`
 </details>
 
 **History changes**
@@ -886,6 +957,7 @@
 - added enum `setPriceTiers` to type `UpdateType`
 - added enum `setProductAttribute` to type `UpdateType`
 - added enum `setReferences` to type `UpdateType`
+- added enum `setReservationExpirationInMinutes` to type `UpdateType`
 - added enum `setReturnInfo` to type `UpdateType`
 - added enum `setReturnItemCustomField` to type `UpdateType`
 - added enum `setReturnItemCustomType` to type `UpdateType`
@@ -1158,6 +1230,7 @@
 - added property `attributeName` to type `ChangeEnumValueOrderChange`
 - added property `addedItems` to type `ChangeGroupsChange`
 - added property `removedItems` to type `ChangeGroupsChange`
+- added property `catalogData` to type `ChangeLocalizedNameChange`
 - added property `variant` to type `ChangePriceChange`
 - added property `catalogData` to type `ChangeSlugChange`
 - added property `key` to type `CustomLineItem`
@@ -1253,6 +1326,7 @@
 - added property `variant` to type `SetLineItemTaxedPriceChange`
 - added property `lineItemId` to type `SetLineItemTotalPriceChange`
 - added property `variant` to type `SetLineItemTotalPriceChange`
+- added property `catalogData` to type `SetLocalizedDescriptionChange`
 - added property `catalogData` to type `SetMetaDescriptionChange`
 - added property `catalogData` to type `SetMetaKeywordsChange`
 - added property `catalogData` to type `SetMetaTitleChange`
@@ -1441,6 +1515,7 @@
 - added type `SetShippingInfoDiscountedPriceChange`
 - added type `SetShippingMethodTaxCategoryChange`
 - added type `SetTaxedShippingPriceChange`
+- added type `SetTransactionInterfaceIdChange`
 - added type `ShippingMethodAddShippingRateChange`
 - added type `ShippingMethodAddZoneChange`
 - added type `ShippingMethodChangeActiveChange`
@@ -1496,6 +1571,8 @@
 <summary>Added Enum(s)</summary>
 
 - added enum `deployment` to type `ReferenceTypeId`
+- added enum `eu-central-1.aws` to type `Region`
+- added enum `us-east-2.aws` to type `Region`
 - added enum `reversePayment` to type `PaymentIntentOperation`
 </details>
 
@@ -1641,7 +1718,6 @@
 - added type `SetAutomatedReversalConfigurationPredicateUpdateAction`
 - added type `SetAutomatedReversalConfigurationStatusUpdateAction`
 - added type `SetAutomatedReversalConfigurationUpdateAction`
-- added type `SetConnectorDeploymentUpdateAction`
 - added type `SetDisplayInfoDescriptionUpdateAction`
 - added type `SetDisplayInfoLabelUpdateAction`
 - added type `SetDisplayInfoLogoUrlUpdateAction`

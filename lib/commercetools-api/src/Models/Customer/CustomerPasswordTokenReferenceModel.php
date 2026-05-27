@@ -47,8 +47,6 @@ final class CustomerPasswordTokenReferenceModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

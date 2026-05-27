@@ -23,6 +23,8 @@ use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceBuilder;
 use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfo;
 use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoBuilder;
+use Commercetools\Api\Models\Reservation\ReservationReference;
+use Commercetools\Api\Models\Reservation\ReservationReferenceBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -177,6 +179,12 @@ final class LineItemBuilder implements Builder
      * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
     private $shippingDetails;
+
+    /**
+
+     * @var null|ReservationReference|ReservationReferenceBuilder
+     */
+    private $reservation;
 
     /**
 
@@ -470,6 +478,17 @@ final class LineItemBuilder implements Builder
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <p>Reference to the successful <a href="ctp:api:type:Reservation">Reservation</a> associated with this Line Item. This field is only populated when using the <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> mode.</p>
+     *
+
+     * @return null|ReservationReference
+     */
+    public function getReservation()
+    {
+        return $this->reservation instanceof ReservationReferenceBuilder ? $this->reservation->build() : $this->reservation;
     }
 
     /**
@@ -770,6 +789,17 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ReservationReference $reservation
+     * @return $this
+     */
+    public function withReservation(?ReservationReference $reservation)
+    {
+        $this->reservation = $reservation;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -935,6 +965,17 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withReservation() instead
+     * @return $this
+     */
+    public function withReservationBuilder(?ReservationReferenceBuilder $reservation)
+    {
+        $this->reservation = $reservation;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustom() instead
      * @return $this
      */
@@ -982,6 +1023,7 @@ final class LineItemBuilder implements Builder
             $this->lineItemMode,
             $this->inventoryMode,
             $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->reservation instanceof ReservationReferenceBuilder ? $this->reservation->build() : $this->reservation,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->addedAt,
             $this->lastModifiedAt,

@@ -139,6 +139,14 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function productTailorings(): ResourceByProjectKeyProductTailorings
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductTailorings($args, $this->getClient());
+    }
+    /**
+     */
     public function orders(): ResourceByProjectKeyOrders
     {
         $args = $this->getArgs();

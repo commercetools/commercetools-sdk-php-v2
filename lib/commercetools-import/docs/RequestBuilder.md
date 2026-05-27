@@ -298,6 +298,22 @@ $request = $builder
                 ->withImportContainerKeyValue("importContainerKey")
                 ->post(null);
 ```
+## `withProjectKeyValue("projectKey")->productTailorings()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
+
+Creates an Import Request for Product Tailoring.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->productTailorings()
+                ->importContainers()
+                ->withImportContainerKeyValue("importContainerKey")
+                ->post(null);
+```
 ## `withProjectKeyValue("projectKey")->productTypes()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
 
 Creates an Import Request for ProductTypes.

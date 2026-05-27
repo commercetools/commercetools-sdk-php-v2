@@ -15,6 +15,12 @@ use Commercetools\Base\JsonObject;
 interface OrderEditResourceIdentifier extends ResourceIdentifier
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>. Required if <code>key</code> is absent.</p>
      *
 

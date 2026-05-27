@@ -30,6 +30,7 @@ use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -330,6 +331,12 @@ final class CartModel extends JsonObjectModel implements Cart
      */
     protected $createdBy;
 
+    /**
+     *
+     * @var ?WarningObjectCollection
+     */
+    protected $warnings;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -382,7 +389,8 @@ final class CartModel extends JsonObjectModel implements Cart
         ?int $deleteDaysAfterLastModification = null,
         ?string $purchaseOrderNumber = null,
         ?LastModifiedBy $lastModifiedBy = null,
-        ?CreatedBy $createdBy = null
+        ?CreatedBy $createdBy = null,
+        ?WarningObjectCollection $warnings = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -432,6 +440,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->purchaseOrderNumber = $purchaseOrderNumber;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
+        $this->warnings = $warnings;
     }
 
     /**
@@ -624,7 +633,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
      *
      * @return null|BusinessUnitKeyReference
@@ -1435,6 +1444,26 @@ final class CartModel extends JsonObjectModel implements Cart
         return $this->createdBy;
     }
 
+    /**
+     * <p>Warnings about the processing of a request.</p>
+     *
+     *
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings()
+    {
+        if (is_null($this->warnings)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_WARNINGS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->warnings = WarningObjectCollection::fromArray($data);
+        }
+
+        return $this->warnings;
+    }
+
 
     /**
      * @param ?string $id
@@ -1818,6 +1847,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
+    }
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void
+    {
+        $this->warnings = $warnings;
     }
 
 

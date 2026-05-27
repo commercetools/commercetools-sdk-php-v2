@@ -719,7 +719,7 @@ $request = $builder
 
 Creates an Order from a [Cart](ctp:api:type:Cart) in a [BusinessUnit](ctp:api:type:BusinessUnit).
 
-The Cart must have a shipping address and an active Shipping Method set.
+The Cart must have a shipping address set.
 
 If the Cart does not reference the same BusinessUnit as the `businessUnitKey` path parameter, an [InvalidOperation](ctp:api:type:InvalidOperationError) is returned.
 
@@ -2189,6 +2189,10 @@ $request = $builder
 Creates a Cart in the Project.
 
 If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, or if the Shipping Method is not active, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+
+When using [InventoryMode](ctp:api:type:InventoryMode) `ReserveOnCart`:
+- If only some Line Items can be reserved, the Cart creation succeeds, however, the items that could not be reserved are removed and reservation warnings are returned in the response.
+- If none of the Line Items can be reserved, the Cart creation fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 Specific Error Codes:
 
@@ -5313,7 +5317,7 @@ $request = $builder
 
 Creates an Order from a Cart in a [Store](ctp:api:type:Store) for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
-The Cart must have a shipping address and an active Shipping Method set.
+The Cart must have a shipping address set.
 
 When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
 
@@ -5758,7 +5762,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->post(null)`
 
 Creates an Order from a Cart in a [Store](ctp:api:type:Store).
-The Cart must have a shipping address and an active Shipping Method set.
+The Cart must have a shipping address set.
 
 The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
 
@@ -7057,9 +7061,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->post(null)`
 
-Creates an InventoryEntry in the Project.
+Creates an InventoryEntry in the Project. Only one InventoryEntry can be created for a combination of a SKU and a supply channel.
 
-If quantity limits are provided, existing Line Items that reference a Product Variant with an SKU that matches the Inventory Entry can be affected. For more information, see [Quantity limits](/../api/carts-orders-overview#quantity-limits).
+If quantity limits are provided, existing Line Items that reference a Product Variant with an SKU that matches the Inventory Entry can be affected. For more information, see [Quantity limits](/../api/inventory-overview#quantity-limits).
 
 Produces the [InventoryEntryCreated](ctp:api:type:InventoryEntryCreatedMessage) Message.
 
@@ -7718,7 +7722,9 @@ $request = $builder
 
 Creates an Order from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
 
-The Cart must have a shipping address and an active Shipping Method set. When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
+The Cart must have a shipping address set.
+
+When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
 
 If the Cart's `customerId` does not match the [customer:{id}](/scopes#composable-commerce-oauth) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
@@ -8610,7 +8616,7 @@ $request = $builder
 
 Creates an Order from a Cart.
 
-The Cart must have a shipping address and an active Shipping Method set.
+The Cart must have a shipping address set.
 
 The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
 
@@ -10796,8 +10802,6 @@ $request = $builder
 
 Retrieves Recurrence Policies in the Project.
 
-The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
-
 
 ### Example
 ```php
@@ -10812,8 +10816,6 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->head()`
 
 Checks if one or more Recurrence Policies exist for the provided query predicate. Returns a `200` status if any Recurrence Policies match the query predicate, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
-
-The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10830,8 +10832,6 @@ $request = $builder
 
 Creates a Recurrence Policy in the Project.
 
-The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
-
 
 ### Example
 ```php
@@ -10846,8 +10846,6 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->get()`
 
 Retrieves a Recurrence Policy with the provided `id`.
-
-The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10865,8 +10863,6 @@ $request = $builder
 
 Checks if a Recurrence Policy exists with the provided `id`. Returns a `200` status if the Recurrence Policy exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
-The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
-
 
 ### Example
 ```php
@@ -10882,8 +10878,6 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->post(null)`
 
 Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
-
-The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10903,8 +10897,6 @@ Deletes a Recurrence Policy in the Project.
 
 A Recurrence Policy can be deleted only if it is not referenced by any Embedded Price, Standalone Price, or (Custom) Line Item, otherwise a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
 
-The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
-
 
 ### Example
 ```php
@@ -10920,8 +10912,6 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->get()`
 
 Retrieves a Recurrence Policy with the provided `key`.
-
-The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10939,8 +10929,6 @@ $request = $builder
 
 Checks if a Recurrence Policy exists with the provided `key`. Returns a `200` status if the Recurrence Policy exists, or a [NotFound](ctp:api:type:ResourceNotFoundError) error otherwise.
 
-The `view_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `view_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
-
 
 ### Example
 ```php
@@ -10956,8 +10944,6 @@ $request = $builder
 ## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->post(null)`
 
 Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
-
-The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example
@@ -10976,8 +10962,6 @@ $request = $builder
 Deletes a Recurrence Policy in the Project.
 
 A Recurrence Policy can be deleted only if it is not referenced by any Embedded Price, Standalone Price, or (Custom) Line Item, otherwise a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
-
-The `manage_recurring_orders:{projectKey}` scope is deprecated for use on this endpoint. Update your clients to use the `manage_recurrence_policies:{projectKey}` scope instead. For more information, see the [Deprecations and removals](/api/deprecations-and-removals#recurrence-policies) list.
 
 
 ### Example

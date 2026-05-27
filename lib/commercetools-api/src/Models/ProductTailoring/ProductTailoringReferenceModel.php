@@ -55,8 +55,6 @@ final class ProductTailoringReferenceModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

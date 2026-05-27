@@ -23,6 +23,9 @@ interface Extension extends BaseResource
     public const FIELD_DESTINATION = 'destination';
     public const FIELD_TRIGGERS = 'triggers';
     public const FIELD_TIMEOUT_IN_MS = 'timeoutInMs';
+    public const FIELD_DEPENDENCIES = 'dependencies';
+    public const FIELD_EXPANSION_PATHS = 'expansionPaths';
+    public const FIELD_ADDITIONAL_CONTEXT = 'additionalContext';
 
     /**
      * <p>Unique identifier of the Extension.</p>
@@ -100,12 +103,37 @@ interface Extension extends BaseResource
      * <p>Maximum time (in milliseconds) that the Extension can respond within.
      * If no timeout is provided, the default value is used for all <a href="ctp:api:type:ExtensionResourceTypeId">types of Extensions</a>.</p>
      * <p>The limit of 10000 ms (10 seconds) can be increased per Project after we review the performance impact.
-     * Please contact the <a href="https://support.commercetools.com">Composable Commerce support team</a> and provide the Region, Project key, and use case.</p>
+     * Please contact the <a href="https://support.commercetools.com">commercetools support team</a> and provide the Region, Project key, and use case.</p>
      *
 
      * @return null|int
      */
     public function getTimeoutInMs();
+
+    /**
+     * <p>References to other Extensions that must complete before this Extension is called. The Extension receives the resource state after all transitive ancestors' update actions have been applied. Maximum 5 entries.</p>
+     *
+
+     * @return null|ExtensionReferenceCollection
+     */
+    public function getDependencies();
+
+    /**
+     * <p><a href="/../api/general-concepts#expansion-paths">Expansion paths</a> used for reference expansion of the payload.</p>
+     * <p>Be aware of the <a href="/../api/limits#api-extensions">limits</a> of this feature and its <a href="/../api/performance-tips#api-extensions">performance impact</a>.</p>
+     *
+
+     * @return null|array
+     */
+    public function getExpansionPaths();
+
+    /**
+     * <p>Configures additional information included in the payload sent to the API Extension.</p>
+     *
+
+     * @return null|ExtensionAdditionalContext
+     */
+    public function getAdditionalContext();
 
     /**
      * @param ?string $id
@@ -156,4 +184,19 @@ interface Extension extends BaseResource
      * @param ?int $timeoutInMs
      */
     public function setTimeoutInMs(?int $timeoutInMs): void;
+
+    /**
+     * @param ?ExtensionReferenceCollection $dependencies
+     */
+    public function setDependencies(?ExtensionReferenceCollection $dependencies): void;
+
+    /**
+     * @param ?array $expansionPaths
+     */
+    public function setExpansionPaths(?array $expansionPaths): void;
+
+    /**
+     * @param ?ExtensionAdditionalContext $additionalContext
+     */
+    public function setAdditionalContext(?ExtensionAdditionalContext $additionalContext): void;
 }

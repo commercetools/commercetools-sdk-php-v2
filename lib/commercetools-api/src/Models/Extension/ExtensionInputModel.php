@@ -33,16 +33,24 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
      */
     protected $resource;
 
+    /**
+     *
+     * @var ?Reference
+     */
+    protected $oldResource;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $action = null,
-        ?Reference $resource = null
+        ?Reference $resource = null,
+        ?Reference $oldResource = null
     ) {
         $this->action = $action;
         $this->resource = $resource;
+        $this->oldResource = $oldResource;
     }
 
     /**
@@ -86,6 +94,27 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
         return $this->resource;
     }
 
+    /**
+     * <p>Expanded reference to the resource as it was before the update. Only included when <a href="ctp:api:type:ExtensionAdditionalContext"><code>additionalContext.includeOldResource</code></a> is <code>true</code> on the <a href="ctp:api:type:Extension">Extension</a> and the <code>action</code> is <code>Update</code>.</p>
+     *
+     *
+     * @return null|Reference
+     */
+    public function getOldResource()
+    {
+        if (is_null($this->oldResource)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_OLD_RESOURCE);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->oldResource = $className::of($data);
+        }
+
+        return $this->oldResource;
+    }
+
 
     /**
      * @param ?string $action
@@ -101,5 +130,13 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
     public function setResource(?Reference $resource): void
     {
         $this->resource = $resource;
+    }
+
+    /**
+     * @param ?Reference $oldResource
+     */
+    public function setOldResource(?Reference $oldResource): void
+    {
+        $this->oldResource = $oldResource;
     }
 }

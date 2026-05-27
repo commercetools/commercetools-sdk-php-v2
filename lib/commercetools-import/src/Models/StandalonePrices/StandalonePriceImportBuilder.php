@@ -101,6 +101,12 @@ final class StandalonePriceImportBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var ?bool
+     */
+    private $active;
+
+    /**
      * <p>User-defined unique identifier for the StandalonePrice. If a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>) with this <code>key</code> exists, it is updated with the imported data.</p>
      *
 
@@ -134,7 +140,7 @@ final class StandalonePriceImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>StandalonePrice.country</code>. This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Maps to <code>StandalonePrice.country</code>. This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|string
@@ -146,7 +152,7 @@ final class StandalonePriceImportBuilder implements Builder
 
     /**
      * <p>Maps to <code>StandalonePrice.customerGroup</code>. If the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
-     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|CustomerGroupKeyReference
@@ -158,7 +164,7 @@ final class StandalonePriceImportBuilder implements Builder
 
     /**
      * <p>Maps to <code>StandalonePrice.channel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
-     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|ChannelKeyReference
@@ -221,6 +227,18 @@ final class StandalonePriceImportBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Maps to <code>StandalonePrice.active</code>.</p>
+     * <p>To exclude the StandalonePrice from <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, set to <code>false</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 
     /**
@@ -345,6 +363,17 @@ final class StandalonePriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?bool $active
+     * @return $this
+     */
+    public function withActive(?bool $active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withValue() instead
      * @return $this
      */
@@ -412,7 +441,8 @@ final class StandalonePriceImportBuilder implements Builder
             $this->validUntil,
             $this->tiers,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
-            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom,
+            $this->active
         );
     }
 

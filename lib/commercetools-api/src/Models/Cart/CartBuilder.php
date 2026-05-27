@@ -30,6 +30,7 @@ use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -332,6 +333,12 @@ final class CartBuilder implements Builder
     private $createdBy;
 
     /**
+
+     * @var ?WarningObjectCollection
+     */
+    private $warnings;
+
+    /**
      * <p>Unique identifier of the Cart.</p>
      *
 
@@ -431,7 +438,7 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference
@@ -872,6 +879,17 @@ final class CartBuilder implements Builder
     public function getCreatedBy()
     {
         return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+    }
+
+    /**
+     * <p>Warnings about the processing of a request.</p>
+     *
+
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings()
+    {
+        return $this->warnings;
     }
 
     /**
@@ -1403,6 +1421,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?WarningObjectCollection $warnings
+     * @return $this
+     */
+    public function withWarnings(?WarningObjectCollection $warnings)
+    {
+        $this->warnings = $warnings;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomerGroup() instead
      * @return $this
      */
@@ -1650,7 +1679,8 @@ final class CartBuilder implements Builder
             $this->deleteDaysAfterLastModification,
             $this->purchaseOrderNumber,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
-            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->warnings
         );
     }
 

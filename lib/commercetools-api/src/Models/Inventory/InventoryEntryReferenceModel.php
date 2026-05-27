@@ -55,8 +55,6 @@ final class InventoryEntryReferenceModel extends JsonObjectModel implements Inve
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

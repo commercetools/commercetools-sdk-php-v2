@@ -33,6 +33,9 @@ final class ExtensionUpdateActionModel extends JsonObjectModel implements Extens
     private static $discriminatorClasses = [
        'changeDestination' => ExtensionChangeDestinationActionModel::class,
        'changeTriggers' => ExtensionChangeTriggersActionModel::class,
+       'setAdditionalContext' => ExtensionSetAdditionalContextActionModel::class,
+       'setDependencies' => ExtensionSetDependenciesActionModel::class,
+       'setExpansionPaths' => ExtensionSetExpansionPathsActionModel::class,
        'setKey' => ExtensionSetKeyActionModel::class,
        'setTimeoutInMs' => ExtensionSetTimeoutInMsActionModel::class,
     ];

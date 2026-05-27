@@ -55,8 +55,6 @@ final class QuoteRequestReferenceModel extends JsonObjectModel implements QuoteR
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

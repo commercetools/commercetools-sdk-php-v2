@@ -31,6 +31,7 @@ interface StandalonePriceImport extends ImportResource
     public const FIELD_TIERS = 'tiers';
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_ACTIVE = 'active';
 
     /**
      * <p>User-defined unique identifier for the StandalonePrice. If a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>) with this <code>key</code> exists, it is updated with the imported data.</p>
@@ -57,7 +58,7 @@ interface StandalonePriceImport extends ImportResource
     public function getValue();
 
     /**
-     * <p>Maps to <code>StandalonePrice.country</code>. This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Maps to <code>StandalonePrice.country</code>. This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|string
@@ -66,7 +67,7 @@ interface StandalonePriceImport extends ImportResource
 
     /**
      * <p>Maps to <code>StandalonePrice.customerGroup</code>. If the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
-     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|CustomerGroupKeyReference
@@ -75,7 +76,7 @@ interface StandalonePriceImport extends ImportResource
 
     /**
      * <p>Maps to <code>StandalonePrice.channel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
-     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
 
      * @return null|ChannelKeyReference
@@ -121,6 +122,15 @@ interface StandalonePriceImport extends ImportResource
      * @return null|Custom
      */
     public function getCustom();
+
+    /**
+     * <p>Maps to <code>StandalonePrice.active</code>.</p>
+     * <p>To exclude the StandalonePrice from <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, set to <code>false</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getActive();
 
     /**
      * @param ?string $key
@@ -176,4 +186,9 @@ interface StandalonePriceImport extends ImportResource
      * @param ?Custom $custom
      */
     public function setCustom(?Custom $custom): void;
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void;
 }

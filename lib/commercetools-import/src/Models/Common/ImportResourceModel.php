@@ -28,6 +28,8 @@ use Commercetools\Import\Models\Products\ProductImport;
 use Commercetools\Import\Models\Products\ProductImportModel;
 use Commercetools\Import\Models\ProductSelections\ProductSelectionImport;
 use Commercetools\Import\Models\ProductSelections\ProductSelectionImportModel;
+use Commercetools\Import\Models\ProductTailoring\ProductTailoringImport;
+use Commercetools\Import\Models\ProductTailoring\ProductTailoringImportModel;
 use Commercetools\Import\Models\Producttypes\ProductTypeImport;
 use Commercetools\Import\Models\Producttypes\ProductTypeImportModel;
 use Commercetools\Import\Models\Productvariants\ProductVariantImport;
