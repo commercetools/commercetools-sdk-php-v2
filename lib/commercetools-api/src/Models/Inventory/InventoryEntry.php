@@ -30,6 +30,8 @@ interface InventoryEntry extends BaseResource
     public const FIELD_MAX_CART_QUANTITY = 'maxCartQuantity';
     public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
     public const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
+    public const FIELD_RESERVATION_EXPIRATION_IN_MINUTES = 'reservationExpirationInMinutes';
+    public const FIELD_STOCK_LEVELS = 'stockLevels';
     public const FIELD_CUSTOM = 'custom';
 
     /**
@@ -105,7 +107,7 @@ interface InventoryEntry extends BaseResource
     public function getSupplyChannel();
 
     /**
-     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/../api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
      *
 
      * @return null|int
@@ -113,7 +115,7 @@ interface InventoryEntry extends BaseResource
     public function getQuantityOnStock();
 
     /**
-     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/../api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
      *
 
      * @return null|int
@@ -121,7 +123,7 @@ interface InventoryEntry extends BaseResource
     public function getAvailableQuantity();
 
     /**
-     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int
@@ -129,7 +131,7 @@ interface InventoryEntry extends BaseResource
     public function getMinCartQuantity();
 
     /**
-     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int
@@ -151,6 +153,26 @@ interface InventoryEntry extends BaseResource
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery();
+
+    /**
+     * <p>Expiration time of <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> reservations associated with this InventoryEntry.</p>
+     * <ul>
+     * <li>A Reservation is <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> if it was created for a <a href="ctp:api:type:LineItem">LineItem</a> that is using the <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> inventory mode.</li>
+     * <li>If this field is empty, the <a href="ctp:api:type:Project">Project</a>-level reservation expiration time applies.</li>
+     * </ul>
+     *
+
+     * @return null|int
+     */
+    public function getReservationExpirationInMinutes();
+
+    /**
+     * <p>Configuration of stock levels for the InventoryEntry. Corresponding <a href="/../api/projects/messages/product-catalog-messages#inventory-entry-messages">Messages</a> are triggered when the <code>quantityOnStock</code> reaches the configured levels.</p>
+     *
+
+     * @return null|InventoryEntryStockLevels
+     */
+    public function getStockLevels();
 
     /**
      * <p>Custom Fields of the InventoryEntry.</p>
@@ -234,6 +256,16 @@ interface InventoryEntry extends BaseResource
      * @param ?DateTimeImmutable $expectedDelivery
      */
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void;
+
+    /**
+     * @param ?int $reservationExpirationInMinutes
+     */
+    public function setReservationExpirationInMinutes(?int $reservationExpirationInMinutes): void;
+
+    /**
+     * @param ?InventoryEntryStockLevels $stockLevels
+     */
+    public function setStockLevels(?InventoryEntryStockLevels $stockLevels): void;
 
     /**
      * @param ?CustomFields $custom

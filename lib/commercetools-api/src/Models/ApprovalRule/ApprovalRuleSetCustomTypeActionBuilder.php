@@ -49,7 +49,8 @@ final class ApprovalRuleSetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the <a href="ctp:api:type:CustomFields">Custom Fields</a> fields for the ApprovalRule.</p>
+     * <p>Object containing the <a href="ctp:api:type:CustomFields">Custom Fields</a> fields for the ApprovalRule.</p>
+     * <p>Required if at least one Custom Field is defined as required in the <code>fieldDefinitions</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
 
      * @return null|FieldContainer

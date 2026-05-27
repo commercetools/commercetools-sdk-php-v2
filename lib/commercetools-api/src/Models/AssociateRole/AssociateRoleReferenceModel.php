@@ -55,8 +55,6 @@ final class AssociateRoleReferenceModel extends JsonObjectModel implements Assoc
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

@@ -55,8 +55,6 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

@@ -16,6 +16,7 @@ use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfo;
+use Commercetools\Api\Models\Reservation\ReservationReference;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -47,6 +48,7 @@ interface LineItem extends JsonObject
     public const FIELD_LINE_ITEM_MODE = 'lineItemMode';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_RESERVATION = 'reservation';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
@@ -254,6 +256,14 @@ interface LineItem extends JsonObject
     public function getShippingDetails();
 
     /**
+     * <p>Reference to the successful <a href="ctp:api:type:Reservation">Reservation</a> associated with this Line Item. This field is only populated when using the <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> mode.</p>
+     *
+
+     * @return null|ReservationReference
+     */
+    public function getReservation();
+
+    /**
      * <p>Custom Fields of the Line Item.</p>
      *
 
@@ -399,6 +409,11 @@ interface LineItem extends JsonObject
      * @param ?ItemShippingDetails $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void;
+
+    /**
+     * @param ?ReservationReference $reservation
+     */
+    public function setReservation(?ReservationReference $reservation): void;
 
     /**
      * @param ?CustomFields $custom

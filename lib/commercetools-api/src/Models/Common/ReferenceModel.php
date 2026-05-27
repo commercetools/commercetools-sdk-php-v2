@@ -38,6 +38,8 @@ use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupReference;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroupReferenceModel;
+use Commercetools\Api\Models\Extension\ExtensionReference;
+use Commercetools\Api\Models\Extension\ExtensionReferenceModel;
 use Commercetools\Api\Models\Inventory\InventoryEntryReference;
 use Commercetools\Api\Models\Inventory\InventoryEntryReferenceModel;
 use Commercetools\Api\Models\Order\OrderReference;
@@ -66,6 +68,8 @@ use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReference;
 use Commercetools\Api\Models\RecurrencePolicy\RecurrencePolicyReferenceModel;
 use Commercetools\Api\Models\RecurringOrder\RecurringOrderReference;
 use Commercetools\Api\Models\RecurringOrder\RecurringOrderReferenceModel;
+use Commercetools\Api\Models\Reservation\ReservationReference;
+use Commercetools\Api\Models\Reservation\ReservationReferenceModel;
 use Commercetools\Api\Models\Review\ReviewReference;
 use Commercetools\Api\Models\Review\ReviewReferenceModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
@@ -129,6 +133,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'direct-discount' => DirectDiscountReferenceModel::class,
        'discount-code' => DiscountCodeReferenceModel::class,
        'discount-group' => DiscountGroupReferenceModel::class,
+       'extension' => ExtensionReferenceModel::class,
        'inventory-entry' => InventoryEntryReferenceModel::class,
        'key-value-document' => CustomObjectReferenceModel::class,
        'order' => OrderReferenceModel::class,
@@ -144,6 +149,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'quote-request' => QuoteRequestReferenceModel::class,
        'recurrence-policy' => RecurrencePolicyReferenceModel::class,
        'recurring-order' => RecurringOrderReferenceModel::class,
+       'reservation' => ReservationReferenceModel::class,
        'review' => ReviewReferenceModel::class,
        'shipping-method' => ShippingMethodReferenceModel::class,
        'shopping-list' => ShoppingListReferenceModel::class,

@@ -368,6 +368,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'SetTitleChange' => SetTitleChangeModel::class,
        'SetTransactionCustomFieldChange' => SetTransactionCustomFieldChangeModel::class,
        'SetTransactionCustomTypeChange' => SetTransactionCustomTypeChangeModel::class,
+       'SetTransactionInterfaceIdChange' => SetTransactionInterfaceIdChangeModel::class,
        'SetTransitionsChange' => SetTransitionsChangeModel::class,
        'SetUnitTypeChange' => SetUnitTypeChangeModel::class,
        'SetValidFromAndUntilChange' => SetValidFromAndUntilChangeModel::class,

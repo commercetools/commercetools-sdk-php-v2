@@ -15,6 +15,12 @@ use Commercetools\Base\JsonObject;
 interface StoreResourceIdentifier extends ResourceIdentifier
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique ID of the referenced <a href="ctp:api:type:Store">Store</a>. Required if <code>key</code> is absent.</p>
      *
 

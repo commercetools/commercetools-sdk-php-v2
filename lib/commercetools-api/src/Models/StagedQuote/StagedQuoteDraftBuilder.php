@@ -107,7 +107,7 @@ final class StagedQuoteDraftBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/projects/custom-fields">Custom Fields</a> to be added to the StagedQuote.</p>
+     * <p><a href="ctp:api:type:CustomFields">Custom Fields</a> to be added to the StagedQuote.</p>
      * <ul>
      * <li>If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> and added to the StagedQuote.</li>
      * <li>If empty, the Custom Fields on the referenced <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> are added to the StagedQuote automatically.</li>

@@ -88,6 +88,24 @@ final class ExtensionBuilder implements Builder
     private $timeoutInMs;
 
     /**
+
+     * @var ?ExtensionReferenceCollection
+     */
+    private $dependencies;
+
+    /**
+
+     * @var ?array
+     */
+    private $expansionPaths;
+
+    /**
+
+     * @var null|ExtensionAdditionalContext|ExtensionAdditionalContextBuilder
+     */
+    private $additionalContext;
+
+    /**
      * <p>Unique identifier of the Extension.</p>
      *
 
@@ -190,7 +208,7 @@ final class ExtensionBuilder implements Builder
      * <p>Maximum time (in milliseconds) that the Extension can respond within.
      * If no timeout is provided, the default value is used for all <a href="ctp:api:type:ExtensionResourceTypeId">types of Extensions</a>.</p>
      * <p>The limit of 10000 ms (10 seconds) can be increased per Project after we review the performance impact.
-     * Please contact the <a href="https://support.commercetools.com">Composable Commerce support team</a> and provide the Region, Project key, and use case.</p>
+     * Please contact the <a href="https://support.commercetools.com">commercetools support team</a> and provide the Region, Project key, and use case.</p>
      *
 
      * @return null|int
@@ -198,6 +216,40 @@ final class ExtensionBuilder implements Builder
     public function getTimeoutInMs()
     {
         return $this->timeoutInMs;
+    }
+
+    /**
+     * <p>References to other Extensions that must complete before this Extension is called. The Extension receives the resource state after all transitive ancestors' update actions have been applied. Maximum 5 entries.</p>
+     *
+
+     * @return null|ExtensionReferenceCollection
+     */
+    public function getDependencies()
+    {
+        return $this->dependencies;
+    }
+
+    /**
+     * <p><a href="/../api/general-concepts#expansion-paths">Expansion paths</a> used for reference expansion of the payload.</p>
+     * <p>Be aware of the <a href="/../api/limits#api-extensions">limits</a> of this feature and its <a href="/../api/performance-tips#api-extensions">performance impact</a>.</p>
+     *
+
+     * @return null|array
+     */
+    public function getExpansionPaths()
+    {
+        return $this->expansionPaths;
+    }
+
+    /**
+     * <p>Configures additional information included in the payload sent to the API Extension.</p>
+     *
+
+     * @return null|ExtensionAdditionalContext
+     */
+    public function getAdditionalContext()
+    {
+        return $this->additionalContext instanceof ExtensionAdditionalContextBuilder ? $this->additionalContext->build() : $this->additionalContext;
     }
 
     /**
@@ -311,6 +363,39 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * @param ?ExtensionReferenceCollection $dependencies
+     * @return $this
+     */
+    public function withDependencies(?ExtensionReferenceCollection $dependencies)
+    {
+        $this->dependencies = $dependencies;
+
+        return $this;
+    }
+
+    /**
+     * @param ?array $expansionPaths
+     * @return $this
+     */
+    public function withExpansionPaths(?array $expansionPaths)
+    {
+        $this->expansionPaths = $expansionPaths;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ExtensionAdditionalContext $additionalContext
+     * @return $this
+     */
+    public function withAdditionalContext(?ExtensionAdditionalContext $additionalContext)
+    {
+        $this->additionalContext = $additionalContext;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -343,6 +428,17 @@ final class ExtensionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withAdditionalContext() instead
+     * @return $this
+     */
+    public function withAdditionalContextBuilder(?ExtensionAdditionalContextBuilder $additionalContext)
+    {
+        $this->additionalContext = $additionalContext;
+
+        return $this;
+    }
+
     public function build(): Extension
     {
         return new ExtensionModel(
@@ -355,7 +451,10 @@ final class ExtensionBuilder implements Builder
             $this->key,
             $this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination,
             $this->triggers,
-            $this->timeoutInMs
+            $this->timeoutInMs,
+            $this->dependencies,
+            $this->expansionPaths,
+            $this->additionalContext instanceof ExtensionAdditionalContextBuilder ? $this->additionalContext->build() : $this->additionalContext
         );
     }
 

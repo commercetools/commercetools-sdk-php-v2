@@ -17,6 +17,12 @@ interface DiscountGroupReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:DiscountGroup">DiscountGroup</a>.</p>
      *
 

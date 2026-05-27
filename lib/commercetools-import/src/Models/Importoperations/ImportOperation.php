@@ -77,7 +77,7 @@ interface ImportOperation extends JsonObject
     public function getResourceVersion();
 
     /**
-     * <p>Contains errors if the import was unsuccessful. See <a href="/import-export/error">Errors</a>.</p>
+     * <p>Contains errors if the import was unsuccessful. See <a href="/api/errors#import-api-specific-errors">Errors</a>.</p>
      *
 
      * @return null|ErrorObjectCollection

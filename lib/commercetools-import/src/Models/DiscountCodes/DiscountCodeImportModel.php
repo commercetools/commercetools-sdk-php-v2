@@ -202,7 +202,7 @@ final class DiscountCodeImportModel extends JsonObjectModel implements DiscountC
     }
 
     /**
-     * <p>Maps to <code>DiscountCode.code</code>. This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Maps to <code>DiscountCode.code</code>. This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|string

@@ -86,6 +86,24 @@ final class ExtensionModel extends JsonObjectModel implements Extension
      */
     protected $timeoutInMs;
 
+    /**
+     *
+     * @var ?ExtensionReferenceCollection
+     */
+    protected $dependencies;
+
+    /**
+     *
+     * @var ?array
+     */
+    protected $expansionPaths;
+
+    /**
+     *
+     * @var ?ExtensionAdditionalContext
+     */
+    protected $additionalContext;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -100,7 +118,10 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         ?string $key = null,
         ?ExtensionDestination $destination = null,
         ?ExtensionTriggerCollection $triggers = null,
-        ?int $timeoutInMs = null
+        ?int $timeoutInMs = null,
+        ?ExtensionReferenceCollection $dependencies = null,
+        ?array $expansionPaths = null,
+        ?ExtensionAdditionalContext $additionalContext = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -112,6 +133,9 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         $this->destination = $destination;
         $this->triggers = $triggers;
         $this->timeoutInMs = $timeoutInMs;
+        $this->dependencies = $dependencies;
+        $this->expansionPaths = $expansionPaths;
+        $this->additionalContext = $additionalContext;
     }
 
     /**
@@ -309,7 +333,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
      * <p>Maximum time (in milliseconds) that the Extension can respond within.
      * If no timeout is provided, the default value is used for all <a href="ctp:api:type:ExtensionResourceTypeId">types of Extensions</a>.</p>
      * <p>The limit of 10000 ms (10 seconds) can be increased per Project after we review the performance impact.
-     * Please contact the <a href="https://support.commercetools.com">Composable Commerce support team</a> and provide the Region, Project key, and use case.</p>
+     * Please contact the <a href="https://support.commercetools.com">commercetools support team</a> and provide the Region, Project key, and use case.</p>
      *
      *
      * @return null|int
@@ -326,6 +350,68 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         }
 
         return $this->timeoutInMs;
+    }
+
+    /**
+     * <p>References to other Extensions that must complete before this Extension is called. The Extension receives the resource state after all transitive ancestors' update actions have been applied. Maximum 5 entries.</p>
+     *
+     *
+     * @return null|ExtensionReferenceCollection
+     */
+    public function getDependencies()
+    {
+        if (is_null($this->dependencies)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_DEPENDENCIES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->dependencies = ExtensionReferenceCollection::fromArray($data);
+        }
+
+        return $this->dependencies;
+    }
+
+    /**
+     * <p><a href="/../api/general-concepts#expansion-paths">Expansion paths</a> used for reference expansion of the payload.</p>
+     * <p>Be aware of the <a href="/../api/limits#api-extensions">limits</a> of this feature and its <a href="/../api/performance-tips#api-extensions">performance impact</a>.</p>
+     *
+     *
+     * @return null|array
+     */
+    public function getExpansionPaths()
+    {
+        if (is_null($this->expansionPaths)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_EXPANSION_PATHS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->expansionPaths = $data;
+        }
+
+        return $this->expansionPaths;
+    }
+
+    /**
+     * <p>Configures additional information included in the payload sent to the API Extension.</p>
+     *
+     *
+     * @return null|ExtensionAdditionalContext
+     */
+    public function getAdditionalContext()
+    {
+        if (is_null($this->additionalContext)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ADDITIONAL_CONTEXT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->additionalContext = ExtensionAdditionalContextModel::of($data);
+        }
+
+        return $this->additionalContext;
     }
 
 
@@ -407,6 +493,30 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     public function setTimeoutInMs(?int $timeoutInMs): void
     {
         $this->timeoutInMs = $timeoutInMs;
+    }
+
+    /**
+     * @param ?ExtensionReferenceCollection $dependencies
+     */
+    public function setDependencies(?ExtensionReferenceCollection $dependencies): void
+    {
+        $this->dependencies = $dependencies;
+    }
+
+    /**
+     * @param ?array $expansionPaths
+     */
+    public function setExpansionPaths(?array $expansionPaths): void
+    {
+        $this->expansionPaths = $expansionPaths;
+    }
+
+    /**
+     * @param ?ExtensionAdditionalContext $additionalContext
+     */
+    public function setAdditionalContext(?ExtensionAdditionalContext $additionalContext): void
+    {
+        $this->additionalContext = $additionalContext;
     }
 
 

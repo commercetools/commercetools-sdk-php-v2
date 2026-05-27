@@ -114,6 +114,12 @@ final class ProjectModel extends JsonObjectModel implements Project
 
     /**
      *
+     * @var ?InventoryConfiguration
+     */
+    protected $inventory;
+
+    /**
+     *
      * @var ?DiscountsConfiguration
      */
     protected $discounts;
@@ -138,6 +144,7 @@ final class ProjectModel extends JsonObjectModel implements Project
         ?ExternalOAuth $externalOAuth = null,
         ?SearchIndexingConfiguration $searchIndexing = null,
         ?BusinessUnitConfiguration $businessUnits = null,
+        ?InventoryConfiguration $inventory = null,
         ?DiscountsConfiguration $discounts = null
     ) {
         $this->version = $version;
@@ -155,6 +162,7 @@ final class ProjectModel extends JsonObjectModel implements Project
         $this->externalOAuth = $externalOAuth;
         $this->searchIndexing = $searchIndexing;
         $this->businessUnits = $businessUnits;
+        $this->inventory = $inventory;
         $this->discounts = $discounts;
     }
 
@@ -470,6 +478,27 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
+     * <p>Holds configuration specific to inventory.</p>
+     *
+     *
+     * @return null|InventoryConfiguration
+     */
+    public function getInventory()
+    {
+        if (is_null($this->inventory)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_INVENTORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->inventory = InventoryConfigurationModel::of($data);
+        }
+
+        return $this->inventory;
+    }
+
+    /**
      * <p>Holds configuration specific to discounts, including how Product and Cart Discounts are combined in every Cart of the Project.</p>
      *
      *
@@ -609,6 +638,14 @@ final class ProjectModel extends JsonObjectModel implements Project
     public function setBusinessUnits(?BusinessUnitConfiguration $businessUnits): void
     {
         $this->businessUnits = $businessUnits;
+    }
+
+    /**
+     * @param ?InventoryConfiguration $inventory
+     */
+    public function setInventory(?InventoryConfiguration $inventory): void
+    {
+        $this->inventory = $inventory;
     }
 
     /**

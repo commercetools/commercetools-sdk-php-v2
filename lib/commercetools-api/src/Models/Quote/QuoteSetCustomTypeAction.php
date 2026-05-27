@@ -19,7 +19,7 @@ interface QuoteSetCustomTypeAction extends QuoteUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Quote with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Quote with <a href="ctp:api:type:CustomFields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Quote.</p>
      *
 
@@ -28,7 +28,8 @@ interface QuoteSetCustomTypeAction extends QuoteUpdateAction
     public function getType();
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Quote.</p>
+     * <p>Object containing the <a href="ctp:api:type:CustomFields">Custom Fields</a> fields for the Quote.</p>
+     * <p>Required if at least one Custom Field is defined as required in the <code>fieldDefinitions</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
 
      * @return null|FieldContainer

@@ -55,8 +55,6 @@ final class StagedQuoteReferenceModel extends JsonObjectModel implements StagedQ
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

@@ -130,7 +130,7 @@ final class PaymentMethodDraftBuilder implements Builder
 
     /**
      * <p>Reference to a BusinessUnit the PaymentMethod should belong to.</p>
-     * <p>Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
+     * <p>Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitResourceIdentifier

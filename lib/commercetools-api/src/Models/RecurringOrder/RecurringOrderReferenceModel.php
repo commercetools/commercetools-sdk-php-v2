@@ -55,8 +55,6 @@ final class RecurringOrderReferenceModel extends JsonObjectModel implements Recu
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

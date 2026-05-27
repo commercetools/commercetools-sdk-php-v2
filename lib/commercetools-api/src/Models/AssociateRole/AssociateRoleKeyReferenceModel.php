@@ -47,8 +47,6 @@ final class AssociateRoleKeyReferenceModel extends JsonObjectModel implements As
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

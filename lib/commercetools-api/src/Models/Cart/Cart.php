@@ -20,6 +20,7 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\Order\PaymentInfo;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -70,6 +71,7 @@ interface Cart extends BaseResource
     public const FIELD_PURCHASE_ORDER_NUMBER = 'purchaseOrderNumber';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_WARNINGS = 'warnings';
 
     /**
      * <p>Unique identifier of the Cart.</p>
@@ -128,7 +130,7 @@ interface Cart extends BaseResource
     public function getAnonymousId();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/../offering/composable-commerce#composable-commerce-for-b2b">B2B</a>-enabled Projects.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference
@@ -471,6 +473,14 @@ interface Cart extends BaseResource
     public function getCreatedBy();
 
     /**
+     * <p>Warnings about the processing of a request.</p>
+     *
+
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -709,4 +719,9 @@ interface Cart extends BaseResource
      * @param ?CreatedBy $createdBy
      */
     public function setCreatedBy(?CreatedBy $createdBy): void;
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void;
 }

@@ -43,6 +43,24 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
      */
     protected $timeoutInMs;
 
+    /**
+     *
+     * @var ?ExtensionResourceIdentifierCollection
+     */
+    protected $dependencies;
+
+    /**
+     *
+     * @var ?array
+     */
+    protected $expansionPaths;
+
+    /**
+     *
+     * @var ?ExtensionAdditionalContextDraft
+     */
+    protected $additionalContext;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -51,12 +69,18 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
         ?string $key = null,
         ?ExtensionDestination $destination = null,
         ?ExtensionTriggerCollection $triggers = null,
-        ?int $timeoutInMs = null
+        ?int $timeoutInMs = null,
+        ?ExtensionResourceIdentifierCollection $dependencies = null,
+        ?array $expansionPaths = null,
+        ?ExtensionAdditionalContextDraft $additionalContext = null
     ) {
         $this->key = $key;
         $this->destination = $destination;
         $this->triggers = $triggers;
         $this->timeoutInMs = $timeoutInMs;
+        $this->dependencies = $dependencies;
+        $this->expansionPaths = $expansionPaths;
+        $this->additionalContext = $additionalContext;
     }
 
     /**
@@ -125,7 +149,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
      * If no timeout is provided, the default value is used for all <a href="ctp:api:type:ExtensionResourceTypeId">types of Extensions</a>.
      * We recommend keeping the timeout as low as possible to avoid performance issues.</p>
      * <p>The limit of 10000 ms (10 seconds) can be increased per Project after we review the performance impact.
-     * Please contact the <a href="https://support.commercetools.com">Composable Commerce support team</a> and provide the Region, Project key, and use case.</p>
+     * Please contact the <a href="https://support.commercetools.com">commercetools support team</a> and provide the Region, Project key, and use case.</p>
      *
      *
      * @return null|int
@@ -142,6 +166,68 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
         }
 
         return $this->timeoutInMs;
+    }
+
+    /**
+     * <p>Extensions that must complete before this Extension is called, identified by <code>id</code> or <code>key</code>. Maximum 5 entries. If omitted, the Extension has no dependencies and may run concurrently with other independent Extensions.</p>
+     *
+     *
+     * @return null|ExtensionResourceIdentifierCollection
+     */
+    public function getDependencies()
+    {
+        if (is_null($this->dependencies)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_DEPENDENCIES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->dependencies = ExtensionResourceIdentifierCollection::fromArray($data);
+        }
+
+        return $this->dependencies;
+    }
+
+    /**
+     * <p><a href="/../api/general-concepts#expansion-paths">Expansion paths</a> used for reference expansion of the payload.</p>
+     * <p>Be aware of the <a href="/../api/limits#api-extensions">limits</a> of this feature and its <a href="/../api/performance-tips#api-extensions">performance impact</a>.</p>
+     *
+     *
+     * @return null|array
+     */
+    public function getExpansionPaths()
+    {
+        if (is_null($this->expansionPaths)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_EXPANSION_PATHS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->expansionPaths = $data;
+        }
+
+        return $this->expansionPaths;
+    }
+
+    /**
+     * <p>Configures additional information included in the payload sent to the API Extension.</p>
+     *
+     *
+     * @return null|ExtensionAdditionalContextDraft
+     */
+    public function getAdditionalContext()
+    {
+        if (is_null($this->additionalContext)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ADDITIONAL_CONTEXT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->additionalContext = ExtensionAdditionalContextDraftModel::of($data);
+        }
+
+        return $this->additionalContext;
     }
 
 
@@ -175,5 +261,29 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     public function setTimeoutInMs(?int $timeoutInMs): void
     {
         $this->timeoutInMs = $timeoutInMs;
+    }
+
+    /**
+     * @param ?ExtensionResourceIdentifierCollection $dependencies
+     */
+    public function setDependencies(?ExtensionResourceIdentifierCollection $dependencies): void
+    {
+        $this->dependencies = $dependencies;
+    }
+
+    /**
+     * @param ?array $expansionPaths
+     */
+    public function setExpansionPaths(?array $expansionPaths): void
+    {
+        $this->expansionPaths = $expansionPaths;
+    }
+
+    /**
+     * @param ?ExtensionAdditionalContextDraft $additionalContext
+     */
+    public function setAdditionalContext(?ExtensionAdditionalContextDraft $additionalContext): void
+    {
+        $this->additionalContext = $additionalContext;
     }
 }

@@ -55,8 +55,6 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

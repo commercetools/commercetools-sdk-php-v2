@@ -83,7 +83,7 @@ final class BusinessUnitSetAddressCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> with <a href="ctp:api:type:CustomFields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the <code>address</code>.</p>
      *
      *
@@ -105,7 +105,8 @@ final class BusinessUnitSetAddressCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> for the <code>address</code>.</p>
+     * <p>Object containing the <a href="ctp:api:type:CustomFields">Custom Fields</a> fields for the <code>address</code>.</p>
+     * <p>Required if at least one Custom Field is defined as required in the <code>fieldDefinitions</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
      *
      * @return null|FieldContainer

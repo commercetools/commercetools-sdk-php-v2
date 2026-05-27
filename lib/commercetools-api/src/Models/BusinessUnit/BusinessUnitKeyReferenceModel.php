@@ -47,8 +47,6 @@ final class BusinessUnitKeyReferenceModel extends JsonObjectModel implements Bus
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

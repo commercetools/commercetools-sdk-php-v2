@@ -39,7 +39,10 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
        'setExpectedDelivery' => InventoryEntrySetExpectedDeliveryActionModel::class,
        'setInventoryLimits' => InventoryEntrySetInventoryLimitsActionModel::class,
        'setKey' => InventoryEntrySetKeyActionModel::class,
+       'setReorderPoint' => InventoryEntrySetReorderPointActionModel::class,
+       'setReservationExpirationInMinutes' => InventoryEntrySetReservationExpirationInMinutesActionModel::class,
        'setRestockableInDays' => InventoryEntrySetRestockableInDaysActionModel::class,
+       'setSafetyStock' => InventoryEntrySetSafetyStockActionModel::class,
        'setSupplyChannel' => InventoryEntrySetSupplyChannelActionModel::class,
     ];
 

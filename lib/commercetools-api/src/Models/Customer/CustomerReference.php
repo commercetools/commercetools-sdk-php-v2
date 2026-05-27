@@ -17,6 +17,12 @@ interface CustomerReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Contains the representation of the expanded Customer. Only present in responses to requests with <a href="ctp:api:type:Expansion">Reference Expansion</a> for Customers.</p>
      *
 

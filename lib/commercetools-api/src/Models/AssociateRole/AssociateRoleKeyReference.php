@@ -15,6 +15,12 @@ use Commercetools\Base\JsonObject;
 interface AssociateRoleKeyReference extends KeyReference
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique and immutable key of the referenced <a href="ctp:api:type:AssociateRole">AssociateRole</a>.</p>
      *
 

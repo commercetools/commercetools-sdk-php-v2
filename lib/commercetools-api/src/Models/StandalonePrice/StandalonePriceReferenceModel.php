@@ -55,8 +55,6 @@ final class StandalonePriceReferenceModel extends JsonObjectModel implements Sta
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

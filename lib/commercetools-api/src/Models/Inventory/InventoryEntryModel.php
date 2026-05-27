@@ -122,6 +122,18 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
     /**
      *
+     * @var ?int
+     */
+    protected $reservationExpirationInMinutes;
+
+    /**
+     *
+     * @var ?InventoryEntryStockLevels
+     */
+    protected $stockLevels;
+
+    /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -146,6 +158,8 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         ?int $maxCartQuantity = null,
         ?int $restockableInDays = null,
         ?DateTimeImmutable $expectedDelivery = null,
+        ?int $reservationExpirationInMinutes = null,
+        ?InventoryEntryStockLevels $stockLevels = null,
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
@@ -163,6 +177,8 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         $this->maxCartQuantity = $maxCartQuantity;
         $this->restockableInDays = $restockableInDays;
         $this->expectedDelivery = $expectedDelivery;
+        $this->reservationExpirationInMinutes = $reservationExpirationInMinutes;
+        $this->stockLevels = $stockLevels;
         $this->custom = $custom;
     }
 
@@ -358,7 +374,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/../api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
      *
      *
      * @return null|int
@@ -378,7 +394,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/../api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
      *
      *
      * @return null|int
@@ -398,7 +414,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
      *
      *
      * @return null|int
@@ -418,7 +434,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
      *
      *
      * @return null|int
@@ -479,6 +495,51 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         }
 
         return $this->expectedDelivery;
+    }
+
+    /**
+     * <p>Expiration time of <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> reservations associated with this InventoryEntry.</p>
+     * <ul>
+     * <li>A Reservation is <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> if it was created for a <a href="ctp:api:type:LineItem">LineItem</a> that is using the <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> inventory mode.</li>
+     * <li>If this field is empty, the <a href="ctp:api:type:Project">Project</a>-level reservation expiration time applies.</li>
+     * </ul>
+     *
+     *
+     * @return null|int
+     */
+    public function getReservationExpirationInMinutes()
+    {
+        if (is_null($this->reservationExpirationInMinutes)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_RESERVATION_EXPIRATION_IN_MINUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->reservationExpirationInMinutes = (int) $data;
+        }
+
+        return $this->reservationExpirationInMinutes;
+    }
+
+    /**
+     * <p>Configuration of stock levels for the InventoryEntry. Corresponding <a href="/../api/projects/messages/product-catalog-messages#inventory-entry-messages">Messages</a> are triggered when the <code>quantityOnStock</code> reaches the configured levels.</p>
+     *
+     *
+     * @return null|InventoryEntryStockLevels
+     */
+    public function getStockLevels()
+    {
+        if (is_null($this->stockLevels)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STOCK_LEVELS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->stockLevels = InventoryEntryStockLevelsModel::of($data);
+        }
+
+        return $this->stockLevels;
     }
 
     /**
@@ -621,6 +682,22 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void
     {
         $this->expectedDelivery = $expectedDelivery;
+    }
+
+    /**
+     * @param ?int $reservationExpirationInMinutes
+     */
+    public function setReservationExpirationInMinutes(?int $reservationExpirationInMinutes): void
+    {
+        $this->reservationExpirationInMinutes = $reservationExpirationInMinutes;
+    }
+
+    /**
+     * @param ?InventoryEntryStockLevels $stockLevels
+     */
+    public function setStockLevels(?InventoryEntryStockLevels $stockLevels): void
+    {
+        $this->stockLevels = $stockLevels;
     }
 
     /**

@@ -66,6 +66,7 @@ final class ShippingMethodRemoveZoneActionModel extends JsonObjectModel implemen
 
     /**
      * <p>Value to remove from <code>zoneRates</code>.</p>
+     * <p>Removes the entire <a href="ctp:api:type:ZoneRate">ZoneRate</a> entry for the specified <a href="ctp:api:type:Zone">Zone</a> from the <code>zoneRates</code> array. This action deletes both the Zone reference and all <a href="ctp:api:type:ShippingRate">ShippingRates</a> associated with that Zone.</p>
      *
      *
      * @return null|ZoneResourceIdentifier

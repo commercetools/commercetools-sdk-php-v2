@@ -30,7 +30,7 @@ interface Money extends JsonObject
     public function getCentAmount();
 
     /**
-     * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     * <p>A currency code compliant with <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> or a <a href="ctp:api:type:NonStandardCurrency">non-standard currency</a>.</p>
      *
 
      * @return null|string

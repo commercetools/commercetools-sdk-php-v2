@@ -55,8 +55,6 @@ final class PaymentMethodReferenceModel extends JsonObjectModel implements Payme
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

@@ -59,6 +59,12 @@ final class InventoryImportBuilder implements Builder
 
     /**
 
+     * @var ?int
+     */
+    private $reservationExpirationInMinutes;
+
+    /**
+
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $supplyChannel;
@@ -122,6 +128,17 @@ final class InventoryImportBuilder implements Builder
     public function getExpectedDelivery()
     {
         return $this->expectedDelivery;
+    }
+
+    /**
+     * <p>Maps to <code>InventoryEntry.reservationExpirationInMinutes</code></p>
+     *
+
+     * @return null|int
+     */
+    public function getReservationExpirationInMinutes()
+    {
+        return $this->reservationExpirationInMinutes;
     }
 
     /**
@@ -202,6 +219,17 @@ final class InventoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?int $reservationExpirationInMinutes
+     * @return $this
+     */
+    public function withReservationExpirationInMinutes(?int $reservationExpirationInMinutes)
+    {
+        $this->reservationExpirationInMinutes = $reservationExpirationInMinutes;
+
+        return $this;
+    }
+
+    /**
      * @param ?ChannelKeyReference $supplyChannel
      * @return $this
      */
@@ -253,6 +281,7 @@ final class InventoryImportBuilder implements Builder
             $this->quantityOnStock,
             $this->restockableInDays,
             $this->expectedDelivery,
+            $this->reservationExpirationInMinutes,
             $this->supplyChannel instanceof ChannelKeyReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
         );

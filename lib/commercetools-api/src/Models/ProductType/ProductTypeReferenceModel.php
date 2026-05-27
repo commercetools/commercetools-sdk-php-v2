@@ -55,8 +55,6 @@ final class ProductTypeReferenceModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

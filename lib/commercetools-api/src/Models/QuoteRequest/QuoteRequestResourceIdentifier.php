@@ -14,4 +14,9 @@ use Commercetools\Base\JsonObject;
 
 interface QuoteRequestResourceIdentifier extends ResourceIdentifier
 {
+    /**
+
+     * @return null|string
+     */
+    public function getTypeId();
 }

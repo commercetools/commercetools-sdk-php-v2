@@ -15,6 +15,12 @@ use Commercetools\Base\JsonObject;
 interface CustomerPasswordTokenReference extends Reference
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomerToken">CustomerToken</a>.</p>
      *
 

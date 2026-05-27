@@ -55,8 +55,6 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

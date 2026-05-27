@@ -37,6 +37,9 @@ final class WarningObjectModel extends JsonObjectModel implements WarningObject
      *
      */
     private static $discriminatorClasses = [
+       'CannotChangeReservationExpiry' => CannotChangeReservationExpiryWarningModel::class,
+       'CannotCreateReservation' => CannotCreateReservationWarningModel::class,
+       'CannotUpdateReservation' => CannotUpdateReservationWarningModel::class,
        'ImageProcessingOngoing' => ImageProcessingOngoingWarningModel::class,
     ];
 

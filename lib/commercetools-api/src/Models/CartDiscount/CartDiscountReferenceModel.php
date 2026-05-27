@@ -55,8 +55,6 @@ final class CartDiscountReferenceModel extends JsonObjectModel implements CartDi
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

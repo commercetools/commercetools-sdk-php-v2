@@ -99,6 +99,12 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $active;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -114,7 +120,8 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
         ?DateTimeImmutable $validUntil = null,
         ?PriceTierCollection $tiers = null,
         ?DiscountedPrice $discounted = null,
-        ?Custom $custom = null
+        ?Custom $custom = null,
+        ?bool $active = null
     ) {
         $this->key = $key;
         $this->sku = $sku;
@@ -127,6 +134,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
         $this->tiers = $tiers;
         $this->discounted = $discounted;
         $this->custom = $custom;
+        $this->active = $active;
     }
 
     /**
@@ -191,7 +199,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     }
 
     /**
-     * <p>Maps to <code>StandalonePrice.country</code>. This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>Maps to <code>StandalonePrice.country</code>. This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|string
@@ -212,7 +220,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
 
     /**
      * <p>Maps to <code>StandalonePrice.customerGroup</code>. If the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced CustomerGroup is created.</p>
-     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|CustomerGroupKeyReference
@@ -234,7 +242,7 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
 
     /**
      * <p>Maps to <code>StandalonePrice.channel</code>. If the referenced <a href="ctp:api:type:Channel">Channel</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Channel is created.</p>
-     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="/import-export/error#invalidfieldsupdateerror">InvalidFieldsUpdate</a> error.</p>
+     * <p>This value cannot be updated. Attempting to update this value will result in an <a href="ctp:import:type:InvalidFieldsUpdateError">InvalidFieldsUpdate</a> error.</p>
      *
      *
      * @return null|ChannelKeyReference
@@ -364,6 +372,27 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
         return $this->custom;
     }
 
+    /**
+     * <p>Maps to <code>StandalonePrice.active</code>.</p>
+     * <p>To exclude the StandalonePrice from <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, set to <code>false</code>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        if (is_null($this->active)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->active = (bool) $data;
+        }
+
+        return $this->active;
+    }
+
 
     /**
      * @param ?string $key
@@ -451,6 +480,14 @@ final class StandalonePriceImportModel extends JsonObjectModel implements Standa
     public function setCustom(?Custom $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void
+    {
+        $this->active = $active;
     }
 
 

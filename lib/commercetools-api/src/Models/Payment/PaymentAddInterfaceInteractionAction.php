@@ -27,7 +27,8 @@ interface PaymentAddInterfaceInteractionAction extends PaymentUpdateAction
     public function getType();
 
     /**
-     * <p><a href="/../api/projects/custom-fields">Custom Fields</a> as per <a href="ctp:api:type:FieldDefinition">FieldDefinitions</a> of the <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Object containing the <a href="ctp:api:type:CustomFields">Custom Fields</a> fields for the InterfaceInteraction.</p>
+     * <p>Required if at least one Custom Field is defined as required in the <code>fieldDefinitions</code> of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
 
      * @return null|FieldContainer

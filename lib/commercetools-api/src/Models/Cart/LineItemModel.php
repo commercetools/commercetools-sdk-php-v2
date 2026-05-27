@@ -23,6 +23,8 @@ use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
 use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfo;
 use Commercetools\Api\Models\RecurringOrder\LineItemRecurrenceInfoModel;
+use Commercetools\Api\Models\Reservation\ReservationReference;
+use Commercetools\Api\Models\Reservation\ReservationReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -179,6 +181,12 @@ final class LineItemModel extends JsonObjectModel implements LineItem
 
     /**
      *
+     * @var ?ReservationReference
+     */
+    protected $reservation;
+
+    /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -229,6 +237,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         ?string $lineItemMode = null,
         ?string $inventoryMode = null,
         ?ItemShippingDetails $shippingDetails = null,
+        ?ReservationReference $reservation = null,
         ?CustomFields $custom = null,
         ?DateTimeImmutable $addedAt = null,
         ?DateTimeImmutable $lastModifiedAt = null,
@@ -257,6 +266,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         $this->lineItemMode = $lineItemMode;
         $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
+        $this->reservation = $reservation;
         $this->custom = $custom;
         $this->addedAt = $addedAt;
         $this->lastModifiedAt = $lastModifiedAt;
@@ -752,6 +762,27 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * <p>Reference to the successful <a href="ctp:api:type:Reservation">Reservation</a> associated with this Line Item. This field is only populated when using the <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> mode.</p>
+     *
+     *
+     * @return null|ReservationReference
+     */
+    public function getReservation()
+    {
+        if (is_null($this->reservation)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_RESERVATION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->reservation = ReservationReferenceModel::of($data);
+        }
+
+        return $this->reservation;
+    }
+
+    /**
      * <p>Custom Fields of the Line Item.</p>
      *
      *
@@ -1024,6 +1055,14 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?ReservationReference $reservation
+     */
+    public function setReservation(?ReservationReference $reservation): void
+    {
+        $this->reservation = $reservation;
     }
 
     /**

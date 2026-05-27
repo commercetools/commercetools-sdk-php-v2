@@ -15,6 +15,12 @@ use Commercetools\Base\JsonObject;
 interface ProductTailoringResourceIdentifier extends ResourceIdentifier
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductTailoring">ProductTailoring</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
 

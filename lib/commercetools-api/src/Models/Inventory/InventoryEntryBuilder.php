@@ -123,6 +123,18 @@ final class InventoryEntryBuilder implements Builder
 
     /**
 
+     * @var ?int
+     */
+    private $reservationExpirationInMinutes;
+
+    /**
+
+     * @var null|InventoryEntryStockLevels|InventoryEntryStockLevelsBuilder
+     */
+    private $stockLevels;
+
+    /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -227,7 +239,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/../api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
      *
 
      * @return null|int
@@ -238,7 +250,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/../api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
      *
 
      * @return null|int
@@ -249,7 +261,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int
@@ -260,7 +272,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/carts-orders-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int
@@ -290,6 +302,32 @@ final class InventoryEntryBuilder implements Builder
     public function getExpectedDelivery()
     {
         return $this->expectedDelivery;
+    }
+
+    /**
+     * <p>Expiration time of <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> reservations associated with this InventoryEntry.</p>
+     * <ul>
+     * <li>A Reservation is <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> if it was created for a <a href="ctp:api:type:LineItem">LineItem</a> that is using the <a href="ctp:api:type:InventoryMode">ReserveOnCart</a> inventory mode.</li>
+     * <li>If this field is empty, the <a href="ctp:api:type:Project">Project</a>-level reservation expiration time applies.</li>
+     * </ul>
+     *
+
+     * @return null|int
+     */
+    public function getReservationExpirationInMinutes()
+    {
+        return $this->reservationExpirationInMinutes;
+    }
+
+    /**
+     * <p>Configuration of stock levels for the InventoryEntry. Corresponding <a href="/../api/projects/messages/product-catalog-messages#inventory-entry-messages">Messages</a> are triggered when the <code>quantityOnStock</code> reaches the configured levels.</p>
+     *
+
+     * @return null|InventoryEntryStockLevels
+     */
+    public function getStockLevels()
+    {
+        return $this->stockLevels instanceof InventoryEntryStockLevelsBuilder ? $this->stockLevels->build() : $this->stockLevels;
     }
 
     /**
@@ -469,6 +507,28 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?int $reservationExpirationInMinutes
+     * @return $this
+     */
+    public function withReservationExpirationInMinutes(?int $reservationExpirationInMinutes)
+    {
+        $this->reservationExpirationInMinutes = $reservationExpirationInMinutes;
+
+        return $this;
+    }
+
+    /**
+     * @param ?InventoryEntryStockLevels $stockLevels
+     * @return $this
+     */
+    public function withStockLevels(?InventoryEntryStockLevels $stockLevels)
+    {
+        $this->stockLevels = $stockLevels;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -513,6 +573,17 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStockLevels() instead
+     * @return $this
+     */
+    public function withStockLevelsBuilder(?InventoryEntryStockLevelsBuilder $stockLevels)
+    {
+        $this->stockLevels = $stockLevels;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustom() instead
      * @return $this
      */
@@ -541,6 +612,8 @@ final class InventoryEntryBuilder implements Builder
             $this->maxCartQuantity,
             $this->restockableInDays,
             $this->expectedDelivery,
+            $this->reservationExpirationInMinutes,
+            $this->stockLevels instanceof InventoryEntryStockLevelsBuilder ? $this->stockLevels->build() : $this->stockLevels,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }

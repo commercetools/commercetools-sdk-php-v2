@@ -222,7 +222,8 @@ interface ProductProjection extends BaseResource
     public function getReviewRatingStatistics();
 
     /**
-     * <p>Indicates whether the Prices of the Product Projection are <a href="ctp:api:type:Price">embedded</a> or <a href="ctp:api:type:StandalonePrice">standalone</a>. <a href="#prices">Projecting Prices</a> only works with <code>Embedded</code>, there is currently no support for <code>Standalone</code>.</p>
+     * <p>Indicates whether the Prices of the Product Projection are <a href="ctp:api:type:Price">embedded</a> or <a href="ctp:api:type:StandalonePrice">standalone</a>.</p>
+     * <p>When <a href="/../api/projects/productProjections#projection-by-store">projecting Prices by Store</a>, the API supports only Embedded Prices (<code>Embedded</code>).</p>
      *
 
      * @return null|string
