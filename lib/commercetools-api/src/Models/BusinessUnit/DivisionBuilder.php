@@ -264,7 +264,7 @@ final class DivisionBuilder implements Builder
     }
 
     /**
-     * <p>Indicates whether the Business Unit can be edited and used in <a href="/../api/projects/orders">Orders</a>.</p>
+     * <p>Indicates whether the Business Unit can be edited and used in <a href="/api/projects/orders">Orders</a>.</p>
      *
 
      * @return null|string
@@ -288,7 +288,7 @@ final class DivisionBuilder implements Builder
     }
 
     /**
-     * <p>Stores that are inherited from a parent Business Unit. The value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>storeMode</code> is set to <code>FromParent</code>.</p>
+     * <p>Stores that are inherited from a parent Business Unit. The value of this field is <a href="/api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>storeMode</code> is set to <code>FromParent</code>.</p>
      *
 
      * @return null|StoreKeyReferenceCollection
@@ -344,7 +344,7 @@ final class DivisionBuilder implements Builder
 
     /**
      * <p>Customer Groups assigned to the Business Unit.</p>
-     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     * <p>They are considered during <a href="/api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
      *
 
      * @return null|CustomerGroupAssignmentCollection
@@ -432,7 +432,7 @@ final class DivisionBuilder implements Builder
     }
 
     /**
-     * <p>Associates that are inherited from a parent Business Unit. The value of this field is <a href="/../api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
+     * <p>Associates that are inherited from a parent Business Unit. The value of this field is <a href="/api/general-concepts#eventual-consistency">eventually consistent</a> and is only present when the <code>associateMode</code> is set to <code>ExplicitAndFromParent</code>.</p>
      *
 
      * @return null|InheritedAssociateCollection

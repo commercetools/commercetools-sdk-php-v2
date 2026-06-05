@@ -231,7 +231,7 @@ final class StandalonePriceImportBuilder implements Builder
 
     /**
      * <p>Maps to <code>StandalonePrice.active</code>.</p>
-     * <p>To exclude the StandalonePrice from <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, set to <code>false</code>.</p>
+     * <p>To exclude the StandalonePrice from <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, set to <code>false</code>.</p>
      *
 
      * @return null|bool

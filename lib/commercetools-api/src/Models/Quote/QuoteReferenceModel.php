@@ -94,7 +94,7 @@ final class QuoteReferenceModel extends JsonObjectModel implements QuoteReferenc
 
     /**
      * <p>Contains the representation of the expanded Quote.
-     * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Quote.</p>
+     * Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for Quote.</p>
      *
      *
      * @return null|Quote

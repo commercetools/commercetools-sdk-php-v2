@@ -112,7 +112,7 @@ interface DiscountCode extends BaseResource
     public function getDescription();
 
     /**
-     * <p>User-defined unique identifier of the DiscountCode <a href="/../api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
+     * <p>User-defined unique identifier of the DiscountCode <a href="/api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
      *
 
      * @return null|string

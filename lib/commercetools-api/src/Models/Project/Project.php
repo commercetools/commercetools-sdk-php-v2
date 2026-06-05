@@ -98,7 +98,7 @@ interface Project extends JsonObject
     public function getTrialUntil();
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
+     * <p>Holds the configuration for the <a href="/api/projects/messages">Messages Query</a> feature.</p>
      *
 
      * @return null|MessagesConfiguration
@@ -106,7 +106,7 @@ interface Project extends JsonObject
     public function getMessages();
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
+     * <p>Holds the configuration for the <a href="/api/projects/carts">Carts</a> feature.</p>
      *
 
      * @return null|CartsConfiguration
@@ -114,7 +114,7 @@ interface Project extends JsonObject
     public function getCarts();
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature.</p>
+     * <p>Holds the configuration for the <a href="/api/projects/shoppingLists">Shopping Lists</a> feature.</p>
      *
 
      * @return null|ShoppingListsConfiguration

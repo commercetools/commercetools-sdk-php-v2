@@ -63,7 +63,7 @@ final class ProjectChangeOrderSearchStatusActionModel extends JsonObjectModel im
     }
 
     /**
-     * <p>Activates or deactivates the <a href="/../api/projects/order-search">Order Search</a> feature. Activation will trigger building a search index for the Orders in the Project.</p>
+     * <p>Activates or deactivates the <a href="/api/projects/order-search">Order Search</a> feature. Activation will trigger building a search index for the Orders in the Project.</p>
      *
      *
      * @return null|string

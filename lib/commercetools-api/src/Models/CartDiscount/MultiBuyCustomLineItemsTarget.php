@@ -20,7 +20,7 @@ interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget
     public const FIELD_SELECTION_MODE = 'selectionMode';
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#customlineitem-field-identifiers">CustomLineItems target predicate</a>. The Discount will be applied to Custom Line Items that are matched by the predicate.</p>
+     * <p>Valid <a href="/api/projects/predicates#customlineitem-field-identifiers">CustomLineItems target predicate</a>. The Discount will be applied to Custom Line Items that are matched by the predicate.</p>
      *
 
      * @return null|string

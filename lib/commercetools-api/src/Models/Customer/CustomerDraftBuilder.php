@@ -200,7 +200,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Customer.
      * The <code>key</code> field is preferred over <code>customerNumber</code> as it is mutable and provides more flexibility.</p>
-     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Customers with the <a href="/../api/import-export/overview">Import API</a>.</p>
+     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Customers with the <a href="/api/import-export/overview">Import API</a>.</p>
      *
 
      * @return null|string
@@ -235,7 +235,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>Email address of the Customer that must be <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to.
+     * <p>Email address of the Customer that must be <a href="/api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to.
      * It is the mandatory unique identifier of a Customer.</p>
      *
 
@@ -454,7 +454,7 @@ final class CustomerDraftBuilder implements Builder
 
     /**
      * <p>Customer Groups to assign the Customer to.</p>
-     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p>Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|CustomerGroupAssignmentDraftCollection
@@ -501,8 +501,8 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>Sets the <a href="ctp:api:type:Store">Stores</a> for the Customer.</p>
      * <ul>
-     * <li>If no Stores are specified, the Customer is a global customer, and can log in using the <a href="/../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
-     * <li>If any Stores are specified, the Customer can only log in using the <a href="/../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
+     * <li>If no Stores are specified, the Customer is a global customer, and can log in using the <a href="/api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
+     * <li>If any Stores are specified, the Customer can only log in using the <a href="/api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
      * </ul>
      *
 

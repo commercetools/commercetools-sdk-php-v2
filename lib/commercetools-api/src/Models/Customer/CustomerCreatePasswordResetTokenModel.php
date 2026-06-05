@@ -52,7 +52,7 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     * <p>Email address of the Customer treated as <a href="/api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
      *
      *
      * @return null|string

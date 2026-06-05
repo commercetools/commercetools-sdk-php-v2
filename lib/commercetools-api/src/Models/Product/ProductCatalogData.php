@@ -19,7 +19,7 @@ interface ProductCatalogData extends JsonObject
     public const FIELD_HAS_STAGED_CHANGES = 'hasStagedChanges';
 
     /**
-     * <p>If <code>true</code>, the <code>current</code> representation of the Product is retrievable in the <a href="/projects/productProjections">Product Projection</a> endpoints and indexed for <a href="/../api/projects/product-search">Product Search</a>.</p>
+     * <p>If <code>true</code>, the <code>current</code> representation of the Product is retrievable in the <a href="/projects/productProjections">Product Projection</a> endpoints and indexed for <a href="/api/projects/product-search">Product Search</a>.</p>
      *
 
      * @return null|bool

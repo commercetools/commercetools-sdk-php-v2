@@ -45,7 +45,7 @@ final class CountOnLineItemUnitsBuilder implements Builder
     private $excludeCount;
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem predicate</a> that determines the units participating in the Discount.</p>
+     * <p>Valid <a href="/api/projects/predicates#lineitem-field-identifiers">LineItem predicate</a> that determines the units participating in the Discount.</p>
      *
 
      * @return null|string

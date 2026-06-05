@@ -16,7 +16,7 @@ interface ProjectChangeCartsConfigurationAction extends ProjectUpdateAction
     public const FIELD_CARTS_CONFIGURATION = 'cartsConfiguration';
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
+     * <p>Configuration for the <a href="/api/projects/carts">Carts</a> feature.</p>
      *
 
      * @return null|CartsConfiguration

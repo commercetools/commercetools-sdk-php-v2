@@ -24,7 +24,7 @@ interface RecurringOrderReference extends Reference
 
     /**
      * <p>Contains the representation of the expanded RecurringOrder.
-     * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for RecurringOrders.</p>
+     * Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for RecurringOrders.</p>
      *
 
      * @return null|RecurringOrder

@@ -51,7 +51,7 @@ final class RecordPagedQueryResponseBuilder implements Builder
     private $results;
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#limit">results requested</a>.</p>
      *
 
      * @return null|int
@@ -74,7 +74,7 @@ final class RecordPagedQueryResponseBuilder implements Builder
 
     /**
      * <p>Total number of results matching the query.
-     * This number is an estimation and not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.</p>
+     * This number is an estimation and not <a href="/api/general-concepts#strong-consistency">strongly consistent</a>.</p>
      *
 
      * @return null|int
@@ -85,7 +85,7 @@ final class RecordPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#offset">elements skipped</a>.</p>
      *
 
      * @return null|int

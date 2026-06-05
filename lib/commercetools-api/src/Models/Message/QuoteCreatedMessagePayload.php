@@ -17,7 +17,7 @@ interface QuoteCreatedMessagePayload extends MessagePayload
     public const FIELD_QUOTE = 'quote';
 
     /**
-     * <p><a href="/../api/projects/quotes">Quote</a> that was created.</p>
+     * <p><a href="/api/projects/quotes">Quote</a> that was created.</p>
      *
 
      * @return null|Quote

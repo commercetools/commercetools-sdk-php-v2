@@ -62,7 +62,7 @@ final class ProductPagedSearchResponseBuilder implements Builder
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#offset">elements skipped</a>.</p>
      *
 
      * @return null|int
@@ -73,7 +73,7 @@ final class ProductPagedSearchResponseBuilder implements Builder
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#limit">results requested</a>.</p>
      *
 
      * @return null|int
@@ -84,7 +84,7 @@ final class ProductPagedSearchResponseBuilder implements Builder
     }
 
     /**
-     * <p>Results for <a href="/../api/projects/product-search#facets">facets</a> when requested.</p>
+     * <p>Results for <a href="/api/projects/product-search#facets">facets</a> when requested.</p>
      *
 
      * @return null|ProductSearchFacetResultCollection

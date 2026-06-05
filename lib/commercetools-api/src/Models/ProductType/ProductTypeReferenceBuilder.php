@@ -46,7 +46,7 @@ final class ProductTypeReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded ProductType. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ProductTypes.</p>
+     * <p>Contains the representation of the expanded ProductType. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for ProductTypes.</p>
      *
 
      * @return null|ProductType

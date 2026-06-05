@@ -332,7 +332,7 @@ final class PaymentMethodMethodSetMessageModel extends JsonObjectModel implement
     }
 
     /**
-     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     * <p><a href="/api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
      *
      * @return null|string

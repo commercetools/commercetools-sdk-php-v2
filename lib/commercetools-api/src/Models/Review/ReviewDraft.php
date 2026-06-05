@@ -88,7 +88,7 @@ interface ReviewDraft extends JsonObject
     public function getTarget();
 
     /**
-     * <p>State of the Review. Used for approval processes, see <a href="/../tutorials/review-ratings#review-approval-process">Review approval process</a> for details.</p>
+     * <p>State of the Review. Used for approval processes, see <a href="/tutorials/review-ratings#review-approval-process">Review approval process</a> for details.</p>
      *
 
      * @return null|StateResourceIdentifier

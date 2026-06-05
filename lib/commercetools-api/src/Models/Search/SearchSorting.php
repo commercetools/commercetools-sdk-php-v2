@@ -62,7 +62,7 @@ interface SearchSorting extends JsonObject
     public function getFieldType();
 
     /**
-     * <p>Allows you to apply a <a href="/../api/search-query-language#sort-filter">sort filter</a>.</p>
+     * <p>Allows you to apply a <a href="/api/search-query-language#sort-filter">sort filter</a>.</p>
      *
 
      * @return null|SearchQuery

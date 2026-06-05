@@ -46,7 +46,7 @@ final class ReviewReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded Review. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Reviews.</p>
+     * <p>Contains the representation of the expanded Review. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for Reviews.</p>
      *
 
      * @return null|Review

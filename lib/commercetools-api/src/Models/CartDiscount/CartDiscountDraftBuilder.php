@@ -171,7 +171,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
      *
 
      * @return null|string
@@ -211,8 +211,8 @@ final class CartDiscountDraftBuilder implements Builder
      * <li>If defined, the Cart Discount applies on <a href="ctp:api:type:Cart">Carts</a> having a <a href="ctp:api:type:Store">Store</a> matching any Store defined for this field.</li>
      * <li>If not defined, the Cart Discount applies on all Carts, irrespective of a Store.</li>
      * </ul>
-     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts-stores">limit</a>, a <a href="ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
-     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
+     * <p>If the referenced Stores exceed the <a href="/api/limits#cart-discounts-stores">limit</a>, a <a href="ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
+     * <p>If the referenced Stores exceed the <a href="/api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
      *
 
      * @return null|StoreResourceIdentifierCollection
@@ -224,7 +224,7 @@ final class CartDiscountDraftBuilder implements Builder
 
     /**
      * <p>Only active Discounts can be applied to the Cart.
-     * If the <a href="/../api/limits#cart-discounts">limit</a> for active Cart Discounts is reached, a <a href="ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
+     * If the <a href="/api/limits#cart-discounts">limit</a> for active Cart Discounts is reached, a <a href="ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
      *
 
      * @return null|bool

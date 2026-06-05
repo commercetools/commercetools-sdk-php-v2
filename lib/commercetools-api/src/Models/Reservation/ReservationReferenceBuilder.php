@@ -47,7 +47,7 @@ final class ReservationReferenceBuilder implements Builder
 
     /**
      * <p>Contains the representation of the expanded Reservation.
-     * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Reservations.</p>
+     * Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for Reservations.</p>
      *
 
      * @return null|Reservation

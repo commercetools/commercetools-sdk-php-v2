@@ -65,7 +65,7 @@ interface ProductDraft extends JsonObject
 
     /**
      * <p>User-defined unique identifier for the Product.</p>
-     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Products with the <a href="/../api/import-export/overview">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>.</p>
+     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Products with the <a href="/api/import-export/overview">Import API</a> and the <a href="/merchant-center/import-data">Merchant Center</a>.</p>
      *
 
      * @return null|string
@@ -162,7 +162,7 @@ interface ProductDraft extends JsonObject
 
     /**
      * <p>If <code>true</code>, the platform sets the <code>published</code> flag on the resulting <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> to <code>true</code>.
-     * This makes the current representation retrievable in <a href="/projects/productProjections">Product Projection</a> endpoints and indexes it for <a href="/../api/projects/product-search">Product Search</a>.
+     * This makes the current representation retrievable in <a href="/projects/productProjections">Product Projection</a> endpoints and indexes it for <a href="/api/projects/product-search">Product Search</a>.
      * You can also set this flag later using the <a href="/projects/products#publish">Publish</a> update action.</p>
      *
 

@@ -416,7 +416,7 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Cart belongs to. Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Cart belongs to. Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|CustomerGroupReference
@@ -438,7 +438,7 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference
@@ -771,7 +771,7 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p>Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|string
@@ -826,7 +826,7 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>Indicates whether the Cart has been <a href="/../api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
+     * <p>Indicates whether the Cart has been <a href="/api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
      *
 
      * @return null|CartLock
@@ -849,7 +849,7 @@ final class CartBuilder implements Builder
 
     /**
      * <p>User-defined identifier of a purchase order.</p>
-     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
      *
 
      * @return null|string

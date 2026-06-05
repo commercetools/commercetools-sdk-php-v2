@@ -334,7 +334,7 @@ final class QuoteRequestCustomerChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     * <p><a href="/api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
      *
      * @return null|string
@@ -375,7 +375,7 @@ final class QuoteRequestCustomerChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who now owns the Quote Request.</p>
+     * <p>The <a href="/api/quotes-overview#buyer">Buyer</a> who now owns the Quote Request.</p>
      *
      *
      * @return null|CustomerReference
@@ -396,7 +396,7 @@ final class QuoteRequestCustomerChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>The previous <a href="/../api/quotes-overview#buyer">Buyer</a>.</p>
+     * <p>The previous <a href="/api/quotes-overview#buyer">Buyer</a>.</p>
      *
      *
      * @return null|CustomerReference

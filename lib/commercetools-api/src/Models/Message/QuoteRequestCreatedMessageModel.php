@@ -326,7 +326,7 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
-     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     * <p><a href="/api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
      *
      * @return null|string
@@ -367,7 +367,7 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
-     * <p><a href="/../api/projects/quote-requests">Quote Request</a> that was created.</p>
+     * <p><a href="/api/projects/quote-requests">Quote Request</a> that was created.</p>
      *
      *
      * @return null|QuoteRequest

@@ -334,7 +334,7 @@ final class PaymentMethodInfoTokenSetMessageModel extends JsonObjectModel implem
     }
 
     /**
-     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     * <p><a href="/api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
      *
      * @return null|string

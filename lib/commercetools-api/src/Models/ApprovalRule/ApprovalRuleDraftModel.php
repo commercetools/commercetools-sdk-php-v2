@@ -164,7 +164,7 @@ final class ApprovalRuleDraftModel extends JsonObjectModel implements ApprovalRu
     }
 
     /**
-     * <p>The <a href="/../api/predicates/predicate-operators">predicate</a> describing the <a href="ctp:api:type:Order">Orders</a> the Approval Rule should match against.</p>
+     * <p>The <a href="/api/predicates/predicate-operators">predicate</a> describing the <a href="ctp:api:type:Order">Orders</a> the Approval Rule should match against.</p>
      *
      *
      * @return null|string

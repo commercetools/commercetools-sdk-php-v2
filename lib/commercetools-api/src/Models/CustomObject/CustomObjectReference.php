@@ -23,7 +23,7 @@ interface CustomObjectReference extends Reference
     public function getTypeId();
 
     /**
-     * <p>Contains the representation of the expanded CustomObject. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CustomObjects.</p>
+     * <p>Contains the representation of the expanded CustomObject. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for CustomObjects.</p>
      *
 
      * @return null|CustomObject

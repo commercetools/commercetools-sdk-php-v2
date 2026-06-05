@@ -331,7 +331,7 @@ final class PaymentMethodModel extends JsonObjectModel implements PaymentMethod
 
     /**
      * <p>Reference to a BusinessUnit associated with the PaymentMethod.</p>
-     * <p>Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
+     * <p>Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
      *
      * @return null|BusinessUnitKeyReference

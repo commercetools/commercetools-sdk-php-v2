@@ -71,7 +71,7 @@ interface UserProvidedIdentifiers extends JsonObject
     public function getSlug();
 
     /**
-     * <p>Unique identifier of a <a href="/../api/projects/custom-objects">Custom Object</a>.</p>
+     * <p>Unique identifier of a <a href="/api/projects/custom-objects">Custom Object</a>.</p>
      *
 
      * @return null|ContainerAndKey

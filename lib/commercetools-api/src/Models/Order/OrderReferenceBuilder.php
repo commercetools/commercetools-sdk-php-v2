@@ -46,7 +46,7 @@ final class OrderReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded Order. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Orders.</p>
+     * <p>Contains the representation of the expanded Order. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for Orders.</p>
      *
 
      * @return null|Order

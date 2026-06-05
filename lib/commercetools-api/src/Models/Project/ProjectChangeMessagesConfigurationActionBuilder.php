@@ -29,7 +29,7 @@ final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
     private $messagesConfiguration;
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
+     * <p>Configuration for the <a href="/api/projects/messages">Messages Query</a> feature.</p>
      *
 
      * @return null|MessagesConfigurationDraft

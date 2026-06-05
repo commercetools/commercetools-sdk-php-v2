@@ -66,7 +66,7 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
     /**
      * <p>Value to set.
      * If empty, any existing value will be removed.
-     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
+     * Take <a href="/api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
      *
      * @return null|DateTimeImmutable

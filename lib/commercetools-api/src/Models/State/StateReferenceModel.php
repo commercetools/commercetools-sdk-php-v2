@@ -93,7 +93,7 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
     }
 
     /**
-     * <p>Contains the representation of the expanded State. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for States.</p>
+     * <p>Contains the representation of the expanded State. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for States.</p>
      *
      *
      * @return null|State

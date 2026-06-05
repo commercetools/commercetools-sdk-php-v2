@@ -146,7 +146,7 @@ final class RequestQuoteRenegotiationChangeModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Message from the <a href="/../api/quotes-overview#buyer">Buyer</a> regarding the <a href="ctp:api:type:Quote">Quote</a> renegotiation request.</p>
+     * <p>Message from the <a href="/api/quotes-overview#buyer">Buyer</a> regarding the <a href="ctp:api:type:Quote">Quote</a> renegotiation request.</p>
      *
      *
      * @return null|string

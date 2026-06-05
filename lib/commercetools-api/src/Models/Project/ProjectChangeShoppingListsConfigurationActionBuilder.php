@@ -27,7 +27,7 @@ final class ProjectChangeShoppingListsConfigurationActionBuilder implements Buil
     private $shoppingListsConfiguration;
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature.</p>
+     * <p>Configuration for the <a href="/api/projects/shoppingLists">Shopping Lists</a> feature.</p>
      *
 
      * @return null|ShoppingListsConfiguration

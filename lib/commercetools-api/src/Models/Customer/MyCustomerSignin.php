@@ -19,7 +19,7 @@ interface MyCustomerSignin extends JsonObject
     public const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
 
     /**
-     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     * <p>Email address of the Customer treated as <a href="/api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
      *
 
      * @return null|string

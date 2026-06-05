@@ -27,7 +27,7 @@ final class ProjectChangeCartsConfigurationActionBuilder implements Builder
     private $cartsConfiguration;
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
+     * <p>Configuration for the <a href="/api/projects/carts">Carts</a> feature.</p>
      *
 
      * @return null|CartsConfiguration

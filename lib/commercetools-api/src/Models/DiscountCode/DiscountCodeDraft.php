@@ -33,7 +33,7 @@ interface DiscountCodeDraft extends JsonObject
 
     /**
      * <p>User-defined unique identifier for the DiscountCode.</p>
-     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Discount Codes with the <a href="/../api/import-export/overview">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>.</p>
+     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Discount Codes with the <a href="/api/import-export/overview">Import API</a> and the <a href="/merchant-center/import-data">Merchant Center</a>.</p>
      *
 
      * @return null|string
@@ -57,7 +57,7 @@ interface DiscountCodeDraft extends JsonObject
     public function getDescription();
 
     /**
-     * <p>User-defined unique identifier for the DiscountCode that can be <a href="/../api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.
+     * <p>User-defined unique identifier for the DiscountCode that can be <a href="/api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.
      * It cannot be modified after the DiscountCode is created.</p>
      *
 

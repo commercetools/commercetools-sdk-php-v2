@@ -93,7 +93,7 @@ final class AssociateRoleReferenceModel extends JsonObjectModel implements Assoc
     }
 
     /**
-     * <p>Contains the representation of the expanded AssociateRole. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for AssociateRole.</p>
+     * <p>Contains the representation of the expanded AssociateRole. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for AssociateRole.</p>
      *
      *
      * @return null|AssociateRole

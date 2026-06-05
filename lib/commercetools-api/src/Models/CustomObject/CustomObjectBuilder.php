@@ -170,7 +170,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
-     * <p>Can be any JSON standard type, such as number, string, boolean, array, object, or a <a href="/../api/types">common API data type</a>.</p>
+     * <p>Can be any JSON standard type, such as number, string, boolean, array, object, or a <a href="/api/types">common API data type</a>.</p>
      * <ul>
      * <li>For values of type <a href="ctp:api:type:Reference">Reference</a> the integrity of the data is not guaranteed. If the referenced object is deleted, the API does not delete the corresponding reference to it and the <code>value</code> points to a non-existing object in such case.</li>
      * </ul>

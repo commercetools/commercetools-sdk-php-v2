@@ -331,7 +331,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
+     * <p>Holds the configuration for the <a href="/api/projects/messages">Messages Query</a> feature.</p>
      *
      *
      * @return null|MessagesConfiguration
@@ -352,7 +352,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
+     * <p>Holds the configuration for the <a href="/api/projects/carts">Carts</a> feature.</p>
      *
      *
      * @return null|CartsConfiguration
@@ -373,7 +373,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature.</p>
+     * <p>Holds the configuration for the <a href="/api/projects/shoppingLists">Shopping Lists</a> feature.</p>
      *
      *
      * @return null|ShoppingListsConfiguration

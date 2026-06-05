@@ -275,7 +275,7 @@ final class CloudEventsPayloadModel extends JsonObjectModel implements CloudEven
     }
 
     /**
-     * <p>The URI from which the message can be retrieved if messages are <a href="/../api/projects/messages#enable-querying-messages-via-the-api">enabled</a>. Only set for <a href="ctp:api:type:MessageSubscription">MessageSubscriptions</a>.</p>
+     * <p>The URI from which the message can be retrieved if messages are <a href="/api/projects/messages#enable-querying-messages-via-the-api">enabled</a>. Only set for <a href="ctp:api:type:MessageSubscription">MessageSubscriptions</a>.</p>
      *
      *
      * @return null|string

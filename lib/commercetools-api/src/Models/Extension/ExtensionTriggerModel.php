@@ -92,7 +92,7 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     }
 
     /**
-     * <p>Valid <a href="/../api/predicates/query">predicate</a> that controls the conditions under which the API Extension is called. The Extension is not triggered when the specified condition is not fulfilled.</p>
+     * <p>Valid <a href="/api/predicates/query">predicate</a> that controls the conditions under which the API Extension is called. The Extension is not triggered when the specified condition is not fulfilled.</p>
      *
      *
      * @return null|string

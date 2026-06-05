@@ -47,7 +47,7 @@ final class QuoteRequestReferenceBuilder implements Builder
 
     /**
      * <p>Contains the representation of the expanded QuoteRequest.
-     * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for QuoteRequest.</p>
+     * Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for QuoteRequest.</p>
      *
 
      * @return null|QuoteRequest

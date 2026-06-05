@@ -442,7 +442,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
      *
      *
      * @return null|string

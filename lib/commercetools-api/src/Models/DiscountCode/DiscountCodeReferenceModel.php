@@ -93,7 +93,7 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
     }
 
     /**
-     * <p>Contains the representation of the expanded DiscountCode. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for DiscountCodes.</p>
+     * <p>Contains the representation of the expanded DiscountCode. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for DiscountCodes.</p>
      *
      *
      * @return null|DiscountCode

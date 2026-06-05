@@ -46,7 +46,7 @@ final class QuoteRequestLabelBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who raised the Quote Request.</p>
+     * <p>The <a href="/api/quotes-overview#buyer">Buyer</a> who raised the Quote Request.</p>
      *
 
      * @return null|Reference

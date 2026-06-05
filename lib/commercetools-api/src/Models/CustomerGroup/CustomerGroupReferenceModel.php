@@ -93,7 +93,7 @@ final class CustomerGroupReferenceModel extends JsonObjectModel implements Custo
     }
 
     /**
-     * <p>Contains the representation of the expanded CustomerGroup. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CustomerGroups.</p>
+     * <p>Contains the representation of the expanded CustomerGroup. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for CustomerGroups.</p>
      *
      *
      * @return null|CustomerGroup

@@ -131,7 +131,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
-     * <p>Unique identifier of a <a href="/../api/projects/custom-objects">Custom Object</a>.</p>
+     * <p>Unique identifier of a <a href="/api/projects/custom-objects">Custom Object</a>.</p>
      *
 
      * @return null|ContainerAndKey

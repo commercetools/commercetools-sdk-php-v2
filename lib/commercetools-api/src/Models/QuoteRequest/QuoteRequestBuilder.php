@@ -361,7 +361,7 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who owns the request.</p>
+     * <p>The <a href="/api/quotes-overview#buyer">Buyer</a> who owns the request.</p>
      *
 
      * @return null|CustomerReference
@@ -385,7 +385,7 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>The Store to which the <a href="/../api/quotes-overview#buyer">Buyer</a> belongs.</p>
+     * <p>The Store to which the <a href="/api/quotes-overview#buyer">Buyer</a> belongs.</p>
      *
 
      * @return null|StoreKeyReference
@@ -636,7 +636,7 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference

@@ -90,7 +90,7 @@ interface CartAddLineItemAction extends CartUpdateAction
     public function getAddedAt();
 
     /**
-     * <p>Used to <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price.
+     * <p>Used to <a href="/api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price.
      * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.
      * If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
      *
@@ -100,7 +100,7 @@ interface CartAddLineItemAction extends CartUpdateAction
     public function getDistributionChannel();
 
     /**
-     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * <p>Used to identify <a href="/api/projects/inventory">Inventory entries</a> that must be reserved.
      * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 

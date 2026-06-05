@@ -46,7 +46,7 @@ final class ProductDiscountReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded ProductDiscount. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ProductDiscounts.</p>
+     * <p>Contains the representation of the expanded ProductDiscount. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for ProductDiscounts.</p>
      *
 
      * @return null|ProductDiscount

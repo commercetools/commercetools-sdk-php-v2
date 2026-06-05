@@ -207,7 +207,7 @@ final class QuoteRequestCreatedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/projects/quote-requests">Quote Request</a> that was created.</p>
+     * <p><a href="/api/projects/quote-requests">Quote Request</a> that was created.</p>
      *
 
      * @return null|QuoteRequest

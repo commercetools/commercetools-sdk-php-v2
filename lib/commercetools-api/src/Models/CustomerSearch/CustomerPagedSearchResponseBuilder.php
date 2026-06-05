@@ -56,7 +56,7 @@ final class CustomerPagedSearchResponseBuilder implements Builder
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#limit">results requested</a>.</p>
      *
 
      * @return null|int
@@ -67,7 +67,7 @@ final class CustomerPagedSearchResponseBuilder implements Builder
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#offset">elements skipped</a>.</p>
      *
 
      * @return null|int

@@ -29,7 +29,7 @@ final class CartSetBusinessUnitActionBuilder implements Builder
     private $businessUnit;
 
     /**
-     * <p>New Business Unit to assign to the Cart, which must have access to the <a href="/../api/projects/stores">Store</a> that is set on the Cart.</p>
+     * <p>New Business Unit to assign to the Cart, which must have access to the <a href="/api/projects/stores">Store</a> that is set on the Cart.</p>
      *
 
      * @return null|BusinessUnitResourceIdentifier

@@ -41,7 +41,7 @@ interface SetShippingCustomFieldChange extends Change
     public function getShippingKey();
 
     /**
-     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     * <p>Name of the <a href="/api/projects/custom-fields">Custom Field</a>.</p>
      *
 
      * @return null|string

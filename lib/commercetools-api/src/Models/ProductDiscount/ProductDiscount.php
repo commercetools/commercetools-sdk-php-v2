@@ -113,7 +113,7 @@ interface ProductDiscount extends BaseResource
     public function getValue();
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
 
      * @return null|string
@@ -148,7 +148,7 @@ interface ProductDiscount extends BaseResource
 
     /**
      * <p>Date and time (UTC) from which the Discount is effective.
-     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
+     * Take <a href="/api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -157,7 +157,7 @@ interface ProductDiscount extends BaseResource
 
     /**
      * <p>Date and time (UTC) until which the Discount is effective.
-     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+     * Take <a href="/api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
 
      * @return null|DateTimeImmutable

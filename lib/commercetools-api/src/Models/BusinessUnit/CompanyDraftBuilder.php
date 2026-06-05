@@ -133,7 +133,7 @@ final class CompanyDraftBuilder implements Builder
     }
 
     /**
-     * <p>Indicates whether the Business Unit can be edited and used in <a href="/../api/projects/orders">Orders</a>.</p>
+     * <p>Indicates whether the Business Unit can be edited and used in <a href="/api/projects/orders">Orders</a>.</p>
      *
 
      * @return null|string
@@ -297,7 +297,7 @@ final class CompanyDraftBuilder implements Builder
 
     /**
      * <p>Customer Groups to assign the Business Unit to.</p>
-     * <p>They are considered during <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     * <p>They are considered during <a href="/api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
      *
 
      * @return null|CustomerGroupAssignmentDraftCollection

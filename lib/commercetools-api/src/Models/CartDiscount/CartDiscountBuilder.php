@@ -286,7 +286,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
      *
 
      * @return null|string

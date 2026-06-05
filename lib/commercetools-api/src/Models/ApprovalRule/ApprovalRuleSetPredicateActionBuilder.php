@@ -27,7 +27,7 @@ final class ApprovalRuleSetPredicateActionBuilder implements Builder
     private $predicate;
 
     /**
-     * <p>A valid <a href="/../api/projects/predicates#order-predicates">Order Predicate</a> to set for the Approval Rule.</p>
+     * <p>A valid <a href="/api/projects/predicates#order-predicates">Order Predicate</a> to set for the Approval Rule.</p>
      *
 
      * @return null|string

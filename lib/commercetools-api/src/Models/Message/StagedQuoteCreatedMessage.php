@@ -17,7 +17,7 @@ interface StagedQuoteCreatedMessage extends Message
     public const FIELD_STAGED_QUOTE = 'stagedQuote';
 
     /**
-     * <p><a href="/../api/projects/staged-quotes">Staged Quote</a> that was created.</p>
+     * <p><a href="/api/projects/staged-quotes">Staged Quote</a> that was created.</p>
      *
 
      * @return null|StagedQuote

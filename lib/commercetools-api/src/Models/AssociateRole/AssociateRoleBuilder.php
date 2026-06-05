@@ -173,7 +173,7 @@ final class AssociateRoleBuilder implements Builder
     }
 
     /**
-     * <p>Whether the AssociateRole can be assigned to an Associate by a <a href="/../api/associates-overview#buyer">buyer</a>. If false, the AssociateRole can only be assigned using the <a href="/../api/associates-overview#through-the-general-endpoints">general endpoint</a>.</p>
+     * <p>Whether the AssociateRole can be assigned to an Associate by a <a href="/api/associates-overview#buyer">buyer</a>. If false, the AssociateRole can only be assigned using the <a href="/api/associates-overview#through-the-general-endpoints">general endpoint</a>.</p>
      *
 
      * @return null|bool

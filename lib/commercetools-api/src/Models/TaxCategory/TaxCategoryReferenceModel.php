@@ -93,7 +93,7 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
     }
 
     /**
-     * <p>Contains the representation of the expanded TaxCategory. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for TaxCategories.</p>
+     * <p>Contains the representation of the expanded TaxCategory. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for TaxCategories.</p>
      *
      *
      * @return null|TaxCategory

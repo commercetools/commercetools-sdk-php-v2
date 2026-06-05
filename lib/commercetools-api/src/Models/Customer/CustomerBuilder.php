@@ -320,7 +320,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>Email address of the Customer that is <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to.
+     * <p>Email address of the Customer that is <a href="/api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to.
      * It is the mandatory unique identifier of a Customer.</p>
      *
 
@@ -498,7 +498,7 @@ final class CustomerBuilder implements Builder
 
     /**
      * <p>Customer Groups that the Customer belongs to.</p>
-     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p>Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|CustomerGroupAssignmentCollection
@@ -544,8 +544,8 @@ final class CustomerBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Store">Stores</a> to which the Customer is assigned to.</p>
      * <ul>
-     * <li>If <code>stores</code> is empty, the Customer is a global customer, and can log in using the <a href="/../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
-     * <li>If any Stores are specified, the Customer can only log in using the <a href="/../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
+     * <li>If <code>stores</code> is empty, the Customer is a global customer, and can log in using the <a href="/api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
+     * <li>If any Stores are specified, the Customer can only log in using the <a href="/api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
      * </ul>
      *
 

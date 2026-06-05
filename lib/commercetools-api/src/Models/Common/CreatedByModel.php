@@ -98,7 +98,7 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
     }
 
     /**
-     * <p><a href="/../api/general-concepts#external-user-ids">External user ID</a> provided by the <code>X-External-User-ID</code> HTTP Header or <code>external_user_id:{externalUserId}</code> <a href="/../api/scopes#external-oauth">scope</a>.</p>
+     * <p><a href="/api/general-concepts#external-user-ids">External user ID</a> provided by the <code>X-External-User-ID</code> HTTP Header or <code>external_user_id:{externalUserId}</code> <a href="/api/scopes#external-oauth">scope</a>.</p>
      *
      *
      * @return null|string
@@ -159,7 +159,7 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
     }
 
     /**
-     * <p>Indicates the <a href="ctp:api:type:Customer">Customer</a> who created the resource in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Project when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
+     * <p>Indicates the <a href="ctp:api:type:Customer">Customer</a> who created the resource in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Project when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
      *
      *
      * @return null|CustomerReference

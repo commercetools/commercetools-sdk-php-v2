@@ -94,7 +94,7 @@ final class StagedQuoteReferenceModel extends JsonObjectModel implements StagedQ
 
     /**
      * <p>Contains the representation of the expanded StagedQuote.
-     * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for StagedQuote.</p>
+     * Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for StagedQuote.</p>
      *
      *
      * @return null|StagedQuote

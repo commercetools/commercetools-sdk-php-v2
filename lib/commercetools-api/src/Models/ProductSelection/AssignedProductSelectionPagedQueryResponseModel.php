@@ -68,7 +68,7 @@ final class AssignedProductSelectionPagedQueryResponseModel extends JsonObjectMo
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#limit">results requested</a>.</p>
      *
      *
      * @return null|int
@@ -88,7 +88,7 @@ final class AssignedProductSelectionPagedQueryResponseModel extends JsonObjectMo
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#offset">elements skipped</a>.</p>
      *
      *
      * @return null|int
@@ -130,8 +130,8 @@ final class AssignedProductSelectionPagedQueryResponseModel extends JsonObjectMo
     /**
      * <p>Total number of results matching the query.
      * Present only when the <code>withTotal</code> query parameter is set to <code>true</code>.
-     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
-     * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
+     * This number is an estimation that is not <a href="/api/general-concepts#strong-consistency">strongly consistent</a>.
+     * When the results are filtered with a <a href="/api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/api/limits#queries">limit</a>.</p>
      *
      *
      * @return null|int

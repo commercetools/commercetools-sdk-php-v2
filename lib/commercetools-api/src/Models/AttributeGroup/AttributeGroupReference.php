@@ -23,7 +23,7 @@ interface AttributeGroupReference extends Reference
     public function getTypeId();
 
     /**
-     * <p>Contains the representation of the expanded AttributeGroup. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for AttributeGroup.</p>
+     * <p>Contains the representation of the expanded AttributeGroup. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for AttributeGroup.</p>
      *
 
      * @return null|AttributeGroup

@@ -49,7 +49,7 @@ final class CustomerSignInResultBuilder implements Builder
      * <p>Cart associated with the Customer.</p>
      * <p>The Cart is recalculated to remove invalid Line Items and apply the latest prices, taxes, and discounts.
      * During these updates, the following errors can be returned: <a href="ctp:api:type:MatchingPriceNotFoundError">MatchingPriceNotFound</a> and <a href="ctp:api:type:MissingTaxRateForCountryError">MissingTaxRateForCountry</a>.</p>
-     * <p>For more information, see <a href="/../api/carts-orders-overview#update-a-cart">Cart updates</a>.</p>
+     * <p>For more information, see <a href="/api/carts-orders-overview#update-a-cart">Cart updates</a>.</p>
      *
 
      * @return null|Cart

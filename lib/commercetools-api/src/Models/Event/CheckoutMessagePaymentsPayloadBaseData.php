@@ -39,7 +39,7 @@ interface CheckoutMessagePaymentsPayloadBaseData extends JsonObject
     public function getPayment();
 
     /**
-     * <p><code>id</code> of the <a href="/../api/projects/payments#transaction">Transaction</a>.</p>
+     * <p><code>id</code> of the <a href="/api/projects/payments#transaction">Transaction</a>.</p>
      *
 
      * @return null|string

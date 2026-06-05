@@ -69,7 +69,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     }
 
     /**
-     * <p>Controls which <a href="/../api/projects/productProjections#current--staged">projected representation</a> is applied for the query.
+     * <p>Controls which <a href="/api/projects/productProjections#current--staged">projected representation</a> is applied for the query.
      * Set to <code>true</code> for the <code>staged</code> Product Projection of the specified Product Variant, set to <code>false</code> for the <code>current</code> one.</p>
      *
 

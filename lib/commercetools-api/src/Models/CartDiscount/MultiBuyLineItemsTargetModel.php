@@ -95,7 +95,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     }
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>. The Discount will be applied to Line Items that are matched by the predicate.</p>
+     * <p>Valid <a href="/api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>. The Discount will be applied to Line Items that are matched by the predicate.</p>
      *
      *
      * @return null|string

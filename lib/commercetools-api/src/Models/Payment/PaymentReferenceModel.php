@@ -93,7 +93,7 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
     }
 
     /**
-     * <p>Contains the representation of the expanded Payment. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Payments.</p>
+     * <p>Contains the representation of the expanded Payment. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for Payments.</p>
      *
      *
      * @return null|Payment

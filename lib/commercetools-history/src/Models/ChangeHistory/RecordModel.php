@@ -136,7 +136,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      * <p>Version of the resource after the change.</p>
-     * <p>For more information on how the version is incremented, see <a href="/../api/general-concepts#optimistic-concurrency-control">Optimistic Concurrency Control</a>.</p>
+     * <p>For more information on how the version is incremented, see <a href="/api/general-concepts#optimistic-concurrency-control">Optimistic Concurrency Control</a>.</p>
      *
      *
      * @return null|int
@@ -342,7 +342,7 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p>Reference to the <a href="ctp:api:type:BusinessUnit">Business Unit</a> associated with the <a href="ctp:history:type:Change">Change</a>. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
+     * <p>Reference to the <a href="ctp:api:type:BusinessUnit">Business Unit</a> associated with the <a href="ctp:history:type:Change">Change</a>. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
      *
      * @return null|KeyReference

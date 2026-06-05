@@ -18,7 +18,7 @@ interface OrderEditPreviewSuccess extends OrderEditResult
     public const FIELD_MESSAGE_PAYLOADS = 'messagePayloads';
 
     /**
-     * <p>A preview of the edited <a href="ctp:api:type:Order">Order</a> as it will be after all <code>stagedActions</code> (incl. optional Order <a href="/../api/projects/api-extensions">API Extensions</a>) are applied.</p>
+     * <p>A preview of the edited <a href="ctp:api:type:Order">Order</a> as it will be after all <code>stagedActions</code> (incl. optional Order <a href="/api/projects/api-extensions">API Extensions</a>) are applied.</p>
      *
 
      * @return null|StagedOrder

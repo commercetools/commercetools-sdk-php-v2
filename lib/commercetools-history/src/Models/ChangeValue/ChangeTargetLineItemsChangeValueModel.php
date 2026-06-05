@@ -64,7 +64,7 @@ final class ChangeTargetLineItemsChangeValueModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>.</p>
      *
      *
      * @return null|string

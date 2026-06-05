@@ -16,7 +16,7 @@ interface ProjectChangeCustomerSearchStatusAction extends ProjectUpdateAction
     public const FIELD_STATUS = 'status';
 
     /**
-     * <p>Activates or deactivates the <a href="/../api/projects/customer-search">Customer Search</a> feature. Activation will trigger building a search index for the Customers in the Project.</p>
+     * <p>Activates or deactivates the <a href="/api/projects/customer-search">Customer Search</a> feature. Activation will trigger building a search index for the Customers in the Project.</p>
      *
 
      * @return null|string

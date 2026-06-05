@@ -122,7 +122,7 @@ final class MyCustomerDraftBuilder implements Builder
     private $stores;
 
     /**
-     * <p>Email address of the Customer that is <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or Store the Customer is assigned to.
+     * <p>Email address of the Customer that is <a href="/api/customers-overview#customer-uniqueness">unique</a> for an entire Project or Store the Customer is assigned to.
      * It is the mandatory unique identifier of a Customer.</p>
      *
 

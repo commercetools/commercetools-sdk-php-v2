@@ -26,7 +26,7 @@ interface CustomerSetAddressCustomFieldAction extends CustomerUpdateAction
     public function getAddressId();
 
     /**
-     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     * <p>Name of the <a href="/api/projects/custom-fields">Custom Field</a>.</p>
      *
 
      * @return null|string

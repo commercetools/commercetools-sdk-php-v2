@@ -18,7 +18,7 @@ interface QuoteCustomerChangedMessage extends Message
     public const FIELD_PREVIOUS_CUSTOMER = 'previousCustomer';
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who now owns the Quote.</p>
+     * <p>The <a href="/api/quotes-overview#buyer">Buyer</a> who now owns the Quote.</p>
      *
 
      * @return null|CustomerReference
@@ -26,7 +26,7 @@ interface QuoteCustomerChangedMessage extends Message
     public function getCustomer();
 
     /**
-     * <p>The previous <a href="/../api/quotes-overview#buyer">Buyer</a>.</p>
+     * <p>The previous <a href="/api/quotes-overview#buyer">Buyer</a>.</p>
      *
 
      * @return null|CustomerReference
