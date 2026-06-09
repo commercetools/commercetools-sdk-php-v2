@@ -604,6 +604,8 @@
 - added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections`
 - added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections`
 - added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections`
+- added query parameter `dataErasure` to method `delete /{projectKey}/business-units/key={key}`
+- added query parameter `dataErasure` to method `delete /{projectKey}/business-units/{ID}`
 - added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/key={key}`
 - added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/key={key}`
 - added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/key={key}`

@@ -155,6 +155,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDTest extends Test
                 'post',
                 'test_projectKey/in-store/key=test_storeKey/business-units/test_ID',
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete_withDataErasure' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->businessUnits()
+                        ->withId('test_ID')
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                'test_projectKey/in-store/key=test_storeKey/business-units/test_ID?dataErasure=dataErasure',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
