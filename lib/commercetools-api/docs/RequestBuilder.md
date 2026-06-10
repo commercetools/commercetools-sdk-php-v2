@@ -2397,7 +2397,7 @@ The following applies to the new Cart:
 - Line items and Custom Line Items are reset to their initial [state](/projects/carts#itemstate).
 - It contains no payments or delivery information.
 - It contains up-to-date Tax Rates, Prices, and Line Item product data.
-- The [CartState](/projects/carts#cartstate) is `Active`.
+- The [CartState](ctp:api:type:CartState) is `Active`.
 - If using the `customerGroup` field (for a single Customer Group) and the referenced Customer switched to another Customer Group, the new Cart is automatically updated to reflect the new group and corresponding prices.
 - If using the `customerGroupAssignments` field (for multiple Customer Groups), the Cart no longer keeps a direct reference to a Customer Group. If a Customer’s group assignments change, the Cart and its Line Item prices are not updated automatically. Prices are only updated when the Cart is changed via a [direct update action](/projects/carts#update-actions).
 
@@ -3889,7 +3889,7 @@ $request = $builder
 
 The My Business Unit endpoint does not support assigning existing Customers to a Business Unit.
 Associates with the `UpdateAssociates` [Permission](ctp:api:type:Permission) can use this endpoint to create a new Customer and associate it with the Business Unit.
-If the required [Permission](/projects/associate-roles#permission) is missing, an [AssociateMissingPermission](/errors#associatemissingpermission) error is returned.
+If the required [Permission](ctp:api:type:Permission) is missing, an [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError) error is returned.
 
 
 ### Example
@@ -4571,7 +4571,7 @@ The following applies to the new Cart:
 - Line items and Custom Line Items are reset to their initial [state](/projects/carts#itemstate).
 - It contains no payments or delivery information.
 - It contains up-to-date Tax Rates, Prices, and Line Item product data.
-- The [CartState](/projects/carts#cartstate) is `Active`.
+- The [CartState](ctp:api:type:CartState) is `Active`.
 - If using the `customerGroup` field (for a single Customer Group) and the referenced Customer switched to another Customer Group, the new Cart is automatically updated to reflect the new group and corresponding prices.
 - If using the `customerGroupAssignments` field (for multiple Customer Groups), the Cart no longer keeps a direct reference to a Customer Group. If a Customer’s group assignments change, the Cart and its Line Item prices are not updated automatically. Prices are only updated when the Cart is changed via a [direct update action](/projects/carts#update-actions).
 
@@ -6716,7 +6716,7 @@ $request = $builder
 
 Retrieves a ShoppingList with the provided `id` in a [Store](ctp:api:type:Store).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6751,7 +6751,7 @@ $request = $builder
 
 Updates a ShoppingList in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/shoppingLists#update-actions).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6770,7 +6770,7 @@ $request = $builder
 
 Deletes a ShoppingList in a [Store](ctp:api:type:Store).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6789,7 +6789,7 @@ $request = $builder
 
 Retrieves a ShoppingList with the provided `key` in a [Store](ctp:api:type:Store).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6824,7 +6824,7 @@ $request = $builder
 
 Updates a ShoppingList in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/shoppingLists#update-actions).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6843,7 +6843,7 @@ $request = $builder
 
 Deletes a ShoppingList in a [Store](ctp:api:type:Store).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -7346,7 +7346,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->post(null)`
 
-Automatically assigns the Associate to the Business Unit in the default [Associate Role](ctp:api:type:AssociateRole) defined in [BusinessUnitConfiguration](ctp:api:type:BusinessUnitConfiguration). If there is no default Associate Role configured, this request fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error. When creating a Division, the Associate must have the `AddChildUnits` [Permission](ctp:api:type:Permission) in the parent unit. If the required [Permission](/projects/associate-roles#permission) is missing, an [AssociateMissingPermission](/errors#associatemissingpermission) error is returned.
+Automatically assigns the Associate to the Business Unit in the default [Associate Role](ctp:api:type:AssociateRole) defined in [BusinessUnitConfiguration](ctp:api:type:BusinessUnitConfiguration). If there is no default Associate Role configured, this request fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error. When creating a Division, the Associate must have the `AddChildUnits` [Permission](ctp:api:type:Permission) in the parent unit. If the required [Permission](ctp:api:type:Permission) is missing, an [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError) error is returned.
 
 
 ### Example
@@ -7900,7 +7900,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->post(null)`
 
-Creates a [Payment](/projects/me-payments#mypayment) for the authenticated Customer or anonymous user.
+Creates a Payment for the authenticated Customer or anonymous user.
 Creating a Payment produces the [PaymentCreated](ctp:api:type:PaymentCreatedMessage) Message.
 
 
@@ -7917,7 +7917,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->get()`
 
-Retrieves a [Payment](/projects/me-payments#mypayment) with the provided `id` for the authenticated Customer or anonymous user.
+Retrieves a Payment with the provided `id` for the authenticated Customer or anonymous user.
 
 ### Example
 ```php
@@ -7933,7 +7933,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->head()`
 
-Checks if a [Payment](/projects/me-payments#mypayment) exists with the provided `id` for the authenticated Customer or anonymous user. Returns a `200` status if the Payment exists, or a `404` status otherwise.
+Checks if a Payment exists with the provided `id` for the authenticated Customer or anonymous user. Returns a `200` status if the Payment exists, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -7949,7 +7949,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->post(null)`
 
-Updates a [Payment](/projects/me-payments#mypayment) for the authenticated Customer or anonymous user using one or more [update actions](/api/projects/me-payments#update-actions).
+Updates a Payment for the authenticated Customer or anonymous user using one or more [update actions](/api/projects/me-payments#update-actions).
 You can only update a Payment if it has no [Transactions](ctp:api:type:Transaction).
 
 
@@ -7967,7 +7967,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->delete()`
 
-Deletes a [Payment](/projects/me-payments#mypayment) with the provided `id` for the authenticated Customer or anonymous user.
+Deletes a Payment with the provided `id` for the authenticated Customer or anonymous user.
 You can only delete a Payment if it has no [Transactions](ctp:api:type:Transaction).
 
 
@@ -8744,7 +8744,7 @@ $request = $builder
 Creates an OrderEdit in the Project.
 You can either create multiple Order Edits for an Order and apply them sequentially to an Order, or create multiple Order Edits parallelly (as alternatives to each other) and apply one of them to the Order.
 
-You can only create an Order Edit if the [InventoryMode](/projects/carts#inventorymode) of the Order and its [LineItems](/projects/carts#lineitem) is `None`.
+You can only create an Order Edit if the [InventoryMode](ctp:api:type:InventoryMode) of the Order and its [LineItems](/projects/carts#lineitem) is `None`.
 
 
 ### Example
@@ -11556,7 +11556,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
-Retrieves the active ShippingMethods that can ship to the provided [Location](/projects/zones#location).
+Retrieves the active ShippingMethods that can ship to the provided [Location](ctp:api:type:Location).
 
 The following applies:
 

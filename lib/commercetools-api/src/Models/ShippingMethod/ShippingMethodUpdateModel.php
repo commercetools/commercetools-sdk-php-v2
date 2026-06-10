@@ -64,7 +64,7 @@ final class ShippingMethodUpdateModel extends JsonObjectModel implements Shippin
     }
 
     /**
-     * <p>Update actions to be performed on the <a href="/projects/shippingMethods#shippingmethod">ShippingMethod</a>.</p>
+     * <p>Update actions to be performed on the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
      *
      *
      * @return null|ShippingMethodUpdateActionCollection

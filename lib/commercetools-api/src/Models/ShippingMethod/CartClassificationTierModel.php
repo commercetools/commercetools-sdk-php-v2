@@ -81,7 +81,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
     /**
-     * <p><code>key</code> selected from the <code>values</code> of the <a href="/projects/project#cartclassificationtype">CartClassificationType</a> configured in the Project.</p>
+     * <p><code>key</code> selected from the <code>values</code> of the <a href="ctp:api:type:CartClassificationType">CartClassificationType</a> configured in the Project.</p>
      *
      *
      * @return null|string
