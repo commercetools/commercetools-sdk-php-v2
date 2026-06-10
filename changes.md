@@ -1602,6 +1602,7 @@
 <summary>Changed MethodResponseBody(s)</summary>
 
 - :warning: changed response body for `400: application/json` of method `post /{projectKey}/transactions` from type `null` to `ErrorResponse`
+- :warning: changed response body for `200: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `any` to `PaymentIntentResponse`
 - :warning: changed response body for `400: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `null` to `ErrorResponse`
 - :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/{id}` from type `null` to `ErrorResponse`
 - :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/key={key}` from type `null` to `ErrorResponse`
@@ -1722,6 +1723,8 @@
 - added type `SetSortingInfoUpdateAction`
 - added type `SetStatusUpdateAction`
 - added type `SetTypeUpdateAction`
+- added type `PaymentIntentOutcome`
+- added type `PaymentIntentResponse`
 - added type `PaymentIntentReverseAction`
 - added type `ConnectorError`
 - added type `ErrorLoadingAllPaymentIntegrations`
