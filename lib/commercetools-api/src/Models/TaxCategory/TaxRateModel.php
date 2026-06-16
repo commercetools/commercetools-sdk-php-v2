@@ -214,7 +214,8 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-     * <p>State within the country, such as Texas in the United States.</p>
+     * <p>State within the country, such as Texas in the United States.
+     * The value is case-sensitive and must use the same casing as the <code>state</code> value in the Cart <code>shippingAddress</code>.</p>
      *
      *
      * @return null|string
