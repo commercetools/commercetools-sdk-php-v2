@@ -75,7 +75,9 @@ final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectMod
     }
 
     /**
-     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> to update. This is required for Orders with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> to update.
+     * This is required and valid only for Orders with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * An <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned if <code>shippingKey</code> is provided for Orders with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>, or omitted for Orders with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|string
