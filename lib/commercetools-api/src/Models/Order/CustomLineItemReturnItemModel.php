@@ -140,7 +140,7 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
     }
 
     /**
-     * <p>User-defined unique identifier of the CustomLineItemReturnItem.</p>
+     * <p>User-defined identifier of the CustomLineItemReturnItem. Must be unique among Return Items in the Order.</p>
      *
      *
      * @return null|string

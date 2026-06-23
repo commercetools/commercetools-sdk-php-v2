@@ -122,7 +122,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the Line Item.</p>
+     * <p>User-defined identifier of the Line Item. Must be unique among Line Items in the Order.</p>
      *
 
      * @return null|string

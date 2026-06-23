@@ -16,7 +16,7 @@ interface LineItemReturnItem extends ReturnItem
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
 
     /**
-     * <p>User-defined unique identifier of the LineItemReturnItem.</p>
+     * <p>User-defined identifier of the LineItemReturnItem. Must be unique among Return Items in the Order.</p>
      *
 
      * @return null|string

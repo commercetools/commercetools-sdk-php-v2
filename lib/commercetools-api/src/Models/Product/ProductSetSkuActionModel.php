@@ -99,7 +99,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
-     * <p>Value to set. Must be unique. If empty, any existing value will be removed.</p>
+     * <p>Value to set. Must be unique across all ProductVariants in a Project. If empty, any existing value will be removed.</p>
      *
      *
      * @return null|string

@@ -36,7 +36,7 @@ interface CartAddLineItemAction extends CartUpdateAction
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier of the LineItem.</p>
+     * <p>User-defined identifier of the LineItem. Must be unique among LineItems in the Cart.</p>
      *
 
      * @return null|string

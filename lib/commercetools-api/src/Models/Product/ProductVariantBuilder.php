@@ -117,7 +117,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique SKU of the Product Variant.</p>
+     * <p>User-defined SKU of the Product Variant. Unique across all ProductVariants in a Project.</p>
      *
 
      * @return null|string
@@ -128,7 +128,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the ProductVariant.</p>
+     * <p>User-defined identifier of the ProductVariant. Unique among ProductVariants in the same Product.</p>
      * <p>This is different from <a href="ctp:api:type:Product">Product</a> <code>key</code>.</p>
      *
 

@@ -63,7 +63,7 @@ interface LineItem extends JsonObject
     public function getId();
 
     /**
-     * <p>User-defined unique identifier of the LineItem.</p>
+     * <p>User-defined identifier of the LineItem. Unique among LineItems in the Cart or Order.</p>
      *
 
      * @return null|string

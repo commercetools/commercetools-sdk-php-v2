@@ -55,7 +55,7 @@ final class DeliveryDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-defined unique identifier of the Delivery.</p>
+     * <p>User-defined identifier of the Delivery. Must be unique among Deliveries in the Order.</p>
      *
 
      * @return null|string

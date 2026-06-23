@@ -89,7 +89,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the Return Item.</p>
+     * <p>User-defined identifier of the Return Item. Unique among Return Items in the Order.</p>
      *
 
      * @return null|string

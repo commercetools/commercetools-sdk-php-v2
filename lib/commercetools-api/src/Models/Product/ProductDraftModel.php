@@ -392,7 +392,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
-     * <p>The Product Variant to be the Master Variant for the Product. Required if <code>variants</code> are provided also.</p>
+     * <p>The Product Variant to be the Master Variant for the Product. Required if <code>variants</code> are provided or if the referenced Product Type contains any Variant-level <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> with <code>isRequired</code> set to <code>true</code>.</p>
      *
      *
      * @return null|ProductVariantDraft

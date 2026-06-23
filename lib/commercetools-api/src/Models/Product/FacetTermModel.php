@@ -52,7 +52,8 @@ final class FacetTermModel extends JsonObjectModel implements FacetTerm
     }
 
     /**
-     * <p>Value for the field specified in the <a href="/api/projects/product-projection-search#term-facet-expression">term facet expression</a> for which at least one <a href="ctp:api:type:ProductVariant">ProductVariant</a> could be found.</p>
+     * <p>Value for the field specified in the <a href="/api/projects/product-projection-search#term-facet-expression">term facet expression</a> for which at least one <a href="ctp:api:type:ProductVariant">ProductVariant</a> could be found.
+     * For <a href="ctp:api:type:AttributeNumberType">AttributeNumberType</a> Attributes, numeric values are returned as decimals, for example <code>1.0</code> instead of <code>1</code>.</p>
      *
      *
      * @return null|mixed

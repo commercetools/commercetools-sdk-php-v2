@@ -81,7 +81,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the TaxRate.
+     * <p>User-defined identifier of the TaxRate. Unique within the TaxCategory containing it.
      * Present when set using <a href="ctp:api:type:TaxRateDraft">TaxRateDraft</a>. Not available for external TaxRates created using <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
      *
 

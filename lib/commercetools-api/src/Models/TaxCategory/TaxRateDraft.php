@@ -74,7 +74,7 @@ interface TaxRateDraft extends JsonObject
     public function getSubRates();
 
     /**
-     * <p>User-defined unique identifier of the TaxRate.</p>
+     * <p>User-defined identifier of the TaxRate. Must be unique within the TaxCategory containing it.</p>
      *
 
      * @return null|string
