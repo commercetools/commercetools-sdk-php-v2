@@ -16,6 +16,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -134,6 +135,12 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?StoreKeyReferenceCollection
+     */
+    protected $stores;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -155,7 +162,8 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         ?bool $active = null,
         ?bool $isDefault = null,
         ?string $predicate = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?StoreKeyReferenceCollection $stores = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -174,6 +182,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->isDefault = $isDefault;
         $this->predicate = $predicate;
         $this->custom = $custom;
+        $this->stores = $stores;
     }
 
     /**
@@ -531,6 +540,29 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         return $this->custom;
     }
 
+    /**
+     * <ul>
+     * <li>If a value exists, the Shipping Method applies to <a href="ctp:api:type:Cart">Carts</a> with a <a href="ctp:api:type:Store">Store</a> that matches any Store in this field.</li>
+     * <li>If empty, the Shipping Method applies to all <a href="ctp:api:type:Cart">Carts</a>, irrespective of a Store.</li>
+     * </ul>
+     *
+     *
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->stores;
+    }
+
 
     /**
      * @param ?string $id
@@ -666,6 +698,14 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
 

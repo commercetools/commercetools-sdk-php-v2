@@ -16,6 +16,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -134,6 +135,12 @@ final class ShippingMethodBuilder implements Builder
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
+
+    /**
+
+     * @var ?StoreKeyReferenceCollection
+     */
+    private $stores;
 
     /**
      * <p>Unique identifier of the ShippingMethod.</p>
@@ -324,6 +331,20 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <ul>
+     * <li>If a value exists, the Shipping Method applies to <a href="ctp:api:type:Cart">Carts</a> with a <a href="ctp:api:type:Store">Store</a> that matches any Store in this field.</li>
+     * <li>If empty, the Shipping Method applies to all <a href="ctp:api:type:Cart">Carts</a>, irrespective of a Store.</li>
+     * </ul>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -511,6 +532,17 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReferenceCollection $stores
+     * @return $this
+     */
+    public function withStores(?StoreKeyReferenceCollection $stores)
+    {
+        $this->stores = $stores;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -595,7 +627,8 @@ final class ShippingMethodBuilder implements Builder
             $this->active,
             $this->isDefault,
             $this->predicate,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->stores
         );
     }
 

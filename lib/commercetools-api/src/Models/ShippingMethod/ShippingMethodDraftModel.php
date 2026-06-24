@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
@@ -91,6 +92,12 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?StoreResourceIdentifierCollection
+     */
+    protected $stores;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -106,7 +113,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         ?bool $active = null,
         ?bool $isDefault = null,
         ?string $predicate = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?StoreResourceIdentifierCollection $stores = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -119,6 +127,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         $this->isDefault = $isDefault;
         $this->predicate = $predicate;
         $this->custom = $custom;
+        $this->stores = $stores;
     }
 
     /**
@@ -345,6 +354,30 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         return $this->custom;
     }
 
+    /**
+     * <ul>
+     * <li>If defined and not empty, the Shipping Method applies to <a href="ctp:api:type:Cart">Carts</a> with a <a href="ctp:api:type:Store">Store</a> that matches any Store in this field.</li>
+     * <li>If not defined or empty, the Shipping Method applies to all Carts, irrespective of a Store.</li>
+     * </ul>
+     * <p>If the number of referenced Stores exceeds the <a href="/api/limits#shipping-methods">Stores per Shipping Method limit</a>, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     *
+     *
+     * @return null|StoreResourceIdentifierCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreResourceIdentifierCollection::fromArray($data);
+        }
+
+        return $this->stores;
+    }
+
 
     /**
      * @param ?string $key
@@ -432,5 +465,13 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
+    public function setStores(?StoreResourceIdentifierCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 }

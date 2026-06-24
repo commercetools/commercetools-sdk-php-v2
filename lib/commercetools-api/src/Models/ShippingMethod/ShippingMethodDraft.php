@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -27,6 +28,7 @@ interface ShippingMethodDraft extends JsonObject
     public const FIELD_IS_DEFAULT = 'isDefault';
     public const FIELD_PREDICATE = 'predicate';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STORES = 'stores';
 
     /**
      * <p>User-defined unique identifier for the ShippingMethod.</p>
@@ -117,6 +119,18 @@ interface ShippingMethodDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <ul>
+     * <li>If defined and not empty, the Shipping Method applies to <a href="ctp:api:type:Cart">Carts</a> with a <a href="ctp:api:type:Store">Store</a> that matches any Store in this field.</li>
+     * <li>If not defined or empty, the Shipping Method applies to all Carts, irrespective of a Store.</li>
+     * </ul>
+     * <p>If the number of referenced Stores exceeds the <a href="/api/limits#shipping-methods">Stores per Shipping Method limit</a>, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     *
+
+     * @return null|StoreResourceIdentifierCollection
+     */
+    public function getStores();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -170,4 +184,9 @@ interface ShippingMethodDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
+    public function setStores(?StoreResourceIdentifierCollection $stores): void;
 }

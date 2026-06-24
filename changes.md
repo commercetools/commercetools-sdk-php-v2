@@ -160,6 +160,8 @@
 - added property `discounts` to type `Project`
 - added property `priceRoundingMode` to type `QuoteRequest`
 - added property `priceRoundingMode` to type `Quote`
+- added property `stores` to type `ShippingMethod`
+- added property `stores` to type `ShippingMethodDraft`
 - added property `businessUnit` to type `ShoppingList`
 - added property `businessUnit` to type `ShoppingListDraft`
 - added property `published` to type `ShoppingListLineItem`
@@ -581,6 +583,9 @@
 - added type `ReservationState`
 - added type `SearchFuzzyExpression`
 - added type `SearchFuzzyValue`
+- added type `ShippingMethodAddStoreAction`
+- added type `ShippingMethodRemoveStoreAction`
+- added type `ShippingMethodSetStoresAction`
 - added type `ShoppingListSetBusinessUnitAction`
 - added type `EventDeliveryPayload`
 - added type `EventSubscription`
