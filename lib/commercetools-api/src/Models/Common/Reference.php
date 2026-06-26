@@ -48,6 +48,7 @@ use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Store\StoreReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\Type\TypeReference;
+use Commercetools\Api\Models\Variant\VariantReference;
 use Commercetools\Api\Models\Zone\ZoneReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;

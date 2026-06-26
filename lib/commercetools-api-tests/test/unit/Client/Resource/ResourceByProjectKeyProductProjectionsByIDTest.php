@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductProjectionsByIDVariantAttributes;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -43,7 +44,16 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
         }
     }
 
-
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
+    {
+        $builder = new ApiRequestBuilder();
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
+    }
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -251,6 +261,18 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyProductProjectionsByIDVariantAttributes' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyProductProjectionsByIDVariantAttributes {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->productProjections()
+                        ->withId("test_ID")
+                        ->variantAttributes();
+                },
+                ResourceByProjectKeyProductProjectionsByIDVariantAttributes::class,
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
+                '/{projectKey}/product-projections/{ID}/variant-attributes'
+            ]
         ];
     }
 

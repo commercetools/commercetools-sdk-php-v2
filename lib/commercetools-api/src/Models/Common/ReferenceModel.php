@@ -88,6 +88,8 @@ use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Api\Models\Type\TypeReference;
 use Commercetools\Api\Models\Type\TypeReferenceModel;
+use Commercetools\Api\Models\Variant\VariantReference;
+use Commercetools\Api\Models\Variant\VariantReferenceModel;
 use Commercetools\Api\Models\Zone\ZoneReference;
 use Commercetools\Api\Models\Zone\ZoneReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -159,6 +161,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'store' => StoreReferenceModel::class,
        'tax-category' => TaxCategoryReferenceModel::class,
        'type' => TypeReferenceModel::class,
+       'variant' => VariantReferenceModel::class,
        'zone' => ZoneReferenceModel::class,
     ];
 

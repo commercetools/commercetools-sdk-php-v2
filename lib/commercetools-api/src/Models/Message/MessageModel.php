@@ -418,6 +418,15 @@ final class MessageModel extends JsonObjectModel implements Message
        'StoreNameSet' => StoreNameSetMessageModel::class,
        'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessageModel::class,
        'StoreSupplyChannelsChanged' => StoreSupplyChannelsChangedMessageModel::class,
+       'VariantCreated' => VariantCreatedMessageModel::class,
+       'VariantDeleted' => VariantDeletedMessageModel::class,
+       'VariantImageAdded' => VariantImageAddedMessageModel::class,
+       'VariantImagesSet' => VariantImagesSetMessageModel::class,
+       'VariantKeySet' => VariantKeySetMessageModel::class,
+       'VariantPublished' => VariantPublishedMessageModel::class,
+       'VariantSkuSet' => VariantSkuSetMessageModel::class,
+       'VariantStagedChangesRemoved' => VariantStagedChangesRemovedMessageModel::class,
+       'VariantUnpublished' => VariantUnpublishedMessageModel::class,
     ];
 
     /**

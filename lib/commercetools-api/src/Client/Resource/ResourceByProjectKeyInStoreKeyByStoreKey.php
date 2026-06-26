@@ -147,6 +147,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
     }
     /**
      */
+    public function variantProjections(): ResourceByProjectKeyInStoreKeyByStoreKeyVariantProjections
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyVariantProjections($args, $this->getClient());
+    }
+    /**
+     */
     public function login(): ResourceByProjectKeyInStoreKeyByStoreKeyLogin
     {
         $args = $this->getArgs();

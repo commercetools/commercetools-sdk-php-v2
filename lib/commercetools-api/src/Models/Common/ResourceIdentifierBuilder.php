@@ -74,6 +74,8 @@ use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierBuilder;
+use Commercetools\Api\Models\Variant\VariantResourceIdentifier;
+use Commercetools\Api\Models\Variant\VariantResourceIdentifierBuilder;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifierBuilder;
 use Commercetools\Base\Builder;

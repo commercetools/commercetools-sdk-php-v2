@@ -88,6 +88,8 @@ use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceBuilder;
 use Commercetools\Api\Models\Type\TypeReference;
 use Commercetools\Api\Models\Type\TypeReferenceBuilder;
+use Commercetools\Api\Models\Variant\VariantReference;
+use Commercetools\Api\Models\Variant\VariantReferenceBuilder;
 use Commercetools\Api\Models\Zone\ZoneReference;
 use Commercetools\Api\Models\Zone\ZoneReferenceBuilder;
 use Commercetools\Base\Builder;

@@ -32,6 +32,7 @@ interface Project extends JsonObject
     public const FIELD_BUSINESS_UNITS = 'businessUnits';
     public const FIELD_INVENTORY = 'inventory';
     public const FIELD_DISCOUNTS = 'discounts';
+    public const FIELD_PRODUCT_CATALOG_MODEL = 'productCatalogModel';
 
     /**
      * <p>Current version of the Project.</p>
@@ -170,6 +171,15 @@ interface Project extends JsonObject
     public function getDiscounts();
 
     /**
+     * <p>Determines how Product Variants are managed in the Project.
+     * If not set, defaults to <code>Classic</code> behavior.</p>
+     *
+
+     * @return null|string
+     */
+    public function getProductCatalogModel();
+
+    /**
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
@@ -253,4 +263,9 @@ interface Project extends JsonObject
      * @param ?DiscountsConfiguration $discounts
      */
     public function setDiscounts(?DiscountsConfiguration $discounts): void;
+
+    /**
+     * @param ?string $productCatalogModel
+     */
+    public function setProductCatalogModel(?string $productCatalogModel): void;
 }

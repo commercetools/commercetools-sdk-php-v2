@@ -150,6 +150,7 @@
 - added property `level` to type `AttributeDefinitionDraft`
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `CategoryOrderHints`
 - added property `attributes` to type `ProductData`
+- added property `defaultVariant` to type `ProductData`
 - added property `attributes` to type `ProductDraft`
 - added property `attributes` to type `ProductProjection`
 - added property `recurrencePrices` to type `ProductVariant`
@@ -158,6 +159,7 @@
 - added property `taxRoundingMode` to type `CartsConfiguration`
 - added property `inventory` to type `Project`
 - added property `discounts` to type `Project`
+- added property `productCatalogModel` to type `Project`
 - added property `priceRoundingMode` to type `QuoteRequest`
 - added property `priceRoundingMode` to type `Quote`
 - added property `stores` to type `ShippingMethod`
@@ -269,6 +271,7 @@
 - added type `DiscountGroupSetKeyAction`
 - added type `DiscountGroupSetNameAction`
 - added type `DiscountGroupSetSortOrderAction`
+- added type `BulkOperationMaxItemsExceededError`
 - added type `CircularDependencyError`
 - added type `ExactLockConflictError`
 - added type `ExpiredCustomerEmailTokenError`
@@ -282,6 +285,7 @@
 - added type `MissingDependencyError`
 - added type `RecurringOrderFailureError`
 - added type `ValidityLockConflictError`
+- added type `GraphQLBulkOperationMaxItemsExceededError`
 - added type `GraphQLCircularDependencyError`
 - added type `GraphQLExactLockConflictError`
 - added type `GraphQLExpiredCustomerEmailTokenError`
@@ -409,6 +413,15 @@
 - added type `RecurringOrderStartsAtSetMessage`
 - added type `RecurringOrderStateChangedMessage`
 - added type `RecurringOrderStateTransitionMessage`
+- added type `VariantCreatedMessage`
+- added type `VariantDeletedMessage`
+- added type `VariantImageAddedMessage`
+- added type `VariantImagesSetMessage`
+- added type `VariantKeySetMessage`
+- added type `VariantPublishedMessage`
+- added type `VariantSkuSetMessage`
+- added type `VariantStagedChangesRemovedMessage`
+- added type `VariantUnpublishedMessage`
 - added type `AssociateRoleNameSetMessagePayload`
 - added type `BusinessUnitCustomerGroupAssignmentAddedMessagePayload`
 - added type `BusinessUnitCustomerGroupAssignmentRemovedMessagePayload`
@@ -483,6 +496,15 @@
 - added type `RecurringOrderStartsAtSetMessagePayload`
 - added type `RecurringOrderStateChangedMessagePayload`
 - added type `RecurringOrderStateTransitionMessagePayload`
+- added type `VariantCreatedMessagePayload`
+- added type `VariantDeletedMessagePayload`
+- added type `VariantImageAddedMessagePayload`
+- added type `VariantImagesSetMessagePayload`
+- added type `VariantKeySetMessagePayload`
+- added type `VariantPublishedMessagePayload`
+- added type `VariantSkuSetMessagePayload`
+- added type `VariantStagedChangesRemovedMessagePayload`
+- added type `VariantUnpublishedMessagePayload`
 - added type `StagedOrderChangePriceRoundingModeAction`
 - added type `StagedOrderSetBusinessUnitAction`
 - added type `OrderSetBusinessUnitAction`
@@ -515,13 +537,16 @@
 - added type `ProductSearchFacetStatsValue`
 - added type `ProductTailoringSetProductAttributeAction`
 - added type `AttributeLevelEnum`
+- added type `ProductSetDefaultVariantAction`
 - added type `ProductSetProductAttributeAction`
 - added type `DiscountCombinationMode`
 - added type `DiscountsConfiguration`
 - added type `InventoryConfiguration`
+- added type `ProductCatalogModel`
 - added type `ProjectChangePriceRoundingModeAction`
 - added type `ProjectChangeTaxRoundingModeAction`
 - added type `ProjectSetDiscountsConfigurationAction`
+- added type `ProjectSetProductCatalogModelAction`
 - added type `ProjectSetReleaseExpiredReservationsAction`
 - added type `ProjectSetReservationExpirationInMinutesAction`
 - added type `DayOfMonthSchedule`
@@ -597,6 +622,50 @@
 - added type `EventType`
 - added type `SubscriptionNotification`
 - added type `SubscriptionSetEventsAction`
+- added type `VariantAttributes`
+- added type `VariantAttributesAttributeMetadata`
+- added type `VariantAttributesAvailability`
+- added type `VariantAttributesChannelAvailability`
+- added type `VariantAttributesChannelAvailabilityMap`
+- added type `VariantAttributesVariant`
+- added type `Variant`
+- added type `VariantBulkUpdate`
+- added type `VariantBulkUpdateFailResult`
+- added type `VariantBulkUpdateItem`
+- added type `VariantBulkUpdateResource`
+- added type `VariantBulkUpdateResponse`
+- added type `VariantBulkUpdateResult`
+- added type `VariantBulkUpdateSuccessResult`
+- added type `VariantData`
+- added type `VariantDraft`
+- added type `VariantPagedQueryResponse`
+- added type `VariantProjection`
+- added type `VariantProjectionPagedQueryResponse`
+- added type `VariantReference`
+- added type `VariantResourceIdentifier`
+- added type `VariantUpdate`
+- added type `VariantUpdateAction`
+- added type `VariantAddAssetAction`
+- added type `VariantAddExternalImageAction`
+- added type `VariantChangeAssetNameAction`
+- added type `VariantChangeAssetOrderAction`
+- added type `VariantPublishAction`
+- added type `VariantRemoveAssetAction`
+- added type `VariantRemoveImageAction`
+- added type `VariantRemoveStagedChangesAction`
+- added type `VariantSetAssetCustomFieldAction`
+- added type `VariantSetAssetCustomTypeAction`
+- added type `VariantSetAssetDescriptionAction`
+- added type `VariantSetAssetKeyAction`
+- added type `VariantSetAssetSourcesAction`
+- added type `VariantSetAssetTagsAction`
+- added type `VariantSetAssetsAction`
+- added type `VariantSetAttributeAction`
+- added type `VariantSetAttributesAction`
+- added type `VariantSetImagesAction`
+- added type `VariantSetKeyAction`
+- added type `VariantSetSkuAction`
+- added type `VariantUnpublishAction`
 - added type `CannotChangeReservationExpiryWarning`
 - added type `CannotCreateReservationWarning`
 - added type `CannotUpdateReservationWarning`
@@ -666,6 +735,11 @@
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->get()`
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->head()`
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->post()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->get()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->head()`
+- added method `$apiRoot->withProjectKey()->variants()->get()`
+- added method `$apiRoot->withProjectKey()->variants()->post()`
+- added method `$apiRoot->withProjectKey()->variants()->head()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->get()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->head()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->post()`
@@ -696,6 +770,8 @@
 - added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->post()`
 - added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->productProjections()->withKey()->variantAttributes()->get()`
+- added method `$apiRoot->withProjectKey()->productProjections()->withId()->variantAttributes()->get()`
 - added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->get()`
 - added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->post()`
@@ -712,9 +788,24 @@
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->post()`
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->variants()->bulk()->post()`
+- added method `$apiRoot->withProjectKey()->variants()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->variants()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->variants()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->variants()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->variants()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->variants()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->variants()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->variants()->withId()->delete()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->post()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->post()`
@@ -726,6 +817,12 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->carts()->customerIdWithCustomerIdValueMerge()->post()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->productProjections()->withKey()->variantAttributes()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->productProjections()->withId()->variantAttributes()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->withId()->head()`
 </details>
 
 
@@ -736,6 +833,8 @@
 - added resource `/{projectKey}/payment-methods`
 - added resource `/{projectKey}/recurring-orders`
 - added resource `/{projectKey}/recurrence-policies`
+- added resource `/{projectKey}/variant-projections`
+- added resource `/{projectKey}/variants`
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
 - added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
@@ -746,16 +845,28 @@
 - added resource `/{projectKey}/discount-groups/{ID}`
 - added resource `/{projectKey}/payment-methods/key={key}`
 - added resource `/{projectKey}/payment-methods/{ID}`
+- added resource `/{projectKey}/product-projections/key={key}/variant-attributes`
+- added resource `/{projectKey}/product-projections/{ID}/variant-attributes`
 - added resource `/{projectKey}/recurring-orders/{ID}`
 - added resource `/{projectKey}/recurring-orders/key={key}`
 - added resource `/{projectKey}/recurrence-policies/key={key}`
 - added resource `/{projectKey}/recurrence-policies/{ID}`
+- added resource `/{projectKey}/variant-projections/key={key}`
+- added resource `/{projectKey}/variant-projections/{ID}`
+- added resource `/{projectKey}/variants/bulk`
+- added resource `/{projectKey}/variants/key={key}`
+- added resource `/{projectKey}/variants/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units`
+- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
 - added resource `/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge`
+- added resource `/{projectKey}/in-store/key={storeKey}/product-projections/key={key}/variant-attributes`
+- added resource `/{projectKey}/in-store/key={storeKey}/product-projections/{ID}/variant-attributes`
+- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections/{ID}`
 </details>
 
 
@@ -778,6 +889,7 @@
 - added enum `recurrence-policy` to type `ReferenceTypeId`
 - added enum `recurring-order` to type `ReferenceTypeId`
 - added enum `reservation` to type `ReferenceTypeId`
+- added enum `variant` to type `ReferenceTypeId`
 - added enum `payment-method` to type `ExtensionResourceTypeId`
 - added enum `RecurringOrderState` to type `StateTypeEnum`
 - added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
@@ -797,6 +909,7 @@
 - added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
 - added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
 - added method `$apiRoot->withProjectKeyValue()->productTailorings()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->variants()->importContainers()->withImportContainerKeyValue()->post()`
 </details>
 
 
@@ -806,12 +919,15 @@
 - added resource `/{projectKey}/business-units`
 - added resource `/{projectKey}/product-selections`
 - added resource `/{projectKey}/product-tailorings`
+- added resource `/{projectKey}/variants`
 - added resource `/{projectKey}/business-units/import-containers`
 - added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
 - added resource `/{projectKey}/product-selections/import-containers`
 - added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
 - added resource `/{projectKey}/product-tailorings/import-containers`
 - added resource `/{projectKey}/product-tailorings/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/variants/import-containers`
+- added resource `/{projectKey}/variants/import-containers/{importContainerKey}`
 </details>
 
 
@@ -857,6 +973,7 @@
 - added type `RetentionPolicy`
 - added type `TimeToLiveConfig`
 - added type `TimeToLiveRetentionPolicy`
+- added type `VariantImportRequest`
 - added type `ProductSelectionImportRequest`
 - added type `ProductTailoringImportRequest`
 - added type `BusinessUnitImportRequest`
@@ -880,6 +997,7 @@
 - added type `ProductVariantTailoringImport`
 - added type `ProductTailoringImport`
 - added type `AttributeLevel`
+- added type `VariantImport`
 </details>
 
 
@@ -889,8 +1007,10 @@
 - added enum `business-unit` to type `ImportResourceType`
 - added enum `product-selection` to type `ImportResourceType`
 - added enum `product-tailoring` to type `ImportResourceType`
+- added enum `variant` to type `ImportResourceType`
 - added enum `associate-role` to type `ReferenceType`
 - added enum `business-unit` to type `ReferenceType`
+- added enum `variant` to type `ReferenceType`
 - added enum `partiallyImported` to type `ProcessingState`
 </details>
 

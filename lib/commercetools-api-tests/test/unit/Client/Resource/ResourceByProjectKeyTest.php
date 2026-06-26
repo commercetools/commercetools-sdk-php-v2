@@ -54,6 +54,8 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyStores;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeySubscriptions;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyTaxCategories;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyTypes;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyVariantProjections;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyVariants;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyZones;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
@@ -549,6 +551,26 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyTypes::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/types'
+            ],
+            'ResourceByProjectKeyVariantProjections' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyVariantProjections {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->variantProjections();
+                },
+                ResourceByProjectKeyVariantProjections::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/variant-projections'
+            ],
+            'ResourceByProjectKeyVariants' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyVariants {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->variants();
+                },
+                ResourceByProjectKeyVariants::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/variants'
             ],
             'ResourceByProjectKeyZones' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyZones {

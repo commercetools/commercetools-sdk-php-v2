@@ -43,6 +43,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'AttributeDefinitionTypeConflict' => AttributeDefinitionTypeConflictErrorModel::class,
        'AttributeNameDoesNotExist' => AttributeNameDoesNotExistErrorModel::class,
        'BadGateway' => BadGatewayErrorModel::class,
+       'BulkOperationMaxItemsExceeded' => BulkOperationMaxItemsExceededErrorModel::class,
        'CircularDependency' => CircularDependencyErrorModel::class,
        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
        'ContentTooLarge' => ContentTooLargeErrorModel::class,

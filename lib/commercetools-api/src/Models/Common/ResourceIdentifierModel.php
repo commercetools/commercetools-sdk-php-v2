@@ -74,6 +74,8 @@ use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
+use Commercetools\Api\Models\Variant\VariantResourceIdentifier;
+use Commercetools\Api\Models\Variant\VariantResourceIdentifierModel;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -144,6 +146,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'store' => StoreResourceIdentifierModel::class,
        'tax-category' => TaxCategoryResourceIdentifierModel::class,
        'type' => TypeResourceIdentifierModel::class,
+       'variant' => VariantResourceIdentifierModel::class,
        'zone' => ZoneResourceIdentifierModel::class,
     ];
 

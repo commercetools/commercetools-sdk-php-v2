@@ -350,6 +350,15 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'StoreNameSet' => StoreNameSetMessagePayloadModel::class,
        'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessagePayloadModel::class,
        'StoreSupplyChannelsChanged' => StoreSupplyChannelsChangedMessagePayloadModel::class,
+       'VariantCreated' => VariantCreatedMessagePayloadModel::class,
+       'VariantDeleted' => VariantDeletedMessagePayloadModel::class,
+       'VariantImageAdded' => VariantImageAddedMessagePayloadModel::class,
+       'VariantImagesSet' => VariantImagesSetMessagePayloadModel::class,
+       'VariantKeySet' => VariantKeySetMessagePayloadModel::class,
+       'VariantPublished' => VariantPublishedMessagePayloadModel::class,
+       'VariantSkuSet' => VariantSkuSetMessagePayloadModel::class,
+       'VariantStagedChangesRemoved' => VariantStagedChangesRemovedMessagePayloadModel::class,
+       'VariantUnpublished' => VariantUnpublishedMessagePayloadModel::class,
     ];
 
     /**

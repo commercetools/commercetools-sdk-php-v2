@@ -25,6 +25,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyQu
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyShoppingLists;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyStagedQuotes;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyVariantProjections;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -231,6 +232,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
                 ResourceByProjectKeyInStoreKeyByStoreKeyStagedQuotes::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/staged-quotes'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyVariantProjections' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyVariantProjections {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->variantProjections();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyVariantProjections::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/variant-projections'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyLogin' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyLogin {

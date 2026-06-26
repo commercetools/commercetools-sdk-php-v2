@@ -6021,6 +6021,34 @@ $request = $builder
                 ->withId("ID")
                 ->head();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->variantAttributes()->get()`
+
+Returns a lightweight representation of all Variants for a [Product](ctp:api:type:Product), including only the requested variant-level [Attributes](ctp:api:type:Attribute) and minimal availability data, scoped to a specific [Store](ctp:api:type:Store).
+
+Designed for building attribute selectors on product detail pages (PDPs) with large numbers of variants.
+Only available for Projects with [productCatalogModel](ctp:api:type:ProductCatalogModel) set to `Modular`.
+
+Product-level Attributes are omitted from the response.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` and `view_products:{projectKey}:{storeKey}` scope is required.
+- To retrieve the staged representation of Products (draft data), the API Client must have the `view_products:{projectKey}` and `view_products:{projectKey}:{storeKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withId("ID")
+                ->variantAttributes()
+                ->get();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
 
 Retrieves the [projected](/api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key in the specified [Store](ctp:api:type:Store).
@@ -6068,6 +6096,34 @@ $request = $builder
                 ->productProjections()
                 ->withKey("key")
                 ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->variantAttributes()->get()`
+
+Returns a lightweight representation of all Variants for a [Product](ctp:api:type:Product), including only the requested variant-level [Attributes](ctp:api:type:Attribute) and minimal availability data, scoped to a specific [Store](ctp:api:type:Store).
+
+Designed for building attribute selectors on product detail pages (PDPs) with large numbers of variants.
+Only available for Projects with [productCatalogModel](ctp:api:type:ProductCatalogModel) set to `Modular`.
+
+Product-level Attributes are omitted from the response.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` and `view_products:{projectKey}:{storeKey}` scope is required.
+- To retrieve the staged representation of Products (draft data), the API Client must have the `view_products:{projectKey}` and `view_products:{projectKey}:{storeKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withKey("key")
+                ->variantAttributes()
+                ->get();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productSelectionAssignments()->get()`
 
@@ -7037,6 +7093,140 @@ $request = $builder
                 ->stagedQuotes()
                 ->withKey("key")
                 ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->get()`
+
+Queries Variant Projections in the specified [Store](ctp:api:type:Store).
+
+Only Variants belonging to Products distributed through the Store's configured channels are returned.
+By default, this endpoint returns the `current` representation of Variants where the `published` flag is `true`.
+
+Required access scopes:
+
+- To retrieve the current representation of published Variants, the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation, the API Client must have the `view_products:{projectKey}` scope.
+
+- To access Variant Projections in the context of a Store, the `view_products:{projectKey}:{storeKey}` scope is required.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->head()`
+
+Checks if one or more Variant Projections exist for the provided query predicate in the specified [Store](ctp:api:type:Store).
+Returns a `200` status if any Variant Projections match, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->withId("ID")->get()`
+
+Retrieves a Variant Projection by its ID in the specified [Store](ctp:api:type:Store).
+
+Only returns Variants belonging to Products distributed through the Store's configured channels.
+
+Required access scopes:
+
+- To retrieve the current representation, the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation, the API Client must have the `view_products:{projectKey}` scope.
+
+- To access Variant Projections in the context of a Store, the `view_products:{projectKey}:{storeKey}` scope is required.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->withId("ID")->head()`
+
+Checks if a Variant Projection exists with the provided `id` in the specified [Store](ctp:api:type:Store).
+Returns a `200` status if the Variant Projection exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->withKey("key")->get()`
+
+Retrieves a Variant Projection by its key in the specified [Store](ctp:api:type:Store).
+
+Only returns Variants belonging to Products distributed through the Store's configured channels.
+
+Required access scopes:
+
+- To retrieve the current representation, the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation, the API Client must have the `view_products:{projectKey}` scope.
+
+- To access Variant Projections in the context of a Store, the `view_products:{projectKey}:{storeKey}` scope is required.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->withKey("key")->head()`
+
+Checks if a Variant Projection exists with the provided `key` in the specified [Store](ctp:api:type:Store).
+Returns a `200` status if the Variant Projection exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->inventory()->get()`
 
@@ -9655,6 +9845,33 @@ $request = $builder
                 ->withId("ID")
                 ->head();
 ```
+## `withProjectKey("projectKey")->productProjections()->withId("ID")->variantAttributes()->get()`
+
+Returns a lightweight representation of all Variants for a [Product](ctp:api:type:Product), including only the requested variant-level [Attributes](ctp:api:type:Attribute) and minimal availability data.
+
+Designed for building attribute selectors on product detail pages (PDPs) with large numbers of variants.
+Only available for Projects with [productCatalogModel](ctp:api:type:ProductCatalogModel) set to `Modular`.
+
+Product-level Attributes are omitted from the response.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` or `view_products:{projectKey}` scope is required.
+- To retrieve the staged representation of Products (draft data), the API Client must have the `view_products:{projectKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productProjections()
+                ->withId("ID")
+                ->variantAttributes()
+                ->get();
+```
 ## `withProjectKey("projectKey")->productProjections()->withKey("key")->get()`
 
 Retrieves the [projected](/api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key.
@@ -9694,6 +9911,33 @@ $request = $builder
                 ->productProjections()
                 ->withKey("key")
                 ->head();
+```
+## `withProjectKey("projectKey")->productProjections()->withKey("key")->variantAttributes()->get()`
+
+Returns a lightweight representation of all Variants for a [Product](ctp:api:type:Product), including only the requested variant-level [Attributes](ctp:api:type:Attribute) and minimal availability data.
+
+Designed for building attribute selectors on product detail pages (PDPs) with large numbers of variants.
+Only available for Projects with [productCatalogModel](ctp:api:type:ProductCatalogModel) set to `Modular`.
+
+Product-level Attributes are omitted from the response.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` or `view_products:{projectKey}` scope is required.
+- To retrieve the staged representation of Products (draft data), the API Client must have the `view_products:{projectKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productProjections()
+                ->withKey("key")
+                ->variantAttributes()
+                ->get();
 ```
 ## `withProjectKey("projectKey")->productProjections()->search()->post(null)`
 
@@ -12955,6 +13199,306 @@ $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->types()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->variantProjections()->get()`
+
+Queries Variant Projections matching the provided predicates.
+
+By default, this endpoint returns the `current` representation where variants are published.
+
+Required access scopes:
+
+- To retrieve the current representation of published Variants, the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation (draft data), the API Client must have the `view_products:{projectKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->get();
+```
+## `withProjectKey("projectKey")->variantProjections()->head()`
+
+Checks if a Variant Projection exists for the provided query predicate.
+Returns a `200` status if any Variant Projections match, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->head();
+```
+## `withProjectKey("projectKey")->variantProjections()->withId("ID")->get()`
+
+Retrieves a Variant Projection by its ID.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->variantProjections()->withId("ID")->head()`
+
+Checks if a VariantProjection exists with the provided `id`. Returns a `200` status if the VariantProjection exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->variantProjections()->withKey("key")->get()`
+
+Retrieves a Variant Projection by its key.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->variantProjections()->withKey("key")->head()`
+
+Checks if a VariantProjection exists with the provided `key`. Returns a `200` status if the VariantProjection exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->variants()->get()`
+
+Queries Variants matching the provided predicates.
+This endpoint returns both current (published) and staged (draft) data for each Variant.
+
+When querying an Attribute, you must always include both the `attribute-name` and `attribute-value` details in the QueryPredicate. Otherwise, a [400 Bad Request](/errors#400-bad-request) error will occur.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->get();
+```
+## `withProjectKey("projectKey")->variants()->post(null)`
+
+Creates a new Variant with only the current representation. Produces the [VariantCreated](ctp:api:type:VariantCreatedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->variants()->head()`
+
+Checks if a Variant exists for the provided query predicate.
+Returns a `200` status if any Variants match, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->head();
+```
+## `withProjectKey("projectKey")->variants()->bulk()->post(null)`
+
+Applies update actions to multiple Variants in a single request.
+Returns a `207 Multi-Status` response with the result for each Variant.
+Each Variant is updated independently, so some may succeed while others fail.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->bulk()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->variants()->withId("ID")->get()`
+
+Retrieves a Variant by its ID.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->variants()->withId("ID")->head()`
+
+Checks if a Variant exists by its ID.
+Returns a `200` status if the Variant exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->variants()->withId("ID")->post(null)`
+
+Updates a Variant identified by its ID.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->variants()->withId("ID")->delete()`
+
+Deletes a Variant identified by its ID.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->variants()->withKey("key")->get()`
+
+Retrieves a Variant by its key.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->variants()->withKey("key")->head()`
+
+Checks if a Variant exists by its key.
+Returns a `200` status if the Variant exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->variants()->withKey("key")->post(null)`
+
+Updates a Variant identified by its key.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->variants()->withKey("key")->delete()`
+
+Deletes a Variant identified by its key.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
                 ->withKey("key")
                 ->delete();
 ```

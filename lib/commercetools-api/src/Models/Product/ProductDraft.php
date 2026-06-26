@@ -122,6 +122,7 @@ interface ProductDraft extends JsonObject
 
     /**
      * <p>The Product Variant to be the Master Variant for the Product. Required if <code>variants</code> are provided or if the referenced Product Type contains any Variant-level <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> with <code>isRequired</code> set to <code>true</code>.</p>
+     * <p>Must not be provided when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> to create Variants instead.</p>
      *
 
      * @return null|ProductVariantDraft
@@ -130,6 +131,7 @@ interface ProductDraft extends JsonObject
 
     /**
      * <p>The additional Product Variants for the Product.</p>
+     * <p>Must not be provided when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> to create Variants instead.</p>
      *
 
      * @return null|ProductVariantDraftCollection

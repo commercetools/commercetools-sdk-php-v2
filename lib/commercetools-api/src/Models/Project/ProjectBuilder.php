@@ -126,6 +126,12 @@ final class ProjectBuilder implements Builder
     private $discounts;
 
     /**
+
+     * @var ?string
+     */
+    private $productCatalogModel;
+
+    /**
      * <p>Current version of the Project.</p>
      *
 
@@ -310,6 +316,18 @@ final class ProjectBuilder implements Builder
     public function getDiscounts()
     {
         return $this->discounts instanceof DiscountsConfigurationBuilder ? $this->discounts->build() : $this->discounts;
+    }
+
+    /**
+     * <p>Determines how Product Variants are managed in the Project.
+     * If not set, defaults to <code>Classic</code> behavior.</p>
+     *
+
+     * @return null|string
+     */
+    public function getProductCatalogModel()
+    {
+        return $this->productCatalogModel;
     }
 
     /**
@@ -500,6 +518,17 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?string $productCatalogModel
+     * @return $this
+     */
+    public function withProductCatalogModel(?string $productCatalogModel)
+    {
+        $this->productCatalogModel = $productCatalogModel;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMessages() instead
      * @return $this
      */
@@ -617,7 +646,8 @@ final class ProjectBuilder implements Builder
             $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing,
             $this->businessUnits instanceof BusinessUnitConfigurationBuilder ? $this->businessUnits->build() : $this->businessUnits,
             $this->inventory instanceof InventoryConfigurationBuilder ? $this->inventory->build() : $this->inventory,
-            $this->discounts instanceof DiscountsConfigurationBuilder ? $this->discounts->build() : $this->discounts
+            $this->discounts instanceof DiscountsConfigurationBuilder ? $this->discounts->build() : $this->discounts,
+            $this->productCatalogModel
         );
     }
 

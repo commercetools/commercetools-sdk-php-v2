@@ -37,6 +37,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'AttributeDefinitionTypeConflict' => GraphQLAttributeDefinitionTypeConflictErrorModel::class,
        'AttributeNameDoesNotExist' => GraphQLAttributeNameDoesNotExistErrorModel::class,
        'BadGateway' => GraphQLBadGatewayErrorModel::class,
+       'BulkOperationMaxItemsExceeded' => GraphQLBulkOperationMaxItemsExceededErrorModel::class,
        'CircularDependency' => GraphQLCircularDependencyErrorModel::class,
        'ConcurrentModification' => GraphQLConcurrentModificationErrorModel::class,
        'ContentTooLarge' => GraphQLContentTooLargeErrorModel::class,

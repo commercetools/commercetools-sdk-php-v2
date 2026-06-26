@@ -11,6 +11,8 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Variant\VariantReference;
+use Commercetools\Api\Models\Variant\VariantReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -94,6 +96,12 @@ final class ProductDataBuilder implements Builder
      * @var ?AttributeCollection
      */
     private $attributes;
+
+    /**
+
+     * @var null|VariantReference|VariantReferenceBuilder
+     */
+    private $defaultVariant;
 
     /**
      * <p>Name of the Product.</p>
@@ -187,6 +195,7 @@ final class ProductDataBuilder implements Builder
 
     /**
      * <p>The Master Variant of the Product.</p>
+     * <p>Omitted when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> instead.</p>
      *
 
      * @return null|ProductVariant
@@ -198,6 +207,7 @@ final class ProductDataBuilder implements Builder
 
     /**
      * <p>Additional Product Variants.</p>
+     * <p>Empty when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> instead.</p>
      *
 
      * @return null|ProductVariantCollection
@@ -228,6 +238,17 @@ final class ProductDataBuilder implements Builder
     public function getAttributes()
     {
         return $this->attributes;
+    }
+
+    /**
+     * <p>Reference to the default <a href="ctp:api:type:Variant">Variant</a> of the Product. Only available for Projects with <a href="/projects/project#productcatalogmodel">productCatalogModel</a> set to <code>Modular</code>. The reference is automatically cleared when the referenced Variant is deleted; in that case, the response of the <a href="/projects/variants#delete-variant">Delete Variant</a> request includes a <code>DefaultVariantDeleted</code> warning.</p>
+     *
+
+     * @return null|VariantReference
+     */
+    public function getDefaultVariant()
+    {
+        return $this->defaultVariant instanceof VariantReferenceBuilder ? $this->defaultVariant->build() : $this->defaultVariant;
     }
 
     /**
@@ -363,6 +384,17 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?VariantReference $defaultVariant
+     * @return $this
+     */
+    public function withDefaultVariant(?VariantReference $defaultVariant)
+    {
+        $this->defaultVariant = $defaultVariant;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -461,6 +493,17 @@ final class ProductDataBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withDefaultVariant() instead
+     * @return $this
+     */
+    public function withDefaultVariantBuilder(?VariantReferenceBuilder $defaultVariant)
+    {
+        $this->defaultVariant = $defaultVariant;
+
+        return $this;
+    }
+
     public function build(): ProductData
     {
         return new ProductDataModel(
@@ -475,7 +518,8 @@ final class ProductDataBuilder implements Builder
             $this->masterVariant instanceof ProductVariantBuilder ? $this->masterVariant->build() : $this->masterVariant,
             $this->variants,
             $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
-            $this->attributes
+            $this->attributes,
+            $this->defaultVariant instanceof VariantReferenceBuilder ? $this->defaultVariant->build() : $this->defaultVariant
         );
     }
 

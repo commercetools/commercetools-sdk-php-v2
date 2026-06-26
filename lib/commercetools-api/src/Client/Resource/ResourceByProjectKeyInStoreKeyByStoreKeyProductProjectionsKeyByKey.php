@@ -26,6 +26,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKey extends
     }
 
     /**
+     */
+    public function variantAttributes(): ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyVariantAttributes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyVariantAttributes($args, $this->getClient());
+    }
+
+    /**
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -26,6 +26,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByID extends Api
     }
 
     /**
+     */
+    public function variantAttributes(): ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDVariantAttributes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDVariantAttributes($args, $this->getClient());
+    }
+
+    /**
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

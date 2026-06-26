@@ -41,6 +41,7 @@ use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Api\Models\Variant\VariantResourceIdentifier;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;

@@ -595,6 +595,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
 
     /**
      * <p>The Master Variant of the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>Omitted when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variant-projections">Variant Projections API</a> instead.</p>
      *
      *
      * @return null|ProductVariant
@@ -616,6 +617,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
 
     /**
      * <p>Additional Product Variants.</p>
+     * <p>Empty when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variant-projections">Variant Projections API</a> instead.</p>
      *
      *
      * @return null|ProductVariantCollection

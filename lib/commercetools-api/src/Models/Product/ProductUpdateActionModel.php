@@ -60,6 +60,7 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
        'setAttribute' => ProductSetAttributeActionModel::class,
        'setAttributeInAllVariants' => ProductSetAttributeInAllVariantsActionModel::class,
        'setCategoryOrderHint' => ProductSetCategoryOrderHintActionModel::class,
+       'setDefaultVariant' => ProductSetDefaultVariantActionModel::class,
        'setDescription' => ProductSetDescriptionActionModel::class,
        'setDiscountedPrice' => ProductSetDiscountedPriceActionModel::class,
        'setImageLabel' => ProductSetImageLabelActionModel::class,
