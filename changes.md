@@ -1,16 +1,6 @@
 **Api changes**
 
 <details>
-<summary>MarkDeprecated Property(s)</summary>
-
-- marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
-- marked property `CountOnLineItemUnits::excludeCount` as deprecated
-- marked property `ProductSearchRequest::productProjectionParameters` as deprecated
-- marked property `ProductSearchResult::productProjection` as deprecated
-</details>
-
-
-<details>
 <summary>Required Property(s)</summary>
 
 - :warning: changed property `shippingAddressIds` of type `BusinessUnit` to be required
@@ -39,6 +29,38 @@
 - changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
 - changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
 - changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
+</details>
+
+
+<details>
+<summary>MarkDeprecated Property(s)</summary>
+
+- marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
+- marked property `CountOnLineItemUnits::excludeCount` as deprecated
+- marked property `ProductSearchRequest::productProjectionParameters` as deprecated
+- marked property `ProductSearchResult::productProjection` as deprecated
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `payment` from type `OrderPaymentAddedMessage`
+- :warning: removed property `payment` from type `OrderPaymentAddedMessagePayload`
+- :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
+- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
+- :warning: removed property `tierMinimumQuantity` from type `StandalonePriceRemovePriceTierAction`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
+- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
+- :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
+- :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
+- :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
 </details>
 
 
@@ -172,58 +194,6 @@
 - added property `minimumQuantity` to type `StandalonePriceRemovePriceTierAction`
 - added property `events` to type `Subscription`
 - added property `events` to type `SubscriptionDraft`
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
-- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
-- :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
-- :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
-- :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `payment` from type `OrderPaymentAddedMessage`
-- :warning: removed property `payment` from type `OrderPaymentAddedMessagePayload`
-- :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
-- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
-- :warning: removed property `tierMinimumQuantity` from type `StandalonePriceRemovePriceTierAction`
-</details>
-
-
-<details>
-<summary>Removed Type(s)</summary>
-
-- :warning: removed type `AssociateRoleNameChangedMessage`
-- :warning: removed type `AssociateRoleNameChangedMessagePayload`
-- :warning: removed type `ProductSearchFacetScope`
-</details>
-
-
-<details>
-<summary>Changed Type(s)</summary>
-
-- :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
-</details>
-
-
-<details>
-<summary>Deprecated Type(s)</summary>
-
-- type `ProductLegacySetSkuAction` is removed
-</details>
-
-
-<details>
-<summary>MarkDeprecated Type(s)</summary>
-
-- marked type `ProductSearchProjectionParams` as deprecated
 </details>
 
 
@@ -673,6 +643,36 @@
 
 
 <details>
+<summary>MarkDeprecated Type(s)</summary>
+
+- marked type `ProductSearchProjectionParams` as deprecated
+</details>
+
+
+<details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
+</details>
+
+
+<details>
+<summary>Deprecated Type(s)</summary>
+
+- type `ProductLegacySetSkuAction` is removed
+</details>
+
+
+<details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `AssociateRoleNameChangedMessage`
+- :warning: removed type `AssociateRoleNameChangedMessagePayload`
+- :warning: removed type `ProductSearchFacetScope`
+</details>
+
+
+<details>
 <summary>Added QueryParameter(s)</summary>
 
 - added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products`
@@ -717,6 +717,50 @@
 <summary>Removed QueryParameter(s)</summary>
 
 - :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/discount-groups`
+- added resource `/{projectKey}/payment-methods`
+- added resource `/{projectKey}/recurring-orders`
+- added resource `/{projectKey}/recurrence-policies`
+- added resource `/{projectKey}/variant-projections`
+- added resource `/{projectKey}/variants`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
+- added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
+- added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/carts/customer-id={customerId}/merge`
+- added resource `/{projectKey}/discount-groups/key={key}`
+- added resource `/{projectKey}/discount-groups/{ID}`
+- added resource `/{projectKey}/payment-methods/key={key}`
+- added resource `/{projectKey}/payment-methods/{ID}`
+- added resource `/{projectKey}/product-projections/key={key}/variant-attributes`
+- added resource `/{projectKey}/product-projections/{ID}/variant-attributes`
+- added resource `/{projectKey}/recurring-orders/{ID}`
+- added resource `/{projectKey}/recurring-orders/key={key}`
+- added resource `/{projectKey}/recurrence-policies/key={key}`
+- added resource `/{projectKey}/recurrence-policies/{ID}`
+- added resource `/{projectKey}/variant-projections/key={key}`
+- added resource `/{projectKey}/variant-projections/{ID}`
+- added resource `/{projectKey}/variants/bulk`
+- added resource `/{projectKey}/variants/key={key}`
+- added resource `/{projectKey}/variants/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
+- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge`
+- added resource `/{projectKey}/in-store/key={storeKey}/product-projections/key={key}/variant-attributes`
+- added resource `/{projectKey}/in-store/key={storeKey}/product-projections/{ID}/variant-attributes`
+- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections/{ID}`
 </details>
 
 
@@ -827,50 +871,6 @@
 
 
 <details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/discount-groups`
-- added resource `/{projectKey}/payment-methods`
-- added resource `/{projectKey}/recurring-orders`
-- added resource `/{projectKey}/recurrence-policies`
-- added resource `/{projectKey}/variant-projections`
-- added resource `/{projectKey}/variants`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
-- added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
-- added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
-- added resource `/{projectKey}/carts/customer-id={customerId}/merge`
-- added resource `/{projectKey}/discount-groups/key={key}`
-- added resource `/{projectKey}/discount-groups/{ID}`
-- added resource `/{projectKey}/payment-methods/key={key}`
-- added resource `/{projectKey}/payment-methods/{ID}`
-- added resource `/{projectKey}/product-projections/key={key}/variant-attributes`
-- added resource `/{projectKey}/product-projections/{ID}/variant-attributes`
-- added resource `/{projectKey}/recurring-orders/{ID}`
-- added resource `/{projectKey}/recurring-orders/key={key}`
-- added resource `/{projectKey}/recurrence-policies/key={key}`
-- added resource `/{projectKey}/recurrence-policies/{ID}`
-- added resource `/{projectKey}/variant-projections/key={key}`
-- added resource `/{projectKey}/variant-projections/{ID}`
-- added resource `/{projectKey}/variants/bulk`
-- added resource `/{projectKey}/variants/key={key}`
-- added resource `/{projectKey}/variants/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
-- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
-- added resource `/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge`
-- added resource `/{projectKey}/in-store/key={storeKey}/product-projections/key={key}/variant-attributes`
-- added resource `/{projectKey}/in-store/key={storeKey}/product-projections/{ID}/variant-attributes`
-- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections/{ID}`
-</details>
-
-
-<details>
 <summary>Added Enum(s)</summary>
 
 - added enum `ViewMyShoppingLists` to type `Permission`
@@ -902,67 +902,6 @@
 </details>
 
 **Import changes**
-
-<details>
-<summary>Added Method(s)</summary>
-
-- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->productTailorings()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->variants()->importContainers()->withImportContainerKeyValue()->post()`
-</details>
-
-
-<details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/business-units`
-- added resource `/{projectKey}/product-selections`
-- added resource `/{projectKey}/product-tailorings`
-- added resource `/{projectKey}/variants`
-- added resource `/{projectKey}/business-units/import-containers`
-- added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
-- added resource `/{projectKey}/product-selections/import-containers`
-- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
-- added resource `/{projectKey}/product-tailorings/import-containers`
-- added resource `/{projectKey}/product-tailorings/import-containers/{importContainerKey}`
-- added resource `/{projectKey}/variants/import-containers`
-- added resource `/{projectKey}/variants/import-containers/{importContainerKey}`
-</details>
-
-
-<details>
-<summary>Added Property(s)</summary>
-
-- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
-- added property `retentionPolicy` to type `ImportContainer`
-- added property `expiresAt` to type `ImportContainer`
-- added property `retentionPolicy` to type `ImportContainerDraft`
-- added property `partiallyImported` to type `OperationStates`
-- added property `reservationExpirationInMinutes` to type `InventoryImport`
-- added property `attributes` to type `ProductDraftImport`
-- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
-- added property `attributes` to type `ProductImport`
-- added property `level` to type `AttributeDefinition`
-- added property `active` to type `StandalonePriceImport`
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
-- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
-- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `LocalizedString`
-</details>
-
 
 <details>
 <summary>Added Type(s)</summary>
@@ -998,6 +937,67 @@
 - added type `ProductTailoringImport`
 - added type `AttributeLevel`
 - added type `VariantImport`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/business-units`
+- added resource `/{projectKey}/product-selections`
+- added resource `/{projectKey}/product-tailorings`
+- added resource `/{projectKey}/variants`
+- added resource `/{projectKey}/business-units/import-containers`
+- added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-selections/import-containers`
+- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-tailorings/import-containers`
+- added resource `/{projectKey}/product-tailorings/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/variants/import-containers`
+- added resource `/{projectKey}/variants/import-containers/{importContainerKey}`
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
+- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `LocalizedString`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
+- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
+</details>
+
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
+- added property `retentionPolicy` to type `ImportContainer`
+- added property `expiresAt` to type `ImportContainer`
+- added property `retentionPolicy` to type `ImportContainerDraft`
+- added property `partiallyImported` to type `OperationStates`
+- added property `reservationExpirationInMinutes` to type `InventoryImport`
+- added property `attributes` to type `ProductDraftImport`
+- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
+- added property `attributes` to type `ProductImport`
+- added property `level` to type `AttributeDefinition`
+- added property `active` to type `StandalonePriceImport`
+</details>
+
+
+<details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->productTailorings()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->variants()->importContainers()->withImportContainerKeyValue()->post()`
 </details>
 
 
@@ -1093,6 +1093,118 @@
 - changed property `isReturn` of type `TrackingData` to be optional
 - changed property `timestamp` of type `Transaction` to be optional
 - changed property `interactionId` of type `Transaction` to be optional
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/` from type `CategoryOrderHints`
+- :warning: removed property `variantId` from type `LineItem`
+- :warning: removed property `fractionDigits` from type `Money`
+- :warning: removed property `type` from type `Money`
+- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
+- :warning: removed property `skus` from type `ProductVariantSelection`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `nextValue` of type `AddEnumValueChange` from type `EnumValue` to `CustomFieldEnumValue`
+- :warning: changed property `nextValue` of type `AddInterfaceInteractionChange` from type `CustomFieldExpandedValue` to `CustomFields`
+- :warning: changed property `nextValue` of type `AddLocalizedEnumValueChange` from type `AttributeLocalizedEnumValue` to `CustomFieldLocalizedEnumValue`
+- :warning: changed property `previousValue` of type `AddShoppingListLineItemChange` from type `LineItem` to `ShoppingListLineItem`
+- :warning: changed property `nextValue` of type `AddShoppingListLineItemChange` from type `LineItem` to `ShoppingListLineItem`
+- :warning: changed property `w` of type `AssetDimensions` from type `integer` to `number`
+- :warning: changed property `h` of type `AssetDimensions` from type `integer` to `number`
+- :warning: changed property `customer` of type `Associate` from type `Reference` to `CustomerReference`
+- :warning: changed property `associateRole` of type `AssociateRoleAssignment` from type `KeyReference` to `AssociateRoleKeyReference`
+- :warning: changed property `previousValue` of type `ChangeEnumValueOrderChange` from type `EnumValue[]` to `CustomFieldEnumValue[]`
+- :warning: changed property `nextValue` of type `ChangeEnumValueOrderChange` from type `EnumValue[]` to `CustomFieldEnumValue[]`
+- :warning: changed property `previousValue` of type `ChangeInputHintChange` from type `TextInputHint` to `TypeTextInputHint`
+- :warning: changed property `nextValue` of type `ChangeInputHintChange` from type `TextInputHint` to `TypeTextInputHint`
+- :warning: changed property `previousValue` of type `ChangeLocalizedEnumValueOrderChange` from type `LocalizedEnumValue[]` to `AttributeLocalizedEnumValue[]`
+- :warning: changed property `nextValue` of type `ChangeLocalizedEnumValueOrderChange` from type `LocalizedEnumValue[]` to `AttributeLocalizedEnumValue[]`
+- :warning: changed property `previousValue` of type `ChangePlainEnumValueOrderChange` from type `EnumValue[]` to `AttributePlainEnumValue[]`
+- :warning: changed property `nextValue` of type `ChangePlainEnumValueOrderChange` from type `EnumValue[]` to `AttributePlainEnumValue[]`
+- :warning: changed property `type` of type `CustomFields` from type `Reference` to `TypeReference`
+- :warning: changed property `fields` of type `CustomFields` from type `object` to `FieldContainer`
+- :warning: changed property `money` of type `CustomLineItem` from type `Money` to `TypedMoney`
+- :warning: changed property `totalPrice` of type `CustomLineItem` from type `Money` to `CentPrecisionMoney`
+- :warning: changed property `quantity` of type `CustomLineItem` from type `integer` to `number`
+- :warning: changed property `createdAt` of type `Delivery` from type `string` to `datetime`
+- :warning: changed property `quantity` of type `DeliveryItem` from type `integer` to `number`
+- :warning: changed property `discountCode` of type `DiscountCodeInfo` from type `Reference` to `DiscountCodeReference`
+- :warning: changed property `discountedAmount` of type `DiscountedLineItemPortion` from type `Money` to `TypedMoney`
+- :warning: changed property `value` of type `DiscountedLineItemPrice` from type `Money` to `TypedMoney`
+- :warning: changed property `quantity` of type `DiscountedLineItemPriceForQuantity` from type `integer` to `number`
+- :warning: changed property `inputHint` of type `FieldDefinition` from type `TextInputHint` to `TypeTextInputHint`
+- :warning: changed property `w` of type `ImageDimensions` from type `integer` to `number`
+- :warning: changed property `h` of type `ImageDimensions` from type `integer` to `number`
+- :warning: changed property `customer` of type `InheritedAssociate` from type `Reference` to `CustomerReference`
+- :warning: changed property `associateRole` of type `InheritedAssociateRoleAssignment` from type `KeyReference` to `AssociateRoleKeyReference`
+- :warning: changed property `source` of type `InheritedAssociateRoleAssignment` from type `KeyReference` to `BusinessUnitKeyReference`
+- :warning: changed property `quantity` of type `ItemShippingTarget` from type `integer` to `number`
+- :warning: changed property `quantity` of type `ItemState` from type `integer` to `number`
+- :warning: changed property `state` of type `ItemState` from type `Reference` to `StateReference`
+- :warning: changed property `productType` of type `LineItem` from type `Reference` to `ProductTypeReference`
+- :warning: changed property `variant` of type `LineItem` from type `Variant` to `ProductVariant`
+- :warning: changed property `quantity` of type `LineItem` from type `integer` to `number`
+- :warning: changed property `addedAt` of type `LineItem` from type `string` to `datetime`
+- :warning: changed property `centAmount` of type `Money` from type `integer` to `number`
+- :warning: changed property `createdAt` of type `Parcel` from type `string` to `datetime`
+- :warning: changed property `heightInMillimeter` of type `ParcelMeasurements` from type `integer` to `number`
+- :warning: changed property `lengthInMillimeter` of type `ParcelMeasurements` from type `integer` to `number`
+- :warning: changed property `widthInMillimeter` of type `ParcelMeasurements` from type `integer` to `number`
+- :warning: changed property `weightInGram` of type `ParcelMeasurements` from type `integer` to `number`
+- :warning: changed property `payments` of type `PaymentInfo` from type `Reference[]` to `PaymentReference[]`
+- :warning: changed property `value` of type `Price` from type `Money` to `TypedMoney`
+- :warning: changed property `productSelection` of type `ProductSelectionSetting` from type `Reference` to `ProductSelectionReference`
+- :warning: changed property `restockableInDays` of type `ProductVariantAvailability` from type `integer` to `number`
+- :warning: changed property `availableQuantity` of type `ProductVariantAvailability` from type `integer` to `number`
+- :warning: changed property `restockableInDays` of type `ProductVariantChannelAvailability` from type `integer` to `number`
+- :warning: changed property `availableQuantity` of type `ProductVariantChannelAvailability` from type `integer` to `number`
+- :warning: changed property `previousValue` of type `RemoveDeliveryItemsChange` from type `Delivery` to `DeliveryChangeValue`
+- :warning: changed property `previousValue` of type `RemoveEnumValuesChange` from type `EnumValue` to `AttributePlainEnumValue`
+- :warning: changed property `previousValue` of type `RemoveLocalizedEnumValuesChange` from type `LocalizedEnumValue` to `AttributeLocalizedEnumValue`
+- :warning: changed property `previousValue` of type `RemoveShoppingListLineItemChange` from type `LineItem` to `ShoppingListLineItem`
+- :warning: changed property `nextValue` of type `RemoveShoppingListLineItemChange` from type `LineItem` to `ShoppingListLineItem`
+- :warning: changed property `returnDate` of type `ReturnInfo` from type `string` to `datetime`
+- :warning: changed property `quantity` of type `ReturnItem` from type `integer` to `number`
+- :warning: changed property `lastModifiedAt` of type `ReturnItem` from type `string` to `datetime`
+- :warning: changed property `createdAt` of type `ReturnItem` from type `string` to `datetime`
+- :warning: changed property `averageRating` of type `ReviewRatingStatistics` from type `integer` to `number`
+- :warning: changed property `highestRating` of type `ReviewRatingStatistics` from type `integer` to `number`
+- :warning: changed property `lowestRating` of type `ReviewRatingStatistics` from type `integer` to `number`
+- :warning: changed property `previousValue` of type `SetAttributeChange` from type `AttributeValue` to `Attribute`
+- :warning: changed property `nextValue` of type `SetAttributeChange` from type `AttributeValue` to `Attribute`
+- :warning: changed property `previousValue` of type `SetCustomLineItemTaxedPriceChange` from type `Money` to `TaxedItemPrice`
+- :warning: changed property `nextValue` of type `SetCustomLineItemTaxedPriceChange` from type `Money` to `TaxedItemPrice`
+- :warning: changed property `previousValue` of type `SetDiscountedPriceChange` from type `Price` to `DiscountedPrice`
+- :warning: changed property `nextValue` of type `SetDiscountedPriceChange` from type `Price` to `DiscountedPrice`
+- :warning: changed property `previousValue` of type `SetOrderTaxedPriceChange` from type `TaxedItemPrice` to `TaxedPrice`
+- :warning: changed property `nextValue` of type `SetOrderTaxedPriceChange` from type `TaxedItemPrice` to `TaxedPrice`
+- :warning: changed property `previousValue` of type `SetShippingInfoTaxedPriceChange` from type `TaxedPrice` to `TaxedItemPrice`
+- :warning: changed property `nextValue` of type `SetShippingInfoTaxedPriceChange` from type `TaxedPrice` to `TaxedItemPrice`
+- :warning: changed property `previousValue` of type `SetShippingRateChange` from type `Money` to `ShippingRate`
+- :warning: changed property `nextValue` of type `SetShippingRateChange` from type `Money` to `ShippingRate`
+- :warning: changed property `previousValue` of type `SetStoreChange` from type `Reference` to `KeyReference`
+- :warning: changed property `nextValue` of type `SetStoreChange` from type `Reference` to `KeyReference`
+- :warning: changed property `price` of type `ShippingRate` from type `Money` to `CentPrecisionMoney`
+- :warning: changed property `freeAbove` of type `ShippingRate` from type `Money` to `CentPrecisionMoney`
+- :warning: changed property `amount` of type `SubRate` from type `integer` to `number`
+- :warning: changed property `channel` of type `SyncInfo` from type `Reference` to `ChannelReference`
+- :warning: changed property `syncedAt` of type `SyncInfo` from type `string` to `datetime`
+- :warning: changed property `amount` of type `TaxRate` from type `integer` to `number`
+- :warning: changed property `totalNet` of type `TaxedItemPrice` from type `Money` to `CentPrecisionMoney`
+- :warning: changed property `totalGross` of type `TaxedItemPrice` from type `Money` to `CentPrecisionMoney`
+- :warning: changed property `totalNet` of type `TaxedPrice` from type `Money` to `CentPrecisionMoney`
+- :warning: changed property `totalGross` of type `TaxedPrice` from type `Money` to `CentPrecisionMoney`
+- :warning: changed property `addedAt` of type `TextLineItem` from type `string` to `datetime`
+- :warning: changed property `quantity` of type `TextLineItem` from type `integer` to `number`
+- :warning: changed property `timestamp` of type `Transaction` from type `string` to `datetime`
+- :warning: changed property `amount` of type `Transaction` from type `Money` to `CentPrecisionMoney`
 </details>
 
 
@@ -1255,141 +1367,6 @@
 - added property `key` to type `TextLineItem`
 - added property `custom` to type `Transaction`
 - added property `customLineItemId` to type `TransitionCustomLineItemStateChange`
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `nextValue` of type `AddEnumValueChange` from type `EnumValue` to `CustomFieldEnumValue`
-- :warning: changed property `nextValue` of type `AddInterfaceInteractionChange` from type `CustomFieldExpandedValue` to `CustomFields`
-- :warning: changed property `nextValue` of type `AddLocalizedEnumValueChange` from type `AttributeLocalizedEnumValue` to `CustomFieldLocalizedEnumValue`
-- :warning: changed property `previousValue` of type `AddShoppingListLineItemChange` from type `LineItem` to `ShoppingListLineItem`
-- :warning: changed property `nextValue` of type `AddShoppingListLineItemChange` from type `LineItem` to `ShoppingListLineItem`
-- :warning: changed property `w` of type `AssetDimensions` from type `integer` to `number`
-- :warning: changed property `h` of type `AssetDimensions` from type `integer` to `number`
-- :warning: changed property `customer` of type `Associate` from type `Reference` to `CustomerReference`
-- :warning: changed property `associateRole` of type `AssociateRoleAssignment` from type `KeyReference` to `AssociateRoleKeyReference`
-- :warning: changed property `previousValue` of type `ChangeEnumValueOrderChange` from type `EnumValue[]` to `CustomFieldEnumValue[]`
-- :warning: changed property `nextValue` of type `ChangeEnumValueOrderChange` from type `EnumValue[]` to `CustomFieldEnumValue[]`
-- :warning: changed property `previousValue` of type `ChangeInputHintChange` from type `TextInputHint` to `TypeTextInputHint`
-- :warning: changed property `nextValue` of type `ChangeInputHintChange` from type `TextInputHint` to `TypeTextInputHint`
-- :warning: changed property `previousValue` of type `ChangeLocalizedEnumValueOrderChange` from type `LocalizedEnumValue[]` to `AttributeLocalizedEnumValue[]`
-- :warning: changed property `nextValue` of type `ChangeLocalizedEnumValueOrderChange` from type `LocalizedEnumValue[]` to `AttributeLocalizedEnumValue[]`
-- :warning: changed property `previousValue` of type `ChangePlainEnumValueOrderChange` from type `EnumValue[]` to `AttributePlainEnumValue[]`
-- :warning: changed property `nextValue` of type `ChangePlainEnumValueOrderChange` from type `EnumValue[]` to `AttributePlainEnumValue[]`
-- :warning: changed property `type` of type `CustomFields` from type `Reference` to `TypeReference`
-- :warning: changed property `fields` of type `CustomFields` from type `object` to `FieldContainer`
-- :warning: changed property `money` of type `CustomLineItem` from type `Money` to `TypedMoney`
-- :warning: changed property `totalPrice` of type `CustomLineItem` from type `Money` to `CentPrecisionMoney`
-- :warning: changed property `quantity` of type `CustomLineItem` from type `integer` to `number`
-- :warning: changed property `createdAt` of type `Delivery` from type `string` to `datetime`
-- :warning: changed property `quantity` of type `DeliveryItem` from type `integer` to `number`
-- :warning: changed property `discountCode` of type `DiscountCodeInfo` from type `Reference` to `DiscountCodeReference`
-- :warning: changed property `discountedAmount` of type `DiscountedLineItemPortion` from type `Money` to `TypedMoney`
-- :warning: changed property `value` of type `DiscountedLineItemPrice` from type `Money` to `TypedMoney`
-- :warning: changed property `quantity` of type `DiscountedLineItemPriceForQuantity` from type `integer` to `number`
-- :warning: changed property `inputHint` of type `FieldDefinition` from type `TextInputHint` to `TypeTextInputHint`
-- :warning: changed property `w` of type `ImageDimensions` from type `integer` to `number`
-- :warning: changed property `h` of type `ImageDimensions` from type `integer` to `number`
-- :warning: changed property `customer` of type `InheritedAssociate` from type `Reference` to `CustomerReference`
-- :warning: changed property `associateRole` of type `InheritedAssociateRoleAssignment` from type `KeyReference` to `AssociateRoleKeyReference`
-- :warning: changed property `source` of type `InheritedAssociateRoleAssignment` from type `KeyReference` to `BusinessUnitKeyReference`
-- :warning: changed property `quantity` of type `ItemShippingTarget` from type `integer` to `number`
-- :warning: changed property `quantity` of type `ItemState` from type `integer` to `number`
-- :warning: changed property `state` of type `ItemState` from type `Reference` to `StateReference`
-- :warning: changed property `productType` of type `LineItem` from type `Reference` to `ProductTypeReference`
-- :warning: changed property `variant` of type `LineItem` from type `Variant` to `ProductVariant`
-- :warning: changed property `quantity` of type `LineItem` from type `integer` to `number`
-- :warning: changed property `addedAt` of type `LineItem` from type `string` to `datetime`
-- :warning: changed property `centAmount` of type `Money` from type `integer` to `number`
-- :warning: changed property `createdAt` of type `Parcel` from type `string` to `datetime`
-- :warning: changed property `heightInMillimeter` of type `ParcelMeasurements` from type `integer` to `number`
-- :warning: changed property `lengthInMillimeter` of type `ParcelMeasurements` from type `integer` to `number`
-- :warning: changed property `widthInMillimeter` of type `ParcelMeasurements` from type `integer` to `number`
-- :warning: changed property `weightInGram` of type `ParcelMeasurements` from type `integer` to `number`
-- :warning: changed property `payments` of type `PaymentInfo` from type `Reference[]` to `PaymentReference[]`
-- :warning: changed property `value` of type `Price` from type `Money` to `TypedMoney`
-- :warning: changed property `productSelection` of type `ProductSelectionSetting` from type `Reference` to `ProductSelectionReference`
-- :warning: changed property `restockableInDays` of type `ProductVariantAvailability` from type `integer` to `number`
-- :warning: changed property `availableQuantity` of type `ProductVariantAvailability` from type `integer` to `number`
-- :warning: changed property `restockableInDays` of type `ProductVariantChannelAvailability` from type `integer` to `number`
-- :warning: changed property `availableQuantity` of type `ProductVariantChannelAvailability` from type `integer` to `number`
-- :warning: changed property `previousValue` of type `RemoveDeliveryItemsChange` from type `Delivery` to `DeliveryChangeValue`
-- :warning: changed property `previousValue` of type `RemoveEnumValuesChange` from type `EnumValue` to `AttributePlainEnumValue`
-- :warning: changed property `previousValue` of type `RemoveLocalizedEnumValuesChange` from type `LocalizedEnumValue` to `AttributeLocalizedEnumValue`
-- :warning: changed property `previousValue` of type `RemoveShoppingListLineItemChange` from type `LineItem` to `ShoppingListLineItem`
-- :warning: changed property `nextValue` of type `RemoveShoppingListLineItemChange` from type `LineItem` to `ShoppingListLineItem`
-- :warning: changed property `returnDate` of type `ReturnInfo` from type `string` to `datetime`
-- :warning: changed property `quantity` of type `ReturnItem` from type `integer` to `number`
-- :warning: changed property `lastModifiedAt` of type `ReturnItem` from type `string` to `datetime`
-- :warning: changed property `createdAt` of type `ReturnItem` from type `string` to `datetime`
-- :warning: changed property `averageRating` of type `ReviewRatingStatistics` from type `integer` to `number`
-- :warning: changed property `highestRating` of type `ReviewRatingStatistics` from type `integer` to `number`
-- :warning: changed property `lowestRating` of type `ReviewRatingStatistics` from type `integer` to `number`
-- :warning: changed property `previousValue` of type `SetAttributeChange` from type `AttributeValue` to `Attribute`
-- :warning: changed property `nextValue` of type `SetAttributeChange` from type `AttributeValue` to `Attribute`
-- :warning: changed property `previousValue` of type `SetCustomLineItemTaxedPriceChange` from type `Money` to `TaxedItemPrice`
-- :warning: changed property `nextValue` of type `SetCustomLineItemTaxedPriceChange` from type `Money` to `TaxedItemPrice`
-- :warning: changed property `previousValue` of type `SetDiscountedPriceChange` from type `Price` to `DiscountedPrice`
-- :warning: changed property `nextValue` of type `SetDiscountedPriceChange` from type `Price` to `DiscountedPrice`
-- :warning: changed property `previousValue` of type `SetOrderTaxedPriceChange` from type `TaxedItemPrice` to `TaxedPrice`
-- :warning: changed property `nextValue` of type `SetOrderTaxedPriceChange` from type `TaxedItemPrice` to `TaxedPrice`
-- :warning: changed property `previousValue` of type `SetShippingInfoTaxedPriceChange` from type `TaxedPrice` to `TaxedItemPrice`
-- :warning: changed property `nextValue` of type `SetShippingInfoTaxedPriceChange` from type `TaxedPrice` to `TaxedItemPrice`
-- :warning: changed property `previousValue` of type `SetShippingRateChange` from type `Money` to `ShippingRate`
-- :warning: changed property `nextValue` of type `SetShippingRateChange` from type `Money` to `ShippingRate`
-- :warning: changed property `previousValue` of type `SetStoreChange` from type `Reference` to `KeyReference`
-- :warning: changed property `nextValue` of type `SetStoreChange` from type `Reference` to `KeyReference`
-- :warning: changed property `price` of type `ShippingRate` from type `Money` to `CentPrecisionMoney`
-- :warning: changed property `freeAbove` of type `ShippingRate` from type `Money` to `CentPrecisionMoney`
-- :warning: changed property `amount` of type `SubRate` from type `integer` to `number`
-- :warning: changed property `channel` of type `SyncInfo` from type `Reference` to `ChannelReference`
-- :warning: changed property `syncedAt` of type `SyncInfo` from type `string` to `datetime`
-- :warning: changed property `amount` of type `TaxRate` from type `integer` to `number`
-- :warning: changed property `totalNet` of type `TaxedItemPrice` from type `Money` to `CentPrecisionMoney`
-- :warning: changed property `totalGross` of type `TaxedItemPrice` from type `Money` to `CentPrecisionMoney`
-- :warning: changed property `totalNet` of type `TaxedPrice` from type `Money` to `CentPrecisionMoney`
-- :warning: changed property `totalGross` of type `TaxedPrice` from type `Money` to `CentPrecisionMoney`
-- :warning: changed property `addedAt` of type `TextLineItem` from type `string` to `datetime`
-- :warning: changed property `quantity` of type `TextLineItem` from type `integer` to `number`
-- :warning: changed property `timestamp` of type `Transaction` from type `string` to `datetime`
-- :warning: changed property `amount` of type `Transaction` from type `Money` to `CentPrecisionMoney`
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/` from type `CategoryOrderHints`
-- :warning: removed property `variantId` from type `LineItem`
-- :warning: removed property `fractionDigits` from type `Money`
-- :warning: removed property `type` from type `Money`
-- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
-- :warning: removed property `skus` from type `ProductVariantSelection`
-</details>
-
-
-<details>
-<summary>Changed Type(s)</summary>
-
-- :warning: changed type `Address` from type `object` to `BaseAddress`
-- :warning: changed type `GeoLocation` from type `object` to `GeoJson`
-</details>
-
-
-<details>
-<summary>MarkDeprecated Type(s)</summary>
-
-- marked type `AddAssociateChange` as deprecated
-- marked type `AddPriceChange` as deprecated
-- marked type `AddProductSelectionChange` as deprecated
-- marked type `AddStateRolesChange` as deprecated
-- marked type `ChangeAmountAuthorizedChange` as deprecated
-- marked type `RemoveAssociateChange` as deprecated
-- marked type `RemovePriceChange` as deprecated
-- marked type `RemoveProductSelectionChange` as deprecated
-- marked type `RemoveStateRolesChange` as deprecated
 </details>
 
 
@@ -1558,6 +1535,29 @@
 
 
 <details>
+<summary>MarkDeprecated Type(s)</summary>
+
+- marked type `AddAssociateChange` as deprecated
+- marked type `AddPriceChange` as deprecated
+- marked type `AddProductSelectionChange` as deprecated
+- marked type `AddStateRolesChange` as deprecated
+- marked type `ChangeAmountAuthorizedChange` as deprecated
+- marked type `RemoveAssociateChange` as deprecated
+- marked type `RemovePriceChange` as deprecated
+- marked type `RemoveProductSelectionChange` as deprecated
+- marked type `RemoveStateRolesChange` as deprecated
+</details>
+
+
+<details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `Address` from type `object` to `BaseAddress`
+- :warning: changed type `GeoLocation` from type `object` to `GeoJson`
+</details>
+
+
+<details>
 <summary>Removed Enum(s)</summary>
 
 - :warning: removed enum `changeAmountAuthorized` from type `UpdateType`
@@ -1687,10 +1687,39 @@
 **Checkout changes**
 
 <details>
+<summary>Changed MethodResponseBody(s)</summary>
+
+- :warning: changed response body for `400: application/json` of method `post /{projectKey}/transactions` from type `null` to `ErrorResponse`
+- :warning: changed response body for `200: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `any` to `PaymentIntentResponse`
+- :warning: changed response body for `400: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `null` to `ErrorResponse`
+- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/{id}` from type `null` to `ErrorResponse`
+- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/key={key}` from type `null` to `ErrorResponse`
+</details>
+
+
+<details>
 <summary>Required Property(s)</summary>
 
 - :warning: changed property `amount` of type `PaymentIntentRefundAction` to be required
 - changed property `detailedErrorMessage` of type `InvalidJsonInputError` to be optional
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `payload` from type `ResponseMessage`
+- :warning: removed property `amount` from type `PaymentIntentAction`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `action` of type `PaymentIntentCancelAction` from type `string` to `PaymentIntentOperation`
+- :warning: changed property `action` of type `PaymentIntentCaptureAction` from type `string` to `PaymentIntentOperation`
+- :warning: changed property `action` of type `PaymentIntentRefundAction` from type `string` to `PaymentIntentOperation`
+- :warning: changed property `application` of type `Transaction` from type `ApplicationResourceIdentifier` to `ApplicationReference`
 </details>
 
 
@@ -1706,65 +1735,6 @@
 - added property `payload` to type `PaymentCancelled`
 - added property `payload` to type `PaymentFailed`
 - added property `payload` to type `PaymentValidationFailed`
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `action` of type `PaymentIntentCancelAction` from type `string` to `PaymentIntentOperation`
-- :warning: changed property `action` of type `PaymentIntentCaptureAction` from type `string` to `PaymentIntentOperation`
-- :warning: changed property `action` of type `PaymentIntentRefundAction` from type `string` to `PaymentIntentOperation`
-- :warning: changed property `application` of type `Transaction` from type `ApplicationResourceIdentifier` to `ApplicationReference`
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `payload` from type `ResponseMessage`
-- :warning: removed property `amount` from type `PaymentIntentAction`
-</details>
-
-
-<details>
-<summary>Changed MethodResponseBody(s)</summary>
-
-- :warning: changed response body for `400: application/json` of method `post /{projectKey}/transactions` from type `null` to `ErrorResponse`
-- :warning: changed response body for `200: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `any` to `PaymentIntentResponse`
-- :warning: changed response body for `400: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `null` to `ErrorResponse`
-- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/{id}` from type `null` to `ErrorResponse`
-- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/key={key}` from type `null` to `ErrorResponse`
-</details>
-
-
-<details>
-<summary>Removed Type(s)</summary>
-
-- :warning: removed type `NoPaymentMethods`
-- :warning: removed type `PaymentConnectorError`
-- :warning: removed type `PaymentMethodLoaded`
-- :warning: removed type `PaymentMethodLoading`
-- :warning: removed type `PaymentMethodLoadingError`
-- :warning: removed type `PaymentMethodSelected`
-- :warning: removed type `PaymentMethodSelectionConfirmation`
-- :warning: removed type `PaymentMethodSelectionConfirmationFailed`
-- :warning: removed type `PaymentMethodsReceived`
-- :warning: removed type `PaymentVerificationStarted`
-- :warning: removed type `PaymentVerificationTimeout`
-</details>
-
-
-<details>
-<summary>Changed Type(s)</summary>
-
-- :warning: changed type `PaymentIntentCancelAction` from type `object` to `PaymentIntentAction`
-- :warning: changed type `PaymentIntentCaptureAction` from type `object` to `PaymentIntentAction`
-- :warning: changed type `PaymentIntentRefundAction` from type `object` to `PaymentIntentAction`
-- :warning: changed type `PaymentCancelled` from type `Message` to `ResponseMessage`
-- :warning: changed type `PaymentFailed` from type `Message` to `ResponseMessage`
-- :warning: changed type `PaymentValidationFailed` from type `Message` to `ResponseMessage`
-- :warning: changed type `TransactionItem` from type `TransactionItemDraft` to `object`
 </details>
 
 
@@ -1894,6 +1864,48 @@
 
 
 <details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `PaymentIntentCancelAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentIntentCaptureAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentIntentRefundAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentCancelled` from type `Message` to `ResponseMessage`
+- :warning: changed type `PaymentFailed` from type `Message` to `ResponseMessage`
+- :warning: changed type `PaymentValidationFailed` from type `Message` to `ResponseMessage`
+- :warning: changed type `TransactionItem` from type `TransactionItemDraft` to `object`
+</details>
+
+
+<details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `NoPaymentMethods`
+- :warning: removed type `PaymentConnectorError`
+- :warning: removed type `PaymentMethodLoaded`
+- :warning: removed type `PaymentMethodLoading`
+- :warning: removed type `PaymentMethodLoadingError`
+- :warning: removed type `PaymentMethodSelected`
+- :warning: removed type `PaymentMethodSelectionConfirmation`
+- :warning: removed type `PaymentMethodSelectionConfirmationFailed`
+- :warning: removed type `PaymentMethodsReceived`
+- :warning: removed type `PaymentVerificationStarted`
+- :warning: removed type `PaymentVerificationTimeout`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/payment-integrations`
+- added resource `/{projectKey}/applications`
+- added resource `/{projectKey}/payment-integrations/{id}`
+- added resource `/{projectKey}/payment-integrations/key={key}`
+- added resource `/{projectKey}/applications/{id}`
+- added resource `/{projectKey}/applications/key={key}`
+</details>
+
+
+<details>
 <summary>Added Method(s)</summary>
 
 - added method `$apiRoot->withProjectKey()->paymentIntegrations()->get()`
@@ -1916,18 +1928,6 @@
 - added method `$apiRoot->withProjectKey()->applications()->withKey()->post()`
 - added method `$apiRoot->withProjectKey()->applications()->withKey()->head()`
 - added method `$apiRoot->withProjectKey()->applications()->withKey()->delete()`
-</details>
-
-
-<details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/payment-integrations`
-- added resource `/{projectKey}/applications`
-- added resource `/{projectKey}/payment-integrations/{id}`
-- added resource `/{projectKey}/payment-integrations/key={key}`
-- added resource `/{projectKey}/applications/{id}`
-- added resource `/{projectKey}/applications/key={key}`
 </details>
 
 
