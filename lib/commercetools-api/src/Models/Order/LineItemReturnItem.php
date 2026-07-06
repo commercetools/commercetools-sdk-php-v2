@@ -32,7 +32,7 @@ interface LineItemReturnItem extends ReturnItem
     public function getLineItemId();
 
     /**
-     * <p>Number of Line Items returned.</p>
+     * <p>Quantity of Line Items returned.</p>
      *
 
      * @return null|int

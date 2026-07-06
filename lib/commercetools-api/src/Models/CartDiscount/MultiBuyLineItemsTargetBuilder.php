@@ -62,7 +62,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
-     * <p>Number of Line Items to be present in order to trigger an application of this Discount.</p>
+     * <p>Quantity of Line Items required to trigger an application of this Discount.</p>
      *
 
      * @return null|int
@@ -73,7 +73,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
-     * <p>Number of Line Items that are discounted per application of this Discount.
+     * <p>Quantity of Line Items discounted per application of this Discount.
      * It must be less than or equal to the <code>triggerQuantity</code>.</p>
      *
 

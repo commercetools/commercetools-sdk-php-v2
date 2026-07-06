@@ -160,7 +160,7 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
     }
 
     /**
-     * <p>Number of Custom Line Items returned.</p>
+     * <p>Quantity of Custom Line Items returned.</p>
      *
      *
      * @return null|int

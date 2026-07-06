@@ -20,7 +20,7 @@ interface ReturnItemDraft extends JsonObject
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**
-     * <p>Number of Line Items or Custom Line Items to return.</p>
+     * <p>Quantity of Line Items or Custom Line Items to return.</p>
      *
 
      * @return null|int

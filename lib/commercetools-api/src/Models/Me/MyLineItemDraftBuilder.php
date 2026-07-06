@@ -141,7 +141,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Number of Product Variants to add to the Cart.</p>
+     * <p>Quantity of Product Variants to add to the Cart.</p>
      *
 
      * @return null|int
@@ -152,7 +152,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * <p>Date and time (UTC) the Product Variant was added to the Cart.
      * If not set, it defaults to the current date and time.</p>
      * <p>Optional for backwards compatibility reasons.</p>
      *

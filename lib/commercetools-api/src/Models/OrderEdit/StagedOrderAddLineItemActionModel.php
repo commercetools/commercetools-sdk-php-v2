@@ -296,7 +296,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * <p>Date and time (UTC) the Product Variant was added to the Cart.
      * If not set, it defaults to the current date and time.</p>
      * <p>Optional for backwards compatibility reasons.</p>
      *

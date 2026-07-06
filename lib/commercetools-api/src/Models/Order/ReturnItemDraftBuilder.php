@@ -76,7 +76,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Number of Line Items or Custom Line Items to return.</p>
+     * <p>Quantity of Line Items or Custom Line Items to return.</p>
      *
 
      * @return null|int

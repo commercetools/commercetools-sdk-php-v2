@@ -67,7 +67,7 @@ interface LineItemImportDraft extends JsonObject
     public function getProductId();
 
     /**
-     * <p>The number of Product Variants in the LineItem. Can be a negative value.</p>
+     * <p>Quantity of the Product Variant. Can be a negative value.</p>
      *
 
      * @return null|int

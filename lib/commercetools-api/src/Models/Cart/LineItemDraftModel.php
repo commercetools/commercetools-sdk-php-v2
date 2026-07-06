@@ -266,7 +266,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
-     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * <p>Date and time (UTC) the Line Item was added to the Cart.
      * If not set, it defaults to the current date and time.</p>
      * <p>Optional for backwards compatibility reasons.</p>
      *

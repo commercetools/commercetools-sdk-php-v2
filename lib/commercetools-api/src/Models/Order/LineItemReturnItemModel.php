@@ -160,7 +160,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
-     * <p>Number of Line Items returned.</p>
+     * <p>Quantity of Line Items returned.</p>
      *
      *
      * @return null|int

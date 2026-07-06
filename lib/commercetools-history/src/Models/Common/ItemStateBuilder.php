@@ -33,7 +33,7 @@ final class ItemStateBuilder implements Builder
     private $state;
 
     /**
-     * <p>Number of Line Items or Custom Line Items in this State.</p>
+     * <p>Quantity of Line Items or Custom Line Items in this State.</p>
      *
 
      * @return null|int

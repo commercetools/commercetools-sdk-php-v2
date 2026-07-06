@@ -292,7 +292,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
-     * <p>Number of Line Items of the given Product Variant present in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
+     * <p>Quantity of Line Items of the given Product Variant present in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
      * @return null|int

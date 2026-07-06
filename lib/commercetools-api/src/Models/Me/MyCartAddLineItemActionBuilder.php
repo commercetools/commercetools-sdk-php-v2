@@ -144,7 +144,7 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>Number of Line Items to add to the Cart.</p>
+     * <p>Quantity of Line Items to add to the Cart.</p>
      *
 
      * @return null|int

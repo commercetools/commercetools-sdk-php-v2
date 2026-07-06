@@ -47,7 +47,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Number of Line Items or Custom Line Items in the Cart.</p>
+     * <p>Quantity of Line Items or Custom Line Items in the Cart.</p>
      *
      *
      * @return null|int

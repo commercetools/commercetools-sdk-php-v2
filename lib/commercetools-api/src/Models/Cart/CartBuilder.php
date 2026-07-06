@@ -632,7 +632,7 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>Shipping address for a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates and Tax Rates of Line Items.</p>
+     * <p>Shipping address for a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates. For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it also determines Tax Rates of Line Items.</p>
      *
 
      * @return null|Address

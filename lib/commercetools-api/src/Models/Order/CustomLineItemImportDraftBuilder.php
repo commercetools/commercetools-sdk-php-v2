@@ -132,7 +132,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The number of items in the Custom Line Item. Can be a negative value.</p>
+     * <p>Quantity of items in the Custom Line Item. Can be a negative value.</p>
      *
 
      * @return null|int
