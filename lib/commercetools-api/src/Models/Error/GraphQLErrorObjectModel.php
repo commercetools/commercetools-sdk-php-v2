@@ -96,6 +96,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'ObjectNotFound' => GraphQLObjectNotFoundErrorModel::class,
        'OutOfStock' => GraphQLOutOfStockErrorModel::class,
        'OverCapacity' => GraphQLOverCapacityErrorModel::class,
+       'OverlappingPriceValidity' => GraphQLOverlappingPriceValidityErrorModel::class,
        'OverlappingStandalonePriceValidity' => GraphQLOverlappingStandalonePriceValidityErrorModel::class,
        'PendingOperation' => GraphQLPendingOperationErrorModel::class,
        'PriceChanged' => GraphQLPriceChangedErrorModel::class,

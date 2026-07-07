@@ -102,6 +102,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'ObjectNotFound' => ObjectNotFoundErrorModel::class,
        'OutOfStock' => OutOfStockErrorModel::class,
        'OverCapacity' => OverCapacityErrorModel::class,
+       'OverlappingPriceValidity' => OverlappingPriceValidityErrorModel::class,
        'OverlappingStandalonePriceValidity' => OverlappingStandalonePriceValidityErrorModel::class,
        'PendingOperation' => PendingOperationErrorModel::class,
        'PriceChanged' => PriceChangedErrorModel::class,

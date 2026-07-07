@@ -10517,6 +10517,8 @@ To create a new Product, send a representation that is going to become the initi
 If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, selected Prices will be added to the response.
 Produces the [ProductCreated](/projects/messages/product-catalog-messages#product-created) Message.
 
+A failed response can return an [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError) error.
+
 
 ### Example
 ```php
@@ -10562,7 +10564,7 @@ $request = $builder
 
 If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 
-A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
+A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
 
 ### Example
 ```php
@@ -10665,7 +10667,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->post(null)`
 
-A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
+A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
 
 ### Example
 ```php

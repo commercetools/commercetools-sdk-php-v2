@@ -19,6 +19,10 @@ interface DiscountedPrice extends JsonObject
 
     /**
      * <p>Money value of the discounted price.</p>
+     * <ul>
+     * <li>When a <a href="ctp:api:type:ProductDiscountValueRelative">relative Product Discount</a> applies and the fractional part of the resulting discounted price is 0.5, the discounted price is <a href="https://en.wikipedia.org/wiki/Rounding#Rounding_half_down">rounded half down</a>.</li>
+     * <li>When an <a href="ctp:api:type:ProductDiscountValueAbsolute">absolute Product Discount</a> exceeds the price of the Product Variant, the resulting discounted price is set to <code>0</code>.</li>
+     * </ul>
      *
 
      * @return null|TypedMoney

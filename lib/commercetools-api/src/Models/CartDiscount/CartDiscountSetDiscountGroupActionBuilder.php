@@ -35,8 +35,9 @@ final class CartDiscountSetDiscountGroupActionBuilder implements Builder
     private $sortOrder;
 
     /**
-     * <p>Reference to a DiscountGroup that the Cart Discount must belong to.
+     * <p>Reference to a DiscountGroup that the CartDiscount must belong to.
      * If empty, any existing value will be removed.</p>
+     * <p>A CartDiscount can only be added to a DiscountGroup if its <code>target.type</code> is <code>lineItems</code>, <code>customLineItems</code>, <code>multiBuyLineItems</code>, <code>multiBuyCustomLineItems</code>, or <code>pattern</code>; otherwise, an <a href="ctp:api:type:InvalidInputError">InvalidInput</a> error is returned.</p>
      *
 
      * @return null|DiscountGroupResourceIdentifier
