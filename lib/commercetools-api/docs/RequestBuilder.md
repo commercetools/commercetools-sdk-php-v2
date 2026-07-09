@@ -4942,6 +4942,100 @@ $request = $builder
                 ->withPasswordToken("passwordToken")
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->head()`
+
+Checks if one or more DiscountCodes exist for the provided query predicate in a Store. Returns a `200` status if any DiscountCodes match the query predicate, or a `404` status otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->withId("ID")->head()`
+
+Checks if a DiscountCode exists with the provided `id`. Returns a `200` status if the DiscountCode exists, or a `404` status otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->withKey("key")->head()`
+
+Checks if a DiscountCode exists with the provided `key`. Returns a `200` status if the DiscountCode exists, or a `404` status otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->login()->post(null)`
 
 Authenticates a Customer associated with a [Store](ctp:api:type:Store).

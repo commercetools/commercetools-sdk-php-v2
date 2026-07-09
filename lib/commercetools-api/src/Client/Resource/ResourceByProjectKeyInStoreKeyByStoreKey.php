@@ -59,6 +59,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
     }
     /**
      */
+    public function discountCodes(): ResourceByProjectKeyInStoreKeyByStoreKeyDiscountCodes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyDiscountCodes($args, $this->getClient());
+    }
+    /**
+     */
     public function me(): ResourceByProjectKeyInStoreKeyByStoreKeyMe
     {
         $args = $this->getArgs();

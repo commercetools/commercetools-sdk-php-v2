@@ -13,6 +13,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyBu
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartDiscounts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCarts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomers;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyDiscountCodes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyLogin;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyMe;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyOrders;
@@ -111,6 +112,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
                 ResourceByProjectKeyInStoreKeyByStoreKeyCustomers::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/customers'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyDiscountCodes' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyDiscountCodes {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->discountCodes();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyDiscountCodes::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/discount-codes'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyMe' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyMe {

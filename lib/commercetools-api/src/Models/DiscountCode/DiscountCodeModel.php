@@ -18,6 +18,7 @@ use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -100,6 +101,12 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
 
     /**
      *
+     * @var ?StoreKeyReferenceCollection
+     */
+    protected $stores;
+
+    /**
+     *
      * @var ?string
      */
     protected $cartPredicate;
@@ -174,6 +181,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         ?LocalizedString $description = null,
         ?string $code = null,
         ?CartDiscountReferenceCollection $cartDiscounts = null,
+        ?StoreKeyReferenceCollection $stores = null,
         ?string $cartPredicate = null,
         ?bool $isActive = null,
         ?ReferenceCollection $references = null,
@@ -196,6 +204,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->description = $description;
         $this->code = $code;
         $this->cartDiscounts = $cartDiscounts;
+        $this->stores = $stores;
         $this->cartPredicate = $cartPredicate;
         $this->isActive = $isActive;
         $this->references = $references;
@@ -438,6 +447,27 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         }
 
         return $this->cartDiscounts;
+    }
+
+    /**
+     * <p>Reference to the Stores the DiscountCode is associated with, derived from the <code>stores</code> field of each referenced <a href="ctp:api:type:CartDiscount">CartDiscount</a>.</p>
+     * <p>The value of this field is <a href="/api/general-concepts#eventual-consistency">eventually consistent</a>.</p>
+     *
+     *
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->stores;
     }
 
     /**
@@ -744,6 +774,14 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     public function setCartDiscounts(?CartDiscountReferenceCollection $cartDiscounts): void
     {
         $this->cartDiscounts = $cartDiscounts;
+    }
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
     /**

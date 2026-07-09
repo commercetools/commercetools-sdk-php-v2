@@ -18,6 +18,7 @@ use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -98,6 +99,12 @@ final class DiscountCodeBuilder implements Builder
      * @var ?CartDiscountReferenceCollection
      */
     private $cartDiscounts;
+
+    /**
+
+     * @var ?StoreKeyReferenceCollection
+     */
+    private $stores;
 
     /**
 
@@ -278,6 +285,18 @@ final class DiscountCodeBuilder implements Builder
     public function getCartDiscounts()
     {
         return $this->cartDiscounts;
+    }
+
+    /**
+     * <p>Reference to the Stores the DiscountCode is associated with, derived from the <code>stores</code> field of each referenced <a href="ctp:api:type:CartDiscount">CartDiscount</a>.</p>
+     * <p>The value of this field is <a href="/api/general-concepts#eventual-consistency">eventually consistent</a>.</p>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
     }
 
     /**
@@ -520,6 +539,17 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReferenceCollection $stores
+     * @return $this
+     */
+    public function withStores(?StoreKeyReferenceCollection $stores)
+    {
+        $this->stores = $stores;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $cartPredicate
      * @return $this
      */
@@ -698,6 +728,7 @@ final class DiscountCodeBuilder implements Builder
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->code,
             $this->cartDiscounts,
+            $this->stores,
             $this->cartPredicate,
             $this->isActive,
             $this->references,

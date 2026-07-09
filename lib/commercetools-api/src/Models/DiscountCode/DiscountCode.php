@@ -14,6 +14,7 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -28,6 +29,7 @@ interface DiscountCode extends BaseResource
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_CODE = 'code';
     public const FIELD_CART_DISCOUNTS = 'cartDiscounts';
+    public const FIELD_STORES = 'stores';
     public const FIELD_CART_PREDICATE = 'cartPredicate';
     public const FIELD_IS_ACTIVE = 'isActive';
     public const FIELD_REFERENCES = 'references';
@@ -126,6 +128,15 @@ interface DiscountCode extends BaseResource
      * @return null|CartDiscountReferenceCollection
      */
     public function getCartDiscounts();
+
+    /**
+     * <p>Reference to the Stores the DiscountCode is associated with, derived from the <code>stores</code> field of each referenced <a href="ctp:api:type:CartDiscount">CartDiscount</a>.</p>
+     * <p>The value of this field is <a href="/api/general-concepts#eventual-consistency">eventually consistent</a>.</p>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores();
 
     /**
      * <p>DiscountCode can only be applied to Carts that match this predicate.</p>
@@ -269,6 +280,11 @@ interface DiscountCode extends BaseResource
      * @param ?CartDiscountReferenceCollection $cartDiscounts
      */
     public function setCartDiscounts(?CartDiscountReferenceCollection $cartDiscounts): void;
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void;
 
     /**
      * @param ?string $cartPredicate

@@ -106,6 +106,7 @@
 - added property `invalidateOlderTokens` to type `CustomerCreatePasswordResetToken`
 - added property `customerGroupAssignments` to type `CustomerDraft`
 - added property `invalidateOlderTokens` to type `CustomerToken`
+- added property `stores` to type `DiscountCode`
 - added property `dependencies` to type `Extension`
 - added property `expansionPaths` to type `Extension`
 - added property `additionalContext` to type `Extension`
@@ -753,12 +754,15 @@
 - added resource `/{projectKey}/variants/key={key}`
 - added resource `/{projectKey}/variants/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units`
+- added resource `/{projectKey}/in-store/key={storeKey}/discount-codes`
 - added resource `/{projectKey}/in-store/key={storeKey}/variant-projections`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
 - added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
 - added resource `/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge`
+- added resource `/{projectKey}/in-store/key={storeKey}/discount-codes/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/discount-codes/{ID}`
 - added resource `/{projectKey}/in-store/key={storeKey}/product-projections/key={key}/variant-attributes`
 - added resource `/{projectKey}/in-store/key={storeKey}/product-projections/{ID}/variant-attributes`
 - added resource `/{projectKey}/in-store/key={storeKey}/variant-projections/key={key}`
@@ -850,6 +854,8 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->post()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->get()`
@@ -863,6 +869,10 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->carts()->customerIdWithCustomerIdValueMerge()->post()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->productProjections()->withKey()->variantAttributes()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->productProjections()->withId()->variantAttributes()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->withKey()->get()`
