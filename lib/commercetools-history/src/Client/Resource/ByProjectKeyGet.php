@@ -303,4 +303,13 @@ class ByProjectKeyGet extends ApiRequest
     {
         return $this->withQueryParam('expand', $expand);
     }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $withTotal
+     */
+    public function withWithTotal($withTotal): ByProjectKeyGet
+    {
+        return $this->withQueryParam('withTotal', $withTotal);
+    }
 }

@@ -1032,6 +1032,7 @@
 <summary>Required Property(s)</summary>
 
 - :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
+- changed property `total` of type `RecordPagedQueryResponse` to be optional
 - changed property `id` of type `Address` to be optional
 - changed property `key` of type `Address` to be optional
 - changed property `title` of type `Address` to be optional
@@ -1566,6 +1567,15 @@
 
 - :warning: changed type `Address` from type `object` to `BaseAddress`
 - :warning: changed type `GeoLocation` from type `object` to `GeoJson`
+</details>
+
+
+<details>
+<summary>Added QueryParameter(s)</summary>
+
+- added query parameter `withTotal` to method `get /{projectKey}`
+- added query parameter `withTotal` to method `get /{projectKey}/{resourceType}`
+- added query parameter `withTotal` to method `get /{projectKey}/{resourceType}/{ID}`
 </details>
 
 

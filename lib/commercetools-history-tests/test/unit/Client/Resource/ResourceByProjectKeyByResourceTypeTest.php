@@ -276,6 +276,17 @@ class ResourceByProjectKeyByResourceTypeTest extends TestCase
                 'get',
                 'test_projectKey/test_resourceType?expand=expand',
             ],
+            'ByProjectKeyByResourceTypeGet_withWithTotal' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                'test_projectKey/test_resourceType?withTotal=withTotal',
+            ],
             'ByProjectKeyByResourceTypeGet' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder
