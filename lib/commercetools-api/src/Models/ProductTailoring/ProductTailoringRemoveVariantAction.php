@@ -18,7 +18,7 @@ interface ProductTailoringRemoveVariantAction extends ProductTailoringUpdateActi
     public const FIELD_STAGED = 'staged';
 
     /**
-     * <p>The <code>id</code> of the ProductVariant to remove from the Tailoring.</p>
+     * <p>The <code>id</code> of the ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to remove from the Tailoring.</p>
      *
 
      * @return null|int
@@ -26,7 +26,7 @@ interface ProductTailoringRemoveVariantAction extends ProductTailoringUpdateActi
     public function getId();
 
     /**
-     * <p>The <code>sku</code> of the ProductVariant to remove from the Tailoring.</p>
+     * <p>The <code>sku</code> of the ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to remove from the Tailoring.</p>
      *
 
      * @return null|string

@@ -20,7 +20,7 @@ interface ProductTailoringRemoveAssetAction extends ProductTailoringUpdateAction
     public const FIELD_ASSET_KEY = 'assetKey';
 
     /**
-     * <p>The <code>id</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>id</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
 
      * @return null|int
@@ -28,7 +28,7 @@ interface ProductTailoringRemoveAssetAction extends ProductTailoringUpdateAction
     public function getVariantId();
 
     /**
-     * <p>The <code>sku</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>sku</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
 
      * @return null|string

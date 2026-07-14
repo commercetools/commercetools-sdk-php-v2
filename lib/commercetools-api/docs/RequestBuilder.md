@@ -7221,6 +7221,8 @@ Queries Variant Projections in the specified [Store](ctp:api:type:Store).
 Only Variants belonging to Products distributed through the Store's configured channels are returned.
 By default, this endpoint returns the `current` representation of Variants where the `published` flag is `true`.
 
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for a Product and the given Store, the returned Variant Projections include the tailored Product name, slug, and description, along with the tailored Variant images, assets, and attributes. The `staged` query parameter selects either the current or staged tailored data. When no Product Tailoring exists for a Product and Store, the Variant Projection is returned without Product Tailoring data.
+
 Required access scopes:
 
 - To retrieve the current representation of published Variants, the `view_published_products:{projectKey}` scope is required.
@@ -7263,6 +7265,8 @@ $request = $builder
 Retrieves a Variant Projection by its ID in the specified [Store](ctp:api:type:Store).
 
 Only returns Variants belonging to Products distributed through the Store's configured channels.
+
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product and the given Store, the returned Variant Projection includes the tailored Product name, slug, and description, along with the tailored Variant images, assets, and attributes. The `staged` query parameter selects either the current or staged tailored data. When no Product Tailoring exists for the Product and Store, the Variant Projection is returned without Product Tailoring data.
 
 Required access scopes:
 
@@ -7308,6 +7312,8 @@ $request = $builder
 Retrieves a Variant Projection by its key in the specified [Store](ctp:api:type:Store).
 
 Only returns Variants belonging to Products distributed through the Store's configured channels.
+
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product and the given Store, the returned Variant Projection includes the tailored Product name, slug, and description, along with the tailored Variant images, assets, and attributes. The `staged` query parameter selects either the current or staged tailored data. When no Product Tailoring exists for the Product and Store, the Variant Projection is returned without Product Tailoring data.
 
 Required access scopes:
 

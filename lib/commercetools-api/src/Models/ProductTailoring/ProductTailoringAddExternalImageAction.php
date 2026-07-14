@@ -20,7 +20,7 @@ interface ProductTailoringAddExternalImageAction extends ProductTailoringUpdateA
     public const FIELD_STAGED = 'staged';
 
     /**
-     * <p>The <code>id</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>id</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
 
      * @return null|int
@@ -28,7 +28,7 @@ interface ProductTailoringAddExternalImageAction extends ProductTailoringUpdateA
     public function getVariantId();
 
     /**
-     * <p>The <code>sku</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>sku</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
 
      * @return null|string

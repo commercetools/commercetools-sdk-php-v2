@@ -46,7 +46,7 @@ final class ProductTailoringSetExternalImagesActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>The <code>id</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>id</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
 
      * @return null|int
@@ -57,7 +57,7 @@ final class ProductTailoringSetExternalImagesActionBuilder implements Builder
     }
 
     /**
-     * <p>The <code>sku</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>sku</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
 
      * @return null|string
@@ -68,9 +68,9 @@ final class ProductTailoringSetExternalImagesActionBuilder implements Builder
     }
 
     /**
-     * <p>Images of the tailored ProductVariant.</p>
-     * <p>Don't provide this field if you want to remove all images from the tailored Product Variant.
-     * Set to <code>[]</code> (empty) if you want to hide all images of the original ProductVariant on the tailored ProductVariant.</p>
+     * <p>Images of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>).</p>
+     * <p>Don't provide this field if you want to remove all images from the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>).
+     * Set to <code>[]</code> (empty) if you want to hide all images of the original ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) on the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>).</p>
      *
 
      * @return null|ImageCollection

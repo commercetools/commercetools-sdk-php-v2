@@ -87,7 +87,7 @@ final class ProductTailoringRemoveImageActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>The <code>id</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>id</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
      *
      * @return null|int
@@ -107,7 +107,7 @@ final class ProductTailoringRemoveImageActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>The <code>sku</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>sku</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
      *
      * @return null|string
