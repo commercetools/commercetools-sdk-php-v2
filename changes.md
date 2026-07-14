@@ -903,10 +903,12 @@
 - added enum `reservation` to type `ReferenceTypeId`
 - added enum `variant` to type `ReferenceTypeId`
 - added enum `payment-method` to type `ExtensionResourceTypeId`
+- added enum `variant` to type `AttributeReferenceTypeId`
 - added enum `RecurringOrderState` to type `StateTypeEnum`
 - added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
 - added enum `recurrence-policy` to type `ChangeSubscriptionResourceTypeId`
 - added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
+- added enum `variant` to type `CustomFieldReferenceValue`
 - added enum `payment-method` to type `ResourceTypeId`
 - added enum `payment-method-info` to type `ResourceTypeId`
 - added enum `reservation` to type `ResourceTypeId`
