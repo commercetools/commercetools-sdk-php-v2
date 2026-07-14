@@ -480,7 +480,6 @@ $request = $builder
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->post(null)`
 
 Creates a Cart in the [BusinessUnit](ctp:api:type:BusinessUnit) referenced by `businessUnitKey`. As such, the `businessUnit` field on [CartDraft](ctp:api:type:CartDraft) is ignored for this request.
-Creating a Cart can fail with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match the Cart.
 
 Specific Error Codes:
 
@@ -488,6 +487,11 @@ Specific Error Codes:
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method has a predicate that does not match the Cart.
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 
 ### Example
@@ -2190,12 +2194,6 @@ $request = $builder
 
 Creates a Cart in the Project.
 
-An [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned in one of the following cases:
-  1. If the referenced Shipping Method has a predicate that does not match the Cart.
-  2. If the referenced Shipping Method is not active.
-  3. If the referenced Shipping Method is associated with a Store that is different from the Cart's Store.
-  4. If the referenced Shipping Method is associated with a Store and the Cart is not associated with any Store.
-
 When using [InventoryMode](ctp:api:type:InventoryMode) `ReserveOnCart`:
 - If only some Line Items can be reserved, the Cart creation succeeds, however, the items that could not be reserved are removed and reservation warnings are returned in the response.
 - If none of the Line Items can be reserved, the Cart creation fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
@@ -2206,6 +2204,11 @@ Specific Error Codes:
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method has a predicate that does not match the Cart.
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 
 ### Example
@@ -2317,6 +2320,11 @@ $request = $builder
 
 Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/api/carts-orders-overview#merge-a-cart).
+
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 
 ### Example
@@ -4335,11 +4343,6 @@ $request = $builder
 
 Creates a Cart in a [Store](ctp:api:type:Store).
 
-An [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned in one of the following cases:
-  1. If the referenced Shipping Method has a predicate that does not match the Cart.
-  2. If the referenced Shipping Method is not active.
-  3. If the referenced Shipping Method is associated with a Store that is different from the Cart's Store.
-
 Specific Error Codes:
 
 - [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
@@ -4347,6 +4350,10 @@ Specific Error Codes:
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 - [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method has a predicate that does not match the Cart.
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
 
 
 ### Example
@@ -4477,6 +4484,11 @@ $request = $builder
 Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/api/carts-orders-overview#merge-a-cart).
 
@@ -5043,6 +5055,12 @@ Authenticates a Customer associated with a [Store](ctp:api:type:Store).
 Allows [merging](/api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
 If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
+
+The anonymous Cart is not merged in any of the following cases:
+
+- The referenced Shipping Method is not active.
+- The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+- The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error.
 
@@ -7051,6 +7069,12 @@ $request = $builder
 
 Creates a StagedQuote in a [Store](ctp:api:type:Store).
 
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Store referenced by the [Quote Request](ctp:api:type:QuoteRequest).
+    - The referenced Shipping Method is scoped to a Store, but the [Quote Request](ctp:api:type:QuoteRequest) does not belong to a Store.
+
+
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
@@ -7499,6 +7523,12 @@ Allows [merging](/api/customers-overview#cart-merge-during-sign-in-and-sign-up) 
 If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
+The anonymous Cart is not merged in any of the following cases:
+
+  - The referenced Shipping Method is not active.
+  - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+  - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
+
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
 
@@ -7913,6 +7943,10 @@ Specific Error Codes:
 
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 
 ### Example
@@ -8925,7 +8959,10 @@ Specific Error Codes:
 - [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
 - [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
-- [InvalidOperation](ctp:api:type:InvalidOperationError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
@@ -9292,7 +9329,10 @@ Specific Error Codes:
 
 - [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
-- [InvalidOperation](ctp:api:type:InvalidOperationError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Store referenced by the [Quote](ctp:api:type:Quote).
+    - The referenced Shipping Method is scoped to a Store, but the [Quote](ctp:api:type:Quote) does not belong to a Store.
 - [OutOfStock](ctp:api:type:OutOfStockError)
 
 
@@ -12170,6 +12210,12 @@ $request = $builder
 ## `withProjectKey("projectKey")->stagedQuotes()->post(null)`
 
 Creates a StagedQuote in the Project.
+
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Store referenced by the [Quote Request](ctp:api:type:QuoteRequest).
+    - The referenced Shipping Method is scoped to a Store, but the [Quote Request](ctp:api:type:QuoteRequest) does not belong to a Store.
+
 
 ### Example
 ```php
