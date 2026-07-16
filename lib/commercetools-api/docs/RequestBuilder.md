@@ -7548,6 +7548,165 @@ $request = $builder
                 ->login()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->mcpServers()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->get();
+```
+## `withProjectKey("projectKey")->mcpServers()->post(null)`
+
+Creates a new MCP Server for the Project.
+
+Specific Error Codes:
+- [DuplicateField](ctp:api:type:DuplicateFieldError)
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->mcpServers()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->mcpServers()->withId("ID")->post(null)`
+
+Specific Error Codes:
+- [InvalidOperation](ctp:api:type:InvalidOperationError)
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->mcpServers()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->mcpServers()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->mcpServers()->withKey("key")->post(null)`
+
+Specific Error Codes:
+- [InvalidOperation](ctp:api:type:InvalidOperationError)
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->mcpServers()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->mcpServers()->types()->get()`
+
+Returns the catalog of available [MCP Server types](ctp:api:type:McpServerType), each with its major versions and the tools you can enable for them.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->types()
+                ->get();
+```
+## `withProjectKey("projectKey")->mcpServers()->types()->withMcpServerType("mcpServerType")->get()`
+
+Returns a single [MCP Server type](ctp:api:type:McpServerType). When `majorVersion` is omitted, the latest major version is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->types()
+                ->withMcpServerType("mcpServerType")
+                ->get();
+```
 ## `withProjectKey("projectKey")->me()->get()`
 
 Returns a Customer for a given Query Predicate. Returns a `200` status if successful.

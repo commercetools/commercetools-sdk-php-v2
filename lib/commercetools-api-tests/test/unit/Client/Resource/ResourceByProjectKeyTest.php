@@ -29,6 +29,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyInBusinessUnitKeyByBus
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInventory;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyLogin;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMcpServers;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMe;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMessages;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrders;
@@ -661,6 +662,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyAttributeGroups::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/attribute-groups'
+            ],
+            'ResourceByProjectKeyMcpServers' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMcpServers {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->mcpServers();
+                },
+                ResourceByProjectKeyMcpServers::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/mcp-servers'
             ]
         ];
     }

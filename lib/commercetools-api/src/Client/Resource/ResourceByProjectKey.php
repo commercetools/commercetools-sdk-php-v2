@@ -416,6 +416,14 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeyAttributeGroups($args, $this->getClient());
     }
+    /**
+     */
+    public function mcpServers(): ResourceByProjectKeyMcpServers
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyMcpServers($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

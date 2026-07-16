@@ -44,6 +44,8 @@ use Commercetools\Api\Models\Extension\Extension;
 use Commercetools\Api\Models\Extension\ExtensionModel;
 use Commercetools\Api\Models\Inventory\InventoryEntry;
 use Commercetools\Api\Models\Inventory\InventoryEntryModel;
+use Commercetools\Api\Models\McpServer\McpServer;
+use Commercetools\Api\Models\McpServer\McpServerModel;
 use Commercetools\Api\Models\Message\ApprovalFlowApprovedMessage;
 use Commercetools\Api\Models\Message\ApprovalFlowApprovedMessageModel;
 use Commercetools\Api\Models\Message\ApprovalFlowCompletedMessage;

@@ -26,6 +26,7 @@ use Commercetools\Api\Models\DiscountCode\DiscountCode;
 use Commercetools\Api\Models\DiscountGroup\DiscountGroup;
 use Commercetools\Api\Models\Extension\Extension;
 use Commercetools\Api\Models\Inventory\InventoryEntry;
+use Commercetools\Api\Models\McpServer\McpServer;
 use Commercetools\Api\Models\Message\ApprovalFlowApprovedMessage;
 use Commercetools\Api\Models\Message\ApprovalFlowCompletedMessage;
 use Commercetools\Api\Models\Message\ApprovalFlowCreatedMessage;
