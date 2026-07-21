@@ -120,6 +120,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'ShippingMethodDoesNotMatchCart' => GraphQLShippingMethodDoesNotMatchCartErrorModel::class,
        'StoreCartDiscountsLimitReached' => GraphQLStoreCartDiscountsLimitReachedErrorModel::class,
        'SyntaxError' => GraphQLSyntaxErrorErrorModel::class,
+       'Unauthorized' => GraphQLUnauthorizedErrorModel::class,
        'ValidityLockConflict' => GraphQLValidityLockConflictErrorModel::class,
        'insufficient_scope' => GraphQLInsufficientScopeErrorModel::class,
        'invalid_token' => GraphQLInvalidTokenErrorModel::class,

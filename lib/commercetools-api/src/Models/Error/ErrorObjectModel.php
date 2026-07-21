@@ -126,6 +126,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
        'StoreCartDiscountsLimitReached' => StoreCartDiscountsLimitReachedErrorModel::class,
        'SyntaxError' => SyntaxErrorErrorModel::class,
+       'Unauthorized' => UnauthorizedErrorModel::class,
        'ValidityLockConflict' => ValidityLockConflictErrorModel::class,
        'insufficient_scope' => InsufficientScopeErrorModel::class,
        'invalid_token' => InvalidTokenErrorModel::class,
