@@ -442,6 +442,8 @@ use Commercetools\Api\Models\Message\ProductTailoringImageAddedMessage;
 use Commercetools\Api\Models\Message\ProductTailoringImageAddedMessageModel;
 use Commercetools\Api\Models\Message\ProductTailoringImagesSetMessage;
 use Commercetools\Api\Models\Message\ProductTailoringImagesSetMessageModel;
+use Commercetools\Api\Models\Message\ProductTailoringKeySetMessage;
+use Commercetools\Api\Models\Message\ProductTailoringKeySetMessageModel;
 use Commercetools\Api\Models\Message\ProductTailoringNameSetMessage;
 use Commercetools\Api\Models\Message\ProductTailoringNameSetMessageModel;
 use Commercetools\Api\Models\Message\ProductTailoringPublishedMessage;

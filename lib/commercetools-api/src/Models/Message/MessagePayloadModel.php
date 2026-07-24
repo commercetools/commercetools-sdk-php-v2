@@ -279,6 +279,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'ProductTailoringDescriptionSet' => ProductTailoringDescriptionSetMessagePayloadModel::class,
        'ProductTailoringImageAdded' => ProductTailoringImageAddedMessagePayloadModel::class,
        'ProductTailoringImagesSet' => ProductTailoringImagesSetMessagePayloadModel::class,
+       'ProductTailoringKeySet' => ProductTailoringKeySetMessagePayloadModel::class,
        'ProductTailoringNameSet' => ProductTailoringNameSetMessagePayloadModel::class,
        'ProductTailoringPublished' => ProductTailoringPublishedMessagePayloadModel::class,
        'ProductTailoringSlugSet' => ProductTailoringSlugSetMessagePayloadModel::class,

@@ -52,6 +52,7 @@ final class ProductTailoringUpdateActionModel extends JsonObjectModel implements
        'setDescription' => ProductTailoringSetDescriptionActionModel::class,
        'setImageLabel' => ProductTailoringSetImageLabelActionModel::class,
        'setImages' => ProductTailoringSetExternalImagesActionModel::class,
+       'setKey' => ProductTailoringSetKeyActionModel::class,
        'setMetaAttributes' => ProductTailoringSetMetaAttributesActionModel::class,
        'setMetaDescription' => ProductTailoringSetMetaDescriptionActionModel::class,
        'setMetaKeywords' => ProductTailoringSetMetaKeywordsActionModel::class,

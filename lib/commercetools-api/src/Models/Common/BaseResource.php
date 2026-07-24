@@ -225,6 +225,7 @@ use Commercetools\Api\Models\Message\ProductTailoringDeletedMessage;
 use Commercetools\Api\Models\Message\ProductTailoringDescriptionSetMessage;
 use Commercetools\Api\Models\Message\ProductTailoringImageAddedMessage;
 use Commercetools\Api\Models\Message\ProductTailoringImagesSetMessage;
+use Commercetools\Api\Models\Message\ProductTailoringKeySetMessage;
 use Commercetools\Api\Models\Message\ProductTailoringNameSetMessage;
 use Commercetools\Api\Models\Message\ProductTailoringPublishedMessage;
 use Commercetools\Api\Models\Message\ProductTailoringSlugSetMessage;

@@ -348,6 +348,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'ProductTailoringDescriptionSet' => ProductTailoringDescriptionSetMessageModel::class,
        'ProductTailoringImageAdded' => ProductTailoringImageAddedMessageModel::class,
        'ProductTailoringImagesSet' => ProductTailoringImagesSetMessageModel::class,
+       'ProductTailoringKeySet' => ProductTailoringKeySetMessageModel::class,
        'ProductTailoringNameSet' => ProductTailoringNameSetMessageModel::class,
        'ProductTailoringPublished' => ProductTailoringPublishedMessageModel::class,
        'ProductTailoringSlugSet' => ProductTailoringSlugSetMessageModel::class,
