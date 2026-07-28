@@ -13746,6 +13746,30 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->variants()->withId("ID")->images()->post(null)`
+
+Uploads a JPEG, PNG, or a GIF image file to a [Variant](ctp:api:type:Variant) identified by its ID.
+The maximum file size of the image is **10MB**.
+
+The response status code depends on the size of the original image.
+If the image is small, the API responds with `200 OK`, and if the image is larger, it responds with `202 Accepted`.
+The Variant returned with a `202 Accepted` status code contains a `warnings` field with an [ImageProcessingOngoing](ctp:api:type:ImageProcessingOngoingWarning) Warning.
+
+Produces the [VariantImageAdded](/projects/messages/product-catalog-messages#variant-image-added) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->images()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->variants()->withKey("key")->get()`
 
 Retrieves a Variant by its key.

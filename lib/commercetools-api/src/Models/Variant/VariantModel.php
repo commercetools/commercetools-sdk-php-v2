@@ -16,6 +16,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -100,6 +101,12 @@ final class VariantModel extends JsonObjectModel implements Variant
      */
     protected $staged;
 
+    /**
+     *
+     * @var ?WarningObjectCollection
+     */
+    protected $warnings;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -116,7 +123,8 @@ final class VariantModel extends JsonObjectModel implements Variant
         ?ProductReference $product = null,
         ?bool $published = null,
         ?VariantData $current = null,
-        ?VariantData $staged = null
+        ?VariantData $staged = null,
+        ?WarningObjectCollection $warnings = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -130,6 +138,7 @@ final class VariantModel extends JsonObjectModel implements Variant
         $this->published = $published;
         $this->current = $current;
         $this->staged = $staged;
+        $this->warnings = $warnings;
     }
 
     /**
@@ -387,6 +396,27 @@ final class VariantModel extends JsonObjectModel implements Variant
         return $this->staged;
     }
 
+    /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+     *
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings()
+    {
+        if (is_null($this->warnings)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_WARNINGS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->warnings = WarningObjectCollection::fromArray($data);
+        }
+
+        return $this->warnings;
+    }
+
 
     /**
      * @param ?string $id
@@ -482,6 +512,14 @@ final class VariantModel extends JsonObjectModel implements Variant
     public function setStaged(?VariantData $staged): void
     {
         $this->staged = $staged;
+    }
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void
+    {
+        $this->warnings = $warnings;
     }
 
 

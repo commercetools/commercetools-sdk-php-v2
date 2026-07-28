@@ -27,6 +27,15 @@ class ResourceByProjectKeyVariantsByID extends ApiResource
     }
 
     /**
+     */
+    public function images(): ResourceByProjectKeyVariantsByIDImages
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyVariantsByIDImages($args, $this->getClient());
+    }
+
+    /**
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
