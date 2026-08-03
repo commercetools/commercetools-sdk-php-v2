@@ -49,7 +49,7 @@ interface ShoppingListLineItem extends JsonObject
     public function getCustom();
 
     /**
-     * <p>If the Product or Product Variant is deleted, <code>deactivatedAt</code> is the date and time (UTC) of deletion.</p>
+     * <p>If the Product or Product Variant is deleted or unpublished, <code>deactivatedAt</code> is the date and time (UTC) this occurred.</p>
      * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product Variant cannot be ordered anymore.</p>
      *
 
