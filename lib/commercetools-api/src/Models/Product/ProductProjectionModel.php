@@ -554,7 +554,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p><code>true</code> if the staged data is different from the current data.</p>
+     * <p>Whether the staged data is different from the current data.</p>
      *
      *
      * @return null|bool
@@ -574,7 +574,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p><code>true</code> if the <a href="ctp:api:type:Product">Product</a> is <a href="ctp:api:type:CurrentStaged">published</a>.</p>
+     * <p>Whether the <a href="ctp:api:type:Product">Product</a> is <a href="ctp:api:type:CurrentStaged">published</a>.</p>
      *
      *
      * @return null|bool

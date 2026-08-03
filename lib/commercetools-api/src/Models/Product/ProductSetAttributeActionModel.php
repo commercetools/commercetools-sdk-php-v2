@@ -184,7 +184,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * <p>If <code>true</code>, only the staged Attribute is set. If <code>false</code>, both the current and staged Attributes are set.</p>
+     * <p>Whether only the staged Attribute is set. If <code>false</code>, both the current and staged Attributes are set.</p>
      *
      *
      * @return null|bool

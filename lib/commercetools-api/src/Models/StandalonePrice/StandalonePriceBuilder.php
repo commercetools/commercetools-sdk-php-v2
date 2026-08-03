@@ -360,7 +360,7 @@ final class StandalonePriceBuilder implements Builder
     }
 
     /**
-     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
+     * <p>Whether the StandalonePrice is considered during <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
      * If set to <code>false</code>, the StandalonePrice is not considered during <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> and any associated Line Items in a Cart cannot be ordered.</p>
      *
 

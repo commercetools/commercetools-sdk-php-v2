@@ -330,7 +330,7 @@ final class VariantProjectionBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if this Variant is the default Variant of its <a href="ctp:api:type:Product">Product</a> (see <a href="/projects/products#product">Product.defaultVariant</a>). <code>false</code> otherwise.</p>
+     * <p>Whether this Variant is the default Variant of its <a href="ctp:api:type:Product">Product</a> (see <a href="/projects/products#product">Product.defaultVariant</a>).</p>
      *
 
      * @return null|bool

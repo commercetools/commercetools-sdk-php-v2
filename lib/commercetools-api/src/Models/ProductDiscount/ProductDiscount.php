@@ -130,7 +130,7 @@ interface ProductDiscount extends BaseResource
     public function getSortOrder();
 
     /**
-     * <p>If <code>true</code> the Product Discount is applied to Products matching the <code>predicate</code>.</p>
+     * <p>Whether the Product Discount is applied to Products matching the <code>predicate</code>.</p>
      *
 
      * @return null|bool

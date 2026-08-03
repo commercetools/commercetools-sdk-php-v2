@@ -75,7 +75,7 @@ interface ProductDiscountDraft extends JsonObject
     public function getSortOrder();
 
     /**
-     * <p>Set to <code>true</code> to activate the ProductDiscount, set to <code>false</code> to deactivate it (even though the <code>predicate</code> matches).</p>
+     * <p>Whether to activate the ProductDiscount. To deactivate it even though the <code>predicate</code> matches, set to <code>false</code>.</p>
      *
 
      * @return null|bool

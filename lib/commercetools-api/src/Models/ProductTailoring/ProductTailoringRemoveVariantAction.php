@@ -34,7 +34,7 @@ interface ProductTailoringRemoveVariantAction extends ProductTailoringUpdateActi
     public function getSku();
 
     /**
-     * <p>If <code>true</code>, only the staged Product Variant Tailoring is removed. If <code>false</code>, both the current and staged Product Variant Tailoring is removed.</p>
+     * <p>Whether only the staged Product Variant Tailoring is removed. If <code>false</code>, both the current and staged Product Variant Tailoring is removed.</p>
      *
 
      * @return null|bool

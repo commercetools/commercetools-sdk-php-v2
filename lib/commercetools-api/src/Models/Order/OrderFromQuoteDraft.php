@@ -42,7 +42,7 @@ interface OrderFromQuoteDraft extends JsonObject
     public function getVersion();
 
     /**
-     * <p>If <code>true</code>, the <code>quoteState</code> of the referenced <a href="ctp:api:type:Quote">Quote</a> will be set to <code>Accepted</code>.</p>
+     * <p>Whether the <code>quoteState</code> of the referenced <a href="ctp:api:type:Quote">Quote</a> will be set to <code>Accepted</code>.</p>
      *
 
      * @return null|bool

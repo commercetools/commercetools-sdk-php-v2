@@ -49,7 +49,7 @@ interface AttributeDefinition extends JsonObject
     public function getLabel();
 
     /**
-     * <p>If <code>true</code>, the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Whether the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
 
      * @return null|bool
@@ -89,7 +89,7 @@ interface AttributeDefinition extends JsonObject
     public function getInputHint();
 
     /**
-     * <p>If <code>true</code>, the Attribute's values are available in the <a href="/api/projects/product-search">Product Search</a> or the <a href="/api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.
+     * <p>Whether the Attribute's values are available in the <a href="/api/projects/product-search">Product Search</a> or the <a href="/api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.
      * However, if an Attribute's <code>level</code> is set as <code>Product</code>, then Product Projection Search does <strong>not support</strong> the Attribute.
      * To use the Attribute in search, filters, or facets, set <code>isSearchable</code> to <code>true</code> for all AttributeDefinitions with the same <code>name</code> across different ProductTypes.
      * If the <code>isSearchable</code> values are different, the Attribute isn't available for search, filters, or facets.</p>

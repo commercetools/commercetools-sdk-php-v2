@@ -27,7 +27,7 @@ interface ProductSetProductPriceCustomFieldAction extends ProductUpdateAction
     public function getPriceId();
 
     /**
-     * <p>If <code>true</code>, only the staged Embedded Price Custom Field is updated. If <code>false</code>, both the current and staged Embedded Price Custom Field are updated.</p>
+     * <p>Whether only the staged Embedded Price Custom Field is updated. If <code>false</code>, both the current and staged Embedded Price Custom Field are updated.</p>
      *
 
      * @return null|bool

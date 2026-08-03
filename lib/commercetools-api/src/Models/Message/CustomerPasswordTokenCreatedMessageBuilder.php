@@ -256,7 +256,7 @@ final class CustomerPasswordTokenCreatedMessageBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, all password tokens issued previously for the Customer are invalidated.</p>
+     * <p>Whether all password tokens issued previously for the Customer are invalidated.</p>
      *
 
      * @return null|bool

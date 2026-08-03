@@ -119,7 +119,7 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>If <code>true</code>, only the staged Master Variant is changed. If <code>false</code>, both the current and staged Master Variant are changed.</p>
+     * <p>Whether only the staged Master Variant is changed. If <code>false</code>, both the current and staged Master Variant are changed.</p>
      *
      *
      * @return null|bool

@@ -38,7 +38,7 @@ interface ProductTailoringSetAssetCustomFieldAction extends ProductTailoringUpda
     public function getSku();
 
     /**
-     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     * <p>Whether only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
      *
 
      * @return null|bool

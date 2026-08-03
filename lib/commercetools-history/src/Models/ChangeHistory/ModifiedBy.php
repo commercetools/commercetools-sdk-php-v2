@@ -24,7 +24,7 @@ interface ModifiedBy extends JsonObject
     public const FIELD_ASSOCIATE = 'associate';
 
     /**
-     * <p><code>true</code> if the change was made using the Merchant Center.</p>
+     * <p>Whether the change was made using the Merchant Center.</p>
      *
 
      * @return null|bool

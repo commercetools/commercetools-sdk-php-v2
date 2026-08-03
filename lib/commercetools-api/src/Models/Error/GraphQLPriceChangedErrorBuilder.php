@@ -44,7 +44,7 @@ final class GraphQLPriceChangedErrorBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if the <a href="ctp:api:type:ShippingRate">ShippingRate</a> has changed.</p>
+     * <p>Whether the <a href="ctp:api:type:ShippingRate">ShippingRate</a> has changed.</p>
      *
 
      * @return null|bool

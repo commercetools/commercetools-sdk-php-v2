@@ -124,7 +124,7 @@ interface Record extends JsonObject
     public function getBusinessUnit();
 
     /**
-     * <p><code>true</code> if no change was detected.</p>
+     * <p>Whether no change was detected.</p>
      * <p>The version number of the resource can be increased even without any change in the resource.</p>
      *
 

@@ -108,7 +108,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, all tokens issued previously for the Customer will be invalidated.</p>
+     * <p>Whether all tokens issued previously for the Customer will be invalidated.</p>
      *
 
      * @return null|bool

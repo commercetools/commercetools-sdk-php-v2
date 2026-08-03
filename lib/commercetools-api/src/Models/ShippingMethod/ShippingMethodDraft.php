@@ -87,7 +87,7 @@ interface ShippingMethodDraft extends JsonObject
     public function getZoneRates();
 
     /**
-     * <p>If set to <code>true</code>, the ShippingMethod can be used during the creation or update of a Cart or Order.</p>
+     * <p>Whether the ShippingMethod can be used during the creation or update of a Cart or Order.</p>
      *
 
      * @return null|bool
@@ -95,7 +95,7 @@ interface ShippingMethodDraft extends JsonObject
     public function getActive();
 
     /**
-     * <p>If set to <code>true</code>, the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod. When retrieving <a href="/projects/shippingMethods#get-matching-shipping-methods">matching Shipping Methods</a>, it is returned as the first item in the array. This flag does not automatically apply the Shipping Method to Carts.</p>
+     * <p>Whether the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod. When retrieving <a href="/projects/shippingMethods#get-matching-shipping-methods">matching Shipping Methods</a>, it is returned as the first item in the array. This flag does not automatically apply the Shipping Method to Carts.</p>
      *
 
      * @return null|bool

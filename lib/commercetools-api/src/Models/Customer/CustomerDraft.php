@@ -220,7 +220,7 @@ interface CustomerDraft extends JsonObject
     public function getBillingAddresses();
 
     /**
-     * <p>Set to <code>true</code> if the email address of the Customer has been verified already.
+     * <p>Whether the email address of the Customer has been verified already.
      * The intended use is to leave this field unset upon sign-up of the Customer and initiate the <a href="#email-verification-of-customer">email verification</a> afterwards.</p>
      *
 

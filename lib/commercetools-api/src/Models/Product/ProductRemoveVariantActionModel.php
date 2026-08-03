@@ -119,7 +119,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>If <code>true</code>, only the staged ProductVariant is removed. If <code>false</code>, both the current and staged ProductVariant is removed.</p>
+     * <p>Whether only the staged ProductVariant is removed. If <code>false</code>, both the current and staged ProductVariant is removed.</p>
      *
      *
      * @return null|bool

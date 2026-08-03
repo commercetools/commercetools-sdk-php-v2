@@ -45,7 +45,7 @@ final class ProductCatalogDataBuilder implements Builder
     private $hasStagedChanges;
 
     /**
-     * <p>If <code>true</code>, the <code>current</code> representation of the Product is retrievable in the <a href="/projects/productProjections">Product Projection</a> endpoints and indexed for <a href="/api/projects/product-search">Product Search</a>.</p>
+     * <p>Whether the <code>current</code> representation of the Product is retrievable in the <a href="/projects/productProjections">Product Projection</a> endpoints and indexed for <a href="/api/projects/product-search">Product Search</a>.</p>
      *
 
      * @return null|bool
@@ -78,7 +78,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if the <code>staged</code> data is different from the <code>current</code> data.</p>
+     * <p>Whether the <code>staged</code> data is different from the <code>current</code> data.</p>
      *
 
      * @return null|bool

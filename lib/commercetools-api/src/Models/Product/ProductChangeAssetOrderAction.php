@@ -35,7 +35,7 @@ interface ProductChangeAssetOrderAction extends ProductUpdateAction
     public function getSku();
 
     /**
-     * <p>If <code>true</code>, only the staged <code>assets</code> is updated. If <code>false</code>, both the current and staged <code>assets</code> are updated.</p>
+     * <p>Whether only staged <code>assets</code> are updated. If <code>false</code>, both current and staged <code>assets</code> are updated.</p>
      *
 
      * @return null|bool

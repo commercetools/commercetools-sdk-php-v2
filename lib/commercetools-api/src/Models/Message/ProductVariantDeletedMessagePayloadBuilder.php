@@ -63,7 +63,7 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, this message informs that only the staged ProductVariant has been removed by the update action.
+     * <p>Whether this message informs that only the staged ProductVariant has been removed by the update action.
      * If <code>false</code>, both the current and staged ProductVariant have been removed.</p>
      *
 

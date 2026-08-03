@@ -63,7 +63,7 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
     }
 
     /**
-     * <p>Set to <code>true</code> for defining the State as initial State in a state machine and making it the first step in a workflow.</p>
+     * <p>Whether to define the State as the initial State in a state machine and make it the first step in a workflow.</p>
      *
      *
      * @return null|bool

@@ -26,7 +26,7 @@ interface VariantSetAssetsAction extends VariantUpdateAction
     public function getAssets();
 
     /**
-     * <p>If <code>true</code>, only the staged assets are set. If <code>false</code>, both the current and staged assets are updated.</p>
+     * <p>Whether only the staged assets are set. If <code>false</code>, both the current and staged assets are updated.</p>
      *
 
      * @return null|bool

@@ -61,7 +61,7 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     }
 
     /**
-     * <p>If set to <code>true</code>, all password tokens issued previously for the Customer will be invalidated.</p>
+     * <p>Whether all password tokens issued previously for the Customer will be invalidated.</p>
      *
 
      * @return null|bool

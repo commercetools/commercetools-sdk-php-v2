@@ -121,7 +121,7 @@ final class ProductSearchProjectionParamsModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Set to <code>true</code> to retrieve the <a href="/api/projects/productProjections#current--staged">staged</a> Product Projection</p>
+     * <p>Whether to retrieve the <a href="/api/projects/productProjections#current--staged">staged</a> Product Projection</p>
      *
      *
      * @return null|bool

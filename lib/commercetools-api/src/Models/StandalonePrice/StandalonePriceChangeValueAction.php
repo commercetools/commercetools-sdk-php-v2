@@ -27,7 +27,7 @@ interface StandalonePriceChangeValueAction extends StandalonePriceUpdateAction
     public function getValue();
 
     /**
-     * <p>If set to <code>true</code> the update action applies to the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>. If set to <code>false</code>, the update action applies to the current <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
+     * <p>Whether the update action applies to the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>. If set to <code>false</code>, the update action applies to the current <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
 
      * @return null|bool

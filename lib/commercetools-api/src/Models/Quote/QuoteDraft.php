@@ -48,7 +48,7 @@ interface QuoteDraft extends JsonObject
     public function getStagedQuoteVersion();
 
     /**
-     * <p>If <code>true</code>, the <code>stagedQuoteState</code> of the referenced <a href="ctp:api:type:StagedQuote">StagedQuote</a> will be set to <code>Sent</code>.</p>
+     * <p>Whether the <code>stagedQuoteState</code> of the referenced <a href="ctp:api:type:StagedQuote">StagedQuote</a> will be set to <code>Sent</code>.</p>
      *
 
      * @return null|bool

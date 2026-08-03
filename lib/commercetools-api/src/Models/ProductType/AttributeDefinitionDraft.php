@@ -52,7 +52,7 @@ interface AttributeDefinitionDraft extends JsonObject
     public function getLabel();
 
     /**
-     * <p>Set to <code>true</code> if the Attribute is required to have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Whether the Attribute is required to have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
 
      * @return null|bool

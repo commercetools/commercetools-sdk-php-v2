@@ -165,7 +165,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>If <code>true</code>, the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Whether the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
      *
      * @return null|bool
@@ -266,7 +266,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>If <code>true</code>, the Attribute's values are available in the <a href="/api/projects/product-search">Product Search</a> or the <a href="/api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.
+     * <p>Whether the Attribute's values are available in the <a href="/api/projects/product-search">Product Search</a> or the <a href="/api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.
      * However, if an Attribute's <code>level</code> is set as <code>Product</code>, then Product Projection Search does <strong>not support</strong> the Attribute.</p>
      * <p>The exact features that are available with this flag depend on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
      * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/api/limits#field-content-size">Field content size limit</a>.

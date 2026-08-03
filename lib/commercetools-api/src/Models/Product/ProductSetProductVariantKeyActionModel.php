@@ -147,7 +147,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>If <code>true</code>, only the staged <code>key</code> is set. If <code>false</code>, both the current and staged <code>key</code> are set.</p>
+     * <p>Whether only the staged <code>key</code> is set. If <code>false</code>, both the current and staged <code>key</code> are set.</p>
      *
      *
      * @return null|bool

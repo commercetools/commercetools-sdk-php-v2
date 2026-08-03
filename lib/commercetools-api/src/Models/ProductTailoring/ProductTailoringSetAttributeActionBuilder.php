@@ -108,7 +108,7 @@ final class ProductTailoringSetAttributeActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, only the staged Attribute is set. If <code>false</code>, both current and staged Attribute is set.</p>
+     * <p>Whether only the staged Attribute is set. If <code>false</code>, both current and staged Attribute is set.</p>
      *
 
      * @return null|bool

@@ -26,7 +26,7 @@ interface ProductSetDefaultVariantAction extends ProductUpdateAction
     public function getVariant();
 
     /**
-     * <p>If <code>true</code>, only the staged <code>defaultVariant</code> is updated. If <code>false</code>, both the current and staged <code>defaultVariant</code> are updated.</p>
+     * <p>Whether only the staged <code>defaultVariant</code> is updated. If <code>false</code>, both the current and staged <code>defaultVariant</code> are updated.</p>
      *
 
      * @return null|bool

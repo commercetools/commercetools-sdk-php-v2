@@ -149,7 +149,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
-     * <p>If <code>true</code>, only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
+     * <p>Whether only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
      *
      *
      * @return null|bool

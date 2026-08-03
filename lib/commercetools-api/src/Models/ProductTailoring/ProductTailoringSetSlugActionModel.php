@@ -94,7 +94,7 @@ final class ProductTailoringSetSlugActionModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>If <code>true</code>, only the staged <code>slug</code> is updated. If <code>false</code>, both the current and staged <code>slug</code> are updated.</p>
+     * <p>Whether only the staged <code>slug</code> is updated. If <code>false</code>, both the current and staged <code>slug</code> are updated.</p>
      *
      *
      * @return null|bool

@@ -79,7 +79,7 @@ final class CustomerEmailTokenCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, all email tokens issued previously for the Customer are invalidated.</p>
+     * <p>Whether all email tokens issued previously for the Customer are invalidated.</p>
      *
 
      * @return null|bool

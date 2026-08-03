@@ -180,7 +180,7 @@ final class ProductTailoringInStoreDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the ProductTailoring is published immediately.</p>
+     * <p>Whether the ProductTailoring is published immediately.</p>
      *
 
      * @return null|bool

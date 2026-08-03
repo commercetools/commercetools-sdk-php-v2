@@ -308,7 +308,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the platform sets the <code>published</code> flag on the resulting <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> to <code>true</code>.
+     * <p>Whether the platform sets the <code>published</code> flag on the resulting <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> to <code>true</code>.
      * This makes the current representation retrievable in <a href="/projects/productProjections">Product Projection</a> endpoints and indexes it for <a href="/api/projects/product-search">Product Search</a>.
      * You can also set this flag later using the <a href="/projects/products#publish">Publish</a> update action.</p>
      *

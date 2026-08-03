@@ -91,7 +91,7 @@ final class VariantRemoveImageActionModel extends JsonObjectModel implements Var
     }
 
     /**
-     * <p>If <code>true</code>, only the staged image is removed. If <code>false</code>, both the current and staged image is removed.</p>
+     * <p>Whether only the staged image is removed. If <code>false</code>, both the current and staged image is removed.</p>
      *
      *
      * @return null|bool

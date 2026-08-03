@@ -65,7 +65,7 @@ final class ModifiedByBuilder implements Builder
     private $associate;
 
     /**
-     * <p><code>true</code> if the change was made using the Merchant Center.</p>
+     * <p>Whether the change was made using the Merchant Center.</p>
      *
 
      * @return null|bool

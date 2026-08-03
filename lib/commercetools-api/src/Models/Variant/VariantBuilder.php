@@ -209,7 +209,7 @@ final class VariantBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if the Variant is published, <code>false</code> if it is unpublished.</p>
+     * <p>Whether the Variant is published, <code>false</code> if it is unpublished.</p>
      *
 
      * @return null|bool

@@ -143,7 +143,7 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
     }
 
     /**
-     * <p>If <code>true</code>, the <code>stagedQuoteState</code> of the referenced <a href="ctp:api:type:StagedQuote">StagedQuote</a> will be set to <code>Sent</code>.</p>
+     * <p>Whether the <code>stagedQuoteState</code> of the referenced <a href="ctp:api:type:StagedQuote">StagedQuote</a> will be set to <code>Sent</code>.</p>
      *
      *
      * @return null|bool

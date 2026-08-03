@@ -95,7 +95,7 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
     }
 
     /**
-     * <p>Set to <code>true</code> to turn off validation.</p>
+     * <p>Whether to turn off validation.</p>
      *
      *
      * @return null|bool

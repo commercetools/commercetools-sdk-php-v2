@@ -67,7 +67,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * <p>If <code>true</code>, all Products assigned to this Product Selection are part of the Store's assortment.</p>
+     * <p>Whether all Products assigned to this Product Selection are part of the Store's assortment.</p>
      *
      *
      * @return null|bool

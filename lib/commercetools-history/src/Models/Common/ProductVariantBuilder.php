@@ -203,7 +203,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if the Product Variant matches the search query.
+     * <p>Whether the Product Variant matches the search query.
      * Only available in response to a <a href="/api/projects/product-projection-search">Product Projection Search</a> request.</p>
      *
 

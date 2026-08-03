@@ -46,7 +46,7 @@ final class ProductRemoveFromCategoryActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, only the staged <code>categories</code> and <code>categoryOrderHints</code> are removed. If <code>false</code>, both the current and staged <code>categories</code> and <code>categoryOrderHints</code> are removed.</p>
+     * <p>Whether only the staged <code>categories</code> and <code>categoryOrderHints</code> are removed. If <code>false</code>, both the current and staged <code>categories</code> and <code>categoryOrderHints</code> are removed.</p>
      *
 
      * @return null|bool

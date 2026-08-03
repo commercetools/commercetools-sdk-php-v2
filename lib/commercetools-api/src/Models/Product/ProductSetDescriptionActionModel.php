@@ -94,7 +94,7 @@ final class ProductSetDescriptionActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>If <code>true</code>, only the staged <code>description</code> is updated. If <code>false</code>, both the current and staged <code>description</code> are updated.</p>
+     * <p>Whether only the staged <code>description</code> is updated. If <code>false</code>, both the current and staged <code>description</code> are updated.</p>
      *
      *
      * @return null|bool

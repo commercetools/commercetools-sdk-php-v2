@@ -123,10 +123,7 @@ final class MyCustomerSigninModel extends JsonObjectModel implements MyCustomerS
     }
 
     /**
-     * <ul>
-     * <li>If <code>true</code>, the <a href="ctp:api:type:LineItem">LineItem</a> Product data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned Cart is updated.</li>
-     * <li>If <code>false</code>, only the prices, discounts, and tax rates are updated.</li>
-     * </ul>
+     * <p>Whether the <a href="ctp:api:type:LineItem">LineItem</a> Product data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned Cart is updated. If <code>false</code>, only the prices, discounts, and tax rates are updated.</p>
      *
      *
      * @return null|bool

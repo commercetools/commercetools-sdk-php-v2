@@ -68,7 +68,7 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if the Product Variant is in stock, based on an <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> that has no assigned supply <a href="ctp:api:type:Channel">Channel</a>.
+     * <p>Whether the Product Variant is in stock, based on an <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> that has no assigned supply <a href="ctp:api:type:Channel">Channel</a>.
      * This value reflects global or default availability; it does not aggregate the channel-specific availabilities found in the <code>channels</code> field.</p>
      *
 

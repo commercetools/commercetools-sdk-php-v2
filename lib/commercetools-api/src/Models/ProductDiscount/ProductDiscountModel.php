@@ -420,7 +420,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>If <code>true</code> the Product Discount is applied to Products matching the <code>predicate</code>.</p>
+     * <p>Whether the Product Discount is applied to Products matching the <code>predicate</code>.</p>
      *
      *
      * @return null|bool

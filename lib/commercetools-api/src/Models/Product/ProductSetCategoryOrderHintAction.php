@@ -34,7 +34,7 @@ interface ProductSetCategoryOrderHintAction extends ProductUpdateAction
     public function getOrderHint();
 
     /**
-     * <p>If <code>true</code>, only the staged <code>categoryOrderHints</code> is updated. If <code>false</code>, both the current and staged <code>categoryOrderHints</code> are updated.</p>
+     * <p>Whether only the staged <code>categoryOrderHints</code> is updated. If <code>false</code>, both the current and staged <code>categoryOrderHints</code> are updated.</p>
      *
 
      * @return null|bool
