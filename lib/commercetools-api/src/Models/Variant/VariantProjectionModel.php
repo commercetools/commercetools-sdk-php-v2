@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Variant;
 
+use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -15,6 +16,8 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceModel;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\CategoryOrderHints;
+use Commercetools\Api\Models\Product\CategoryOrderHintsModel;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -85,6 +88,18 @@ final class VariantProjectionModel extends JsonObjectModel implements VariantPro
 
     /**
      *
+     * @var ?CategoryReferenceCollection
+     */
+    protected $categories;
+
+    /**
+     *
+     * @var ?CategoryOrderHints
+     */
+    protected $categoryOrderHints;
+
+    /**
+     *
      * @var ?string
      */
     protected $key;
@@ -139,6 +154,8 @@ final class VariantProjectionModel extends JsonObjectModel implements VariantPro
         ?LocalizedString $name = null,
         ?LocalizedString $slug = null,
         ?LocalizedString $description = null,
+        ?CategoryReferenceCollection $categories = null,
+        ?CategoryOrderHints $categoryOrderHints = null,
         ?string $key = null,
         ?string $sku = null,
         ?ImageCollection $images = null,
@@ -156,6 +173,8 @@ final class VariantProjectionModel extends JsonObjectModel implements VariantPro
         $this->name = $name;
         $this->slug = $slug;
         $this->description = $description;
+        $this->categories = $categories;
+        $this->categoryOrderHints = $categoryOrderHints;
         $this->key = $key;
         $this->sku = $sku;
         $this->images = $images;
@@ -351,6 +370,47 @@ final class VariantProjectionModel extends JsonObjectModel implements VariantPro
         }
 
         return $this->description;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Category">Categories</a> assigned to the parent <a href="ctp:api:type:Product">Product</a>.</p>
+     *
+     *
+     * @return null|CategoryReferenceCollection
+     */
+    public function getCategories()
+    {
+        if (is_null($this->categories)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_CATEGORIES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->categories = CategoryReferenceCollection::fromArray($data);
+        }
+
+        return $this->categories;
+    }
+
+    /**
+     * <p>Order of the parent <a href="ctp:api:type:Product">Product</a> in <a href="ctp:api:type:Category">Categories</a>.</p>
+     *
+     *
+     * @return null|CategoryOrderHints
+     */
+    public function getCategoryOrderHints()
+    {
+        if (is_null($this->categoryOrderHints)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CATEGORY_ORDER_HINTS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->categoryOrderHints = CategoryOrderHintsModel::of($data);
+        }
+
+        return $this->categoryOrderHints;
     }
 
     /**
@@ -566,6 +626,22 @@ final class VariantProjectionModel extends JsonObjectModel implements VariantPro
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * @param ?CategoryReferenceCollection $categories
+     */
+    public function setCategories(?CategoryReferenceCollection $categories): void
+    {
+        $this->categories = $categories;
+    }
+
+    /**
+     * @param ?CategoryOrderHints $categoryOrderHints
+     */
+    public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
+    {
+        $this->categoryOrderHints = $categoryOrderHints;
     }
 
     /**

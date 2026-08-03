@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Variant;
 
+use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\CategoryOrderHints;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -29,6 +31,8 @@ interface VariantProjection extends JsonObject
     public const FIELD_NAME = 'name';
     public const FIELD_SLUG = 'slug';
     public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_CATEGORIES = 'categories';
+    public const FIELD_CATEGORY_ORDER_HINTS = 'categoryOrderHints';
     public const FIELD_KEY = 'key';
     public const FIELD_SKU = 'sku';
     public const FIELD_IMAGES = 'images';
@@ -108,6 +112,22 @@ interface VariantProjection extends JsonObject
      * @return null|LocalizedString
      */
     public function getDescription();
+
+    /**
+     * <p><a href="ctp:api:type:Category">Categories</a> assigned to the parent <a href="ctp:api:type:Product">Product</a>.</p>
+     *
+
+     * @return null|CategoryReferenceCollection
+     */
+    public function getCategories();
+
+    /**
+     * <p>Order of the parent <a href="ctp:api:type:Product">Product</a> in <a href="ctp:api:type:Category">Categories</a>.</p>
+     *
+
+     * @return null|CategoryOrderHints
+     */
+    public function getCategoryOrderHints();
 
     /**
      * <p>User-defined unique identifier of the <a href="ctp:api:type:Variant">Variant</a>.</p>
@@ -210,6 +230,16 @@ interface VariantProjection extends JsonObject
      * @param ?LocalizedString $description
      */
     public function setDescription(?LocalizedString $description): void;
+
+    /**
+     * @param ?CategoryReferenceCollection $categories
+     */
+    public function setCategories(?CategoryReferenceCollection $categories): void;
+
+    /**
+     * @param ?CategoryOrderHints $categoryOrderHints
+     */
+    public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void;
 
     /**
      * @param ?string $key

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Variant;
 
+use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -15,6 +16,8 @@ use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceBuilder;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\CategoryOrderHints;
+use Commercetools\Api\Models\Product\CategoryOrderHintsBuilder;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Base\Builder;
@@ -83,6 +86,18 @@ final class VariantProjectionBuilder implements Builder
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
+
+    /**
+
+     * @var ?CategoryReferenceCollection
+     */
+    private $categories;
+
+    /**
+
+     * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
+     */
+    private $categoryOrderHints;
 
     /**
 
@@ -223,6 +238,28 @@ final class VariantProjectionBuilder implements Builder
     public function getDescription()
     {
         return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Category">Categories</a> assigned to the parent <a href="ctp:api:type:Product">Product</a>.</p>
+     *
+
+     * @return null|CategoryReferenceCollection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * <p>Order of the parent <a href="ctp:api:type:Product">Product</a> in <a href="ctp:api:type:Category">Categories</a>.</p>
+     *
+
+     * @return null|CategoryOrderHints
+     */
+    public function getCategoryOrderHints()
+    {
+        return $this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints;
     }
 
     /**
@@ -403,6 +440,28 @@ final class VariantProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryReferenceCollection $categories
+     * @return $this
+     */
+    public function withCategories(?CategoryReferenceCollection $categories)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CategoryOrderHints $categoryOrderHints
+     * @return $this
+     */
+    public function withCategoryOrderHints(?CategoryOrderHints $categoryOrderHints)
+    {
+        $this->categoryOrderHints = $categoryOrderHints;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $key
      * @return $this
      */
@@ -524,6 +583,17 @@ final class VariantProjectionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCategoryOrderHints() instead
+     * @return $this
+     */
+    public function withCategoryOrderHintsBuilder(?CategoryOrderHintsBuilder $categoryOrderHints)
+    {
+        $this->categoryOrderHints = $categoryOrderHints;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPrice() instead
      * @return $this
      */
@@ -546,6 +616,8 @@ final class VariantProjectionBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->categories,
+            $this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints,
             $this->key,
             $this->sku,
             $this->images,
