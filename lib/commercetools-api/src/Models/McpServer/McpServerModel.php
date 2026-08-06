@@ -86,6 +86,12 @@ final class McpServerModel extends JsonObjectModel implements McpServer
      *
      * @var ?string
      */
+    protected $authenticationMode;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $state;
 
     /**
@@ -108,6 +114,7 @@ final class McpServerModel extends JsonObjectModel implements McpServer
         ?string $key = null,
         ?LocalizedString $name = null,
         ?LocalizedString $description = null,
+        ?string $authenticationMode = null,
         ?string $state = null,
         ?McpServerConfig $mcpServer = null
     ) {
@@ -120,6 +127,7 @@ final class McpServerModel extends JsonObjectModel implements McpServer
         $this->key = $key;
         $this->name = $name;
         $this->description = $description;
+        $this->authenticationMode = $authenticationMode;
         $this->state = $state;
         $this->mcpServer = $mcpServer;
     }
@@ -317,6 +325,26 @@ final class McpServerModel extends JsonObjectModel implements McpServer
     }
 
     /**
+     * <p>Determines how AI agents authenticate when connecting to the MCP Server.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        if (is_null($this->authenticationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_AUTHENTICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authenticationMode = (string) $data;
+        }
+
+        return $this->authenticationMode;
+    }
+
+    /**
      * <p>State of the MCP Server. A <code>Disabled</code> MCP Server rejects all AI agent tool requests.</p>
      *
      *
@@ -428,6 +456,14 @@ final class McpServerModel extends JsonObjectModel implements McpServer
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void
+    {
+        $this->authenticationMode = $authenticationMode;
     }
 
     /**

@@ -17,6 +17,7 @@ interface McpServerDraft extends JsonObject
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
     public const FIELD_STATE = 'state';
     public const FIELD_MCP_SERVER = 'mcpServer';
 
@@ -43,6 +44,14 @@ interface McpServerDraft extends JsonObject
      * @return null|LocalizedString
      */
     public function getDescription();
+
+    /**
+     * <p>Determines how AI agents authenticate when connecting to the MCP Server.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAuthenticationMode();
 
     /**
      * <p>State of the MCP Server.</p>
@@ -74,6 +83,11 @@ interface McpServerDraft extends JsonObject
      * @param ?LocalizedString $description
      */
     public function setDescription(?LocalizedString $description): void;
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void;
 
     /**
      * @param ?string $state

@@ -43,6 +43,12 @@ final class McpServerDraftModel extends JsonObjectModel implements McpServerDraf
      *
      * @var ?string
      */
+    protected $authenticationMode;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $state;
 
     /**
@@ -59,12 +65,14 @@ final class McpServerDraftModel extends JsonObjectModel implements McpServerDraf
         ?string $key = null,
         ?LocalizedString $name = null,
         ?LocalizedString $description = null,
+        ?string $authenticationMode = null,
         ?string $state = null,
         ?McpServerConfigDraft $mcpServer = null
     ) {
         $this->key = $key;
         $this->name = $name;
         $this->description = $description;
+        $this->authenticationMode = $authenticationMode;
         $this->state = $state;
         $this->mcpServer = $mcpServer;
     }
@@ -132,6 +140,26 @@ final class McpServerDraftModel extends JsonObjectModel implements McpServerDraf
     }
 
     /**
+     * <p>Determines how AI agents authenticate when connecting to the MCP Server.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        if (is_null($this->authenticationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_AUTHENTICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authenticationMode = (string) $data;
+        }
+
+        return $this->authenticationMode;
+    }
+
+    /**
      * <p>State of the MCP Server.</p>
      *
      *
@@ -195,6 +223,14 @@ final class McpServerDraftModel extends JsonObjectModel implements McpServerDraf
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void
+    {
+        $this->authenticationMode = $authenticationMode;
     }
 
     /**

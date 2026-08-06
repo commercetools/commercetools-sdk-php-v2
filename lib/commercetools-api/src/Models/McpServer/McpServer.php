@@ -23,6 +23,7 @@ interface McpServer extends BaseResource
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
     public const FIELD_STATE = 'state';
     public const FIELD_MCP_SERVER = 'mcpServer';
 
@@ -99,6 +100,14 @@ interface McpServer extends BaseResource
     public function getDescription();
 
     /**
+     * <p>Determines how AI agents authenticate when connecting to the MCP Server.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAuthenticationMode();
+
+    /**
      * <p>State of the MCP Server. A <code>Disabled</code> MCP Server rejects all AI agent tool requests.</p>
      *
 
@@ -158,6 +167,11 @@ interface McpServer extends BaseResource
      * @param ?LocalizedString $description
      */
     public function setDescription(?LocalizedString $description): void;
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void;
 
     /**
      * @param ?string $state

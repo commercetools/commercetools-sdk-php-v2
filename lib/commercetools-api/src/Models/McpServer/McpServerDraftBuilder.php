@@ -44,6 +44,12 @@ final class McpServerDraftBuilder implements Builder
 
      * @var ?string
      */
+    private $authenticationMode;
+
+    /**
+
+     * @var ?string
+     */
     private $state;
 
     /**
@@ -83,6 +89,17 @@ final class McpServerDraftBuilder implements Builder
     public function getDescription()
     {
         return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+    }
+
+    /**
+     * <p>Determines how AI agents authenticate when connecting to the MCP Server.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        return $this->authenticationMode;
     }
 
     /**
@@ -136,6 +153,17 @@ final class McpServerDraftBuilder implements Builder
     public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $authenticationMode
+     * @return $this
+     */
+    public function withAuthenticationMode(?string $authenticationMode)
+    {
+        $this->authenticationMode = $authenticationMode;
 
         return $this;
     }
@@ -201,6 +229,7 @@ final class McpServerDraftBuilder implements Builder
             $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->authenticationMode,
             $this->state,
             $this->mcpServer instanceof McpServerConfigDraftBuilder ? $this->mcpServer->build() : $this->mcpServer
         );

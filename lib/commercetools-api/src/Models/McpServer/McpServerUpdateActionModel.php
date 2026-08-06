@@ -35,6 +35,7 @@ final class McpServerUpdateActionModel extends JsonObjectModel implements McpSer
        'addToolCustomization' => McpServerAddToolCustomizationActionModel::class,
        'removeTool' => McpServerRemoveToolActionModel::class,
        'removeToolCustomization' => McpServerRemoveToolCustomizationActionModel::class,
+       'setAuthenticationMode' => McpServerSetAuthenticationModeActionModel::class,
        'setDescription' => McpServerSetDescriptionActionModel::class,
        'setJsonOutputFiltering' => McpServerSetJsonOutputFilteringActionModel::class,
        'setName' => McpServerSetNameActionModel::class,
