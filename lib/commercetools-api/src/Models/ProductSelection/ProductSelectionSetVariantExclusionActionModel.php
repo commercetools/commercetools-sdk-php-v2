@@ -94,7 +94,7 @@ final class ProductSelectionSetVariantExclusionActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>Determines which Variants of the previously excluded Product are to be included in the Product Selection with <code>IndividualExclusion</code> <a href="ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>.
+     * <p>Determines which Variants of the previously excluded Product are to be excluded from the Product Selection with <code>IndividualExclusion</code> <a href="ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>.
      * Leave it empty to unset an existing Variant Exclusion.</p>
      *
      *
