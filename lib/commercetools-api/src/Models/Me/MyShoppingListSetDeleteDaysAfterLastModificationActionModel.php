@@ -63,7 +63,7 @@ final class MyShoppingListSetDeleteDaysAfterLastModificationActionModel extends 
     }
 
     /**
-     * <p>Value to set. If not provided, the default value for this field configured in <a href="ctp:api:type:ShoppingListsConfiguration">Project settings</a> is assigned.</p>
+     * <p>Value to set. If omitted, the default value for this field configured in <a href="ctp:api:type:ShoppingListsConfiguration">Project settings</a> is assigned.</p>
      *
      *
      * @return null|int

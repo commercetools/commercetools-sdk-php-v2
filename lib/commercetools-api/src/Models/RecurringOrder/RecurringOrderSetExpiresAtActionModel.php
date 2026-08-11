@@ -64,7 +64,7 @@ final class RecurringOrderSetExpiresAtActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Date and time (UTC) the Recurring Order should expire. If empty, any existing value will be removed.</p>
+     * <p>Date and time (UTC) the Recurring Order should expire. If omitted, any existing value is removed.</p>
      * <p>If the date or time is extended or removed when the <a href="ctp:api:type:RecurringOrderState">RecurringOrderState</a> is <code>Expired</code>, the state will be updated to <code>Active</code>.</p>
      *
      *

@@ -66,7 +66,7 @@ final class StagedOrderSetLineItemShippingDetailsActionBuilder implements Builde
 
     /**
      * <p>Value to set.
-     * If empty, the existing value is removed.</p>
+     * If omitted, the existing value is removed.</p>
      *
 
      * @return null|ItemShippingDetailsDraft

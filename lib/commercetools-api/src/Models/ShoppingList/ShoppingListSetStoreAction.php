@@ -17,7 +17,7 @@ interface ShoppingListSetStoreAction extends ShoppingListUpdateAction
     public const FIELD_STORE = 'store';
 
     /**
-     * <p>The <a href="ctp:api:type:Store">Store</a> the ShoppingList should be assigned to. If empty, any existing value will be removed.</p>
+     * <p>The <a href="ctp:api:type:Store">Store</a> the ShoppingList should be assigned to. If omitted, any existing value is removed.</p>
      *
 
      * @return null|StoreResourceIdentifier

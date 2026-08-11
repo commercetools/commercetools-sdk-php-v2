@@ -29,7 +29,7 @@ final class McpServerSetNameActionBuilder implements Builder
     private $name;
 
     /**
-     * <p>Value to set. If empty or absent, the existing name is removed.</p>
+     * <p>Value to set. If omitted, the existing name is removed.</p>
      *
 
      * @return null|LocalizedString

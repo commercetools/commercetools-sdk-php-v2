@@ -16,7 +16,7 @@ interface CustomerSetFirstNameAction extends CustomerUpdateAction
     public const FIELD_FIRST_NAME = 'firstName';
 
     /**
-     * <p>Value to set. If empty, any existing value is removed.</p>
+     * <p>Value to set. If omitted, any existing value is removed.</p>
      *
 
      * @return null|string

@@ -27,7 +27,7 @@ final class BusinessUnitSetAssociatesActionBuilder implements Builder
     private $associates;
 
     /**
-     * <p>The new list of Associates. If empty, existing values will be removed.</p>
+     * <p>The new list of Associates. Set to an empty array to remove all existing values.</p>
      *
 
      * @return null|AssociateDraftCollection

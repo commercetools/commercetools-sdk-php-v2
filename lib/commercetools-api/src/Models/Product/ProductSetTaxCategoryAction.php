@@ -17,7 +17,7 @@ interface ProductSetTaxCategoryAction extends ProductUpdateAction
     public const FIELD_TAX_CATEGORY = 'taxCategory';
 
     /**
-     * <p>The Tax Category to set. If empty, any existing value will be removed.</p>
+     * <p>The Tax Category to set. If omitted, any existing value is removed.</p>
      *
 
      * @return null|TaxCategoryResourceIdentifier

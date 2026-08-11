@@ -29,7 +29,7 @@ final class StandalonePriceSetDiscountedPriceActionBuilder implements Builder
     private $discounted;
 
     /**
-     * <p>Value to set. If empty, any existing value will be removed.</p>
+     * <p>Value to set. If omitted, any existing value is removed.</p>
      * <p>The referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> must be of type external, active, and its predicate must match the referenced Price.</p>
      *
 

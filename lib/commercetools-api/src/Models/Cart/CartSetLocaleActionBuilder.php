@@ -29,7 +29,7 @@ final class CartSetLocaleActionBuilder implements Builder
     /**
      * <p>Value to set.
      * Must be one of the <a href="ctp:api:type:Project">Project</a>'s <code>languages</code>.
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      *
 
      * @return null|string

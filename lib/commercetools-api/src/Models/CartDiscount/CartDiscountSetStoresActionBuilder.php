@@ -30,7 +30,7 @@ final class CartDiscountSetStoresActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Store">Stores</a> to set.
      * Overrides the current list of Stores.
-     * If empty, any existing values will be removed.</p>
+     * Set to an empty array to remove all existing values.</p>
      * <p>A failed update can return the following errors:</p>
      * <ul>
      * <li>If the referenced Stores exceed the <a href="/api/limits#cart-discounts-stores">limit</a>, a <a href="ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</li>

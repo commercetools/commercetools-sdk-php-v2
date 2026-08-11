@@ -94,7 +94,7 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
 
     /**
      * <p>Value to set.
-     * If empty, any existing value is removed.</p>
+     * If omitted, any existing value is removed.</p>
      *
      *
      * @return null|ExternalTaxAmountDraft

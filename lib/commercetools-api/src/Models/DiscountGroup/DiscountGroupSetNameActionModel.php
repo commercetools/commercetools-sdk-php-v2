@@ -66,7 +66,7 @@ final class DiscountGroupSetNameActionModel extends JsonObjectModel implements D
 
     /**
      * <p>New value to set.
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      *
      *
      * @return null|LocalizedString

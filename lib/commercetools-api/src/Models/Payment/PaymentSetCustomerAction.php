@@ -18,7 +18,7 @@ interface PaymentSetCustomerAction extends PaymentUpdateAction
 
     /**
      * <p>Value to set.
-     * If empty, any existing reference is removed.</p>
+     * If omitted, any existing reference is removed.</p>
      *
 
      * @return null|CustomerResourceIdentifier

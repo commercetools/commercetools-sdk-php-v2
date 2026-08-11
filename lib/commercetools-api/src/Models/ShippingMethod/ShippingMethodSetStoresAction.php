@@ -19,7 +19,7 @@ interface ShippingMethodSetStoresAction extends ShippingMethodUpdateAction
     /**
      * <p>ResourceIdentifiers of the Stores to set.
      * Overrides the current list of Stores.
-     * If empty, any existing values are removed.</p>
+     * Set to an empty array to remove all existing values.</p>
      *
 
      * @return null|StoreResourceIdentifierCollection

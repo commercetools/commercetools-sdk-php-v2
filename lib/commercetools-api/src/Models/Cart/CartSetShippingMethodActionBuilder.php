@@ -36,7 +36,7 @@ final class CartSetShippingMethodActionBuilder implements Builder
 
     /**
      * <p>Value to set.
-     * If empty, any existing value is removed.</p>
+     * If omitted, any existing value is removed.</p>
      * <p><a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned in one of the following cases:</p>
      * <ol>
      * <li>If the referenced Shipping Method has a predicate that does not match the Cart.</li>

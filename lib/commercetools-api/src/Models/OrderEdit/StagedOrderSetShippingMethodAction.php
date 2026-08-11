@@ -20,7 +20,7 @@ interface StagedOrderSetShippingMethodAction extends StagedOrderUpdateAction
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
-     * <p>Value to set. If empty, any existing value will be removed.
+     * <p>Value to set. If omitted, any existing value is removed.
      * If the referenced Shipping Method has a predicate that does not match the Cart, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 

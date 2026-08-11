@@ -18,7 +18,7 @@ interface StateSetNameAction extends StateUpdateAction
 
     /**
      * <p>Value to set.
-     * If empty, any existing value will be removed.</p>
+     * Set to an empty object to remove any existing value.</p>
      *
 
      * @return null|LocalizedString

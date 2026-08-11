@@ -30,7 +30,7 @@ final class DiscountGroupSetDescriptionActionBuilder implements Builder
 
     /**
      * <p>Value to set.
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      *
 
      * @return null|LocalizedString

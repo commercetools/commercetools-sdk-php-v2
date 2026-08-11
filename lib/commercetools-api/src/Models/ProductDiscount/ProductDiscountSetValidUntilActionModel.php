@@ -65,7 +65,7 @@ final class ProductDiscountSetValidUntilActionModel extends JsonObjectModel impl
 
     /**
      * <p>Value to set.
-     * If empty, any existing value will be removed.
+     * If omitted, any existing value is removed.
      * Take <a href="/api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
      *

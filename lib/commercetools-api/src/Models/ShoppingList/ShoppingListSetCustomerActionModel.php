@@ -65,7 +65,7 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Customer">Customer</a> the ShoppingList should be associated to. If empty, any existing value will be removed.</p>
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> the ShoppingList should be associated to. If omitted, any existing value is removed.</p>
      *
      *
      * @return null|CustomerResourceIdentifier

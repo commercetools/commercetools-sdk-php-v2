@@ -62,7 +62,7 @@ final class CartSetCustomLineItemShippingDetailsActionBuilder implements Builder
 
     /**
      * <p>Value to set.
-     * If empty, any existing value is removed.</p>
+     * If omitted, any existing value is removed.</p>
      *
 
      * @return null|ItemShippingDetailsDraft

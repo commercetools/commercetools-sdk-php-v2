@@ -17,7 +17,7 @@ interface McpServerSetNameAction extends McpServerUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
-     * <p>Value to set. If empty or absent, the existing name is removed.</p>
+     * <p>Value to set. If omitted, the existing name is removed.</p>
      *
 
      * @return null|LocalizedString

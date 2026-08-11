@@ -64,7 +64,7 @@ final class StandalonePriceSetPriceTiersActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Value to set. If empty, any existing value will be removed.
+     * <p>Value to set. Set to an empty array to remove any existing value.
      * The <code>minimumQuantity</code> of the PriceTiers must be unique and greater than <code>1</code>, otherwise an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> error is returned.</p>
      *
      *

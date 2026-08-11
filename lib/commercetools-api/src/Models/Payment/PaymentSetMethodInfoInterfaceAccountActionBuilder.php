@@ -28,7 +28,7 @@ final class PaymentSetMethodInfoInterfaceAccountActionBuilder implements Builder
 
     /**
      * <p>New account or instance of the payment interface.
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      *
 
      * @return null|string

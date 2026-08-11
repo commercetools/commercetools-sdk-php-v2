@@ -35,7 +35,7 @@ interface ProductSetDiscountedPriceAction extends ProductUpdateAction
     public function getStaged();
 
     /**
-     * <p>Value to set. If empty, any existing value will be removed.
+     * <p>Value to set. If omitted, any existing value is removed.
      * The referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> must have the Type <code>external</code>, be active, and its predicate must match the referenced Price.</p>
      *
 
