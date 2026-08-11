@@ -130,7 +130,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * <p>If the Product or Product Variant is deleted, <code>deactivatedAt</code> is the date and time (UTC) of deletion.</p>
+     * <p>If the Product or Product Variant is deleted or unpublished, <code>deactivatedAt</code> is the date and time (UTC) this occurred.</p>
      * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product Variant cannot be ordered anymore.</p>
      *
 
@@ -222,6 +222,7 @@ final class ShoppingListLineItemBuilder implements Builder
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the ShoppingListLineItem refers to. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+     * <p>For a Project with <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> (BETA) set to <code>Modular</code>, when <code>variantId</code> is not set, the ShoppingListLineItem refers to the Product's default <a href="ctp:api:type:Variant">Variant</a> (BETA) (<code>defaultVariant</code>) instead of the Master Variant. If no default Variant is set, the ShoppingListLineItem refers to the Variant with the lowest <code>variantId</code>.</p>
      *
 
      * @return null|int

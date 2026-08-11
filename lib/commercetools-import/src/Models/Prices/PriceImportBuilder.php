@@ -117,7 +117,7 @@ final class PriceImportBuilder implements Builder
     private $product;
 
     /**
-     * <p>User-defined unique identifier for the Embedded Price. If a <a href="/../api/types#price">Price</a> with this <code>key</code> exists on the specified <code>productVariant</code>, it is updated with the imported data.</p>
+     * <p>User-defined unique identifier for the Embedded Price. If a <a href="/api/types#price">Price</a> with this <code>key</code> exists on the specified <code>productVariant</code>, it is updated with the imported data.</p>
      *
 
      * @return null|string
@@ -206,7 +206,7 @@ final class PriceImportBuilder implements Builder
 
     /**
      * <ul>
-     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="ctp:api:type:Product">Product</a> with the new Price data.</li>
+     * <li>Set to <code>false</code> to update both the <a href="/api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="ctp:api:type:Product">Product</a> with the new Price data.</li>
      * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
      * </ul>
      *

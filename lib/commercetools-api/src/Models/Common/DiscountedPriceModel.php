@@ -47,6 +47,15 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
 
     /**
      * <p>Money value of the discounted price.</p>
+     * <ul>
+     * <li>
+     * <p>When a <a href="ctp:api:type:ProductDiscountValueRelative">relative Product Discount</a> applies and the fractional part of the resulting discounted price is 0.5, the discounted price is <a href="https://en.wikipedia.org/wiki/Rounding#Rounding_half_down">rounded half down</a>.</p>
+     * <p>For example, a price of €1.01 (<code>centAmount: 101</code>) with a 50% discount (<code>permyriad: 5000</code>) calculates to €0.505. Since the fractional half-cent is exactly 0.5, it rounds down to €0.50 (<code>centAmount: 50</code>).</p>
+     * </li>
+     * <li>
+     * <p>When an <a href="ctp:api:type:ProductDiscountValueAbsolute">absolute Product Discount</a> exceeds the price of the Product Variant, the resulting discounted price is set to <code>0</code>.</p>
+     * </li>
+     * </ul>
      *
      *
      * @return null|TypedMoney

@@ -56,7 +56,7 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, only the staged Embedded Price Custom Field is updated. If <code>false</code>, both the current and staged Embedded Price Custom Field are updated.</p>
+     * <p>Whether only the staged Embedded Price Custom Field is updated. If <code>false</code>, both the current and staged Embedded Price Custom Field are updated.</p>
      *
 
      * @return null|bool
@@ -67,7 +67,7 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     * <p>Name of the <a href="/api/projects/custom-fields">Custom Field</a>.</p>
      *
 
      * @return null|string

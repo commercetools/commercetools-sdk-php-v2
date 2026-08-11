@@ -188,7 +188,7 @@ final class PaymentMethodDraftModel extends JsonObjectModel implements PaymentMe
 
     /**
      * <p>Reference to a BusinessUnit the PaymentMethod should belong to.</p>
-     * <p>Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
+     * <p>Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
      *
      * @return null|BusinessUnitResourceIdentifier
@@ -310,7 +310,7 @@ final class PaymentMethodDraftModel extends JsonObjectModel implements PaymentMe
     }
 
     /**
-     * <p>Set to <code>true</code> if the PaymentMethod should be the default.</p>
+     * <p>Whether the PaymentMethod should be the default.</p>
      * <p>The default applies per Customer, Business Unit, or the combination of both (Associate).</p>
      *
      *

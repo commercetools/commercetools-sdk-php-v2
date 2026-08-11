@@ -151,7 +151,7 @@ final class ProductTailoringSetAssetCustomFieldActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     * <p>Whether only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
      *
      *
      * @return null|bool
@@ -211,7 +211,7 @@ final class ProductTailoringSetAssetCustomFieldActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     * <p>Name of the <a href="/api/projects/custom-fields">Custom Field</a>.</p>
      *
      *
      * @return null|string

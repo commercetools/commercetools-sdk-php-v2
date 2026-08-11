@@ -47,7 +47,7 @@ interface ImportContainer extends JsonObject
     public function getVersion();
 
     /**
-     * <p>The retention policy of the ImportContainer.</p>
+     * <p>Retention policy for this ImportContainer. If not set, the ImportContainer will expire <strong>72 hours</strong> after creation.</p>
      *
 
      * @return null|RetentionPolicy
@@ -71,7 +71,8 @@ interface ImportContainer extends JsonObject
     public function getLastModifiedAt();
 
     /**
-     * <p>Date and time (UTC) the ImportContainer is automatically deleted. Only present if a <code>retentionPolicy</code> is set. ImportContainers without <code>expiresAt</code> are permanent until <a href="#delete-importcontainer">manually deleted</a>.</p>
+     * <p>Date and time (UTC) when the ImportContainer is automatically deleted.
+     * If no <code>retentionPolicy</code> was set at creation, this is <strong>72 hours</strong> after <code>createdAt</code>. If a <code>TimeToLiveRetentionPolicy</code> was set, it is derived from <code>timeToLive</code>.</p>
      *
 
      * @return null|DateTimeImmutable

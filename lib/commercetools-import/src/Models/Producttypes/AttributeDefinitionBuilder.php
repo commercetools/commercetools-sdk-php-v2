@@ -110,7 +110,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Whether the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
 
      * @return null|bool
@@ -154,7 +154,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the Attribute's values are available in the <a href="/../api/projects/product-search">Product Search</a> or the <a href="/../api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.</p>
+     * <p>Whether the Attribute's values are available in the <a href="/api/projects/product-search">Product Search</a> or the <a href="/api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.</p>
      *
 
      * @return null|bool

@@ -95,7 +95,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The search query against <a href="/../api/projects/product-search#searchable-product-fields">searchable Product fields</a>.</p>
+     * <p>The search query against <a href="/api/projects/product-search#searchable-product-fields">searchable Product fields</a>.</p>
      *
      *
      * @return null|SearchQuery
@@ -116,7 +116,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Controls how results to your query are <a href="/../api/projects/product-search#sorting">sorted</a>.
+     * <p>Controls how results to your query are <a href="/api/projects/product-search#sorting">sorted</a>.
      * If not provided, the results are sorted by relevance score in descending order.</p>
      *
      *
@@ -137,7 +137,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The maximum number of search results to be returned in one <a href="/../api/projects/product-search#pagination">page</a>.</p>
+     * <p>The maximum number of search results to be returned in one <a href="/api/projects/product-search#pagination">page</a>.</p>
      *
      *
      * @return null|int
@@ -157,7 +157,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The number of search results to be skipped in the response for <a href="/../api/projects/product-search#pagination">pagination</a>.</p>
+     * <p>The number of search results to be skipped in the response for <a href="/api/projects/product-search#pagination">pagination</a>.</p>
      *
      *
      * @return null|int
@@ -179,7 +179,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     /**
      * <p>If <code>query</code> specifies an expression for a Product Variant field,
      * set this to <code>true</code> to get additional information for each returned Product about which Product Variants match the search query.
-     * For details, see <a href="/../api/projects/product-search#matching-variants">matching variants</a>.</p>
+     * For details, see <a href="/api/projects/product-search#matching-variants">matching variants</a>.</p>
      *
      *
      * @return null|bool
@@ -199,7 +199,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Controls deprecated data integration <a href="/../api/deprecations-and-removals#product-projection-parameters">with Product Projection parameters</a>.
+     * <p>Controls deprecated data integration <a href="/api/deprecations-and-removals#product-projection-parameters">with Product Projection parameters</a>.
      * If not set, the result does not include the Product Projection.</p>
      *
      * @deprecated
@@ -221,7 +221,7 @@ final class ProductSearchRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Set this field to request <a href="/../api/projects/product-search#facets">facets</a>.</p>
+     * <p>Set this field to request <a href="/api/projects/product-search#facets">facets</a>.</p>
      *
      *
      * @return null|ProductSearchFacetExpressionCollection

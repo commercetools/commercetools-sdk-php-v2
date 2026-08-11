@@ -68,7 +68,7 @@ final class SearchSortingBuilder implements Builder
     }
 
     /**
-     * <p>String value specifying linguistic and regional preferences using the <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag format</a>, as described in <a href="https://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</a>. The format combines language, script, and region using hyphen-separated subtags. For example: <code>en</code>, <code>en-US</code>, <code>zh-Hans-SG</code>.</p>
+     * <p>String value specifying linguistic and regional preferences using the <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag format</a>, as described in <a href="https://www.rfc-editor.org/info/bcp47/">BCP 47</a>. The format combines language, script, and region using hyphen-separated subtags. For example: <code>en</code>, <code>en-US</code>, <code>zh-Hans-SG</code>.</p>
      *
 
      * @return null|string
@@ -113,7 +113,7 @@ final class SearchSortingBuilder implements Builder
     }
 
     /**
-     * <p>Allows you to apply a <a href="/../api/search-query-language#sort-filter">sort filter</a>.</p>
+     * <p>Allows you to apply a <a href="/api/search-query-language#sort-filter">sort filter</a>.</p>
      *
 
      * @return null|SearchQuery

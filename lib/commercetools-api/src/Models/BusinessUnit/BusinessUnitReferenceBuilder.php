@@ -46,7 +46,7 @@ final class BusinessUnitReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded BusinessUnit. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for BusinessUnit.</p>
+     * <p>Contains the representation of the expanded BusinessUnit. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for BusinessUnit.</p>
      *
 
      * @return null|BusinessUnit

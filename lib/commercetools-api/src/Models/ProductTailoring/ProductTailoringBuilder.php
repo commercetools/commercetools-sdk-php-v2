@@ -216,7 +216,7 @@ final class ProductTailoringBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the tailored information contained in the <code>current</code> <a href="ctp:api:type:ProductTailoringData">ProductTailoringData</a> is provided when <a href="/../api/projects/product-tailoring#retrieve-product-projection-with-tailored-information">retrieving the ProductProjection in Store</a>.
+     * <p>Whether the tailored information contained in the <code>current</code> <a href="ctp:api:type:ProductTailoringData">ProductTailoringData</a> is provided when <a href="/api/projects/product-tailoring#retrieve-product-projection-with-tailored-information">retrieving the ProductProjection in Store</a>.
      * For information not part of the ProductTailoringData, the original information contained in the <a href="ctp:api:type:ProductData">ProductData</a> is provided.
      * If <code>false</code>, only the original information contained in the ProductData is provided.</p>
      *
@@ -251,7 +251,7 @@ final class ProductTailoringBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if the <code>staged</code> data is different from the <code>current</code> data.</p>
+     * <p>Whether the <code>staged</code> data is different from the <code>current</code> data.</p>
      *
 
      * @return null|bool

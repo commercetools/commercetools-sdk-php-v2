@@ -29,7 +29,7 @@ final class ShoppingListSetBusinessUnitActionBuilder implements Builder
     private $businessUnit;
 
     /**
-     * <p>The Business Unit to assign to the Shopping List, which must have access to the <a href="/../api/projects/stores">Store</a> that is set on the Shopping List.</p>
+     * <p>The Business Unit to assign to the Shopping List, which must have access to the <a href="/api/projects/stores">Store</a> that is set on the Shopping List.</p>
      *
 
      * @return null|BusinessUnitResourceIdentifier

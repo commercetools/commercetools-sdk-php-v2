@@ -93,7 +93,7 @@ final class ShoppingListReferenceModel extends JsonObjectModel implements Shoppi
     }
 
     /**
-     * <p>Contains the representation of the expanded ShoppingList. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ShoppingLists.</p>
+     * <p>Contains the representation of the expanded ShoppingList. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for ShoppingLists.</p>
      *
      *
      * @return null|ShoppingList

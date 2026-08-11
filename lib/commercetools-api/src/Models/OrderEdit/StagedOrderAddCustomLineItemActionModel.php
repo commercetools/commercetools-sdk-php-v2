@@ -202,7 +202,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     * <p>User-defined identifier of the Custom Line Item. Must be unique among Custom Line Items in the StagedOrder.</p>
      *
      *
      * @return null|string

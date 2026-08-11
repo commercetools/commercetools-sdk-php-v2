@@ -381,7 +381,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who owns the Quote.</p>
+     * <p>The <a href="/api/quotes-overview#buyer">Buyer</a> who owns the Quote.</p>
      *
 
      * @return null|CustomerReference
@@ -416,7 +416,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>Message from the <a href="/../api/quotes-overview#seller">Seller</a> included in the offer.</p>
+     * <p>Message from the <a href="/api/quotes-overview#seller">Seller</a> included in the offer.</p>
      *
 
      * @return null|string
@@ -427,7 +427,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>Message from the <a href="/../api/quotes-overview#buyer">Buyer</a> included in the <a href="ctp:api:type:QuoteRequestQuoteRenegotiationAction">renegotiation request</a>.</p>
+     * <p>Message from the <a href="/api/quotes-overview#buyer">Buyer</a> included in the <a href="ctp:api:type:QuoteRequestQuoteRenegotiationAction">renegotiation request</a>.</p>
      *
 
      * @return null|string
@@ -438,7 +438,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The Store to which the <a href="/../api/quotes-overview#buyer">Buyer</a> belongs.</p>
+     * <p>The Store to which the <a href="/api/quotes-overview#buyer">Buyer</a> belongs.</p>
      *
 
      * @return null|StoreKeyReference
@@ -678,7 +678,7 @@ final class QuoteBuilder implements Builder
 
     /**
      * <p>The purchase order number is typically set by the <a href="/quotes-overview#buyer">Buyer</a> on a <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to
-     * track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     * track the purchase order during the <a href="/api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
      *
 
      * @return null|string
@@ -689,7 +689,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference

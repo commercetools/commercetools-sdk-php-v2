@@ -46,7 +46,7 @@ final class ZoneReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded Zone. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Zones.</p>
+     * <p>Contains the representation of the expanded Zone. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for Zones.</p>
      *
 
      * @return null|Zone

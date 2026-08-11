@@ -416,7 +416,7 @@ final class ProductTailoringCreatedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
-     * <p><code>true</code> if the ProductTailoring is published.</p>
+     * <p>Whether the ProductTailoring is published.</p>
      *
      *
      * @return null|bool

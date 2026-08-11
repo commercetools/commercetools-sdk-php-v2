@@ -65,7 +65,7 @@ final class ReturnItemDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-defined unique identifier of the Return Item.</p>
+     * <p>User-defined identifier of the Return Item. Must be unique among Return Items in the Order.</p>
      *
 
      * @return null|string
@@ -76,7 +76,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Number of Line Items or Custom Line Items to return.</p>
+     * <p>Quantity of Line Items or Custom Line Items to return.</p>
      *
 
      * @return null|int

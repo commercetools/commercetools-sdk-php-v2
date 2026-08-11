@@ -18,6 +18,7 @@ use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -98,6 +99,12 @@ final class DiscountCodeBuilder implements Builder
      * @var ?CartDiscountReferenceCollection
      */
     private $cartDiscounts;
+
+    /**
+
+     * @var ?StoreKeyReferenceCollection
+     */
+    private $stores;
 
     /**
 
@@ -259,7 +266,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the DiscountCode <a href="/../api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
+     * <p>User-defined unique identifier of the DiscountCode <a href="/api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
      *
 
      * @return null|string
@@ -278,6 +285,18 @@ final class DiscountCodeBuilder implements Builder
     public function getCartDiscounts()
     {
         return $this->cartDiscounts;
+    }
+
+    /**
+     * <p>Reference to the Stores the DiscountCode is associated with, derived from the <code>stores</code> field of each referenced <a href="ctp:api:type:CartDiscount">CartDiscount</a>.</p>
+     * <p>The value of this field is <a href="/api/general-concepts#eventual-consistency">eventually consistent</a>.</p>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
     }
 
     /**
@@ -315,9 +334,10 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>Number of times the DiscountCode can be applied.
-     * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.
-     * This field does not limit discount applications for Orders created from a <a href="ctp:api:type:RecurringOrder">Recurring Order</a>.</p>
+     * <p>Number of times the DiscountCode can be applied.</p>
+     * <p>DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
+     * <p>If <code>maxApplicationsPerCustomer</code> is set, each application also counts toward this limit.</p>
+     * <p>This field does not limit discount applications for Orders created from a <a href="ctp:api:type:RecurringOrder">Recurring Order</a>.</p>
      *
 
      * @return null|int
@@ -328,9 +348,10 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>Number of times the DiscountCode can be applied per Customer (anonymous Carts are not supported).
-     * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.
-     * This field does not limit discount applications for Orders created from a <a href="ctp:api:type:RecurringOrder">Recurring Order</a>.</p>
+     * <p>Number of times the DiscountCode can be applied per Customer (anonymous Carts are not supported).</p>
+     * <p>Each use also counts toward the <code>maxApplications</code> limit.</p>
+     * <p>DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
+     * <p>This field does not limit discount applications for Orders created from a <a href="ctp:api:type:RecurringOrder">Recurring Order</a>.</p>
      *
 
      * @return null|int
@@ -518,6 +539,17 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReferenceCollection $stores
+     * @return $this
+     */
+    public function withStores(?StoreKeyReferenceCollection $stores)
+    {
+        $this->stores = $stores;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $cartPredicate
      * @return $this
      */
@@ -696,6 +728,7 @@ final class DiscountCodeBuilder implements Builder
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->code,
             $this->cartDiscounts,
+            $this->stores,
             $this->cartPredicate,
             $this->isActive,
             $this->references,

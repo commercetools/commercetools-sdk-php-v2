@@ -159,7 +159,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>User-defined unique SKU of the Product Variant.</p>
+     * <p>User-defined SKU of the Product Variant. Unique across all ProductVariants in a Project.</p>
      *
      *
      * @return null|string
@@ -179,7 +179,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>User-defined unique identifier of the ProductVariant.</p>
+     * <p>User-defined identifier of the ProductVariant. Unique among ProductVariants in the same Product.</p>
      * <p>This is different from <a href="ctp:api:type:Product">Product</a> <code>key</code>.</p>
      *
      *
@@ -200,7 +200,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>If the Product is <a href="/../api/projects/productProjections#projection-by-store">projected by Store</a>, this field only contains Embedded Prices that are valid for that Store.</p>
+     * <p>If the Product is <a href="/api/projects/productProjections#projection-by-store">projected by Store</a>, this field only contains Embedded Prices that are valid for that Store.</p>
      * <p>Cannot contain two Embedded Prices with the same scopes (currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
      *
@@ -241,7 +241,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>Only present when <a href="/../api/pricing-and-discounts-overview#price-selection">price selection</a> is applied.
+     * <p>Only present when <a href="/api/pricing-and-discounts-overview#price-selection">price selection</a> is applied.
      * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
      *
      *
@@ -326,8 +326,8 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p><code>true</code> if the Product Variant matches the search query.
-     * Only available in response to a <a href="/../api/projects/product-projection-search">Product Projection Search</a> request.</p>
+     * <p>Whether the Product Variant matches the search query.
+     * Only available in response to a <a href="/api/projects/product-projection-search">Product Projection Search</a> request.</p>
      *
      *
      * @return null|bool
@@ -347,8 +347,8 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>Only available in response to a <a href="/../api/projects/product-projection-search">Product Projection Search</a> request
-     * with <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
+     * <p>Only available in response to a <a href="/api/projects/product-projection-search">Product Projection Search</a> request
+     * with <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
      * Can be used to sort, <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
      *
      *
@@ -370,8 +370,8 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>Only available in response to a <a href="/../api/projects/product-projection-search">Product Projection Search</a> request
-     * with <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
+     * <p>Only available in response to a <a href="/api/projects/product-projection-search">Product Projection Search</a> request
+     * with <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
      *
      *
      * @return null|bool
@@ -391,7 +391,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>Only available when <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> is used.
+     * <p>Only available when <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> is used.
      * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
      *
      *

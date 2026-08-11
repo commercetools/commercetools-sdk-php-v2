@@ -171,6 +171,14 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function variants(): ResourceByProjectKeyVariants
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyVariants($args, $this->getClient());
+    }
+    /**
+     */
     public function types(): ResourceByProjectKeyTypes
     {
         $args = $this->getArgs();

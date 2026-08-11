@@ -146,7 +146,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Number of Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
+     * <p>Quantity of Line Items that should transition <a href="ctp:api:type:State">State</a>.</p>
      *
      *
      * @return null|int

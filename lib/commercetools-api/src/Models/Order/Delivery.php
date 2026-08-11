@@ -33,7 +33,7 @@ interface Delivery extends JsonObject
     public function getId();
 
     /**
-     * <p>User-defined unique identifier of the Delivery.</p>
+     * <p>User-defined identifier of the Delivery. Unique among Deliveries in the Order.</p>
      *
 
      * @return null|string

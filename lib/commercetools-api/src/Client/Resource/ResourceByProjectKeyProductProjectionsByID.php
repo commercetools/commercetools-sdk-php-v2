@@ -26,6 +26,15 @@ class ResourceByProjectKeyProductProjectionsByID extends ApiResource
     }
 
     /**
+     */
+    public function variantAttributes(): ResourceByProjectKeyProductProjectionsByIDVariantAttributes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductProjectionsByIDVariantAttributes($args, $this->getClient());
+    }
+
+    /**
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

@@ -28,7 +28,7 @@ final class TypeRemoveFieldDefinitionActionBuilder implements Builder
 
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to remove.
-     * The removal of a FieldDefinition deletes <a href="/../api/general-concepts#eventual-consistency">asynchronously</a> all Custom Fields using the FieldDefinition as well.</p>
+     * The removal of a FieldDefinition deletes <a href="/api/general-concepts#eventual-consistency">asynchronously</a> all Custom Fields using the FieldDefinition as well.</p>
      *
 
      * @return null|string

@@ -43,7 +43,7 @@ interface ReturnItem extends JsonObject
     public function getKey();
 
     /**
-     * <p>Number of Line Items or Custom Line Items returned.</p>
+     * <p>Quantity of Line Items or Custom Line Items returned.</p>
      *
 
      * @return null|int

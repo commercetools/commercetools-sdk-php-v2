@@ -480,7 +480,6 @@ $request = $builder
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->carts()->post(null)`
 
 Creates a Cart in the [BusinessUnit](ctp:api:type:BusinessUnit) referenced by `businessUnitKey`. As such, the `businessUnit` field on [CartDraft](ctp:api:type:CartDraft) is ignored for this request.
-Creating a Cart can fail with an [InvalidOperation](ctp:api:type:InvalidOperationError) if the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match the Cart.
 
 Specific Error Codes:
 
@@ -488,6 +487,11 @@ Specific Error Codes:
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method has a predicate that does not match the Cart.
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 
 ### Example
@@ -719,7 +723,9 @@ $request = $builder
 
 Creates an Order from a [Cart](ctp:api:type:Cart) in a [BusinessUnit](ctp:api:type:BusinessUnit).
 
-The Cart must have a shipping address set.
+The Cart must have a shipping address set, regardless of the [TaxMode](ctp:api:type:TaxMode).
+
+For a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode), the shipping address is used for tax calculation.
 
 If the Cart does not reference the same BusinessUnit as the `businessUnitKey` path parameter, an [InvalidOperation](ctp:api:type:InvalidOperationError) is returned.
 
@@ -787,7 +793,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withId("ID")->post(null)`
 
-Updates an Order in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/../api/projects/orders#update-actions).
+Updates an Order in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/api/projects/orders#update-actions).
 If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested Business Unit, this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -845,7 +851,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-Updates an Order in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/../api/projects/orders#update-actions).
+Updates an Order in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/api/projects/orders#update-actions).
 If the Order exists in the [Project](ctp:api:type:Project) but does not reference the requested Business Unit, this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -909,7 +915,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->head()`
 
-Checks if one or more QuoteRequests exist for the provided query predicate in a BusinessUnit. Returns a `200 OK` status if any QuoteRequests match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate in a BusinessUnit. Returns a `200 OK` status if any QuoteRequests match the query predicate, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -965,7 +971,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists with the provided `id` in a BusinessUnit. Returns a `200 OK` status if the QuoteRequest exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a QuoteRequest exists with the provided `id` in a BusinessUnit. Returns a `200 OK` status if the QuoteRequest exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -983,7 +989,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withId("ID")->post(null)`
 
-Updates a QuoteRequest in a BusinessUnit using one or more [update actions](/../api/projects/quote-requests#update-actions).
+Updates a QuoteRequest in a BusinessUnit using one or more [update actions](/api/projects/quote-requests#update-actions).
 If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1023,7 +1029,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists with the provided `key` in a BusinessUnit. Returns a `200 OK` status if the QuoteRequest exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a QuoteRequest exists with the provided `key` in a BusinessUnit. Returns a `200 OK` status if the QuoteRequest exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -1041,7 +1047,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quoteRequests()->withKey("key")->post(null)`
 
-Updates a QuoteRequest in a BusinessUnit using one or more [update actions](/../api/projects/quote-requests#update-actions).
+Updates a QuoteRequest in a BusinessUnit using one or more [update actions](/api/projects/quote-requests#update-actions).
 If the QuoteRequest exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1078,7 +1084,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->head()`
 
-Checks if one or more Quotes exist for the provided query predicate in a BusinessUnit. Returns a `200 OK` status if any Quotes match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if one or more Quotes exist for the provided query predicate in a BusinessUnit. Returns a `200 OK` status if any Quotes match the query predicate, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -1115,7 +1121,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists with the provided `id` in a BusinessUnit. Returns a `200 OK` status if the Quote exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a Quote exists with the provided `id` in a BusinessUnit. Returns a `200 OK` status if the Quote exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -1133,7 +1139,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withId("ID")->post(null)`
 
-Updates a Quote in a BusinessUnit using one or more [update actions](/../api/projects/quotes#update-actions).
+Updates a Quote in a BusinessUnit using one or more [update actions](/api/projects/quotes#update-actions).
 If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1173,7 +1179,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists with the provided `key` in a BusinessUnit. Returns a `200 OK` status if the Quote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a Quote exists with the provided `key` in a BusinessUnit. Returns a `200 OK` status if the Quote exists, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -1191,7 +1197,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->quotes()->withKey("key")->post(null)`
 
-Updates a Quote in a BusinessUnit using one or more [update actions](/../api/projects/quotes#update-actions).
+Updates a Quote in a BusinessUnit using one or more [update actions](/api/projects/quotes#update-actions).
 If the Quote exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1304,7 +1310,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withId("ID")->post(null)`
 
-Updates a ShoppingList in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/../api/projects/shoppingLists#update-actions).
+Updates a ShoppingList in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/api/projects/shoppingLists#update-actions).
 If the ShoppingList exists in the Project but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1384,7 +1390,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->shoppingLists()->withKey("key")->post(null)`
 
-Updates a ShoppingList in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/../api/projects/shoppingLists#update-actions).
+Updates a ShoppingList in a [BusinessUnit](ctp:api:type:BusinessUnit) using one or more [update actions](/api/projects/shoppingLists#update-actions).
 If the ShoppingList exists in the [Project](ctp:api:type:Project) but does not reference the requested [BusinessUnit](ctp:api:type:BusinessUnit), this method returns an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
 
 
@@ -1945,7 +1951,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->businessUnits()->search()->post(null)`
 
-If the initial indexing is in progress or the feature is inactive, A [SearchNotReady](ctp:api:type:SearchNotReadyError) error is returned. If inactive, you can [reactivate](/../api/projects/business-unit-search#reactivate) it.
+If the initial indexing is in progress or the feature is inactive, A [SearchNotReady](ctp:api:type:SearchNotReadyError) error is returned. If inactive, you can [reactivate](/api/projects/business-unit-search#reactivate) it.
 
 
 ### Example
@@ -2188,8 +2194,6 @@ $request = $builder
 
 Creates a Cart in the Project.
 
-If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, or if the Shipping Method is not active, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
-
 When using [InventoryMode](ctp:api:type:InventoryMode) `ReserveOnCart`:
 - If only some Line Items can be reserved, the Cart creation succeeds, however, the items that could not be reserved are removed and reservation warnings are returned in the response.
 - If none of the Line Items can be reserved, the Cart creation fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
@@ -2200,6 +2204,11 @@ Specific Error Codes:
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method has a predicate that does not match the Cart.
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 
 ### Example
@@ -2246,7 +2255,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->post(null)`
 
-Updates a Cart in the Project using one or more [update actions](/../api/projects/carts#update-actions).
+Updates a Cart in the Project using one or more [update actions](/api/projects/carts#update-actions).
 
 ### Example
 ```php
@@ -2310,7 +2319,12 @@ $request = $builder
 ## `withProjectKey("projectKey")->carts()->customerIdWithCustomerIdValueMerge("customerId")->post(null)`
 
 Merges items from an anonymous Cart into the most recently modified active Cart of a Customer. If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
-For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/../api/carts-orders-overview#merge-a-cart).
+For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/api/carts-orders-overview#merge-a-cart).
+
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 
 ### Example
@@ -2358,7 +2372,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->post(null)`
 
-Updates a Cart in the Project using one or more [update actions](/../api/projects/carts#update-actions).
+Updates a Cart in the Project using one or more [update actions](/api/projects/carts#update-actions).
 
 ### Example
 ```php
@@ -2397,7 +2411,7 @@ The following applies to the new Cart:
 - Line items and Custom Line Items are reset to their initial [state](/projects/carts#itemstate).
 - It contains no payments or delivery information.
 - It contains up-to-date Tax Rates, Prices, and Line Item product data.
-- The [CartState](/projects/carts#cartstate) is `Active`.
+- The [CartState](ctp:api:type:CartState) is `Active`.
 - If using the `customerGroup` field (for a single Customer Group) and the referenced Customer switched to another Customer Group, the new Cart is automatically updated to reflect the new group and corresponding prices.
 - If using the `customerGroupAssignments` field (for multiple Customer Groups), the Cart no longer keeps a direct reference to a Customer Group. If a Customer’s group assignments change, the Cart and its Line Item prices are not updated automatically. Prices are only updated when the Cart is changed via a [direct update action](/projects/carts#update-actions).
 
@@ -2420,7 +2434,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->get()`
 
-Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+Either the [scope](/api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
 
 
 ### Example
@@ -2449,7 +2463,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->post(null)`
 
-Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
 Creating a Category produces the [CategoryCreated](ctp:api:type:CategoryCreatedMessage) Message.
 
@@ -2466,7 +2480,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->get()`
 
-Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+Either the [scope](/api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
 
 
 ### Example
@@ -2497,7 +2511,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->post(null)`
 
-Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
 
 ### Example
@@ -2513,7 +2527,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->delete()`
 
-Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
 
 ### Example
@@ -2529,7 +2543,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->get()`
 
-Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+Either the [scope](/api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
 
 
 ### Example
@@ -2560,7 +2574,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->post(null)`
 
-Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
 
 ### Example
@@ -2576,7 +2590,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->delete()`
 
-Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
 
 ### Example
@@ -2758,7 +2772,7 @@ $request = $builder
 
 For performance reasons, it is highly advisable to query for Custom Objects in a container by using the `container` field in the `where` predicate.
 
-This endpoint is deprecated and replaced by the [Query CustomObjects in Container](/../apis/ctp:api:endpoint:/{projectKey}/custom-objects/{container}:GET) endpoint.
+This endpoint is deprecated and replaced by the [Query CustomObjects in Container](ctp:api:endpoint:/{projectKey}/custom-objects/{container}:GET) endpoint.
 
 
 ### Example
@@ -3040,7 +3054,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->post(null)`
 
-Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up).
+Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/api/customers-overview#cart-merge-during-sign-in-and-sign-up).
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message. Simultaneously creating two Customers with the same email address can return a [LockedField](ctp:api:type:LockedFieldError) error.
 
@@ -3118,11 +3132,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->emailConfirm()->post(null)`
 
-Use this method to verify a global Customer's email during their [email verification process](/../api/customers-overview#customer-email-verification).
+Use this method to verify a global Customer's email during their [email verification process](/api/customers-overview#customer-email-verification).
 
 Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
 
-After the email is verified, all email tokens issued previously through the [email verification flow](/../api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+After the email is verified, all email tokens issued previously through the [email verification flow](/api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/api/general-concepts#eventual-consistency).
 
 
 ### Example
@@ -3138,7 +3152,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->emailToken()->post(null)`
 
-Use this method to create an email token for a global Customer during their [email verification process](/../api/customers-overview#customer-email-verification).
+Use this method to create an email token for a global Customer during their [email verification process](/api/customers-overview#customer-email-verification).
 
 Creating an email token for the Customer produces the [CustomerEmailTokenCreated](ctp:api:type:CustomerEmailTokenCreatedMessage) Message.
 The Message will include the token's value, if the token's validity is 60 minutes or less.
@@ -3157,7 +3171,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withEmailToken("emailToken")->get()`
 
-Use this method to retrieve a global Customer's details by using the email token during their [email verification process](/../api/customers-overview#customer-email-verification).
+Use this method to retrieve a global Customer's details by using the email token during their [email verification process](/api/customers-overview#customer-email-verification).
 
 
 ### Example
@@ -3250,11 +3264,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->passwordReset()->post(null)`
 
-Use this method to reset a global Customer's password during their [password reset process](/../api/customers-overview#customer-password-reset).
+Use this method to reset a global Customer's password during their [password reset process](/api/customers-overview#customer-password-reset).
 
 Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
 
-After the password is reset, all password tokens issued previously through the [password reset flow](/../api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/../api/authorization#password-flow) and [refresh token flow](/../api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+After the password is reset, all password tokens issued previously through the [password reset flow](/api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/api/authorization#password-flow) and [refresh token flow](/api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/api/general-concepts#eventual-consistency).
 
 
 ### Example
@@ -3270,7 +3284,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->passwordToken()->post(null)`
 
-Use this method to create a password reset token for a global Customer during their [password reset process](/../api/customers-overview#customer-password-reset).
+Use this method to create a password reset token for a global Customer during their [password reset process](/api/customers-overview#customer-password-reset).
 
 Creating a password reset token for the Customer produces the [CustomerPasswordTokenCreated](ctp:api:type:CustomerPasswordTokenCreatedMessage) Message.
 The Message will include the token's value, if the token's validity is 60 minutes or less.
@@ -3289,7 +3303,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withPasswordToken("passwordToken")->get()`
 
-Use this method to retrieve the details of a global Customer by using the password token during their [password reset process](/../api/customers-overview#customer-password-reset).
+Use this method to retrieve the details of a global Customer by using the password token during their [password reset process](/api/customers-overview#customer-password-reset).
 
 
 ### Example
@@ -3306,7 +3320,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->customers()->search()->post(null)`
 
 If the initial indexing is in progress or the feature is inactive, a [SearchNotReady](ctp:api:type:SearchNotReadyError) error is returned.
-If inactive, you can [reactivate](/../api/projects/customer-search#reactivate) it.
+If inactive, you can [reactivate](/api/projects/customer-search#reactivate) it.
 
 
 ### Example
@@ -3560,7 +3574,7 @@ $request = $builder
 Creates a DiscountGroup in the Project.
 This request generates the [DiscountGroupCreated](ctp:api:type:DiscountGroupCreatedMessage) Message.
 
-If the [limit](/../api/limits#discount-groups) for active Discount Groups has been reached, a [MaxDiscountGroupsReached](ctp:api:type:MaxDiscountGroupsReachedError) error is returned.
+If the [limit](/api/limits#discount-groups) for active Discount Groups has been reached, a [MaxDiscountGroupsReached](ctp:api:type:MaxDiscountGroupsReachedError) error is returned.
 
 
 ### Example
@@ -3608,7 +3622,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountGroups()->withId("ID")->post(null)`
 
-Updates a DiscountGroup in the Project using one or more [update actions](/../api/projects/discount-groups#update-actions).
+Updates a DiscountGroup in the Project using one or more [update actions](/api/projects/discount-groups#update-actions).
 
 
 ### Example
@@ -3676,7 +3690,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountGroups()->withKey("key")->post(null)`
 
-Updates a DiscountGroup in the Project using one or more [update actions](/../api/projects/discount-groups#update-actions).
+Updates a DiscountGroup in the Project using one or more [update actions](/api/projects/discount-groups#update-actions).
 
 
 ### Example
@@ -3889,7 +3903,7 @@ $request = $builder
 
 The My Business Unit endpoint does not support assigning existing Customers to a Business Unit.
 Associates with the `UpdateAssociates` [Permission](ctp:api:type:Permission) can use this endpoint to create a new Customer and associate it with the Business Unit.
-If the required [Permission](/projects/associate-roles#permission) is missing, an [AssociateMissingPermission](/errors#associatemissingpermission) error is returned.
+If the required [Permission](ctp:api:type:Permission) is missing, an [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError) error is returned.
 
 
 ### Example
@@ -4329,8 +4343,6 @@ $request = $builder
 
 Creates a Cart in a [Store](ctp:api:type:Store).
 
-If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, or if the Shipping Method is not active, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
-
 Specific Error Codes:
 
 - [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
@@ -4338,6 +4350,10 @@ Specific Error Codes:
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 - [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method has a predicate that does not match the Cart.
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
 
 
 ### Example
@@ -4390,7 +4406,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
-Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/carts#update-actions).
+Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/carts#update-actions).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4469,7 +4485,12 @@ Merges items from an anonymous Cart into the most recently modified active Cart 
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
-For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/../api/carts-orders-overview#merge-a-cart).
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
+
+For more information about merge mode behaviors, merge rules, and tax recalculation, see [Merge a Cart](/api/carts-orders-overview#merge-a-cart).
 
 
 ### Example
@@ -4524,7 +4545,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->post(null)`
 
-Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/carts#update-actions).
+Updates a Cart in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/carts#update-actions).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4571,7 +4592,7 @@ The following applies to the new Cart:
 - Line items and Custom Line Items are reset to their initial [state](/projects/carts#itemstate).
 - It contains no payments or delivery information.
 - It contains up-to-date Tax Rates, Prices, and Line Item product data.
-- The [CartState](/projects/carts#cartstate) is `Active`.
+- The [CartState](ctp:api:type:CartState) is `Active`.
 - If using the `customerGroup` field (for a single Customer Group) and the referenced Customer switched to another Customer Group, the new Cart is automatically updated to reflect the new group and corresponding prices.
 - If using the `customerGroupAssignments` field (for multiple Customer Groups), the Cart no longer keeps a direct reference to a Customer Group. If a Customer’s group assignments change, the Cart and its Line Item prices are not updated automatically. Prices are only updated when the Cart is changed via a [direct update action](/projects/carts#update-actions).
 
@@ -4629,7 +4650,7 @@ When using this endpoint, if omitted, the Customer `stores` field is set to the 
 
 If a Cart with a `store` field specified, the `store` field must reference the same [Store](ctp:api:type:Store) specified in the `{storeKey}` path parameter.
 
-Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up).
+Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/api/customers-overview#cart-merge-during-sign-in-and-sign-up).
 If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message. Simultaneously creating two Customers with the same email address can return a [LockedField](ctp:api:type:LockedFieldError) error.
@@ -4719,13 +4740,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailConfirm()->post(null)`
 
-Use this method to verify a Store-specific Customer's email during their [email verification process](/../api/customers-overview#customer-email-verification).
+Use this method to verify a Store-specific Customer's email during their [email verification process](/api/customers-overview#customer-email-verification).
 
 Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
-After the email is verified, all email tokens issued previously through the [email verification flow](/../api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+After the email is verified, all email tokens issued previously through the [email verification flow](/api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/api/general-concepts#eventual-consistency).
 
 
 ### Example
@@ -4742,7 +4763,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailToken()->post(null)`
 
-Use this method to create an email token for a Store-specific Customer during their [email verification process](/../api/customers-overview#customer-email-verification).
+Use this method to create an email token for a Store-specific Customer during their [email verification process](/api/customers-overview#customer-email-verification).
 
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4764,7 +4785,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withEmailToken("emailToken")->get()`
 
-Use this method to retrieve a Store-specific Customer's details by using the email token during their [email verification process](/../api/customers-overview#customer-email-verification).
+Use this method to retrieve a Store-specific Customer's details by using the email token during their [email verification process](/api/customers-overview#customer-email-verification).
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4871,11 +4892,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordReset()->post(null)`
 
-Use this method to reset a Store-specific Customer's password during their [password reset process](/../api/customers-overview#customer-password-reset).
+Use this method to reset a Store-specific Customer's password during their [password reset process](/api/customers-overview#customer-password-reset).
 
 Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
 
-After the password is reset, all password tokens issued previously through the [password reset flow](/../api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/../api/authorization#password-flow) and [refresh token flow](/../api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+After the password is reset, all password tokens issued previously through the [password reset flow](/api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/api/authorization#password-flow) and [refresh token flow](/api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/api/general-concepts#eventual-consistency).
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), then this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4894,7 +4915,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordToken()->post(null)`
 
-Use this method to create a password reset token for a Store-specific Customer during their [password reset process](/../api/customers-overview#customer-password-reset).
+Use this method to create a password reset token for a Store-specific Customer during their [password reset process](/api/customers-overview#customer-password-reset).
 
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4916,7 +4937,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withPasswordToken("passwordToken")->get()`
 
-Use this method to retrieve a Store-specific Customer's details by using the password reset token during their [password reset process](/../api/customers-overview#customer-password-reset).
+Use this method to retrieve a Store-specific Customer's details by using the password reset token during their [password reset process](/api/customers-overview#customer-password-reset).
 
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -4933,13 +4954,113 @@ $request = $builder
                 ->withPasswordToken("passwordToken")
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->head()`
+
+Checks if one or more DiscountCodes exist for the provided query predicate in a Store. Returns a `200` status if any DiscountCodes match the query predicate, or a `404` status otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->withId("ID")->head()`
+
+Checks if a DiscountCode exists with the provided `id`. Returns a `200` status if the DiscountCode exists, or a `404` status otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->discountCodes()->withKey("key")->head()`
+
+Checks if a DiscountCode exists with the provided `key`. Returns a `200` status if the DiscountCode exists, or a `404` status otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->discountCodes()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->login()->post(null)`
 
 Authenticates a Customer associated with a [Store](ctp:api:type:Store).
 
-Allows [merging](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
+Allows [merging](/api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
 If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
+
+The anonymous Cart is not merged in any of the following cases:
+
+- The referenced Shipping Method is not active.
+- The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+- The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error.
 
@@ -4962,7 +5083,7 @@ Returns a Customer for a given Query Predicate in a [Store](ctp:api:type:Store).
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Customer exists in the Store for the given Query Predicate.
-- If a Customer exists in the Store for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a Customer exists in the Store for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 - If a Customer exists for the given Query Predicate but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -4983,7 +5104,7 @@ Updates the Customer in a [Store](ctp:api:type:Store). Returns a `200` status if
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#internal-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -5004,7 +5125,7 @@ Deletes the Customer in a [Store](ctp:api:type:Store). Returns a `200` status if
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#internal-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -5029,7 +5150,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no active Cart exists.
 - If an active Cart exists but does not have a `store` specified, or the `store` field references a different Store.
-- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5052,7 +5173,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no active Cart exists in a Store.
 - If an active Cart exists but does not have a `store` specified, or the `store` field references a different Store.
-- If an active Cart exists but does not contain a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If an active Cart exists but does not contain a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5104,7 +5225,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->post(null)`
 
 
-Creates a Cart in a Store for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Creates a Cart in a Store for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 The `store` field in the created [Cart](ctp:api:type:Cart) is set to the Store specified by the `storeKey` path parameter.
 
@@ -5137,7 +5258,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Cart exists in the Store for the given `id`.
 - If the Cart exists but does not belong to a Store, or the Cart's `store` field references a different Store.
-- If the Cart exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If the Cart exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5178,7 +5299,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Cart exists in the Store for the given `id`.
 - If the Cart exists but does not belong to a Store, or the Cart's `store` field references a different Store.
-- If the Cart exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If the Cart exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5202,7 +5323,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Cart exists in the Store for the given `id`.
 - If the Cart exists in the Project but does not belong to a Store, or the Cart's `store` field references a different Store.
-- If the Cart exists in the Project but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If the Cart exists in the Project but does not have either a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5220,13 +5341,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->emailConfirm()->post(null)`
 
-This is the last step in the [email verification process of a Customer](/../api/projects/customers#email-verification-of-customer-in-store). Returns a `200` status if successful.
+This is the last step in the [email verification process of a Customer](/api/projects/customers#email-verification-of-customer-in-store). Returns a `200` status if successful.
 
-After the email is verified, all email tokens issued previously through the [email verification flow](/../api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+After the email is verified, all email tokens issued previously through the [email verification flow](/api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/api/general-concepts#eventual-consistency).
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#internal-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -5274,7 +5395,7 @@ Retrieves Orders in a [Store](ctp:api:type:Store) for the authenticated Customer
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Orders exist that match the provided query predicate.
-- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5293,11 +5414,11 @@ $request = $builder
 
 Checks if one or more Orders exist for the provided query predicate in a [Store](ctp:api:type:Store) for the authenticated Customer or anonymous user. Returns a `200` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no Orders exist in the Store that match the Query Predicate.
 - If an Order matches the Query Predicate, but no `store` is specified, or the `store` field references a different Store.
-- If an Order matches the Query Predicate, but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If an Order matches the Query Predicate, but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5315,13 +5436,13 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->post(null)`
 
 
-Creates an Order from a Cart in a [Store](ctp:api:type:Store) for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Creates an Order from a Cart in a [Store](ctp:api:type:Store) for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 The Cart must have a shipping address set.
 
 When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
 
-If the Cart's `customerId` does not match the [customer:{id}](/scopes#composable-commerce-oauth) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+If the Cart's `customerId` does not match the [customer:{id}](/scopes#internal-oauth) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#internal-oauth) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
 
@@ -5358,7 +5479,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no Orders exists in the Store with the provided `id`.
 - If an Order exists but does not have a `store` specified, or the `store` field references a different Store.
-- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5378,11 +5499,11 @@ $request = $builder
 
 Checks if an Order exists with the provided `id` in a [Store](ctp:api:type:Store) for the authenticated Customer or anonymous user. Returns a `200` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no Order exists in the Store with the provided `id`.
 - If an Order exists but does not have a `store` specified, or the `store` field references a different Store.
-- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5404,7 +5525,7 @@ Changing the password of the Customer produces the [CustomerPasswordUpdated](ctp
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#internal-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -5422,15 +5543,15 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->password()->reset()->post(null)`
 
-This is the last step in the [password reset process of the authenticated Customer](/../api/projects/customers#password-reset-of-customer-in-store).
+This is the last step in the [password reset process of the authenticated Customer](/api/projects/customers#password-reset-of-customer-in-store).
 
 Resetting a password produces the Customer [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
 
-After the password is reset, all password tokens issued previously through the [password reset flow](/../api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/../api/authorization#password-flow) and [refresh token flow](/../api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+After the password is reset, all password tokens issued previously through the [password reset flow](/api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/api/authorization#password-flow) and [refresh token flow](/api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/api/general-concepts#eventual-consistency).
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
-- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If no Customer exists with the `id` specified in the [customer:{id}](/scopes#internal-oauth) scope.
 - If the Customer exists but is associated with a different Store than what is specified in the `manage_my_profile:{projectKey}:{storeKey}` scope.
 
 
@@ -5455,7 +5576,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingLists exist in a Store.
 - If a ShoppingList exists but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList exists in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5474,11 +5595,11 @@ $request = $builder
 
 Checks if one or more ShoppingLists exist for the provided query predicate for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns `200 OK` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no ShoppingLists exist for the provided query predicate in a Store.
 - If a ShoppingList matches the query predicate but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList exists in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5496,7 +5617,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
 
 
-Creates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). The `customer` or `anonymousId` field on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Creates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). The `customer` or `anonymousId` field on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 When using this endpoint, the `store` field of a ShoppingList is always set to the Store specified in the path parameter.
 
@@ -5521,7 +5642,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the provided `id` in a Store.
 - If a ShoppingList matches the provided `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5541,11 +5662,11 @@ $request = $builder
 
 Checks if a ShoppingList exists with the provided `id` for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns a `200` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no ShoppingList matches the provided `id` in a Store.
 - If a ShoppingList matches the provided `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5563,13 +5684,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
-Updates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/me-shoppingLists#update-actions). Returns a `200` status if successful.
+Updates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/me-shoppingLists#update-actions). Returns a `200` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList matches the provided `id` in a Store.
 - If a ShoppingList matches the provided `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5593,7 +5714,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the provided `id` in a Store.
 - If a ShoppingList matches the provided `id` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList matches the provided `id` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5617,8 +5738,8 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the provided `key` in a Store.
 - If a ShoppingList matches the provided `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope,
-    or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope,
+    or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5638,11 +5759,11 @@ $request = $builder
 
 Checks if a ShoppingList exists with the provided `key` for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). Returns a `200` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no ShoppingList exists that matches the provided `key` in a Store.
 - If a ShoppingList matches the provided `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5660,13 +5781,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
-Updates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/me-shoppingLists#update-actions). Returns a `200` status if successful.
+Updates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/me-shoppingLists#update-actions). Returns a `200` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList matches the provided `key` in a Store.
 - If a ShoppingList matches the provided `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5690,7 +5811,7 @@ A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in th
 
 - If no ShoppingList matches the provided `key` in a Store.
 - If a ShoppingList matches the provided `key` but does not have a `store` specified, or the `store` field references a different Store.
-- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList matches the provided `key` in a Store but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -5712,7 +5833,7 @@ If used with an optional [access token for an anonymous session](ctp:api:type:An
 
 If omitted in the request body, the [Customer](ctp:api:type:Customer) `stores` field is set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
-If the Customer has multiple active Carts, the anonymous Cart is [merged](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
+If the Customer has multiple active Carts, the anonymous Cart is [merged](/api/customers-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
 
@@ -5762,9 +5883,9 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->post(null)`
 
 Creates an Order from a Cart in a [Store](ctp:api:type:Store).
-The Cart must have a shipping address set.
+The Cart must have a shipping address set, regardless of the [TaxMode](ctp:api:type:TaxMode).
 
-The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
+For a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode), the shipping address is used for tax calculation.
 
 Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
 
@@ -5831,7 +5952,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->post(null)`
 
-Updates an Order in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/orders#update-actions).
+Updates an Order in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/orders#update-actions).
 If the Order exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
@@ -5903,7 +6024,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-Updates an Order in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/orders#update-actions).
+Updates an Order in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/orders#update-actions).
 If the Order exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
@@ -5968,7 +6089,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->get()`
 
-Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its ID in the specified [Store](ctp:api:type:Store).
+Retrieves the [projected](/api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its ID in the specified [Store](ctp:api:type:Store).
 
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
@@ -5977,7 +6098,7 @@ If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [av
 If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
 
 By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
-If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/api/errors#404-not-found) error.
 
 Required access scopes:
 
@@ -6014,9 +6135,37 @@ $request = $builder
                 ->withId("ID")
                 ->head();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->variantAttributes()->get()`
+
+Returns a lightweight representation of all Variants for a [Product](ctp:api:type:Product), including only the requested variant-level [Attributes](ctp:api:type:Attribute) and minimal availability data, scoped to a specific [Store](ctp:api:type:Store).
+
+Designed for building attribute selectors on product detail pages (PDPs) with large numbers of variants.
+Only available for Projects with [productCatalogModel](ctp:api:type:ProductCatalogModel) set to `Modular`.
+
+Product-level Attributes are omitted from the response.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` and `view_products:{projectKey}:{storeKey}` scope is required.
+- To retrieve the staged representation of Products (draft data), the API Client must have the `view_products:{projectKey}` and `view_products:{projectKey}:{storeKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withId("ID")
+                ->variantAttributes()
+                ->get();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
 
-Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key in the specified [Store](ctp:api:type:Store).
+Retrieves the [projected](/api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key in the specified [Store](ctp:api:type:Store).
 
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
@@ -6025,7 +6174,7 @@ If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [av
 If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
 
 By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
-If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/api/errors#404-not-found) error.
 
 Required access scopes:
 
@@ -6061,6 +6210,34 @@ $request = $builder
                 ->productProjections()
                 ->withKey("key")
                 ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->variantAttributes()->get()`
+
+Returns a lightweight representation of all Variants for a [Product](ctp:api:type:Product), including only the requested variant-level [Attributes](ctp:api:type:Attribute) and minimal availability data, scoped to a specific [Store](ctp:api:type:Store).
+
+Designed for building attribute selectors on product detail pages (PDPs) with large numbers of variants.
+Only available for Projects with [productCatalogModel](ctp:api:type:ProductCatalogModel) set to `Modular`.
+
+Product-level Attributes are omitted from the response.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` and `view_products:{projectKey}:{storeKey}` scope is required.
+- To retrieve the staged representation of Products (draft data), the API Client must have the `view_products:{projectKey}` and `view_products:{projectKey}:{storeKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withKey("key")
+                ->variantAttributes()
+                ->get();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productSelectionAssignments()->get()`
 
@@ -6651,7 +6828,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->head()`
 
-Checks if an active ShippingMethod that can ship to the shipping address of the provided Cart exists in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if an active ShippingMethod that can ship to the shipping address of the provided Cart exists in a [Store](ctp:api:type:Store). Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -6716,7 +6893,7 @@ $request = $builder
 
 Retrieves a ShoppingList with the provided `id` in a [Store](ctp:api:type:Store).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6749,9 +6926,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->post(null)`
 
-Updates a ShoppingList in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/shoppingLists#update-actions).
+Updates a ShoppingList in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/shoppingLists#update-actions).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6770,7 +6947,7 @@ $request = $builder
 
 Deletes a ShoppingList in a [Store](ctp:api:type:Store).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6789,7 +6966,7 @@ $request = $builder
 
 Retrieves a ShoppingList with the provided `key` in a [Store](ctp:api:type:Store).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6822,9 +6999,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->post(null)`
 
-Updates a ShoppingList in a [Store](ctp:api:type:Store) using one or more [update actions](/../api/projects/shoppingLists#update-actions).
+Updates a ShoppingList in a [Store](ctp:api:type:Store) using one or more [update actions](/api/projects/shoppingLists#update-actions).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6843,7 +7020,7 @@ $request = $builder
 
 Deletes a ShoppingList in a [Store](ctp:api:type:Store).
 If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
-the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+the [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -6891,6 +7068,12 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->stagedQuotes()->post(null)`
 
 Creates a StagedQuote in a [Store](ctp:api:type:Store).
+
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Store referenced by the [Quote Request](ctp:api:type:QuoteRequest).
+    - The referenced Shipping Method is scoped to a Store, but the [Quote Request](ctp:api:type:QuoteRequest) does not belong to a Store.
+
 
 ### Example
 ```php
@@ -7031,6 +7214,146 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->get()`
+
+Queries Variant Projections in the specified [Store](ctp:api:type:Store).
+
+Only Variants belonging to Products distributed through the Store's configured channels are returned.
+By default, this endpoint returns the `current` representation of Variants where the `published` flag is `true`.
+
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for a Product and the given Store, the returned Variant Projections include the tailored Product name, slug, and description, along with the tailored Variant images, assets, and attributes. The `staged` query parameter selects either the current or staged tailored data. When no Product Tailoring exists for a Product and Store, the Variant Projection is returned without Product Tailoring data.
+
+Required access scopes:
+
+- To retrieve the current representation of published Variants, the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation, the API Client must have the `view_products:{projectKey}` scope.
+
+- To access Variant Projections in the context of a Store, the `view_products:{projectKey}:{storeKey}` scope is required.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->head()`
+
+Checks if one or more Variant Projections exist for the provided query predicate in the specified [Store](ctp:api:type:Store).
+Returns a `200` status if any Variant Projections match, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->withId("ID")->get()`
+
+Retrieves a Variant Projection by its ID in the specified [Store](ctp:api:type:Store).
+
+Only returns Variants belonging to Products distributed through the Store's configured channels.
+
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product and the given Store, the returned Variant Projection includes the tailored Product name, slug, and description, along with the tailored Variant images, assets, and attributes. The `staged` query parameter selects either the current or staged tailored data. When no Product Tailoring exists for the Product and Store, the Variant Projection is returned without Product Tailoring data.
+
+Required access scopes:
+
+- To retrieve the current representation, the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation, the API Client must have the `view_products:{projectKey}` scope.
+
+- To access Variant Projections in the context of a Store, the `view_products:{projectKey}:{storeKey}` scope is required.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->withId("ID")->head()`
+
+Checks if a Variant Projection exists with the provided `id` in the specified [Store](ctp:api:type:Store).
+Returns a `200` status if the Variant Projection exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->withKey("key")->get()`
+
+Retrieves a Variant Projection by its key in the specified [Store](ctp:api:type:Store).
+
+Only returns Variants belonging to Products distributed through the Store's configured channels.
+
+If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product and the given Store, the returned Variant Projection includes the tailored Product name, slug, and description, along with the tailored Variant images, assets, and attributes. The `staged` query parameter selects either the current or staged tailored data. When no Product Tailoring exists for the Product and Store, the Variant Projection is returned without Product Tailoring data.
+
+Required access scopes:
+
+- To retrieve the current representation, the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation, the API Client must have the `view_products:{projectKey}` scope.
+
+- To access Variant Projections in the context of a Store, the `view_products:{projectKey}:{storeKey}` scope is required.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->variantProjections()->withKey("key")->head()`
+
+Checks if a Variant Projection exists with the provided `key` in the specified [Store](ctp:api:type:Store).
+Returns a `200` status if the Variant Projection exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->variantProjections()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->inventory()->get()`
 
 null
@@ -7063,7 +7386,7 @@ $request = $builder
 
 Creates an InventoryEntry in the Project. Only one InventoryEntry can be created for a combination of a SKU and a supply channel.
 
-If quantity limits are provided, existing Line Items that reference a Product Variant with an SKU that matches the Inventory Entry can be affected. For more information, see [Quantity limits](/../api/inventory-overview#quantity-limits).
+If quantity limits are provided, existing Line Items that reference a Product Variant with an SKU that matches the Inventory Entry can be affected. For more information, see [Quantity limits](/api/inventory-overview#quantity-limits).
 
 Produces the [InventoryEntryCreated](ctp:api:type:InventoryEntryCreatedMessage) Message.
 
@@ -7202,9 +7525,15 @@ $request = $builder
 
 Authenticates a global Customer.
 
-Allows [merging](/../api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
+Allows [merging](/api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
 If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
+
+The anonymous Cart is not merged in any of the following cases:
+
+  - The referenced Shipping Method is not active.
+  - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+  - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
@@ -7219,6 +7548,165 @@ $request = $builder
                 ->login()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->mcpServers()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->get();
+```
+## `withProjectKey("projectKey")->mcpServers()->post(null)`
+
+Creates a new MCP Server for the Project.
+
+Specific Error Codes:
+- [DuplicateField](ctp:api:type:DuplicateFieldError)
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->mcpServers()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->mcpServers()->withId("ID")->post(null)`
+
+Specific Error Codes:
+- [InvalidOperation](ctp:api:type:InvalidOperationError)
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->mcpServers()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->mcpServers()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->mcpServers()->withKey("key")->post(null)`
+
+Specific Error Codes:
+- [InvalidOperation](ctp:api:type:InvalidOperationError)
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->mcpServers()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->mcpServers()->types()->get()`
+
+Returns the catalog of available [MCP Server types](ctp:api:type:McpServerType), each with its major versions and the tools you can enable for them.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->types()
+                ->get();
+```
+## `withProjectKey("projectKey")->mcpServers()->types()->withMcpServerType("mcpServerType")->get()`
+
+Returns a single [MCP Server type](ctp:api:type:McpServerType). When `majorVersion` is omitted, the latest major version is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->mcpServers()
+                ->types()
+                ->withMcpServerType("mcpServerType")
+                ->get();
+```
 ## `withProjectKey("projectKey")->me()->get()`
 
 Returns a Customer for a given Query Predicate. Returns a `200` status if successful.
@@ -7226,7 +7714,7 @@ Returns a Customer for a given Query Predicate. Returns a `200` status if succes
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Customer exists for the given Query Predicate.
-- If a Customer exists for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a Customer exists for the given Query Predicate, but does not have an `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7241,7 +7729,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->post(null)`
 
-Updates the Customer specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope. Returns a `200` status if successful.
+Updates the Customer specified in the [customer:{id}](/scopes#internal-oauth) scope. Returns a `200` status if successful.
 
 
 ### Example
@@ -7256,7 +7744,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->delete()`
 
-Deletes the Customer specified in the [customer:{id}](/scopes#composable-commerce-oauth) scope. Returns a `200` status if successful.
+Deletes the Customer specified in the [customer:{id}](/scopes#internal-oauth) scope. Returns a `200` status if successful.
 
 ### Example
 ```php
@@ -7277,7 +7765,7 @@ Carts with `Merchant` or `Quote` [CartOrigin](ctp:api:type:CartOrigin) are ignor
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no active Cart exists.
-- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7298,7 +7786,7 @@ Checks if an active Cart exists. Returns a `200` status if successful.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no active Cart exists.
-- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If an active Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7346,7 +7834,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->businessUnits()->post(null)`
 
-Automatically assigns the Associate to the Business Unit in the default [Associate Role](ctp:api:type:AssociateRole) defined in [BusinessUnitConfiguration](ctp:api:type:BusinessUnitConfiguration). If there is no default Associate Role configured, this request fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error. When creating a Division, the Associate must have the `AddChildUnits` [Permission](ctp:api:type:Permission) in the parent unit. If the required [Permission](/projects/associate-roles#permission) is missing, an [AssociateMissingPermission](/errors#associatemissingpermission) error is returned.
+Automatically assigns the Associate to the Business Unit in the default [Associate Role](ctp:api:type:AssociateRole) defined in [BusinessUnitConfiguration](ctp:api:type:BusinessUnitConfiguration). If there is no default Associate Role configured, this request fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error. When creating a Division, the Associate must have the `AddChildUnits` [Permission](ctp:api:type:Permission) in the parent unit. If the required [Permission](ctp:api:type:Permission) is missing, an [AssociateMissingPermission](ctp:api:type:AssociateMissingPermissionError) error is returned.
 
 
 ### Example
@@ -7493,7 +7981,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->me()->carts()->post(null)`
 
 
-Creates a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Creates a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 Specific Error Codes:
 
@@ -7521,7 +8009,7 @@ Returns a Cart for a given `id`. Returns a `200` status if successful.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Cart exists with the provided `id`.
-- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7543,7 +8031,7 @@ Checks if a Cart exists with the provided `id`. Returns a `200` status if the Ca
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Cart exists with the provided `id`.
-- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7565,7 +8053,7 @@ Updates the Cart for a given `id`. Returns a `200` status if successful.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Cart exists with the provided `id`.
-- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7587,7 +8075,7 @@ Deletes the Cart for a given `id`. Returns a `200` status if successful.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Cart exists with the provided `id`.
-- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If the Cart exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7620,6 +8108,10 @@ Specific Error Codes:
 
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 
 
 ### Example
@@ -7636,9 +8128,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->emailConfirm()->post(null)`
 
-This is the last step in the [email verification process of a Customer](/../api/projects/customers#email-verification-of-customer).
+This is the last step in the [email verification process of a Customer](/api/projects/customers#email-verification-of-customer).
 
-After the email is verified, all email tokens issued previously through the [email verification flow](/../api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+After the email is verified, all email tokens issued previously through the [email verification flow](/api/projects/customers#email-verification-of-customer) are invalidated. This invalidation of tokens is [eventually consistent](/api/general-concepts#eventual-consistency).
 
 
 ### Example
@@ -7682,7 +8174,7 @@ Retrieves Orders for the authenticated Customer or anonymous user.
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Orders exist for the provided query predicate.
-- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If an Order exists but does not have a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7700,10 +8192,10 @@ $request = $builder
 
 Checks if one or more Orders exist for the provided query predicate for the authenticated Customer or anonymous user. Returns a `200` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no Orders exist that match the provided query predicate.
-- If one or more Orders exist but don't have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If one or more Orders exist but don't have either a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7720,13 +8212,13 @@ $request = $builder
 ## `withProjectKey("projectKey")->me()->orders()->post(null)`
 
 
-Creates an Order from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Creates an Order from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 The Cart must have a shipping address set.
 
 When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
 
-If the Cart's `customerId` does not match the [customer:{id}](/scopes#composable-commerce-oauth) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+If the Cart's `customerId` does not match the [customer:{id}](/scopes#internal-oauth) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#internal-oauth) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
 
@@ -7763,7 +8255,7 @@ Retrieves an Order with the provided `id` for the authenticated Customer or anon
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no Order exists for the provided `id`.
-- If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7782,10 +8274,10 @@ $request = $builder
 
 Checks if an Order exists with the provided `id` for the authenticated Customer or anonymous user. Returns a `200` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no Order exists for the provided `id`.
-- If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+- If the Order exists but does not have either a `customerId` that matches the [customer:{id}](/scopes#internal-oauth) scope, or an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -7849,11 +8341,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->password()->reset()->post(null)`
 
-This is the last step in the [password reset process of a Customer](/../api/projects/customers#password-reset-of-customer).
+This is the last step in the [password reset process of a Customer](/api/projects/customers#password-reset-of-customer).
 
 Resetting a password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
 
-After the password is reset, all password tokens issued previously through the [password reset flow](/../api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/../api/authorization#password-flow) and [refresh token flow](/../api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/../api/general-concepts#eventual-consistency).
+After the password is reset, all password tokens issued previously through the [password reset flow](/api/projects/customers#password-reset-of-customer) are invalidated. In addition, any access and refresh tokens issued previously through the [password flow](/api/authorization#password-flow) and [refresh token flow](/api/authorization#refresh-token-flow) are invalidated. This invalidation of tokens is [eventually consistent](/api/general-concepts#eventual-consistency).
 
 
 ### Example
@@ -7900,7 +8392,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->post(null)`
 
-Creates a [Payment](/projects/me-payments#mypayment) for the authenticated Customer or anonymous user.
+Creates a Payment for the authenticated Customer or anonymous user.
 Creating a Payment produces the [PaymentCreated](ctp:api:type:PaymentCreatedMessage) Message.
 
 
@@ -7917,7 +8409,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->get()`
 
-Retrieves a [Payment](/projects/me-payments#mypayment) with the provided `id` for the authenticated Customer or anonymous user.
+Retrieves a Payment with the provided `id` for the authenticated Customer or anonymous user.
 
 ### Example
 ```php
@@ -7933,7 +8425,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->head()`
 
-Checks if a [Payment](/projects/me-payments#mypayment) exists with the provided `id` for the authenticated Customer or anonymous user. Returns a `200` status if the Payment exists, or a `404` status otherwise.
+Checks if a Payment exists with the provided `id` for the authenticated Customer or anonymous user. Returns a `200` status if the Payment exists, or a `404` status otherwise.
 
 ### Example
 ```php
@@ -7949,7 +8441,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->post(null)`
 
-Updates a [Payment](/projects/me-payments#mypayment) for the authenticated Customer or anonymous user using one or more [update actions](/../api/projects/me-payments#update-actions).
+Updates a Payment for the authenticated Customer or anonymous user using one or more [update actions](/api/projects/me-payments#update-actions).
 You can only update a Payment if it has no [Transactions](ctp:api:type:Transaction).
 
 
@@ -7967,7 +8459,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->delete()`
 
-Deletes a [Payment](/projects/me-payments#mypayment) with the provided `id` for the authenticated Customer or anonymous user.
+Deletes a Payment with the provided `id` for the authenticated Customer or anonymous user.
 You can only delete a Payment if it has no [Transactions](ctp:api:type:Transaction).
 
 
@@ -8070,7 +8562,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->post(null)`
 
-Updates a QuoteRequest for the authenticated Customer using one or more [update actions](/../api/projects/quote-requests#update-actions).
+Updates a QuoteRequest for the authenticated Customer using one or more [update actions](/api/projects/quote-requests#update-actions).
 
 
 ### Example
@@ -8122,7 +8614,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->post(null)`
 
-Updates a QuoteRequest for the authenticated Customer using one or more [update actions](/../api/projects/quote-requests#update-actions).
+Updates a QuoteRequest for the authenticated Customer using one or more [update actions](/api/projects/quote-requests#update-actions).
 
 
 ### Example
@@ -8207,7 +8699,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->post(null)`
 
-Updates a Quote for the authenticated Customer using one or more [update actions](/../api/projects/quotes#update-actions).
+Updates a Quote for the authenticated Customer using one or more [update actions](/api/projects/quotes#update-actions).
 
 
 ### Example
@@ -8259,7 +8751,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->quotes()->withKey("key")->post(null)`
 
-Updates a Quote for the authenticated Customer using one or more [update actions](/../api/projects/quotes#update-actions).
+Updates a Quote for the authenticated Customer using one or more [update actions](/api/projects/quotes#update-actions).
 
 
 ### Example
@@ -8281,7 +8773,7 @@ Retrieves ShoppingLists for the authenticated Customer or anonymous user. Return
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the provided query predicate.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8299,10 +8791,10 @@ $request = $builder
 
 Checks if one or more ShoppingLists exist for the provided query predicate for the authenticated Customer or anonymous user. Returns a `200` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the provided query predicate.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8318,7 +8810,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->post(null)`
 
-Creates a ShoppingList for the authenticated Customer or anonymous user. The `customerId` or `anonymousId` on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#composable-commerce-oauth) or [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope.
+Creates a ShoppingList for the authenticated Customer or anonymous user. The `customerId` or `anonymousId` on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8339,7 +8831,7 @@ Retrieves a ShoppingList with the provided `id` for the authenticated Customer o
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists with the provided `id`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8358,10 +8850,10 @@ $request = $builder
 
 Checks if a ShoppingList exists with the provided `id` for the authenticated Customer or anonymous user. Returns a `200` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no ShoppingList exists with the provided `id`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8378,12 +8870,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
-Updates a ShoppingList for the authenticated Customer or anonymous user using one or more [update actions](/../api/projects/me-shoppingLists#update-actions).  Returns a `200` status if successful.
+Updates a ShoppingList for the authenticated Customer or anonymous user using one or more [update actions](/api/projects/me-shoppingLists#update-actions).  Returns a `200` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the provided `id`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8405,7 +8897,7 @@ Deletes a ShoppingList for the authenticated Customer or anonymous user. Returns
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists with the provided `id`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8427,7 +8919,7 @@ Retrieves a ShoppingList with the provided `key` for the authenticated Customer 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists with the provided `key`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8446,10 +8938,10 @@ $request = $builder
 
 Checks if a ShoppingList exists with the provided `key` for the authenticated Customer or anonymous user. Returns a `200` status if successful.
 
-A [Not Found](/../api/errors#404-not-found) error is returned in the following scenarios:
+A [Not Found](/api/errors#404-not-found) error is returned in the following scenarios:
 
 - If no ShoppingList exists with the provided `key`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8466,12 +8958,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
-Updates a ShoppingList for the authenticated Customer or anonymous user using one or more [update actions](/../api/projects/me-shoppingLists#update-actions).  Returns a `200` status if successful.
+Updates a ShoppingList for the authenticated Customer or anonymous user using one or more [update actions](/api/projects/me-shoppingLists#update-actions).  Returns a `200` status if successful.
 
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists for the provided `key`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8493,7 +8985,7 @@ Deletes a ShoppingList for the authenticated Customer or anonymous user. Returns
 A [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned in the following scenarios:
 
 - If no ShoppingList exists with the provided `key`.
-- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#composable-commerce-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#composable-commerce-oauth) scope.
+- If a ShoppingList exists but does not contain either an `anonymousId` that matches the [anonymous_id:{id}](/scopes#internal-oauth) scope, or a `customer` with `id` value that matches the [customer:{id}](/scopes#internal-oauth) scope.
 
 
 ### Example
@@ -8616,11 +9108,11 @@ $request = $builder
 
 Creates an Order from a Cart.
 
-The Cart must have a shipping address set.
+The Cart must have a shipping address set, regardless of the [TaxMode](ctp:api:type:TaxMode).
 
-The shipping address is used for tax calculation for a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode).
+For a Cart with `Platform` [TaxMode](ctp:api:type:TaxMode), the shipping address is used for tax calculation.
 
-Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message. If the Order is created from a Recurring Order schedule, the [OrderCreatedFromRecurringOrder](ctp:api:type:OrderCreatedFromRecurringOrderMessage) Message is generated.
+Creating an Order produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message. If the Order is created from a Recurring Order schedule, the [OrderCreatedFromRecurringOrder](ctp:api:type:OrderCreatedFromRecurringOrderMessage) Message is generated instead of the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
 
 If a server-side problem occurs, indicated by a 500 Internal Server Error HTTP response, the Order creation may still successfully complete after the error is returned.
 If you receive this error, you should verify the status of the Order by querying a unique identifier supplied during the creation request, such as the Order number.
@@ -8632,7 +9124,10 @@ Specific Error Codes:
 - [DiscountCodeNonApplicable](ctp:api:type:DiscountCodeNonApplicableError)
 - [ShippingMethodDoesNotMatchCart](ctp:api:type:ShippingMethodDoesNotMatchCartError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
-- [InvalidOperation](ctp:api:type:InvalidOperationError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Cart's Store.
+    - The referenced Shipping Method is scoped to a Store, but the Cart does not belong to a Store.
 - [MatchingPriceNotFound](ctp:api:type:MatchingPriceNotFoundError)
 - [MissingTaxRateForCountry](ctp:api:type:MissingTaxRateForCountryError)
 
@@ -8679,7 +9174,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->post(null)`
 
-Updates an Order in the Project using one or more [update actions](/../api/projects/orders#update-actions).
+Updates an Order in the Project using one or more [update actions](/api/projects/orders#update-actions).
 
 ### Example
 ```php
@@ -8744,7 +9239,7 @@ $request = $builder
 Creates an OrderEdit in the Project.
 You can either create multiple Order Edits for an Order and apply them sequentially to an Order, or create multiple Order Edits parallelly (as alternatives to each other) and apply one of them to the Order.
 
-You can only create an Order Edit if the [InventoryMode](/projects/carts#inventorymode) of the Order and its [LineItems](/projects/carts#lineitem) is `None`.
+You can only create an Order Edit if the [InventoryMode](ctp:api:type:InventoryMode) of the Order and its [LineItems](/projects/carts#lineitem) is `None`.
 
 
 ### Example
@@ -8792,7 +9287,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->post(null)`
 
-Updates an OrderEdit in the Project using one or more [update actions](/../api/projects/order-edits#update-actions).
+Updates an OrderEdit in the Project using one or more [update actions](/api/projects/order-edits#update-actions).
 
 ### Example
 ```php
@@ -8874,7 +9369,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->post(null)`
 
-Updates an OrderEdit in the Project using one or more [update actions](/../api/projects/order-edits#update-actions).
+Updates an OrderEdit in the Project using one or more [update actions](/api/projects/order-edits#update-actions).
 
 ### Example
 ```php
@@ -8958,7 +9453,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-Updates an Order in the Project using one or more [update actions](/../api/projects/orders#update-actions).
+Updates an Order in the Project using one or more [update actions](/api/projects/orders#update-actions).
 
 ### Example
 ```php
@@ -8999,7 +9494,10 @@ Specific Error Codes:
 
 - [CountryNotConfiguredInStore](ctp:api:type:CountryNotConfiguredInStoreError)
 - [InvalidItemShippingDetails](ctp:api:type:InvalidItemShippingDetailsError)
-- [InvalidOperation](ctp:api:type:InvalidOperationError)
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Store referenced by the [Quote](ctp:api:type:Quote).
+    - The referenced Shipping Method is scoped to a Store, but the [Quote](ctp:api:type:Quote) does not belong to a Store.
 - [OutOfStock](ctp:api:type:OutOfStockError)
 
 
@@ -9128,7 +9626,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->paymentMethods()->withId("ID")->post(null)`
 
-Updates a PaymentMethod in the Project using one or more [update actions](/../api/projects/payment-methods#update-actions).
+Updates a PaymentMethod in the Project using one or more [update actions](/api/projects/payment-methods#update-actions).
 
 
 ### Example
@@ -9194,7 +9692,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->paymentMethods()->withKey("key")->post(null)`
 
-Updates a PaymentMethod in the Project using one or more [update actions](/../api/projects/payment-methods#update-actions).
+Updates a PaymentMethod in the Project using one or more [update actions](/api/projects/payment-methods#update-actions).
 
 
 ### Example
@@ -9301,7 +9799,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->post(null)`
 
-Updates a Payment in the Project using one or more [update actions](/../api/projects/payments#update-actions).
+Updates a Payment in the Project using one or more [update actions](/api/projects/payments#update-actions).
 
 ### Example
 ```php
@@ -9361,7 +9859,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->post(null)`
 
-Updates a Payment in the Project using one or more [update actions](/../api/projects/payments#update-actions).
+Updates a Payment in the Project using one or more [update actions](/api/projects/payments#update-actions).
 
 ### Example
 ```php
@@ -9572,10 +10070,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->get()`
 
-Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of [Products](ctp:api:type:Product) by [query predicates](/../api/predicates/query).
+Retrieves the [projected](/api/projects/productProjections#projection-dimensions) representation of [Products](ctp:api:type:Product) by [query predicates](/api/predicates/query).
 
 By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
-If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/api/errors#404-not-found) error.
 
 Required access scopes:
 
@@ -9610,10 +10108,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->withId("ID")->get()`
 
-Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its ID.
+Retrieves the [projected](/api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its ID.
 
 By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
-If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/api/errors#404-not-found) error.
 
 Required access scopes:
 
@@ -9648,12 +10146,39 @@ $request = $builder
                 ->withId("ID")
                 ->head();
 ```
+## `withProjectKey("projectKey")->productProjections()->withId("ID")->variantAttributes()->get()`
+
+Returns a lightweight representation of all Variants for a [Product](ctp:api:type:Product), including only the requested variant-level [Attributes](ctp:api:type:Attribute) and minimal availability data.
+
+Designed for building attribute selectors on product detail pages (PDPs) with large numbers of variants.
+Only available for Projects with [productCatalogModel](ctp:api:type:ProductCatalogModel) set to `Modular`.
+
+Product-level Attributes are omitted from the response.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` or `view_products:{projectKey}` scope is required.
+- To retrieve the staged representation of Products (draft data), the API Client must have the `view_products:{projectKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productProjections()
+                ->withId("ID")
+                ->variantAttributes()
+                ->get();
+```
 ## `withProjectKey("projectKey")->productProjections()->withKey("key")->get()`
 
-Retrieves the [projected](/../api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key.
+Retrieves the [projected](/api/projects/productProjections#projection-dimensions) representation of a [Product](ctp:api:type:Product) by its Key.
 
 By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
-If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/../api/errors#404-not-found) error.
+If a Product is unpublished (`published=false`), the endpoint returns a [Not Found](/api/errors#404-not-found) error.
 
 Required access scopes:
 
@@ -9687,6 +10212,33 @@ $request = $builder
                 ->productProjections()
                 ->withKey("key")
                 ->head();
+```
+## `withProjectKey("projectKey")->productProjections()->withKey("key")->variantAttributes()->get()`
+
+Returns a lightweight representation of all Variants for a [Product](ctp:api:type:Product), including only the requested variant-level [Attributes](ctp:api:type:Attribute) and minimal availability data.
+
+Designed for building attribute selectors on product detail pages (PDPs) with large numbers of variants.
+Only available for Projects with [productCatalogModel](ctp:api:type:ProductCatalogModel) set to `Modular`.
+
+Product-level Attributes are omitted from the response.
+
+Required access scopes:
+
+- To retrieve the current representation of published Products (published data), the `view_published_products:{projectKey}` or `view_products:{projectKey}` scope is required.
+- To retrieve the staged representation of Products (draft data), the API Client must have the `view_products:{projectKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productProjections()
+                ->withKey("key")
+                ->variantAttributes()
+                ->get();
 ```
 ## `withProjectKey("projectKey")->productProjections()->search()->post(null)`
 
@@ -10232,7 +10784,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->get()`
 
-If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -10261,8 +10813,10 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->post(null)`
 
 To create a new Product, send a representation that is going to become the initial _staged_ and _current_ representation of the new Product in the catalog.
-If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, selected Prices will be added to the response.
+If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, selected Prices will be added to the response.
 Produces the [ProductCreated](/projects/messages/product-catalog-messages#product-created) Message.
+
+A failed response can return an [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError) error.
 
 
 ### Example
@@ -10277,7 +10831,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->get()`
 
-If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -10307,9 +10861,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->post(null)`
 
-If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 
-A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
+A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
 
 ### Example
 ```php
@@ -10324,7 +10878,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
-If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example
@@ -10382,7 +10936,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
-If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -10412,7 +10966,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->post(null)`
 
-A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
+A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
 
 ### Example
 ```php
@@ -10427,7 +10981,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
-If [Product price selection query parameters](/../api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example
@@ -10460,7 +11014,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->search()->post(null)`
 
 If indexing is in progress or if Product Search is inactive, an [ObjectNotFound](ctp:api:type:ObjectNotFoundError) error is returned.
-If inactive, you can [reactivate](/../api/projects/product-search#activate-the-product-search-api) it.
+If inactive, you can [reactivate](/api/projects/product-search#activate-the-product-search-api) it.
 
 
 ### Example
@@ -10490,7 +11044,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->head()`
 
-Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200 OK` status if any QuoteRequests match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if one or more QuoteRequests exist for the provided query predicate. Returns a `200 OK` status if any QuoteRequests match the query predicate, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10533,7 +11087,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->head()`
 
-Checks if a QuoteRequest exists with the provided `id`. Returns a `200 OK` status if the QuoteRequest exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a QuoteRequest exists with the provided `id`. Returns a `200 OK` status if the QuoteRequest exists, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10548,7 +11102,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->post(null)`
 
-Updates a QuoteRequest in the Project using one or more [update actions](/../api/projects/quote-requests#update-actions).
+Updates a QuoteRequest in the Project using one or more [update actions](/api/projects/quote-requests#update-actions).
 
 ### Example
 ```php
@@ -10593,7 +11147,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->head()`
 
-Checks if a QuoteRequest exists with the provided `key`. Returns a `200 OK` status if the QuoteRequest exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a QuoteRequest exists with the provided `key`. Returns a `200 OK` status if the QuoteRequest exists, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10608,7 +11162,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->post(null)`
 
-Updates a QuoteRequest in the Project using one or more [update actions](/../api/projects/quote-requests#update-actions).
+Updates a QuoteRequest in the Project using one or more [update actions](/api/projects/quote-requests#update-actions).
 
 ### Example
 ```php
@@ -10652,7 +11206,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->head()`
 
-Checks if one or more Quotes exist for the provided query predicate. Returns a `200 OK` status if any Quotes match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if one or more Quotes exist for the provided query predicate. Returns a `200 OK` status if any Quotes match the query predicate, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10695,7 +11249,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withId("ID")->head()`
 
-Checks if a Quote exists with the provided `id`. Returns a `200 OK` status if the Quote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a Quote exists with the provided `id`. Returns a `200 OK` status if the Quote exists, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10710,7 +11264,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withId("ID")->post(null)`
 
-Updates a Quote in the Project using one or more [update actions](/../api/projects/quotes#update-actions).
+Updates a Quote in the Project using one or more [update actions](/api/projects/quotes#update-actions).
 
 ### Example
 ```php
@@ -10755,7 +11309,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withKey("key")->head()`
 
-Checks if a Quote exists with the provided `key`. Returns a `200 OK` status if the Quote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a Quote exists with the provided `key`. Returns a `200 OK` status if the Quote exists, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -10770,7 +11324,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->quotes()->withKey("key")->post(null)`
 
-Updates a Quote in the Project using one or more [update actions](/../api/projects/quotes#update-actions).
+Updates a Quote in the Project using one or more [update actions](/api/projects/quotes#update-actions).
 
 ### Example
 ```php
@@ -10877,7 +11431,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->recurrencePolicies()->withId("ID")->post(null)`
 
-Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
+Updates a Recurrence Policy using one or more [update actions](/api/projects/recurrence-policies#update-actions).
 
 
 ### Example
@@ -10943,7 +11497,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->recurrencePolicies()->withKey("key")->post(null)`
 
-Updates a Recurrence Policy using one or more [update actions](/../api/projects/recurrence-policies#update-actions).
+Updates a Recurrence Policy using one or more [update actions](/api/projects/recurrence-policies#update-actions).
 
 
 ### Example
@@ -11061,7 +11615,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->recurringOrders()->withId("ID")->post(null)`
 
-Updates a Recurring Order using one or more [update actions](/../api/projects/recurring-orders#update-actions).
+Updates a Recurring Order using one or more [update actions](/api/projects/recurring-orders#update-actions).
 
 A Recurring Order can only be updated when it is not processing an Order. Otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
@@ -11127,7 +11681,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->recurringOrders()->withKey("key")->post(null)`
 
-Updates a Recurring Order using one or more [update actions](/../api/projects/recurring-orders#update-actions).
+Updates a Recurring Order using one or more [update actions](/api/projects/recurring-orders#update-actions).
 
 A Recurring Order can only be updated when it is not processing an Order. Otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
@@ -11337,7 +11891,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->head()`
 
-Checks if one or more ShippingMethods exist for the provided query predicate. Returns a `200 OK` status if any ShippingMethods match the query predicate or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if one or more ShippingMethods exist for the provided query predicate. Returns a `200 OK` status if any ShippingMethods match the query predicate or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11380,7 +11934,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->head()`
 
-Checks if a ShippingMethod exists with the provided `id`. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a ShippingMethod exists with the provided `id`. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11395,7 +11949,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->post(null)`
 
-Updates a ShippingMethod in the Project using one or more [update actions](/../api/projects/shippingMethods#update-actions).
+Updates a ShippingMethod in the Project using one or more [update actions](/api/projects/shippingMethods#update-actions).
 
 ### Example
 ```php
@@ -11440,7 +11994,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->head()`
 
-Checks if a ShippingMethod exists with the provided `key`. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a ShippingMethod exists with the provided `key`. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11455,7 +12009,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->post(null)`
 
-Updates a ShippingMethod in the Project using one or more [update actions](/../api/projects/shippingMethods#update-actions).
+Updates a ShippingMethod in the Project using one or more [update actions](/api/projects/shippingMethods#update-actions).
 
 ### Example
 ```php
@@ -11505,7 +12059,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->head()`
 
-Checks if an active ShippingMethod exists for the provided Cart. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if an active ShippingMethod exists for the provided Cart. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11541,7 +12095,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCartLocation()->head()`
 
-Checks if an active ShippingMethod that can ship to the provided [Location](ctp:api:type:Location) exists for the provided Cart. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if an active ShippingMethod that can ship to the provided [Location](ctp:api:type:Location) exists for the provided Cart. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11556,7 +12110,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
-Retrieves the active ShippingMethods that can ship to the provided [Location](/projects/zones#location).
+Retrieves the active ShippingMethods that can ship to the provided [Location](ctp:api:type:Location).
 
 The following applies:
 
@@ -11580,7 +12134,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->head()`
 
-Checks if an active ShippingMethod that can ship to the provided [Location](ctp:api:type:Location) exists. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if an active ShippingMethod that can ship to the provided [Location](ctp:api:type:Location) exists. Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11615,7 +12169,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->head()`
 
-Checks if an active ShippingMethod that can ship to the provided [Location](ctp:api:type:Location) exists for the provided [OrderEdit](ctp:api:type:OrderEdit). Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if an active ShippingMethod that can ship to the provided [Location](ctp:api:type:Location) exists for the provided [OrderEdit](ctp:api:type:OrderEdit). Returns a `200 OK` status if the ShippingMethod exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11702,7 +12256,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->post(null)`
 
-Updates a ShoppingList in the Project using one or more [update actions](/../api/projects/shoppingLists#update-actions).
+Updates a ShoppingList in the Project using one or more [update actions](/api/projects/shoppingLists#update-actions).
 
 ### Example
 ```php
@@ -11762,7 +12316,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->post(null)`
 
-Updates a ShoppingList in the Project using one or more [update actions](/../api/projects/shoppingLists#update-actions).
+Updates a ShoppingList in the Project using one or more [update actions](/api/projects/shoppingLists#update-actions).
 
 ### Example
 ```php
@@ -11806,7 +12360,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->head()`
 
-Checks if one or more StagedQuotes exist for the provided query predicate. Returns a `200 OK` status if any StagedQuotes match the query predicate or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if one or more StagedQuotes exist for the provided query predicate. Returns a `200 OK` status if any StagedQuotes match the query predicate or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11821,6 +12375,12 @@ $request = $builder
 ## `withProjectKey("projectKey")->stagedQuotes()->post(null)`
 
 Creates a StagedQuote in the Project.
+
+- [InvalidOperation](ctp:api:type:InvalidOperationError) is returned in several cases, including the following:
+    - The referenced Shipping Method is not active.
+    - The referenced Shipping Method is scoped to a Store that differs from the Store referenced by the [Quote Request](ctp:api:type:QuoteRequest).
+    - The referenced Shipping Method is scoped to a Store, but the [Quote Request](ctp:api:type:QuoteRequest) does not belong to a Store.
+
 
 ### Example
 ```php
@@ -11849,7 +12409,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->head()`
 
-Checks if a StagedQuote exists with the provided `id`. Returns a `200 OK` status if the StagedQuote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a StagedQuote exists with the provided `id`. Returns a `200 OK` status if the StagedQuote exists, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11864,7 +12424,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->post(null)`
 
-Updates a StagedQuote in the Project using one or more [update actions](/../api/projects/staged-quotes#update-actions).
+Updates a StagedQuote in the Project using one or more [update actions](/api/projects/staged-quotes#update-actions).
 
 ### Example
 ```php
@@ -11909,7 +12469,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->head()`
 
-Checks if a StagedQuote exists with the provided `key`. Returns a `200 OK` status if the StagedQuote exists, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a StagedQuote exists with the provided `key`. Returns a `200 OK` status if the StagedQuote exists, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -11924,7 +12484,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->post(null)`
 
-Updates a StagedQuote in the Project using one or more [update actions](/../api/projects/staged-quotes#update-actions).
+Updates a StagedQuote in the Project using one or more [update actions](/api/projects/staged-quotes#update-actions).
 
 ### Example
 ```php
@@ -12477,7 +13037,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->post(null)`
 
-A test notification is sent to ensure the correct configuration of the Destination. If the notification cannot be delivered, the Subscription will not be created. The payload of the test notification is of type [ResourceCreated](/../api/projects/subscriptions#resourcecreateddeliverypayload) for the `resourceTypeId` `subscription`.
+A test notification is sent to ensure the correct configuration of the Destination. If the notification cannot be delivered, the Subscription will not be created. The payload of the test notification is of type [ResourceCreated](/api/projects/subscriptions#resourcecreateddeliverypayload) for the `resourceTypeId` `subscription`.
 
 
 ### Example
@@ -12552,7 +13112,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withId("ID")->withIdHealth()->get()`
 
-This endpoint can be polled by a monitoring or alerting system that checks the health of your Subscriptions. To ease integration with such systems this endpoint does not require [Authorization](/../api/authorization).
+This endpoint can be polled by a monitoring or alerting system that checks the health of your Subscriptions. To ease integration with such systems this endpoint does not require [Authorization](/api/authorization).
 
 
 ### Example
@@ -12951,6 +13511,330 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->variantProjections()->get()`
+
+Queries Variant Projections matching the provided predicates.
+
+By default, this endpoint returns the `current` representation where variants are published.
+
+Required access scopes:
+
+- To retrieve the current representation of published Variants, the `view_published_products:{projectKey}` scope is required.
+
+- To retrieve the staged representation (draft data), the API Client must have the `view_products:{projectKey}` scope.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->get();
+```
+## `withProjectKey("projectKey")->variantProjections()->head()`
+
+Checks if a Variant Projection exists for the provided query predicate.
+Returns a `200` status if any Variant Projections match, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->head();
+```
+## `withProjectKey("projectKey")->variantProjections()->withId("ID")->get()`
+
+Retrieves a Variant Projection by its ID.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->variantProjections()->withId("ID")->head()`
+
+Checks if a VariantProjection exists with the provided `id`. Returns a `200` status if the VariantProjection exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->variantProjections()->withKey("key")->get()`
+
+Retrieves a Variant Projection by its key.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->variantProjections()->withKey("key")->head()`
+
+Checks if a VariantProjection exists with the provided `key`. Returns a `200` status if the VariantProjection exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variantProjections()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->variants()->get()`
+
+Queries Variants matching the provided predicates.
+This endpoint returns both current (published) and staged (draft) data for each Variant.
+
+When querying an Attribute, you must always include both the `attribute-name` and `attribute-value` details in the QueryPredicate. Otherwise, a [400 Bad Request](/errors#400-bad-request) error will occur.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->get();
+```
+## `withProjectKey("projectKey")->variants()->post(null)`
+
+Creates a new Variant with only the current representation. Produces the [VariantCreated](ctp:api:type:VariantCreatedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->variants()->head()`
+
+Checks if a Variant exists for the provided query predicate.
+Returns a `200` status if any Variants match, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->head();
+```
+## `withProjectKey("projectKey")->variants()->bulk()->post(null)`
+
+Applies update actions to multiple Variants in a single request.
+Returns a `207 Multi-Status` response with the result for each Variant.
+Each Variant is updated independently, so some may succeed while others fail.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->bulk()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->variants()->withId("ID")->get()`
+
+Retrieves a Variant by its ID.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->variants()->withId("ID")->head()`
+
+Checks if a Variant exists by its ID.
+Returns a `200` status if the Variant exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->variants()->withId("ID")->post(null)`
+
+Updates a Variant identified by its ID.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->variants()->withId("ID")->delete()`
+
+Deletes a Variant identified by its ID.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->variants()->withId("ID")->images()->post(null)`
+
+Uploads a JPEG, PNG, or a GIF image file to a [Variant](ctp:api:type:Variant) identified by its ID.
+The maximum file size of the image is **10MB**.
+
+The response status code depends on the size of the original image.
+If the image is small, the API responds with `200 OK`, and if the image is larger, it responds with `202 Accepted`.
+The Variant returned with a `202 Accepted` status code contains a `warnings` field with an [ImageProcessingOngoing](ctp:api:type:ImageProcessingOngoingWarning) Warning.
+
+Produces the [VariantImageAdded](/projects/messages/product-catalog-messages#variant-image-added) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withId("ID")
+                ->images()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->variants()->withKey("key")->get()`
+
+Retrieves a Variant by its key.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->variants()->withKey("key")->head()`
+
+Checks if a Variant exists by its key.
+Returns a `200` status if the Variant exists, or a `404` status otherwise.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->variants()->withKey("key")->post(null)`
+
+Updates a Variant identified by its key.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->variants()->withKey("key")->delete()`
+
+Deletes a Variant identified by its key.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->variants()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->zones()->get()`
 
 Retrieves all Zones in the Project.
@@ -12967,7 +13851,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->head()`
 
-Checks if one or more Zones exist for the provided query predicate. Returns a `200 OK` status if any Zones match the query predicate, or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if one or more Zones exist for the provided query predicate. Returns a `200 OK` status if any Zones match the query predicate, or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -13010,7 +13894,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withId("ID")->head()`
 
-Checks if a Zone exists with the provided `id`. Returns a `200 OK` status if the Zone exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a Zone exists with the provided `id`. Returns a `200 OK` status if the Zone exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -13070,7 +13954,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->head()`
 
-Checks if a Zone exists with the provided `key`. Returns a `200 OK` status if the Zone exists or a [Not Found](/../api/errors#404-not-found) error otherwise.
+Checks if a Zone exists with the provided `key`. Returns a `200 OK` status if the Zone exists or a [Not Found](/api/errors#404-not-found) error otherwise.
 
 ### Example
 ```php
@@ -13085,7 +13969,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->post(null)`
 
-Updates a Zone in the Project using one or more [update actions](/../api/projects/zones#update-actions).
+Updates a Zone in the Project using one or more [update actions](/api/projects/zones#update-actions).
 
 ### Example
 ```php

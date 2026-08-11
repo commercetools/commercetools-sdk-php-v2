@@ -96,7 +96,7 @@ interface Category extends BaseResource
      * <p>User-defined identifier used as a deep-link URL to the related Category per <a href="ctp:api:type:Locale">Locale</a>.
      * A Category can have the same slug for different Locales, but they are unique across the <a href="ctp:api:type:Project">Project</a>.
      * Valid slugs match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.
-     * For <a href="/../api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in a Project.</p>
+     * For <a href="/api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in a Project.</p>
      *
 
      * @return null|LocalizedString

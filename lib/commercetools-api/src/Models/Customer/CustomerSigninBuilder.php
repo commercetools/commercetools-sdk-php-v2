@@ -65,7 +65,7 @@ final class CustomerSigninBuilder implements Builder
     private $updateProductData;
 
     /**
-     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     * <p>Email address of the Customer treated as <a href="/api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
      *
 
      * @return null|string
@@ -135,10 +135,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
-     * <ul>
-     * <li>If <code>true</code>, the <a href="ctp:api:type:LineItem">LineItem</a> Product data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned Cart will be updated.</li>
-     * <li>If <code>false</code>, only the prices, discounts, and tax rates will be updated.</li>
-     * </ul>
+     * <p>Whether the <a href="ctp:api:type:LineItem">LineItem</a> Product data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned Cart will be updated. If <code>false</code>, only the prices, discounts, and tax rates will be updated.</p>
      *
 
      * @return null|bool

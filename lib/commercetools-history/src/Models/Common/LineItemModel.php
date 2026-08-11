@@ -356,7 +356,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
 
     /**
      * <p><code>slug</code> of the current version of the Product. Updated automatically if the <code>slug</code> changes. Empty if the Product has been deleted.
-     * The <code>productSlug</code> field of LineItem is not expanded when using <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a>.</p>
+     * The <code>productSlug</code> field of LineItem is not expanded when using <a href="/api/general-concepts#reference-expansion">Reference Expansion</a>.</p>
      *
      *
      * @return null|LocalizedString
@@ -442,7 +442,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>Number of Line Items of the given Product Variant present in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
+     * <p>Quantity of Line Items of the given Product Variant present in the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a>.</p>
      *
      *
      * @return null|int
@@ -612,7 +612,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>Identifies <a href="/../api/projects/inventory">Inventory entries</a> that are reserved. The referenced Channel has the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>Identifies <a href="/api/projects/inventory">Inventory entries</a> that are reserved. The referenced Channel has the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      *
      * @return null|ChannelReference
@@ -633,7 +633,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>Used to <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>Used to <a href="/api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      *
      * @return null|ChannelReference

@@ -207,7 +207,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     * <p>User-defined identifier of the Custom Line Item. Unique among Custom Line Items in the Cart or Order.</p>
      *
      *
      * @return null|string

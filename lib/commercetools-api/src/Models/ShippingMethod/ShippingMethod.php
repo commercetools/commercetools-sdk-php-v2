@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -33,6 +34,7 @@ interface ShippingMethod extends BaseResource
     public const FIELD_IS_DEFAULT = 'isDefault';
     public const FIELD_PREDICATE = 'predicate';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STORES = 'stores';
 
     /**
      * <p>Unique identifier of the ShippingMethod.</p>
@@ -148,7 +150,7 @@ interface ShippingMethod extends BaseResource
     public function getActive();
 
     /**
-     * <p>If <code>true</code>, this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod. When retrieving <a href="/projects/shippingMethods#get-matching-shipping-methods">matching Shipping Methods</a>, it is returned as the first item in the array. This flag does not automatically apply the Shipping Method to Carts.</p>
+     * <p>Whether this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod. When retrieving <a href="/projects/shippingMethods#get-matching-shipping-methods">matching Shipping Methods</a>, it is returned as the first item in the array. This flag does not automatically apply the Shipping Method to Carts.</p>
      *
 
      * @return null|bool
@@ -170,6 +172,17 @@ interface ShippingMethod extends BaseResource
      * @return null|CustomFields
      */
     public function getCustom();
+
+    /**
+     * <ul>
+     * <li>If a value exists, the Shipping Method applies to <a href="ctp:api:type:Cart">Carts</a> with a <a href="ctp:api:type:Store">Store</a> that matches any Store in this field.</li>
+     * <li>If empty, the Shipping Method applies to all <a href="ctp:api:type:Cart">Carts</a>, irrespective of a Store.</li>
+     * </ul>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores();
 
     /**
      * @param ?string $id
@@ -255,4 +268,9 @@ interface ShippingMethod extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void;
 }

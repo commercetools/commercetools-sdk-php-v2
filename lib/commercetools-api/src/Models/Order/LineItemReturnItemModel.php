@@ -140,7 +140,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
-     * <p>User-defined unique identifier of the LineItemReturnItem.</p>
+     * <p>User-defined identifier of the LineItemReturnItem. Must be unique among Return Items in the Order.</p>
      *
      *
      * @return null|string
@@ -160,7 +160,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
-     * <p>Number of Line Items returned.</p>
+     * <p>Quantity of Line Items returned.</p>
      *
      *
      * @return null|int

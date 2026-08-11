@@ -17,7 +17,7 @@ interface ProductSearchMatchingVariants extends JsonObject
     public const FIELD_MATCHED_VARIANTS = 'matchedVariants';
 
     /**
-     * <p><code>true</code> if all Variants of the returned Product match the search query, or if search query does not specify any expression for a <a href="/../api/projects/product-search#field-levels">Product Variant field</a>.</p>
+     * <p>Whether all Variants of the returned Product match the search query, or if search query does not specify any expression for a <a href="/api/projects/product-search#field-levels">Product Variant field</a>.</p>
      * <p><code>false</code> if only a subset of the Product Variants match the search query.</p>
      * <p>Is always <code>false</code> for query expressions on Product Variant fields.</p>
      *

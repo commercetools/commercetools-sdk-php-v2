@@ -62,7 +62,8 @@ final class ImportContainerDraftBuilder implements Builder
     }
 
     /**
-     * <p>Set a retention policy to automatically delete the ImportContainer after a defined period.</p>
+     * <p>Optional. When set, defines how long the ImportContainer is kept before automatic deletion.
+     * When omitted, the ImportContainer receives the default <strong>72-hour</strong> lifetime.</p>
      *
 
      * @return null|RetentionPolicy

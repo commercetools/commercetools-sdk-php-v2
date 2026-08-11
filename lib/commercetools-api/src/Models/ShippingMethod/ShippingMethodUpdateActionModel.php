@@ -32,12 +32,14 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
      */
     private static $discriminatorClasses = [
        'addShippingRate' => ShippingMethodAddShippingRateActionModel::class,
+       'addStore' => ShippingMethodAddStoreActionModel::class,
        'addZone' => ShippingMethodAddZoneActionModel::class,
        'changeActive' => ShippingMethodChangeActiveActionModel::class,
        'changeIsDefault' => ShippingMethodChangeIsDefaultActionModel::class,
        'changeName' => ShippingMethodChangeNameActionModel::class,
        'changeTaxCategory' => ShippingMethodChangeTaxCategoryActionModel::class,
        'removeShippingRate' => ShippingMethodRemoveShippingRateActionModel::class,
+       'removeStore' => ShippingMethodRemoveStoreActionModel::class,
        'removeZone' => ShippingMethodRemoveZoneActionModel::class,
        'setCustomField' => ShippingMethodSetCustomFieldActionModel::class,
        'setCustomType' => ShippingMethodSetCustomTypeActionModel::class,
@@ -46,6 +48,7 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
        'setLocalizedDescription' => ShippingMethodSetLocalizedDescriptionActionModel::class,
        'setLocalizedName' => ShippingMethodSetLocalizedNameActionModel::class,
        'setPredicate' => ShippingMethodSetPredicateActionModel::class,
+       'setStores' => ShippingMethodSetStoresActionModel::class,
     ];
 
     /**

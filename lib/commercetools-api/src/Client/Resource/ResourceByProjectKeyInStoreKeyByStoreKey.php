@@ -59,6 +59,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
     }
     /**
      */
+    public function discountCodes(): ResourceByProjectKeyInStoreKeyByStoreKeyDiscountCodes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyDiscountCodes($args, $this->getClient());
+    }
+    /**
+     */
     public function me(): ResourceByProjectKeyInStoreKeyByStoreKeyMe
     {
         $args = $this->getArgs();
@@ -144,6 +152,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyStagedQuotes($args, $this->getClient());
+    }
+    /**
+     */
+    public function variantProjections(): ResourceByProjectKeyInStoreKeyByStoreKeyVariantProjections
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyVariantProjections($args, $this->getClient());
     }
     /**
      */

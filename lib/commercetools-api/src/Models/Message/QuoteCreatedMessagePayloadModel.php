@@ -65,7 +65,7 @@ final class QuoteCreatedMessagePayloadModel extends JsonObjectModel implements Q
     }
 
     /**
-     * <p><a href="/../api/projects/quotes">Quote</a> that was created.</p>
+     * <p><a href="/api/projects/quotes">Quote</a> that was created.</p>
      *
      *
      * @return null|Quote

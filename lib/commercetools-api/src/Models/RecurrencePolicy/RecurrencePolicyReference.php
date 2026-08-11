@@ -24,7 +24,7 @@ interface RecurrencePolicyReference extends Reference
 
     /**
      * <p>Contains the representation of the expanded RecurrencePolicy.
-     * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for RecurrencePolicies.</p>
+     * Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for RecurrencePolicies.</p>
      *
 
      * @return null|RecurrencePolicy

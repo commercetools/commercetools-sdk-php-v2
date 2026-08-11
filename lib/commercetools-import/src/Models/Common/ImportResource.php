@@ -23,6 +23,7 @@ use Commercetools\Import\Models\Producttypes\ProductTypeImport;
 use Commercetools\Import\Models\Productvariants\ProductVariantImport;
 use Commercetools\Import\Models\StandalonePrices\StandalonePriceImport;
 use Commercetools\Import\Models\Types\TypeImport;
+use Commercetools\Import\Models\Variants\VariantImport;
 
 interface ImportResource extends JsonObject
 {

@@ -16,7 +16,7 @@ interface CartDiscountCustomLineItemsTarget extends CartDiscountTarget
     public const FIELD_PREDICATE = 'predicate';
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#customlineitem-field-identifiers">CustomLineItem target predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#customlineitem-field-identifiers">CustomLineItem target predicate</a>.</p>
      *
 
      * @return null|string

@@ -60,7 +60,7 @@ final class ProductVariantDraftBuilder implements Builder
     private $assets;
 
     /**
-     * <p>User-defined unique SKU of the Product Variant.</p>
+     * <p>User-defined SKU of the Product Variant. Must be unique across all ProductVariants in a Project.</p>
      *
 
      * @return null|string
@@ -71,7 +71,7 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the ProductVariant.</p>
+     * <p>User-defined identifier for the ProductVariant. Must be unique among ProductVariants in the same Product.</p>
      *
 
      * @return null|string

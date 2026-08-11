@@ -138,7 +138,7 @@ interface QuoteRequest extends BaseResource
     public function getComment();
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who owns the request.</p>
+     * <p>The <a href="/api/quotes-overview#buyer">Buyer</a> who owns the request.</p>
      *
 
      * @return null|CustomerReference
@@ -156,7 +156,7 @@ interface QuoteRequest extends BaseResource
     public function getCustomerGroup();
 
     /**
-     * <p>The Store to which the <a href="/../api/quotes-overview#buyer">Buyer</a> belongs.</p>
+     * <p>The Store to which the <a href="/api/quotes-overview#buyer">Buyer</a> belongs.</p>
      *
 
      * @return null|StoreKeyReference
@@ -341,7 +341,7 @@ interface QuoteRequest extends BaseResource
     public function getCart();
 
     /**
-     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference

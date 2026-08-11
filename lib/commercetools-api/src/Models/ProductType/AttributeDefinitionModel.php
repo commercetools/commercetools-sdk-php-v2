@@ -164,7 +164,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>If <code>true</code>, the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Whether the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
      *
      * @return null|bool
@@ -265,11 +265,13 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>If <code>true</code>, the Attribute's values are available in the <a href="/../api/projects/product-search">Product Search</a> or the <a href="/../api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.
-     * However, if an Attribute's <code>level</code> is set as <code>Product</code>, then Product Projection Search does <strong>not support</strong> the Attribute.</p>
+     * <p>Whether the Attribute's values are available in the <a href="/api/projects/product-search">Product Search</a> or the <a href="/api/projects/product-projection-search">Product Projection Search</a> API for use in full-text search queries, filters, and facets.
+     * However, if an Attribute's <code>level</code> is set as <code>Product</code>, then Product Projection Search does <strong>not support</strong> the Attribute.
+     * To use the Attribute in search, filters, or facets, set <code>isSearchable</code> to <code>true</code> for all AttributeDefinitions with the same <code>name</code> across different ProductTypes.
+     * If the <code>isSearchable</code> values are different, the Attribute isn't available for search, filters, or facets.</p>
      * <p>The exact features that are available with this flag depend on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
-     * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/../api/limits#field-content-size">Field content size limit</a>.
-     * This constraint is enforced at both <a href="ctp:api:endpoint:/{projectKey}/products:POST">Product creation</a> and <a href="/../api/projects/products#update-product">Product update</a>.
+     * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/api/limits#field-content-size">Field content size limit</a>.
+     * This constraint is enforced at both <a href="ctp:api:endpoint:/{projectKey}/products:POST">Product creation</a> and <a href="/api/projects/products#update-product">Product update</a>.
      * If the length of the input exceeds the maximum size, an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> error is returned.</p>
      *
      *

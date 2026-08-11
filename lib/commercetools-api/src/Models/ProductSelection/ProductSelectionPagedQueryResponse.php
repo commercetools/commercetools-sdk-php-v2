@@ -20,7 +20,7 @@ interface ProductSelectionPagedQueryResponse extends JsonObject
     public const FIELD_RESULTS = 'results';
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#limit">results requested</a>.</p>
      *
 
      * @return null|int
@@ -28,7 +28,7 @@ interface ProductSelectionPagedQueryResponse extends JsonObject
     public function getLimit();
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#offset">elements skipped</a>.</p>
      *
 
      * @return null|int

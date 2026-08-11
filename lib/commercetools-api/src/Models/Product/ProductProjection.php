@@ -110,7 +110,7 @@ interface ProductProjection extends BaseResource
      * <p>User-defined identifier used in a deep-link URL for the <a href="ctp:api:type:Product">Product</a>.
      * Must be unique across a Project, but can be the same for Products in different locales.
      * Matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.
-     * For <a href="/../api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in the <a href="ctp:api:type:Project">Project</a>.</p>
+     * For <a href="/api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in the <a href="ctp:api:type:Project">Project</a>.</p>
      *
 
      * @return null|LocalizedString
@@ -158,7 +158,7 @@ interface ProductProjection extends BaseResource
     public function getMetaKeywords();
 
     /**
-     * <p>Used by <a href="/../api/projects/search-term-suggestions">Search Term Suggestions</a>, but is also considered for a <a href="/projects/product-projection-search#full-text-search">full text search</a> in the Product Projection Search API.</p>
+     * <p>Used by <a href="/api/projects/search-term-suggestions">Search Term Suggestions</a>, but is also considered for a <a href="/projects/product-projection-search#full-text-search">full text search</a> in the Product Projection Search API.</p>
      *
 
      * @return null|SearchKeywords
@@ -166,7 +166,7 @@ interface ProductProjection extends BaseResource
     public function getSearchKeywords();
 
     /**
-     * <p><code>true</code> if the staged data is different from the current data.</p>
+     * <p>Whether the staged data is different from the current data.</p>
      *
 
      * @return null|bool
@@ -174,7 +174,7 @@ interface ProductProjection extends BaseResource
     public function getHasStagedChanges();
 
     /**
-     * <p><code>true</code> if the <a href="ctp:api:type:Product">Product</a> is <a href="ctp:api:type:CurrentStaged">published</a>.</p>
+     * <p>Whether the <a href="ctp:api:type:Product">Product</a> is <a href="ctp:api:type:CurrentStaged">published</a>.</p>
      *
 
      * @return null|bool
@@ -183,6 +183,7 @@ interface ProductProjection extends BaseResource
 
     /**
      * <p>The Master Variant of the <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>Omitted when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variant-projections">Variant Projections API</a> instead.</p>
      *
 
      * @return null|ProductVariant
@@ -191,6 +192,7 @@ interface ProductProjection extends BaseResource
 
     /**
      * <p>Additional Product Variants.</p>
+     * <p>Empty when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variant-projections">Variant Projections API</a> instead.</p>
      *
 
      * @return null|ProductVariantCollection
@@ -223,7 +225,7 @@ interface ProductProjection extends BaseResource
 
     /**
      * <p>Indicates whether the Prices of the Product Projection are <a href="ctp:api:type:Price">embedded</a> or <a href="ctp:api:type:StandalonePrice">standalone</a>.</p>
-     * <p>When <a href="/../api/projects/productProjections#projection-by-store">projecting Prices by Store</a>, the API supports only Embedded Prices (<code>Embedded</code>).</p>
+     * <p>When <a href="/api/projects/productProjections#projection-by-store">projecting Prices by Store</a>, the API supports only Embedded Prices (<code>Embedded</code>).</p>
      *
 
      * @return null|string

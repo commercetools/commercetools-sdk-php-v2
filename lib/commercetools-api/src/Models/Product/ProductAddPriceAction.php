@@ -44,7 +44,7 @@ interface ProductAddPriceAction extends ProductUpdateAction
     public function getPrice();
 
     /**
-     * <p>If <code>true</code>, only the staged <code>prices</code> is updated. If <code>false</code>, both the current and staged <code>prices</code> are updated.</p>
+     * <p>Whether only staged <code>prices</code> are updated. If <code>false</code>, both current and staged <code>prices</code> are updated.</p>
      *
 
      * @return null|bool

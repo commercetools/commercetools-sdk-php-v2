@@ -51,7 +51,7 @@ final class ProductTailoringRemoveAssetActionBuilder implements Builder
     private $assetKey;
 
     /**
-     * <p>The <code>id</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>id</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
 
      * @return null|int
@@ -62,7 +62,7 @@ final class ProductTailoringRemoveAssetActionBuilder implements Builder
     }
 
     /**
-     * <p>The <code>sku</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>sku</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
 
      * @return null|string
@@ -73,7 +73,7 @@ final class ProductTailoringRemoveAssetActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, only the staged Asset is removed. If <code>false</code>, both the current and staged Asset is removed.</p>
+     * <p>Whether only the staged Asset is removed. If <code>false</code>, both the current and staged Asset is removed.</p>
      *
 
      * @return null|bool

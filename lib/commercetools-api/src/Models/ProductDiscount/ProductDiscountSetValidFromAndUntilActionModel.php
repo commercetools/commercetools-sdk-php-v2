@@ -73,7 +73,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
 
     /**
      * <p>Value to set.
-     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+     * Take <a href="/api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -98,7 +98,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
 
     /**
      * <p>Value to set.
-     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+     * Take <a href="/api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
      *
      * @return null|DateTimeImmutable

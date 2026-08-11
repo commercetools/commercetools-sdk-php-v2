@@ -94,7 +94,7 @@ final class StoreAddProductSelectionActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Set to <code>true</code> to make all Products assigned to the referenced Product Selection available in the Store.</p>
+     * <p>Whether to make all Products assigned to the referenced Product Selection available in the Store.</p>
      *
      *
      * @return null|bool

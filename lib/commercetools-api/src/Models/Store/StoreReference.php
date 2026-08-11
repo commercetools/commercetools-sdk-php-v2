@@ -23,7 +23,7 @@ interface StoreReference extends Reference
     public function getTypeId();
 
     /**
-     * <p>Contains the representation of the expanded Store. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Stores.</p>
+     * <p>Contains the representation of the expanded Store. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for Stores.</p>
      *
 
      * @return null|Store

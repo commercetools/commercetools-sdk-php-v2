@@ -75,7 +75,13 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
     /**
      * <p>Value to set.
      * If empty, any existing value is removed.</p>
-     * <p>If the referenced Shipping Method is inactive, or has a predicate that does not match the Cart, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p><a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned in one of the following cases:</p>
+     * <ol>
+     * <li>If the referenced Shipping Method has a predicate that does not match the Cart.</li>
+     * <li>If the referenced Shipping Method is not active.</li>
+     * <li>If the referenced Shipping Method is associated with a Store that is different from the Cart's Store.</li>
+     * <li>If the referenced Shipping Method is associated with a Store and the Cart is not associated with any Store.</li>
+     * </ol>
      *
      *
      * @return null|ShippingMethodResourceIdentifier

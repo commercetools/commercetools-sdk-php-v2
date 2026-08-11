@@ -1,109 +1,539 @@
 **Api changes**
 
 <details>
-<summary>Added Resource(s)</summary>
+<summary>Removed Type(s)</summary>
 
-- added resource `/{projectKey}/discount-groups`
-- added resource `/{projectKey}/payment-methods`
-- added resource `/{projectKey}/recurring-orders`
-- added resource `/{projectKey}/recurrence-policies`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
-- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
-- added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
-- added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
-- added resource `/{projectKey}/carts/customer-id={customerId}/merge`
-- added resource `/{projectKey}/discount-groups/key={key}`
-- added resource `/{projectKey}/discount-groups/{ID}`
-- added resource `/{projectKey}/payment-methods/key={key}`
-- added resource `/{projectKey}/payment-methods/{ID}`
-- added resource `/{projectKey}/recurring-orders/{ID}`
-- added resource `/{projectKey}/recurring-orders/key={key}`
-- added resource `/{projectKey}/recurrence-policies/key={key}`
-- added resource `/{projectKey}/recurrence-policies/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
-- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
-- added resource `/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge`
+- :warning: removed type `AssociateRoleNameChangedMessage`
+- :warning: removed type `AssociateRoleNameChangedMessagePayload`
+- :warning: removed type `ProductSearchFacetScope`
 </details>
 
 
 <details>
-<summary>Added QueryParameter(s)</summary>
+<summary>MarkDeprecated Type(s)</summary>
 
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products`
-- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/search`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/search`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/key={key}`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/{ID}`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+- marked type `ProductSearchProjectionParams` as deprecated
 </details>
 
 
 <details>
-<summary>Removed QueryParameter(s)</summary>
+<summary>Changed Type(s)</summary>
 
-- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
+- :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
 </details>
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Deprecated Type(s)</summary>
 
-- added enum `ViewMyShoppingLists` to type `Permission`
-- added enum `ViewOthersShoppingLists` to type `Permission`
-- added enum `UpdateMyShoppingLists` to type `Permission`
-- added enum `UpdateOthersShoppingLists` to type `Permission`
-- added enum `CreateMyShoppingLists` to type `Permission`
-- added enum `CreateOthersShoppingLists` to type `Permission`
-- added enum `DeleteMyShoppingLists` to type `Permission`
-- added enum `DeleteOthersShoppingLists` to type `Permission`
-- added enum `RecurringOrder` to type `CartOrigin`
-- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
-- added enum `ReserveOnCart` to type `InventoryMode`
-- added enum `discount-group` to type `ReferenceTypeId`
-- added enum `payment-method` to type `ReferenceTypeId`
-- added enum `recurrence-policy` to type `ReferenceTypeId`
-- added enum `recurring-order` to type `ReferenceTypeId`
-- added enum `reservation` to type `ReferenceTypeId`
-- added enum `payment-method` to type `ExtensionResourceTypeId`
-- added enum `RecurringOrderState` to type `StateTypeEnum`
-- added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
-- added enum `recurrence-policy` to type `ChangeSubscriptionResourceTypeId`
-- added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
-- added enum `payment-method` to type `ResourceTypeId`
-- added enum `payment-method-info` to type `ResourceTypeId`
-- added enum `reservation` to type `ResourceTypeId`
-- added enum `recurring-order` to type `ResourceTypeId`
+- type `ProductLegacySetSkuAction` is removed
+</details>
+
+
+<details>
+<summary>Added Type(s)</summary>
+
+- added type `BusinessUnitAssociateResponse`
+- added type `BusinessUnitAddCustomerGroupAssignmentAction`
+- added type `BusinessUnitRemoveCustomerGroupAssignmentAction`
+- added type `BusinessUnitSetCustomerGroupAssignmentsAction`
+- added type `BusinessUnitSetUnitTypeAction`
+- added type `CartDiscountSetDiscountGroupAction`
+- added type `CartDiscountSetRecurringOrderScopeAction`
+- added type `BestDeal`
+- added type `CartLock`
+- added type `CartMergeMode`
+- added type `DiscountTypeCombination`
+- added type `FreezeStrategy`
+- added type `MergeCartDraft`
+- added type `ReservationReference`
+- added type `Stacking`
+- added type `CartChangePriceRoundingModeAction`
+- added type `CartLockCartAction`
+- added type `CartSetCustomLineItemRecurrenceInfoAction`
+- added type `CartSetLineItemRecurrenceInfoAction`
+- added type `CartSetPurchaseOrderNumberAction`
+- added type `CartSetReservationExpirationInMinutesAction`
+- added type `CartUnlockCartAction`
+- added type `AddressRole`
+- added type `NonStandardCurrency`
+- added type `CustomerGroupAssignment`
+- added type `CustomerGroupAssignmentDraft`
+- added type `CustomerAddCustomerGroupAssignmentAction`
+- added type `CustomerRemoveCustomerGroupAssignmentAction`
+- added type `CustomerSetCustomerGroupAssignmentsAction`
+- added type `DiscountGroup`
+- added type `DiscountGroupDraft`
+- added type `DiscountGroupPagedQueryResponse`
+- added type `DiscountGroupReference`
+- added type `DiscountGroupResourceIdentifier`
+- added type `DiscountGroupUpdate`
+- added type `DiscountGroupUpdateAction`
+- added type `DiscountGroupSetDescriptionAction`
+- added type `DiscountGroupSetIsActiveAction`
+- added type `DiscountGroupSetKeyAction`
+- added type `DiscountGroupSetNameAction`
+- added type `DiscountGroupSetSortOrderAction`
+- added type `BulkOperationMaxItemsExceededError`
+- added type `CircularDependencyError`
+- added type `ExactLockConflictError`
+- added type `ExpiredCustomerEmailTokenError`
+- added type `ExpiredCustomerPasswordTokenError`
+- added type `ExtensionChainTooDeepError`
+- added type `ExtensionChainTooWideError`
+- added type `ExtensionDependencyExistsError`
+- added type `LineItemQuantityAboveLimitError`
+- added type `LineItemQuantityBelowLimitError`
+- added type `MaxDiscountGroupsReachedError`
+- added type `MissingDependencyError`
+- added type `OverlappingPriceValidityError`
+- added type `RecurringOrderFailureError`
+- added type `UnauthorizedError`
+- added type `ValidityLockConflictError`
+- added type `GraphQLBulkOperationMaxItemsExceededError`
+- added type `GraphQLCircularDependencyError`
+- added type `GraphQLExactLockConflictError`
+- added type `GraphQLExpiredCustomerEmailTokenError`
+- added type `GraphQLExpiredCustomerPasswordTokenError`
+- added type `GraphQLExtensionChainTooDeepError`
+- added type `GraphQLExtensionChainTooWideError`
+- added type `GraphQLExtensionDependencyExistsError`
+- added type `GraphQLLineItemQuantityAboveLimitError`
+- added type `GraphQLLineItemQuantityBelowLimitError`
+- added type `GraphQLMaxDiscountGroupsReachedError`
+- added type `GraphQLMissingDependencyError`
+- added type `GraphQLOverlappingPriceValidityError`
+- added type `GraphQLRecurringOrderFailureError`
+- added type `GraphQLUnauthorizedError`
+- added type `GraphQLValidityLockConflictError`
+- added type `BaseEvent`
+- added type `Event`
+- added type `CheckoutOrderCreationFailedEvent`
+- added type `CheckoutPaymentAuthorizationCancelledEvent`
+- added type `CheckoutPaymentAuthorizationFailedEvent`
+- added type `CheckoutPaymentAuthorizedEvent`
+- added type `CheckoutPaymentCancelAuthorizationFailedEvent`
+- added type `CheckoutPaymentChargeFailedEvent`
+- added type `CheckoutPaymentChargedEvent`
+- added type `CheckoutPaymentRefundFailedEvent`
+- added type `CheckoutPaymentRefundedEvent`
+- added type `CheckoutMessageOrderPayloadBaseData`
+- added type `CheckoutMessagePaymentsPayloadBaseData`
+- added type `ImportContainerCreatedEventData`
+- added type `ImportContainerDeletedEventData`
+- added type `ImportOperationRejectedEventData`
+- added type `ImportUnresolvedEventData`
+- added type `ImportValidationFailedEventData`
+- added type `ImportWaitForMasterVariantEventData`
+- added type `ImportContainerCreatedEvent`
+- added type `ImportContainerDeletedEvent`
+- added type `ImportOperationRejectedEvent`
+- added type `ImportUnresolvedEvent`
+- added type `ImportValidationFailedEvent`
+- added type `ImportWaitForMasterVariantEvent`
+- added type `ExtensionAdditionalContext`
+- added type `ExtensionAdditionalContextDraft`
+- added type `ExtensionReference`
+- added type `ExtensionResourceIdentifier`
+- added type `ExtensionSetAdditionalContextAction`
+- added type `ExtensionSetDependenciesAction`
+- added type `ExtensionSetExpansionPathsAction`
+- added type `InventoryEntryStockLevels`
+- added type `InventoryEntrySetInventoryLimitsAction`
+- added type `InventoryEntrySetReorderPointAction`
+- added type `InventoryEntrySetReservationExpirationInMinutesAction`
+- added type `InventoryEntrySetSafetyStockAction`
+- added type `CommerceMcpServerConfig`
+- added type `CommerceMcpServerConfigDraft`
+- added type `McpServer`
+- added type `McpServerAuthenticationMode`
+- added type `McpServerConfig`
+- added type `McpServerConfigDraft`
+- added type `McpServerDraft`
+- added type `McpServerJsonOutputFiltering`
+- added type `McpServerJsonOutputFilteringMatcher`
+- added type `McpServerPagedQueryResponse`
+- added type `McpServerState`
+- added type `McpServerTool`
+- added type `McpServerToolOutputFormatting`
+- added type `McpServerType`
+- added type `McpServerTypeTool`
+- added type `McpServerUpdate`
+- added type `McpServerUpdateAction`
+- added type `ParameterOverride`
+- added type `RemoveToolCustomizationTarget`
+- added type `ToolCustomization`
+- added type `McpServerAddToolAction`
+- added type `McpServerAddToolCustomizationAction`
+- added type `McpServerRemoveToolAction`
+- added type `McpServerRemoveToolCustomizationAction`
+- added type `McpServerSetAuthenticationModeAction`
+- added type `McpServerSetDescriptionAction`
+- added type `McpServerSetJsonOutputFilteringAction`
+- added type `McpServerSetNameAction`
+- added type `McpServerSetStateAction`
+- added type `McpServerSetToolCustomizationsAction`
+- added type `McpServerSetToolOutputFormattingAction`
+- added type `McpServerSetToolsAction`
+- added type `MyPaymentSetMethodInfoCustomFieldAction`
+- added type `MyPaymentSetMethodInfoCustomTypeAction`
+- added type `MyPaymentSetMethodInfoInterfaceAccountAction`
+- added type `AssociateRoleNameSetMessage`
+- added type `BusinessUnitCustomerGroupAssignmentAddedMessage`
+- added type `BusinessUnitCustomerGroupAssignmentRemovedMessage`
+- added type `BusinessUnitCustomerGroupAssignmentsSetMessage`
+- added type `BusinessUnitTopLevelUnitSetMessage`
+- added type `BusinessUnitTypeSetMessage`
+- added type `CartFrozenMessage`
+- added type `CartLockedMessage`
+- added type `CartPurchaseOrderNumberSetMessage`
+- added type `CartUnfrozenMessage`
+- added type `CartUnlockedMessage`
+- added type `CustomerBillingAddressAddedMessage`
+- added type `CustomerBillingAddressRemovedMessage`
+- added type `CustomerDefaultBillingAddressSetMessage`
+- added type `CustomerDefaultShippingAddressSetMessage`
+- added type `CustomerExternalIdSetMessage`
+- added type `CustomerGroupAssignmentAddedMessage`
+- added type `CustomerGroupAssignmentRemovedMessage`
+- added type `CustomerGroupAssignmentsSetMessage`
+- added type `CustomerShippingAddressAddedMessage`
+- added type `CustomerShippingAddressRemovedMessage`
+- added type `CustomerStoresSetMessage`
+- added type `DiscountGroupCreatedMessage`
+- added type `DiscountGroupDeletedMessage`
+- added type `DiscountGroupIsActiveSetMessage`
+- added type `DiscountGroupKeySetMessage`
+- added type `DiscountGroupSortOrderSetMessage`
+- added type `InventoryEntryOutOfStockMessage`
+- added type `InventoryEntryReorderPointMessage`
+- added type `InventoryEntryReservationExpirationInMinutesSetMessage`
+- added type `InventoryEntrySafetyStockMessage`
+- added type `OrderBusinessUnitSetMessage`
+- added type `OrderCreatedFromRecurringOrderMessage`
+- added type `OrderPaymentRemovedMessage`
+- added type `PaymentInterfaceIdSetMessage`
+- added type `PaymentMethodCreatedMessage`
+- added type `PaymentMethodCustomFieldAddedMessage`
+- added type `PaymentMethodCustomFieldChangedMessage`
+- added type `PaymentMethodCustomFieldRemovedMessage`
+- added type `PaymentMethodCustomTypeRemovedMessage`
+- added type `PaymentMethodCustomTypeSetMessage`
+- added type `PaymentMethodDefaultSetMessage`
+- added type `PaymentMethodDeletedMessage`
+- added type `PaymentMethodInfoCustomFieldAddedMessage`
+- added type `PaymentMethodInfoCustomFieldChangedMessage`
+- added type `PaymentMethodInfoCustomFieldRemovedMessage`
+- added type `PaymentMethodInfoCustomTypeRemovedMessage`
+- added type `PaymentMethodInfoCustomTypeSetMessage`
+- added type `PaymentMethodInfoInterfaceAccountSetMessage`
+- added type `PaymentMethodInfoInterfaceSetMessage`
+- added type `PaymentMethodInfoMethodSetMessage`
+- added type `PaymentMethodInfoNameSetMessage`
+- added type `PaymentMethodInfoTokenSetMessage`
+- added type `PaymentMethodInterfaceAccountSetMessage`
+- added type `PaymentMethodKeySetMessage`
+- added type `PaymentMethodMethodSetMessage`
+- added type `PaymentMethodNameSetMessage`
+- added type `PaymentMethodPaymentInterfaceSetMessage`
+- added type `PaymentMethodPaymentMethodStatusSetMessage`
+- added type `PaymentTransactionInterfaceIdSetMessage`
+- added type `ProductTailoringKeySetMessage`
+- added type `RecurringOrderCreatedMessage`
+- added type `RecurringOrderCustomFieldAddedMessage`
+- added type `RecurringOrderCustomFieldChangedMessage`
+- added type `RecurringOrderCustomFieldRemovedMessage`
+- added type `RecurringOrderCustomTypeRemovedMessage`
+- added type `RecurringOrderCustomTypeSetMessage`
+- added type `RecurringOrderDeletedMessage`
+- added type `RecurringOrderExpiresAtSetMessage`
+- added type `RecurringOrderFailedMessage`
+- added type `RecurringOrderKeySetMessage`
+- added type `RecurringOrderScheduleSetMessage`
+- added type `RecurringOrderStartsAtSetMessage`
+- added type `RecurringOrderStateChangedMessage`
+- added type `RecurringOrderStateTransitionMessage`
+- added type `VariantCreatedMessage`
+- added type `VariantDeletedMessage`
+- added type `VariantImageAddedMessage`
+- added type `VariantImagesSetMessage`
+- added type `VariantKeySetMessage`
+- added type `VariantPublishedMessage`
+- added type `VariantSkuSetMessage`
+- added type `VariantStagedChangesRemovedMessage`
+- added type `VariantUnpublishedMessage`
+- added type `AssociateRoleNameSetMessagePayload`
+- added type `BusinessUnitCustomerGroupAssignmentAddedMessagePayload`
+- added type `BusinessUnitCustomerGroupAssignmentRemovedMessagePayload`
+- added type `BusinessUnitCustomerGroupAssignmentsSetMessagePayload`
+- added type `BusinessUnitTopLevelUnitSetMessagePayload`
+- added type `BusinessUnitTypeSetMessagePayload`
+- added type `CartFrozenMessagePayload`
+- added type `CartLockedMessagePayload`
+- added type `CartPurchaseOrderNumberSetMessagePayload`
+- added type `CartUnfrozenMessagePayload`
+- added type `CartUnlockedMessagePayload`
+- added type `CustomerBillingAddressAddedMessagePayload`
+- added type `CustomerBillingAddressRemovedMessagePayload`
+- added type `CustomerDefaultBillingAddressSetMessagePayload`
+- added type `CustomerDefaultShippingAddressSetMessagePayload`
+- added type `CustomerExternalIdSetMessagePayload`
+- added type `CustomerGroupAssignmentAddedMessagePayload`
+- added type `CustomerGroupAssignmentRemovedMessagePayload`
+- added type `CustomerGroupAssignmentsSetMessagePayload`
+- added type `CustomerShippingAddressAddedMessagePayload`
+- added type `CustomerShippingAddressRemovedMessagePayload`
+- added type `CustomerStoresSetMessagePayload`
+- added type `DiscountGroupCreatedMessagePayload`
+- added type `DiscountGroupDeletedMessagePayload`
+- added type `DiscountGroupIsActiveSetMessagePayload`
+- added type `DiscountGroupKeySetMessagePayload`
+- added type `DiscountGroupSortOrderSetMessagePayload`
+- added type `InventoryEntryOutOfStockMessagePayload`
+- added type `InventoryEntryReorderPointMessagePayload`
+- added type `InventoryEntryReservationExpirationInMinutesSetMessagePayload`
+- added type `InventoryEntrySafetyStockMessagePayload`
+- added type `OrderBusinessUnitSetMessagePayload`
+- added type `OrderCreatedFromRecurringOrderMessagePayload`
+- added type `OrderPaymentRemovedMessagePayload`
+- added type `PaymentInterfaceIdSetMessagePayload`
+- added type `PaymentMethodCreatedMessagePayload`
+- added type `PaymentMethodCustomFieldAddedMessagePayload`
+- added type `PaymentMethodCustomFieldChangedMessagePayload`
+- added type `PaymentMethodCustomFieldRemovedMessagePayload`
+- added type `PaymentMethodCustomTypeRemovedMessagePayload`
+- added type `PaymentMethodCustomTypeSetMessagePayload`
+- added type `PaymentMethodDefaultSetMessagePayload`
+- added type `PaymentMethodDeletedMessagePayload`
+- added type `PaymentMethodInfoCustomFieldAddedMessagePayload`
+- added type `PaymentMethodInfoCustomFieldChangedMessagePayload`
+- added type `PaymentMethodInfoCustomFieldRemovedMessagePayload`
+- added type `PaymentMethodInfoCustomTypeRemovedMessagePayload`
+- added type `PaymentMethodInfoCustomTypeSetMessagePayload`
+- added type `PaymentMethodInfoInterfaceAccountSetMessagePayload`
+- added type `PaymentMethodInfoInterfaceSetMessagePayload`
+- added type `PaymentMethodInfoMethodSetMessagePayload`
+- added type `PaymentMethodInfoNameSetMessagePayload`
+- added type `PaymentMethodInfoTokenSetMessagePayload`
+- added type `PaymentMethodInterfaceAccountSetMessagePayload`
+- added type `PaymentMethodKeySetMessagePayload`
+- added type `PaymentMethodMethodSetMessagePayload`
+- added type `PaymentMethodNameSetMessagePayload`
+- added type `PaymentMethodPaymentInterfaceSetMessagePayload`
+- added type `PaymentMethodPaymentMethodStatusSetMessagePayload`
+- added type `PaymentTransactionInterfaceIdSetMessagePayload`
+- added type `ProductTailoringKeySetMessagePayload`
+- added type `RecurringOrderCreatedMessagePayload`
+- added type `RecurringOrderCustomFieldAddedMessagePayload`
+- added type `RecurringOrderCustomFieldChangedMessagePayload`
+- added type `RecurringOrderCustomFieldRemovedMessagePayload`
+- added type `RecurringOrderCustomTypeRemovedMessagePayload`
+- added type `RecurringOrderCustomTypeSetMessagePayload`
+- added type `RecurringOrderDeletedMessagePayload`
+- added type `RecurringOrderExpiresAtSetMessagePayload`
+- added type `RecurringOrderFailedMessagePayload`
+- added type `RecurringOrderKeySetMessagePayload`
+- added type `RecurringOrderScheduleSetMessagePayload`
+- added type `RecurringOrderStartsAtSetMessagePayload`
+- added type `RecurringOrderStateChangedMessagePayload`
+- added type `RecurringOrderStateTransitionMessagePayload`
+- added type `VariantCreatedMessagePayload`
+- added type `VariantDeletedMessagePayload`
+- added type `VariantImageAddedMessagePayload`
+- added type `VariantImagesSetMessagePayload`
+- added type `VariantKeySetMessagePayload`
+- added type `VariantPublishedMessagePayload`
+- added type `VariantSkuSetMessagePayload`
+- added type `VariantStagedChangesRemovedMessagePayload`
+- added type `VariantUnpublishedMessagePayload`
+- added type `StagedOrderChangePriceRoundingModeAction`
+- added type `StagedOrderSetBusinessUnitAction`
+- added type `OrderSetBusinessUnitAction`
+- added type `PaymentMethod`
+- added type `PaymentMethodDraft`
+- added type `PaymentMethodPagedQueryResponse`
+- added type `PaymentMethodReference`
+- added type `PaymentMethodStatus`
+- added type `PaymentMethodToken`
+- added type `PaymentMethodUpdate`
+- added type `PaymentMethodUpdateAction`
+- added type `PaymentMethodSetCustomFieldAction`
+- added type `PaymentMethodSetCustomTypeAction`
+- added type `PaymentMethodSetDefaultAction`
+- added type `PaymentMethodSetInterfaceAccountAction`
+- added type `PaymentMethodSetKeyAction`
+- added type `PaymentMethodSetMethodAction`
+- added type `PaymentMethodSetNameAction`
+- added type `PaymentMethodSetPaymentInterfaceAction`
+- added type `PaymentMethodSetPaymentMethodStatusAction`
+- added type `PaymentMethodInfoDraft`
+- added type `PaymentSetMethodInfoAction`
+- added type `PaymentSetMethodInfoCustomFieldAction`
+- added type `PaymentSetMethodInfoCustomTypeAction`
+- added type `PaymentSetMethodInfoInterfaceAccountAction`
+- added type `PaymentSetMethodInfoTokenAction`
+- added type `PaymentSetTransactionInterfaceIdAction`
+- added type `ProductSearchFacetResultStats`
+- added type `ProductSearchFacetStatsExpression`
+- added type `ProductSearchFacetStatsValue`
+- added type `ProductTailoringSetKeyAction`
+- added type `ProductTailoringSetProductAttributeAction`
+- added type `AttributeLevelEnum`
+- added type `ProductSetDefaultVariantAction`
+- added type `ProductSetProductAttributeAction`
+- added type `DiscountCombinationMode`
+- added type `DiscountsConfiguration`
+- added type `InventoryConfiguration`
+- added type `ProductCatalogModel`
+- added type `ProjectChangePriceRoundingModeAction`
+- added type `ProjectChangeTaxRoundingModeAction`
+- added type `ProjectSetDiscountsConfigurationAction`
+- added type `ProjectSetProductCatalogModelAction`
+- added type `ProjectSetReleaseExpiredReservationsAction`
+- added type `ProjectSetReservationExpirationInMinutesAction`
+- added type `DayOfMonthSchedule`
+- added type `DayOfMonthScheduleDraft`
+- added type `IntervalUnit`
+- added type `RecurrencePolicy`
+- added type `RecurrencePolicyDraft`
+- added type `RecurrencePolicyPagedQueryResponse`
+- added type `RecurrencePolicyReference`
+- added type `RecurrencePolicyResourceIdentifier`
+- added type `RecurrencePolicySchedule`
+- added type `RecurrencePolicyScheduleDraft`
+- added type `RecurrencePolicyUpdate`
+- added type `RecurrencePolicyUpdateAction`
+- added type `StandardSchedule`
+- added type `StandardScheduleDraft`
+- added type `RecurrencePolicySetDescriptionAction`
+- added type `RecurrencePolicySetKeyAction`
+- added type `RecurrencePolicySetNameAction`
+- added type `RecurrencePolicySetScheduleAction`
+- added type `Counter`
+- added type `CounterDraft`
+- added type `CustomLineItemRecurrenceInfo`
+- added type `CustomLineItemRecurrenceInfoDraft`
+- added type `LineItemRecurrenceInfo`
+- added type `LineItemRecurrenceInfoDraft`
+- added type `PriceSelectionMode`
+- added type `RecurringOrder`
+- added type `RecurringOrderActive`
+- added type `RecurringOrderCanceled`
+- added type `RecurringOrderDraft`
+- added type `RecurringOrderExpired`
+- added type `RecurringOrderPagedQueryResponse`
+- added type `RecurringOrderPaused`
+- added type `RecurringOrderReference`
+- added type `RecurringOrderResourceIdentifier`
+- added type `RecurringOrderState`
+- added type `RecurringOrderStateDraft`
+- added type `RecurringOrderUpdate`
+- added type `RecurringOrderUpdateAction`
+- added type `SkipConfiguration`
+- added type `SkipConfigurationDraft`
+- added type `AnyOrder`
+- added type `AnyOrderDraft`
+- added type `ApplicableRecurrencePolicies`
+- added type `ApplicableRecurrencePoliciesDraft`
+- added type `NonRecurringOrdersOnly`
+- added type `NonRecurringOrdersOnlyDraft`
+- added type `RecurringOrderScope`
+- added type `RecurringOrderScopeDraft`
+- added type `RecurringOrdersOnly`
+- added type `RecurringOrdersOnlyDraft`
+- added type `RecurringOrderSetCustomFieldAction`
+- added type `RecurringOrderSetCustomTypeAction`
+- added type `RecurringOrderSetExpiresAtAction`
+- added type `RecurringOrderSetKeyAction`
+- added type `RecurringOrderSetOrderSkipConfigurationAction`
+- added type `RecurringOrderSetScheduleAction`
+- added type `RecurringOrderSetStartsAtAction`
+- added type `RecurringOrderSetStateAction`
+- added type `RecurringOrderTransitionStateAction`
+- added type `Reservation`
+- added type `ReservationState`
+- added type `SearchFuzzyExpression`
+- added type `SearchFuzzyValue`
+- added type `ShippingMethodAddStoreAction`
+- added type `ShippingMethodRemoveStoreAction`
+- added type `ShippingMethodSetStoresAction`
+- added type `ShoppingListSetBusinessUnitAction`
+- added type `EventDeliveryPayload`
+- added type `EventSubscription`
+- added type `EventSubscriptionResourceTypeId`
+- added type `EventType`
+- added type `SubscriptionNotification`
+- added type `SubscriptionSetEventsAction`
+- added type `VariantAttributes`
+- added type `VariantAttributesAttributeMetadata`
+- added type `VariantAttributesAvailability`
+- added type `VariantAttributesChannelAvailability`
+- added type `VariantAttributesChannelAvailabilityMap`
+- added type `VariantAttributesVariant`
+- added type `Variant`
+- added type `VariantBulkUpdate`
+- added type `VariantBulkUpdateFailResult`
+- added type `VariantBulkUpdateItem`
+- added type `VariantBulkUpdateResource`
+- added type `VariantBulkUpdateResponse`
+- added type `VariantBulkUpdateResult`
+- added type `VariantBulkUpdateSuccessResult`
+- added type `VariantData`
+- added type `VariantDraft`
+- added type `VariantPagedQueryResponse`
+- added type `VariantProjection`
+- added type `VariantProjectionPagedQueryResponse`
+- added type `VariantReference`
+- added type `VariantResourceIdentifier`
+- added type `VariantUpdate`
+- added type `VariantUpdateAction`
+- added type `VariantAddAssetAction`
+- added type `VariantAddExternalImageAction`
+- added type `VariantChangeAssetNameAction`
+- added type `VariantChangeAssetOrderAction`
+- added type `VariantMoveImageToPositionAction`
+- added type `VariantPublishAction`
+- added type `VariantRemoveAssetAction`
+- added type `VariantRemoveImageAction`
+- added type `VariantRemoveStagedChangesAction`
+- added type `VariantSetAssetCustomFieldAction`
+- added type `VariantSetAssetCustomTypeAction`
+- added type `VariantSetAssetDescriptionAction`
+- added type `VariantSetAssetKeyAction`
+- added type `VariantSetAssetSourcesAction`
+- added type `VariantSetAssetTagsAction`
+- added type `VariantSetAssetsAction`
+- added type `VariantSetAttributeAction`
+- added type `VariantSetAttributesAction`
+- added type `VariantSetImageLabelAction`
+- added type `VariantSetImagesAction`
+- added type `VariantSetKeyAction`
+- added type `VariantSetSkuAction`
+- added type `VariantUnpublishAction`
+- added type `CannotChangeReservationExpiryWarning`
+- added type `CannotCreateReservationWarning`
+- added type `CannotUpdateReservationWarning`
+</details>
+
+
+<details>
+<summary>MarkDeprecated Property(s)</summary>
+
+- marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
+- marked property `CountOnLineItemUnits::excludeCount` as deprecated
+- marked property `ProductSearchRequest::productProjectionParameters` as deprecated
+- marked property `ProductSearchResult::productProjection` as deprecated
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `payment` from type `OrderPaymentAddedMessage`
+- :warning: removed property `payment` from type `OrderPaymentAddedMessagePayload`
+- :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
+- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
+- :warning: removed property `tierMinimumQuantity` from type `StandalonePriceRemovePriceTierAction`
 </details>
 
 
@@ -151,17 +581,6 @@
 
 
 <details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `payment` from type `OrderPaymentAddedMessage`
-- :warning: removed property `payment` from type `OrderPaymentAddedMessagePayload`
-- :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
-- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
-- :warning: removed property `tierMinimumQuantity` from type `StandalonePriceRemovePriceTierAction`
-</details>
-
-
-<details>
 <summary>Added Property(s)</summary>
 
 - added property `inheritedStores` to type `BusinessUnit`
@@ -203,6 +622,7 @@
 - added property `invalidateOlderTokens` to type `CustomerCreatePasswordResetToken`
 - added property `customerGroupAssignments` to type `CustomerDraft`
 - added property `invalidateOlderTokens` to type `CustomerToken`
+- added property `stores` to type `DiscountCode`
 - added property `dependencies` to type `Extension`
 - added property `expansionPaths` to type `Extension`
 - added property `additionalContext` to type `Extension`
@@ -269,6 +689,7 @@
 - added property `level` to type `AttributeDefinitionDraft`
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `CategoryOrderHints`
 - added property `attributes` to type `ProductData`
+- added property `defaultVariant` to type `ProductData`
 - added property `attributes` to type `ProductDraft`
 - added property `attributes` to type `ProductProjection`
 - added property `recurrencePrices` to type `ProductVariant`
@@ -277,8 +698,11 @@
 - added property `taxRoundingMode` to type `CartsConfiguration`
 - added property `inventory` to type `Project`
 - added property `discounts` to type `Project`
+- added property `productCatalogModel` to type `Project`
 - added property `priceRoundingMode` to type `QuoteRequest`
 - added property `priceRoundingMode` to type `Quote`
+- added property `stores` to type `ShippingMethod`
+- added property `stores` to type `ShippingMethodDraft`
 - added property `businessUnit` to type `ShoppingList`
 - added property `businessUnit` to type `ShoppingListDraft`
 - added property `published` to type `ShoppingListLineItem`
@@ -291,413 +715,50 @@
 
 
 <details>
-<summary>MarkDeprecated Property(s)</summary>
+<summary>Added QueryParameter(s)</summary>
 
-- marked property `CountOnCustomLineItemUnits::excludeCount` as deprecated
-- marked property `CountOnLineItemUnits::excludeCount` as deprecated
-- marked property `ProductSearchRequest::productProjectionParameters` as deprecated
-- marked property `ProductSearchResult::productProjection` as deprecated
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products`
+- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections`
+- added query parameter `dataErasure` to method `delete /{projectKey}/business-units/key={key}`
+- added query parameter `dataErasure` to method `delete /{projectKey}/business-units/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/search`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/search`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/key={key}`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/{ID}`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
 </details>
 
 
 <details>
-<summary>MarkDeprecated Type(s)</summary>
+<summary>Removed QueryParameter(s)</summary>
 
-- marked type `ProductSearchProjectionParams` as deprecated
-</details>
-
-
-<details>
-<summary>Removed Type(s)</summary>
-
-- :warning: removed type `AssociateRoleNameChangedMessage`
-- :warning: removed type `AssociateRoleNameChangedMessagePayload`
-- :warning: removed type `ProductSearchFacetScope`
-</details>
-
-
-<details>
-<summary>Added Type(s)</summary>
-
-- added type `BusinessUnitAssociateResponse`
-- added type `BusinessUnitAddCustomerGroupAssignmentAction`
-- added type `BusinessUnitRemoveCustomerGroupAssignmentAction`
-- added type `BusinessUnitSetCustomerGroupAssignmentsAction`
-- added type `BusinessUnitSetUnitTypeAction`
-- added type `CartDiscountSetDiscountGroupAction`
-- added type `CartDiscountSetRecurringOrderScopeAction`
-- added type `BestDeal`
-- added type `CartLock`
-- added type `CartMergeMode`
-- added type `DiscountTypeCombination`
-- added type `FreezeStrategy`
-- added type `MergeCartDraft`
-- added type `ReservationReference`
-- added type `Stacking`
-- added type `CartChangePriceRoundingModeAction`
-- added type `CartLockCartAction`
-- added type `CartSetCustomLineItemRecurrenceInfoAction`
-- added type `CartSetLineItemRecurrenceInfoAction`
-- added type `CartSetPurchaseOrderNumberAction`
-- added type `CartSetReservationExpirationInMinutesAction`
-- added type `CartUnlockCartAction`
-- added type `AddressRole`
-- added type `NonStandardCurrency`
-- added type `CustomerGroupAssignment`
-- added type `CustomerGroupAssignmentDraft`
-- added type `CustomerAddCustomerGroupAssignmentAction`
-- added type `CustomerRemoveCustomerGroupAssignmentAction`
-- added type `CustomerSetCustomerGroupAssignmentsAction`
-- added type `DiscountGroup`
-- added type `DiscountGroupDraft`
-- added type `DiscountGroupPagedQueryResponse`
-- added type `DiscountGroupReference`
-- added type `DiscountGroupResourceIdentifier`
-- added type `DiscountGroupUpdate`
-- added type `DiscountGroupUpdateAction`
-- added type `DiscountGroupSetDescriptionAction`
-- added type `DiscountGroupSetIsActiveAction`
-- added type `DiscountGroupSetKeyAction`
-- added type `DiscountGroupSetNameAction`
-- added type `DiscountGroupSetSortOrderAction`
-- added type `CircularDependencyError`
-- added type `ExactLockConflictError`
-- added type `ExpiredCustomerEmailTokenError`
-- added type `ExpiredCustomerPasswordTokenError`
-- added type `ExtensionChainTooDeepError`
-- added type `ExtensionChainTooWideError`
-- added type `ExtensionDependencyExistsError`
-- added type `LineItemQuantityAboveLimitError`
-- added type `LineItemQuantityBelowLimitError`
-- added type `MaxDiscountGroupsReachedError`
-- added type `MissingDependencyError`
-- added type `RecurringOrderFailureError`
-- added type `ValidityLockConflictError`
-- added type `GraphQLCircularDependencyError`
-- added type `GraphQLExactLockConflictError`
-- added type `GraphQLExpiredCustomerEmailTokenError`
-- added type `GraphQLExpiredCustomerPasswordTokenError`
-- added type `GraphQLExtensionChainTooDeepError`
-- added type `GraphQLExtensionChainTooWideError`
-- added type `GraphQLExtensionDependencyExistsError`
-- added type `GraphQLLineItemQuantityAboveLimitError`
-- added type `GraphQLLineItemQuantityBelowLimitError`
-- added type `GraphQLMaxDiscountGroupsReachedError`
-- added type `GraphQLMissingDependencyError`
-- added type `GraphQLRecurringOrderFailureError`
-- added type `GraphQLValidityLockConflictError`
-- added type `BaseEvent`
-- added type `Event`
-- added type `CheckoutOrderCreationFailedEvent`
-- added type `CheckoutPaymentAuthorizationCancelledEvent`
-- added type `CheckoutPaymentAuthorizationFailedEvent`
-- added type `CheckoutPaymentAuthorizedEvent`
-- added type `CheckoutPaymentCancelAuthorizationFailedEvent`
-- added type `CheckoutPaymentChargeFailedEvent`
-- added type `CheckoutPaymentChargedEvent`
-- added type `CheckoutPaymentRefundFailedEvent`
-- added type `CheckoutPaymentRefundedEvent`
-- added type `CheckoutMessageOrderPayloadBaseData`
-- added type `CheckoutMessagePaymentsPayloadBaseData`
-- added type `ImportContainerCreatedEventData`
-- added type `ImportContainerDeletedEventData`
-- added type `ImportOperationRejectedEventData`
-- added type `ImportUnresolvedEventData`
-- added type `ImportValidationFailedEventData`
-- added type `ImportWaitForMasterVariantEventData`
-- added type `ImportContainerCreatedEvent`
-- added type `ImportContainerDeletedEvent`
-- added type `ImportOperationRejectedEvent`
-- added type `ImportUnresolvedEvent`
-- added type `ImportValidationFailedEvent`
-- added type `ImportWaitForMasterVariantEvent`
-- added type `ExtensionAdditionalContext`
-- added type `ExtensionAdditionalContextDraft`
-- added type `ExtensionReference`
-- added type `ExtensionResourceIdentifier`
-- added type `ExtensionSetAdditionalContextAction`
-- added type `ExtensionSetDependenciesAction`
-- added type `ExtensionSetExpansionPathsAction`
-- added type `InventoryEntryStockLevels`
-- added type `InventoryEntrySetInventoryLimitsAction`
-- added type `InventoryEntrySetReorderPointAction`
-- added type `InventoryEntrySetReservationExpirationInMinutesAction`
-- added type `InventoryEntrySetSafetyStockAction`
-- added type `MyPaymentSetMethodInfoCustomFieldAction`
-- added type `MyPaymentSetMethodInfoCustomTypeAction`
-- added type `MyPaymentSetMethodInfoInterfaceAccountAction`
-- added type `AssociateRoleNameSetMessage`
-- added type `BusinessUnitCustomerGroupAssignmentAddedMessage`
-- added type `BusinessUnitCustomerGroupAssignmentRemovedMessage`
-- added type `BusinessUnitCustomerGroupAssignmentsSetMessage`
-- added type `BusinessUnitTopLevelUnitSetMessage`
-- added type `BusinessUnitTypeSetMessage`
-- added type `CartFrozenMessage`
-- added type `CartPurchaseOrderNumberSetMessage`
-- added type `CartUnfrozenMessage`
-- added type `CustomerBillingAddressAddedMessage`
-- added type `CustomerBillingAddressRemovedMessage`
-- added type `CustomerDefaultBillingAddressSetMessage`
-- added type `CustomerDefaultShippingAddressSetMessage`
-- added type `CustomerExternalIdSetMessage`
-- added type `CustomerGroupAssignmentAddedMessage`
-- added type `CustomerGroupAssignmentRemovedMessage`
-- added type `CustomerGroupAssignmentsSetMessage`
-- added type `CustomerShippingAddressAddedMessage`
-- added type `CustomerShippingAddressRemovedMessage`
-- added type `CustomerStoresSetMessage`
-- added type `DiscountGroupCreatedMessage`
-- added type `DiscountGroupDeletedMessage`
-- added type `DiscountGroupIsActiveSetMessage`
-- added type `DiscountGroupKeySetMessage`
-- added type `DiscountGroupSortOrderSetMessage`
-- added type `InventoryEntryOutOfStockMessage`
-- added type `InventoryEntryReorderPointMessage`
-- added type `InventoryEntryReservationExpirationInMinutesSetMessage`
-- added type `InventoryEntrySafetyStockMessage`
-- added type `OrderBusinessUnitSetMessage`
-- added type `OrderCreatedFromRecurringOrderMessage`
-- added type `OrderPaymentRemovedMessage`
-- added type `PaymentInterfaceIdSetMessage`
-- added type `PaymentMethodCreatedMessage`
-- added type `PaymentMethodCustomFieldAddedMessage`
-- added type `PaymentMethodCustomFieldChangedMessage`
-- added type `PaymentMethodCustomFieldRemovedMessage`
-- added type `PaymentMethodCustomTypeRemovedMessage`
-- added type `PaymentMethodCustomTypeSetMessage`
-- added type `PaymentMethodDefaultSetMessage`
-- added type `PaymentMethodDeletedMessage`
-- added type `PaymentMethodInfoCustomFieldAddedMessage`
-- added type `PaymentMethodInfoCustomFieldChangedMessage`
-- added type `PaymentMethodInfoCustomFieldRemovedMessage`
-- added type `PaymentMethodInfoCustomTypeRemovedMessage`
-- added type `PaymentMethodInfoCustomTypeSetMessage`
-- added type `PaymentMethodInfoInterfaceAccountSetMessage`
-- added type `PaymentMethodInfoInterfaceSetMessage`
-- added type `PaymentMethodInfoMethodSetMessage`
-- added type `PaymentMethodInfoNameSetMessage`
-- added type `PaymentMethodInfoTokenSetMessage`
-- added type `PaymentMethodInterfaceAccountSetMessage`
-- added type `PaymentMethodKeySetMessage`
-- added type `PaymentMethodMethodSetMessage`
-- added type `PaymentMethodNameSetMessage`
-- added type `PaymentMethodPaymentInterfaceSetMessage`
-- added type `PaymentMethodPaymentMethodStatusSetMessage`
-- added type `PaymentTransactionInterfaceIdSetMessage`
-- added type `RecurringOrderCreatedMessage`
-- added type `RecurringOrderCustomFieldAddedMessage`
-- added type `RecurringOrderCustomFieldChangedMessage`
-- added type `RecurringOrderCustomFieldRemovedMessage`
-- added type `RecurringOrderCustomTypeRemovedMessage`
-- added type `RecurringOrderCustomTypeSetMessage`
-- added type `RecurringOrderDeletedMessage`
-- added type `RecurringOrderExpiresAtSetMessage`
-- added type `RecurringOrderFailedMessage`
-- added type `RecurringOrderKeySetMessage`
-- added type `RecurringOrderScheduleSetMessage`
-- added type `RecurringOrderStartsAtSetMessage`
-- added type `RecurringOrderStateChangedMessage`
-- added type `RecurringOrderStateTransitionMessage`
-- added type `AssociateRoleNameSetMessagePayload`
-- added type `BusinessUnitCustomerGroupAssignmentAddedMessagePayload`
-- added type `BusinessUnitCustomerGroupAssignmentRemovedMessagePayload`
-- added type `BusinessUnitCustomerGroupAssignmentsSetMessagePayload`
-- added type `BusinessUnitTopLevelUnitSetMessagePayload`
-- added type `BusinessUnitTypeSetMessagePayload`
-- added type `CartFrozenMessagePayload`
-- added type `CartPurchaseOrderNumberSetMessagePayload`
-- added type `CartUnfrozenMessagePayload`
-- added type `CustomerBillingAddressAddedMessagePayload`
-- added type `CustomerBillingAddressRemovedMessagePayload`
-- added type `CustomerDefaultBillingAddressSetMessagePayload`
-- added type `CustomerDefaultShippingAddressSetMessagePayload`
-- added type `CustomerExternalIdSetMessagePayload`
-- added type `CustomerGroupAssignmentAddedMessagePayload`
-- added type `CustomerGroupAssignmentRemovedMessagePayload`
-- added type `CustomerGroupAssignmentsSetMessagePayload`
-- added type `CustomerShippingAddressAddedMessagePayload`
-- added type `CustomerShippingAddressRemovedMessagePayload`
-- added type `CustomerStoresSetMessagePayload`
-- added type `DiscountGroupCreatedMessagePayload`
-- added type `DiscountGroupDeletedMessagePayload`
-- added type `DiscountGroupIsActiveSetMessagePayload`
-- added type `DiscountGroupKeySetMessagePayload`
-- added type `DiscountGroupSortOrderSetMessagePayload`
-- added type `InventoryEntryOutOfStockMessagePayload`
-- added type `InventoryEntryReorderPointMessagePayload`
-- added type `InventoryEntryReservationExpirationInMinutesSetMessagePayload`
-- added type `InventoryEntrySafetyStockMessagePayload`
-- added type `OrderBusinessUnitSetMessagePayload`
-- added type `OrderCreatedFromRecurringOrderMessagePayload`
-- added type `OrderPaymentRemovedMessagePayload`
-- added type `PaymentInterfaceIdSetMessagePayload`
-- added type `PaymentMethodCreatedMessagePayload`
-- added type `PaymentMethodCustomFieldAddedMessagePayload`
-- added type `PaymentMethodCustomFieldChangedMessagePayload`
-- added type `PaymentMethodCustomFieldRemovedMessagePayload`
-- added type `PaymentMethodCustomTypeRemovedMessagePayload`
-- added type `PaymentMethodCustomTypeSetMessagePayload`
-- added type `PaymentMethodDefaultSetMessagePayload`
-- added type `PaymentMethodDeletedMessagePayload`
-- added type `PaymentMethodInfoCustomFieldAddedMessagePayload`
-- added type `PaymentMethodInfoCustomFieldChangedMessagePayload`
-- added type `PaymentMethodInfoCustomFieldRemovedMessagePayload`
-- added type `PaymentMethodInfoCustomTypeRemovedMessagePayload`
-- added type `PaymentMethodInfoCustomTypeSetMessagePayload`
-- added type `PaymentMethodInfoInterfaceAccountSetMessagePayload`
-- added type `PaymentMethodInfoInterfaceSetMessagePayload`
-- added type `PaymentMethodInfoMethodSetMessagePayload`
-- added type `PaymentMethodInfoNameSetMessagePayload`
-- added type `PaymentMethodInfoTokenSetMessagePayload`
-- added type `PaymentMethodInterfaceAccountSetMessagePayload`
-- added type `PaymentMethodKeySetMessagePayload`
-- added type `PaymentMethodMethodSetMessagePayload`
-- added type `PaymentMethodNameSetMessagePayload`
-- added type `PaymentMethodPaymentInterfaceSetMessagePayload`
-- added type `PaymentMethodPaymentMethodStatusSetMessagePayload`
-- added type `PaymentTransactionInterfaceIdSetMessagePayload`
-- added type `RecurringOrderCreatedMessagePayload`
-- added type `RecurringOrderCustomFieldAddedMessagePayload`
-- added type `RecurringOrderCustomFieldChangedMessagePayload`
-- added type `RecurringOrderCustomFieldRemovedMessagePayload`
-- added type `RecurringOrderCustomTypeRemovedMessagePayload`
-- added type `RecurringOrderCustomTypeSetMessagePayload`
-- added type `RecurringOrderDeletedMessagePayload`
-- added type `RecurringOrderExpiresAtSetMessagePayload`
-- added type `RecurringOrderFailedMessagePayload`
-- added type `RecurringOrderKeySetMessagePayload`
-- added type `RecurringOrderScheduleSetMessagePayload`
-- added type `RecurringOrderStartsAtSetMessagePayload`
-- added type `RecurringOrderStateChangedMessagePayload`
-- added type `RecurringOrderStateTransitionMessagePayload`
-- added type `StagedOrderChangePriceRoundingModeAction`
-- added type `StagedOrderSetBusinessUnitAction`
-- added type `OrderSetBusinessUnitAction`
-- added type `PaymentMethod`
-- added type `PaymentMethodDraft`
-- added type `PaymentMethodPagedQueryResponse`
-- added type `PaymentMethodReference`
-- added type `PaymentMethodStatus`
-- added type `PaymentMethodToken`
-- added type `PaymentMethodUpdate`
-- added type `PaymentMethodUpdateAction`
-- added type `PaymentMethodSetCustomFieldAction`
-- added type `PaymentMethodSetCustomTypeAction`
-- added type `PaymentMethodSetDefaultAction`
-- added type `PaymentMethodSetInterfaceAccountAction`
-- added type `PaymentMethodSetKeyAction`
-- added type `PaymentMethodSetMethodAction`
-- added type `PaymentMethodSetNameAction`
-- added type `PaymentMethodSetPaymentInterfaceAction`
-- added type `PaymentMethodSetPaymentMethodStatusAction`
-- added type `PaymentMethodInfoDraft`
-- added type `PaymentSetMethodInfoAction`
-- added type `PaymentSetMethodInfoCustomFieldAction`
-- added type `PaymentSetMethodInfoCustomTypeAction`
-- added type `PaymentSetMethodInfoInterfaceAccountAction`
-- added type `PaymentSetMethodInfoTokenAction`
-- added type `PaymentSetTransactionInterfaceIdAction`
-- added type `ProductSearchFacetResultStats`
-- added type `ProductSearchFacetStatsExpression`
-- added type `ProductSearchFacetStatsValue`
-- added type `ProductTailoringSetProductAttributeAction`
-- added type `AttributeLevelEnum`
-- added type `ProductSetProductAttributeAction`
-- added type `DiscountCombinationMode`
-- added type `DiscountsConfiguration`
-- added type `InventoryConfiguration`
-- added type `ProjectChangePriceRoundingModeAction`
-- added type `ProjectChangeTaxRoundingModeAction`
-- added type `ProjectSetDiscountsConfigurationAction`
-- added type `ProjectSetReleaseExpiredReservationsAction`
-- added type `ProjectSetReservationExpirationInMinutesAction`
-- added type `DayOfMonthSchedule`
-- added type `DayOfMonthScheduleDraft`
-- added type `IntervalUnit`
-- added type `RecurrencePolicy`
-- added type `RecurrencePolicyDraft`
-- added type `RecurrencePolicyPagedQueryResponse`
-- added type `RecurrencePolicyReference`
-- added type `RecurrencePolicyResourceIdentifier`
-- added type `RecurrencePolicySchedule`
-- added type `RecurrencePolicyScheduleDraft`
-- added type `RecurrencePolicyUpdate`
-- added type `RecurrencePolicyUpdateAction`
-- added type `StandardSchedule`
-- added type `StandardScheduleDraft`
-- added type `RecurrencePolicySetDescriptionAction`
-- added type `RecurrencePolicySetKeyAction`
-- added type `RecurrencePolicySetNameAction`
-- added type `RecurrencePolicySetScheduleAction`
-- added type `Counter`
-- added type `CounterDraft`
-- added type `CustomLineItemRecurrenceInfo`
-- added type `CustomLineItemRecurrenceInfoDraft`
-- added type `LineItemRecurrenceInfo`
-- added type `LineItemRecurrenceInfoDraft`
-- added type `PriceSelectionMode`
-- added type `RecurringOrder`
-- added type `RecurringOrderActive`
-- added type `RecurringOrderCanceled`
-- added type `RecurringOrderDraft`
-- added type `RecurringOrderExpired`
-- added type `RecurringOrderPagedQueryResponse`
-- added type `RecurringOrderPaused`
-- added type `RecurringOrderReference`
-- added type `RecurringOrderResourceIdentifier`
-- added type `RecurringOrderState`
-- added type `RecurringOrderStateDraft`
-- added type `RecurringOrderUpdate`
-- added type `RecurringOrderUpdateAction`
-- added type `SkipConfiguration`
-- added type `SkipConfigurationDraft`
-- added type `AnyOrder`
-- added type `AnyOrderDraft`
-- added type `ApplicableRecurrencePolicies`
-- added type `ApplicableRecurrencePoliciesDraft`
-- added type `NonRecurringOrdersOnly`
-- added type `NonRecurringOrdersOnlyDraft`
-- added type `RecurringOrderScope`
-- added type `RecurringOrderScopeDraft`
-- added type `RecurringOrdersOnly`
-- added type `RecurringOrdersOnlyDraft`
-- added type `RecurringOrderSetCustomFieldAction`
-- added type `RecurringOrderSetCustomTypeAction`
-- added type `RecurringOrderSetExpiresAtAction`
-- added type `RecurringOrderSetKeyAction`
-- added type `RecurringOrderSetOrderSkipConfigurationAction`
-- added type `RecurringOrderSetScheduleAction`
-- added type `RecurringOrderSetStartsAtAction`
-- added type `RecurringOrderSetStateAction`
-- added type `RecurringOrderTransitionStateAction`
-- added type `Reservation`
-- added type `ReservationState`
-- added type `SearchFuzzyExpression`
-- added type `SearchFuzzyValue`
-- added type `ShoppingListSetBusinessUnitAction`
-- added type `EventDeliveryPayload`
-- added type `EventSubscription`
-- added type `EventSubscriptionResourceTypeId`
-- added type `EventType`
-- added type `SubscriptionNotification`
-- added type `SubscriptionSetEventsAction`
-- added type `CannotChangeReservationExpiryWarning`
-- added type `CannotCreateReservationWarning`
-- added type `CannotUpdateReservationWarning`
-</details>
-
-
-<details>
-<summary>Changed Type(s)</summary>
-
-- :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
-</details>
-
-
-<details>
-<summary>Deprecated Type(s)</summary>
-
-- type `ProductLegacySetSkuAction` is removed
+- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
 </details>
 
 
@@ -716,6 +777,13 @@
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->get()`
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->head()`
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->post()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->get()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->head()`
+- added method `$apiRoot->withProjectKey()->variants()->get()`
+- added method `$apiRoot->withProjectKey()->variants()->post()`
+- added method `$apiRoot->withProjectKey()->variants()->head()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->get()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->post()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->get()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->head()`
 - added method `$apiRoot->withProjectKey()->asAssociate()->withAssociateIdValue()->inBusinessUnitKeyWithBusinessUnitKeyValue()->shoppingLists()->post()`
@@ -746,6 +814,8 @@
 - added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->post()`
 - added method `$apiRoot->withProjectKey()->paymentMethods()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->productProjections()->withKey()->variantAttributes()->get()`
+- added method `$apiRoot->withProjectKey()->productProjections()->withId()->variantAttributes()->get()`
 - added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->get()`
 - added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->recurringOrders()->withId()->post()`
@@ -762,9 +832,27 @@
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->post()`
 - added method `$apiRoot->withProjectKey()->recurrencePolicies()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->variantProjections()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->variants()->bulk()->post()`
+- added method `$apiRoot->withProjectKey()->variants()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->variants()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->variants()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->variants()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->variants()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->variants()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->variants()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->variants()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->variants()->withId()->images()->post()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->post()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->head()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withKey()->post()`
@@ -776,34 +864,120 @@
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->keyWithKeyValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->businessUnits()->withBusinessUnitIdValueAssociatesWithAssociateIdValue()->get()`
 - added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->carts()->customerIdWithCustomerIdValueMerge()->post()`
-</details>
-
-**Import changes**
-
-<details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/business-units`
-- added resource `/{projectKey}/product-selections`
-- added resource `/{projectKey}/product-tailorings`
-- added resource `/{projectKey}/business-units/import-containers`
-- added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
-- added resource `/{projectKey}/product-selections/import-containers`
-- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
-- added resource `/{projectKey}/product-tailorings/import-containers`
-- added resource `/{projectKey}/product-tailorings/import-containers/{importContainerKey}`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->discountCodes()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->productProjections()->withKey()->variantAttributes()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->productProjections()->withId()->variantAttributes()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->withKey()->head()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->inStoreKeyWithStoreKeyValue()->variantProjections()->withId()->head()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->types()->get()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->mcpServers()->types()->withMcpServerType()->get()`
 </details>
 
 
 <details>
 <summary>Added Enum(s)</summary>
 
-- added enum `business-unit` to type `ImportResourceType`
-- added enum `product-selection` to type `ImportResourceType`
-- added enum `product-tailoring` to type `ImportResourceType`
-- added enum `associate-role` to type `ReferenceType`
-- added enum `business-unit` to type `ReferenceType`
-- added enum `partiallyImported` to type `ProcessingState`
+- added enum `ViewMyShoppingLists` to type `Permission`
+- added enum `ViewOthersShoppingLists` to type `Permission`
+- added enum `UpdateMyShoppingLists` to type `Permission`
+- added enum `UpdateOthersShoppingLists` to type `Permission`
+- added enum `CreateMyShoppingLists` to type `Permission`
+- added enum `CreateOthersShoppingLists` to type `Permission`
+- added enum `DeleteMyShoppingLists` to type `Permission`
+- added enum `DeleteOthersShoppingLists` to type `Permission`
+- added enum `RecurringOrder` to type `CartOrigin`
+- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
+- added enum `ReserveOnCart` to type `InventoryMode`
+- added enum `discount-group` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ReferenceTypeId`
+- added enum `recurrence-policy` to type `ReferenceTypeId`
+- added enum `recurring-order` to type `ReferenceTypeId`
+- added enum `reservation` to type `ReferenceTypeId`
+- added enum `variant` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ExtensionResourceTypeId`
+- added enum `variant` to type `AttributeReferenceTypeId`
+- added enum `RecurringOrderState` to type `StateTypeEnum`
+- added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
+- added enum `recurrence-policy` to type `ChangeSubscriptionResourceTypeId`
+- added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
+- added enum `variant` to type `CustomFieldReferenceValue`
+- added enum `payment-method` to type `ResourceTypeId`
+- added enum `payment-method-info` to type `ResourceTypeId`
+- added enum `reservation` to type `ResourceTypeId`
+- added enum `recurring-order` to type `ResourceTypeId`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/discount-groups`
+- added resource `/{projectKey}/payment-methods`
+- added resource `/{projectKey}/recurring-orders`
+- added resource `/{projectKey}/recurrence-policies`
+- added resource `/{projectKey}/variant-projections`
+- added resource `/{projectKey}/variants`
+- added resource `/{projectKey}/mcp-servers`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}`
+- added resource `/{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/{ID}`
+- added resource `/{projectKey}/business-units/key={key}/associates/{associateId}`
+- added resource `/{projectKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/carts/customer-id={customerId}/merge`
+- added resource `/{projectKey}/discount-groups/key={key}`
+- added resource `/{projectKey}/discount-groups/{ID}`
+- added resource `/{projectKey}/payment-methods/key={key}`
+- added resource `/{projectKey}/payment-methods/{ID}`
+- added resource `/{projectKey}/product-projections/key={key}/variant-attributes`
+- added resource `/{projectKey}/product-projections/{ID}/variant-attributes`
+- added resource `/{projectKey}/recurring-orders/{ID}`
+- added resource `/{projectKey}/recurring-orders/key={key}`
+- added resource `/{projectKey}/recurrence-policies/key={key}`
+- added resource `/{projectKey}/recurrence-policies/{ID}`
+- added resource `/{projectKey}/variant-projections/key={key}`
+- added resource `/{projectKey}/variant-projections/{ID}`
+- added resource `/{projectKey}/variants/bulk`
+- added resource `/{projectKey}/variants/key={key}`
+- added resource `/{projectKey}/variants/{ID}`
+- added resource `/{projectKey}/variants/{ID}/images`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units`
+- added resource `/{projectKey}/in-store/key={storeKey}/discount-codes`
+- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/key={key}/associates/{associateId}`
+- added resource `/{projectKey}/in-store/key={storeKey}/business-units/{businessUnitId}/associates/{associateId}`
+- added resource `/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}/merge`
+- added resource `/{projectKey}/in-store/key={storeKey}/discount-codes/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/discount-codes/{ID}`
+- added resource `/{projectKey}/in-store/key={storeKey}/product-projections/key={key}/variant-attributes`
+- added resource `/{projectKey}/in-store/key={storeKey}/product-projections/{ID}/variant-attributes`
+- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections/key={key}`
+- added resource `/{projectKey}/in-store/key={storeKey}/variant-projections/{ID}`
+- added resource `/{projectKey}/mcp-servers/types`
+- added resource `/{projectKey}/mcp-servers/key={key}`
+- added resource `/{projectKey}/mcp-servers/{ID}`
+- added resource `/{projectKey}/mcp-servers/types/{mcpServerType}`
+</details>
+
+**Import changes**
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
+- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `LocalizedString`
 </details>
 
 
@@ -812,14 +986,6 @@
 
 - :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
 - :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
-- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `LocalizedString`
 </details>
 
 
@@ -841,6 +1007,16 @@
 
 
 <details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->productTailorings()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->variants()->importContainers()->withImportContainerKeyValue()->post()`
+</details>
+
+
+<details>
 <summary>Added Type(s)</summary>
 
 - added type `AssociateRoleKeyReference`
@@ -849,6 +1025,7 @@
 - added type `RetentionPolicy`
 - added type `TimeToLiveConfig`
 - added type `TimeToLiveRetentionPolicy`
+- added type `VariantImportRequest`
 - added type `ProductSelectionImportRequest`
 - added type `ProductTailoringImportRequest`
 - added type `BusinessUnitImportRequest`
@@ -872,144 +1049,52 @@
 - added type `ProductVariantTailoringImport`
 - added type `ProductTailoringImport`
 - added type `AttributeLevel`
+- added type `VariantImport`
 </details>
 
 
 <details>
-<summary>Added Method(s)</summary>
+<summary>Added Enum(s)</summary>
 
-- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->productTailorings()->importContainers()->withImportContainerKeyValue()->post()`
+- added enum `business-unit` to type `ImportResourceType`
+- added enum `product-selection` to type `ImportResourceType`
+- added enum `product-tailoring` to type `ImportResourceType`
+- added enum `variant` to type `ImportResourceType`
+- added enum `associate-role` to type `ReferenceType`
+- added enum `business-unit` to type `ReferenceType`
+- added enum `variant` to type `ReferenceType`
+- added enum `partiallyImported` to type `ProcessingState`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/business-units`
+- added resource `/{projectKey}/product-selections`
+- added resource `/{projectKey}/product-tailorings`
+- added resource `/{projectKey}/variants`
+- added resource `/{projectKey}/business-units/import-containers`
+- added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-selections/import-containers`
+- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-tailorings/import-containers`
+- added resource `/{projectKey}/product-tailorings/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/variants/import-containers`
+- added resource `/{projectKey}/variants/import-containers/{importContainerKey}`
 </details>
 
 **History changes**
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Removed Property(s)</summary>
 
-- added enum `shipping-method` to type `ChangeHistoryResourceType`
-- added enum `standalone-price` to type `ChangeHistoryResourceType`
-- added enum `addInheritedAssociate` to type `PlatformInitiatedChange`
-- added enum `changeIncludedInStatistics` to type `PlatformInitiatedChange`
-- added enum `changeInheritedAssociate` to type `PlatformInitiatedChange`
-- added enum `changeLastVariantId` to type `PlatformInitiatedChange`
-- added enum `changeLineItemPublished` to type `PlatformInitiatedChange`
-- added enum `changeTopLevelUnit` to type `PlatformInitiatedChange`
-- added enum `removeInheritedAssociate` to type `PlatformInitiatedChange`
-- added enum `setAncestors` to type `PlatformInitiatedChange`
-- added enum `setInheritedAssociates` to type `PlatformInitiatedChange`
-- added enum `setInheritedStores` to type `PlatformInitiatedChange`
-- added enum `setLineItemDeactivatedAt` to type `PlatformInitiatedChange`
-- added enum `setProductCount` to type `PlatformInitiatedChange`
-- added enum `setReservations` to type `PlatformInitiatedChange`
-- added enum `addShipping` to type `UpdateType`
-- added enum `addShippingRate` to type `UpdateType`
-- added enum `addZone` to type `UpdateType`
-- added enum `changeActive` to type `UpdateType`
-- added enum `changeApprovalRuleMode` to type `UpdateType`
-- added enum `changeCustomLineItemPriceRoundingMode` to type `UpdateType`
-- added enum `changeCustomer` to type `UpdateType`
-- added enum `changeDiscountTypeCombination` to type `UpdateType`
-- added enum `changeIncludedInStatistics` to type `UpdateType`
-- added enum `changeIsDefault` to type `UpdateType`
-- added enum `changeLastVariantId` to type `UpdateType`
-- added enum `changeLineItemPriceRoundingMode` to type `UpdateType`
-- added enum `changeLineItemPublished` to type `UpdateType`
-- added enum `changePriceRoundingMode` to type `UpdateType`
-- added enum `changeTaxCategory` to type `UpdateType`
-- added enum `changeTopLevelUnit` to type `UpdateType`
-- added enum `excludeProduct` to type `UpdateType`
-- added enum `removeShipping` to type `UpdateType`
-- added enum `removeShippingRate` to type `UpdateType`
-- added enum `removeZone` to type `UpdateType`
-- added enum `replaceTaxRate` to type `UpdateType`
-- added enum `revertStagedChanges` to type `UpdateType`
-- added enum `revertStagedVariantChanges` to type `UpdateType`
-- added enum `setAncestors` to type `UpdateType`
-- added enum `setAssetKey` to type `UpdateType`
-- added enum `setAssociates` to type `UpdateType`
-- added enum `setBillingAddressCustomField` to type `UpdateType`
-- added enum `setBillingAddressCustomType` to type `UpdateType`
-- added enum `setBusinessUnit` to type `UpdateType`
-- added enum `setCustomLineItemDiscountedPrice` to type `UpdateType`
-- added enum `setCustomLineItemDiscountedPricePerQuantity` to type `UpdateType`
-- added enum `setCustomerGroupAssignments` to type `UpdateType`
-- added enum `setDeliveryAddressCustomField` to type `UpdateType`
-- added enum `setDeliveryAddressCustomType` to type `UpdateType`
-- added enum `setDeliveryCustomField` to type `UpdateType`
-- added enum `setDeliveryCustomType` to type `UpdateType`
-- added enum `setDirectDiscounts` to type `UpdateType`
-- added enum `setDiscountOnTotalPrice` to type `UpdateType`
-- added enum `setInheritedAssociates` to type `UpdateType`
-- added enum `setInheritedStores` to type `UpdateType`
-- added enum `setItemShippingAddressCustomField` to type `UpdateType`
-- added enum `setItemShippingAddressCustomType` to type `UpdateType`
-- added enum `setLocalizedDescription` to type `UpdateType`
-- added enum `setLocalizedName` to type `UpdateType`
-- added enum `setMaxCartQuantity` to type `UpdateType`
-- added enum `setMinCartQuantity` to type `UpdateType`
-- added enum `setParcelCustomField` to type `UpdateType`
-- added enum `setParcelCustomType` to type `UpdateType`
-- added enum `setPredicate` to type `UpdateType`
-- added enum `setPriceKey` to type `UpdateType`
-- added enum `setPriceMode` to type `UpdateType`
-- added enum `setPriceTiers` to type `UpdateType`
-- added enum `setProductAttribute` to type `UpdateType`
-- added enum `setReferences` to type `UpdateType`
-- added enum `setReservationExpirationInMinutes` to type `UpdateType`
-- added enum `setReturnInfo` to type `UpdateType`
-- added enum `setReturnItemCustomField` to type `UpdateType`
-- added enum `setReturnItemCustomType` to type `UpdateType`
-- added enum `setShippingAddressCustomField` to type `UpdateType`
-- added enum `setShippingAddressCustomType` to type `UpdateType`
-- added enum `setShippingCustomField` to type `UpdateType`
-- added enum `setShippingCustomType` to type `UpdateType`
-- added enum `setShippingInfoDiscountedPrice` to type `UpdateType`
-- added enum `setShippingMethodTaxCategory` to type `UpdateType`
-- added enum `setTaxedShippingPrice` to type `UpdateType`
-- added enum `setTransactionCustomField` to type `UpdateType`
-- added enum `setTransactionCustomType` to type `UpdateType`
-- added enum `setUnitType` to type `UpdateType`
-- added enum `setVariantExclusion` to type `UpdateType`
-- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
-- added enum `CreateApprovalRules` to type `Permission`
-- added enum `UpdateApprovalRules` to type `Permission`
-- added enum `UpdateApprovalFlows` to type `Permission`
-- added enum `ViewMyShoppingLists` to type `Permission`
-- added enum `ViewOthersShoppingLists` to type `Permission`
-- added enum `UpdateMyShoppingLists` to type `Permission`
-- added enum `UpdateOthersShoppingLists` to type `Permission`
-- added enum `CreateMyShoppingLists` to type `Permission`
-- added enum `CreateOthersShoppingLists` to type `Permission`
-- added enum `DeleteMyShoppingLists` to type `Permission`
-- added enum `DeleteOthersShoppingLists` to type `Permission`
-- added enum `includeOnly` to type `ProductVariantSelectionTypeEnum`
-- added enum `includeAllExcept` to type `ProductVariantSelectionTypeEnum`
-- added enum `RenegotiationAddressed` to type `QuoteState`
-- added enum `approval-flow` to type `ReferenceTypeId`
-- added enum `approval-rule` to type `ReferenceTypeId`
-- added enum `attribute-group` to type `ReferenceTypeId`
-- added enum `direct-discount` to type `ReferenceTypeId`
-- added enum `discount-group` to type `ReferenceTypeId`
-- added enum `payment-method` to type `ReferenceTypeId`
-- added enum `product-price` to type `ReferenceTypeId`
-- added enum `product-tailoring` to type `ReferenceTypeId`
-- added enum `recurrence-policy` to type `ReferenceTypeId`
-- added enum `recurring-order` to type `ReferenceTypeId`
-- added enum `standalone-price` to type `ReferenceTypeId`
-- added enum `Delivered` to type `ShipmentState`
-- added enum `Canceled` to type `ShipmentState`
-- added enum `RecurringOrderState` to type `StateTypeEnum`
-</details>
-
-
-<details>
-<summary>Removed Enum(s)</summary>
-
-- :warning: removed enum `changeAmountAuthorized` from type `UpdateType`
-- :warning: removed enum `setAsssetKey` from type `UpdateType`
-- :warning: removed enum `Failed` from type `QuoteState`
+- :warning: removed property `/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/` from type `CategoryOrderHints`
+- :warning: removed property `variantId` from type `LineItem`
+- :warning: removed property `fractionDigits` from type `Money`
+- :warning: removed property `type` from type `Money`
+- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
+- :warning: removed property `skus` from type `ProductVariantSelection`
 </details>
 
 
@@ -1116,6 +1201,7 @@
 <details>
 <summary>Required Property(s)</summary>
 
+- changed property `total` of type `RecordPagedQueryResponse` to be optional
 - changed property `id` of type `Address` to be optional
 - changed property `key` of type `Address` to be optional
 - changed property `title` of type `Address` to be optional
@@ -1190,18 +1276,6 @@
 - changed property `timestamp` of type `Transaction` to be optional
 - changed property `interactionId` of type `Transaction` to be optional
 - :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/` from type `CategoryOrderHints`
-- :warning: removed property `variantId` from type `LineItem`
-- :warning: removed property `fractionDigits` from type `Money`
-- :warning: removed property `type` from type `Money`
-- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
-- :warning: removed property `skus` from type `ProductVariantSelection`
 </details>
 
 
@@ -1368,6 +1442,15 @@
 
 
 <details>
+<summary>Added QueryParameter(s)</summary>
+
+- added query parameter `withTotal` to method `get /{projectKey}`
+- added query parameter `withTotal` to method `get /{projectKey}/{resourceType}`
+- added query parameter `withTotal` to method `get /{projectKey}/{resourceType}/{ID}`
+</details>
+
+
+<details>
 <summary>MarkDeprecated Type(s)</summary>
 
 - marked type `AddAssociateChange` as deprecated
@@ -1379,6 +1462,14 @@
 - marked type `RemovePriceChange` as deprecated
 - marked type `RemoveProductSelectionChange` as deprecated
 - marked type `RemoveStateRolesChange` as deprecated
+</details>
+
+
+<details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `Address` from type `object` to `BaseAddress`
+- :warning: changed type `GeoLocation` from type `object` to `GeoJson`
 </details>
 
 
@@ -1547,86 +1638,133 @@
 
 
 <details>
-<summary>Changed Type(s)</summary>
+<summary>Removed Enum(s)</summary>
 
-- :warning: changed type `Address` from type `object` to `BaseAddress`
-- :warning: changed type `GeoLocation` from type `object` to `GeoJson`
-</details>
-
-**Checkout changes**
-
-<details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/payment-integrations`
-- added resource `/{projectKey}/applications`
-- added resource `/{projectKey}/payment-integrations/{id}`
-- added resource `/{projectKey}/payment-integrations/key={key}`
-- added resource `/{projectKey}/applications/{id}`
-- added resource `/{projectKey}/applications/key={key}`
+- :warning: removed enum `changeAmountAuthorized` from type `UpdateType`
+- :warning: removed enum `setAsssetKey` from type `UpdateType`
+- :warning: removed enum `Failed` from type `QuoteState`
 </details>
 
 
 <details>
 <summary>Added Enum(s)</summary>
 
-- added enum `deployment` to type `ReferenceTypeId`
-- added enum `eu-central-1.aws` to type `Region`
-- added enum `us-east-2.aws` to type `Region`
-- added enum `reversePayment` to type `PaymentIntentOperation`
+- added enum `shipping-method` to type `ChangeHistoryResourceType`
+- added enum `standalone-price` to type `ChangeHistoryResourceType`
+- added enum `addInheritedAssociate` to type `PlatformInitiatedChange`
+- added enum `changeIncludedInStatistics` to type `PlatformInitiatedChange`
+- added enum `changeInheritedAssociate` to type `PlatformInitiatedChange`
+- added enum `changeLastVariantId` to type `PlatformInitiatedChange`
+- added enum `changeLineItemPublished` to type `PlatformInitiatedChange`
+- added enum `changeTopLevelUnit` to type `PlatformInitiatedChange`
+- added enum `removeInheritedAssociate` to type `PlatformInitiatedChange`
+- added enum `setAncestors` to type `PlatformInitiatedChange`
+- added enum `setInheritedAssociates` to type `PlatformInitiatedChange`
+- added enum `setInheritedStores` to type `PlatformInitiatedChange`
+- added enum `setLineItemDeactivatedAt` to type `PlatformInitiatedChange`
+- added enum `setProductCount` to type `PlatformInitiatedChange`
+- added enum `setReservations` to type `PlatformInitiatedChange`
+- added enum `addShipping` to type `UpdateType`
+- added enum `addShippingRate` to type `UpdateType`
+- added enum `addZone` to type `UpdateType`
+- added enum `changeActive` to type `UpdateType`
+- added enum `changeApprovalRuleMode` to type `UpdateType`
+- added enum `changeCustomLineItemPriceRoundingMode` to type `UpdateType`
+- added enum `changeCustomer` to type `UpdateType`
+- added enum `changeDiscountTypeCombination` to type `UpdateType`
+- added enum `changeIncludedInStatistics` to type `UpdateType`
+- added enum `changeIsDefault` to type `UpdateType`
+- added enum `changeLastVariantId` to type `UpdateType`
+- added enum `changeLineItemPriceRoundingMode` to type `UpdateType`
+- added enum `changeLineItemPublished` to type `UpdateType`
+- added enum `changePriceRoundingMode` to type `UpdateType`
+- added enum `changeTaxCategory` to type `UpdateType`
+- added enum `changeTopLevelUnit` to type `UpdateType`
+- added enum `excludeProduct` to type `UpdateType`
+- added enum `removeShipping` to type `UpdateType`
+- added enum `removeShippingRate` to type `UpdateType`
+- added enum `removeZone` to type `UpdateType`
+- added enum `replaceTaxRate` to type `UpdateType`
+- added enum `revertStagedChanges` to type `UpdateType`
+- added enum `revertStagedVariantChanges` to type `UpdateType`
+- added enum `setAncestors` to type `UpdateType`
+- added enum `setAssetKey` to type `UpdateType`
+- added enum `setAssociates` to type `UpdateType`
+- added enum `setBillingAddressCustomField` to type `UpdateType`
+- added enum `setBillingAddressCustomType` to type `UpdateType`
+- added enum `setBusinessUnit` to type `UpdateType`
+- added enum `setCustomLineItemDiscountedPrice` to type `UpdateType`
+- added enum `setCustomLineItemDiscountedPricePerQuantity` to type `UpdateType`
+- added enum `setCustomerGroupAssignments` to type `UpdateType`
+- added enum `setDeliveryAddressCustomField` to type `UpdateType`
+- added enum `setDeliveryAddressCustomType` to type `UpdateType`
+- added enum `setDeliveryCustomField` to type `UpdateType`
+- added enum `setDeliveryCustomType` to type `UpdateType`
+- added enum `setDirectDiscounts` to type `UpdateType`
+- added enum `setDiscountOnTotalPrice` to type `UpdateType`
+- added enum `setInheritedAssociates` to type `UpdateType`
+- added enum `setInheritedStores` to type `UpdateType`
+- added enum `setItemShippingAddressCustomField` to type `UpdateType`
+- added enum `setItemShippingAddressCustomType` to type `UpdateType`
+- added enum `setLocalizedDescription` to type `UpdateType`
+- added enum `setLocalizedName` to type `UpdateType`
+- added enum `setMaxCartQuantity` to type `UpdateType`
+- added enum `setMinCartQuantity` to type `UpdateType`
+- added enum `setParcelCustomField` to type `UpdateType`
+- added enum `setParcelCustomType` to type `UpdateType`
+- added enum `setPredicate` to type `UpdateType`
+- added enum `setPriceKey` to type `UpdateType`
+- added enum `setPriceMode` to type `UpdateType`
+- added enum `setPriceTiers` to type `UpdateType`
+- added enum `setProductAttribute` to type `UpdateType`
+- added enum `setReferences` to type `UpdateType`
+- added enum `setReservationExpirationInMinutes` to type `UpdateType`
+- added enum `setReturnInfo` to type `UpdateType`
+- added enum `setReturnItemCustomField` to type `UpdateType`
+- added enum `setReturnItemCustomType` to type `UpdateType`
+- added enum `setShippingAddressCustomField` to type `UpdateType`
+- added enum `setShippingAddressCustomType` to type `UpdateType`
+- added enum `setShippingCustomField` to type `UpdateType`
+- added enum `setShippingCustomType` to type `UpdateType`
+- added enum `setShippingInfoDiscountedPrice` to type `UpdateType`
+- added enum `setShippingMethodTaxCategory` to type `UpdateType`
+- added enum `setTaxedShippingPrice` to type `UpdateType`
+- added enum `setTransactionCustomField` to type `UpdateType`
+- added enum `setTransactionCustomType` to type `UpdateType`
+- added enum `setUnitType` to type `UpdateType`
+- added enum `setVariantExclusion` to type `UpdateType`
+- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
+- added enum `CreateApprovalRules` to type `Permission`
+- added enum `UpdateApprovalRules` to type `Permission`
+- added enum `UpdateApprovalFlows` to type `Permission`
+- added enum `ViewMyShoppingLists` to type `Permission`
+- added enum `ViewOthersShoppingLists` to type `Permission`
+- added enum `UpdateMyShoppingLists` to type `Permission`
+- added enum `UpdateOthersShoppingLists` to type `Permission`
+- added enum `CreateMyShoppingLists` to type `Permission`
+- added enum `CreateOthersShoppingLists` to type `Permission`
+- added enum `DeleteMyShoppingLists` to type `Permission`
+- added enum `DeleteOthersShoppingLists` to type `Permission`
+- added enum `includeOnly` to type `ProductVariantSelectionTypeEnum`
+- added enum `includeAllExcept` to type `ProductVariantSelectionTypeEnum`
+- added enum `RenegotiationAddressed` to type `QuoteState`
+- added enum `approval-flow` to type `ReferenceTypeId`
+- added enum `approval-rule` to type `ReferenceTypeId`
+- added enum `attribute-group` to type `ReferenceTypeId`
+- added enum `direct-discount` to type `ReferenceTypeId`
+- added enum `discount-group` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ReferenceTypeId`
+- added enum `product-price` to type `ReferenceTypeId`
+- added enum `product-tailoring` to type `ReferenceTypeId`
+- added enum `recurrence-policy` to type `ReferenceTypeId`
+- added enum `recurring-order` to type `ReferenceTypeId`
+- added enum `standalone-price` to type `ReferenceTypeId`
+- added enum `Delivered` to type `ShipmentState`
+- added enum `Canceled` to type `ShipmentState`
+- added enum `RecurringOrderState` to type `StateTypeEnum`
 </details>
 
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `action` of type `PaymentIntentCancelAction` from type `string` to `PaymentIntentOperation`
-- :warning: changed property `action` of type `PaymentIntentCaptureAction` from type `string` to `PaymentIntentOperation`
-- :warning: changed property `action` of type `PaymentIntentRefundAction` from type `string` to `PaymentIntentOperation`
-- :warning: changed property `application` of type `Transaction` from type `ApplicationResourceIdentifier` to `ApplicationReference`
-</details>
-
-
-<details>
-<summary>Required Property(s)</summary>
-
-- changed property `detailedErrorMessage` of type `InvalidJsonInputError` to be optional
-- :warning: changed property `amount` of type `PaymentIntentRefundAction` to be required
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `payload` from type `ResponseMessage`
-- :warning: removed property `amount` from type `PaymentIntentAction`
-</details>
-
-
-<details>
-<summary>Added Property(s)</summary>
-
-- added property `resourceIdentifier` to type `ResourceNotFoundError`
-- added property `resourceId` to type `ResourceNotFoundError`
-- added property `merchantReference` to type `PaymentIntentCancelAction`
-- added property `merchantReference` to type `PaymentIntentCaptureAction`
-- added property `transactionId` to type `PaymentIntentRefundAction`
-- added property `merchantReference` to type `PaymentIntentRefundAction`
-- added property `payload` to type `PaymentCancelled`
-- added property `payload` to type `PaymentFailed`
-- added property `payload` to type `PaymentValidationFailed`
-</details>
-
-
-<details>
-<summary>Changed MethodResponseBody(s)</summary>
-
-- :warning: changed response body for `400: application/json` of method `post /{projectKey}/transactions` from type `null` to `ErrorResponse`
-- :warning: changed response body for `400: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `null` to `ErrorResponse`
-- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/{id}` from type `null` to `ErrorResponse`
-- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/key={key}` from type `null` to `ErrorResponse`
-</details>
-
+**Checkout changes**
 
 <details>
 <summary>Removed Type(s)</summary>
@@ -1642,6 +1780,19 @@
 - :warning: removed type `PaymentMethodsReceived`
 - :warning: removed type `PaymentVerificationStarted`
 - :warning: removed type `PaymentVerificationTimeout`
+</details>
+
+
+<details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `PaymentIntentCancelAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentIntentCaptureAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentIntentRefundAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentCancelled` from type `Message` to `ResponseMessage`
+- :warning: changed type `PaymentFailed` from type `Message` to `ResponseMessage`
+- :warning: changed type `PaymentValidationFailed` from type `Message` to `ResponseMessage`
+- :warning: changed type `TransactionItem` from type `TransactionItemDraft` to `object`
 </details>
 
 
@@ -1729,6 +1880,8 @@
 - added type `SetSortingInfoUpdateAction`
 - added type `SetStatusUpdateAction`
 - added type `SetTypeUpdateAction`
+- added type `PaymentIntentOutcome`
+- added type `PaymentIntentResponse`
 - added type `PaymentIntentReverseAction`
 - added type `ConnectorError`
 - added type `ErrorLoadingAllPaymentIntegrations`
@@ -1769,15 +1922,54 @@
 
 
 <details>
-<summary>Changed Type(s)</summary>
+<summary>Removed Property(s)</summary>
 
-- :warning: changed type `PaymentIntentCancelAction` from type `object` to `PaymentIntentAction`
-- :warning: changed type `PaymentIntentCaptureAction` from type `object` to `PaymentIntentAction`
-- :warning: changed type `PaymentIntentRefundAction` from type `object` to `PaymentIntentAction`
-- :warning: changed type `PaymentCancelled` from type `Message` to `ResponseMessage`
-- :warning: changed type `PaymentFailed` from type `Message` to `ResponseMessage`
-- :warning: changed type `PaymentValidationFailed` from type `Message` to `ResponseMessage`
-- :warning: changed type `TransactionItem` from type `TransactionItemDraft` to `object`
+- :warning: removed property `payload` from type `ResponseMessage`
+- :warning: removed property `amount` from type `PaymentIntentAction`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `action` of type `PaymentIntentCancelAction` from type `string` to `PaymentIntentOperation`
+- :warning: changed property `action` of type `PaymentIntentCaptureAction` from type `string` to `PaymentIntentOperation`
+- :warning: changed property `action` of type `PaymentIntentRefundAction` from type `string` to `PaymentIntentOperation`
+- :warning: changed property `application` of type `Transaction` from type `ApplicationResourceIdentifier` to `ApplicationReference`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- changed property `detailedErrorMessage` of type `InvalidJsonInputError` to be optional
+- :warning: changed property `amount` of type `PaymentIntentRefundAction` to be required
+</details>
+
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `resourceIdentifier` to type `ResourceNotFoundError`
+- added property `resourceId` to type `ResourceNotFoundError`
+- added property `merchantReference` to type `PaymentIntentCancelAction`
+- added property `merchantReference` to type `PaymentIntentCaptureAction`
+- added property `transactionId` to type `PaymentIntentRefundAction`
+- added property `merchantReference` to type `PaymentIntentRefundAction`
+- added property `payload` to type `PaymentCancelled`
+- added property `payload` to type `PaymentFailed`
+- added property `payload` to type `PaymentValidationFailed`
+</details>
+
+
+<details>
+<summary>Changed MethodResponseBody(s)</summary>
+
+- :warning: changed response body for `400: application/json` of method `post /{projectKey}/transactions` from type `null` to `ErrorResponse`
+- :warning: changed response body for `200: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `any` to `PaymentIntentResponse`
+- :warning: changed response body for `400: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `null` to `ErrorResponse`
+- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/{id}` from type `null` to `ErrorResponse`
+- :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/key={key}` from type `null` to `ErrorResponse`
 </details>
 
 
@@ -1804,5 +1996,27 @@
 - added method `$apiRoot->withProjectKey()->applications()->withKey()->post()`
 - added method `$apiRoot->withProjectKey()->applications()->withKey()->head()`
 - added method `$apiRoot->withProjectKey()->applications()->withKey()->delete()`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `deployment` to type `ReferenceTypeId`
+- added enum `eu-central-1.aws` to type `Region`
+- added enum `us-east-2.aws` to type `Region`
+- added enum `reversePayment` to type `PaymentIntentOperation`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/payment-integrations`
+- added resource `/{projectKey}/applications`
+- added resource `/{projectKey}/payment-integrations/{id}`
+- added resource `/{projectKey}/payment-integrations/key={key}`
+- added resource `/{projectKey}/applications/{id}`
+- added resource `/{projectKey}/applications/key={key}`
 </details>
 

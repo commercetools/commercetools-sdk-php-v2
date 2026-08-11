@@ -65,7 +65,7 @@ final class ModifiedByBuilder implements Builder
     private $associate;
 
     /**
-     * <p><code>true</code> if the change was made using the Merchant Center.</p>
+     * <p>Whether the change was made using the Merchant Center.</p>
      *
 
      * @return null|bool
@@ -139,7 +139,7 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Associate">Associate</a> who made the change in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
+     * <p>The <a href="ctp:api:type:Associate">Associate</a> who made the change in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
      *
 
      * @return null|Reference

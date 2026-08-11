@@ -70,7 +70,7 @@ final class ProductVariantTailoringDraftModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The <code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to be tailored.</p>
+     * <p>The <code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> or <a href="ctp:api:type:Variant">Variant</a> (<a href="/offering/compatibility#public-beta">BETA</a>) to be tailored.</p>
      *
      *
      * @return null|int
@@ -90,7 +90,7 @@ final class ProductVariantTailoringDraftModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The <code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to be tailored.</p>
+     * <p>The <code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> or <a href="ctp:api:type:Variant">Variant</a> (<a href="/offering/compatibility#public-beta">BETA</a>) to be tailored.</p>
      *
      *
      * @return null|string
@@ -151,10 +151,9 @@ final class ProductVariantTailoringDraftModel extends JsonObjectModel implements
 
     /**
      * <p>Attributes of the tailored Product Variant according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.
-     * If provided, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a>:</p>
+     * If provided, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a> or <a href="ctp:api:type:Variant">Variant</a> (<a href="/offering/compatibility#public-beta">BETA</a>):</p>
      * <ul>
-     * <li>If the ProductVariant contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten,</li>
-     * <li>otherwise the Attribute and its value are added to the ProductVariant.</li>
+     * <li>If the ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten. Otherwise, the Attribute and its value are added to the ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>).</li>
      * </ul>
      *
      *

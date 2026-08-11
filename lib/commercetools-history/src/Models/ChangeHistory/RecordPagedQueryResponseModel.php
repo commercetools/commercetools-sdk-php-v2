@@ -71,7 +71,7 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#limit">results requested</a>.</p>
      *
      *
      * @return null|int
@@ -112,7 +112,8 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
 
     /**
      * <p>Total number of results matching the query.
-     * This number is an estimation and not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.</p>
+     * This number is an estimation and not <a href="/api/general-concepts#strong-consistency">strongly consistent</a>.
+     * Returned only when <code>withTotal</code> is set to <code>true</code> on the query.</p>
      *
      *
      * @return null|int
@@ -132,7 +133,7 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#offset">elements skipped</a>.</p>
      *
      *
      * @return null|int

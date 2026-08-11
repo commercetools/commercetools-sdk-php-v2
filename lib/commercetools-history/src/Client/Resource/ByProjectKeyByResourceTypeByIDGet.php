@@ -276,4 +276,13 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
     {
         return $this->withQueryParam('expand', $expand);
     }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $withTotal
+     */
+    public function withWithTotal($withTotal): ByProjectKeyByResourceTypeByIDGet
+    {
+        return $this->withQueryParam('withTotal', $withTotal);
+    }
 }

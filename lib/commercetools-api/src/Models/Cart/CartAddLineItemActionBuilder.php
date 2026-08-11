@@ -126,7 +126,7 @@ final class CartAddLineItemActionBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-defined unique identifier of the LineItem.</p>
+     * <p>User-defined identifier of the LineItem. Must be unique among LineItems in the Cart.</p>
      *
 
      * @return null|string
@@ -185,7 +185,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * <p>Date and time (UTC) the Line Item was added to the Cart.
      * If not set, it defaults to the current date and time.</p>
      * <p>Optional for backwards compatibility reasons.</p>
      *
@@ -198,7 +198,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>Used to <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price.
+     * <p>Used to <a href="/api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price.
      * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.
      * If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
      *
@@ -211,7 +211,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * <p>Used to identify <a href="/api/projects/inventory">Inventory entries</a> that must be reserved.
      * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 

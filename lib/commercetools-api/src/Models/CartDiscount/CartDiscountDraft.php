@@ -69,7 +69,7 @@ interface CartDiscountDraft extends JsonObject
     public function getValue();
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
      *
 
      * @return null|string
@@ -100,8 +100,8 @@ interface CartDiscountDraft extends JsonObject
      * <li>If defined, the Cart Discount applies on <a href="ctp:api:type:Cart">Carts</a> having a <a href="ctp:api:type:Store">Store</a> matching any Store defined for this field.</li>
      * <li>If not defined, the Cart Discount applies on all Carts, irrespective of a Store.</li>
      * </ul>
-     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts-stores">limit</a>, a <a href="ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
-     * <p>If the referenced Stores exceed the <a href="/../api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
+     * <p>If the referenced Stores exceed the <a href="/api/limits#cart-discounts-stores">limit</a>, a <a href="ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
+     * <p>If the referenced Stores exceed the <a href="/api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
      *
 
      * @return null|StoreResourceIdentifierCollection
@@ -110,7 +110,7 @@ interface CartDiscountDraft extends JsonObject
 
     /**
      * <p>Only active Discounts can be applied to the Cart.
-     * If the <a href="/../api/limits#cart-discounts">limit</a> for active Cart Discounts is reached, a <a href="ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
+     * If the <a href="/api/limits#cart-discounts">limit</a> for active Cart Discounts is reached, a <a href="ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
      *
 
      * @return null|bool
@@ -159,6 +159,7 @@ interface CartDiscountDraft extends JsonObject
 
     /**
      * <p>Reference to a DiscountGroup that the CartDiscount must belong to.</p>
+     * <p>A CartDiscount can only be added to a DiscountGroup if its <code>target.type</code> is <code>lineItems</code>, <code>customLineItems</code>, <code>multiBuyLineItems</code>, <code>multiBuyCustomLineItems</code>, or <code>pattern</code>; otherwise, an <a href="ctp:api:type:InvalidInputError">InvalidInput</a> error is returned.</p>
      *
 
      * @return null|DiscountGroupResourceIdentifier

@@ -30,13 +30,14 @@ use Psr\Http\Message\ResponseInterface;
 /**
 
  * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements DataErasure<ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete>
  * @template-implements Versioned<ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete>
  * @template-implements Conflicting<ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete>
  * @template-implements Expandable<ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete>
  * @template-implements Errorable<ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete>
  * @template-implements Deprecatable200<ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete>
  */
-class ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete extends ApiRequest implements Versioned, Conflicting, Expandable, Errorable, Deprecatable200
+class ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete extends ApiRequest implements DataErasure, Versioned, Conflicting, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -148,6 +149,15 @@ class ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete extends ApiRequest
                 throw $e;
             }
         );
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $dataErasure
+     */
+    public function withDataErasure($dataErasure): ByProjectKeyInStoreKeyByStoreKeyBusinessUnitsByIDDelete
+    {
+        return $this->withQueryParam('dataErasure', $dataErasure);
     }
 
     /**

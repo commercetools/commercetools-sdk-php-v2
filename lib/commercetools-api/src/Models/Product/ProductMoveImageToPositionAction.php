@@ -52,7 +52,7 @@ interface ProductMoveImageToPositionAction extends ProductUpdateAction
     public function getPosition();
 
     /**
-     * <p>If <code>true</code>, only the staged <code>images</code> is updated. If <code>false</code>, both the current and staged <code>images</code> is updated.</p>
+     * <p>Whether only staged <code>images</code> are updated. If <code>false</code>, both current and staged <code>images</code> are updated.</p>
      *
 
      * @return null|bool

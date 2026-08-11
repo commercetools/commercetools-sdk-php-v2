@@ -114,7 +114,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * <p>Value to set. Must be unique.</p>
+     * <p>Value to set. Must be unique across all ProductVariants in a Project.</p>
      *
      *
      * @return null|string
@@ -134,7 +134,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * <p>Value to set. Must be unique.</p>
+     * <p>Value to set. Must be unique among ProductVariants in the same Product.</p>
      *
      *
      * @return null|string
@@ -214,7 +214,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * <p>If <code>true</code> the new Product Variant is only staged. If <code>false</code> the new Product Variant is both current and staged.</p>
+     * <p>Whether the new Product Variant is only staged. If <code>false</code> the new Product Variant is both current and staged.</p>
      *
      *
      * @return null|bool

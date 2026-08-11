@@ -126,7 +126,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     }
 
     /**
-     * <p>If <code>true</code>, tax is included in <a href="ctp:api:type:Price">Embedded Prices</a> or <a href="ctp:api:type:StandalonePrice">Standalone Prices</a>, and the <code>taxedPrice</code> is present on <a href="ctp:api:type:LineItem">LineItems</a>. In this case, the <code>totalNet</code> price on <a href="ctp:api:type:TaxedPrice">TaxedPrice</a> includes the TaxRate.</p>
+     * <p>Whether tax is included in <a href="ctp:api:type:Price">Embedded Prices</a> or <a href="ctp:api:type:StandalonePrice">Standalone Prices</a>, and the <code>taxedPrice</code> is present on <a href="ctp:api:type:LineItem">LineItems</a>. In this case, the <code>totalNet</code> price on <a href="ctp:api:type:TaxedPrice">TaxedPrice</a> includes the TaxRate.</p>
      *
      *
      * @return null|bool
@@ -166,7 +166,8 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     }
 
     /**
-     * <p>State within the country, such as Texas in the United States.</p>
+     * <p>State within the country, such as Texas in the United States.
+     * The value is case-sensitive and must use the same casing as the <code>state</code> value in the Cart <code>shippingAddress</code>.</p>
      *
      *
      * @return null|string
@@ -207,7 +208,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     }
 
     /**
-     * <p>User-defined unique identifier of the TaxRate.</p>
+     * <p>User-defined identifier of the TaxRate. Must be unique within the TaxCategory containing it.</p>
      *
      *
      * @return null|string

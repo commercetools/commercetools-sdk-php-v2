@@ -20,7 +20,7 @@ interface SearchIndexingConfiguration extends JsonObject
     public const FIELD_BUSINESS_UNITS = 'businessUnits';
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/product-projection-search">Product Projection Search</a> and <a href="/../api/projects/search-term-suggestions">Search Term Suggestions</a> APIs.</p>
+     * <p>Configuration for the <a href="/api/projects/product-projection-search">Product Projection Search</a> and <a href="/api/projects/search-term-suggestions">Search Term Suggestions</a> APIs.</p>
      *
 
      * @return null|SearchIndexingConfigurationValues
@@ -28,7 +28,7 @@ interface SearchIndexingConfiguration extends JsonObject
     public function getProducts();
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/product-search">Product Search</a> feature.</p>
+     * <p>Configuration for the <a href="/api/projects/product-search">Product Search</a> feature.</p>
      *
 
      * @return null|SearchIndexingConfigurationValues
@@ -36,7 +36,7 @@ interface SearchIndexingConfiguration extends JsonObject
     public function getProductsSearch();
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/order-search">Order Search</a> feature.</p>
+     * <p>Configuration for the <a href="/api/projects/order-search">Order Search</a> feature.</p>
      *
 
      * @return null|SearchIndexingConfigurationValues
@@ -44,7 +44,7 @@ interface SearchIndexingConfiguration extends JsonObject
     public function getOrders();
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/customer-search">Customer Search</a> feature.</p>
+     * <p>Configuration for the <a href="/api/projects/customer-search">Customer Search</a> feature.</p>
      *
 
      * @return null|SearchIndexingConfigurationValues
@@ -52,7 +52,7 @@ interface SearchIndexingConfiguration extends JsonObject
     public function getCustomers();
 
     /**
-     * <p>Configuration for the <a href="/../api/projects/business-unit-search">Business Unit Search</a> feature.</p>
+     * <p>Configuration for the <a href="/api/projects/business-unit-search">Business Unit Search</a> feature.</p>
      *
 
      * @return null|SearchIndexingConfigurationValues

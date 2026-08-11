@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
@@ -93,6 +94,12 @@ final class ShippingMethodDraftBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var ?StoreResourceIdentifierCollection
+     */
+    private $stores;
+
+    /**
      * <p>User-defined unique identifier for the ShippingMethod.</p>
      *
 
@@ -170,7 +177,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
-     * <p>If set to <code>true</code>, the ShippingMethod can be used during the creation or update of a Cart or Order.</p>
+     * <p>Whether the ShippingMethod can be used during the creation or update of a Cart or Order.</p>
      *
 
      * @return null|bool
@@ -181,7 +188,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
-     * <p>If set to <code>true</code>, the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod. When retrieving <a href="/projects/shippingMethods#get-matching-shipping-methods">matching Shipping Methods</a>, it is returned as the first item in the array. This flag does not automatically apply the Shipping Method to Carts.</p>
+     * <p>Whether the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod. When retrieving <a href="/projects/shippingMethods#get-matching-shipping-methods">matching Shipping Methods</a>, it is returned as the first item in the array. This flag does not automatically apply the Shipping Method to Carts.</p>
      *
 
      * @return null|bool
@@ -211,6 +218,21 @@ final class ShippingMethodDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <ul>
+     * <li>If defined and not empty, the Shipping Method applies to <a href="ctp:api:type:Cart">Carts</a> with a <a href="ctp:api:type:Store">Store</a> that matches any Store in this field.</li>
+     * <li>If not defined or empty, the Shipping Method applies to all Carts, irrespective of a Store.</li>
+     * </ul>
+     * <p>If the number of referenced Stores exceeds the <a href="/api/limits#shipping-methods">Stores per Shipping Method limit</a>, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     *
+
+     * @return null|StoreResourceIdentifierCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
     }
 
     /**
@@ -335,6 +357,17 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     * @return $this
+     */
+    public function withStores(?StoreResourceIdentifierCollection $stores)
+    {
+        $this->stores = $stores;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLocalizedName() instead
      * @return $this
      */
@@ -391,7 +424,8 @@ final class ShippingMethodDraftBuilder implements Builder
             $this->active,
             $this->isDefault,
             $this->predicate,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->stores
         );
     }
 

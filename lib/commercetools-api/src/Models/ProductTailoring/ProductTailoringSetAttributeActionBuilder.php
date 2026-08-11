@@ -51,7 +51,7 @@ final class ProductTailoringSetAttributeActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>The <code>id</code> of the ProductVariant to update.
+     * <p>The <code>id</code> of the ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.
      * Required if <code>sku</code> is absent.</p>
      *
 
@@ -63,7 +63,7 @@ final class ProductTailoringSetAttributeActionBuilder implements Builder
     }
 
     /**
-     * <p>The <code>sku</code> of the ProductVariant to update.
+     * <p>The <code>sku</code> of the ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.
      * Required if <code>variantId</code> is absent.</p>
      *
 
@@ -108,7 +108,7 @@ final class ProductTailoringSetAttributeActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, only the staged Attribute is set. If <code>false</code>, both current and staged Attribute is set.</p>
+     * <p>Whether only the staged Attribute is set. If <code>false</code>, both current and staged Attribute is set.</p>
      *
 
      * @return null|bool

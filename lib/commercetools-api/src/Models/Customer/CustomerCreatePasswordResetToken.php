@@ -18,7 +18,7 @@ interface CustomerCreatePasswordResetToken extends JsonObject
     public const FIELD_INVALIDATE_OLDER_TOKENS = 'invalidateOlderTokens';
 
     /**
-     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     * <p>Email address of the Customer treated as <a href="/api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
      *
 
      * @return null|string
@@ -34,7 +34,7 @@ interface CustomerCreatePasswordResetToken extends JsonObject
     public function getTtlMinutes();
 
     /**
-     * <p>If set to <code>true</code>, all password tokens issued previously for the Customer will be invalidated.</p>
+     * <p>Whether all password tokens issued previously for the Customer will be invalidated.</p>
      *
 
      * @return null|bool

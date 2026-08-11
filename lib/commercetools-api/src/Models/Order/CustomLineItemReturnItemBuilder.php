@@ -95,7 +95,7 @@ final class CustomLineItemReturnItemBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the CustomLineItemReturnItem.</p>
+     * <p>User-defined identifier of the CustomLineItemReturnItem. Must be unique among Return Items in the Order.</p>
      *
 
      * @return null|string
@@ -106,7 +106,7 @@ final class CustomLineItemReturnItemBuilder implements Builder
     }
 
     /**
-     * <p>Number of Custom Line Items returned.</p>
+     * <p>Quantity of Custom Line Items returned.</p>
      *
 
      * @return null|int

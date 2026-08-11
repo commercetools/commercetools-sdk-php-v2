@@ -67,7 +67,7 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
-     * <p>Value to set. Must be unique. If empty, any existing value will be removed.</p>
+     * <p>Value to set. Must be unique among ProductVariants in the same Product. If empty, any existing value will be removed.</p>
      *
 
      * @return null|string
@@ -78,7 +78,7 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, only the staged <code>key</code> is set. If <code>false</code>, both the current and staged <code>key</code> are set.</p>
+     * <p>Whether only the staged <code>key</code> is set. If <code>false</code>, both the current and staged <code>key</code> are set.</p>
      *
 
      * @return null|bool

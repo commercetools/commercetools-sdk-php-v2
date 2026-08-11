@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Variant\VariantReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -27,6 +28,7 @@ interface ProductData extends JsonObject
     public const FIELD_VARIANTS = 'variants';
     public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
     public const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_DEFAULT_VARIANT = 'defaultVariant';
 
     /**
      * <p>Name of the Product.</p>
@@ -96,6 +98,7 @@ interface ProductData extends JsonObject
 
     /**
      * <p>The Master Variant of the Product.</p>
+     * <p>Omitted when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> instead.</p>
      *
 
      * @return null|ProductVariant
@@ -104,6 +107,7 @@ interface ProductData extends JsonObject
 
     /**
      * <p>Additional Product Variants.</p>
+     * <p>Empty when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> instead.</p>
      *
 
      * @return null|ProductVariantCollection
@@ -126,6 +130,14 @@ interface ProductData extends JsonObject
      * @return null|AttributeCollection
      */
     public function getAttributes();
+
+    /**
+     * <p>Reference to the default <a href="ctp:api:type:Variant">Variant</a> of the Product. Only available for Projects with <a href="/projects/project#productcatalogmodel">productCatalogModel</a> set to <code>Modular</code>. The reference is automatically cleared when the referenced Variant is deleted; in that case, the response of the <a href="/projects/variants#delete-variant">Delete Variant</a> request includes a <code>DefaultVariantDeleted</code> warning.</p>
+     *
+
+     * @return null|VariantReference
+     */
+    public function getDefaultVariant();
 
     /**
      * @param ?LocalizedString $name
@@ -186,4 +198,9 @@ interface ProductData extends JsonObject
      * @param ?AttributeCollection $attributes
      */
     public function setAttributes(?AttributeCollection $attributes): void;
+
+    /**
+     * @param ?VariantReference $defaultVariant
+     */
+    public function setDefaultVariant(?VariantReference $defaultVariant): void;
 }

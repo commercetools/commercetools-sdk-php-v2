@@ -31,7 +31,7 @@ interface ProductTailoringReference extends Reference
     public function getId();
 
     /**
-     * <p>Contains the representation of the expanded ProductTailoring. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ProductTailoring.</p>
+     * <p>Contains the representation of the expanded ProductTailoring. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for ProductTailoring.</p>
      *
 
      * @return null|ProductTailoring

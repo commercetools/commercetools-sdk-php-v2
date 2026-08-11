@@ -110,7 +110,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     * <p>User-defined identifier of the Custom Line Item. Must be unique among Custom Line Items in the Order.</p>
      *
 
      * @return null|string
@@ -132,7 +132,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The number of items in the Custom Line Item. Can be a negative value.</p>
+     * <p>Quantity of items in the Custom Line Item. Can be a negative value.</p>
      *
 
      * @return null|int

@@ -63,7 +63,7 @@ interface OrderFromCartDraft extends JsonObject
 
     /**
      * <p>User-defined identifier for a purchase order.</p>
-     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
      * <p>If not provided, the <code>purchaseOrderNumber</code> from the referenced <a href="ctp:api:type:Cart">Cart</a> is used.</p>
      *
 

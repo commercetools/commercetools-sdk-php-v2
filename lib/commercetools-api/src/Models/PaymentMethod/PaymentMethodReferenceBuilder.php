@@ -46,7 +46,7 @@ final class PaymentMethodReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded PaymentMethod. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for PaymentMethods.</p>
+     * <p>Contains the representation of the expanded PaymentMethod. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for PaymentMethods.</p>
      *
 
      * @return null|PaymentMethod

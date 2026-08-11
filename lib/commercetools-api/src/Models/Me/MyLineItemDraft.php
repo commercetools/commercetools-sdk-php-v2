@@ -31,7 +31,7 @@ interface MyLineItemDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier of the LineItem.</p>
+     * <p>User-defined identifier of the LineItem. Must be unique among LineItems in the Cart.</p>
      *
 
      * @return null|string
@@ -64,7 +64,7 @@ interface MyLineItemDraft extends JsonObject
     public function getSku();
 
     /**
-     * <p>Number of Product Variants to add to the Cart.</p>
+     * <p>Quantity of Product Variants to add to the Cart.</p>
      *
 
      * @return null|int
@@ -72,7 +72,7 @@ interface MyLineItemDraft extends JsonObject
     public function getQuantity();
 
     /**
-     * <p>Date and time (UTC) the Product Variant is added to the Cart.
+     * <p>Date and time (UTC) the Product Variant was added to the Cart.
      * If not set, it defaults to the current date and time.</p>
      * <p>Optional for backwards compatibility reasons.</p>
      *
@@ -82,7 +82,7 @@ interface MyLineItemDraft extends JsonObject
     public function getAddedAt();
 
     /**
-     * <p>Used to identify <a href="/../api/projects/inventory">Inventory entries</a> that must be reserved.
+     * <p>Used to identify <a href="/api/projects/inventory">Inventory entries</a> that must be reserved.
      * The Channel must have the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
@@ -91,7 +91,7 @@ interface MyLineItemDraft extends JsonObject
     public function getSupplyChannel();
 
     /**
-     * <p>Used to <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price.
+     * <p>Used to <a href="/api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price.
      * The Channel must have the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      * <p>If the Cart is bound to a <a href="ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set,
      * the Channel must match one of the Store's distribution channels.</p>

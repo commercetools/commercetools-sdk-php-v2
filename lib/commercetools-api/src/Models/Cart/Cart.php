@@ -114,7 +114,7 @@ interface Cart extends BaseResource
     public function getCustomerEmail();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Cart belongs to. Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Cart belongs to. Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|CustomerGroupReference
@@ -130,7 +130,7 @@ interface Cart extends BaseResource
     public function getAnonymousId();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Cart belongs to. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
 
      * @return null|BusinessUnitKeyReference
@@ -273,7 +273,7 @@ interface Cart extends BaseResource
     public function getBillingAddress();
 
     /**
-     * <p>Shipping address for a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates and Tax Rates of Line Items.</p>
+     * <p>Shipping address for a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Determines eligible <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> rates. For a Cart with <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it also determines Tax Rates of Line Items.</p>
      *
 
      * @return null|Address
@@ -376,7 +376,7 @@ interface Cart extends BaseResource
     public function getPaymentInfo();
 
     /**
-     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p>Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|string
@@ -416,7 +416,7 @@ interface Cart extends BaseResource
     public function getDiscountTypeCombination();
 
     /**
-     * <p>Indicates whether the Cart has been <a href="/../api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
+     * <p>Indicates whether the Cart has been <a href="/api/carts-orders-overview#lock-a-cart">locked</a>, preventing edits.</p>
      *
 
      * @return null|CartLock
@@ -433,7 +433,7 @@ interface Cart extends BaseResource
 
     /**
      * <p>User-defined identifier of a purchase order.</p>
-     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> or Merchant to track the purchase order during the <a href="/api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
      *
 
      * @return null|string

@@ -88,7 +88,7 @@ final class ProductPagedSearchResponseModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#offset">elements skipped</a>.</p>
      *
      *
      * @return null|int
@@ -108,7 +108,7 @@ final class ProductPagedSearchResponseModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#limit">results requested</a>.</p>
      *
      *
      * @return null|int
@@ -128,7 +128,7 @@ final class ProductPagedSearchResponseModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>Results for <a href="/../api/projects/product-search#facets">facets</a> when requested.</p>
+     * <p>Results for <a href="/api/projects/product-search#facets">facets</a> when requested.</p>
      *
      *
      * @return null|ProductSearchFacetResultCollection

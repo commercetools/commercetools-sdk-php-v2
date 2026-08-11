@@ -67,7 +67,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     }
 
     /**
-     * <p>Number of Line Items or Custom Line Items delivered.</p>
+     * <p>Quantity of Line Items or Custom Line Items delivered.</p>
      *
      *
      * @return null|int

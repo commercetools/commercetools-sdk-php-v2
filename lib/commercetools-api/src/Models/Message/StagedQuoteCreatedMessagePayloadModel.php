@@ -65,7 +65,7 @@ final class StagedQuoteCreatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
-     * <p><a href="/../api/projects/staged-quotes">Staged Quote</a> that was created.</p>
+     * <p><a href="/api/projects/staged-quotes">Staged Quote</a> that was created.</p>
      *
      *
      * @return null|StagedQuote

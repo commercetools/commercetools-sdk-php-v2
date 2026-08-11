@@ -11,6 +11,8 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Variant\VariantReference;
+use Commercetools\Api\Models\Variant\VariantReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -94,6 +96,12 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
      */
     protected $attributes;
 
+    /**
+     *
+     * @var ?VariantReference
+     */
+    protected $defaultVariant;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -110,7 +118,8 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
         ?ProductVariant $masterVariant = null,
         ?ProductVariantCollection $variants = null,
         ?SearchKeywords $searchKeywords = null,
-        ?AttributeCollection $attributes = null
+        ?AttributeCollection $attributes = null,
+        ?VariantReference $defaultVariant = null
     ) {
         $this->name = $name;
         $this->categories = $categories;
@@ -124,6 +133,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
         $this->variants = $variants;
         $this->searchKeywords = $searchKeywords;
         $this->attributes = $attributes;
+        $this->defaultVariant = $defaultVariant;
     }
 
     /**
@@ -297,6 +307,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
 
     /**
      * <p>The Master Variant of the Product.</p>
+     * <p>Omitted when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> instead.</p>
      *
      *
      * @return null|ProductVariant
@@ -318,6 +329,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
 
     /**
      * <p>Additional Product Variants.</p>
+     * <p>Empty when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> instead.</p>
      *
      *
      * @return null|ProductVariantCollection
@@ -376,6 +388,27 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
         }
 
         return $this->attributes;
+    }
+
+    /**
+     * <p>Reference to the default <a href="ctp:api:type:Variant">Variant</a> of the Product. Only available for Projects with <a href="/projects/project#productcatalogmodel">productCatalogModel</a> set to <code>Modular</code>. The reference is automatically cleared when the referenced Variant is deleted; in that case, the response of the <a href="/projects/variants#delete-variant">Delete Variant</a> request includes a <code>DefaultVariantDeleted</code> warning.</p>
+     *
+     *
+     * @return null|VariantReference
+     */
+    public function getDefaultVariant()
+    {
+        if (is_null($this->defaultVariant)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DEFAULT_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->defaultVariant = VariantReferenceModel::of($data);
+        }
+
+        return $this->defaultVariant;
     }
 
 
@@ -473,5 +506,13 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
+    }
+
+    /**
+     * @param ?VariantReference $defaultVariant
+     */
+    public function setDefaultVariant(?VariantReference $defaultVariant): void
+    {
+        $this->defaultVariant = $defaultVariant;
     }
 }

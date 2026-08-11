@@ -64,7 +64,7 @@ final class ChangeTargetCustomLineItemsChangeValueModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#customlineitem-field-identifiers">CustomLineItem target predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#customlineitem-field-identifiers">CustomLineItem target predicate</a>.</p>
      *
      *
      * @return null|string

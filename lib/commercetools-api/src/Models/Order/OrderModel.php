@@ -615,7 +615,7 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      * <p>User-defined identifier of a purchase Order.</p>
-     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> and can be used with <a href="/quotes-overview">Quotes</a> to track the purchase Order during the <a href="/../api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
+     * <p>It is typically set by the <a href="ctp:api:type:Buyer">Buyer</a> and can be used with <a href="/quotes-overview">Quotes</a> to track the purchase Order during the <a href="/api/quotes-overview#intended-workflow">quote and order flow</a>.</p>
      *
      *
      * @return null|string
@@ -676,7 +676,7 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Order belongs to.
-     * Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
      *
      * @return null|CustomerGroupReference
@@ -717,7 +717,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Order belongs to. Only available for <a href="/../offering/commerce-b2b">B2B</a>-enabled Projects.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a Business Unit the Order belongs to. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects.</p>
      *
      *
      * @return null|BusinessUnitKeyReference
@@ -1268,7 +1268,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Used for <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p>Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
      *
      * @return null|string

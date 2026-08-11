@@ -165,8 +165,10 @@ final class MessageModel extends JsonObjectModel implements Message
        'CartDiscountStoreRemoved' => CartDiscountStoreRemovedMessageModel::class,
        'CartDiscountStoresSet' => CartDiscountStoresSetMessageModel::class,
        'CartFrozen' => CartFrozenMessageModel::class,
+       'CartLocked' => CartLockedMessageModel::class,
        'CartPurchaseOrderNumberSet' => CartPurchaseOrderNumberSetMessageModel::class,
        'CartUnfrozen' => CartUnfrozenMessageModel::class,
+       'CartUnlocked' => CartUnlockedMessageModel::class,
        'CategoryCreated' => CategoryCreatedMessageModel::class,
        'CategorySlugChanged' => CategorySlugChangedMessageModel::class,
        'CustomLineItemStateTransition' => CustomLineItemStateTransitionMessageModel::class,
@@ -346,6 +348,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'ProductTailoringDescriptionSet' => ProductTailoringDescriptionSetMessageModel::class,
        'ProductTailoringImageAdded' => ProductTailoringImageAddedMessageModel::class,
        'ProductTailoringImagesSet' => ProductTailoringImagesSetMessageModel::class,
+       'ProductTailoringKeySet' => ProductTailoringKeySetMessageModel::class,
        'ProductTailoringNameSet' => ProductTailoringNameSetMessageModel::class,
        'ProductTailoringPublished' => ProductTailoringPublishedMessageModel::class,
        'ProductTailoringSlugSet' => ProductTailoringSlugSetMessageModel::class,
@@ -416,6 +419,15 @@ final class MessageModel extends JsonObjectModel implements Message
        'StoreNameSet' => StoreNameSetMessageModel::class,
        'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessageModel::class,
        'StoreSupplyChannelsChanged' => StoreSupplyChannelsChangedMessageModel::class,
+       'VariantCreated' => VariantCreatedMessageModel::class,
+       'VariantDeleted' => VariantDeletedMessageModel::class,
+       'VariantImageAdded' => VariantImageAddedMessageModel::class,
+       'VariantImagesSet' => VariantImagesSetMessageModel::class,
+       'VariantKeySet' => VariantKeySetMessageModel::class,
+       'VariantPublished' => VariantPublishedMessageModel::class,
+       'VariantSkuSet' => VariantSkuSetMessageModel::class,
+       'VariantStagedChangesRemoved' => VariantStagedChangesRemovedMessageModel::class,
+       'VariantUnpublished' => VariantUnpublishedMessageModel::class,
     ];
 
     /**
@@ -640,7 +652,7 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
-     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     * <p><a href="/api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
      *
      * @return null|string

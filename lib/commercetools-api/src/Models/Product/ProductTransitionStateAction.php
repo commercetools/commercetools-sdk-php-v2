@@ -26,7 +26,7 @@ interface ProductTransitionStateAction extends ProductUpdateAction
     public function getState();
 
     /**
-     * <p>If <code>true</code>, validations are disabled.</p>
+     * <p>Whether validations are disabled.</p>
      *
 
      * @return null|bool

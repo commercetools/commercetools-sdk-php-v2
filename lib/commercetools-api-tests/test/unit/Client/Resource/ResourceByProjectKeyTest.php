@@ -29,6 +29,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyInBusinessUnitKeyByBus
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInventory;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyLogin;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMcpServers;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMe;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMessages;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrders;
@@ -54,6 +55,8 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyStores;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeySubscriptions;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyTaxCategories;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyTypes;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyVariantProjections;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyVariants;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyZones;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
@@ -550,6 +553,26 @@ class ResourceByProjectKeyTest extends TestCase
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/types'
             ],
+            'ResourceByProjectKeyVariantProjections' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyVariantProjections {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->variantProjections();
+                },
+                ResourceByProjectKeyVariantProjections::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/variant-projections'
+            ],
+            'ResourceByProjectKeyVariants' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyVariants {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->variants();
+                },
+                ResourceByProjectKeyVariants::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/variants'
+            ],
             'ResourceByProjectKeyZones' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyZones {
                     return $builder
@@ -639,6 +662,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyAttributeGroups::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/attribute-groups'
+            ],
+            'ResourceByProjectKeyMcpServers' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMcpServers {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->mcpServers();
+                },
+                ResourceByProjectKeyMcpServers::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/mcp-servers'
             ]
         ];
     }

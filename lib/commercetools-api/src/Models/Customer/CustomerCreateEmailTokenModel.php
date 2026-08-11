@@ -120,7 +120,7 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     }
 
     /**
-     * <p>If set to <code>true</code>, all email tokens issued previously for the Customer will be invalidated.</p>
+     * <p>Whether all email tokens issued previously for the Customer will be invalidated.</p>
      *
      *
      * @return null|bool

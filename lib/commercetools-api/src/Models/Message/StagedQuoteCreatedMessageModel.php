@@ -326,7 +326,7 @@ final class StagedQuoteCreatedMessageModel extends JsonObjectModel implements St
     }
 
     /**
-     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     * <p><a href="/api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
      *
      * @return null|string
@@ -367,7 +367,7 @@ final class StagedQuoteCreatedMessageModel extends JsonObjectModel implements St
     }
 
     /**
-     * <p><a href="/../api/projects/staged-quotes">Staged Quote</a> that was created.</p>
+     * <p><a href="/api/projects/staged-quotes">Staged Quote</a> that was created.</p>
      *
      *
      * @return null|StagedQuote

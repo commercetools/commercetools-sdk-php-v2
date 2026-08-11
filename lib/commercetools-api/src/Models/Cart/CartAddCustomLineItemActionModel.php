@@ -197,7 +197,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>User-defined unique identifier of the Custom Line Item.</p>
+     * <p>User-defined identifier of the Custom Line Item. Must be unique among Custom Line Items in the Cart.</p>
      *
      *
      * @return null|string

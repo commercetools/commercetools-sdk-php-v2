@@ -95,7 +95,7 @@ final class ProductTailoringMoveImageToPositionActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>The <code>id</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>id</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
      *
      * @return null|int
@@ -115,7 +115,7 @@ final class ProductTailoringMoveImageToPositionActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>The <code>sku</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>sku</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
      *
      * @return null|string
@@ -175,7 +175,7 @@ final class ProductTailoringMoveImageToPositionActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>If <code>true</code>, only the staged <code>images</code> is updated. If <code>false</code>, both the current and staged <code>images</code> is updated.</p>
+     * <p>Whether only the staged <code>images</code> is updated. If <code>false</code>, both the current and staged <code>images</code> are updated.</p>
      *
      *
      * @return null|bool

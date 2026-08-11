@@ -45,7 +45,7 @@ interface ProductTailoringSetAttributeInAllVariantsAction extends ProductTailori
     public function getValue();
 
     /**
-     * <p>If <code>true</code>, only the staged Attributes are set. If <code>false</code>, both the current and staged Attributes are set.</p>
+     * <p>Whether only the staged Attributes are set. If <code>false</code>, both the current and staged Attributes are set.</p>
      *
 
      * @return null|bool

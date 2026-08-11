@@ -26,7 +26,7 @@ interface StoreChangeProductSelectionAction extends StoreUpdateAction
     public function getProductSelection();
 
     /**
-     * <p>Set to <code>true</code> if all Products assigned to the Product Selection should become part of the Store's assortment.</p>
+     * <p>Whether all Products assigned to the Product Selection should become part of the Store's assortment.</p>
      *
 
      * @return null|bool

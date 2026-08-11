@@ -91,7 +91,7 @@ final class BusinessUnitChangeAssociateModeActionModel extends JsonObjectModel i
     }
 
     /**
-     * <p>If set to <code>true</code> during a change to <code>associateMode=&quot;Explicit&quot;</code>, all inherited Associates will be converted to explicit Associates.</p>
+     * <p>Whether all inherited Associates are converted to explicit Associates during a change to <code>associateMode=&quot;Explicit&quot;</code>.</p>
      *
      *
      * @return null|bool

@@ -150,6 +150,18 @@ class ResourceByProjectKeyBusinessUnitsKeyByKeyTest extends TestCase
                 'post',
                 'test_projectKey/business-units/key=test_key',
             ],
+            'ByProjectKeyBusinessUnitsKeyByKeyDelete_withDataErasure' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->businessUnits()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                'test_projectKey/business-units/key=test_key?dataErasure=dataErasure',
+            ],
             'ByProjectKeyBusinessUnitsKeyByKeyDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

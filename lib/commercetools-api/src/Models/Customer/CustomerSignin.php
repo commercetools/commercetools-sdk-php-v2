@@ -23,7 +23,7 @@ interface CustomerSignin extends JsonObject
     public const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
 
     /**
-     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     * <p>Email address of the Customer treated as <a href="/api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
      *
 
      * @return null|string
@@ -75,10 +75,7 @@ interface CustomerSignin extends JsonObject
     public function getAnonymousId();
 
     /**
-     * <ul>
-     * <li>If <code>true</code>, the <a href="ctp:api:type:LineItem">LineItem</a> Product data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned Cart will be updated.</li>
-     * <li>If <code>false</code>, only the prices, discounts, and tax rates will be updated.</li>
-     * </ul>
+     * <p>Whether the <a href="ctp:api:type:LineItem">LineItem</a> Product data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned Cart will be updated. If <code>false</code>, only the prices, discounts, and tax rates will be updated.</p>
      *
 
      * @return null|bool

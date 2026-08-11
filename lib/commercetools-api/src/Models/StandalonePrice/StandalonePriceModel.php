@@ -485,7 +485,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     }
 
     /**
-     * <p>Date until the Price is valid. Standalone Prices that are no longer valid are not automatically deleted, but they can be <a href="/../api/projects/standalone-prices#delete-standaloneprice">deleted</a> if necessary.</p>
+     * <p>Date until the Price is valid. Standalone Prices that are no longer valid are not automatically deleted, but they can be <a href="/api/projects/standalone-prices#delete-standaloneprice">deleted</a> if necessary.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -530,9 +530,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     }
 
     /**
-     * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.
-     * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> is applied and the fraction part of the <code>discounted</code> price is 0.5, the discounted price is rounded in favor of the customer with the <a href="https://en.wikipedia.org/wiki/Rounding#Rounding_half_down">half down rounding</a>.</p>
-     * <p>If an <a href="ctp:api:type:ProductDiscountValueAbsolute">absolute discount</a> value exceeds the price of the Product Variant, the discounted price is a negative value.</p>
+     * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
      *
      * @return null|DiscountedPrice
@@ -595,8 +593,8 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     }
 
     /**
-     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
-     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="/../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> and any associated Line Items in a Cart cannot be ordered.</p>
+     * <p>Whether the StandalonePrice is considered during <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> and any associated Line Items in a Cart cannot be ordered.</p>
      *
      *
      * @return null|bool

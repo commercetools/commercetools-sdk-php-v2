@@ -115,7 +115,7 @@ final class CheckoutMessagePaymentsPayloadBaseDataModel extends JsonObjectModel 
     }
 
     /**
-     * <p><code>id</code> of the <a href="/../api/projects/payments#transaction">Transaction</a>.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
      *
      *
      * @return null|string

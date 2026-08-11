@@ -112,7 +112,7 @@ interface ApprovalRule extends BaseResource
     public function getStatus();
 
     /**
-     * <p>The <a href="/../api/projects/predicates#order-predicates">Order Predicate</a> describing the <a href="ctp:api:type:Order">Orders</a> the Approval Rule should match against.</p>
+     * <p>The <a href="/api/projects/predicates#order-predicates">Order Predicate</a> describing the <a href="ctp:api:type:Order">Orders</a> the Approval Rule should match against.</p>
      *
 
      * @return null|string

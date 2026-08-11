@@ -48,7 +48,7 @@ interface QuoteDraft extends JsonObject
     public function getStagedQuoteVersion();
 
     /**
-     * <p>If <code>true</code>, the <code>stagedQuoteState</code> of the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> will be set to <code>Sent</code>.</p>
+     * <p>Whether the <code>stagedQuoteState</code> of the referenced <a href="ctp:api:type:StagedQuote">StagedQuote</a> will be set to <code>Sent</code>.</p>
      *
 
      * @return null|bool
@@ -67,8 +67,8 @@ interface QuoteDraft extends JsonObject
     /**
      * <p><a href="ctp:api:type:CustomFields">Custom Fields</a> to be added to the Quote.</p>
      * <ul>
-     * <li>If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> and added to the Quote.</li>
-     * <li>If empty, the Custom Fields on the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> are added to the Quote automatically.</li>
+     * <li>If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="ctp:api:type:StagedQuote">StagedQuote</a> and added to the Quote.</li>
+     * <li>If empty, the Custom Fields on the referenced <a href="ctp:api:type:StagedQuote">StagedQuote</a> are added to the Quote automatically.</li>
      * </ul>
      *
 

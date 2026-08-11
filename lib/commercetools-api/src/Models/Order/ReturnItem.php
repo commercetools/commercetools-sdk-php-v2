@@ -36,7 +36,7 @@ interface ReturnItem extends JsonObject
     public function getId();
 
     /**
-     * <p>User-defined unique identifier of the Return Item.</p>
+     * <p>User-defined identifier of the Return Item. Unique among Return Items in the Order.</p>
      *
 
      * @return null|string
@@ -44,7 +44,7 @@ interface ReturnItem extends JsonObject
     public function getKey();
 
     /**
-     * <p>Number of Line Items or Custom Line Items returned.</p>
+     * <p>Quantity of Line Items or Custom Line Items returned.</p>
      *
 
      * @return null|int

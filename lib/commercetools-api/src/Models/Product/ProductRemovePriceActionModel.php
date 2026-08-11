@@ -93,7 +93,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * <p>If <code>true</code>, only the staged Embedded Price is removed. If <code>false</code>, both the current and staged Embedded Price are removed.</p>
+     * <p>Whether only the staged Embedded Price is removed. If <code>false</code>, both the current and staged Embedded Price are removed.</p>
      *
      *
      * @return null|bool

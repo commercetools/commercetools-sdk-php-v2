@@ -412,3 +412,22 @@ $request = $builder
                 ->withImportContainerKeyValue("importContainerKey")
                 ->post(null);
 ```
+## `withProjectKeyValue("projectKey")->variants()->importContainers()->withImportContainerKeyValue("importContainerKey")->post(null)`
+
+Creates an Import Request for Variants.
+
+This endpoint is only available for Projects with `productCatalogModel` set to `Modular`.
+
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->variants()
+                ->importContainers()
+                ->withImportContainerKeyValue("importContainerKey")
+                ->post(null);
+```

@@ -146,7 +146,7 @@ final class ProductVariantImportBuilder implements Builder
 
     /**
      * <ul>
-     * <li>Set to <code>false</code> to update both the <a href="/../api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="ctp:api:type:Product">Product</a> with the new Product Variant data.</li>
+     * <li>Set to <code>false</code> to update both the <a href="/api/projects/productProjections#current--staged">current and staged projections</a> of the <a href="ctp:api:type:Product">Product</a> with the new Product Variant data.</li>
      * <li>Leave empty or set to <code>true</code> to only update the staged projection.</li>
      * </ul>
      *

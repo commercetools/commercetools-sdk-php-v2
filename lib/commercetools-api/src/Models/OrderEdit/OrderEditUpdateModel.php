@@ -93,7 +93,7 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
     }
 
     /**
-     * <p>If set to <code>true</code>, the Order Edit is applied on the <a href="ctp:api:type:Order">Order</a> without persisting it.</p>
+     * <p>Whether the Order Edit is applied on the <a href="ctp:api:type:Order">Order</a> without persisting it.</p>
      *
      *
      * @return null|bool

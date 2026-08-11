@@ -73,7 +73,7 @@ final class QuoteRequestCustomerChangedMessagePayloadModel extends JsonObjectMod
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who now owns the Quote Request.</p>
+     * <p>The <a href="/api/quotes-overview#buyer">Buyer</a> who now owns the Quote Request.</p>
      *
      *
      * @return null|CustomerReference
@@ -94,7 +94,7 @@ final class QuoteRequestCustomerChangedMessagePayloadModel extends JsonObjectMod
     }
 
     /**
-     * <p>The previous <a href="/../api/quotes-overview#buyer">Buyer</a>.</p>
+     * <p>The previous <a href="/api/quotes-overview#buyer">Buyer</a>.</p>
      *
      *
      * @return null|CustomerReference

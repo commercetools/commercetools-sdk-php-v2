@@ -26,7 +26,7 @@ interface PaymentTransitionStateAction extends PaymentUpdateAction
     public function getState();
 
     /**
-     * <p>Set to <code>true</code> to skip validations when transitioning to the new State.</p>
+     * <p>Whether to skip validations when transitioning to the new State.</p>
      *
 
      * @return null|bool

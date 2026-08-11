@@ -174,7 +174,7 @@ final class ProductDraftBuilder implements Builder
 
     /**
      * <p>User-defined unique identifier for the Product.</p>
-     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Products with the <a href="/../api/import-export/overview">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>.</p>
+     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Products with the <a href="/api/import-export/overview">Import API</a> and the <a href="/merchant-center/import-data">Merchant Center</a>.</p>
      *
 
      * @return null|string
@@ -251,7 +251,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>The Product Variant to be the Master Variant for the Product. Required if <code>variants</code> are provided also.</p>
+     * <p>The Product Variant to be the Master Variant for the Product. Required if <code>variants</code> are provided or if the referenced Product Type contains any Variant-level <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> with <code>isRequired</code> set to <code>true</code>.</p>
+     * <p>Must not be provided when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> to create Variants instead.</p>
      *
 
      * @return null|ProductVariantDraft
@@ -263,6 +264,7 @@ final class ProductDraftBuilder implements Builder
 
     /**
      * <p>The additional Product Variants for the Product.</p>
+     * <p>Must not be provided when the Project has the <a href="ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="/projects/variants">Variants API</a> to create Variants instead.</p>
      *
 
      * @return null|ProductVariantDraftCollection
@@ -306,8 +308,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the platform sets the <code>published</code> flag on the resulting <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> to <code>true</code>.
-     * This makes the current representation retrievable in <a href="/projects/productProjections">Product Projection</a> endpoints and indexes it for <a href="/../api/projects/product-search">Product Search</a>.
+     * <p>Whether the platform sets the <code>published</code> flag on the resulting <a href="ctp:api:type:ProductCatalogData">ProductCatalogData</a> to <code>true</code>.
+     * This makes the current representation retrievable in <a href="/projects/productProjections">Product Projection</a> endpoints and indexes it for <a href="/api/projects/product-search">Product Search</a>.
      * You can also set this flag later using the <a href="/projects/products#publish">Publish</a> update action.</p>
      *
 

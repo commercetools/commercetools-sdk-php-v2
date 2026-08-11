@@ -44,7 +44,7 @@ interface ProductTailoringSetProductAttributeAction extends ProductTailoringUpda
     public function getValue();
 
     /**
-     * <p>If <code>true</code>, then only the staged Attribute is set. If <code>false</code>, then both the current and staged Attributes are set.</p>
+     * <p>Whether only the staged Attribute is set. If <code>false</code>, both the current and staged Attributes are set.</p>
      *
 
      * @return null|bool

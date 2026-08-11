@@ -21,7 +21,7 @@ interface ProductVariantTailoring extends JsonObject
     public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
-     * <p>The <code>id</code> of the tailored <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>The <code>id</code> of the tailored <a href="ctp:api:type:ProductVariant">ProductVariant</a> or <a href="ctp:api:type:Variant">Variant</a> (<a href="/offering/compatibility#public-beta">BETA</a>).</p>
      *
 
      * @return null|int
@@ -30,7 +30,7 @@ interface ProductVariantTailoring extends JsonObject
 
     /**
      * <p>Images of the tailored Product Variant.
-     * If present, these images will override the images of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a> in total.</p>
+     * If present, these images will override the images of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a> or <a href="ctp:api:type:Variant">Variant</a> (<a href="/offering/compatibility#public-beta">BETA</a>) in total.</p>
      *
 
      * @return null|ImageCollection
@@ -39,7 +39,7 @@ interface ProductVariantTailoring extends JsonObject
 
     /**
      * <p>Media assets of the tailored Product Variant.
-     * If present, these assets will override the assets of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a> in total.</p>
+     * If present, these assets will override the assets of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a> or <a href="ctp:api:type:Variant">Variant</a> (<a href="/offering/compatibility#public-beta">BETA</a>) in total.</p>
      *
 
      * @return null|AssetCollection
@@ -48,10 +48,9 @@ interface ProductVariantTailoring extends JsonObject
 
     /**
      * <p>Attributes of the tailored Product Variant.
-     * If present, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a>:</p>
+     * If present, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="ctp:api:type:ProductVariant">ProductVariant</a> or <a href="ctp:api:type:Variant">Variant</a> (<a href="/offering/compatibility#public-beta">BETA</a>):</p>
      * <ul>
-     * <li>If the ProductVariant contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten,</li>
-     * <li>otherwise the Attribute and its value are added to the ProductVariant.</li>
+     * <li>If the ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten. Otherwise, the Attribute and its value are added to the ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>).</li>
      * </ul>
      *
 

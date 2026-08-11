@@ -39,7 +39,7 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     private $invalidateOlderTokens;
 
     /**
-     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     * <p>Email address of the Customer treated as <a href="/api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
      *
 
      * @return null|string
@@ -61,7 +61,7 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     }
 
     /**
-     * <p>If set to <code>true</code>, all password tokens issued previously for the Customer will be invalidated.</p>
+     * <p>Whether all password tokens issued previously for the Customer will be invalidated.</p>
      *
 
      * @return null|bool

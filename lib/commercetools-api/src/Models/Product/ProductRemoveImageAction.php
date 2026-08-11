@@ -43,7 +43,7 @@ interface ProductRemoveImageAction extends ProductUpdateAction
     public function getImageUrl();
 
     /**
-     * <p>If <code>true</code>, only the staged image is removed. If <code>false</code>, both the current and staged image is removed.</p>
+     * <p>Whether only the staged image is removed. If <code>false</code>, both the current image and staged image are removed.</p>
      *
 
      * @return null|bool

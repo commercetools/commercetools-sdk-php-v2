@@ -260,7 +260,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     }
 
     /**
-     * <p>User-defined identifier of the Address that must be unique when multiple addresses are referenced in <a href="ctp:api:type:BusinessUnit">BusinessUnits</a>, <a href="ctp:api:type:Customer">Customers</a>, and <code>itemShippingAddresses</code> (LineItem-specific addresses) of a <a href="ctp:api:type:Cart">Cart</a>, <a href="ctp:api:type:Order">Order</a>, <a href="ctp:api:type:QuoteRequest">QuoteRequest</a>, or <a href="ctp:api:type:Quote">Quote</a>.</p>
+     * <p>User-defined identifier of the Address. Must be unique among the addresses in a <a href="ctp:api:type:BusinessUnit">BusinessUnit</a>, <a href="ctp:api:type:Customer">Customer</a>, or in the <code>itemShippingAddresses</code> (LineItem-specific addresses) of a <a href="ctp:api:type:Cart">Cart</a>, <a href="ctp:api:type:Order">Order</a>, <a href="ctp:api:type:QuoteRequest">QuoteRequest</a>, or <a href="ctp:api:type:Quote">Quote</a>.</p>
      *
      *
      * @return null|string

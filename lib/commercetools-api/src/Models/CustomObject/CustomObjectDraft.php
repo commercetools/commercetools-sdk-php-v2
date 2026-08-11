@@ -35,7 +35,7 @@ interface CustomObjectDraft extends JsonObject
     public function getKey();
 
     /**
-     * <p>Can be any JSON standard type, such as number, string, boolean, array, object, or a <a href="/../api/types">common API data type</a>.</p>
+     * <p>Can be any JSON standard type, such as number, string, boolean, array, object, or a <a href="/api/types">common API data type</a>.</p>
      * <ul>
      * <li>Fields within <code>value</code> that have <code>null</code> values <strong>are not saved</strong>.</li>
      * <li>For values of type <a href="ctp:api:type:Reference">Reference</a> the integrity of the data is not guaranteed. If the referenced object is deleted, the API does not delete the corresponding reference to it and the <code>value</code> points to a non-existing object in such case.</li>

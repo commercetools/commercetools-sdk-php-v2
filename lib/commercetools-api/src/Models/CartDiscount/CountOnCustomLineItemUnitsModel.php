@@ -87,7 +87,7 @@ final class CountOnCustomLineItemUnitsModel extends JsonObjectModel implements C
     }
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#customlineitem-field-identifiers">CustomLineItem predicate</a> that determines the units participating in the Discount.</p>
+     * <p>Valid <a href="/api/projects/predicates#customlineitem-field-identifiers">CustomLineItem predicate</a> that determines the units participating in the Discount.</p>
      *
      *
      * @return null|string

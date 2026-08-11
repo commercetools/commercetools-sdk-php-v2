@@ -49,6 +49,7 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
        'setDiscountsConfiguration' => ProjectSetDiscountsConfigurationActionModel::class,
        'setExternalOAuth' => ProjectSetExternalOAuthActionModel::class,
        'setMyBusinessUnitAssociateRoleOnCreation' => ProjectSetBusinessUnitAssociateRoleOnCreationActionModel::class,
+       'setProductCatalogModel' => ProjectSetProductCatalogModelActionModel::class,
        'setReleaseExpiredReservations' => ProjectSetReleaseExpiredReservationsActionModel::class,
        'setReservationExpirationInMinutes' => ProjectSetReservationExpirationInMinutesActionModel::class,
        'setShippingRateInputType' => ProjectSetShippingRateInputTypeActionModel::class,

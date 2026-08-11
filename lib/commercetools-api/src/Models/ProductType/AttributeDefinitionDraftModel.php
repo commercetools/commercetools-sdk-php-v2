@@ -124,9 +124,9 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     }
 
     /**
-     * <p>User-defined name of the Attribute that is unique to the <a href="ctp:api:type:Project">Project</a>.</p>
-     * <p>When using the same <code>name</code> for an Attribute in multiple ProductTypes, all fields of the AttributeDefinition of this Attribute must be the same across the ProductTypes, else an <a href="ctp:api:type:AttributeDefinitionAlreadyExistsError">AttributeDefinitionAlreadyExists</a> error is returned.
-     * An exception to this are the values of an <code>enum</code> or <code>lenum</code> Type and sets thereof.</p>
+     * <p>User-defined name of the Attribute that must be unique within the ProductType.</p>
+     * <p>To use the same <code>name</code> in multiple ProductTypes, each AttributeDefinition must have the same <code>type</code>; otherwise, an <a href="ctp:api:type:AttributeDefinitionTypeConflictError">AttributeDefinitionTypeConflict</a> error is returned.
+     * For <code>enum</code> or <code>lenum</code> Types and sets of these AttributeTypes, the enum values can be different for each ProductType.</p>
      *
      *
      * @return null|string
@@ -167,7 +167,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     }
 
     /**
-     * <p>Set to <code>true</code> if the Attribute is required to have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>Whether the Attribute is required to have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
      *
      * @return null|bool
@@ -269,10 +269,12 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     }
 
     /**
-     * <p>Set as <code>true</code> if you want the Attribute's values to be available in the <a href="/../api/projects/product-search">Product Search</a> or the <a href="/../api/projects/product-projection-search">Product Projection Search</a> API and can be used in full-text search queries, filters, and facets.
-     * If an Attribute's <code>level</code> is set as <code>Product</code>, then Product Projection Search does <strong>not support</strong> the Attribute.</p>
+     * <p>Set as <code>true</code> if you want the Attribute's values to be available in the <a href="/api/projects/product-search">Product Search</a> or the <a href="/api/projects/product-projection-search">Product Projection Search</a> API and can be used in full-text search queries, filters, and facets.
+     * If an Attribute's <code>level</code> is set as <code>Product</code>, then Product Projection Search does <strong>not support</strong> the Attribute.
+     * To use the Attribute in search, filters, or facets, set <code>isSearchable</code> to <code>true</code> for all AttributeDefinitions with the same <code>name</code> across different ProductTypes.
+     * If the <code>isSearchable</code> values are different, the Attribute isn't available for search, filters, or facets.</p>
      * <p>Which exact features are available with this flag depends on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
-     * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/../api/limits#field-content-size">Field content size limit</a>.
+     * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/api/limits#field-content-size">Field content size limit</a>.
      * This constraint is enforced at both Product creation and Product update.
      * If the length of the input exceeds the maximum size, an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> error is returned.</p>
      *

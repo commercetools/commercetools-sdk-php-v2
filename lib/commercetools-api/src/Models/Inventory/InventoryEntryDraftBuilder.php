@@ -104,7 +104,7 @@ final class InventoryEntryDraftBuilder implements Builder
 
     /**
      * <p>User-defined unique identifier for the InventoryEntry.</p>
-     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing InventoryEntries with the <a href="/../api/import-export/overview">Import API</a> and the <a href="/../merchant-center/import-data">Merchant Center</a>.</p>
+     * <p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing InventoryEntries with the <a href="/api/import-export/overview">Import API</a> and the <a href="/merchant-center/import-data">Merchant Center</a>.</p>
      *
 
      * @return null|string
@@ -126,7 +126,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>Overall amount of stock. See <a href="/../api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for consistency information.</p>
+     * <p>Overall amount of stock. See <a href="/api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for consistency information.</p>
      *
 
      * @return null|int
@@ -137,7 +137,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>Minimum quantity that can be added to a Cart. See <a href="/../api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Minimum quantity that can be added to a Cart. See <a href="/api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int
@@ -148,7 +148,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>Maximum quantity that can be added to a Cart. See <a href="/../api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Maximum quantity that can be added to a Cart. See <a href="/api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int
@@ -196,7 +196,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>Configuration of stock levels for the InventoryEntry. Corresponding <a href="/../api/projects/messages/product-catalog-messages#inventory-entry-messages">Messages</a> are triggered when the <code>quantityOnStock</code> reaches the configured levels.</p>
+     * <p>Configuration of stock levels for the InventoryEntry. Corresponding <a href="/api/projects/messages/product-catalog-messages#inventory-entry-messages">Messages</a> are triggered when the <code>quantityOnStock</code> reaches the configured levels.</p>
      *
 
      * @return null|InventoryEntryStockLevels

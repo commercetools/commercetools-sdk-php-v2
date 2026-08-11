@@ -87,7 +87,7 @@ final class CountOnLineItemUnitsModel extends JsonObjectModel implements CountOn
     }
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem predicate</a> that determines the units participating in the Discount.</p>
+     * <p>Valid <a href="/api/projects/predicates#lineitem-field-identifiers">LineItem predicate</a> that determines the units participating in the Discount.</p>
      *
      *
      * @return null|string

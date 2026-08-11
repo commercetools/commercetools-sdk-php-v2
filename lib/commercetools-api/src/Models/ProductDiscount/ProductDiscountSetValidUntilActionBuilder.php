@@ -30,7 +30,7 @@ final class ProductDiscountSetValidUntilActionBuilder implements Builder
     /**
      * <p>Value to set.
      * If empty, any existing value will be removed.
-     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+     * Take <a href="/api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
 
      * @return null|DateTimeImmutable

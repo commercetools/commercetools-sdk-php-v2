@@ -428,7 +428,7 @@ final class ProductTailoringCreatedMessageModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     * <p><a href="/api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
      *
      * @return null|string
@@ -718,7 +718,7 @@ final class ProductTailoringCreatedMessageModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p><code>true</code> if the ProductTailoring is published.</p>
+     * <p>Whether the ProductTailoring is published.</p>
      *
      *
      * @return null|bool

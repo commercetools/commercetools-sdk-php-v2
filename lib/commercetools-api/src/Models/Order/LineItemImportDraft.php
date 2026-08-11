@@ -42,7 +42,7 @@ interface LineItemImportDraft extends JsonObject
     public function getName();
 
     /**
-     * <p>User-defined unique identifier of the Line Item.</p>
+     * <p>User-defined identifier of the Line Item. Must be unique among Line Items in the Order.</p>
      *
 
      * @return null|string
@@ -67,7 +67,7 @@ interface LineItemImportDraft extends JsonObject
     public function getProductId();
 
     /**
-     * <p>The number of Product Variants in the LineItem. Can be a negative value.</p>
+     * <p>Quantity of the Product Variant. Can be a negative value.</p>
      *
 
      * @return null|int
@@ -91,7 +91,7 @@ interface LineItemImportDraft extends JsonObject
     public function getTaxRate();
 
     /**
-     * <p>The Channel used to <a href="/../api/pricing-and-discounts-overview#line-item-price-selection">select a Price</a>.
+     * <p>The Channel used to <a href="/api/pricing-and-discounts-overview#line-item-price-selection">select a Price</a>.
      * This Channel must have the <code>ProductDistribution</code> role.</p>
      *
 

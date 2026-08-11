@@ -33,7 +33,7 @@ final class PaymentMethodSetCustomFieldActionBuilder implements Builder
     private $value;
 
     /**
-     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a> to add, update, or remove.</p>
+     * <p>Name of the <a href="/api/projects/custom-fields">Custom Field</a> to add, update, or remove.</p>
      *
 
      * @return null|string

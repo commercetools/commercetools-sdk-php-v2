@@ -34,7 +34,7 @@ interface StagedQuoteLabel extends Label
     public function getKey();
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
+     * <p>The <a href="/api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
      *
 
      * @return null|Reference

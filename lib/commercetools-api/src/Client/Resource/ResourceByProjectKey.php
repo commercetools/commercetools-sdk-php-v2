@@ -324,6 +324,22 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function variantProjections(): ResourceByProjectKeyVariantProjections
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyVariantProjections($args, $this->getClient());
+    }
+    /**
+     */
+    public function variants(): ResourceByProjectKeyVariants
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyVariants($args, $this->getClient());
+    }
+    /**
+     */
     public function zones(): ResourceByProjectKeyZones
     {
         $args = $this->getArgs();
@@ -399,6 +415,14 @@ class ResourceByProjectKey extends ApiResource
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyAttributeGroups($args, $this->getClient());
+    }
+    /**
+     */
+    public function mcpServers(): ResourceByProjectKeyMcpServers
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyMcpServers($args, $this->getClient());
     }
 
     /**

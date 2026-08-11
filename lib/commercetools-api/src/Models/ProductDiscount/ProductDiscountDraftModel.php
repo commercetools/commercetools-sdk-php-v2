@@ -186,7 +186,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
      *
      * @return null|string
@@ -227,7 +227,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Set to <code>true</code> to activate the ProductDiscount, set to <code>false</code> to deactivate it (even though the <code>predicate</code> matches).</p>
+     * <p>Whether to activate the ProductDiscount. To deactivate it even though the <code>predicate</code> matches, set to <code>false</code>.</p>
      *
      *
      * @return null|bool
@@ -248,7 +248,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
 
     /**
      * <p>Date and time (UTC) from which the Discount is effective.
-     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
+     * Take <a href="/api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -273,7 +273,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
 
     /**
      * <p>Date and time (UTC) until which the Discount is effective.
-     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+     * Take <a href="/api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
      *
      * @return null|DateTimeImmutable

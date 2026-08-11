@@ -95,7 +95,7 @@ final class ProductTailoringSetImageLabelActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>The <code>sku</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>sku</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
      *
      * @return null|string
@@ -115,7 +115,7 @@ final class ProductTailoringSetImageLabelActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>The <code>id</code> of the tailored ProductVariant to update.</p>
+     * <p>The <code>id</code> of the tailored ProductVariant or Variant (<a href="/offering/compatibility#public-beta">BETA</a>) to update.</p>
      *
      *
      * @return null|int
@@ -175,7 +175,7 @@ final class ProductTailoringSetImageLabelActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>If <code>true</code>, only the staged image is updated. If <code>false</code>, both the current and staged image is updated.</p>
+     * <p>Whether only the staged image is updated. If <code>false</code>, both the current and staged image is updated.</p>
      *
      *
      * @return null|bool

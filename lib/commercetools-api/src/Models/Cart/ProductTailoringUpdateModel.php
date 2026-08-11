@@ -46,7 +46,7 @@ final class ProductTailoringUpdateModel extends JsonObjectModel implements Produ
 
     /**
      * <p>Expected version of the ProductTailoring on which the changes apply.
-     * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> is returned.</p>
+     * If the expected version does not match the actual version, a <a href="/api/errors#409-conflict">409 Conflict</a> is returned.</p>
      *
      *
      * @return null|int

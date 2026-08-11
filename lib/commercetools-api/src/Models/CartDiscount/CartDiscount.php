@@ -124,7 +124,7 @@ interface CartDiscount extends BaseResource
     public function getValue();
 
     /**
-     * <p>Valid <a href="/../api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
+     * <p>Valid <a href="/api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
      *
 
      * @return null|string
@@ -133,7 +133,7 @@ interface CartDiscount extends BaseResource
 
     /**
      * <p>Segment of the Cart that is discounted.</p>
-     * <p>Empty, if the <code>value</code> is <code>giftLineItem</code>.</p>
+     * <p>Absent if the <code>value</code> is <code>giftLineItem</code>.</p>
      *
 
      * @return null|CartDiscountTarget

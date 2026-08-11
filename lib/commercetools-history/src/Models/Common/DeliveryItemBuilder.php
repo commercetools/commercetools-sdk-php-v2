@@ -44,7 +44,7 @@ final class DeliveryItemBuilder implements Builder
     }
 
     /**
-     * <p>Number of Line Items or Custom Line Items delivered.</p>
+     * <p>Quantity of Line Items or Custom Line Items delivered.</p>
      *
 
      * @return null|int

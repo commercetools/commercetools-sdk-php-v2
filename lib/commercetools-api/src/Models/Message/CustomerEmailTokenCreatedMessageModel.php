@@ -348,7 +348,7 @@ final class CustomerEmailTokenCreatedMessageModel extends JsonObjectModel implem
     }
 
     /**
-     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     * <p><a href="/api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
      *
      * @return null|string
@@ -453,7 +453,7 @@ final class CustomerEmailTokenCreatedMessageModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>If <code>true</code>, all email tokens issued previously for the Customer are invalidated.</p>
+     * <p>Whether all email tokens issued previously for the Customer are invalidated.</p>
      *
      *
      * @return null|bool

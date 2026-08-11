@@ -94,7 +94,7 @@ final class DiscountGroupReferenceModel extends JsonObjectModel implements Disco
 
     /**
      * <p>Contains the representation of the expanded DiscountGroup.
-     * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for DiscountGroups.</p>
+     * Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for DiscountGroups.</p>
      *
      *
      * @return null|DiscountGroup

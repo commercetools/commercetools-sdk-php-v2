@@ -240,7 +240,7 @@ final class ProductTailoringCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if the ProductTailoring is published.</p>
+     * <p>Whether the ProductTailoring is published.</p>
      *
 
      * @return null|bool

@@ -44,7 +44,7 @@ final class InventoryConfigurationBuilder implements Builder
     }
 
     /**
-     * <p>If set to <code>true</code>, <a href="ctp:api:type:Reservation">Reservations</a> are marked as <code>Expired</code> once their
+     * <p>Whether <a href="ctp:api:type:Reservation">Reservations</a> are marked as <code>Expired</code> once their
      * <code>reservationExpirationInMinutes</code> is reached. The reserved inventory is then made available. If set to <code>false</code>, tracking Line Items with expired reservations becomes your responsibility.</p>
      *
 

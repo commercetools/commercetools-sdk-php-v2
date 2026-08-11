@@ -124,6 +124,12 @@ final class ProjectModel extends JsonObjectModel implements Project
      */
     protected $discounts;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $productCatalogModel;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -145,7 +151,8 @@ final class ProjectModel extends JsonObjectModel implements Project
         ?SearchIndexingConfiguration $searchIndexing = null,
         ?BusinessUnitConfiguration $businessUnits = null,
         ?InventoryConfiguration $inventory = null,
-        ?DiscountsConfiguration $discounts = null
+        ?DiscountsConfiguration $discounts = null,
+        ?string $productCatalogModel = null
     ) {
         $this->version = $version;
         $this->key = $key;
@@ -164,6 +171,7 @@ final class ProjectModel extends JsonObjectModel implements Project
         $this->businessUnits = $businessUnits;
         $this->inventory = $inventory;
         $this->discounts = $discounts;
+        $this->productCatalogModel = $productCatalogModel;
     }
 
     /**
@@ -331,7 +339,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
+     * <p>Holds the configuration for the <a href="/api/projects/messages">Messages Query</a> feature.</p>
      *
      *
      * @return null|MessagesConfiguration
@@ -352,7 +360,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
+     * <p>Holds the configuration for the <a href="/api/projects/carts">Carts</a> feature.</p>
      *
      *
      * @return null|CartsConfiguration
@@ -373,7 +381,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>Holds the configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature.</p>
+     * <p>Holds the configuration for the <a href="/api/projects/shoppingLists">Shopping Lists</a> feature.</p>
      *
      *
      * @return null|ShoppingListsConfiguration
@@ -519,6 +527,27 @@ final class ProjectModel extends JsonObjectModel implements Project
         return $this->discounts;
     }
 
+    /**
+     * <p>Determines how Product Variants are managed in the Project.
+     * If not set, defaults to <code>Classic</code> behavior.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getProductCatalogModel()
+    {
+        if (is_null($this->productCatalogModel)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRODUCT_CATALOG_MODEL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productCatalogModel = (string) $data;
+        }
+
+        return $this->productCatalogModel;
+    }
+
 
     /**
      * @param ?int $version
@@ -654,6 +683,14 @@ final class ProjectModel extends JsonObjectModel implements Project
     public function setDiscounts(?DiscountsConfiguration $discounts): void
     {
         $this->discounts = $discounts;
+    }
+
+    /**
+     * @param ?string $productCatalogModel
+     */
+    public function setProductCatalogModel(?string $productCatalogModel): void
+    {
+        $this->productCatalogModel = $productCatalogModel;
     }
 
 

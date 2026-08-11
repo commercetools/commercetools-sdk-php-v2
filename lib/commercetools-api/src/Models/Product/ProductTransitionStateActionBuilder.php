@@ -46,7 +46,7 @@ final class ProductTransitionStateActionBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, validations are disabled.</p>
+     * <p>Whether validations are disabled.</p>
      *
 
      * @return null|bool

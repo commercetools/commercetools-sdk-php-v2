@@ -27,7 +27,7 @@ final class ExtensionAdditionalContextDraftBuilder implements Builder
     private $includeOldResource;
 
     /**
-     * <p>Set to <code>true</code>, if the payload sent to the API Extension should include an <a href="ctp:api:type:ExtensionInput"><code>oldResource</code></a> field with the state of the resource before the update.
+     * <p>Whether the payload sent to the API Extension should include an <a href="ctp:api:type:ExtensionInput"><code>oldResource</code></a> field with the state of the resource before the update.
      * This only applies to <code>Update</code> actions. For <code>Create</code> actions, <code>oldResource</code> is not included.</p>
      *
 
