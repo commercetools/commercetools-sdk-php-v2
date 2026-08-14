@@ -141,6 +141,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
     /**
      * <p>Languages defined in <a href="ctp:api:type:Project">Project</a>. Only languages defined in the Project can be used.</p>
+     * <p>If a language is not configured for the Project, a <a href="ctp:api:type:ProjectNotConfiguredForLanguagesError">ProjectNotConfiguredForLanguages</a> error is returned.</p>
      *
      *
      * @return null|array
@@ -181,6 +182,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
     /**
      * <p>ResourceIdentifier of a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the referenced Channel does not have this role, a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error is returned.</p>
      *
      *
      * @return null|ChannelResourceIdentifierCollection
@@ -201,6 +203,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
     /**
      * <p>ResourceIdentifier of a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the referenced Channel does not have this role, a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error is returned.</p>
      *
      *
      * @return null|ChannelResourceIdentifierCollection

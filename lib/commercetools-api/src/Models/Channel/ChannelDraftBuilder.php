@@ -72,6 +72,8 @@ final class ChannelDraftBuilder implements Builder
 
     /**
      * <p>User-defined unique identifier for the Channel.</p>
+     * <p>If set to an empty value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p>If the value is used by another Channel in the Project, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
 
      * @return null|string
@@ -82,9 +84,8 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
-     * <p>Roles of the Channel.
-     * Each channel must have at least one role.
-     * If not specified, then <code>InventorySupply</code> is assigned by default.</p>
+     * <p>Roles of the Channel.</p>
+     * <p>The Channel must have at least one role. If set to an empty array, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|array

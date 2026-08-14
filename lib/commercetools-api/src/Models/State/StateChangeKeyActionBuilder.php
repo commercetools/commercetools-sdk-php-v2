@@ -27,8 +27,9 @@ final class StateChangeKeyActionBuilder implements Builder
     private $key;
 
     /**
-     * <p>New value to set.
-     * Must not be empty.</p>
+     * <p>New value to set.</p>
+     * <p>If set to an empty value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p>If the value is used by another State in the Project, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
 
      * @return null|string

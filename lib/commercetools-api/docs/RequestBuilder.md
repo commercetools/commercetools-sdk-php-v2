@@ -2693,7 +2693,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withId("ID")->delete()`
 
-Returns a [ReferenceExists](ctp:api:type:ReferenceExistsError) error if other resources reference the Channel to be deleted.
+If the Channel is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
 
 
 ### Example
@@ -2754,7 +2754,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withKey("key")->delete()`
 
-Returns a [ReferenceExists](ctp:api:type:ReferenceExistsError) error if other resources reference the Channel to be deleted.
+If the Channel is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
 
 
 ### Example
@@ -12934,7 +12934,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withId("ID")->delete()`
 
-null
+If the Store is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+To avoid dependency conflicts, first delete all active and anonymous Carts that reference the Store, then delete all Orders.
+
 
 ### Example
 ```php
@@ -12994,7 +12997,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withKey("key")->delete()`
 
-null
+If the Store is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+To avoid dependency conflicts, first delete all active and anonymous Carts that reference the Store, then delete all Orders.
+
 
 ### Example
 ```php
@@ -13276,7 +13282,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withId("ID")->delete()`
 
-null
+If the TaxCategory is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
 
 ### Example
 ```php
@@ -13336,7 +13343,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withKey("key")->delete()`
 
-null
+If the TaxCategory is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
 
 ### Example
 ```php

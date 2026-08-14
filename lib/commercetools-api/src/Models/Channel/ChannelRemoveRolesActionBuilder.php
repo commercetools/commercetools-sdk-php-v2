@@ -28,6 +28,8 @@ final class ChannelRemoveRolesActionBuilder implements Builder
 
     /**
      * <p>Value to remove from the array.</p>
+     * <p>If none of the specified roles are already present, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p>If all roles from the Channel are removed, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|array

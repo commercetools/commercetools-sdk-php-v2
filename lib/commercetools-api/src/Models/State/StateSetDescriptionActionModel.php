@@ -66,7 +66,8 @@ final class StateSetDescriptionActionModel extends JsonObjectModel implements St
 
     /**
      * <p>Value to set.
-     * Set to an empty object to remove any existing value.</p>
+     * If the new value is the same as the current value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p>Set to an empty object to remove any existing value.</p>
      *
      *
      * @return null|LocalizedString

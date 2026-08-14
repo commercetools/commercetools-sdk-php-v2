@@ -16,7 +16,9 @@ interface ProjectChangeLanguagesAction extends ProjectUpdateAction
     public const FIELD_LANGUAGES = 'languages';
 
     /**
-     * <p>New value to set. Must not be empty.</p>
+     * <p>New value to set.</p>
+     * <p>If set to an empty value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p>If a language in use by a <a href="ctp:api:type:Store">Store</a> is removed, a <a href="ctp:api:type:LanguageUsedInStoresError">LanguageUsedInStores</a> error is returned.</p>
      *
 
      * @return null|array

@@ -16,7 +16,8 @@ interface TaxCategoryChangeNameAction extends TaxCategoryUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
-     * <p>New value to set. Must not be empty.</p>
+     * <p>New value to set.</p>
+     * <p>If the provided name is used by another TaxCategory in the Project, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|string
