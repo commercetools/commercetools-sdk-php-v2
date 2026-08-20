@@ -65,8 +65,6 @@ final class CustomerKeyReferenceModel extends JsonObjectModel implements Custome
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

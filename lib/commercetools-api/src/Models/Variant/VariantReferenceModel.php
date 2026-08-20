@@ -55,8 +55,6 @@ final class VariantReferenceModel extends JsonObjectModel implements VariantRefe
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

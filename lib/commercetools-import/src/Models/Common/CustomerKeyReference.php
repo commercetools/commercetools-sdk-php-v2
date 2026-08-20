@@ -14,6 +14,12 @@ use Commercetools\Base\JsonObject;
 interface CustomerKeyReference extends KeyReference
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>User-defined unique identifier of the referenced Customer.</p>
      *
 

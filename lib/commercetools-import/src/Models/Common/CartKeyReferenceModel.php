@@ -65,8 +65,6 @@ final class CartKeyReferenceModel extends JsonObjectModel implements CartKeyRefe
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

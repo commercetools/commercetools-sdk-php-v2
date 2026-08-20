@@ -65,8 +65,6 @@ final class ProductVariantKeyReferenceModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

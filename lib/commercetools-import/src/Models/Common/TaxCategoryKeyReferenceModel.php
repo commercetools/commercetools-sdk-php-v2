@@ -65,8 +65,6 @@ final class TaxCategoryKeyReferenceModel extends JsonObjectModel implements TaxC
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

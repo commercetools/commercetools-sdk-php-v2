@@ -65,8 +65,6 @@ final class TypeKeyReferenceModel extends JsonObjectModel implements TypeKeyRefe
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

@@ -65,8 +65,6 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

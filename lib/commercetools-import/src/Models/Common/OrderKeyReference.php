@@ -13,4 +13,9 @@ use Commercetools\Base\JsonObject;
 
 interface OrderKeyReference extends KeyReference
 {
+    /**
+
+     * @return null|string
+     */
+    public function getTypeId();
 }
