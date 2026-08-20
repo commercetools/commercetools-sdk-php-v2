@@ -143,6 +143,12 @@ final class ShippingMethodBuilder implements Builder
     private $stores;
 
     /**
+
+     * @var ?string
+     */
+    private $carrier;
+
+    /**
      * <p>Unique identifier of the ShippingMethod.</p>
      *
 
@@ -345,6 +351,17 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Name of the carrier that delivers the parcel, for example <code>DHL</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCarrier()
+    {
+        return $this->carrier;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -543,6 +560,17 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?string $carrier
+     * @return $this
+     */
+    public function withCarrier(?string $carrier)
+    {
+        $this->carrier = $carrier;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -628,7 +656,8 @@ final class ShippingMethodBuilder implements Builder
             $this->isDefault,
             $this->predicate,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
-            $this->stores
+            $this->stores,
+            $this->carrier
         );
     }
 

@@ -25,6 +25,7 @@ interface StoreDraft extends JsonObject
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
     public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STOREFRONT = 'storefront';
 
     /**
      * <p>User-defined unique and immutable identifier for the Store.
@@ -101,6 +102,14 @@ interface StoreDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Customer-facing URLs and policy links for the Store's storefront.</p>
+     *
+
+     * @return null|Storefront
+     */
+    public function getStorefront();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -139,4 +148,9 @@ interface StoreDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?Storefront $storefront
+     */
+    public function setStorefront(?Storefront $storefront): void;
 }

@@ -21,6 +21,7 @@ interface CartSetCustomShippingMethodAction extends CartUpdateAction
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_ESTIMATED_DELIVERY = 'estimatedDelivery';
 
     /**
      * <p>Name of the custom Shipping Method.</p>
@@ -63,6 +64,15 @@ interface CartSetCustomShippingMethodAction extends CartUpdateAction
     public function getCustom();
 
     /**
+     * <p>Estimated time window during which the shipment is expected to be delivered.
+     * If not set, any existing estimate on the Cart's <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> is cleared.</p>
+     *
+
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery();
+
+    /**
      * @param ?string $shippingMethodName
      */
     public function setShippingMethodName(?string $shippingMethodName): void;
@@ -86,4 +96,9 @@ interface CartSetCustomShippingMethodAction extends CartUpdateAction
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     */
+    public function setEstimatedDelivery(?EstimatedDelivery $estimatedDelivery): void;
 }

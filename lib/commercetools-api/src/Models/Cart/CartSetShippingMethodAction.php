@@ -16,6 +16,7 @@ interface CartSetShippingMethodAction extends CartUpdateAction
 {
     public const FIELD_SHIPPING_METHOD = 'shippingMethod';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_ESTIMATED_DELIVERY = 'estimatedDelivery';
 
     /**
      * <p>Value to set.
@@ -42,6 +43,15 @@ interface CartSetShippingMethodAction extends CartUpdateAction
     public function getExternalTaxRate();
 
     /**
+     * <p>Estimated time window during which the shipment is expected to be delivered.
+     * If not set, any existing estimate on the Cart's <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> is cleared.</p>
+     *
+
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery();
+
+    /**
      * @param ?ShippingMethodResourceIdentifier $shippingMethod
      */
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
@@ -50,4 +60,9 @@ interface CartSetShippingMethodAction extends CartUpdateAction
      * @param ?ExternalTaxRateDraft $externalTaxRate
      */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
+
+    /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     */
+    public function setEstimatedDelivery(?EstimatedDelivery $estimatedDelivery): void;
 }

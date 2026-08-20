@@ -35,6 +35,12 @@ final class CartSetShippingMethodActionBuilder implements Builder
     private $externalTaxRate;
 
     /**
+
+     * @var null|EstimatedDelivery|EstimatedDeliveryBuilder
+     */
+    private $estimatedDelivery;
+
+    /**
      * <p>Value to set.
      * If omitted, any existing value is removed.</p>
      * <p><a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned in one of the following cases:</p>
@@ -65,6 +71,18 @@ final class CartSetShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * <p>Estimated time window during which the shipment is expected to be delivered.
+     * If not set, any existing estimate on the Cart's <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> is cleared.</p>
+     *
+
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery()
+    {
+        return $this->estimatedDelivery instanceof EstimatedDeliveryBuilder ? $this->estimatedDelivery->build() : $this->estimatedDelivery;
+    }
+
+    /**
      * @param ?ShippingMethodResourceIdentifier $shippingMethod
      * @return $this
      */
@@ -82,6 +100,17 @@ final class CartSetShippingMethodActionBuilder implements Builder
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
+    /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     * @return $this
+     */
+    public function withEstimatedDelivery(?EstimatedDelivery $estimatedDelivery)
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
 
         return $this;
     }
@@ -108,11 +137,23 @@ final class CartSetShippingMethodActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withEstimatedDelivery() instead
+     * @return $this
+     */
+    public function withEstimatedDeliveryBuilder(?EstimatedDeliveryBuilder $estimatedDelivery)
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
+
+        return $this;
+    }
+
     public function build(): CartSetShippingMethodAction
     {
         return new CartSetShippingMethodActionModel(
             $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
-            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
+            $this->estimatedDelivery instanceof EstimatedDeliveryBuilder ? $this->estimatedDelivery->build() : $this->estimatedDelivery
         );
     }
 

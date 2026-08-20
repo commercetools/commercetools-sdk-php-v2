@@ -75,6 +75,12 @@ final class StoreDraftBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var null|Storefront|StorefrontBuilder
+     */
+    private $storefront;
+
+    /**
      * <p>User-defined unique and immutable identifier for the Store.
      * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
      *
@@ -173,6 +179,17 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * <p>Customer-facing URLs and policy links for the Store's storefront.</p>
+     *
+
+     * @return null|Storefront
+     */
+    public function getStorefront()
+    {
+        return $this->storefront instanceof StorefrontBuilder ? $this->storefront->build() : $this->storefront;
+    }
+
+    /**
      * @param ?string $key
      * @return $this
      */
@@ -261,6 +278,17 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Storefront $storefront
+     * @return $this
+     */
+    public function withStorefront(?Storefront $storefront)
+    {
+        $this->storefront = $storefront;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -282,6 +310,17 @@ final class StoreDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withStorefront() instead
+     * @return $this
+     */
+    public function withStorefrontBuilder(?StorefrontBuilder $storefront)
+    {
+        $this->storefront = $storefront;
+
+        return $this;
+    }
+
     public function build(): StoreDraft
     {
         return new StoreDraftModel(
@@ -292,7 +331,8 @@ final class StoreDraftBuilder implements Builder
             $this->distributionChannels,
             $this->supplyChannels,
             $this->productSelections,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->storefront instanceof StorefrontBuilder ? $this->storefront->build() : $this->storefront
         );
     }
 

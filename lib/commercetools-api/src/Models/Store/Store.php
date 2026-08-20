@@ -31,6 +31,7 @@ interface Store extends BaseResource
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
     public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STOREFRONT = 'storefront';
 
     /**
      * <p>Unique ID of the Store.</p>
@@ -151,6 +152,14 @@ interface Store extends BaseResource
     public function getCustom();
 
     /**
+     * <p>Customer-facing URLs and policy links for the Store's storefront.</p>
+     *
+
+     * @return null|Storefront
+     */
+    public function getStorefront();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -219,4 +228,9 @@ interface Store extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?Storefront $storefront
+     */
+    public function setStorefront(?Storefront $storefront): void;
 }

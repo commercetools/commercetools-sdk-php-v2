@@ -35,6 +35,7 @@
 - added type `CartLock`
 - added type `CartMergeMode`
 - added type `DiscountTypeCombination`
+- added type `EstimatedDelivery`
 - added type `FreezeStrategy`
 - added type `MergeCartDraft`
 - added type `ReservationReference`
@@ -42,6 +43,7 @@
 - added type `CartChangePriceRoundingModeAction`
 - added type `CartLockCartAction`
 - added type `CartSetCustomLineItemRecurrenceInfoAction`
+- added type `CartSetEstimatedDeliveryAction`
 - added type `CartSetLineItemRecurrenceInfoAction`
 - added type `CartSetPurchaseOrderNumberAction`
 - added type `CartSetReservationExpirationInMinutesAction`
@@ -175,6 +177,7 @@
 - added type `BusinessUnitCustomerGroupAssignmentsSetMessage`
 - added type `BusinessUnitTopLevelUnitSetMessage`
 - added type `BusinessUnitTypeSetMessage`
+- added type `CartEstimatedDeliverySetMessage`
 - added type `CartFrozenMessage`
 - added type `CartLockedMessage`
 - added type `CartPurchaseOrderNumberSetMessage`
@@ -202,6 +205,7 @@
 - added type `InventoryEntrySafetyStockMessage`
 - added type `OrderBusinessUnitSetMessage`
 - added type `OrderCreatedFromRecurringOrderMessage`
+- added type `OrderEstimatedDeliverySetMessage`
 - added type `OrderPaymentRemovedMessage`
 - added type `PaymentInterfaceIdSetMessage`
 - added type `PaymentMethodCreatedMessage`
@@ -244,6 +248,16 @@
 - added type `RecurringOrderStartsAtSetMessage`
 - added type `RecurringOrderStateChangedMessage`
 - added type `RecurringOrderStateTransitionMessage`
+- added type `StoreCheckoutUrlTemplateSetMessage`
+- added type `StoreContactUrlSetMessage`
+- added type `StoreCookiePolicyUrlSetMessage`
+- added type `StoreFaqUrlSetMessage`
+- added type `StoreImprintUrlSetMessage`
+- added type `StoreOrderUrlTemplateSetMessage`
+- added type `StorePrivacyPolicyUrlSetMessage`
+- added type `StoreRefundPolicyUrlSetMessage`
+- added type `StoreShippingPolicyUrlSetMessage`
+- added type `StoreTermsOfServiceUrlSetMessage`
 - added type `VariantCreatedMessage`
 - added type `VariantDeletedMessage`
 - added type `VariantImageAddedMessage`
@@ -259,6 +273,7 @@
 - added type `BusinessUnitCustomerGroupAssignmentsSetMessagePayload`
 - added type `BusinessUnitTopLevelUnitSetMessagePayload`
 - added type `BusinessUnitTypeSetMessagePayload`
+- added type `CartEstimatedDeliverySetMessagePayload`
 - added type `CartFrozenMessagePayload`
 - added type `CartLockedMessagePayload`
 - added type `CartPurchaseOrderNumberSetMessagePayload`
@@ -286,6 +301,7 @@
 - added type `InventoryEntrySafetyStockMessagePayload`
 - added type `OrderBusinessUnitSetMessagePayload`
 - added type `OrderCreatedFromRecurringOrderMessagePayload`
+- added type `OrderEstimatedDeliverySetMessagePayload`
 - added type `OrderPaymentRemovedMessagePayload`
 - added type `PaymentInterfaceIdSetMessagePayload`
 - added type `PaymentMethodCreatedMessagePayload`
@@ -328,6 +344,16 @@
 - added type `RecurringOrderStartsAtSetMessagePayload`
 - added type `RecurringOrderStateChangedMessagePayload`
 - added type `RecurringOrderStateTransitionMessagePayload`
+- added type `StoreCheckoutUrlTemplateSetMessagePayload`
+- added type `StoreContactUrlSetMessagePayload`
+- added type `StoreCookiePolicyUrlSetMessagePayload`
+- added type `StoreFaqUrlSetMessagePayload`
+- added type `StoreImprintUrlSetMessagePayload`
+- added type `StoreOrderUrlTemplateSetMessagePayload`
+- added type `StorePrivacyPolicyUrlSetMessagePayload`
+- added type `StoreRefundPolicyUrlSetMessagePayload`
+- added type `StoreShippingPolicyUrlSetMessagePayload`
+- added type `StoreTermsOfServiceUrlSetMessagePayload`
 - added type `VariantCreatedMessagePayload`
 - added type `VariantDeletedMessagePayload`
 - added type `VariantImageAddedMessagePayload`
@@ -340,6 +366,7 @@
 - added type `StagedOrderChangePriceRoundingModeAction`
 - added type `StagedOrderSetBusinessUnitAction`
 - added type `OrderSetBusinessUnitAction`
+- added type `OrderSetEstimatedDeliveryAction`
 - added type `PaymentMethod`
 - added type `PaymentMethodDraft`
 - added type `PaymentMethodPagedQueryResponse`
@@ -447,8 +474,20 @@
 - added type `SearchFuzzyValue`
 - added type `ShippingMethodAddStoreAction`
 - added type `ShippingMethodRemoveStoreAction`
+- added type `ShippingMethodSetCarrierAction`
 - added type `ShippingMethodSetStoresAction`
 - added type `ShoppingListSetBusinessUnitAction`
+- added type `Storefront`
+- added type `StoreSetCheckoutUrlTemplateAction`
+- added type `StoreSetContactUrlAction`
+- added type `StoreSetCookiePolicyUrlAction`
+- added type `StoreSetFaqUrlAction`
+- added type `StoreSetImprintUrlAction`
+- added type `StoreSetOrderUrlTemplateAction`
+- added type `StoreSetPrivacyPolicyUrlAction`
+- added type `StoreSetRefundPolicyUrlAction`
+- added type `StoreSetShippingPolicyUrlAction`
+- added type `StoreSetTermsOfServiceUrlAction`
 - added type `EventDeliveryPayload`
 - added type `EventSubscription`
 - added type `EventSubscriptionResourceTypeId`
@@ -548,9 +587,13 @@
 - added property `reservation` to type `LineItem`
 - added property `recurrenceInfo` to type `LineItem`
 - added property `recurrenceInfo` to type `LineItemDraft`
+- added property `estimatedDelivery` to type `ShippingInfo`
 - added property `recurrenceInfo` to type `CartAddCustomLineItemAction`
 - added property `recurrenceInfo` to type `CartAddLineItemAction`
+- added property `estimatedDelivery` to type `CartAddShippingMethodAction`
 - added property `strategy` to type `CartFreezeCartAction`
+- added property `estimatedDelivery` to type `CartSetCustomShippingMethodAction`
+- added property `estimatedDelivery` to type `CartSetShippingMethodAction`
 - added property `recurrencePolicy` to type `Price`
 - added property `recurrencePolicy` to type `PriceDraft`
 - added property `customerGroupAssignments` to type `Customer`
@@ -638,13 +681,17 @@
 - added property `priceRoundingMode` to type `QuoteRequest`
 - added property `priceRoundingMode` to type `Quote`
 - added property `stores` to type `ShippingMethod`
+- added property `carrier` to type `ShippingMethod`
 - added property `stores` to type `ShippingMethodDraft`
+- added property `carrier` to type `ShippingMethodDraft`
 - added property `businessUnit` to type `ShoppingList`
 - added property `businessUnit` to type `ShoppingListDraft`
 - added property `published` to type `ShoppingListLineItem`
 - added property `recurrencePolicy` to type `StandalonePrice`
 - added property `recurrencePolicy` to type `StandalonePriceDraft`
 - added property `minimumQuantity` to type `StandalonePriceRemovePriceTierAction`
+- added property `storefront` to type `Store`
+- added property `storefront` to type `StoreDraft`
 - added property `events` to type `Subscription`
 - added property `events` to type `SubscriptionDraft`
 </details>

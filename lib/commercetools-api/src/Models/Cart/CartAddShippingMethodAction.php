@@ -24,6 +24,7 @@ interface CartAddShippingMethodAction extends CartUpdateAction
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
     public const FIELD_DELIVERIES = 'deliveries';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_ESTIMATED_DELIVERY = 'estimatedDelivery';
 
     /**
      * <p>User-defined identifier for the <a href="ctp:api:type:Shipping">Shipping</a> that must be unique across the Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
@@ -95,6 +96,14 @@ interface CartAddShippingMethodAction extends CartUpdateAction
     public function getCustom();
 
     /**
+     * <p>Estimated time window during which this shipment is expected to be delivered.</p>
+     *
+
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery();
+
+    /**
      * @param ?string $shippingKey
      */
     public function setShippingKey(?string $shippingKey): void;
@@ -128,4 +137,9 @@ interface CartAddShippingMethodAction extends CartUpdateAction
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     */
+    public function setEstimatedDelivery(?EstimatedDelivery $estimatedDelivery): void;
 }

@@ -29,6 +29,7 @@ interface ShippingInfo extends JsonObject
     public const FIELD_DELIVERIES = 'deliveries';
     public const FIELD_DISCOUNTED_PRICE = 'discountedPrice';
     public const FIELD_SHIPPING_METHOD_STATE = 'shippingMethodState';
+    public const FIELD_ESTIMATED_DELIVERY = 'estimatedDelivery';
 
     /**
      * <p>Name of the Shipping Method.</p>
@@ -112,6 +113,15 @@ interface ShippingInfo extends JsonObject
     public function getShippingMethodState();
 
     /**
+     * <p>Estimated time window during which the shipment is expected to be delivered.
+     * This value is removed if the Cart's <code>shippingAddress</code> changes.</p>
+     *
+
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery();
+
+    /**
      * @param ?string $shippingMethodName
      */
     public function setShippingMethodName(?string $shippingMethodName): void;
@@ -160,4 +170,9 @@ interface ShippingInfo extends JsonObject
      * @param ?string $shippingMethodState
      */
     public function setShippingMethodState(?string $shippingMethodState): void;
+
+    /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     */
+    public function setEstimatedDelivery(?EstimatedDelivery $estimatedDelivery): void;
 }

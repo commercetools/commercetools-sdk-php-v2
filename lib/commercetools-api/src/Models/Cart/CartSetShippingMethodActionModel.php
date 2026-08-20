@@ -40,6 +40,12 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
      */
     protected $externalTaxRate;
 
+    /**
+     *
+     * @var ?EstimatedDelivery
+     */
+    protected $estimatedDelivery;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -47,10 +53,12 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
     public function __construct(
         ?ShippingMethodResourceIdentifier $shippingMethod = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?EstimatedDelivery $estimatedDelivery = null,
         ?string $action = null
     ) {
         $this->shippingMethod = $shippingMethod;
         $this->externalTaxRate = $externalTaxRate;
+        $this->estimatedDelivery = $estimatedDelivery;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -122,6 +130,28 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
         return $this->externalTaxRate;
     }
 
+    /**
+     * <p>Estimated time window during which the shipment is expected to be delivered.
+     * If not set, any existing estimate on the Cart's <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> is cleared.</p>
+     *
+     *
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery()
+    {
+        if (is_null($this->estimatedDelivery)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ESTIMATED_DELIVERY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->estimatedDelivery = EstimatedDeliveryModel::of($data);
+        }
+
+        return $this->estimatedDelivery;
+    }
+
 
     /**
      * @param ?ShippingMethodResourceIdentifier $shippingMethod
@@ -137,5 +167,13 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
+    }
+
+    /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     */
+    public function setEstimatedDelivery(?EstimatedDelivery $estimatedDelivery): void
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
     }
 }

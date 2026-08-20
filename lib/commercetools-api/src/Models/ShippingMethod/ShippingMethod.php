@@ -35,6 +35,7 @@ interface ShippingMethod extends BaseResource
     public const FIELD_PREDICATE = 'predicate';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STORES = 'stores';
+    public const FIELD_CARRIER = 'carrier';
 
     /**
      * <p>Unique identifier of the ShippingMethod.</p>
@@ -185,6 +186,14 @@ interface ShippingMethod extends BaseResource
     public function getStores();
 
     /**
+     * <p>Name of the carrier that delivers the parcel, for example <code>DHL</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCarrier();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -273,4 +282,9 @@ interface ShippingMethod extends BaseResource
      * @param ?StoreKeyReferenceCollection $stores
      */
     public function setStores(?StoreKeyReferenceCollection $stores): void;
+
+    /**
+     * @param ?string $carrier
+     */
+    public function setCarrier(?string $carrier): void;
 }

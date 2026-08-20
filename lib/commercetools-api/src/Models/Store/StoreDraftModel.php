@@ -73,6 +73,12 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?Storefront
+     */
+    protected $storefront;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -85,7 +91,8 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         ?ChannelResourceIdentifierCollection $distributionChannels = null,
         ?ChannelResourceIdentifierCollection $supplyChannels = null,
         ?ProductSelectionSettingDraftCollection $productSelections = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?Storefront $storefront = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -95,6 +102,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         $this->supplyChannels = $supplyChannels;
         $this->productSelections = $productSelections;
         $this->custom = $custom;
+        $this->storefront = $storefront;
     }
 
     /**
@@ -269,6 +277,27 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         return $this->custom;
     }
 
+    /**
+     * <p>Customer-facing URLs and policy links for the Store's storefront.</p>
+     *
+     *
+     * @return null|Storefront
+     */
+    public function getStorefront()
+    {
+        if (is_null($this->storefront)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STOREFRONT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->storefront = StorefrontModel::of($data);
+        }
+
+        return $this->storefront;
+    }
+
 
     /**
      * @param ?string $key
@@ -332,5 +361,13 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?Storefront $storefront
+     */
+    public function setStorefront(?Storefront $storefront): void
+    {
+        $this->storefront = $storefront;
     }
 }
