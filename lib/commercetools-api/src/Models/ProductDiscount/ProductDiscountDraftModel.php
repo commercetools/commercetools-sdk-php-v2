@@ -125,6 +125,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
 
     /**
      * <p>User-defined unique identifier for the ProductDiscount.</p>
+     * <p>If the value is used by another Product Discount, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
      * @return null|string
@@ -206,8 +207,8 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized.
-     * The value must be <strong>unique</strong> among all ProductDiscounts in the <a href="ctp:api:type:Project">Project</a>.</p>
+     * <p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized.</p>
+     * <p>If the value is used by another Product Discount, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
      * @return null|string

@@ -36,8 +36,10 @@ interface ProductSetPricesAction extends ProductUpdateAction
     public function getSku();
 
     /**
-     * <p>The Embedded Prices to set.
-     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     * <p>The Embedded Prices to set.</p>
+     * <p>If any two Embedded Prices in this array have the same key, a <a href="ctp:api:type:DuplicatePriceKeyError">DuplicatePriceKey</a> error is returned.</p>
+     * <p>If any two Embedded Prices in this array have the same price scope, a <a href="ctp:api:type:DuplicatePriceScopeError">DuplicatePriceScope</a> error is returned.</p>
+     * <p>If any two Embedded Prices in this array have overlapping validity periods within the same price scope, an <a href="ctp:api:type:OverlappingPriceValidityError">OverlappingPriceValidity</a> error is returned. An Embedded Price without validity period does not conflict with an Embedded Price defined for a time period.</p>
      *
 
      * @return null|PriceDraftCollection

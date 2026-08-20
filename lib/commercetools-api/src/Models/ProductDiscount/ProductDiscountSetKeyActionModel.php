@@ -64,6 +64,7 @@ final class ProductDiscountSetKeyActionModel extends JsonObjectModel implements 
 
     /**
      * <p>Value to set. If omitted, any existing value is removed.</p>
+     * <p>If the value is used by another Product Discount, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
      * @return null|string

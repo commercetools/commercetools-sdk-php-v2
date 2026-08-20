@@ -31,6 +31,7 @@ final class ProductDiscountChangeSortOrderActionBuilder implements Builder
      * Must not be empty.
      * The string value must be a number between <code>0</code> and <code>1</code>.
      * A Discount with a higher sortOrder is prioritized.</p>
+     * <p>If the value is used by another Product Discount, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
 
      * @return null|string

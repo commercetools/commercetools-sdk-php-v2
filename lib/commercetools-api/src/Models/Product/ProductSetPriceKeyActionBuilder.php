@@ -62,6 +62,7 @@ final class ProductSetPriceKeyActionBuilder implements Builder
 
     /**
      * <p>Value to set. If omitted, any existing value is removed.</p>
+     * <p>If the value is used by another Embedded Price on the same ProductVariant, a <a href="ctp:api:type:DuplicatePriceKeyError">DuplicatePriceKey</a> error is returned.</p>
      *
 
      * @return null|string
