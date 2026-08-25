@@ -98,6 +98,12 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
      */
     protected $stores;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $carrier;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -114,7 +120,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         ?bool $isDefault = null,
         ?string $predicate = null,
         ?CustomFieldsDraft $custom = null,
-        ?StoreResourceIdentifierCollection $stores = null
+        ?StoreResourceIdentifierCollection $stores = null,
+        ?string $carrier = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -128,6 +135,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         $this->predicate = $predicate;
         $this->custom = $custom;
         $this->stores = $stores;
+        $this->carrier = $carrier;
     }
 
     /**
@@ -378,6 +386,26 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         return $this->stores;
     }
 
+    /**
+     * <p>Name of the carrier that delivers the parcel, for example <code>DHL</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCarrier()
+    {
+        if (is_null($this->carrier)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CARRIER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->carrier = (string) $data;
+        }
+
+        return $this->carrier;
+    }
+
 
     /**
      * @param ?string $key
@@ -473,5 +501,13 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     public function setStores(?StoreResourceIdentifierCollection $stores): void
     {
         $this->stores = $stores;
+    }
+
+    /**
+     * @param ?string $carrier
+     */
+    public function setCarrier(?string $carrier): void
+    {
+        $this->carrier = $carrier;
     }
 }

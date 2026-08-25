@@ -57,6 +57,12 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var null|EstimatedDelivery|EstimatedDeliveryBuilder
+     */
+    private $estimatedDelivery;
+
+    /**
      * <p>Name of the custom Shipping Method.</p>
      *
 
@@ -109,6 +115,18 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Estimated time window during which the shipment is expected to be delivered.
+     * If not set, any existing estimate on the Cart's <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> is cleared.</p>
+     *
+
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery()
+    {
+        return $this->estimatedDelivery instanceof EstimatedDeliveryBuilder ? $this->estimatedDelivery->build() : $this->estimatedDelivery;
     }
 
     /**
@@ -167,6 +185,17 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     * @return $this
+     */
+    public function withEstimatedDelivery(?EstimatedDelivery $estimatedDelivery)
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withShippingRate() instead
      * @return $this
      */
@@ -210,6 +239,17 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withEstimatedDelivery() instead
+     * @return $this
+     */
+    public function withEstimatedDeliveryBuilder(?EstimatedDeliveryBuilder $estimatedDelivery)
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
+
+        return $this;
+    }
+
     public function build(): CartSetCustomShippingMethodAction
     {
         return new CartSetCustomShippingMethodActionModel(
@@ -217,7 +257,8 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
             $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->estimatedDelivery instanceof EstimatedDeliveryBuilder ? $this->estimatedDelivery->build() : $this->estimatedDelivery
         );
     }
 

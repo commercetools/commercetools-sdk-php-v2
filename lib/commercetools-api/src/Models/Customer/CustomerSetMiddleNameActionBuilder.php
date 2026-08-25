@@ -27,7 +27,7 @@ final class CustomerSetMiddleNameActionBuilder implements Builder
     private $middleName;
 
     /**
-     * <p>Value to set. If empty, any existing value is removed.</p>
+     * <p>Value to set. If omitted, any existing value is removed.</p>
      *
 
      * @return null|string

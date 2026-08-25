@@ -118,6 +118,12 @@ final class StoreBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var null|Storefront|StorefrontBuilder
+     */
+    private $storefront;
+
+    /**
      * <p>Unique ID of the Store.</p>
      *
 
@@ -278,6 +284,17 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * <p>Customer-facing URLs and policy links for the Store's storefront.</p>
+     *
+
+     * @return null|Storefront
+     */
+    public function getStorefront()
+    {
+        return $this->storefront instanceof StorefrontBuilder ? $this->storefront->build() : $this->storefront;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -432,6 +449,17 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?Storefront $storefront
+     * @return $this
+     */
+    public function withStorefront(?Storefront $storefront)
+    {
+        $this->storefront = $storefront;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -475,6 +503,17 @@ final class StoreBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withStorefront() instead
+     * @return $this
+     */
+    public function withStorefrontBuilder(?StorefrontBuilder $storefront)
+    {
+        $this->storefront = $storefront;
+
+        return $this;
+    }
+
     public function build(): Store
     {
         return new StoreModel(
@@ -491,7 +530,8 @@ final class StoreBuilder implements Builder
             $this->distributionChannels,
             $this->supplyChannels,
             $this->productSelections,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->storefront instanceof StorefrontBuilder ? $this->storefront->build() : $this->storefront
         );
     }
 

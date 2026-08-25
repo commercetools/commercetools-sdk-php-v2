@@ -25,6 +25,7 @@ interface StoreDraft extends JsonObject
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
     public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STOREFRONT = 'storefront';
 
     /**
      * <p>User-defined unique and immutable identifier for the Store.
@@ -45,6 +46,7 @@ interface StoreDraft extends JsonObject
 
     /**
      * <p>Languages defined in <a href="ctp:api:type:Project">Project</a>. Only languages defined in the Project can be used.</p>
+     * <p>If a language is not configured for the Project, a <a href="ctp:api:type:ProjectNotConfiguredForLanguagesError">ProjectNotConfiguredForLanguages</a> error is returned.</p>
      *
 
      * @return null|array
@@ -61,6 +63,7 @@ interface StoreDraft extends JsonObject
 
     /**
      * <p>ResourceIdentifier of a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the referenced Channel does not have this role, a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error is returned.</p>
      *
 
      * @return null|ChannelResourceIdentifierCollection
@@ -69,6 +72,7 @@ interface StoreDraft extends JsonObject
 
     /**
      * <p>ResourceIdentifier of a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the referenced Channel does not have this role, a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error is returned.</p>
      *
 
      * @return null|ChannelResourceIdentifierCollection
@@ -96,6 +100,14 @@ interface StoreDraft extends JsonObject
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * <p>Customer-facing URLs and policy links for the Store's storefront.</p>
+     *
+
+     * @return null|Storefront
+     */
+    public function getStorefront();
 
     /**
      * @param ?string $key
@@ -136,4 +148,9 @@ interface StoreDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?Storefront $storefront
+     */
+    public function setStorefront(?Storefront $storefront): void;
 }

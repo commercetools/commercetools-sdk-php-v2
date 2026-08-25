@@ -38,6 +38,7 @@ interface StandalonePriceDraft extends JsonObject
 
     /**
      * <p>User-defined unique identifier for the StandalonePrice.</p>
+     * <p>If the value is used by another Standalone Price, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
 
      * @return null|string
@@ -80,6 +81,7 @@ interface StandalonePriceDraft extends JsonObject
 
     /**
      * <p>Sets the product distribution <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
+     * <p>If the referenced Channel does not contain the <code>ProductDistribution</code> role, a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error is returned.</p>
      *
 
      * @return null|ChannelResourceIdentifier

@@ -39,7 +39,7 @@ interface StagedOrderSetParcelItemsAction extends StagedOrderUpdateAction
 
     /**
      * <p>Value to set.
-     * If empty, any existing value will be removed.</p>
+     * Set to an empty array to remove any existing value.</p>
      *
 
      * @return null|DeliveryItemCollection

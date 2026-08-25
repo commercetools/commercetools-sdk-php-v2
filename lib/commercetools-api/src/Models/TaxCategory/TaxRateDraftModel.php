@@ -104,9 +104,8 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     }
 
     /**
-     * <p>Tax rate.
-     * Must be supplied if no <code>subRates</code> are specified.
-     * If <code>subRates</code> are specified, this field can be omitted or it must be the sum of amounts of all <code>subRates</code>.</p>
+     * <p>Tax rate.</p>
+     * <p>Either <code>amount</code> or <code>subRates</code> must be defined. If both are defined, the value of this field must be equal to the sum of the <code>subRates</code> amounts; otherwise, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
      *
      * @return null|float
@@ -147,6 +146,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
 
     /**
      * <p>Country in which the tax rate is applied in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> format.</p>
+     * <p>If the provided combination of <code>country</code> and <code>state</code> exists for the TaxCategory, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
      * @return null|string
@@ -167,7 +167,8 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
 
     /**
      * <p>State within the country, such as Texas in the United States.
-     * The value is case-sensitive and must use the same casing as the <code>state</code> value in the Cart <code>shippingAddress</code>.</p>
+     * The value is case-sensitive and must use the same casing as the <code>state</code> value in the Cart <code>shippingAddress</code>. Empty strings are treated as if <code>state</code> was omitted.</p>
+     * <p>If the provided combination of <code>country</code> and <code>state</code> exists for the TaxCategory, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
      * @return null|string
@@ -187,7 +188,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     }
 
     /**
-     * <p>Used when the total tax is a combination of multiple taxes (for example, local, state/provincial, and/or federal taxes). The total of all subrates must equal the TaxRate <code>amount</code>.
+     * <p>Used when the total tax is a combination of multiple taxes (for example, local, state/provincial, and/or federal taxes). If <code>amount</code> is defined, the total of all subrates must equal <code>amount</code>.
      * These subrates are used to calculate the <code>taxPortions</code> field of a <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> and the <code>taxedPrice</code> field of <a href="ctp:api:type:LineItem">LineItems</a>, <a href="ctp:api:type:CustomLineItem">CustomLineItems</a>, and <a href="ctp:api:type:ShippingInfo">ShippingInfos</a>.</p>
      *
      *
@@ -208,7 +209,8 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     }
 
     /**
-     * <p>User-defined identifier of the TaxRate. Must be unique within the TaxCategory containing it.</p>
+     * <p>User-defined identifier of the TaxRate.</p>
+     * <p>If the provided key is used by another TaxRate in the TaxCategory, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
      * @return null|string

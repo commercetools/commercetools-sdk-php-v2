@@ -18,7 +18,7 @@ interface ProductSetDefaultVariantAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
-     * <p>The Variant to set as default. If empty, any existing value will be removed.</p>
+     * <p>The Variant to set as default. If omitted, any existing value is removed.</p>
      *
 
      * @return null|VariantResourceIdentifier

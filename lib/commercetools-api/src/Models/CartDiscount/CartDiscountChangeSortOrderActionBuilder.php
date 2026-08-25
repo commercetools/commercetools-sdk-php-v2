@@ -29,6 +29,7 @@ final class CartDiscountChangeSortOrderActionBuilder implements Builder
     /**
      * <p>New value to set (between <code>0</code> and <code>1</code>).
      * A Discount with a higher sortOrder is prioritized.</p>
+     * <p>If the value is used by another Cart Discount or Discount Group, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
 
      * @return null|string

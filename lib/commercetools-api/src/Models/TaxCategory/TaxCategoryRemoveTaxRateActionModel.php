@@ -71,8 +71,8 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>ID of the TaxRate to remove.
-     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
+     * <p>ID of the TaxRate to remove. Either <code>taxRateId</code> or <code>taxRateKey</code> must be provided.</p>
+     * <p>If the referenced TaxRate does not exist within the TaxCategory, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
      *
      * @return null|string
@@ -92,8 +92,8 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Key of the TaxRate to remove.
-     * Either <code>taxRateId</code> or <code>taxRateKey</code> is required for this update action.</p>
+     * <p>Key of the TaxRate to remove. Either <code>taxRateId</code> or <code>taxRateKey</code> must be provided.</p>
+     * <p>If the referenced TaxRate does not exist within the TaxCategory, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
      *
      * @return null|string

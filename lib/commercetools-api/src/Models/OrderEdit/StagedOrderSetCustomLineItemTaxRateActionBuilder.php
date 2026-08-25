@@ -72,7 +72,7 @@ final class StagedOrderSetCustomLineItemTaxRateActionBuilder implements Builder
 
     /**
      * <p>Value to set.
-     * If empty, an existing value is removed.</p>
+     * If omitted, an existing value is removed.</p>
      *
 
      * @return null|ExternalTaxRateDraft

@@ -17,7 +17,7 @@ interface OrderSetCustomerIdAction extends OrderUpdateAction
 
     /**
      * <p><code>id</code> of an existing <a href="ctp:api:type:Customer">Customer</a>.
-     * If empty, any existing value is removed.</p>
+     * If omitted, any existing value is removed.</p>
      *
 
      * @return null|string

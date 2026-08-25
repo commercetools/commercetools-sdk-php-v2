@@ -65,8 +65,6 @@ final class PaymentKeyReferenceModel extends JsonObjectModel implements PaymentK
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

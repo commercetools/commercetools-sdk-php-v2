@@ -15,6 +15,12 @@ use Commercetools\Base\JsonObject;
 interface VariantResourceIdentifier extends ResourceIdentifier
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Variant">Variant</a>. Required if <code>key</code> is absent.</p>
      *
 

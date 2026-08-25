@@ -2693,7 +2693,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withId("ID")->delete()`
 
-Returns a [ReferenceExists](ctp:api:type:ReferenceExistsError) error if other resources reference the Channel to be deleted.
+If the Channel is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
 
 
 ### Example
@@ -2754,7 +2754,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withKey("key")->delete()`
 
-Returns a [ReferenceExists](ctp:api:type:ReferenceExistsError) error if other resources reference the Channel to be deleted.
+If the Channel is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
 
 
 ### Example
@@ -12546,7 +12546,8 @@ Creating a Standalone Price produces the [StandalonePriceCreated](ctp:api:type:S
 
 - If the Standalone Price has the same price scope as an existing Standalone Price, a [DuplicateStandalonePriceScope](ctp:api:type:DuplicateStandalonePriceScopeError) error is returned.
 - If the Standalone Price has overlapping validity periods within the same price scope, a [OverlappingStandalonePriceValidity](ctp:api:type:OverlappingStandalonePriceValidityError) error is returned. A Price without validity period does not conflict with a Price defined for a time period.
-- If a modification is already in progress for the exact combination of SKU and price scope fields, an [ExactLockConflict](ctp:api:type:ExactLockConflictError) or [ValidityLockConflict](ctp:api:type:ValidityLockConflictError) error is returned.
+- If a modification is already in progress for the exact combination of SKU and price scope fields, an [ExactLockConflict](ctp:api:type:ExactLockConflictError) error is returned.
+- If a modification is already in progress for the combination of SKU and price scope fields (but potentially different validity period), a [ValidityLockConflict](ctp:api:type:ValidityLockConflictError) error is returned.
 
 
 ### Example
@@ -12591,7 +12592,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->post(null)`
 
-If a modification is already in progress for the exact combination of SKU and price scope fields, an [ExactLockConflict](ctp:api:type:ExactLockConflictError) or [ValidityLockConflict](ctp:api:type:ValidityLockConflictError) error is returned.
+If a modification is already in progress for the exact combination of SKU and price scope fields, an [ExactLockConflict](ctp:api:type:ExactLockConflictError) error is returned.
+
+If a modification is already in progress for the combination of SKU and price scope fields (but potentially different validity period), a [ValidityLockConflict](ctp:api:type:ValidityLockConflictError) error is returned.
 
 
 ### Example
@@ -12653,7 +12656,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->post(null)`
 
-If a modification is already in progress for the exact combination of SKU and price scope fields, an [ExactLockConflict](ctp:api:type:ExactLockConflictError) or [ValidityLockConflict](ctp:api:type:ValidityLockConflictError) error is returned.
+If a modification is already in progress for the exact combination of SKU and price scope fields, an [ExactLockConflict](ctp:api:type:ExactLockConflictError) error is returned.
+
+If a modification is already in progress for the combination of SKU and price scope fields (but potentially different validity period), a [ValidityLockConflict](ctp:api:type:ValidityLockConflictError) error is returned.
 
 
 ### Example
@@ -12934,7 +12939,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withId("ID")->delete()`
 
-null
+If the Store is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+To avoid dependency conflicts, first delete all active and anonymous Carts that reference the Store, then delete all Orders.
+
 
 ### Example
 ```php
@@ -12994,7 +13002,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withKey("key")->delete()`
 
-null
+If the Store is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
+To avoid dependency conflicts, first delete all active and anonymous Carts that reference the Store, then delete all Orders.
+
 
 ### Example
 ```php
@@ -13276,7 +13287,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withId("ID")->delete()`
 
-null
+If the TaxCategory is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
 
 ### Example
 ```php
@@ -13336,7 +13348,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withKey("key")->delete()`
 
-null
+If the TaxCategory is referenced by a resource, a [ReferenceExists](ctp:api:type:ReferenceExistsError) error is returned.
+
 
 ### Example
 ```php

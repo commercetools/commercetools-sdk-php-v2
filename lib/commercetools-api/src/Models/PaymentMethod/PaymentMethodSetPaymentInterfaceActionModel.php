@@ -64,7 +64,7 @@ final class PaymentMethodSetPaymentInterfaceActionModel extends JsonObjectModel 
 
     /**
      * <p>New payment service that processes the Payment—for example, a PSP.
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      *
      *
      * @return null|string

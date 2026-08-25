@@ -17,7 +17,7 @@ interface McpServerSetDescriptionAction extends McpServerUpdateAction
     public const FIELD_DESCRIPTION = 'description';
 
     /**
-     * <p>Value to set. If empty or absent, the existing description is removed.</p>
+     * <p>Value to set. If omitted, the existing description is removed.</p>
      *
 
      * @return null|LocalizedString

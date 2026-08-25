@@ -16,7 +16,8 @@ interface ProductDiscountSetKeyAction extends ProductDiscountUpdateAction
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>Value to set. If empty, any existing value will be removed.</p>
+     * <p>Value to set. If omitted, any existing value is removed.</p>
+     * <p>If the value is used by another Product Discount, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
 
      * @return null|string

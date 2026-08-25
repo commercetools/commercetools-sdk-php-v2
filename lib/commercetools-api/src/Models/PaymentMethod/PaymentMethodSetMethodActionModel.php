@@ -64,7 +64,7 @@ final class PaymentMethodSetMethodActionModel extends JsonObjectModel implements
 
     /**
      * <p>New payment method—for example, a credit card or direct debit.
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      *
      *
      * @return null|string

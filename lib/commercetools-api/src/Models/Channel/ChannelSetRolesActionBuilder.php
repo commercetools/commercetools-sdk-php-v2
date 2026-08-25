@@ -27,7 +27,8 @@ final class ChannelSetRolesActionBuilder implements Builder
     private $roles;
 
     /**
-     * <p>Value to set. If not specified, then <code>InventorySupply</code> is assigned by default.</p>
+     * <p>Value to set. If set to an empty array, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p>If the new value is the same as the current value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|array

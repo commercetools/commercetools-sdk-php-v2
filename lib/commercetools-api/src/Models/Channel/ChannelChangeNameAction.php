@@ -17,7 +17,9 @@ interface ChannelChangeNameAction extends ChannelUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
-     * <p>New value to set. Must not be empty.</p>
+     * <p>New value to set.</p>
+     * <p>If set to an empty value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p>If the new value is the same as the current value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|LocalizedString

@@ -28,6 +28,7 @@ final class StateChangeInitialActionBuilder implements Builder
 
     /**
      * <p>Whether to define the State as the initial State in a state machine and make it the first step in a workflow.</p>
+     * <p>If the new value is the same as the current value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|bool

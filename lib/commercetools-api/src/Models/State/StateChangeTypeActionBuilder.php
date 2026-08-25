@@ -29,6 +29,7 @@ final class StateChangeTypeActionBuilder implements Builder
     /**
      * <p>Resource or object types the State shall be assigned to.
      * Must not be empty.</p>
+     * <p>If the new value is the same as the current value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
 
      * @return null|string

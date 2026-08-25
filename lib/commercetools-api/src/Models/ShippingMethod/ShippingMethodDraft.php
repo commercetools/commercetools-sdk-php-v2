@@ -29,6 +29,7 @@ interface ShippingMethodDraft extends JsonObject
     public const FIELD_PREDICATE = 'predicate';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STORES = 'stores';
+    public const FIELD_CARRIER = 'carrier';
 
     /**
      * <p>User-defined unique identifier for the ShippingMethod.</p>
@@ -131,6 +132,14 @@ interface ShippingMethodDraft extends JsonObject
     public function getStores();
 
     /**
+     * <p>Name of the carrier that delivers the parcel, for example <code>DHL</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCarrier();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -189,4 +198,9 @@ interface ShippingMethodDraft extends JsonObject
      * @param ?StoreResourceIdentifierCollection $stores
      */
     public function setStores(?StoreResourceIdentifierCollection $stores): void;
+
+    /**
+     * @param ?string $carrier
+     */
+    public function setCarrier(?string $carrier): void;
 }

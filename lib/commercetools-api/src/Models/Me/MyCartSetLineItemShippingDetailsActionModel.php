@@ -122,7 +122,7 @@ final class MyCartSetLineItemShippingDetailsActionModel extends JsonObjectModel 
 
     /**
      * <p>Value to set.
-     * If empty, the existing value is removed.</p>
+     * If omitted, the existing value is removed.</p>
      *
      *
      * @return null|ItemShippingDetailsDraft

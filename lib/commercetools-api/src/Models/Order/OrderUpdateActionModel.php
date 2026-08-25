@@ -62,6 +62,7 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
        'setDeliveryCustomField' => OrderSetDeliveryCustomFieldActionModel::class,
        'setDeliveryCustomType' => OrderSetDeliveryCustomTypeActionModel::class,
        'setDeliveryItems' => OrderSetDeliveryItemsActionModel::class,
+       'setEstimatedDelivery' => OrderSetEstimatedDeliveryActionModel::class,
        'setItemShippingAddressCustomField' => OrderSetItemShippingAddressCustomFieldActionModel::class,
        'setItemShippingAddressCustomType' => OrderSetItemShippingAddressCustomTypeActionModel::class,
        'setLineItemCustomField' => OrderSetLineItemCustomFieldActionModel::class,

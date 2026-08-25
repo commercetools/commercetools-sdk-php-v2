@@ -92,6 +92,12 @@ final class ShippingInfoBuilder implements Builder
     private $shippingMethodState;
 
     /**
+
+     * @var null|EstimatedDelivery|EstimatedDeliveryBuilder
+     */
+    private $estimatedDelivery;
+
+    /**
      * <p>Name of the Shipping Method.</p>
      *
 
@@ -200,6 +206,18 @@ final class ShippingInfoBuilder implements Builder
     public function getShippingMethodState()
     {
         return $this->shippingMethodState;
+    }
+
+    /**
+     * <p>Estimated time window during which the shipment is expected to be delivered.
+     * This value is removed if the Cart's <code>shippingAddress</code> changes.</p>
+     *
+
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery()
+    {
+        return $this->estimatedDelivery instanceof EstimatedDeliveryBuilder ? $this->estimatedDelivery->build() : $this->estimatedDelivery;
     }
 
     /**
@@ -313,6 +331,17 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     * @return $this
+     */
+    public function withEstimatedDelivery(?EstimatedDelivery $estimatedDelivery)
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withPrice() instead
      * @return $this
      */
@@ -389,6 +418,17 @@ final class ShippingInfoBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withEstimatedDelivery() instead
+     * @return $this
+     */
+    public function withEstimatedDeliveryBuilder(?EstimatedDeliveryBuilder $estimatedDelivery)
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
+
+        return $this;
+    }
+
     public function build(): ShippingInfo
     {
         return new ShippingInfoModel(
@@ -401,7 +441,8 @@ final class ShippingInfoBuilder implements Builder
             $this->shippingMethod instanceof ShippingMethodReferenceBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
             $this->deliveries,
             $this->discountedPrice instanceof DiscountedLineItemPriceBuilder ? $this->discountedPrice->build() : $this->discountedPrice,
-            $this->shippingMethodState
+            $this->shippingMethodState,
+            $this->estimatedDelivery instanceof EstimatedDeliveryBuilder ? $this->estimatedDelivery->build() : $this->estimatedDelivery
         );
     }
 

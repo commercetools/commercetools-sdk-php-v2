@@ -65,6 +65,7 @@ final class ItemShippingTargetBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      * <p>It connects Line Item or Custom Line Item quantities with individual Shipping Methods.</p>
+     * <p>Required when the Cart has <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>. Omitting this field in that case returns an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error.</p>
      *
 
      * @return null|string

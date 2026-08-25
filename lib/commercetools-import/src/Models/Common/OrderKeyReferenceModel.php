@@ -66,8 +66,6 @@ final class OrderKeyReferenceModel extends JsonObjectModel implements OrderKeyRe
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

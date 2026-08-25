@@ -65,8 +65,6 @@ final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyRe
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

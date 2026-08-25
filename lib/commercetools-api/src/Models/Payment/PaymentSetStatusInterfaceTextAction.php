@@ -16,7 +16,7 @@ interface PaymentSetStatusInterfaceTextAction extends PaymentUpdateAction
     public const FIELD_INTERFACE_TEXT = 'interfaceText';
 
     /**
-     * <p>Value to set. If empty, any existing value will be removed.</p>
+     * <p>Value to set. Set to an empty string to remove any existing value.</p>
      *
 
      * @return null|string

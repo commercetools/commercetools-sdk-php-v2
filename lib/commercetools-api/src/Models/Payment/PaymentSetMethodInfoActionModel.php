@@ -133,7 +133,7 @@ final class PaymentSetMethodInfoActionModel extends JsonObjectModel implements P
 
     /**
      * <p>Payment method to use—for example, a credit card or direct debit.
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      * <p>Setting this field is equivalent to the <code>setMethodInfoMethod</code> action and will generate the <a href="ctp:api:type:PaymentMethodInfoMethodSetMessage">PaymentMethodInfoMethodSet</a> Message.</p>
      *
      *
@@ -155,7 +155,7 @@ final class PaymentSetMethodInfoActionModel extends JsonObjectModel implements P
 
     /**
      * <p>Name of the Payment Method.
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      * <p>Setting this field is equivalent to the <code>setMethodInfoName</code> action and will generate the <a href="ctp:api:type:PaymentMethodInfoNameSetMessage">PaymentMethodInfoNameSet</a> Message.</p>
      *
      *
@@ -178,7 +178,7 @@ final class PaymentSetMethodInfoActionModel extends JsonObjectModel implements P
 
     /**
      * <p>Tokenized payment method information of the Payment Method.
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      * <p>Setting this field is equivalent to the <code>setMethodInfoToken</code> action and will generate the <a href="ctp:api:type:PaymentMethodInfoTokenSetMessage">PaymentMethodInfoTokenSet</a> Message.</p>
      *
      *
@@ -201,7 +201,7 @@ final class PaymentSetMethodInfoActionModel extends JsonObjectModel implements P
 
     /**
      * <p>Account or instance of the payment interface when multiple accounts are used (per interface).
-     * If empty, any existing value will be removed.</p>
+     * If omitted, any existing value is removed.</p>
      * <p>Setting this field is equivalent to the <code>setMethodInfoInterfaceAccount</code> action and will generate the <a href="ctp:api:type:PaymentMethodInfoInterfaceAccountSetMessage">PaymentMethodInfoInterfaceAccountSet</a> Message.</p>
      *
      *
@@ -223,7 +223,7 @@ final class PaymentSetMethodInfoActionModel extends JsonObjectModel implements P
 
     /**
      * <p>Custom Fields for the PaymentMethodInfo.
-     * If not provided, any existing Custom Fields will be removed, including the Custom Type.</p>
+     * If omitted, any existing Custom Fields are removed, including the Custom Type.</p>
      * <p>Setting this field is equivalent to the <code>setMethodInfoCustomType</code> and <code>setMethodInfoCustomField</code> actions, and will generate the following Messages:</p>
      * <ul>
      * <li>Adding or updating a Custom Type on a Payment Method Info generates the <a href="ctp:api:type:PaymentMethodInfoCustomTypeSetMessage">PaymentMethodInfoCustomTypeSet</a> Message, removing one generates the <a href="ctp:api:type:PaymentMethodInfoCustomTypeRemovedMessage">PaymentMethodInfoCustomTypeRemoved</a> Message.</li>

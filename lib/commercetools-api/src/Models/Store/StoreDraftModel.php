@@ -73,6 +73,12 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?Storefront
+     */
+    protected $storefront;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -85,7 +91,8 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         ?ChannelResourceIdentifierCollection $distributionChannels = null,
         ?ChannelResourceIdentifierCollection $supplyChannels = null,
         ?ProductSelectionSettingDraftCollection $productSelections = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?Storefront $storefront = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -95,6 +102,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         $this->supplyChannels = $supplyChannels;
         $this->productSelections = $productSelections;
         $this->custom = $custom;
+        $this->storefront = $storefront;
     }
 
     /**
@@ -141,6 +149,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
     /**
      * <p>Languages defined in <a href="ctp:api:type:Project">Project</a>. Only languages defined in the Project can be used.</p>
+     * <p>If a language is not configured for the Project, a <a href="ctp:api:type:ProjectNotConfiguredForLanguagesError">ProjectNotConfiguredForLanguages</a> error is returned.</p>
      *
      *
      * @return null|array
@@ -181,6 +190,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
     /**
      * <p>ResourceIdentifier of a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the referenced Channel does not have this role, a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error is returned.</p>
      *
      *
      * @return null|ChannelResourceIdentifierCollection
@@ -201,6 +211,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
     /**
      * <p>ResourceIdentifier of a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>If the referenced Channel does not have this role, a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error is returned.</p>
      *
      *
      * @return null|ChannelResourceIdentifierCollection
@@ -266,6 +277,27 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         return $this->custom;
     }
 
+    /**
+     * <p>Customer-facing URLs and policy links for the Store's storefront.</p>
+     *
+     *
+     * @return null|Storefront
+     */
+    public function getStorefront()
+    {
+        if (is_null($this->storefront)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STOREFRONT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->storefront = StorefrontModel::of($data);
+        }
+
+        return $this->storefront;
+    }
+
 
     /**
      * @param ?string $key
@@ -329,5 +361,13 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?Storefront $storefront
+     */
+    public function setStorefront(?Storefront $storefront): void
+    {
+        $this->storefront = $storefront;
     }
 }

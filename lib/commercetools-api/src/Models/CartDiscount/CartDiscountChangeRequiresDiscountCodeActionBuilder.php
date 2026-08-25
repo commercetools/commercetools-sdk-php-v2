@@ -27,8 +27,8 @@ final class CartDiscountChangeRequiresDiscountCodeActionBuilder implements Build
     private $requiresDiscountCode;
 
     /**
-     * <p>New value to set.
-     * If set to <code>true</code>, the Discount can only be used in connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p>New value to set. If <code>true</code>, the Cart Discount can only be used with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p>When set to <code>false</code>, if the number of active Cart Discounts without a Discount Code exceeds the <a href="/api/limits#cart-discounts">limit</a>, a <a href="ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
      *
 
      * @return null|bool

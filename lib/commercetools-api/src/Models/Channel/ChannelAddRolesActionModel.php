@@ -64,6 +64,7 @@ final class ChannelAddRolesActionModel extends JsonObjectModel implements Channe
 
     /**
      * <p>Value to append to the array.</p>
+     * <p>If the specified roles are already present, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
      *
      *
      * @return null|array

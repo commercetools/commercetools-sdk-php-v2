@@ -100,6 +100,12 @@ final class ShippingMethodDraftBuilder implements Builder
     private $stores;
 
     /**
+
+     * @var ?string
+     */
+    private $carrier;
+
+    /**
      * <p>User-defined unique identifier for the ShippingMethod.</p>
      *
 
@@ -236,6 +242,17 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * <p>Name of the carrier that delivers the parcel, for example <code>DHL</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCarrier()
+    {
+        return $this->carrier;
+    }
+
+    /**
      * @param ?string $key
      * @return $this
      */
@@ -368,6 +385,17 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $carrier
+     * @return $this
+     */
+    public function withCarrier(?string $carrier)
+    {
+        $this->carrier = $carrier;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLocalizedName() instead
      * @return $this
      */
@@ -425,7 +453,8 @@ final class ShippingMethodDraftBuilder implements Builder
             $this->isDefault,
             $this->predicate,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->stores
+            $this->stores,
+            $this->carrier
         );
     }
 

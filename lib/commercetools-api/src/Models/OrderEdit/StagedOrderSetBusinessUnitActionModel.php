@@ -67,7 +67,7 @@ final class StagedOrderSetBusinessUnitActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>New Business Unit to assign to the Order. If empty, any existing value is removed.</p>
+     * <p>New Business Unit to assign to the Order. If omitted, any existing value is removed.</p>
      * <p>If the referenced Business Unit does not exist, a <a href="ctp:api:type:ReferencedResourceNotFoundError">ReferencedResourceNotFound</a> error is returned.</p>
      *
      *

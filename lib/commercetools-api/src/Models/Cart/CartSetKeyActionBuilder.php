@@ -28,7 +28,7 @@ final class CartSetKeyActionBuilder implements Builder
 
     /**
      * <p>Value to set.
-     * If empty, any existing key will be removed.</p>
+     * If omitted, any existing key is removed.</p>
      *
 
      * @return null|string

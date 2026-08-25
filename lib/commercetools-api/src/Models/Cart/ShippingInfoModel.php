@@ -90,6 +90,12 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
      */
     protected $shippingMethodState;
 
+    /**
+     *
+     * @var ?EstimatedDelivery
+     */
+    protected $estimatedDelivery;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -104,7 +110,8 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
         ?ShippingMethodReference $shippingMethod = null,
         ?DeliveryCollection $deliveries = null,
         ?DiscountedLineItemPrice $discountedPrice = null,
-        ?string $shippingMethodState = null
+        ?string $shippingMethodState = null,
+        ?EstimatedDelivery $estimatedDelivery = null
     ) {
         $this->shippingMethodName = $shippingMethodName;
         $this->price = $price;
@@ -116,6 +123,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
         $this->deliveries = $deliveries;
         $this->discountedPrice = $discountedPrice;
         $this->shippingMethodState = $shippingMethodState;
+        $this->estimatedDelivery = $estimatedDelivery;
     }
 
     /**
@@ -326,6 +334,28 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
         return $this->shippingMethodState;
     }
 
+    /**
+     * <p>Estimated time window during which the shipment is expected to be delivered.
+     * This value is removed if the Cart's <code>shippingAddress</code> changes.</p>
+     *
+     *
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery()
+    {
+        if (is_null($this->estimatedDelivery)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ESTIMATED_DELIVERY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->estimatedDelivery = EstimatedDeliveryModel::of($data);
+        }
+
+        return $this->estimatedDelivery;
+    }
+
 
     /**
      * @param ?string $shippingMethodName
@@ -405,5 +435,13 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     public function setShippingMethodState(?string $shippingMethodState): void
     {
         $this->shippingMethodState = $shippingMethodState;
+    }
+
+    /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     */
+    public function setEstimatedDelivery(?EstimatedDelivery $estimatedDelivery): void
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
     }
 }

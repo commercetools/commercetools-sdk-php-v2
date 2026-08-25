@@ -64,6 +64,7 @@ final class DiscountGroupSetKeyActionModel extends JsonObjectModel implements Di
 
     /**
      * <p>New value to set.</p>
+     * <p>If the value is used by another Discount Group, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
      * @return null|string

@@ -14,6 +14,12 @@ use Commercetools\Base\JsonObject;
 interface ProductTypeKeyReference extends KeyReference
 {
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>User-defined unique identifier of the referenced ProductType.</p>
      *
 

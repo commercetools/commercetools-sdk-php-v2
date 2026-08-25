@@ -92,6 +92,7 @@ final class DiscountGroupDraftModel extends JsonObjectModel implements DiscountG
 
     /**
      * <p>User-defined unique identifier for the DiscountGroup.</p>
+     * <p>If the value is used by another Discount Group, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
      * @return null|string
@@ -133,7 +134,7 @@ final class DiscountGroupDraftModel extends JsonObjectModel implements DiscountG
 
     /**
      * <p>Value between <code>0</code> and <code>1</code> that determines the order in which the CartDiscount from the DiscountGroup will be applied; a CartDiscount with a higher value will be prioritized.</p>
-     * <p>The sort order must be unique among all DiscountGroups and CartDiscounts.</p>
+     * <p>If the value is used by another Cart Discount or Discount Group, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
      * @return null|string

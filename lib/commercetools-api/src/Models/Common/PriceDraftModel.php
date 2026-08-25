@@ -126,6 +126,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
 
     /**
      * <p>User-defined identifier for the Price. It must be unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     * <p>If the value is used by another Embedded Price on the same ProductVariant, a <a href="ctp:api:type:DuplicatePriceKeyError">DuplicatePriceKey</a> error is returned.</p>
      *
      *
      * @return null|string

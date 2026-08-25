@@ -70,6 +70,12 @@ final class CartAddShippingMethodActionBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var null|EstimatedDelivery|EstimatedDeliveryBuilder
+     */
+    private $estimatedDelivery;
+
+    /**
      * <p>User-defined identifier for the <a href="ctp:api:type:Shipping">Shipping</a> that must be unique across the Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
@@ -160,6 +166,17 @@ final class CartAddShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * <p>Estimated time window during which this shipment is expected to be delivered.</p>
+     *
+
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery()
+    {
+        return $this->estimatedDelivery instanceof EstimatedDeliveryBuilder ? $this->estimatedDelivery->build() : $this->estimatedDelivery;
+    }
+
+    /**
      * @param ?string $shippingKey
      * @return $this
      */
@@ -237,6 +254,17 @@ final class CartAddShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     * @return $this
+     */
+    public function withEstimatedDelivery(?EstimatedDelivery $estimatedDelivery)
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withShippingMethod() instead
      * @return $this
      */
@@ -291,6 +319,17 @@ final class CartAddShippingMethodActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withEstimatedDelivery() instead
+     * @return $this
+     */
+    public function withEstimatedDeliveryBuilder(?EstimatedDeliveryBuilder $estimatedDelivery)
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
+
+        return $this;
+    }
+
     public function build(): CartAddShippingMethodAction
     {
         return new CartAddShippingMethodActionModel(
@@ -300,7 +339,8 @@ final class CartAddShippingMethodActionBuilder implements Builder
             $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->deliveries,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->estimatedDelivery instanceof EstimatedDeliveryBuilder ? $this->estimatedDelivery->build() : $this->estimatedDelivery
         );
     }
 

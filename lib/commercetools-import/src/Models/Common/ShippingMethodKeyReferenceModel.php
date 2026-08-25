@@ -65,8 +65,6 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

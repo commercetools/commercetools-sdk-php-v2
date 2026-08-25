@@ -70,6 +70,9 @@ final class ProductAddPriceActionBuilder implements Builder
 
     /**
      * <p>Embedded Price to add to the Product Variant.</p>
+     * <p>If the key of the Price is used by another Embedded Price on the ProductVariant, a <a href="ctp:api:type:DuplicatePriceKeyError">DuplicatePriceKey</a> error is returned.</p>
+     * <p>If this Embedded Price has the same price scope as an existing Embedded Price on the ProductVariant, a <a href="ctp:api:type:DuplicatePriceScopeError">DuplicatePriceScope</a> error is returned.</p>
+     * <p>If this Embedded Price has overlapping validity periods within the same price scope, an <a href="ctp:api:type:OverlappingPriceValidityError">OverlappingPriceValidity</a> error is returned. An Embedded Price without validity period does not conflict with an Embedded Price defined for a time period.</p>
      *
 
      * @return null|PriceDraft

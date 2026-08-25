@@ -30,7 +30,8 @@ final class StateSetDescriptionActionBuilder implements Builder
 
     /**
      * <p>Value to set.
-     * If empty, any existing value will be removed.</p>
+     * If the new value is the same as the current value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p>Set to an empty object to remove any existing value.</p>
      *
 
      * @return null|LocalizedString

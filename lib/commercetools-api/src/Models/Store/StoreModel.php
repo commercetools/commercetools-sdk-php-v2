@@ -116,6 +116,12 @@ final class StoreModel extends JsonObjectModel implements Store
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?Storefront
+     */
+    protected $storefront;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -134,7 +140,8 @@ final class StoreModel extends JsonObjectModel implements Store
         ?ChannelReferenceCollection $distributionChannels = null,
         ?ChannelReferenceCollection $supplyChannels = null,
         ?ProductSelectionSettingCollection $productSelections = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?Storefront $storefront = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -150,6 +157,7 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->supplyChannels = $supplyChannels;
         $this->productSelections = $productSelections;
         $this->custom = $custom;
+        $this->storefront = $storefront;
     }
 
     /**
@@ -450,6 +458,27 @@ final class StoreModel extends JsonObjectModel implements Store
         return $this->custom;
     }
 
+    /**
+     * <p>Customer-facing URLs and policy links for the Store's storefront.</p>
+     *
+     *
+     * @return null|Storefront
+     */
+    public function getStorefront()
+    {
+        if (is_null($this->storefront)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STOREFRONT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->storefront = StorefrontModel::of($data);
+        }
+
+        return $this->storefront;
+    }
+
 
     /**
      * @param ?string $id
@@ -561,6 +590,14 @@ final class StoreModel extends JsonObjectModel implements Store
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?Storefront $storefront
+     */
+    public function setStorefront(?Storefront $storefront): void
+    {
+        $this->storefront = $storefront;
     }
 
 

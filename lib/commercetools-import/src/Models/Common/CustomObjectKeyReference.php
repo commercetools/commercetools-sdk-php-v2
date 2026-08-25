@@ -16,6 +16,12 @@ interface CustomObjectKeyReference extends KeyReference
     public const FIELD_CONTAINER = 'container';
 
     /**
+
+     * @return null|string
+     */
+    public function getTypeId();
+
+    /**
      * <p>User-defined unique identifier of the referenced CustomObject.</p>
      *
 

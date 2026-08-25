@@ -65,8 +65,6 @@ final class DiscountCodeKeyReferenceModel extends JsonObjectModel implements Dis
     }
 
     /**
-     * <p>Type of referenced resource.</p>
-     *
      *
      * @return null|string
      */

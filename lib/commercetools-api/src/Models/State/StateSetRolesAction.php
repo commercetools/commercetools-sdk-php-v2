@@ -17,7 +17,9 @@ interface StateSetRolesAction extends StateUpdateAction
 
     /**
      * <p>Value to set.
-     * If empty, any existing value will be removed.</p>
+     * If the new value is the same as the current value, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.
+     * If a specified role is not applicable to the State's <code>type</code>, an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+     * <p>Set to an empty array to remove any existing value.</p>
      *
 
      * @return null|array

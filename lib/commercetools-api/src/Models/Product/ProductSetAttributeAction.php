@@ -44,7 +44,7 @@ interface ProductSetAttributeAction extends ProductUpdateAction
     public function getName();
 
     /**
-     * <p>Value to set for the Attribute. If empty, any existing value will be removed.</p>
+     * <p>Value to set for the Attribute. If omitted, any existing value is removed.</p>
      * <p>The <a href="ctp:api:type:AttributeType">AttributeType</a> determines the format of the Attribute <code>value</code> to be provided:</p>
      * <ul>
      * <li>For <a href="ctp:api:type:AttributeEnumType">Enum Type</a> and <a href="ctp:api:type:AttributeLocalizedEnumType">Localized Enum Type</a>, use the <code>key</code> of the <a href="ctp:api:type:AttributePlainEnumValue">Plain Enum Value</a> or <a href="ctp:api:type:AttributeLocalizedEnumValue">Localized Enum Value</a> object or the complete object as <code>value</code>.</li>

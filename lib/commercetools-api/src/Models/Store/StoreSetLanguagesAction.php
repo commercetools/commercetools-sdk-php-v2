@@ -17,6 +17,7 @@ interface StoreSetLanguagesAction extends StoreUpdateAction
 
     /**
      * <p>Value to set.</p>
+     * <p>If a language is not configured for the Project, a <a href="ctp:api:type:ProjectNotConfiguredForLanguagesError">ProjectNotConfiguredForLanguages</a> error is returned.</p>
      *
 
      * @return null|array

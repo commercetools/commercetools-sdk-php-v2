@@ -150,7 +150,7 @@ final class CartAddLineItemActionBuilder implements Builder
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.
-     * If not provided, the Master Variant is used.</p>
+     * If omitted, the Master Variant is used.</p>
      * <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
      *
 

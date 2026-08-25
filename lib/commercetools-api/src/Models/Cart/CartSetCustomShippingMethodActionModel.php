@@ -62,6 +62,12 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?EstimatedDelivery
+     */
+    protected $estimatedDelivery;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -72,6 +78,7 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
         ?CustomFieldsDraft $custom = null,
+        ?EstimatedDelivery $estimatedDelivery = null,
         ?string $action = null
     ) {
         $this->shippingMethodName = $shippingMethodName;
@@ -79,6 +86,7 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
         $this->taxCategory = $taxCategory;
         $this->externalTaxRate = $externalTaxRate;
         $this->custom = $custom;
+        $this->estimatedDelivery = $estimatedDelivery;
         $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -204,6 +212,28 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
         return $this->custom;
     }
 
+    /**
+     * <p>Estimated time window during which the shipment is expected to be delivered.
+     * If not set, any existing estimate on the Cart's <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> is cleared.</p>
+     *
+     *
+     * @return null|EstimatedDelivery
+     */
+    public function getEstimatedDelivery()
+    {
+        if (is_null($this->estimatedDelivery)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ESTIMATED_DELIVERY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->estimatedDelivery = EstimatedDeliveryModel::of($data);
+        }
+
+        return $this->estimatedDelivery;
+    }
+
 
     /**
      * @param ?string $shippingMethodName
@@ -243,5 +273,13 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?EstimatedDelivery $estimatedDelivery
+     */
+    public function setEstimatedDelivery(?EstimatedDelivery $estimatedDelivery): void
+    {
+        $this->estimatedDelivery = $estimatedDelivery;
     }
 }
