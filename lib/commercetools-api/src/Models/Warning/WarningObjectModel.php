@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Warning;
 
+use Commercetools\Api\Models\Agent\AgentFileNotProcessedWarning;
+use Commercetools\Api\Models\Agent\AgentFileNotProcessedWarningModel;
+use Commercetools\Api\Models\Agent\AgentProductsNotFoundWarning;
+use Commercetools\Api\Models\Agent\AgentProductsNotFoundWarningModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -40,7 +44,9 @@ final class WarningObjectModel extends JsonObjectModel implements WarningObject
        'CannotChangeReservationExpiry' => CannotChangeReservationExpiryWarningModel::class,
        'CannotCreateReservation' => CannotCreateReservationWarningModel::class,
        'CannotUpdateReservation' => CannotUpdateReservationWarningModel::class,
+       'FileNotProcessed' => AgentFileNotProcessedWarningModel::class,
        'ImageProcessingOngoing' => ImageProcessingOngoingWarningModel::class,
+       'ProductsNotFound' => AgentProductsNotFoundWarningModel::class,
     ];
 
     /**

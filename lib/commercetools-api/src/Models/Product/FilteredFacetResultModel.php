@@ -21,7 +21,7 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
 {
     public const DISCRIMINATOR_VALUE = 'filter';
     /**
-     *
+     * @deprecated
      * @var ?string
      */
     protected $type;
@@ -53,7 +53,7 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     }
 
     /**
-     *
+     * @deprecated
      * @return null|string
      */
     public function getType()

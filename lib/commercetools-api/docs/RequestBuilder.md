@@ -47,6 +47,30 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->agents()->intake()->v1()->responses()->post(null)`
+
+Turns a natural-language prompt, optionally with supporting files, into a created [Cart](ctp:api:type:Cart) or [QuoteRequest](ctp:api:type:QuoteRequest), returned in commercetools REST representation.
+
+Non-fatal issues, such as requested Products that could not be matched to the catalog or a file that failed to parse, are reported as `warnings` alongside a successful `201` response rather than failing the request.
+
+Accepts either an `application/json` body or a `multipart/form-data` request. An `application/json` body requires `prompt`. A `multipart/form-data` request requires `prompt`, an uploaded file, or both. See [Multipart form data](/api/agents/intake-agent#multipart-form-data) for the file upload format.
+
+If the Intake Agent is not enabled for the Project, a [FeatureDisabled](ctp:api:type:AgentFeatureDisabledError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->agents()
+                ->intake()
+                ->v1()
+                ->responses()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->apiClients()->get()`
 
 null
@@ -6809,6 +6833,10 @@ $request = $builder
 
 Retrieves the active ShippingMethods that can ship to the shipping address of the provided Cart in a [Store](ctp:api:type:Store).
 
+The Cart must belong to the Store specified in the path. If no Cart exists for the given `cartId` in the specified Store, either because the Cart does not exist in the Project or because it exists but does not belong to that Store, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+
+The results include globally scoped ShippingMethods (those with an empty `stores` field) and ShippingMethods scoped to the Store specified in the path.
+
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`. This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
@@ -12041,6 +12069,8 @@ $request = $builder
 
 Retrieves the active ShippingMethods that can ship to the shipping address of the provided Cart.
 
+If the Cart belongs to a [Store](ctp:api:type:Store), the results include globally scoped ShippingMethods (those with an empty `stores` field) and ShippingMethods scoped to that Store. If the Cart has no Store, only globally scoped ShippingMethods are returned.
+
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`. This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
@@ -12076,6 +12106,8 @@ $request = $builder
 
 Retrieves the active ShippingMethods that can ship to the provided [Location](ctp:api:type:Location)
 with a `predicate` that matches the provided Cart.
+
+If the Cart belongs to a [Store](ctp:api:type:Store), the results include globally scoped ShippingMethods (those with an empty `stores` field) and ShippingMethods scoped to that Store. If the Cart has no Store, only globally scoped ShippingMethods are returned.
 
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`. This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
@@ -12114,7 +12146,8 @@ Retrieves the active ShippingMethods that can ship to the provided [Location](ct
 
 The following applies:
 
-- ShippingMethods that have a `predicate` defined are automatically disqualified.
+- ShippingMethods that have a `predicate` defined are included in the results, but the predicate is not evaluated because no Cart is available to evaluate it against. Results are therefore a superset of what any given Cart matches, and using [Set ShippingMethod](ctp:api:type:CartSetShippingMethodAction) with a non-matching ShippingMethod fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+- Store scoping on ShippingMethods is not applied by this endpoint. The results include all active ShippingMethods that match the location regardless of their `stores` field.
 - If the `currency` parameter is provided, then the ShippingMethods must also have a rate defined in the specified currency.
 - Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
 - If the `currency` parameter is provided, exactly one ShippingRate will contain it.
@@ -12150,6 +12183,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
 Retrieves the active ShippingMethods that can ship to the provided [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
+
+Store scoping is evaluated against the Order that results from applying the OrderEdit's staged actions. If the underlying Order belongs to a [Store](ctp:api:type:Store), the results include globally scoped ShippingMethods (those with an empty `stores` field) and ShippingMethods scoped to that Store. If the underlying Order has no Store, only globally scoped ShippingMethods are returned.
 
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 

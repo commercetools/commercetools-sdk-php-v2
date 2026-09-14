@@ -28,7 +28,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
-
+ * @deprecated
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Errorable<ByProjectKeyProductProjectionsSearchPost>
  */
