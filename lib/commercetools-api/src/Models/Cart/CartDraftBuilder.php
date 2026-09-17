@@ -185,6 +185,12 @@ final class CartDraftBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $directDiscountsIgnoreCartDiscounts;
+
+    /**
+
      * @var ?string
      */
     private $country;
@@ -506,6 +512,20 @@ final class CartDraftBuilder implements Builder
     public function getDiscountCodes()
     {
         return $this->discountCodes;
+    }
+
+    /**
+     * <ul>
+     * <li>If set to <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Cart. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If set to <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts()
+    {
+        return $this->directDiscountsIgnoreCartDiscounts;
     }
 
     /**
@@ -854,6 +874,17 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     * @return $this
+     */
+    public function withDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts)
+    {
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $country
      * @return $this
      */
@@ -1046,6 +1077,7 @@ final class CartDraftBuilder implements Builder
             $this->shipping,
             $this->itemShippingAddresses,
             $this->discountCodes,
+            $this->directDiscountsIgnoreCartDiscounts,
             $this->country,
             $this->locale,
             $this->origin,

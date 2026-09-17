@@ -110,6 +110,7 @@
 - added type `CartChangePriceRoundingModeAction`
 - added type `CartLockCartAction`
 - added type `CartSetCustomLineItemRecurrenceInfoAction`
+- added type `CartSetDirectDiscountsIgnoreCartDiscountsAction`
 - added type `CartSetEstimatedDeliveryAction`
 - added type `CartSetLineItemRecurrenceInfoAction`
 - added type `CartSetPurchaseOrderNumberAction`
@@ -430,6 +431,7 @@
 - added type `VariantUnpublishedMessagePayload`
 - added type `StagedOrderChangePriceRoundingModeAction`
 - added type `StagedOrderSetBusinessUnitAction`
+- added type `StagedOrderSetDirectDiscountsIgnoreCartDiscountsAction`
 - added type `OrderSetBusinessUnitAction`
 - added type `OrderSetEstimatedDeliveryAction`
 - added type `PaymentMethod`
@@ -682,14 +684,18 @@
 - added property `applicationMode` to type `CartDiscountValueRelativeDraft`
 - added property `priceRoundingMode` to type `Cart`
 - added property `freezeStrategy` to type `Cart`
+- added property `directDiscountsIgnoreCartDiscounts` to type `Cart`
 - added property `discountTypeCombination` to type `Cart`
 - added property `lock` to type `Cart`
 - added property `purchaseOrderNumber` to type `Cart`
 - added property `warnings` to type `Cart`
 - added property `priceRoundingMode` to type `CartDraft`
+- added property `directDiscountsIgnoreCartDiscounts` to type `CartDraft`
 - added property `purchaseOrderNumber` to type `CartDraft`
 - added property `recurrenceInfo` to type `CustomLineItem`
 - added property `recurrenceInfo` to type `CustomLineItemDraft`
+- added property `participateInBestDealSelection` to type `DirectDiscount`
+- added property `participateInBestDealSelection` to type `DirectDiscountDraft`
 - added property `reservation` to type `LineItem`
 - added property `recurrenceInfo` to type `LineItem`
 - added property `recurrenceInfo` to type `LineItemDraft`
@@ -753,6 +759,7 @@
 - added property `paymentRef` to type `OrderPaymentAddedMessagePayload`
 - added property `attributes` to type `ProductTailoringCreatedMessagePayload`
 - added property `priceRoundingMode` to type `StagedOrder`
+- added property `directDiscountsIgnoreCartDiscounts` to type `StagedOrder`
 - added property `recurringOrder` to type `StagedOrder`
 - added property `discountTypeCombination` to type `StagedOrder`
 - added property `recurrenceInfo` to type `StagedOrderAddCustomLineItemAction`
@@ -760,6 +767,7 @@
 - added property `taxedPrice` to type `CustomLineItemImportDraft`
 - added property `taxedPrice` to type `LineItemImportDraft`
 - added property `priceRoundingMode` to type `Order`
+- added property `directDiscountsIgnoreCartDiscounts` to type `Order`
 - added property `recurringOrder` to type `Order`
 - added property `discountTypeCombination` to type `Order`
 - added property `priceRoundingMode` to type `OrderImportDraft`
@@ -788,7 +796,9 @@
 - added property `discounts` to type `Project`
 - added property `productCatalogModel` to type `Project`
 - added property `priceRoundingMode` to type `QuoteRequest`
+- added property `directDiscountsIgnoreCartDiscounts` to type `QuoteRequest`
 - added property `priceRoundingMode` to type `Quote`
+- added property `directDiscountsIgnoreCartDiscounts` to type `Quote`
 - added property `stores` to type `ShippingMethod`
 - added property `carrier` to type `ShippingMethod`
 - added property `stores` to type `ShippingMethodDraft`
