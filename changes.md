@@ -950,6 +950,7 @@
 - added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
 - added enum `ReserveOnCart` to type `InventoryMode`
 - added enum `discount-group` to type `ReferenceTypeId`
+- added enum `mcp-server` to type `ReferenceTypeId`
 - added enum `payment-method` to type `ReferenceTypeId`
 - added enum `recurrence-policy` to type `ReferenceTypeId`
 - added enum `recurring-order` to type `ReferenceTypeId`
