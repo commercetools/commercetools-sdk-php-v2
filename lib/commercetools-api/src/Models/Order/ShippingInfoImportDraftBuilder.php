@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
+use Commercetools\Api\Models\Cart\TaxedPriceDraftBuilder;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
@@ -53,6 +55,12 @@ final class ShippingInfoImportDraftBuilder implements Builder
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
+
+    /**
+
+     * @var null|TaxedPriceDraft|TaxedPriceDraftBuilder
+     */
+    private $taxedPrice;
 
     /**
 
@@ -126,6 +134,17 @@ final class ShippingInfoImportDraftBuilder implements Builder
     public function getTaxRate()
     {
         return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
+    }
+
+    /**
+     * <p>Taxed price of the Shipping Method. If provided, the values are stored as-is on the resulting <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> instead of being derived from <code>price</code> and <code>taxRate</code>.</p>
+     *
+
+     * @return null|TaxedPriceDraft
+     */
+    public function getTaxedPrice()
+    {
+        return $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
 
     /**
@@ -228,6 +247,17 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     * @return $this
+     */
+    public function withTaxedPrice(?TaxedPriceDraft $taxedPrice)
+    {
+        $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
      * @param ?TaxCategoryResourceIdentifier $taxCategory
      * @return $this
      */
@@ -316,6 +346,17 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
+     * @return $this
+     */
+    public function withTaxedPriceBuilder(?TaxedPriceDraftBuilder $taxedPrice)
+    {
+        $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withTaxCategory() instead
      * @return $this
      */
@@ -355,6 +396,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
             $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price,
             $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
+            $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
             $this->deliveries,

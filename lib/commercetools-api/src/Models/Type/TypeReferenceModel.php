@@ -94,7 +94,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
 
     /**
      * <p>Contains the representation of the expanded Type.
-     * Only present in responses to requests with <a href="ctp:api:type:Expansion">Reference Expansion</a> for Types.</p>
+     * Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for Types.</p>
      *
      *
      * @return null|Type

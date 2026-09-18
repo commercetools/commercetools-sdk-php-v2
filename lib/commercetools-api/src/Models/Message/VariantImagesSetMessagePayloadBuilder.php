@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\ImageCollection;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -21,6 +23,12 @@ use stdClass;
  */
 final class VariantImagesSetMessagePayloadBuilder implements Builder
 {
+    /**
+
+     * @var null|ProductReference|ProductReferenceBuilder
+     */
+    private $product;
+
     /**
 
      * @var ?ImageCollection
@@ -38,6 +46,17 @@ final class VariantImagesSetMessagePayloadBuilder implements Builder
      * @var ?bool
      */
     private $staged;
+
+    /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        return $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product;
+    }
 
     /**
      * <p>The images that were set on the Variant.</p>
@@ -73,6 +92,17 @@ final class VariantImagesSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ProductReference $product
+     * @return $this
+     */
+    public function withProduct(?ProductReference $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
      * @param ?ImageCollection $images
      * @return $this
      */
@@ -105,10 +135,21 @@ final class VariantImagesSetMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withProduct() instead
+     * @return $this
+     */
+    public function withProductBuilder(?ProductReferenceBuilder $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
 
     public function build(): VariantImagesSetMessagePayload
     {
         return new VariantImagesSetMessagePayloadModel(
+            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
             $this->images,
             $this->oldImages,
             $this->staged

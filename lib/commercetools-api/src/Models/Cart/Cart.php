@@ -59,6 +59,7 @@ interface Cart extends BaseResource
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
     public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
+    public const FIELD_DIRECT_DISCOUNTS_IGNORE_CART_DISCOUNTS = 'directDiscountsIgnoreCartDiscounts';
     public const FIELD_REFUSED_GIFTS = 'refusedGifts';
     public const FIELD_PAYMENT_INFO = 'paymentInfo';
     public const FIELD_COUNTRY = 'country';
@@ -344,7 +345,8 @@ interface Cart extends BaseResource
     public function getItemShippingAddresses();
 
     /**
-     * <p>Discount Codes applied to the Cart. A Cart that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
+     * <p>Discount Codes applied to the Cart.</p>
+     * <p>If <code>directDiscountsIgnoreCartDiscounts</code> is <code>true</code>, a Cart that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
      *
 
      * @return null|DiscountCodeInfoCollection
@@ -352,12 +354,24 @@ interface Cart extends BaseResource
     public function getDiscountCodes();
 
     /**
-     * <p>Direct Discounts added to the Cart. A Cart that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
+     * <p>Direct Discounts added to the Cart.</p>
+     * <p>If <code>directDiscountsIgnoreCartDiscounts</code> is <code>true</code>, a Cart that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
      *
 
      * @return null|DirectDiscountCollection
      */
     public function getDirectDiscounts();
+
+    /**
+     * <ul>
+     * <li>If <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Cart. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts();
 
     /**
      * <p>Automatically set when a Line Item with <code>GiftLineItem</code> <a href="ctp:api:type:LineItemMode">LineItemMode</a> is <a href="ctp:api:type:CartRemoveLineItemAction">removed</a> from the Cart.</p>
@@ -649,6 +663,11 @@ interface Cart extends BaseResource
      * @param ?DirectDiscountCollection $directDiscounts
      */
     public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void;
+
+    /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     */
+    public function setDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts): void;
 
     /**
      * @param ?CartDiscountReferenceCollection $refusedGifts

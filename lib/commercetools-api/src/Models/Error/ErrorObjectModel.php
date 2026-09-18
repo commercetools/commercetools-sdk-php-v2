@@ -8,6 +8,38 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Agent\AgentBusinessUnitAmbiguousError;
+use Commercetools\Api\Models\Agent\AgentBusinessUnitAmbiguousErrorModel;
+use Commercetools\Api\Models\Agent\AgentBusinessUnitLimitExceededError;
+use Commercetools\Api\Models\Agent\AgentBusinessUnitLimitExceededErrorModel;
+use Commercetools\Api\Models\Agent\AgentBusinessUnitUnresolvedError;
+use Commercetools\Api\Models\Agent\AgentBusinessUnitUnresolvedErrorModel;
+use Commercetools\Api\Models\Agent\AgentExtractionFailedError;
+use Commercetools\Api\Models\Agent\AgentExtractionFailedErrorModel;
+use Commercetools\Api\Models\Agent\AgentFeatureDisabledError;
+use Commercetools\Api\Models\Agent\AgentFeatureDisabledErrorModel;
+use Commercetools\Api\Models\Agent\AgentMissingCountryError;
+use Commercetools\Api\Models\Agent\AgentMissingCountryErrorModel;
+use Commercetools\Api\Models\Agent\AgentMissingCustomerEmailError;
+use Commercetools\Api\Models\Agent\AgentMissingCustomerEmailErrorModel;
+use Commercetools\Api\Models\Agent\AgentMissingEntityTypeError;
+use Commercetools\Api\Models\Agent\AgentMissingEntityTypeErrorModel;
+use Commercetools\Api\Models\Agent\AgentNoLineItemsExtractedError;
+use Commercetools\Api\Models\Agent\AgentNoLineItemsExtractedErrorModel;
+use Commercetools\Api\Models\Agent\AgentOutOfScopeError;
+use Commercetools\Api\Models\Agent\AgentOutOfScopeErrorModel;
+use Commercetools\Api\Models\Agent\AgentProductSearchNotEnabledError;
+use Commercetools\Api\Models\Agent\AgentProductSearchNotEnabledErrorModel;
+use Commercetools\Api\Models\Agent\AgentProductsNotFoundError;
+use Commercetools\Api\Models\Agent\AgentProductsNotFoundErrorModel;
+use Commercetools\Api\Models\Agent\AgentQuoteRequestCreationFailedError;
+use Commercetools\Api\Models\Agent\AgentQuoteRequestCreationFailedErrorModel;
+use Commercetools\Api\Models\Agent\AgentStoreAmbiguousError;
+use Commercetools\Api\Models\Agent\AgentStoreAmbiguousErrorModel;
+use Commercetools\Api\Models\Agent\AgentStoreDistributionChannelsUnsupportedError;
+use Commercetools\Api\Models\Agent\AgentStoreDistributionChannelsUnsupportedErrorModel;
+use Commercetools\Api\Models\Agent\AgentStoreUnresolvedError;
+use Commercetools\Api\Models\Agent\AgentStoreUnresolvedErrorModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -44,7 +76,9 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'AttributeNameDoesNotExist' => AttributeNameDoesNotExistErrorModel::class,
        'BadGateway' => BadGatewayErrorModel::class,
        'BulkOperationMaxItemsExceeded' => BulkOperationMaxItemsExceededErrorModel::class,
-       'CircularDependency' => CircularDependencyErrorModel::class,
+       'BusinessUnitAmbiguous' => AgentBusinessUnitAmbiguousErrorModel::class,
+       'BusinessUnitLimitExceeded' => AgentBusinessUnitLimitExceededErrorModel::class,
+       'BusinessUnitUnresolved' => AgentBusinessUnitUnresolvedErrorModel::class,
        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
        'ContentTooLarge' => ContentTooLargeErrorModel::class,
        'CountryNotConfiguredInStore' => CountryNotConfiguredInStoreErrorModel::class,
@@ -69,11 +103,14 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'ExtensionBadResponse' => ExtensionBadResponseErrorModel::class,
        'ExtensionChainTooDeep' => ExtensionChainTooDeepErrorModel::class,
        'ExtensionChainTooWide' => ExtensionChainTooWideErrorModel::class,
+       'ExtensionCircularDependency' => ExtensionCircularDependencyErrorModel::class,
        'ExtensionDependencyExists' => ExtensionDependencyExistsErrorModel::class,
        'ExtensionNoResponse' => ExtensionNoResponseErrorModel::class,
        'ExtensionPredicateEvaluationFailed' => ExtensionPredicateEvaluationFailedErrorModel::class,
        'ExtensionUpdateActionsFailed' => ExtensionUpdateActionsFailedErrorModel::class,
        'ExternalOAuthFailed' => ExternalOAuthFailedErrorModel::class,
+       'ExtractionFailed' => AgentExtractionFailedErrorModel::class,
+       'FeatureDisabled' => AgentFeatureDisabledErrorModel::class,
        'FeatureRemoved' => FeatureRemovedErrorModel::class,
        'General' => GeneralErrorModel::class,
        'InternalConstraintViolated' => InternalConstraintViolatedErrorModel::class,
@@ -94,12 +131,16 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'MaxDiscountGroupsReached' => MaxDiscountGroupsReachedErrorModel::class,
        'MaxResourceLimitExceeded' => MaxResourceLimitExceededErrorModel::class,
        'MaxStoreReferencesReached' => MaxStoreReferencesReachedErrorModel::class,
-       'MissingDependency' => MissingDependencyErrorModel::class,
+       'MissingCountry' => AgentMissingCountryErrorModel::class,
+       'MissingCustomerEmail' => AgentMissingCustomerEmailErrorModel::class,
+       'MissingEntityType' => AgentMissingEntityTypeErrorModel::class,
        'MissingRoleOnChannel' => MissingRoleOnChannelErrorModel::class,
        'MissingTaxRateForCountry' => MissingTaxRateForCountryErrorModel::class,
        'MoneyOverflow' => MoneyOverflowErrorModel::class,
+       'NoLineItemsExtracted' => AgentNoLineItemsExtractedErrorModel::class,
        'NoMatchingProductDiscountFound' => NoMatchingProductDiscountFoundErrorModel::class,
        'ObjectNotFound' => ObjectNotFoundErrorModel::class,
+       'OutOfScope' => AgentOutOfScopeErrorModel::class,
        'OutOfStock' => OutOfStockErrorModel::class,
        'OverCapacity' => OverCapacityErrorModel::class,
        'OverlappingPriceValidity' => OverlappingPriceValidityErrorModel::class,
@@ -108,9 +149,12 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'PriceChanged' => PriceChangedErrorModel::class,
        'ProductAssignmentMissing' => ProductAssignmentMissingErrorModel::class,
        'ProductPresentWithDifferentVariantSelection' => ProductPresentWithDifferentVariantSelectionErrorModel::class,
+       'ProductSearchNotEnabled' => AgentProductSearchNotEnabledErrorModel::class,
+       'ProductsNotFound' => AgentProductsNotFoundErrorModel::class,
        'ProjectNotConfiguredForLanguages' => ProjectNotConfiguredForLanguagesErrorModel::class,
        'QueryComplexityLimitExceeded' => QueryComplexityLimitExceededErrorModel::class,
        'QueryTimedOut' => QueryTimedOutErrorModel::class,
+       'QuoteRequestCreationFailed' => AgentQuoteRequestCreationFailedErrorModel::class,
        'RecurringOrderFailure' => RecurringOrderFailureErrorModel::class,
        'ReferenceExists' => ReferenceExistsErrorModel::class,
        'ReferencedResourceNotFound' => ReferencedResourceNotFoundErrorModel::class,
@@ -124,7 +168,10 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'SearchNotReady' => SearchNotReadyErrorModel::class,
        'SemanticError' => SemanticErrorErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
+       'StoreAmbiguous' => AgentStoreAmbiguousErrorModel::class,
        'StoreCartDiscountsLimitReached' => StoreCartDiscountsLimitReachedErrorModel::class,
+       'StoreDistributionChannelsUnsupported' => AgentStoreDistributionChannelsUnsupportedErrorModel::class,
+       'StoreUnresolved' => AgentStoreUnresolvedErrorModel::class,
        'SyntaxError' => SyntaxErrorErrorModel::class,
        'Unauthorized' => UnauthorizedErrorModel::class,
        'ValidityLockConflict' => ValidityLockConflictErrorModel::class,

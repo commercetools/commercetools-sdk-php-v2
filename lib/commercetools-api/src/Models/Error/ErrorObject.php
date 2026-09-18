@@ -8,6 +8,22 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Agent\AgentBusinessUnitAmbiguousError;
+use Commercetools\Api\Models\Agent\AgentBusinessUnitLimitExceededError;
+use Commercetools\Api\Models\Agent\AgentBusinessUnitUnresolvedError;
+use Commercetools\Api\Models\Agent\AgentExtractionFailedError;
+use Commercetools\Api\Models\Agent\AgentFeatureDisabledError;
+use Commercetools\Api\Models\Agent\AgentMissingCountryError;
+use Commercetools\Api\Models\Agent\AgentMissingCustomerEmailError;
+use Commercetools\Api\Models\Agent\AgentMissingEntityTypeError;
+use Commercetools\Api\Models\Agent\AgentNoLineItemsExtractedError;
+use Commercetools\Api\Models\Agent\AgentOutOfScopeError;
+use Commercetools\Api\Models\Agent\AgentProductSearchNotEnabledError;
+use Commercetools\Api\Models\Agent\AgentProductsNotFoundError;
+use Commercetools\Api\Models\Agent\AgentQuoteRequestCreationFailedError;
+use Commercetools\Api\Models\Agent\AgentStoreAmbiguousError;
+use Commercetools\Api\Models\Agent\AgentStoreDistributionChannelsUnsupportedError;
+use Commercetools\Api\Models\Agent\AgentStoreUnresolvedError;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 

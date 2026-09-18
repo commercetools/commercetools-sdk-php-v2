@@ -252,6 +252,12 @@ final class QuoteModel extends JsonObjectModel implements Quote
 
     /**
      *
+     * @var ?bool
+     */
+    protected $directDiscountsIgnoreCartDiscounts;
+
+    /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -317,6 +323,7 @@ final class QuoteModel extends JsonObjectModel implements Quote
         ?ShippingRateInput $shippingRateInput = null,
         ?AddressCollection $itemShippingAddresses = null,
         ?DirectDiscountCollection $directDiscounts = null,
+        ?bool $directDiscountsIgnoreCartDiscounts = null,
         ?CustomFields $custom = null,
         ?string $quoteState = null,
         ?StateReference $state = null,
@@ -355,6 +362,7 @@ final class QuoteModel extends JsonObjectModel implements Quote
         $this->shippingRateInput = $shippingRateInput;
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->directDiscounts = $directDiscounts;
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
         $this->custom = $custom;
         $this->quoteState = $quoteState;
         $this->state = $state;
@@ -1038,6 +1046,29 @@ final class QuoteModel extends JsonObjectModel implements Quote
     }
 
     /**
+     * <ul>
+     * <li>If <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Quote. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Quote.</li>
+     * </ul>
+     *
+     *
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts()
+    {
+        if (is_null($this->directDiscountsIgnoreCartDiscounts)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_DIRECT_DISCOUNTS_IGNORE_CART_DISCOUNTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->directDiscountsIgnoreCartDiscounts = (bool) $data;
+        }
+
+        return $this->directDiscountsIgnoreCartDiscounts;
+    }
+
+    /**
      * <p>Custom Fields on the Quote.</p>
      *
      *
@@ -1397,6 +1428,14 @@ final class QuoteModel extends JsonObjectModel implements Quote
     public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void
     {
         $this->directDiscounts = $directDiscounts;
+    }
+
+    /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     */
+    public function setDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts): void
+    {
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
     }
 
     /**

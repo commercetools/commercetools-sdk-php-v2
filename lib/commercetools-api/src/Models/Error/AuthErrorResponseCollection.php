@@ -13,7 +13,11 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends ErrorResponseCollection<AuthErrorResponse>
+ * @template T of AuthErrorResponse
+ * @extends ErrorResponseCollection<T>
+ * @psalm-method T current()
+ * @psalm-method T end()
+ * @psalm-method T at($offset)
  * @method AuthErrorResponse current()
  * @method AuthErrorResponse end()
  * @method AuthErrorResponse at($offset)
@@ -21,8 +25,8 @@ use stdClass;
 class AuthErrorResponseCollection extends ErrorResponseCollection
 {
     /**
-     * @psalm-assert AuthErrorResponse $value
-     * @psalm-param AuthErrorResponse|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return AuthErrorResponseCollection
@@ -38,14 +42,14 @@ class AuthErrorResponseCollection extends ErrorResponseCollection
     }
 
     /**
-     * @psalm-return callable(int):?AuthErrorResponse
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (?int $index): ?AuthErrorResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var AuthErrorResponse $data */
+                /** @var T $data */
                 $data = AuthErrorResponseModel::of($data);
                 $this->set($data, $index);
             }

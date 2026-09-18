@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
@@ -25,6 +26,7 @@ interface CustomLineItemImportDraft extends JsonObject
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_MONEY = 'money';
     public const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_PRICE_MODE = 'priceMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
@@ -73,12 +75,21 @@ interface CustomLineItemImportDraft extends JsonObject
     public function getMoney();
 
     /**
-     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Order.</p>
+     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Custom Line Item if <code>taxedPrice</code> is not provided.</p>
      *
 
      * @return null|TaxRate
      */
     public function getTaxRate();
+
+    /**
+     * <p>Taxed price of the Custom Line Item. If provided, the values are stored as-is on the resulting <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> instead of being derived from <code>money</code>, <code>quantity</code>, and <code>taxRate</code>.</p>
+     * <p>Can only be set if <code>taxRate</code> is also set.</p>
+     *
+
+     * @return null|TaxedPriceDraft
+     */
+    public function getTaxedPrice();
 
     /**
      * <p>Include a value to associate a Tax Category with the Custom Line Item.</p>
@@ -152,6 +163,11 @@ interface CustomLineItemImportDraft extends JsonObject
      * @param ?TaxRate $taxRate
      */
     public function setTaxRate(?TaxRate $taxRate): void;
+
+    /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     */
+    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void;
 
     /**
      * @param ?TaxCategoryResourceIdentifier $taxCategory

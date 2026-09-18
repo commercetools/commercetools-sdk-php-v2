@@ -17,6 +17,8 @@ use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -92,9 +94,9 @@ final class VariantCreatedMessageBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var null|ProductReference|ProductReferenceBuilder
      */
-    private $productId;
+    private $product;
 
     /**
 
@@ -250,14 +252,14 @@ final class VariantCreatedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Unique identifier of the Product to which the Variant belongs.</p>
+     * <p>Reference to the Product containing the Variant.</p>
      *
 
-     * @return null|string
+     * @return null|ProductReference
      */
-    public function getProductId()
+    public function getProduct()
     {
-        return $this->productId;
+        return $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product;
     }
 
     /**
@@ -448,12 +450,12 @@ final class VariantCreatedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?string $productId
+     * @param ?ProductReference $product
      * @return $this
      */
-    public function withProductId(?string $productId)
+    public function withProduct(?ProductReference $product)
     {
-        $this->productId = $productId;
+        $this->product = $product;
 
         return $this;
     }
@@ -579,6 +581,17 @@ final class VariantCreatedMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withProduct() instead
+     * @return $this
+     */
+    public function withProductBuilder(?ProductReferenceBuilder $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
     public function build(): VariantCreatedMessage
     {
         return new VariantCreatedMessageModel(
@@ -592,7 +605,7 @@ final class VariantCreatedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->productId,
+            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
             $this->variantId,
             $this->key,
             $this->sku,

@@ -65,8 +65,8 @@ final class CartSetShippingAddressActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Value to set.
-     * If not set, the shipping address is unset, and the <code>taxedPrice</code> and <code>taxRate</code> are unset in all Line Items of the Cart.</p>
+     * <p>Value to set. It replaces the entire address, including <a href="ctp:api:type:CustomFields">Custom Fields</a> if <code>custom</code> is not included. To preserve Custom Fields, include the <code>custom</code> object in the request.</p>
+     * <p>If not set, the shipping address is unset, and the <code>taxedPrice</code> and <code>taxRate</code> are unset in all Line Items of the Cart.</p>
      *
      *
      * @return null|BaseAddress

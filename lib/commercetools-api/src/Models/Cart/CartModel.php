@@ -261,6 +261,12 @@ final class CartModel extends JsonObjectModel implements Cart
 
     /**
      *
+     * @var ?bool
+     */
+    protected $directDiscountsIgnoreCartDiscounts;
+
+    /**
+     *
      * @var ?CartDiscountReferenceCollection
      */
     protected $refusedGifts;
@@ -378,6 +384,7 @@ final class CartModel extends JsonObjectModel implements Cart
         ?AddressCollection $itemShippingAddresses = null,
         ?DiscountCodeInfoCollection $discountCodes = null,
         ?DirectDiscountCollection $directDiscounts = null,
+        ?bool $directDiscountsIgnoreCartDiscounts = null,
         ?CartDiscountReferenceCollection $refusedGifts = null,
         ?PaymentInfo $paymentInfo = null,
         ?string $country = null,
@@ -428,6 +435,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->discountCodes = $discountCodes;
         $this->directDiscounts = $directDiscounts;
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
         $this->refusedGifts = $refusedGifts;
         $this->paymentInfo = $paymentInfo;
         $this->country = $country;
@@ -1158,7 +1166,8 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
-     * <p>Discount Codes applied to the Cart. A Cart that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
+     * <p>Discount Codes applied to the Cart.</p>
+     * <p>If <code>directDiscountsIgnoreCartDiscounts</code> is <code>true</code>, a Cart that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
      *
      *
      * @return null|DiscountCodeInfoCollection
@@ -1178,7 +1187,8 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
-     * <p>Direct Discounts added to the Cart. A Cart that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
+     * <p>Direct Discounts added to the Cart.</p>
+     * <p>If <code>directDiscountsIgnoreCartDiscounts</code> is <code>true</code>, a Cart that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
      *
      *
      * @return null|DirectDiscountCollection
@@ -1195,6 +1205,29 @@ final class CartModel extends JsonObjectModel implements Cart
         }
 
         return $this->directDiscounts;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Cart. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Cart.</li>
+     * </ul>
+     *
+     *
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts()
+    {
+        if (is_null($this->directDiscountsIgnoreCartDiscounts)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_DIRECT_DISCOUNTS_IGNORE_CART_DISCOUNTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->directDiscountsIgnoreCartDiscounts = (bool) $data;
+        }
+
+        return $this->directDiscountsIgnoreCartDiscounts;
     }
 
     /**
@@ -1751,6 +1784,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void
     {
         $this->directDiscounts = $directDiscounts;
+    }
+
+    /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     */
+    public function setDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts): void
+    {
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
     }
 
     /**

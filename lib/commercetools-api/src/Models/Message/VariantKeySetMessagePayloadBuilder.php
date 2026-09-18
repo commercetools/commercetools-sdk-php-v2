@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -22,6 +24,12 @@ final class VariantKeySetMessagePayloadBuilder implements Builder
 {
     /**
 
+     * @var null|ProductReference|ProductReferenceBuilder
+     */
+    private $product;
+
+    /**
+
      * @var ?string
      */
     private $key;
@@ -31,6 +39,17 @@ final class VariantKeySetMessagePayloadBuilder implements Builder
      * @var ?string
      */
     private $oldKey;
+
+    /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        return $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product;
+    }
 
     /**
      * <p>The key that was set on the Variant.</p>
@@ -55,6 +74,17 @@ final class VariantKeySetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ProductReference $product
+     * @return $this
+     */
+    public function withProduct(?ProductReference $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $key
      * @return $this
      */
@@ -76,10 +106,21 @@ final class VariantKeySetMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withProduct() instead
+     * @return $this
+     */
+    public function withProductBuilder(?ProductReferenceBuilder $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
 
     public function build(): VariantKeySetMessagePayload
     {
         return new VariantKeySetMessagePayloadModel(
+            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
             $this->key,
             $this->oldKey
         );

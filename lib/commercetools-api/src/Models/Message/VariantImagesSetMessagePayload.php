@@ -9,14 +9,24 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\ImageCollection;
+use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface VariantImagesSetMessagePayload extends MessagePayload
 {
+    public const FIELD_PRODUCT = 'product';
     public const FIELD_IMAGES = 'images';
     public const FIELD_OLD_IMAGES = 'oldImages';
     public const FIELD_STAGED = 'staged';
+
+    /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+
+     * @return null|ProductReference
+     */
+    public function getProduct();
 
     /**
      * <p>The images that were set on the Variant.</p>
@@ -41,6 +51,11 @@ interface VariantImagesSetMessagePayload extends MessagePayload
      * @return null|bool
      */
     public function getStaged();
+
+    /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void;
 
     /**
      * @param ?ImageCollection $images

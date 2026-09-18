@@ -51,7 +51,7 @@ final class VariantPagedQueryResponseBuilder implements Builder
     private $results;
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#limit">results requested</a>.</p>
      *
 
      * @return null|int
@@ -62,7 +62,7 @@ final class VariantPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     * <p>Number of <a href="/api/general-concepts#offset">elements skipped</a>.</p>
      *
 
      * @return null|int
@@ -85,10 +85,10 @@ final class VariantPagedQueryResponseBuilder implements Builder
 
     /**
      * <p>Total number of results matching the query.
-     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
+     * This number is an estimation that is not <a href="/api/general-concepts#strong-consistency">strongly consistent</a>.
      * This field is returned by default.
      * Unless absolutely necessary, use the query parameter <code>withTotal=false</code> to improve performance by deactivating the calculation of this field.
-     * When the results are filtered with a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
+     * When the results are filtered with a <a href="/api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/api/limits#queries">limit</a>.</p>
      *
 
      * @return null|int

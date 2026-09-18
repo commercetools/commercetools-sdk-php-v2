@@ -17,6 +17,8 @@ use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -98,9 +100,9 @@ final class VariantCreatedMessageModel extends JsonObjectModel implements Varian
 
     /**
      *
-     * @var ?string
+     * @var ?ProductReference
      */
-    protected $productId;
+    protected $product;
 
     /**
      *
@@ -159,7 +161,7 @@ final class VariantCreatedMessageModel extends JsonObjectModel implements Varian
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?string $productId = null,
+        ?ProductReference $product = null,
         ?int $variantId = null,
         ?string $key = null,
         ?string $sku = null,
@@ -179,7 +181,7 @@ final class VariantCreatedMessageModel extends JsonObjectModel implements Varian
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->productId = $productId;
+        $this->product = $product;
         $this->variantId = $variantId;
         $this->key = $key;
         $this->sku = $sku;
@@ -424,23 +426,24 @@ final class VariantCreatedMessageModel extends JsonObjectModel implements Varian
     }
 
     /**
-     * <p>Unique identifier of the Product to which the Variant belongs.</p>
+     * <p>Reference to the Product containing the Variant.</p>
      *
      *
-     * @return null|string
+     * @return null|ProductReference
      */
-    public function getProductId()
+    public function getProduct()
     {
-        if (is_null($this->productId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PRODUCT_ID);
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
-            $this->productId = (string) $data;
+
+            $this->product = ProductReferenceModel::of($data);
         }
 
-        return $this->productId;
+        return $this->product;
     }
 
     /**
@@ -665,11 +668,11 @@ final class VariantCreatedMessageModel extends JsonObjectModel implements Varian
     }
 
     /**
-     * @param ?string $productId
+     * @param ?ProductReference $product
      */
-    public function setProductId(?string $productId): void
+    public function setProduct(?ProductReference $product): void
     {
-        $this->productId = $productId;
+        $this->product = $product;
     }
 
     /**
