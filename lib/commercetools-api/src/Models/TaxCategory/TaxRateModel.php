@@ -67,6 +67,12 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
      */
     protected $subRates;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $taxRoundingTarget;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -79,7 +85,8 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
         ?bool $includedInPrice = null,
         ?string $country = null,
         ?string $state = null,
-        ?SubRateCollection $subRates = null
+        ?SubRateCollection $subRates = null,
+        ?string $taxRoundingTarget = null
     ) {
         $this->id = $id;
         $this->key = $key;
@@ -89,6 +96,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
         $this->country = $country;
         $this->state = $state;
         $this->subRates = $subRates;
+        $this->taxRoundingTarget = $taxRoundingTarget;
     }
 
     /**
@@ -256,6 +264,27 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
         return $this->subRates;
     }
 
+    /**
+     * <p>Determines which of the net price and the tax amount the <code>taxRoundingMode</code> of the Cart or Order is applied to, when this TaxRate is included in the price. Ignored if <code>includedInPrice</code> is <code>false</code>.</p>
+     * <p>Always returned by the API. Can be omitted when a TaxRate is supplied as input, such as in <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>, and then defaults to <code>Net</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getTaxRoundingTarget()
+    {
+        if (is_null($this->taxRoundingTarget)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_ROUNDING_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxRoundingTarget = (string) $data;
+        }
+
+        return $this->taxRoundingTarget;
+    }
+
 
     /**
      * @param ?string $id
@@ -319,5 +348,13 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     public function setSubRates(?SubRateCollection $subRates): void
     {
         $this->subRates = $subRates;
+    }
+
+    /**
+     * @param ?string $taxRoundingTarget
+     */
+    public function setTaxRoundingTarget(?string $taxRoundingTarget): void
+    {
+        $this->taxRoundingTarget = $taxRoundingTarget;
     }
 }

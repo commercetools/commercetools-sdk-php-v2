@@ -20,6 +20,7 @@ interface TaxRateDraft extends JsonObject
     public const FIELD_STATE = 'state';
     public const FIELD_SUB_RATES = 'subRates';
     public const FIELD_KEY = 'key';
+    public const FIELD_TAX_ROUNDING_TARGET = 'taxRoundingTarget';
 
     /**
      * <p>Name of the TaxRate.</p>
@@ -85,6 +86,14 @@ interface TaxRateDraft extends JsonObject
     public function getKey();
 
     /**
+     * <p>Determines whether the <code>taxRoundingMode</code> of the Cart or Order is applied to the net price or the tax amount when this TaxRate is included in the price. The field is ignored if <code>includedInPrice</code> is <code>false</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingTarget();
+
+    /**
      * @param ?string $name
      */
     public function setName(?string $name): void;
@@ -118,4 +127,9 @@ interface TaxRateDraft extends JsonObject
      * @param ?string $key
      */
     public function setKey(?string $key): void;
+
+    /**
+     * @param ?string $taxRoundingTarget
+     */
+    public function setTaxRoundingTarget(?string $taxRoundingTarget): void;
 }

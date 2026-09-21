@@ -63,6 +63,12 @@ final class TaxRateDraftBuilder implements Builder
     private $key;
 
     /**
+
+     * @var ?string
+     */
+    private $taxRoundingTarget;
+
+    /**
      * <p>Name of the TaxRate.</p>
      *
 
@@ -147,6 +153,17 @@ final class TaxRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>Determines whether the <code>taxRoundingMode</code> of the Cart or Order is applied to the net price or the tax amount when this TaxRate is included in the price. The field is ignored if <code>includedInPrice</code> is <code>false</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingTarget()
+    {
+        return $this->taxRoundingTarget;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -223,6 +240,17 @@ final class TaxRateDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $taxRoundingTarget
+     * @return $this
+     */
+    public function withTaxRoundingTarget(?string $taxRoundingTarget)
+    {
+        $this->taxRoundingTarget = $taxRoundingTarget;
+
+        return $this;
+    }
+
 
     public function build(): TaxRateDraft
     {
@@ -233,7 +261,8 @@ final class TaxRateDraftBuilder implements Builder
             $this->country,
             $this->state,
             $this->subRates,
-            $this->key
+            $this->key,
+            $this->taxRoundingTarget
         );
     }
 

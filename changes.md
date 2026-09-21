@@ -561,6 +561,7 @@
 - added type `EventType`
 - added type `SubscriptionNotification`
 - added type `SubscriptionSetEventsAction`
+- added type `TaxRoundingTarget`
 - added type `TypeRemoveEnumValuesAction`
 - added type `TypeRemoveLocalizedEnumValuesAction`
 - added type `VariantAttributes`
@@ -696,6 +697,7 @@
 - added property `recurrenceInfo` to type `CustomLineItemDraft`
 - added property `participateInBestDealSelection` to type `DirectDiscount`
 - added property `participateInBestDealSelection` to type `DirectDiscountDraft`
+- added property `taxRoundingTarget` to type `ExternalTaxRateDraft`
 - added property `reservation` to type `LineItem`
 - added property `recurrenceInfo` to type `LineItem`
 - added property `recurrenceInfo` to type `LineItemDraft`
@@ -813,6 +815,8 @@
 - added property `storefront` to type `StoreDraft`
 - added property `events` to type `Subscription`
 - added property `events` to type `SubscriptionDraft`
+- added property `taxRoundingTarget` to type `TaxRate`
+- added property `taxRoundingTarget` to type `TaxRateDraft`
 </details>
 
 
