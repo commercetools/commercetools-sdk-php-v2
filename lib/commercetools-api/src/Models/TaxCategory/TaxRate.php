@@ -21,6 +21,7 @@ interface TaxRate extends JsonObject
     public const FIELD_COUNTRY = 'country';
     public const FIELD_STATE = 'state';
     public const FIELD_SUB_RATES = 'subRates';
+    public const FIELD_TAX_ROUNDING_TARGET = 'taxRoundingTarget';
 
     /**
      * <p>Present if the TaxRate is part of a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.
@@ -75,6 +76,7 @@ interface TaxRate extends JsonObject
     /**
      * <p>State within the country, such as Texas in the United States.
      * The value is case-sensitive and must use the same casing as the <code>state</code> value in the Cart <code>shippingAddress</code>.</p>
+     * <p>A TaxRate whose <code>state</code> is omitted does <strong>not</strong> act as a wildcard: it only matches a Cart whose <code>shippingAddress</code> also has no <code>state</code> value. To apply the same rate across states, either define an individual TaxRate for each state, or use the <code>region</code> field or a Custom Field on the shipping address as described in <a href="/learning-model-your-business-structure/model-your-taxes/tax-categories-and-tax-rates#address-matching">Address matching</a>.</p>
      *
 
      * @return null|string
@@ -89,6 +91,15 @@ interface TaxRate extends JsonObject
      * @return null|SubRateCollection
      */
     public function getSubRates();
+
+    /**
+     * <p>Determines which of the net price and the tax amount the <code>taxRoundingMode</code> of the Cart or Order is applied to, when this TaxRate is included in the price. Ignored if <code>includedInPrice</code> is <code>false</code>.</p>
+     * <p>Always returned by the API. Can be omitted when a TaxRate is supplied as input, such as in <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>, and then defaults to <code>Net</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingTarget();
 
     /**
      * @param ?string $id
@@ -129,4 +140,9 @@ interface TaxRate extends JsonObject
      * @param ?SubRateCollection $subRates
      */
     public function setSubRates(?SubRateCollection $subRates): void;
+
+    /**
+     * @param ?string $taxRoundingTarget
+     */
+    public function setTaxRoundingTarget(?string $taxRoundingTarget): void;
 }

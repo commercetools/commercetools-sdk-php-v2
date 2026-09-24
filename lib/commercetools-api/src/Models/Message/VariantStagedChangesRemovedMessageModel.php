@@ -14,6 +14,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -93,6 +95,12 @@ final class VariantStagedChangesRemovedMessageModel extends JsonObjectModel impl
      */
     protected $resourceUserProvidedIdentifiers;
 
+    /**
+     *
+     * @var ?ProductReference
+     */
+    protected $product;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -108,6 +116,7 @@ final class VariantStagedChangesRemovedMessageModel extends JsonObjectModel impl
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?ProductReference $product = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -120,6 +129,7 @@ final class VariantStagedChangesRemovedMessageModel extends JsonObjectModel impl
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->product = $product;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -356,6 +366,27 @@ final class VariantStagedChangesRemovedMessageModel extends JsonObjectModel impl
         return $this->resourceUserProvidedIdentifiers;
     }
 
+    /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+     *
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductReferenceModel::of($data);
+        }
+
+        return $this->product;
+    }
+
 
     /**
      * @param ?string $id
@@ -435,6 +466,14 @@ final class VariantStagedChangesRemovedMessageModel extends JsonObjectModel impl
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void
+    {
+        $this->product = $product;
     }
 
 

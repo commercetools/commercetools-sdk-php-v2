@@ -8,6 +8,38 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Agent\GraphQLAgentBusinessUnitAmbiguousError;
+use Commercetools\Api\Models\Agent\GraphQLAgentBusinessUnitAmbiguousErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentBusinessUnitLimitExceededError;
+use Commercetools\Api\Models\Agent\GraphQLAgentBusinessUnitLimitExceededErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentBusinessUnitUnresolvedError;
+use Commercetools\Api\Models\Agent\GraphQLAgentBusinessUnitUnresolvedErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentExtractionFailedError;
+use Commercetools\Api\Models\Agent\GraphQLAgentExtractionFailedErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentFeatureDisabledError;
+use Commercetools\Api\Models\Agent\GraphQLAgentFeatureDisabledErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentMissingCountryError;
+use Commercetools\Api\Models\Agent\GraphQLAgentMissingCountryErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentMissingCustomerEmailError;
+use Commercetools\Api\Models\Agent\GraphQLAgentMissingCustomerEmailErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentMissingEntityTypeError;
+use Commercetools\Api\Models\Agent\GraphQLAgentMissingEntityTypeErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentNoLineItemsExtractedError;
+use Commercetools\Api\Models\Agent\GraphQLAgentNoLineItemsExtractedErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentOutOfScopeError;
+use Commercetools\Api\Models\Agent\GraphQLAgentOutOfScopeErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentProductSearchNotEnabledError;
+use Commercetools\Api\Models\Agent\GraphQLAgentProductSearchNotEnabledErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentProductsNotFoundError;
+use Commercetools\Api\Models\Agent\GraphQLAgentProductsNotFoundErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentQuoteRequestCreationFailedError;
+use Commercetools\Api\Models\Agent\GraphQLAgentQuoteRequestCreationFailedErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentStoreAmbiguousError;
+use Commercetools\Api\Models\Agent\GraphQLAgentStoreAmbiguousErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentStoreDistributionChannelsUnsupportedError;
+use Commercetools\Api\Models\Agent\GraphQLAgentStoreDistributionChannelsUnsupportedErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentStoreUnresolvedError;
+use Commercetools\Api\Models\Agent\GraphQLAgentStoreUnresolvedErrorModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -38,7 +70,9 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'AttributeNameDoesNotExist' => GraphQLAttributeNameDoesNotExistErrorModel::class,
        'BadGateway' => GraphQLBadGatewayErrorModel::class,
        'BulkOperationMaxItemsExceeded' => GraphQLBulkOperationMaxItemsExceededErrorModel::class,
-       'CircularDependency' => GraphQLCircularDependencyErrorModel::class,
+       'BusinessUnitAmbiguous' => GraphQLAgentBusinessUnitAmbiguousErrorModel::class,
+       'BusinessUnitLimitExceeded' => GraphQLAgentBusinessUnitLimitExceededErrorModel::class,
+       'BusinessUnitUnresolved' => GraphQLAgentBusinessUnitUnresolvedErrorModel::class,
        'ConcurrentModification' => GraphQLConcurrentModificationErrorModel::class,
        'ContentTooLarge' => GraphQLContentTooLargeErrorModel::class,
        'CountryNotConfiguredInStore' => GraphQLCountryNotConfiguredInStoreErrorModel::class,
@@ -63,11 +97,14 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'ExtensionBadResponse' => GraphQLExtensionBadResponseErrorModel::class,
        'ExtensionChainTooDeep' => GraphQLExtensionChainTooDeepErrorModel::class,
        'ExtensionChainTooWide' => GraphQLExtensionChainTooWideErrorModel::class,
+       'ExtensionCircularDependency' => GraphQLExtensionCircularDependencyErrorModel::class,
        'ExtensionDependencyExists' => GraphQLExtensionDependencyExistsErrorModel::class,
        'ExtensionNoResponse' => GraphQLExtensionNoResponseErrorModel::class,
        'ExtensionPredicateEvaluationFailed' => GraphQLExtensionPredicateEvaluationFailedErrorModel::class,
        'ExtensionUpdateActionsFailed' => GraphQLExtensionUpdateActionsFailedErrorModel::class,
        'ExternalOAuthFailed' => GraphQLExternalOAuthFailedErrorModel::class,
+       'ExtractionFailed' => GraphQLAgentExtractionFailedErrorModel::class,
+       'FeatureDisabled' => GraphQLAgentFeatureDisabledErrorModel::class,
        'FeatureRemoved' => GraphQLFeatureRemovedErrorModel::class,
        'General' => GraphQLGeneralErrorModel::class,
        'InternalConstraintViolated' => GraphQLInternalConstraintViolatedErrorModel::class,
@@ -88,12 +125,16 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'MaxDiscountGroupsReached' => GraphQLMaxDiscountGroupsReachedErrorModel::class,
        'MaxResourceLimitExceeded' => GraphQLMaxResourceLimitExceededErrorModel::class,
        'MaxStoreReferencesReached' => GraphQLMaxStoreReferencesReachedErrorModel::class,
-       'MissingDependency' => GraphQLMissingDependencyErrorModel::class,
+       'MissingCountry' => GraphQLAgentMissingCountryErrorModel::class,
+       'MissingCustomerEmail' => GraphQLAgentMissingCustomerEmailErrorModel::class,
+       'MissingEntityType' => GraphQLAgentMissingEntityTypeErrorModel::class,
        'MissingRoleOnChannel' => GraphQLMissingRoleOnChannelErrorModel::class,
        'MissingTaxRateForCountry' => GraphQLMissingTaxRateForCountryErrorModel::class,
        'MoneyOverflow' => GraphQLMoneyOverflowErrorModel::class,
+       'NoLineItemsExtracted' => GraphQLAgentNoLineItemsExtractedErrorModel::class,
        'NoMatchingProductDiscountFound' => GraphQLNoMatchingProductDiscountFoundErrorModel::class,
        'ObjectNotFound' => GraphQLObjectNotFoundErrorModel::class,
+       'OutOfScope' => GraphQLAgentOutOfScopeErrorModel::class,
        'OutOfStock' => GraphQLOutOfStockErrorModel::class,
        'OverCapacity' => GraphQLOverCapacityErrorModel::class,
        'OverlappingPriceValidity' => GraphQLOverlappingPriceValidityErrorModel::class,
@@ -102,9 +143,12 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'PriceChanged' => GraphQLPriceChangedErrorModel::class,
        'ProductAssignmentMissing' => GraphQLProductAssignmentMissingErrorModel::class,
        'ProductPresentWithDifferentVariantSelection' => GraphQLProductPresentWithDifferentVariantSelectionErrorModel::class,
+       'ProductSearchNotEnabled' => GraphQLAgentProductSearchNotEnabledErrorModel::class,
+       'ProductsNotFound' => GraphQLAgentProductsNotFoundErrorModel::class,
        'ProjectNotConfiguredForLanguages' => GraphQLProjectNotConfiguredForLanguagesErrorModel::class,
        'QueryComplexityLimitExceeded' => GraphQLQueryComplexityLimitExceededErrorModel::class,
        'QueryTimedOut' => GraphQLQueryTimedOutErrorModel::class,
+       'QuoteRequestCreationFailed' => GraphQLAgentQuoteRequestCreationFailedErrorModel::class,
        'RecurringOrderFailure' => GraphQLRecurringOrderFailureErrorModel::class,
        'ReferenceExists' => GraphQLReferenceExistsErrorModel::class,
        'ReferencedResourceNotFound' => GraphQLReferencedResourceNotFoundErrorModel::class,
@@ -118,7 +162,10 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'SearchNotReady' => GraphQLSearchNotReadyErrorModel::class,
        'SemanticError' => GraphQLSemanticErrorErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => GraphQLShippingMethodDoesNotMatchCartErrorModel::class,
+       'StoreAmbiguous' => GraphQLAgentStoreAmbiguousErrorModel::class,
        'StoreCartDiscountsLimitReached' => GraphQLStoreCartDiscountsLimitReachedErrorModel::class,
+       'StoreDistributionChannelsUnsupported' => GraphQLAgentStoreDistributionChannelsUnsupportedErrorModel::class,
+       'StoreUnresolved' => GraphQLAgentStoreUnresolvedErrorModel::class,
        'SyntaxError' => GraphQLSyntaxErrorErrorModel::class,
        'Unauthorized' => GraphQLUnauthorizedErrorModel::class,
        'ValidityLockConflict' => GraphQLValidityLockConflictErrorModel::class,

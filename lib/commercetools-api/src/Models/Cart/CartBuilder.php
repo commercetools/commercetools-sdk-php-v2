@@ -262,6 +262,12 @@ final class CartBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $directDiscountsIgnoreCartDiscounts;
+
+    /**
+
      * @var ?CartDiscountReferenceCollection
      */
     private $refusedGifts;
@@ -727,7 +733,8 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>Discount Codes applied to the Cart. A Cart that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
+     * <p>Discount Codes applied to the Cart.</p>
+     * <p>If <code>directDiscountsIgnoreCartDiscounts</code> is <code>true</code>, a Cart that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
      *
 
      * @return null|DiscountCodeInfoCollection
@@ -738,7 +745,8 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>Direct Discounts added to the Cart. A Cart that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
+     * <p>Direct Discounts added to the Cart.</p>
+     * <p>If <code>directDiscountsIgnoreCartDiscounts</code> is <code>true</code>, a Cart that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
      *
 
      * @return null|DirectDiscountCollection
@@ -746,6 +754,20 @@ final class CartBuilder implements Builder
     public function getDirectDiscounts()
     {
         return $this->directDiscounts;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Cart. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts()
+    {
+        return $this->directDiscountsIgnoreCartDiscounts;
     }
 
     /**
@@ -1289,6 +1311,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     * @return $this
+     */
+    public function withDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts)
+    {
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
+
+        return $this;
+    }
+
+    /**
      * @param ?CartDiscountReferenceCollection $refusedGifts
      * @return $this
      */
@@ -1668,6 +1701,7 @@ final class CartBuilder implements Builder
             $this->itemShippingAddresses,
             $this->discountCodes,
             $this->directDiscounts,
+            $this->directDiscountsIgnoreCartDiscounts,
             $this->refusedGifts,
             $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo,
             $this->country,

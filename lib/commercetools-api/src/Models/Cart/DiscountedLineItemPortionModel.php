@@ -70,6 +70,11 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
 
     /**
      * <p>Money value of the applicable discount.</p>
+     * <p>When a Cart Discount with <a href="ctp:api:type:CartDiscountPatternTarget">CartDiscountPatternTarget</a> is used:</p>
+     * <ul>
+     * <li>The value is zero for a (Custom) Line Item matching the <code>triggerPattern</code>, indicating it participated in the discount as a trigger.</li>
+     * <li>The value is the actual discount amount for a (Custom) Line Item matching the <code>targetPattern</code>.</li>
+     * </ul>
      *
      *
      * @return null|TypedMoney

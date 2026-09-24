@@ -21,7 +21,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
 {
     public const DISCRIMINATOR_VALUE = 'range';
     /**
-     *
+     * @deprecated
      * @var ?string
      */
     protected $type;
@@ -45,7 +45,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     }
 
     /**
-     *
+     * @deprecated
      * @return null|string
      */
     public function getType()

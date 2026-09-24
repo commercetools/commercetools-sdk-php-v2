@@ -21,7 +21,7 @@ final class FacetResultModel extends JsonObjectModel implements FacetResult
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-     *
+     * @deprecated
      * @var ?string
      */
     protected $type;
@@ -46,7 +46,7 @@ final class FacetResultModel extends JsonObjectModel implements FacetResult
     }
 
     /**
-     *
+     * @deprecated
      * @return null|string
      */
     public function getType()

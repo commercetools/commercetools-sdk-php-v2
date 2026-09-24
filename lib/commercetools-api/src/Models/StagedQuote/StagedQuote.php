@@ -120,7 +120,7 @@ interface StagedQuote extends BaseResource
     public function getQuoteRequest();
 
     /**
-     * <p><a href="ctp:api:type:Cart">Cart</a> containing the offered items. May contain either <a href="ctp:api:type:DirectDiscount">DirectDiscounts</a> or <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
+     * <p><a href="ctp:api:type:Cart">Cart</a> containing the offered items.</p>
      *
 
      * @return null|CartReference

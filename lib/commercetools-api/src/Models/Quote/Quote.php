@@ -63,6 +63,7 @@ interface Quote extends BaseResource
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
+    public const FIELD_DIRECT_DISCOUNTS_IGNORE_CART_DISCOUNTS = 'directDiscountsIgnoreCartDiscounts';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_QUOTE_STATE = 'quoteState';
     public const FIELD_STATE = 'state';
@@ -335,6 +336,17 @@ interface Quote extends BaseResource
     public function getDirectDiscounts();
 
     /**
+     * <ul>
+     * <li>If <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Quote. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Quote.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts();
+
+    /**
      * <p>Custom Fields on the Quote.</p>
      *
 
@@ -535,6 +547,11 @@ interface Quote extends BaseResource
      * @param ?DirectDiscountCollection $directDiscounts
      */
     public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void;
+
+    /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     */
+    public function setDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts): void;
 
     /**
      * @param ?CustomFields $custom

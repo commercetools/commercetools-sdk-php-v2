@@ -69,6 +69,12 @@ final class TaxRateBuilder implements Builder
     private $subRates;
 
     /**
+
+     * @var ?string
+     */
+    private $taxRoundingTarget;
+
+    /**
      * <p>Present if the TaxRate is part of a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.
      * Absent for external TaxRates in <a href="ctp:api:type:LineItem">LineItem</a>, <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>, and <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.</p>
      *
@@ -139,6 +145,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>State within the country, such as Texas in the United States.
      * The value is case-sensitive and must use the same casing as the <code>state</code> value in the Cart <code>shippingAddress</code>.</p>
+     * <p>A TaxRate whose <code>state</code> is omitted does <strong>not</strong> act as a wildcard: it only matches a Cart whose <code>shippingAddress</code> also has no <code>state</code> value. To apply the same rate across states, either define an individual TaxRate for each state, or use the <code>region</code> field or a Custom Field on the shipping address as described in <a href="/learning-model-your-business-structure/model-your-taxes/tax-categories-and-tax-rates#address-matching">Address matching</a>.</p>
      *
 
      * @return null|string
@@ -158,6 +165,18 @@ final class TaxRateBuilder implements Builder
     public function getSubRates()
     {
         return $this->subRates;
+    }
+
+    /**
+     * <p>Determines which of the net price and the tax amount the <code>taxRoundingMode</code> of the Cart or Order is applied to, when this TaxRate is included in the price. Ignored if <code>includedInPrice</code> is <code>false</code>.</p>
+     * <p>Always returned by the API. Can be omitted when a TaxRate is supplied as input, such as in <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>, and then defaults to <code>Net</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingTarget()
+    {
+        return $this->taxRoundingTarget;
     }
 
     /**
@@ -248,6 +267,17 @@ final class TaxRateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $taxRoundingTarget
+     * @return $this
+     */
+    public function withTaxRoundingTarget(?string $taxRoundingTarget)
+    {
+        $this->taxRoundingTarget = $taxRoundingTarget;
+
+        return $this;
+    }
+
 
     public function build(): TaxRate
     {
@@ -259,7 +289,8 @@ final class TaxRateBuilder implements Builder
             $this->includedInPrice,
             $this->country,
             $this->state,
-            $this->subRates
+            $this->subRates,
+            $this->taxRoundingTarget
         );
     }
 

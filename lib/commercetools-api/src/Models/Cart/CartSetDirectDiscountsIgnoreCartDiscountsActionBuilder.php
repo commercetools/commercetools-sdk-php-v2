@@ -1,0 +1,69 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\Cart;
+
+use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
+/**
+ * @implements Builder<CartSetDirectDiscountsIgnoreCartDiscountsAction>
+ */
+final class CartSetDirectDiscountsIgnoreCartDiscountsActionBuilder implements Builder
+{
+    /**
+
+     * @var ?bool
+     */
+    private $directDiscountsIgnoreCartDiscounts;
+
+    /**
+     * <ul>
+     * <li>If <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Cart. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * </ul>
+     * <p>The value can be set to <code>true</code> only if the Cart does not have both <code>discountCodes</code> and <code>directDiscounts</code>.</p>
+     * <ul>
+     * <li>If <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts()
+    {
+        return $this->directDiscountsIgnoreCartDiscounts;
+    }
+
+    /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     * @return $this
+     */
+    public function withDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts)
+    {
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
+
+        return $this;
+    }
+
+
+    public function build(): CartSetDirectDiscountsIgnoreCartDiscountsAction
+    {
+        return new CartSetDirectDiscountsIgnoreCartDiscountsActionModel(
+            $this->directDiscountsIgnoreCartDiscounts
+        );
+    }
+
+    public static function of(): CartSetDirectDiscountsIgnoreCartDiscountsActionBuilder
+    {
+        return new self();
+    }
+}

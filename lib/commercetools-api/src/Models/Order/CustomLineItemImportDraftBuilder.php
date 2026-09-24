@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftBuilder;
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
+use Commercetools\Api\Models\Cart\TaxedPriceDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\Money;
@@ -67,6 +69,12 @@ final class CustomLineItemImportDraftBuilder implements Builder
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
+
+    /**
+
+     * @var null|TaxedPriceDraft|TaxedPriceDraftBuilder
+     */
+    private $taxedPrice;
 
     /**
 
@@ -155,7 +163,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Order.</p>
+     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Custom Line Item if <code>taxedPrice</code> is not provided.</p>
      *
 
      * @return null|TaxRate
@@ -163,6 +171,18 @@ final class CustomLineItemImportDraftBuilder implements Builder
     public function getTaxRate()
     {
         return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
+    }
+
+    /**
+     * <p>Taxed price of the Custom Line Item. If provided, the values are stored as-is on the resulting <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> instead of being derived from <code>money</code>, <code>quantity</code>, and <code>taxRate</code>.</p>
+     * <p>Can only be set if <code>taxRate</code> is also set.</p>
+     *
+
+     * @return null|TaxedPriceDraft
+     */
+    public function getTaxedPrice()
+    {
+        return $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
 
     /**
@@ -290,6 +310,17 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     * @return $this
+     */
+    public function withTaxedPrice(?TaxedPriceDraft $taxedPrice)
+    {
+        $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
      * @param ?TaxCategoryResourceIdentifier $taxCategory
      * @return $this
      */
@@ -378,6 +409,17 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
+     * @return $this
+     */
+    public function withTaxedPriceBuilder(?TaxedPriceDraftBuilder $taxedPrice)
+    {
+        $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withTaxCategory() instead
      * @return $this
      */
@@ -419,6 +461,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
             $this->quantity,
             $this->money instanceof MoneyBuilder ? $this->money->build() : $this->money,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
+            $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->priceMode,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,

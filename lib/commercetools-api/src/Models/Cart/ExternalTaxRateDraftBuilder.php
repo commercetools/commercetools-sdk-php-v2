@@ -58,6 +58,12 @@ final class ExternalTaxRateDraftBuilder implements Builder
     private $subRates;
 
     /**
+
+     * @var ?string
+     */
+    private $taxRoundingTarget;
+
+    /**
      * <p>Name of the Tax Rate.</p>
      *
 
@@ -132,6 +138,17 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>Determines whether the <code>taxRoundingMode</code> of the Cart or Order is applied to the net price or the tax amount when <code>includedInPrice</code> is <code>true</code>. The field is ignored if <code>includedInPrice</code> is <code>false</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingTarget()
+    {
+        return $this->taxRoundingTarget;
+    }
+
+    /**
      * @param ?string $name
      * @return $this
      */
@@ -197,6 +214,17 @@ final class ExternalTaxRateDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $taxRoundingTarget
+     * @return $this
+     */
+    public function withTaxRoundingTarget(?string $taxRoundingTarget)
+    {
+        $this->taxRoundingTarget = $taxRoundingTarget;
+
+        return $this;
+    }
+
 
     public function build(): ExternalTaxRateDraft
     {
@@ -206,7 +234,8 @@ final class ExternalTaxRateDraftBuilder implements Builder
             $this->includedInPrice,
             $this->country,
             $this->state,
-            $this->subRates
+            $this->subRates,
+            $this->taxRoundingTarget
         );
     }
 

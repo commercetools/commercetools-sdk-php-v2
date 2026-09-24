@@ -20,6 +20,7 @@ interface ExternalTaxRateDraft extends JsonObject
     public const FIELD_COUNTRY = 'country';
     public const FIELD_STATE = 'state';
     public const FIELD_SUB_RATES = 'subRates';
+    public const FIELD_TAX_ROUNDING_TARGET = 'taxRoundingTarget';
 
     /**
      * <p>Name of the Tax Rate.</p>
@@ -78,6 +79,14 @@ interface ExternalTaxRateDraft extends JsonObject
     public function getSubRates();
 
     /**
+     * <p>Determines whether the <code>taxRoundingMode</code> of the Cart or Order is applied to the net price or the tax amount when <code>includedInPrice</code> is <code>true</code>. The field is ignored if <code>includedInPrice</code> is <code>false</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTaxRoundingTarget();
+
+    /**
      * @param ?string $name
      */
     public function setName(?string $name): void;
@@ -106,4 +115,9 @@ interface ExternalTaxRateDraft extends JsonObject
      * @param ?SubRateCollection $subRates
      */
     public function setSubRates(?SubRateCollection $subRates): void;
+
+    /**
+     * @param ?string $taxRoundingTarget
+     */
+    public function setTaxRoundingTarget(?string $taxRoundingTarget): void;
 }

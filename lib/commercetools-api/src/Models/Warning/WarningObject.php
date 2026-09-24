@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Warning;
 
+use Commercetools\Api\Models\Agent\AgentFileNotProcessedWarning;
+use Commercetools\Api\Models\Agent\AgentProductsNotFoundWarning;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 

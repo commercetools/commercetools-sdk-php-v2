@@ -17,7 +17,7 @@ interface FacetResult extends JsonObject
     public const FIELD_TYPE = 'type';
 
     /**
-
+     * @deprecated
      * @return null|string
      */
     public function getType();

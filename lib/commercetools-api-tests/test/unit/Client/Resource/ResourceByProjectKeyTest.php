@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyAgents;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyApiClients;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyAsAssociate;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyAssociateRoles;
@@ -183,6 +184,16 @@ class ResourceByProjectKeyTest extends TestCase
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyAgents' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyAgents {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->agents();
+                },
+                ResourceByProjectKeyAgents::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/agents'
+            ],
             'ResourceByProjectKeyAsAssociate' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyAsAssociate {
                     return $builder

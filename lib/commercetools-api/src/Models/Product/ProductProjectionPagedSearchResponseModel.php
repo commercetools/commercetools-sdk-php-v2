@@ -50,7 +50,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     protected $results;
 
     /**
-     *
+     * @deprecated
      * @var ?FacetResults
      */
     protected $facets;
@@ -180,7 +180,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
      * <p>Facet results for each <a href="/api/projects/product-projection-search#facets">facet expression</a> specified in the search request.</p>
      * <p>Only present if at least one <code>facet</code> parameter was provided with the search request.</p>
      *
-     *
+     * @deprecated
      * @return null|FacetResults
      */
     public function getFacets()

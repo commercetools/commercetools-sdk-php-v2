@@ -271,6 +271,12 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      *
+     * @var ?bool
+     */
+    protected $directDiscountsIgnoreCartDiscounts;
+
+    /**
+     *
      * @var ?CartDiscountReferenceCollection
      */
     protected $refusedGifts;
@@ -428,6 +434,7 @@ final class OrderModel extends JsonObjectModel implements Order
         ?AddressCollection $itemShippingAddresses = null,
         ?DiscountCodeInfoCollection $discountCodes = null,
         ?DirectDiscountCollection $directDiscounts = null,
+        ?bool $directDiscountsIgnoreCartDiscounts = null,
         ?CartDiscountReferenceCollection $refusedGifts = null,
         ?PaymentInfo $paymentInfo = null,
         ?string $country = null,
@@ -483,6 +490,7 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->discountCodes = $discountCodes;
         $this->directDiscounts = $directDiscounts;
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
         $this->refusedGifts = $refusedGifts;
         $this->paymentInfo = $paymentInfo;
         $this->country = $country;
@@ -1185,8 +1193,8 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Discount Codes added to the Order.
-     * An Order that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
+     * <p>Discount Codes added to the Order.</p>
+     * <p>If <code>directDiscountsIgnoreCartDiscounts</code> is <code>true</code>, an Order that has <code>directDiscounts</code> cannot have <code>discountCodes</code>.</p>
      *
      *
      * @return null|DiscountCodeInfoCollection
@@ -1206,8 +1214,8 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Direct Discounts added to the Order.
-     * An Order that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
+     * <p>Direct Discounts added to the Order.</p>
+     * <p>If <code>directDiscountsIgnoreCartDiscounts</code> is <code>true</code>, an Order that has <code>discountCodes</code> cannot have <code>directDiscounts</code>.</p>
      *
      *
      * @return null|DirectDiscountCollection
@@ -1224,6 +1232,29 @@ final class OrderModel extends JsonObjectModel implements Order
         }
 
         return $this->directDiscounts;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Order. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Order.</li>
+     * </ul>
+     *
+     *
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts()
+    {
+        if (is_null($this->directDiscountsIgnoreCartDiscounts)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_DIRECT_DISCOUNTS_IGNORE_CART_DISCOUNTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->directDiscountsIgnoreCartDiscounts = (bool) $data;
+        }
+
+        return $this->directDiscountsIgnoreCartDiscounts;
     }
 
     /**
@@ -1915,6 +1946,14 @@ final class OrderModel extends JsonObjectModel implements Order
     public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void
     {
         $this->directDiscounts = $directDiscounts;
+    }
+
+    /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     */
+    public function setDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts): void
+    {
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
     }
 
     /**

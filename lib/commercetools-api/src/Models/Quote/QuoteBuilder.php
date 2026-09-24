@@ -253,6 +253,12 @@ final class QuoteBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $directDiscountsIgnoreCartDiscounts;
+
+    /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -640,6 +646,20 @@ final class QuoteBuilder implements Builder
     public function getDirectDiscounts()
     {
         return $this->directDiscounts;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Quote. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Quote.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts()
+    {
+        return $this->directDiscountsIgnoreCartDiscounts;
     }
 
     /**
@@ -1052,6 +1072,17 @@ final class QuoteBuilder implements Builder
     }
 
     /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     * @return $this
+     */
+    public function withDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts)
+    {
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -1328,6 +1359,7 @@ final class QuoteBuilder implements Builder
             $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
             $this->itemShippingAddresses,
             $this->directDiscounts,
+            $this->directDiscountsIgnoreCartDiscounts,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->quoteState,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
