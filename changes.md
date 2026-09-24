@@ -971,6 +971,7 @@
 - added enum `reservation` to type `ReferenceTypeId`
 - added enum `variant` to type `ReferenceTypeId`
 - added enum `payment-method` to type `ExtensionResourceTypeId`
+- added enum `product` to type `ExtensionResourceTypeId`
 - added enum `variant` to type `AttributeReferenceTypeId`
 - added enum `RecurringOrderState` to type `StateTypeEnum`
 - added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
