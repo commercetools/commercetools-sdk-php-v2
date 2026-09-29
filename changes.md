@@ -963,6 +963,9 @@
 - added enum `RecurringOrder` to type `CartOrigin`
 - added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
 - added enum `ReserveOnCart` to type `InventoryMode`
+- added enum `IntakeAgent` to type `AttributionSource`
+- added enum `PromotionsAgent` to type `AttributionSource`
+- added enum `ManagedCommerceMCP` to type `AttributionSource`
 - added enum `discount-group` to type `ReferenceTypeId`
 - added enum `mcp-server` to type `ReferenceTypeId`
 - added enum `payment-method` to type `ReferenceTypeId`
