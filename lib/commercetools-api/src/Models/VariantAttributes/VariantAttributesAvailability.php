@@ -14,16 +14,25 @@ use Commercetools\Base\JsonObject;
 interface VariantAttributesAvailability extends JsonObject
 {
     public const FIELD_IS_ON_STOCK = 'isOnStock';
+    public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
     public const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
     public const FIELD_CHANNELS = 'channels';
 
     /**
-     * <p>Indicates whether the Variant is in stock.</p>
+     * <p>Whether the Variant is in stock.</p>
      *
 
      * @return null|bool
      */
     public function getIsOnStock();
+
+    /**
+     * <p>Number of days to restock the Variant once it is out of stock.</p>
+     *
+
+     * @return null|int
+     */
+    public function getRestockableInDays();
 
     /**
      * <p>Number of items of this Variant that are in stock.</p>
@@ -46,6 +55,11 @@ interface VariantAttributesAvailability extends JsonObject
      * @param ?bool $isOnStock
      */
     public function setIsOnStock(?bool $isOnStock): void;
+
+    /**
+     * @param ?int $restockableInDays
+     */
+    public function setRestockableInDays(?int $restockableInDays): void;
 
     /**
      * @param ?int $availableQuantity
