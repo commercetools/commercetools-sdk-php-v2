@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Agent;
 
-use Commercetools\Api\Models\Warning\WarningObject;
-use Commercetools\Api\Models\Warning\WarningObjectModel;
+use Commercetools\Api\Models\Error\ErrorObject;
+use Commercetools\Api\Models\Error\ErrorObjectModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -19,9 +19,9 @@ use stdClass;
 /**
  * @internal
  */
-final class AgentProductsNotFoundWarningModel extends JsonObjectModel implements AgentProductsNotFoundWarning
+final class AgentShoppingListCreationFailedErrorModel extends JsonObjectModel implements AgentShoppingListCreationFailedError
 {
-    public const DISCRIMINATOR_VALUE = 'ProductsNotFound';
+    public const DISCRIMINATOR_VALUE = 'ShoppingListCreationFailed';
     /**
      *
      * @var ?string
@@ -34,23 +34,15 @@ final class AgentProductsNotFoundWarningModel extends JsonObjectModel implements
      */
     protected $message;
 
-    /**
-     *
-     * @var ?array
-     */
-    protected $products;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $message = null,
-        ?array $products = null,
         ?string $code = null
     ) {
         $this->message = $message;
-        $this->products = $products;
         $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -73,7 +65,7 @@ final class AgentProductsNotFoundWarningModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>Plain text description of the omitted Products.</p>
+     * <p>Plain text description of the error.</p>
      *
      *
      * @return null|string
@@ -92,26 +84,6 @@ final class AgentProductsNotFoundWarningModel extends JsonObjectModel implements
         return $this->message;
     }
 
-    /**
-     * <p>Identifiers of the Products that could not be matched to the catalog or are unavailable in the bound Store, as they appeared in the input.</p>
-     *
-     *
-     * @return null|array
-     */
-    public function getProducts()
-    {
-        if (is_null($this->products)) {
-            /** @psalm-var ?list<mixed> $data */
-            $data = $this->raw(self::FIELD_PRODUCTS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->products = $data;
-        }
-
-        return $this->products;
-    }
-
 
     /**
      * @param ?string $message
@@ -122,10 +94,15 @@ final class AgentProductsNotFoundWarningModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?array $products
+     * @return mixed
      */
-    public function setProducts(?array $products): void
+    public function by(string $key)
     {
-        $this->products = $products;
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
     }
 }

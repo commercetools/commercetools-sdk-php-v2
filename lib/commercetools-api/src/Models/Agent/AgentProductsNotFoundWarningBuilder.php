@@ -35,7 +35,7 @@ final class AgentProductsNotFoundWarningBuilder implements Builder
     private $products;
 
     /**
-     * <p>Plain text description of the unmatched Products.</p>
+     * <p>Plain text description of the omitted Products.</p>
      *
 
      * @return null|string
@@ -46,7 +46,7 @@ final class AgentProductsNotFoundWarningBuilder implements Builder
     }
 
     /**
-     * <p>Identifiers of the Products that could not be matched to the catalog, as they appeared in the input.</p>
+     * <p>Identifiers of the Products that could not be matched to the catalog or are unavailable in the bound Store, as they appeared in the input.</p>
      *
 
      * @return null|array

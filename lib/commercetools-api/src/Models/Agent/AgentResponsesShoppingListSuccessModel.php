@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Agent;
 
+use Commercetools\Api\Models\ShoppingList\ShoppingList;
+use Commercetools\Api\Models\ShoppingList\ShoppingListModel;
 use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -18,9 +20,9 @@ use stdClass;
 /**
  * @internal
  */
-final class AgentResponsesSuccessModel extends JsonObjectModel implements AgentResponsesSuccess
+final class AgentResponsesShoppingListSuccessModel extends JsonObjectModel implements AgentResponsesShoppingListSuccess
 {
-    public const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = 'ShoppingList';
     /**
      *
      * @var ?string
@@ -40,14 +42,11 @@ final class AgentResponsesSuccessModel extends JsonObjectModel implements AgentR
     protected $threadId;
 
     /**
-     * @psalm-var array<string, class-string<AgentResponsesSuccess> >
      *
+     * @var ?ShoppingList
      */
-    private static $discriminatorClasses = [
-       'Cart' => AgentResponsesCartSuccessModel::class,
-       'QuoteRequest' => AgentResponsesQuoteRequestSuccessModel::class,
-       'ShoppingList' => AgentResponsesShoppingListSuccessModel::class,
-    ];
+    protected $entity;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -55,11 +54,13 @@ final class AgentResponsesSuccessModel extends JsonObjectModel implements AgentR
     public function __construct(
         ?WarningObjectCollection $warnings = null,
         ?string $threadId = null,
+        ?ShoppingList $entity = null,
         ?string $entityType = null
     ) {
         $this->warnings = $warnings;
         $this->threadId = $threadId;
-        $this->entityType = $entityType;
+        $this->entity = $entity;
+        $this->entityType = $entityType ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -122,6 +123,27 @@ final class AgentResponsesSuccessModel extends JsonObjectModel implements AgentR
         return $this->threadId;
     }
 
+    /**
+     * <p>The created <a href="ctp:api:type:ShoppingList">ShoppingList</a> in full commercetools REST representation.</p>
+     *
+     *
+     * @return null|ShoppingList
+     */
+    public function getEntity()
+    {
+        if (is_null($this->entity)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ENTITY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->entity = ShoppingListModel::of($data);
+        }
+
+        return $this->entity;
+    }
+
 
     /**
      * @param ?WarningObjectCollection $warnings
@@ -139,32 +161,11 @@ final class AgentResponsesSuccessModel extends JsonObjectModel implements AgentR
         $this->threadId = $threadId;
     }
 
-
-
     /**
-     * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<AgentResponsesSuccess>
+     * @param ?ShoppingList $entity
      */
-    public static function resolveDiscriminatorClass($value): string
+    public function setEntity(?ShoppingList $entity): void
     {
-        $fieldName = AgentResponsesSuccess::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(self::$discriminatorClasses[$discriminatorValue])) {
-                return self::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-
-        /** @psalm-var class-string<AgentResponsesSuccess> */
-        $type = AgentResponsesSuccessModel::class;
-        return $type;
+        $this->entity = $entity;
     }
 }

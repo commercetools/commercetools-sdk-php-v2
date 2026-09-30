@@ -24,6 +24,8 @@ use Commercetools\Api\Models\Agent\AgentMissingCustomerEmailError;
 use Commercetools\Api\Models\Agent\AgentMissingCustomerEmailErrorModel;
 use Commercetools\Api\Models\Agent\AgentMissingEntityTypeError;
 use Commercetools\Api\Models\Agent\AgentMissingEntityTypeErrorModel;
+use Commercetools\Api\Models\Agent\AgentMissingShoppingListNameError;
+use Commercetools\Api\Models\Agent\AgentMissingShoppingListNameErrorModel;
 use Commercetools\Api\Models\Agent\AgentNoLineItemsExtractedError;
 use Commercetools\Api\Models\Agent\AgentNoLineItemsExtractedErrorModel;
 use Commercetools\Api\Models\Agent\AgentOutOfScopeError;
@@ -34,6 +36,8 @@ use Commercetools\Api\Models\Agent\AgentProductsNotFoundError;
 use Commercetools\Api\Models\Agent\AgentProductsNotFoundErrorModel;
 use Commercetools\Api\Models\Agent\AgentQuoteRequestCreationFailedError;
 use Commercetools\Api\Models\Agent\AgentQuoteRequestCreationFailedErrorModel;
+use Commercetools\Api\Models\Agent\AgentShoppingListCreationFailedError;
+use Commercetools\Api\Models\Agent\AgentShoppingListCreationFailedErrorModel;
 use Commercetools\Api\Models\Agent\AgentStoreAmbiguousError;
 use Commercetools\Api\Models\Agent\AgentStoreAmbiguousErrorModel;
 use Commercetools\Api\Models\Agent\AgentStoreDistributionChannelsUnsupportedError;
@@ -135,6 +139,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'MissingCustomerEmail' => AgentMissingCustomerEmailErrorModel::class,
        'MissingEntityType' => AgentMissingEntityTypeErrorModel::class,
        'MissingRoleOnChannel' => MissingRoleOnChannelErrorModel::class,
+       'MissingShoppingListName' => AgentMissingShoppingListNameErrorModel::class,
        'MissingTaxRateForCountry' => MissingTaxRateForCountryErrorModel::class,
        'MoneyOverflow' => MoneyOverflowErrorModel::class,
        'NoLineItemsExtracted' => AgentNoLineItemsExtractedErrorModel::class,
@@ -168,6 +173,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'SearchNotReady' => SearchNotReadyErrorModel::class,
        'SemanticError' => SemanticErrorErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
+       'ShoppingListCreationFailed' => AgentShoppingListCreationFailedErrorModel::class,
        'StoreAmbiguous' => AgentStoreAmbiguousErrorModel::class,
        'StoreCartDiscountsLimitReached' => StoreCartDiscountsLimitReachedErrorModel::class,
        'StoreDistributionChannelsUnsupported' => AgentStoreDistributionChannelsUnsupportedErrorModel::class,

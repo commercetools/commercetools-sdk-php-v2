@@ -23,7 +23,7 @@ interface AgentProductsNotFoundWarning extends WarningObject
     public function getCode();
 
     /**
-     * <p>Plain text description of the unmatched Products.</p>
+     * <p>Plain text description of the omitted Products.</p>
      *
 
      * @return null|string
@@ -31,7 +31,7 @@ interface AgentProductsNotFoundWarning extends WarningObject
     public function getMessage();
 
     /**
-     * <p>Identifiers of the Products that could not be matched to the catalog, as they appeared in the input.</p>
+     * <p>Identifiers of the Products that could not be matched to the catalog or are unavailable in the bound Store, as they appeared in the input.</p>
      *
 
      * @return null|array
