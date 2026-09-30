@@ -472,6 +472,7 @@
 - added type `ProductTailoringSetKeyAction`
 - added type `ProductTailoringSetProductAttributeAction`
 - added type `AttributeLevelEnum`
+- added type `ProductTypeChangeSavedToLineItemAction`
 - added type `ProductSetDefaultVariantAction`
 - added type `ProductSetProductAttributeAction`
 - added type `DiscountCombinationMode`
@@ -794,7 +795,9 @@
 - added property `attributes` to type `ProductTailoringDraft`
 - added property `attributes` to type `ProductTailoringInStoreDraft`
 - added property `level` to type `AttributeDefinition`
+- added property `savedToLineItem` to type `AttributeDefinition`
 - added property `level` to type `AttributeDefinitionDraft`
+- added property `savedToLineItem` to type `AttributeDefinitionDraft`
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `CategoryOrderHints`
 - added property `attributes` to type `ProductData`
 - added property `defaultVariant` to type `ProductData`
