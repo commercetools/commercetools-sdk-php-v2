@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -35,6 +36,7 @@ interface Category extends BaseResource
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_ASSETS = 'assets';
     public const FIELD_KEY = 'key';
+    public const FIELD_STORES = 'stores';
 
     /**
      * <p>Unique identifier of the Category.</p>
@@ -192,6 +194,16 @@ interface Category extends BaseResource
     public function getKey();
 
     /**
+     * <p><a href="ctp:api:type:Store">Stores</a> to which the Category is assigned and that you have permission to access.</p>
+     * <p>If <code>stores</code> is empty, the Category is global and available in every <a href="ctp:api:type:Store">Store</a>.</p>
+     * <p>If the Category is created via the <a href="ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/categories">Store-specific endpoint</a>, the Store specified in the request path is automatically added to the field value.</p>
+     *
+
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -285,4 +297,9 @@ interface Category extends BaseResource
      * @param ?string $key
      */
     public function setKey(?string $key): void;
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void;
 }

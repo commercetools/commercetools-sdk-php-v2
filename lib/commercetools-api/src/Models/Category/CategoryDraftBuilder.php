@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Category;
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -96,6 +97,12 @@ final class CategoryDraftBuilder implements Builder
      * @var ?string
      */
     private $key;
+
+    /**
+
+     * @var ?StoreResourceIdentifierCollection
+     */
+    private $stores;
 
     /**
      * <p>Name of the Category.</p>
@@ -235,6 +242,26 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Store">Stores</a> to assign the Category to.</p>
+     * <ul>
+     * <li>
+     * <p>If not defined or set to an empty array, the Category is global.</p>
+     * </li>
+     * <li>
+     * <p>If defined, you must have access to each referenced Store; otherwise, an <a href="ctp:api:type:InvalidInputError">InvalidInput</a> error is returned.</p>
+     * <p>If the Category has a parent category, and the parent is assigned to Stores, this value must be a non-empty subset of the parent's Stores.</p>
+     * </li>
+     * </ul>
+     *
+
+     * @return null|StoreResourceIdentifierCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
+    }
+
+    /**
      * @param ?LocalizedString $name
      * @return $this
      */
@@ -367,6 +394,17 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     * @return $this
+     */
+    public function withStores(?StoreResourceIdentifierCollection $stores)
+    {
+        $this->stores = $stores;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -468,7 +506,8 @@ final class CategoryDraftBuilder implements Builder
             $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->assets,
-            $this->key
+            $this->key,
+            $this->stores
         );
     }
 

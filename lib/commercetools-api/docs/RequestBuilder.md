@@ -4638,6 +4638,228 @@ $request = $builder
                 ->replicate()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->get()`
+
+Retrieves [Categories](ctp:api:type:Category) that are either assigned to the specified [Store](ctp:api:type:Store) or global.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->head()`
+
+Checks if one or more Categories exist in the [Store](ctp:api:type:Store) for the provided query predicate. Returns a `200` status if any Categories match the query predicate, or a `404` status otherwise.
+
+For global Categories, use the [Check if Category exists by Query Predicate](ctp:api:endpoint:/{projectKey}/categories:HEAD) endpoint.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->post(null)`
+
+Creates a [Category](ctp:api:type:Category) in the specified [Store](ctp:api:type:Store).
+
+For global Categories, use the [Create Category](ctp:api:endpoint:/{projectKey}/categories:POST) endpoint.
+
+Creating a Category produces the [CategoryCreated](ctp:api:type:CategoryCreatedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withId("ID")->get()`
+
+Retrieves a [Category](ctp:api:type:Category) by its `id` if it is assigned to the specified [Store](ctp:api:type:Store) or is global.
+
+For global Categories, use the [Get Category by ID](ctp:api:endpoint:/{projectKey}/categories/{id}:GET) endpoint.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withId("ID")->head()`
+
+Checks if a Category exists with the provided `id` in the specified [Store](ctp:api:type:Store). Returns a `200` status if the Category exists in the Store or is global, or a `404` status otherwise.
+
+For global Categories, use the [Check if Category exists by ID](ctp:api:endpoint:/{projectKey}/categories/{id}:HEAD) endpoint.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withId("ID")->post(null)`
+
+Updates a [Category](ctp:api:type:Category) by its `id` in the specified [Store](ctp:api:type:Store).
+
+To update a global Category, use the [Update Category by ID](ctp:api:endpoint:/{projectKey}/categories/{id}:POST) endpoint.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withId("ID")->delete()`
+
+Deletes a [Category](ctp:api:type:Category) by its `id` in the specified [Store](ctp:api:type:Store).
+
+To delete a global Category, use the [Delete Category by ID](ctp:api:endpoint:/{projectKey}/categories/{id}:DELETE) endpoint.
+
+If you do not have permissions for a Store the Category is assigned to, an [Unauthorized](ctp:api:type:UnauthorizedError) error is returned.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withKey("key")->get()`
+
+Retrieves a [Category](ctp:api:type:Category) by its `key` in the specified [Store](ctp:api:type:Store).
+
+For global Categories, use the [Get Category by Key](ctp:api:endpoint:/{projectKey}/categories/key={key}:GET) endpoint.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withKey("key")->head()`
+
+Checks if a Category exists with the provided `key` in the specified [Store](ctp:api:type:Store). Returns a `200` status if the Category exists in the Store or is global, or a `404` status otherwise.
+
+For global Categories, use the [Check if Category exists by Key](ctp:api:endpoint:/{projectKey}/categories/key={key}:HEAD) endpoint.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withKey("key")->post(null)`
+
+Updates a [Category](ctp:api:type:Category) by its `key` in the specified [Store](ctp:api:type:Store).
+
+To update a global Category, use the [Update Category by Key](ctp:api:endpoint:/{projectKey}/categories/key={key}:POST) endpoint.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withKey("key")->delete()`
+
+Deletes a [Category](ctp:api:type:Category) by its `key` in the specified [Store](ctp:api:type:Store).
+
+To delete a global Category, use the [Delete Category by Key](ctp:api:endpoint:/{projectKey}/categories/key={key}:DELETE) endpoint.
+
+If you do not have permissions for a Store the Category is assigned to, an [Unauthorized](ctp:api:type:UnauthorizedError) error is returned.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->get()`
 
 null
